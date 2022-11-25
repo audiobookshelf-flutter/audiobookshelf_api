@@ -5,10 +5,11 @@ class AbsAudiobookSearchResult {
   String matchText;
   AbsAudiobook libraryItem;
 
-  AbsAudiobookSearchResult(
-      {required this.matchKey,
-      required this.matchText,
-      required this.libraryItem});
+  AbsAudiobookSearchResult({
+    required this.matchKey,
+    required this.matchText,
+    required this.libraryItem,
+  });
 
   factory AbsAudiobookSearchResult.fromJson(Map<String, dynamic> json) =>
       AbsAudiobookSearchResult(
@@ -20,7 +21,7 @@ class AbsAudiobookSearchResult {
   Map<String, dynamic> toJson() => {
         'matchKey': matchKey,
         'matchText': matchText,
-        'libraryItem': libraryItem.toJson()
+        'libraryItem': libraryItem.toJson(),
       };
 
   @override

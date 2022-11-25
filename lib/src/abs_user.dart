@@ -16,20 +16,21 @@ class AbsUser {
   Permissions permissions;
   List<String> librariesAccessible;
 
-  AbsUser(
-      {required this.id,
-      required this.username,
-      required this.type,
-      this.stream,
-      required this.token,
-      required this.mediaProgress,
-      required this.isActive,
-      required this.isLocked,
-      this.lastSeen,
-      required this.createdAt,
-      required this.settings,
-      required this.permissions,
-      required this.librariesAccessible});
+  AbsUser({
+    required this.id,
+    required this.username,
+    required this.type,
+    this.stream,
+    required this.token,
+    required this.mediaProgress,
+    required this.isActive,
+    required this.isLocked,
+    this.lastSeen,
+    required this.createdAt,
+    required this.settings,
+    required this.permissions,
+    required this.librariesAccessible,
+  });
 
   factory AbsUser.fromJson(Map<String, dynamic> json) => AbsUser(
         id: json['id'],
@@ -65,7 +66,7 @@ class AbsUser {
         'createdAt': createdAt.millisecondsSinceEpoch,
         'settings': settings.toJson(),
         'permissions': permissions.toJson(),
-        'librariesAccessible': librariesAccessible
+        'librariesAccessible': librariesAccessible,
       };
 }
 

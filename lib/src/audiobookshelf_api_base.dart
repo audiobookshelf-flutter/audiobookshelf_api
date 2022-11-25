@@ -57,7 +57,7 @@ class AudiobookshelfApi {
         jsonEncode({'username': username, 'password': password}),
       ),
     );
-    var alr = AbsLoginResponse.fromJson(
+    final alr = AbsLoginResponse.fromJson(
       jsonDecode(utf8.decode(response.bodyBytes)),
     );
     token = alr.user.token;
@@ -74,8 +74,7 @@ class AudiobookshelfApi {
         'authorization': 'Bearer $token',
       },
     );
-    var decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));
-    // print(decodedResponse);
+    final decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));
     user = AbsUser.fromJson(decodedResponse['user']);
     return user!;
   }
@@ -89,11 +88,7 @@ class AudiobookshelfApi {
         'authorization': 'Bearer $token',
       },
     );
-
-    // return _convertBody(response.bodyBytes);
     return _convertBody(response.bodyBytes);
-    // .map<AbsAudiobook>((el) => AbsAudiobook.fromJson(el))
-    // .toList();
   }
 
   Future<List<AbsLibrary>> getLibraries() async {
@@ -131,7 +126,6 @@ class AudiobookshelfApi {
         'sort': 'addedAt',
         'desc': '1',
         'limit': '10',
-        //'minified': '1',
       }),
       headers: {
         'content-type': 'application/json',
@@ -182,8 +176,14 @@ class AudiobookshelfApi {
 
   Future<AbsSearchResponse> search(String libraryId, String searchTerm) async {
     http.Response response = await client.get(
-      createUri(baseUrl!, '/api/libraries/$libraryId/search',
-          {'q': searchTerm, 'max': '10'}),
+      createUri(
+        baseUrl!,
+        '/api/libraries/$libraryId/search',
+        {
+          'q': searchTerm,
+          'max': '10',
+        },
+      ),
       headers: {
         'content-type': 'application/json',
         'authorization': 'Bearer $token',
@@ -314,7 +314,7 @@ class AudiobookshelfApi {
         body: utf8.encode(jsonEncode(progress.toJson())));
   }
 
-  Future playbackSessionCheckin(String sessionId, Duration duration,
+  Future playbackSessionCheckIn(String sessionId, Duration duration,
       Duration currentTime, Duration timeListened) async {
     await client.post(createUri(baseUrl!, '/api/session/$sessionId/sync'),
         headers: {

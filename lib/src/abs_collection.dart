@@ -13,6 +13,7 @@ class AbsCollection {
   final List<AbsAudiobook> books;
   final int lastUpdate;
   final int createdAt;
+
   AbsCollection({
     required this.id,
     required this.libraryId,

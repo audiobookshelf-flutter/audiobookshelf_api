@@ -5,6 +5,7 @@ import 'models/abs_audiobook.dart';
 class AbsSeriesSearchResult {
   final Series series;
   final List<AbsAudiobook> books;
+
   AbsSeriesSearchResult({
     required this.series,
     required this.books,
