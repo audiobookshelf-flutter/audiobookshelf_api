@@ -1,14 +1,13 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'abs_audiobook.dart';
 import 'abs_audiobook_progress.dart';
 import 'abs_collection.dart';
 import 'abs_library.dart';
 import 'abs_login_response.dart';
 import 'abs_search_response.dart';
 import 'abs_user.dart';
-import 'models/abs_audiobook.dart' show Author;
+import 'models/abs_audiobook.dart';
 import 'models/abs_media_progress.dart';
 import 'models/abs_play_item_request.dart';
 import 'models/abs_series.dart';
@@ -118,9 +117,9 @@ class AudiobookshelfApi {
 
   int sortByAddedDate(AbsAudiobook a, AbsAudiobook b) {
     if (a.addedAt == null || b.addedAt == null) return 0;
-    if (a.addedAt!.isBefore(b.addedAt!)) {
+    if (a.addedAt! < b.addedAt!) {
       return 1;
-    } else if (a.addedAt!.isAfter(b.addedAt!)) {
+    } else if (a.addedAt! > b.addedAt!) {
       return -1;
     }
     return 0;
