@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';
 
-import '../abs_audiobook.dart';
+import 'abs_audiobook.dart';
 
 part 'abs_series.freezed.dart';
 part 'abs_series.g.dart';

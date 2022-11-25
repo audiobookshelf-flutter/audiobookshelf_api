@@ -7,9 +7,10 @@ class AbsLoginResponse {
 
   factory AbsLoginResponse.fromJson(Map<String, dynamic> json) =>
       AbsLoginResponse(
-          user: AbsUser.fromJson(
-        json['user'],
-      ));
+        user: AbsUser.fromJson(
+          json['user'],
+        ),
+      );
 
   Map<String, dynamic> toJson() => {'user': user.toJson()};
 }
