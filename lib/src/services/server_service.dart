@@ -22,7 +22,6 @@ class ServerService extends Service {
     );
     api.token = alr.user.token;
     api.userId = alr.user.id;
-    api.user = alr.user;
     return alr;
   }
 }
