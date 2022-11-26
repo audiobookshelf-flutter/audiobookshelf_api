@@ -13,18 +13,34 @@ import 'models/abs_play_item_request.dart';
 import 'models/abs_series.dart';
 
 class AudiobookshelfApi {
-  String? baseUrl;
-  String? token;
-  Map<String, String> headers;
-  String? userId;
-  AbsUser? user;
+  /// A header identifying the request data as JSON.
+  static const jsonHeader = {
+    'Content-Type': 'application/json',
+  };
+
   final client = http.Client();
 
+  final String baseUrl;
+
+  String? token;
+  String? userId;
+  AbsUser? user;
+
   AudiobookshelfApi({
-    this.baseUrl,
+    required this.baseUrl,
     this.token,
-    this.headers = const {},
   });
+
+  /// A header for authenticating the logged in user.
+  /// [token] must be non-null when authenticating.
+  Map<String, String> get authHeader {
+    if (token == null) throw AuthError('token must be set for authentication');
+    return {'Authorization': 'Bearer $token'};
+  }
+
+  /// Combines [authHeader] and [jsonHeader].
+  Map<String, String> get authJsonHeader =>
+      authHeader..addEntries(jsonHeader.entries);
 
   Uri createUri(
     String url, [
@@ -49,10 +65,8 @@ class AudiobookshelfApi {
 
   Future<AbsLoginResponse> login(String username, String password) async {
     http.Response response = await client.post(
-      createUri(baseUrl!, '/login'),
-      headers: {
-        'content-type': 'application/json',
-      },
+      createUri(baseUrl, '/login'),
+      headers: jsonHeader,
       body: utf8.encode(
         jsonEncode({'username': username, 'password': password}),
       ),
@@ -68,11 +82,8 @@ class AudiobookshelfApi {
 
   Future<AbsUser> getUser() async {
     http.Response response = await client.post(
-      createUri(baseUrl!, '/api/authorize'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      createUri(baseUrl, '/api/authorize'),
+      headers: authJsonHeader,
     );
     final decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));
     user = AbsUser.fromJson(decodedResponse['user']);
@@ -82,22 +93,16 @@ class AudiobookshelfApi {
   Future<List<AbsAudiobook>> getAll(String library) async {
     http.Response response = await client.get(
       createUri(
-          baseUrl!, '/api/libraries/$library/items'), // {'minified': '1'}),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+          baseUrl, '/api/libraries/$library/items'), // {'minified': '1'}),
+      headers: authJsonHeader,
     );
     return _convertBody(response.bodyBytes);
   }
 
   Future<List<AbsLibrary>> getLibraries() async {
     http.Response response = await client.get(
-      createUri(baseUrl!, '/api/libraries'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      createUri(baseUrl, '/api/libraries'),
+      headers: authJsonHeader,
     );
 
     return jsonDecode(utf8.decode(response.bodyBytes))
@@ -122,15 +127,12 @@ class AudiobookshelfApi {
 
   Future<List<AbsAudiobook>> getRecentlyAdded(String libraryId) async {
     http.Response response = await client.get(
-      createUri(baseUrl!, '/api/libraries/$libraryId/items', {
+      createUri(baseUrl, '/api/libraries/$libraryId/items', {
         'sort': 'addedAt',
         'desc': '1',
         'limit': '10',
       }),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      headers: authJsonHeader,
     );
 
     return jsonDecode(utf8.decode(response.bodyBytes))['results']
@@ -140,11 +142,8 @@ class AudiobookshelfApi {
 
   Future<List<Author>> getAuthors(String libraryId) async {
     http.Response response = await client.get(
-      createUri(baseUrl!, '/api/libraries/$libraryId/authors'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      createUri(baseUrl, '/api/libraries/$libraryId/authors'),
+      headers: authJsonHeader,
     );
     return jsonDecode(utf8.decode(response.bodyBytes))
         .map<Author>((el) => Author.fromJson(el))
@@ -156,17 +155,14 @@ class AudiobookshelfApi {
     final encodedAuthor = base64Encode(utf8.encode(author));
     http.Response response = await client.get(
       createUri(
-        baseUrl!,
+        baseUrl,
         '/api/libraries/$libraryId/items',
         {
           'expanded': '1',
           'filter': 'authors.$encodedAuthor',
         },
       ),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      headers: authJsonHeader,
     );
 
     return jsonDecode(utf8.decode(response.bodyBytes))['results']
@@ -177,17 +173,14 @@ class AudiobookshelfApi {
   Future<AbsSearchResponse> search(String libraryId, String searchTerm) async {
     http.Response response = await client.get(
       createUri(
-        baseUrl!,
+        baseUrl,
         '/api/libraries/$libraryId/search',
         {
           'q': searchTerm,
           'max': '10',
         },
       ),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      headers: authJsonHeader,
     );
     return AbsSearchResponse.fromMap(
       jsonDecode(
@@ -198,11 +191,8 @@ class AudiobookshelfApi {
 
   Future<AbsAudiobook> getBookInfo(String bookId) async {
     http.Response response = await client.get(
-      createUri(baseUrl!, '/api/items/$bookId', {'expanded': '1'}),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      createUri(baseUrl, '/api/items/$bookId', {'expanded': '1'}),
+      headers: authJsonHeader,
     );
 
     return AbsAudiobook.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
@@ -210,11 +200,8 @@ class AudiobookshelfApi {
 
   Future<List<AbsCollection>> getCollections() async {
     http.Response response = await client.get(
-      createUri(baseUrl!, '/api/collections'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      createUri(baseUrl, '/api/collections'),
+      headers: authJsonHeader,
     );
 
     return jsonDecode(
@@ -224,11 +211,8 @@ class AudiobookshelfApi {
 
   Future<List<AbsAudiobook>> getBooksForCollection(String collectionId) async {
     http.Response response = await client.get(
-      createUri(baseUrl!, '/api/collections/$collectionId'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      createUri(baseUrl, '/api/collections/$collectionId'),
+      headers: authJsonHeader,
     );
 
     return AbsCollection.fromMap(jsonDecode(
@@ -238,11 +222,8 @@ class AudiobookshelfApi {
 
   Future<List<AbsSeries>> getSeries(String libraryId) async {
     http.Response response = await client.get(
-      createUri(baseUrl!, '/api/libraries/$libraryId/series'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      createUri(baseUrl, '/api/libraries/$libraryId/series'),
+      headers: authJsonHeader,
     );
 
     return jsonDecode(
@@ -257,17 +238,14 @@ class AudiobookshelfApi {
     final encodedSeriesId = base64Encode(utf8.encode(seriesId));
     http.Response response = await client.get(
       createUri(
-        baseUrl!,
+        baseUrl,
         '/api/libraries/$libraryId/items',
         {
           'expanded': '1',
           'filter': 'series.$encodedSeriesId',
         },
       ),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      headers: authJsonHeader,
     );
 
     return jsonDecode(utf8.decode(response.bodyBytes))['results']
@@ -278,11 +256,8 @@ class AudiobookshelfApi {
   Future<String> startPlaybackSession(
       String id, AbsPlayItemRequest playRequest) async {
     http.Response response = await client.post(
-      createUri(baseUrl!, '/api/items/$id/play'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      createUri(baseUrl, '/api/items/$id/play'),
+      headers: authJsonHeader,
       body: jsonEncode(playRequest.toJson()),
     );
     return jsonDecode(response.body)['id'];
@@ -297,46 +272,54 @@ class AudiobookshelfApi {
   }
 
   Future<http.Response> patchAudiobook(String itemId, bool isRead) async {
-    return await client.patch(createUri(baseUrl!, '/api/me/progress/$itemId'),
-        headers: {
-          'content-type': 'application/json',
-          'authorization': 'Bearer $token',
-        },
+    return await client.patch(createUri(baseUrl, '/api/me/progress/$itemId'),
+        headers: authJsonHeader,
         body: utf8.encode(jsonEncode({'isFinished': isRead})));
   }
 
   Future updateProgress(AbsAudiobookProgress progress) async {
-    await client.patch(createUri(baseUrl!, '/api/me/progress/${progress.id}'),
-        headers: {
-          'content-type': 'application/json',
-          'authorization': 'Bearer $token',
-        },
+    await client.patch(createUri(baseUrl, '/api/me/progress/${progress.id}'),
+        headers: authJsonHeader,
         body: utf8.encode(jsonEncode(progress.toJson())));
   }
 
   Future playbackSessionCheckIn(String sessionId, Duration duration,
       Duration currentTime, Duration timeListened) async {
-    await client.post(createUri(baseUrl!, '/api/session/$sessionId/sync'),
-        headers: {
-          'content-type': 'application/json',
-          'authorization': 'Bearer $token',
-        },
-        body: utf8.encode(jsonEncode({
-          'currentTime': durationToSeconds(currentTime),
-          'timeListened': durationToSeconds(timeListened),
-          'duration': durationToSeconds(duration),
-        })));
+    await client.post(
+      createUri(baseUrl, '/api/session/$sessionId/sync'),
+      headers: authJsonHeader,
+      body: utf8.encode(jsonEncode({
+        'currentTime': durationToSeconds(currentTime),
+        'timeListened': durationToSeconds(timeListened),
+        'duration': durationToSeconds(duration),
+      })),
+    );
   }
 
   Future sendProgressSync(String sessionId, AbsMediaProgress progress) async {
     await client.post(
-      createUri(baseUrl!, '/api/session/$sessionId/sync'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      createUri(baseUrl, '/api/session/$sessionId/sync'),
+      headers: authJsonHeader,
       body: utf8.encode(jsonEncode(progress.toJson())),
     );
+  }
+
+  /// Cleans up this AudiobookshelfAPI instance.
+  /// No methods of this instance should be called after disposing.
+  void dispose() {
+    token = null;
+    client.close();
+  }
+}
+
+class AuthError extends Error {
+  final String message;
+
+  AuthError(this.message);
+
+  @override
+  String toString() {
+    return "AuthError(message: '$message')";
   }
 }
 
