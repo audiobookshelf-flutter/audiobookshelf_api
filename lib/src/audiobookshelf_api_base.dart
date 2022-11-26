@@ -4,13 +4,13 @@ import 'package:http/http.dart' as http;
 import 'abs_audiobook_progress.dart';
 import 'abs_collection.dart';
 import 'abs_library.dart';
-import 'abs_login_response.dart';
 import 'abs_search_response.dart';
 import 'abs_user.dart';
 import 'models/abs_audiobook.dart';
 import 'models/abs_media_progress.dart';
 import 'models/abs_play_item_request.dart';
 import 'models/abs_series.dart';
+import 'services/server_service.dart';
 
 class AudiobookshelfApi {
   /// A header identifying the request data as JSON.
@@ -19,6 +19,8 @@ class AudiobookshelfApi {
   };
 
   final client = http.Client();
+
+  late final ServerService server;
 
   final String baseUrl;
 
@@ -29,7 +31,9 @@ class AudiobookshelfApi {
   AudiobookshelfApi({
     required this.baseUrl,
     this.token,
-  });
+  }) {
+    server = ServerService(this);
+  }
 
   /// A header for authenticating the logged in user.
   /// [token] must be non-null when authenticating.
@@ -61,23 +65,6 @@ class AudiobookshelfApi {
     }
 
     throw Exception('Unsupported scheme');
-  }
-
-  Future<AbsLoginResponse> login(String username, String password) async {
-    http.Response response = await client.post(
-      createUri(baseUrl, '/login'),
-      headers: jsonHeader,
-      body: utf8.encode(
-        jsonEncode({'username': username, 'password': password}),
-      ),
-    );
-    final alr = AbsLoginResponse.fromJson(
-      jsonDecode(utf8.decode(response.bodyBytes)),
-    );
-    token = alr.user.token;
-    userId = alr.user.id;
-    user = alr.user;
-    return alr;
   }
 
   Future<AbsUser> getUser() async {
