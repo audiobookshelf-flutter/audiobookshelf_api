@@ -10,7 +10,23 @@ import 'models/abs_audiobook.dart';
 import 'models/abs_media_progress.dart';
 import 'models/abs_play_item_request.dart';
 import 'models/abs_series.dart';
+import 'services/authors_service.dart';
+import 'services/backups_service.dart';
+import 'services/cache_service.dart';
+import 'services/collections_service.dart';
+import 'services/filesystem_service.dart';
+import 'services/libraries_service.dart';
+import 'services/library_items_service.dart';
+import 'services/me_service.dart';
+import 'services/misc_service.dart';
+import 'services/notifications_service.dart';
+import 'services/podcasts_service.dart';
+import 'services/search_service.dart';
+import 'services/series_service.dart';
 import 'services/server_service.dart';
+import 'services/sessions_service.dart';
+import 'services/tools_service.dart';
+import 'services/users_service.dart';
 
 class AudiobookshelfApi {
   /// A header identifying the request data as JSON.
@@ -21,6 +37,22 @@ class AudiobookshelfApi {
   final client = http.Client();
 
   late final ServerService server;
+  late final LibrariesService libraries;
+  late final LibraryItemsService items;
+  late final UsersService users;
+  late final CollectionsService collections;
+  late final MeService me;
+  late final BackupsService backups;
+  late final FilesystemService filesystem;
+  late final AuthorsService authors;
+  late final SeriesService series;
+  late final SessionsService sessions;
+  late final PodcastsService podcasts;
+  late final NotificationsService notifications;
+  late final SearchService search;
+  late final CacheService cache;
+  late final ToolsService tools;
+  late final MiscService misc;
 
   final String baseUrl;
 
@@ -33,6 +65,22 @@ class AudiobookshelfApi {
     this.token,
   }) {
     server = ServerService(this);
+    libraries = LibrariesService(this);
+    items = LibraryItemsService(this);
+    users = UsersService(this);
+    collections = CollectionsService(this);
+    me = MeService(this);
+    backups = BackupsService(this);
+    filesystem = FilesystemService(this);
+    authors = AuthorsService(this);
+    series = SeriesService(this);
+    sessions = SessionsService(this);
+    podcasts = PodcastsService(this);
+    notifications = NotificationsService(this);
+    search = SearchService(this);
+    cache = CacheService(this);
+    tools = ToolsService(this);
+    misc = MiscService(this);
   }
 
   /// A header for authenticating the logged in user.
@@ -157,7 +205,10 @@ class AudiobookshelfApi {
         .toList();
   }
 
-  Future<AbsSearchResponse> search(String libraryId, String searchTerm) async {
+  Future<AbsSearchResponse> searchLibrary(
+    String libraryId,
+    String searchTerm,
+  ) async {
     http.Response response = await client.get(
       createUri(
         baseUrl,
