@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../abs_user.dart';
+import '../audiobookshelf_api_base.dart';
 import 'service.dart';
 
 class MiscService extends Service {
@@ -10,7 +11,7 @@ class MiscService extends Service {
 
   Future<AbsUser> authorize() async {
     http.Response response = await api.client.post(
-      api.createUri(api.baseUrl, '/api/authorize'),
+      AudiobookshelfApi.createUri(api.baseUrl, '/api/authorize'),
       headers: api.authJsonHeader,
     );
     final decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));

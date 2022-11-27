@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../abs_collection.dart';
+import '../audiobookshelf_api_base.dart';
 import 'service.dart';
 
 class CollectionsService extends Service {
@@ -10,7 +11,7 @@ class CollectionsService extends Service {
 
   Future<List<AbsCollection>> getAll() async {
     http.Response response = await api.client.get(
-      api.createUri(api.baseUrl, '/api/collections'),
+      AudiobookshelfApi.createUri(api.baseUrl, '/api/collections'),
       headers: api.authJsonHeader,
     );
 
@@ -21,7 +22,10 @@ class CollectionsService extends Service {
 
   Future<AbsCollection> getCollection(String collectionId) async {
     http.Response response = await api.client.get(
-      api.createUri(api.baseUrl, '/api/collections/$collectionId'),
+      AudiobookshelfApi.createUri(
+        api.baseUrl,
+        '/api/collections/$collectionId',
+      ),
       headers: api.authJsonHeader,
     );
 

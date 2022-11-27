@@ -11,7 +11,7 @@ class ServerService extends Service {
 
   Future<AbsLoginResponse> login(String username, String password) async {
     http.Response response = await api.client.post(
-      api.createUri(api.baseUrl, '/login'),
+      AudiobookshelfApi.createUri(api.baseUrl, '/login'),
       headers: AudiobookshelfApi.jsonHeader,
       body: utf8.encode(
         jsonEncode({'username': username, 'password': password}),

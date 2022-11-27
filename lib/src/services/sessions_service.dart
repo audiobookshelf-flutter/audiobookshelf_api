@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import '../audiobookshelf_api_base.dart';
 import '../models/abs_media_progress.dart';
 import 'service.dart';
 
@@ -13,7 +14,7 @@ class SessionsService extends Service {
     Duration timeListened,
   ) async {
     await api.client.post(
-      api.createUri(api.baseUrl, '/api/session/$sessionId/sync'),
+      AudiobookshelfApi.createUri(api.baseUrl, '/api/session/$sessionId/sync'),
       headers: api.authJsonHeader,
       body: utf8.encode(jsonEncode({
         'currentTime': durationToSeconds(currentTime),
@@ -28,7 +29,7 @@ class SessionsService extends Service {
     AbsMediaProgress progress,
   ) async {
     await api.client.post(
-      api.createUri(api.baseUrl, '/api/session/$sessionId/sync'),
+      AudiobookshelfApi.createUri(api.baseUrl, '/api/session/$sessionId/sync'),
       headers: api.authJsonHeader,
       body: utf8.encode(jsonEncode(progress.toJson())),
     );
