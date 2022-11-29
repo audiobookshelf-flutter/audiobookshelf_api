@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../abs_library.dart';
-import '../abs_search_response.dart';
+import '../library.dart';
+import '../search_response.dart';
 import '../audiobookshelf_api_base.dart';
-import '../models/abs_audiobook.dart';
-import '../models/abs_series.dart';
+import '../models/library_item.dart';
+import '../models/series.dart';
 import 'service.dart';
 
 class LibrariesService extends Service {

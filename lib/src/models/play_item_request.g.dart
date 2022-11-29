@@ -1,14 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'abs_play_item_request.dart';
+part of 'play_item_request.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AbsPlayItemRequest _$$_AbsPlayItemRequestFromJson(
-        Map<String, dynamic> json) =>
-    _$_AbsPlayItemRequest(
+_$_PlayItemRequest _$$_PlayItemRequestFromJson(Map<String, dynamic> json) =>
+    _$_PlayItemRequest(
       mediaPlayer: json['mediaPlayer'] as String,
       forceDirectPlay: json['forceDirectPlay'] as bool,
       forceTranscode: json['forceTranscode'] as bool,
@@ -16,8 +15,7 @@ _$_AbsPlayItemRequest _$$_AbsPlayItemRequestFromJson(
           DeviceInfo.fromJson(json['deviceInfo'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_AbsPlayItemRequestToJson(
-        _$_AbsPlayItemRequest instance) =>
+Map<String, dynamic> _$$_PlayItemRequestToJson(_$_PlayItemRequest instance) =>
     <String, dynamic>{
       'mediaPlayer': instance.mediaPlayer,
       'forceDirectPlay': instance.forceDirectPlay,

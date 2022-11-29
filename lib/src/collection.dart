@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'models/abs_audiobook.dart';
+import 'models/library_item.dart';
 
 class Collection {
   final String id;

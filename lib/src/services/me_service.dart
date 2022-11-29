@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-import '../abs_audiobook_progress.dart';
+import '../audiobook_progress.dart';
 import '../audiobookshelf_api_base.dart';
 import 'service.dart';
 

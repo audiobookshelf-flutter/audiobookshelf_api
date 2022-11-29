@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'abs_audiobook.dart';
+part of 'library_item.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AbsAudiobook _$$_AbsAudiobookFromJson(Map<String, dynamic> json) =>
-    _$_AbsAudiobook(
+_$_LibraryItem _$$_LibraryItemFromJson(Map<String, dynamic> json) =>
+    _$_LibraryItem(
       id: json['id'] as String,
       ino: json['ino'] as String,
       libraryId: json['libraryId'] as String,
@@ -31,7 +31,7 @@ _$_AbsAudiobook _$$_AbsAudiobookFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_AbsAudiobookToJson(_$_AbsAudiobook instance) =>
+Map<String, dynamic> _$$_LibraryItemToJson(_$_LibraryItem instance) =>
     <String, dynamic>{
       'id': instance.id,
       'ino': instance.ino,

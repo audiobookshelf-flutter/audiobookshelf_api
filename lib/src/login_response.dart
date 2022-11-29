@@ -1,4 +1,4 @@
-import 'abs_user.dart';
+import 'user.dart';
 
 class LoginResponse {
   User user;

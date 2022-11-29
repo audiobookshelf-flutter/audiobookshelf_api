@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'abs_play_item_request.freezed.dart';
-part 'abs_play_item_request.g.dart';
+part 'play_item_request.freezed.dart';
+part 'play_item_request.g.dart';
 
 @freezed
 class PlayItemRequest with _$PlayItemRequest {
@@ -10,7 +10,7 @@ class PlayItemRequest with _$PlayItemRequest {
     required bool forceDirectPlay,
     required bool forceTranscode,
     required DeviceInfo deviceInfo,
-  }) = _AbsPlayItemRequest;
+  }) = _PlayItemRequest;
 
   factory PlayItemRequest.fromJson(Map<String, dynamic> json) =>
       _$PlayItemRequestFromJson(json);

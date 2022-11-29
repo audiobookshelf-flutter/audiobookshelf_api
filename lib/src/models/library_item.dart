@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'abs_series.dart';
+import 'series.dart';
 
-part 'abs_audiobook.freezed.dart';
-part 'abs_audiobook.g.dart';
+part 'library_item.freezed.dart';
+part 'library_item.g.dart';
 
 @freezed
 class LibraryItem with _$LibraryItem {
@@ -27,7 +27,7 @@ class LibraryItem with _$LibraryItem {
     required String mediaType,
     required Media media,
     required List<LibraryFile> libraryFiles,
-  }) = _AbsAudiobook;
+  }) = _LibraryItem;
 
   factory LibraryItem.fromJson(Map<String, dynamic> json) =>
       _$LibraryItemFromJson(json);

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'models/abs_audiobook.dart';
-import 'models/abs_series.dart';
+import 'models/library_item.dart';
+import 'models/series.dart';
 
 class SeriesSearchResult {
   final Series series;

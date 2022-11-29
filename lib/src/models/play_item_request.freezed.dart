@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'abs_play_item_request.dart';
+part of 'play_item_request.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PlayItemRequest _$PlayItemRequestFromJson(Map<String, dynamic> json) {
-  return _AbsPlayItemRequest.fromJson(json);
+  return _PlayItemRequest.fromJson(json);
 }
 
 /// @nodoc
@@ -94,11 +94,11 @@ class _$PlayItemRequestCopyWithImpl<$Res, $Val extends PlayItemRequest>
 }
 
 /// @nodoc
-abstract class _$$_AbsPlayItemRequestCopyWith<$Res>
+abstract class _$$_PlayItemRequestCopyWith<$Res>
     implements $PlayItemRequestCopyWith<$Res> {
-  factory _$$_AbsPlayItemRequestCopyWith(_$_AbsPlayItemRequest value,
-          $Res Function(_$_AbsPlayItemRequest) then) =
-      __$$_AbsPlayItemRequestCopyWithImpl<$Res>;
+  factory _$$_PlayItemRequestCopyWith(
+          _$_PlayItemRequest value, $Res Function(_$_PlayItemRequest) then) =
+      __$$_PlayItemRequestCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$_AbsPlayItemRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AbsPlayItemRequestCopyWithImpl<$Res>
-    extends _$PlayItemRequestCopyWithImpl<$Res, _$_AbsPlayItemRequest>
-    implements _$$_AbsPlayItemRequestCopyWith<$Res> {
-  __$$_AbsPlayItemRequestCopyWithImpl(
-      _$_AbsPlayItemRequest _value, $Res Function(_$_AbsPlayItemRequest) _then)
+class __$$_PlayItemRequestCopyWithImpl<$Res>
+    extends _$PlayItemRequestCopyWithImpl<$Res, _$_PlayItemRequest>
+    implements _$$_PlayItemRequestCopyWith<$Res> {
+  __$$_PlayItemRequestCopyWithImpl(
+      _$_PlayItemRequest _value, $Res Function(_$_PlayItemRequest) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +127,7 @@ class __$$_AbsPlayItemRequestCopyWithImpl<$Res>
     Object? forceTranscode = null,
     Object? deviceInfo = null,
   }) {
-    return _then(_$_AbsPlayItemRequest(
+    return _then(_$_PlayItemRequest(
       mediaPlayer: null == mediaPlayer
           ? _value.mediaPlayer
           : mediaPlayer // ignore: cast_nullable_to_non_nullable
@@ -150,15 +150,15 @@ class __$$_AbsPlayItemRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AbsPlayItemRequest implements _AbsPlayItemRequest {
-  const _$_AbsPlayItemRequest(
+class _$_PlayItemRequest implements _PlayItemRequest {
+  const _$_PlayItemRequest(
       {required this.mediaPlayer,
       required this.forceDirectPlay,
       required this.forceTranscode,
       required this.deviceInfo});
 
-  factory _$_AbsPlayItemRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_AbsPlayItemRequestFromJson(json);
+  factory _$_PlayItemRequest.fromJson(Map<String, dynamic> json) =>
+      _$$_PlayItemRequestFromJson(json);
 
   @override
   final String mediaPlayer;
@@ -178,7 +178,7 @@ class _$_AbsPlayItemRequest implements _AbsPlayItemRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AbsPlayItemRequest &&
+            other is _$_PlayItemRequest &&
             (identical(other.mediaPlayer, mediaPlayer) ||
                 other.mediaPlayer == mediaPlayer) &&
             (identical(other.forceDirectPlay, forceDirectPlay) ||
@@ -197,27 +197,26 @@ class _$_AbsPlayItemRequest implements _AbsPlayItemRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AbsPlayItemRequestCopyWith<_$_AbsPlayItemRequest> get copyWith =>
-      __$$_AbsPlayItemRequestCopyWithImpl<_$_AbsPlayItemRequest>(
-          this, _$identity);
+  _$$_PlayItemRequestCopyWith<_$_PlayItemRequest> get copyWith =>
+      __$$_PlayItemRequestCopyWithImpl<_$_PlayItemRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AbsPlayItemRequestToJson(
+    return _$$_PlayItemRequestToJson(
       this,
     );
   }
 }
 
-abstract class _AbsPlayItemRequest implements PlayItemRequest {
-  const factory _AbsPlayItemRequest(
+abstract class _PlayItemRequest implements PlayItemRequest {
+  const factory _PlayItemRequest(
       {required final String mediaPlayer,
       required final bool forceDirectPlay,
       required final bool forceTranscode,
-      required final DeviceInfo deviceInfo}) = _$_AbsPlayItemRequest;
+      required final DeviceInfo deviceInfo}) = _$_PlayItemRequest;
 
-  factory _AbsPlayItemRequest.fromJson(Map<String, dynamic> json) =
-      _$_AbsPlayItemRequest.fromJson;
+  factory _PlayItemRequest.fromJson(Map<String, dynamic> json) =
+      _$_PlayItemRequest.fromJson;
 
   @override
   String get mediaPlayer;
@@ -229,7 +228,7 @@ abstract class _AbsPlayItemRequest implements PlayItemRequest {
   DeviceInfo get deviceInfo;
   @override
   @JsonKey(ignore: true)
-  _$$_AbsPlayItemRequestCopyWith<_$_AbsPlayItemRequest> get copyWith =>
+  _$$_PlayItemRequestCopyWith<_$_PlayItemRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

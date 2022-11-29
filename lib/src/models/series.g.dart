@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'abs_series.dart';
+part of 'series.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AbsSeries _$$_AbsSeriesFromJson(Map<String, dynamic> json) => _$_AbsSeries(
+_$_Series _$$_SeriesFromJson(Map<String, dynamic> json) => _$_Series(
       id: json['id'] as String,
       name: json['name'] as String,
       nameIgnorePrefix: json['nameIgnorePrefix'] as String,
@@ -19,8 +19,7 @@ _$_AbsSeries _$$_AbsSeriesFromJson(Map<String, dynamic> json) => _$_AbsSeries(
       totalDuration: (json['totalDuration'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$_AbsSeriesToJson(_$_AbsSeries instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_SeriesToJson(_$_Series instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'nameIgnorePrefix': instance.nameIgnorePrefix,

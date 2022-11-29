@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'abs_series.dart';
+part of 'series.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Series _$SeriesFromJson(Map<String, dynamic> json) {
-  return _AbsSeries.fromJson(json);
+  return _Series.fromJson(json);
 }
 
 /// @nodoc
@@ -110,10 +110,9 @@ class _$SeriesCopyWithImpl<$Res, $Val extends Series>
 }
 
 /// @nodoc
-abstract class _$$_AbsSeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
-  factory _$$_AbsSeriesCopyWith(
-          _$_AbsSeries value, $Res Function(_$_AbsSeries) then) =
-      __$$_AbsSeriesCopyWithImpl<$Res>;
+abstract class _$$_SeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
+  factory _$$_SeriesCopyWith(_$_Series value, $Res Function(_$_Series) then) =
+      __$$_SeriesCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -128,11 +127,10 @@ abstract class _$$_AbsSeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AbsSeriesCopyWithImpl<$Res>
-    extends _$SeriesCopyWithImpl<$Res, _$_AbsSeries>
-    implements _$$_AbsSeriesCopyWith<$Res> {
-  __$$_AbsSeriesCopyWithImpl(
-      _$_AbsSeries _value, $Res Function(_$_AbsSeries) _then)
+class __$$_SeriesCopyWithImpl<$Res>
+    extends _$SeriesCopyWithImpl<$Res, _$_Series>
+    implements _$$_SeriesCopyWith<$Res> {
+  __$$_SeriesCopyWithImpl(_$_Series _value, $Res Function(_$_Series) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -147,7 +145,7 @@ class __$$_AbsSeriesCopyWithImpl<$Res>
     Object? addedAt = null,
     Object? totalDuration = null,
   }) {
-    return _then(_$_AbsSeries(
+    return _then(_$_Series(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -186,8 +184,8 @@ class __$$_AbsSeriesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AbsSeries implements _AbsSeries {
-  const _$_AbsSeries(
+class _$_Series implements _Series {
+  const _$_Series(
       {required this.id,
       required this.name,
       required this.nameIgnorePrefix,
@@ -198,8 +196,8 @@ class _$_AbsSeries implements _AbsSeries {
       required this.totalDuration})
       : _books = books;
 
-  factory _$_AbsSeries.fromJson(Map<String, dynamic> json) =>
-      _$$_AbsSeriesFromJson(json);
+  factory _$_Series.fromJson(Map<String, dynamic> json) =>
+      _$$_SeriesFromJson(json);
 
   @override
   final String id;
@@ -232,7 +230,7 @@ class _$_AbsSeries implements _AbsSeries {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AbsSeries &&
+            other is _$_Series &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.nameIgnorePrefix, nameIgnorePrefix) ||
@@ -262,19 +260,19 @@ class _$_AbsSeries implements _AbsSeries {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AbsSeriesCopyWith<_$_AbsSeries> get copyWith =>
-      __$$_AbsSeriesCopyWithImpl<_$_AbsSeries>(this, _$identity);
+  _$$_SeriesCopyWith<_$_Series> get copyWith =>
+      __$$_SeriesCopyWithImpl<_$_Series>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AbsSeriesToJson(
+    return _$$_SeriesToJson(
       this,
     );
   }
 }
 
-abstract class _AbsSeries implements Series {
-  const factory _AbsSeries(
+abstract class _Series implements Series {
+  const factory _Series(
       {required final String id,
       required final String name,
       required final String nameIgnorePrefix,
@@ -282,10 +280,9 @@ abstract class _AbsSeries implements Series {
       required final String type,
       required final List<LibraryItem> books,
       required final int addedAt,
-      required final double totalDuration}) = _$_AbsSeries;
+      required final double totalDuration}) = _$_Series;
 
-  factory _AbsSeries.fromJson(Map<String, dynamic> json) =
-      _$_AbsSeries.fromJson;
+  factory _Series.fromJson(Map<String, dynamic> json) = _$_Series.fromJson;
 
   @override
   String get id;
@@ -305,6 +302,6 @@ abstract class _AbsSeries implements Series {
   double get totalDuration;
   @override
   @JsonKey(ignore: true)
-  _$$_AbsSeriesCopyWith<_$_AbsSeries> get copyWith =>
+  _$$_SeriesCopyWith<_$_Series> get copyWith =>
       throw _privateConstructorUsedError;
 }

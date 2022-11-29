@@ -1,4 +1,4 @@
-import 'models/abs_audiobook.dart';
+import 'models/library_item.dart';
 
 class AudiobookSearchResult {
   String matchKey;

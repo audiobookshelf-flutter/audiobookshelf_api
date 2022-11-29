@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'abs_media_progress.dart';
+part of 'media_progress.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 MediaProgress _$MediaProgressFromJson(Map<String, dynamic> json) {
-  return _AbsMediaProgress.fromJson(json);
+  return _MediaProgress.fromJson(json);
 }
 
 /// @nodoc
@@ -74,22 +74,22 @@ class _$MediaProgressCopyWithImpl<$Res, $Val extends MediaProgress>
 }
 
 /// @nodoc
-abstract class _$$_AbsMediaProgressCopyWith<$Res>
+abstract class _$$_MediaProgressCopyWith<$Res>
     implements $MediaProgressCopyWith<$Res> {
-  factory _$$_AbsMediaProgressCopyWith(
-          _$_AbsMediaProgress value, $Res Function(_$_AbsMediaProgress) then) =
-      __$$_AbsMediaProgressCopyWithImpl<$Res>;
+  factory _$$_MediaProgressCopyWith(
+          _$_MediaProgress value, $Res Function(_$_MediaProgress) then) =
+      __$$_MediaProgressCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int timeListened, double duration, double currentTime});
 }
 
 /// @nodoc
-class __$$_AbsMediaProgressCopyWithImpl<$Res>
-    extends _$MediaProgressCopyWithImpl<$Res, _$_AbsMediaProgress>
-    implements _$$_AbsMediaProgressCopyWith<$Res> {
-  __$$_AbsMediaProgressCopyWithImpl(
-      _$_AbsMediaProgress _value, $Res Function(_$_AbsMediaProgress) _then)
+class __$$_MediaProgressCopyWithImpl<$Res>
+    extends _$MediaProgressCopyWithImpl<$Res, _$_MediaProgress>
+    implements _$$_MediaProgressCopyWith<$Res> {
+  __$$_MediaProgressCopyWithImpl(
+      _$_MediaProgress _value, $Res Function(_$_MediaProgress) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_AbsMediaProgressCopyWithImpl<$Res>
     Object? duration = null,
     Object? currentTime = null,
   }) {
-    return _then(_$_AbsMediaProgress(
+    return _then(_$_MediaProgress(
       timeListened: null == timeListened
           ? _value.timeListened
           : timeListened // ignore: cast_nullable_to_non_nullable
@@ -118,14 +118,14 @@ class __$$_AbsMediaProgressCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AbsMediaProgress implements _AbsMediaProgress {
-  const _$_AbsMediaProgress(
+class _$_MediaProgress implements _MediaProgress {
+  const _$_MediaProgress(
       {required this.timeListened,
       required this.duration,
       required this.currentTime});
 
-  factory _$_AbsMediaProgress.fromJson(Map<String, dynamic> json) =>
-      _$$_AbsMediaProgressFromJson(json);
+  factory _$_MediaProgress.fromJson(Map<String, dynamic> json) =>
+      _$$_MediaProgressFromJson(json);
 
   @override
   final int timeListened;
@@ -143,7 +143,7 @@ class _$_AbsMediaProgress implements _AbsMediaProgress {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AbsMediaProgress &&
+            other is _$_MediaProgress &&
             (identical(other.timeListened, timeListened) ||
                 other.timeListened == timeListened) &&
             (identical(other.duration, duration) ||
@@ -160,25 +160,25 @@ class _$_AbsMediaProgress implements _AbsMediaProgress {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AbsMediaProgressCopyWith<_$_AbsMediaProgress> get copyWith =>
-      __$$_AbsMediaProgressCopyWithImpl<_$_AbsMediaProgress>(this, _$identity);
+  _$$_MediaProgressCopyWith<_$_MediaProgress> get copyWith =>
+      __$$_MediaProgressCopyWithImpl<_$_MediaProgress>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AbsMediaProgressToJson(
+    return _$$_MediaProgressToJson(
       this,
     );
   }
 }
 
-abstract class _AbsMediaProgress implements MediaProgress {
-  const factory _AbsMediaProgress(
+abstract class _MediaProgress implements MediaProgress {
+  const factory _MediaProgress(
       {required final int timeListened,
       required final double duration,
-      required final double currentTime}) = _$_AbsMediaProgress;
+      required final double currentTime}) = _$_MediaProgress;
 
-  factory _AbsMediaProgress.fromJson(Map<String, dynamic> json) =
-      _$_AbsMediaProgress.fromJson;
+  factory _MediaProgress.fromJson(Map<String, dynamic> json) =
+      _$_MediaProgress.fromJson;
 
   @override
   int get timeListened;
@@ -188,6 +188,6 @@ abstract class _AbsMediaProgress implements MediaProgress {
   double get currentTime;
   @override
   @JsonKey(ignore: true)
-  _$$_AbsMediaProgressCopyWith<_$_AbsMediaProgress> get copyWith =>
+  _$$_MediaProgressCopyWith<_$_MediaProgress> get copyWith =>
       throw _privateConstructorUsedError;
 }

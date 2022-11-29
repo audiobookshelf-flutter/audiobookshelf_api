@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import '../audiobookshelf_api_base.dart';
-import '../models/abs_audiobook.dart';
-import '../models/abs_play_item_request.dart';
+import '../models/library_item.dart';
+import '../models/play_item_request.dart';
 import 'service.dart';
 
 class LibraryItemsService extends Service {

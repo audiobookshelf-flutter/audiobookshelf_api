@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'abs_audiobook.dart';
+part of 'library_item.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 LibraryItem _$LibraryItemFromJson(Map<String, dynamic> json) {
-  return _AbsAudiobook.fromJson(json);
+  return _LibraryItem.fromJson(json);
 }
 
 /// @nodoc
@@ -199,11 +199,11 @@ class _$LibraryItemCopyWithImpl<$Res, $Val extends LibraryItem>
 }
 
 /// @nodoc
-abstract class _$$_AbsAudiobookCopyWith<$Res>
+abstract class _$$_LibraryItemCopyWith<$Res>
     implements $LibraryItemCopyWith<$Res> {
-  factory _$$_AbsAudiobookCopyWith(
-          _$_AbsAudiobook value, $Res Function(_$_AbsAudiobook) then) =
-      __$$_AbsAudiobookCopyWithImpl<$Res>;
+  factory _$$_LibraryItemCopyWith(
+          _$_LibraryItem value, $Res Function(_$_LibraryItem) then) =
+      __$$_LibraryItemCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -232,11 +232,11 @@ abstract class _$$_AbsAudiobookCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AbsAudiobookCopyWithImpl<$Res>
-    extends _$LibraryItemCopyWithImpl<$Res, _$_AbsAudiobook>
-    implements _$$_AbsAudiobookCopyWith<$Res> {
-  __$$_AbsAudiobookCopyWithImpl(
-      _$_AbsAudiobook _value, $Res Function(_$_AbsAudiobook) _then)
+class __$$_LibraryItemCopyWithImpl<$Res>
+    extends _$LibraryItemCopyWithImpl<$Res, _$_LibraryItem>
+    implements _$$_LibraryItemCopyWith<$Res> {
+  __$$_LibraryItemCopyWithImpl(
+      _$_LibraryItem _value, $Res Function(_$_LibraryItem) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -262,7 +262,7 @@ class __$$_AbsAudiobookCopyWithImpl<$Res>
     Object? media = null,
     Object? libraryFiles = null,
   }) {
-    return _then(_$_AbsAudiobook(
+    return _then(_$_LibraryItem(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -345,8 +345,8 @@ class __$$_AbsAudiobookCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AbsAudiobook implements _AbsAudiobook {
-  const _$_AbsAudiobook(
+class _$_LibraryItem implements _LibraryItem {
+  const _$_LibraryItem(
       {required this.id,
       required this.ino,
       required this.libraryId,
@@ -368,8 +368,8 @@ class _$_AbsAudiobook implements _AbsAudiobook {
       required final List<LibraryFile> libraryFiles})
       : _libraryFiles = libraryFiles;
 
-  factory _$_AbsAudiobook.fromJson(Map<String, dynamic> json) =>
-      _$$_AbsAudiobookFromJson(json);
+  factory _$_LibraryItem.fromJson(Map<String, dynamic> json) =>
+      _$$_LibraryItemFromJson(json);
 
   @override
   final String id;
@@ -423,7 +423,7 @@ class _$_AbsAudiobook implements _AbsAudiobook {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AbsAudiobook &&
+            other is _$_LibraryItem &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.ino, ino) || other.ino == ino) &&
             (identical(other.libraryId, libraryId) ||
@@ -483,19 +483,19 @@ class _$_AbsAudiobook implements _AbsAudiobook {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AbsAudiobookCopyWith<_$_AbsAudiobook> get copyWith =>
-      __$$_AbsAudiobookCopyWithImpl<_$_AbsAudiobook>(this, _$identity);
+  _$$_LibraryItemCopyWith<_$_LibraryItem> get copyWith =>
+      __$$_LibraryItemCopyWithImpl<_$_LibraryItem>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AbsAudiobookToJson(
+    return _$$_LibraryItemToJson(
       this,
     );
   }
 }
 
-abstract class _AbsAudiobook implements LibraryItem {
-  const factory _AbsAudiobook(
+abstract class _LibraryItem implements LibraryItem {
+  const factory _LibraryItem(
       {required final String id,
       required final String ino,
       required final String libraryId,
@@ -514,10 +514,10 @@ abstract class _AbsAudiobook implements LibraryItem {
       required final bool isInvalid,
       required final String mediaType,
       required final Media media,
-      required final List<LibraryFile> libraryFiles}) = _$_AbsAudiobook;
+      required final List<LibraryFile> libraryFiles}) = _$_LibraryItem;
 
-  factory _AbsAudiobook.fromJson(Map<String, dynamic> json) =
-      _$_AbsAudiobook.fromJson;
+  factory _LibraryItem.fromJson(Map<String, dynamic> json) =
+      _$_LibraryItem.fromJson;
 
   @override
   String get id;
@@ -559,7 +559,7 @@ abstract class _AbsAudiobook implements LibraryItem {
   List<LibraryFile> get libraryFiles;
   @override
   @JsonKey(ignore: true)
-  _$$_AbsAudiobookCopyWith<_$_AbsAudiobook> get copyWith =>
+  _$$_LibraryItemCopyWith<_$_LibraryItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

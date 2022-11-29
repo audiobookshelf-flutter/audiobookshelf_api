@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import '../audiobookshelf_api_base.dart';
-import '../models/abs_media_progress.dart';
+import '../models/media_progress.dart';
 import 'service.dart';
 
 class SessionsService extends Service {

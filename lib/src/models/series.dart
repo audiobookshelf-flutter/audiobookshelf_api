@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'abs_audiobook.dart';
+import 'library_item.dart';
 
-part 'abs_series.freezed.dart';
-part 'abs_series.g.dart';
+part 'series.freezed.dart';
+part 'series.g.dart';
 
 @freezed
 abstract class Series with _$Series {
@@ -16,7 +16,7 @@ abstract class Series with _$Series {
     required List<LibraryItem> books,
     required int addedAt,
     required double totalDuration,
-  }) = _AbsSeries;
+  }) = _Series;
 
   factory Series.fromJson(Map<String, dynamic> json) => _$SeriesFromJson(json);
 }
