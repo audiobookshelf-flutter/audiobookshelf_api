@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class AbsTrack {
+class AudioTrack {
   final int index;
   final String ino;
   final String path;
@@ -17,7 +17,7 @@ class AbsTrack {
   final int channels;
   final String channelLayout;
 
-  AbsTrack({
+  AudioTrack({
     required this.index,
     required this.ino,
     required this.path,
@@ -35,7 +35,7 @@ class AbsTrack {
     required this.channelLayout,
   });
 
-  AbsTrack copyWith({
+  AudioTrack copyWith({
     int? index,
     String? ino,
     String? path,
@@ -52,7 +52,7 @@ class AbsTrack {
     int? channels,
     String? channelLayout,
   }) {
-    return AbsTrack(
+    return AudioTrack(
       index: index ?? this.index,
       ino: ino ?? this.ino,
       path: path ?? this.path,
@@ -91,8 +91,8 @@ class AbsTrack {
     };
   }
 
-  factory AbsTrack.fromMap(Map<String, dynamic> map) {
-    return AbsTrack(
+  factory AudioTrack.fromMap(Map<String, dynamic> map) {
+    return AudioTrack(
       index: map['index']?.toInt(),
       ino: map['ino'],
       path: map['path'],
@@ -114,8 +114,8 @@ class AbsTrack {
 
   String toJson() => json.encode(toMap());
 
-  factory AbsTrack.fromJson(String source) =>
-      AbsTrack.fromMap(json.decode(source));
+  factory AudioTrack.fromJson(String source) =>
+      AudioTrack.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -126,7 +126,7 @@ class AbsTrack {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is AbsTrack &&
+    return other is AudioTrack &&
         other.index == index &&
         other.ino == ino &&
         other.path == path &&

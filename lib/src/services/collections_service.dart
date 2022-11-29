@@ -9,7 +9,7 @@ import 'service.dart';
 class CollectionsService extends Service {
   const CollectionsService(super.api);
 
-  Future<List<AbsCollection>> getAll() async {
+  Future<List<Collection>> getAll() async {
     http.Response response = await api.client.get(
       AudiobookshelfApi.createUri(api.baseUrl, '/api/collections'),
       headers: api.authJsonHeader,
@@ -17,10 +17,10 @@ class CollectionsService extends Service {
 
     return jsonDecode(
       utf8.decode(response.bodyBytes),
-    ).map<AbsCollection>((x) => AbsCollection.fromMap(x)).toList();
+    ).map<Collection>((x) => Collection.fromMap(x)).toList();
   }
 
-  Future<AbsCollection> getCollection(String collectionId) async {
+  Future<Collection> getCollection(String collectionId) async {
     http.Response response = await api.client.get(
       AudiobookshelfApi.createUri(
         api.baseUrl,
@@ -29,7 +29,7 @@ class CollectionsService extends Service {
       headers: api.authJsonHeader,
     );
 
-    return AbsCollection.fromMap(jsonDecode(
+    return Collection.fromMap(jsonDecode(
       utf8.decode(response.bodyBytes),
     ));
   }

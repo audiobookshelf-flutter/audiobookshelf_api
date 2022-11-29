@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AbsPlayItemRequest _$AbsPlayItemRequestFromJson(Map<String, dynamic> json) {
+PlayItemRequest _$PlayItemRequestFromJson(Map<String, dynamic> json) {
   return _AbsPlayItemRequest.fromJson(json);
 }
 
 /// @nodoc
-mixin _$AbsPlayItemRequest {
+mixin _$PlayItemRequest {
   String get mediaPlayer => throw _privateConstructorUsedError;
   bool get forceDirectPlay => throw _privateConstructorUsedError;
   bool get forceTranscode => throw _privateConstructorUsedError;
@@ -27,15 +27,15 @@ mixin _$AbsPlayItemRequest {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AbsPlayItemRequestCopyWith<AbsPlayItemRequest> get copyWith =>
+  $PlayItemRequestCopyWith<PlayItemRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AbsPlayItemRequestCopyWith<$Res> {
-  factory $AbsPlayItemRequestCopyWith(
-          AbsPlayItemRequest value, $Res Function(AbsPlayItemRequest) then) =
-      _$AbsPlayItemRequestCopyWithImpl<$Res, AbsPlayItemRequest>;
+abstract class $PlayItemRequestCopyWith<$Res> {
+  factory $PlayItemRequestCopyWith(
+          PlayItemRequest value, $Res Function(PlayItemRequest) then) =
+      _$PlayItemRequestCopyWithImpl<$Res, PlayItemRequest>;
   @useResult
   $Res call(
       {String mediaPlayer,
@@ -47,9 +47,9 @@ abstract class $AbsPlayItemRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AbsPlayItemRequestCopyWithImpl<$Res, $Val extends AbsPlayItemRequest>
-    implements $AbsPlayItemRequestCopyWith<$Res> {
-  _$AbsPlayItemRequestCopyWithImpl(this._value, this._then);
+class _$PlayItemRequestCopyWithImpl<$Res, $Val extends PlayItemRequest>
+    implements $PlayItemRequestCopyWith<$Res> {
+  _$PlayItemRequestCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +95,7 @@ class _$AbsPlayItemRequestCopyWithImpl<$Res, $Val extends AbsPlayItemRequest>
 
 /// @nodoc
 abstract class _$$_AbsPlayItemRequestCopyWith<$Res>
-    implements $AbsPlayItemRequestCopyWith<$Res> {
+    implements $PlayItemRequestCopyWith<$Res> {
   factory _$$_AbsPlayItemRequestCopyWith(_$_AbsPlayItemRequest value,
           $Res Function(_$_AbsPlayItemRequest) then) =
       __$$_AbsPlayItemRequestCopyWithImpl<$Res>;
@@ -113,7 +113,7 @@ abstract class _$$_AbsPlayItemRequestCopyWith<$Res>
 
 /// @nodoc
 class __$$_AbsPlayItemRequestCopyWithImpl<$Res>
-    extends _$AbsPlayItemRequestCopyWithImpl<$Res, _$_AbsPlayItemRequest>
+    extends _$PlayItemRequestCopyWithImpl<$Res, _$_AbsPlayItemRequest>
     implements _$$_AbsPlayItemRequestCopyWith<$Res> {
   __$$_AbsPlayItemRequestCopyWithImpl(
       _$_AbsPlayItemRequest _value, $Res Function(_$_AbsPlayItemRequest) _then)
@@ -171,7 +171,7 @@ class _$_AbsPlayItemRequest implements _AbsPlayItemRequest {
 
   @override
   String toString() {
-    return 'AbsPlayItemRequest(mediaPlayer: $mediaPlayer, forceDirectPlay: $forceDirectPlay, forceTranscode: $forceTranscode, deviceInfo: $deviceInfo)';
+    return 'PlayItemRequest(mediaPlayer: $mediaPlayer, forceDirectPlay: $forceDirectPlay, forceTranscode: $forceTranscode, deviceInfo: $deviceInfo)';
   }
 
   @override
@@ -209,7 +209,7 @@ class _$_AbsPlayItemRequest implements _AbsPlayItemRequest {
   }
 }
 
-abstract class _AbsPlayItemRequest implements AbsPlayItemRequest {
+abstract class _AbsPlayItemRequest implements PlayItemRequest {
   const factory _AbsPlayItemRequest(
       {required final String mediaPlayer,
       required final bool forceDirectPlay,

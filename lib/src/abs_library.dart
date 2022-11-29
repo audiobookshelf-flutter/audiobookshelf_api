@@ -1,5 +1,5 @@
-class AbsLibrary {
-  AbsLibrary({
+class Library {
+  Library({
     this.id,
     this.name,
     this.folders,
@@ -11,16 +11,16 @@ class AbsLibrary {
 
   String? id;
   String? name;
-  List<AbsFolder>? folders;
+  List<Folder>? folders;
   int? displayOrder;
   String? icon;
   int? createdAt;
   int? lastUpdate;
 
-  factory AbsLibrary.fromJson(Map<String, dynamic> json) => AbsLibrary(
+  factory Library.fromJson(Map<String, dynamic> json) => Library(
         id: json["id"],
         name: json["name"],
-        folders: [for (var x in json["folders"]) AbsFolder.fromJson(x)],
+        folders: [for (var x in json["folders"]) Folder.fromJson(x)],
         displayOrder: json["displayOrder"],
         icon: json["icon"],
         createdAt: json["createdAt"],
@@ -38,8 +38,8 @@ class AbsLibrary {
       };
 }
 
-class AbsFolder {
-  AbsFolder({
+class Folder {
+  Folder({
     this.id,
     this.fullPath,
     this.libraryId,
@@ -49,7 +49,7 @@ class AbsFolder {
   String? fullPath;
   String? libraryId;
 
-  factory AbsFolder.fromJson(Map<String, dynamic> json) => AbsFolder(
+  factory Folder.fromJson(Map<String, dynamic> json) => Folder(
         id: json["id"],
         fullPath: json["fullPath"],
         libraryId: json["libraryId"],

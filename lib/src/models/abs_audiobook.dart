@@ -1,11 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'abs_series.dart';
+
 part 'abs_audiobook.freezed.dart';
 part 'abs_audiobook.g.dart';
 
 @freezed
-class AbsAudiobook with _$AbsAudiobook {
-  const factory AbsAudiobook({
+class LibraryItem with _$LibraryItem {
+  const factory LibraryItem({
     required String id,
     required String ino,
     required String libraryId,
@@ -27,8 +29,8 @@ class AbsAudiobook with _$AbsAudiobook {
     required List<LibraryFile> libraryFiles,
   }) = _AbsAudiobook;
 
-  factory AbsAudiobook.fromJson(Map<String, dynamic> json) =>
-      _$AbsAudiobookFromJson(json);
+  factory LibraryItem.fromJson(Map<String, dynamic> json) =>
+      _$LibraryItemFromJson(json);
 }
 
 @freezed
@@ -70,7 +72,7 @@ class Media with _$Media {
     String? coverPath,
     List<String>? tags,
     List<AudioFile>? audioFiles,
-    List<Chapter>? chapters,
+    List<BookChapter>? chapters,
     List<dynamic>? missingParts,
     dynamic ebookFile,
     double? duration,
@@ -103,9 +105,9 @@ class AudioFile with _$AudioFile {
     String? timeBase,
     int? channels,
     String? channelLayout,
-    List<Chapter>? chapters,
+    List<BookChapter>? chapters,
     dynamic embeddedCoverArt,
-    required MetaTags metaTags,
+    required AudioMetaTags metaTags,
     String? mimeType,
   }) = _AudioFile;
 
@@ -114,16 +116,16 @@ class AudioFile with _$AudioFile {
 }
 
 @freezed
-class Chapter with _$Chapter {
-  const factory Chapter({
+class BookChapter with _$BookChapter {
+  const factory BookChapter({
     required int id,
     @JsonKey(fromJson: _coerceStringToDouble) required double start,
     @JsonKey(fromJson: _coerceStringToDouble) required double end,
     required String title,
   }) = _Chapter;
 
-  factory Chapter.fromJson(Map<String, dynamic> json) =>
-      _$ChapterFromJson(json);
+  factory BookChapter.fromJson(Map<String, dynamic> json) =>
+      _$BookChapterFromJson(json);
 }
 
 double _coerceStringToDouble(dynamic shouldBeADouble) =>
@@ -136,8 +138,8 @@ List<Series> _coerceToList(dynamic series) => series is Map
     : [for (final serie in series) Series.fromJson(serie)];
 
 @freezed
-class MetaTags with _$MetaTags {
-  const factory MetaTags({
+class AudioMetaTags with _$AudioMetaTags {
+  const factory AudioMetaTags({
     String? tagAlbum,
     String? tagArtist,
     String? tagGenre,
@@ -150,8 +152,8 @@ class MetaTags with _$MetaTags {
     String? tagEncoder,
   }) = _MetaTags;
 
-  factory MetaTags.fromJson(Map<String, dynamic> json) =>
-      _$MetaTagsFromJson(json);
+  factory AudioMetaTags.fromJson(Map<String, dynamic> json) =>
+      _$AudioMetaTagsFromJson(json);
 }
 
 @freezed
@@ -191,15 +193,4 @@ class Author with _$Author {
   }) = _Author;
 
   factory Author.fromJson(Map<String, dynamic> json) => _$AuthorFromJson(json);
-}
-
-@freezed
-class Series with _$Series {
-  const factory Series({
-    required String id,
-    required String name,
-    String? sequence,
-  }) = _Series;
-
-  factory Series.fromJson(Map<String, dynamic> json) => _$SeriesFromJson(json);
 }

@@ -1,13 +1,12 @@
 import 'abs_user.dart';
 
-class AbsLoginResponse {
-  AbsUser user;
+class LoginResponse {
+  User user;
 
-  AbsLoginResponse({required this.user});
+  LoginResponse({required this.user});
 
-  factory AbsLoginResponse.fromJson(Map<String, dynamic> json) =>
-      AbsLoginResponse(
-        user: AbsUser.fromJson(
+  factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
+        user: User.fromJson(
           json['user'],
         ),
       );

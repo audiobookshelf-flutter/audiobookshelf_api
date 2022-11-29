@@ -1,4 +1,4 @@
-abstract class AbsUtils {
+abstract class Utils {
   static Duration? parseDurationFromMilliseconds(Object? time) {
     double? theDouble = getDoubleFromAmbiguousAttribute(time);
 

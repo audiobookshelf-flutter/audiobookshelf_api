@@ -10,7 +10,7 @@ import 'service.dart';
 class LibraryItemsService extends Service {
   const LibraryItemsService(super.api);
 
-  Future<AbsAudiobook> getLibraryItem(String libraryItemId) async {
+  Future<LibraryItem> getLibraryItem(String libraryItemId) async {
     http.Response response = await api.client.get(
       AudiobookshelfApi.createUri(
         api.baseUrl,
@@ -20,11 +20,10 @@ class LibraryItemsService extends Service {
       headers: api.authJsonHeader,
     );
 
-    return AbsAudiobook.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+    return LibraryItem.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
   }
 
-  Future<String> playLibraryItem(
-      String id, AbsPlayItemRequest playRequest) async {
+  Future<String> playLibraryItem(String id, PlayItemRequest playRequest) async {
     http.Response response = await api.client.post(
       AudiobookshelfApi.createUri(api.baseUrl, '/api/items/$id/play'),
       headers: api.authJsonHeader,

@@ -14,35 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AbsMediaProgress _$AbsMediaProgressFromJson(Map<String, dynamic> json) {
+MediaProgress _$MediaProgressFromJson(Map<String, dynamic> json) {
   return _AbsMediaProgress.fromJson(json);
 }
 
 /// @nodoc
-mixin _$AbsMediaProgress {
+mixin _$MediaProgress {
   int get timeListened => throw _privateConstructorUsedError;
   double get duration => throw _privateConstructorUsedError;
   double get currentTime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AbsMediaProgressCopyWith<AbsMediaProgress> get copyWith =>
+  $MediaProgressCopyWith<MediaProgress> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AbsMediaProgressCopyWith<$Res> {
-  factory $AbsMediaProgressCopyWith(
-          AbsMediaProgress value, $Res Function(AbsMediaProgress) then) =
-      _$AbsMediaProgressCopyWithImpl<$Res, AbsMediaProgress>;
+abstract class $MediaProgressCopyWith<$Res> {
+  factory $MediaProgressCopyWith(
+          MediaProgress value, $Res Function(MediaProgress) then) =
+      _$MediaProgressCopyWithImpl<$Res, MediaProgress>;
   @useResult
   $Res call({int timeListened, double duration, double currentTime});
 }
 
 /// @nodoc
-class _$AbsMediaProgressCopyWithImpl<$Res, $Val extends AbsMediaProgress>
-    implements $AbsMediaProgressCopyWith<$Res> {
-  _$AbsMediaProgressCopyWithImpl(this._value, this._then);
+class _$MediaProgressCopyWithImpl<$Res, $Val extends MediaProgress>
+    implements $MediaProgressCopyWith<$Res> {
+  _$MediaProgressCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,7 +75,7 @@ class _$AbsMediaProgressCopyWithImpl<$Res, $Val extends AbsMediaProgress>
 
 /// @nodoc
 abstract class _$$_AbsMediaProgressCopyWith<$Res>
-    implements $AbsMediaProgressCopyWith<$Res> {
+    implements $MediaProgressCopyWith<$Res> {
   factory _$$_AbsMediaProgressCopyWith(
           _$_AbsMediaProgress value, $Res Function(_$_AbsMediaProgress) then) =
       __$$_AbsMediaProgressCopyWithImpl<$Res>;
@@ -86,7 +86,7 @@ abstract class _$$_AbsMediaProgressCopyWith<$Res>
 
 /// @nodoc
 class __$$_AbsMediaProgressCopyWithImpl<$Res>
-    extends _$AbsMediaProgressCopyWithImpl<$Res, _$_AbsMediaProgress>
+    extends _$MediaProgressCopyWithImpl<$Res, _$_AbsMediaProgress>
     implements _$$_AbsMediaProgressCopyWith<$Res> {
   __$$_AbsMediaProgressCopyWithImpl(
       _$_AbsMediaProgress _value, $Res Function(_$_AbsMediaProgress) _then)
@@ -136,7 +136,7 @@ class _$_AbsMediaProgress implements _AbsMediaProgress {
 
   @override
   String toString() {
-    return 'AbsMediaProgress(timeListened: $timeListened, duration: $duration, currentTime: $currentTime)';
+    return 'MediaProgress(timeListened: $timeListened, duration: $duration, currentTime: $currentTime)';
   }
 
   @override
@@ -171,7 +171,7 @@ class _$_AbsMediaProgress implements _AbsMediaProgress {
   }
 }
 
-abstract class _AbsMediaProgress implements AbsMediaProgress {
+abstract class _AbsMediaProgress implements MediaProgress {
   const factory _AbsMediaProgress(
       {required final int timeListened,
       required final double duration,

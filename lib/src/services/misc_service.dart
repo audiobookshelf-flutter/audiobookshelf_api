@@ -9,13 +9,13 @@ import 'service.dart';
 class MiscService extends Service {
   const MiscService(super.api);
 
-  Future<AbsUser> authorize() async {
+  Future<User> authorize() async {
     http.Response response = await api.client.post(
       AudiobookshelfApi.createUri(api.baseUrl, '/api/authorize'),
       headers: api.authJsonHeader,
     );
     final decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));
-    final user = AbsUser.fromJson(decodedResponse['user']);
+    final user = User.fromJson(decodedResponse['user']);
 
     api.userId = user.id;
     return user;

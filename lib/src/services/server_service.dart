@@ -9,7 +9,7 @@ import 'service.dart';
 class ServerService extends Service {
   const ServerService(super.api);
 
-  Future<AbsLoginResponse> login(String username, String password) async {
+  Future<LoginResponse> login(String username, String password) async {
     http.Response response = await api.client.post(
       AudiobookshelfApi.createUri(api.baseUrl, '/login'),
       headers: AudiobookshelfApi.jsonHeader,
@@ -17,7 +17,7 @@ class ServerService extends Service {
         jsonEncode({'username': username, 'password': password}),
       ),
     );
-    final alr = AbsLoginResponse.fromJson(
+    final alr = LoginResponse.fromJson(
       jsonDecode(utf8.decode(response.bodyBytes)),
     );
     api.token = alr.user.token;

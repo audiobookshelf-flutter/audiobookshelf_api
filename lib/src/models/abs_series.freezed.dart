@@ -14,31 +14,30 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AbsSeries _$AbsSeriesFromJson(Map<String, dynamic> json) {
+Series _$SeriesFromJson(Map<String, dynamic> json) {
   return _AbsSeries.fromJson(json);
 }
 
 /// @nodoc
-mixin _$AbsSeries {
+mixin _$Series {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get nameIgnorePrefix => throw _privateConstructorUsedError;
   String get nameIgnorePrefixSort => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  List<AbsAudiobook> get books => throw _privateConstructorUsedError;
+  List<LibraryItem> get books => throw _privateConstructorUsedError;
   int get addedAt => throw _privateConstructorUsedError;
   double get totalDuration => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AbsSeriesCopyWith<AbsSeries> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SeriesCopyWith<Series> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AbsSeriesCopyWith<$Res> {
-  factory $AbsSeriesCopyWith(AbsSeries value, $Res Function(AbsSeries) then) =
-      _$AbsSeriesCopyWithImpl<$Res, AbsSeries>;
+abstract class $SeriesCopyWith<$Res> {
+  factory $SeriesCopyWith(Series value, $Res Function(Series) then) =
+      _$SeriesCopyWithImpl<$Res, Series>;
   @useResult
   $Res call(
       {String id,
@@ -46,15 +45,15 @@ abstract class $AbsSeriesCopyWith<$Res> {
       String nameIgnorePrefix,
       String nameIgnorePrefixSort,
       String type,
-      List<AbsAudiobook> books,
+      List<LibraryItem> books,
       int addedAt,
       double totalDuration});
 }
 
 /// @nodoc
-class _$AbsSeriesCopyWithImpl<$Res, $Val extends AbsSeries>
-    implements $AbsSeriesCopyWith<$Res> {
-  _$AbsSeriesCopyWithImpl(this._value, this._then);
+class _$SeriesCopyWithImpl<$Res, $Val extends Series>
+    implements $SeriesCopyWith<$Res> {
+  _$SeriesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -97,7 +96,7 @@ class _$AbsSeriesCopyWithImpl<$Res, $Val extends AbsSeries>
       books: null == books
           ? _value.books
           : books // ignore: cast_nullable_to_non_nullable
-              as List<AbsAudiobook>,
+              as List<LibraryItem>,
       addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
@@ -111,7 +110,7 @@ class _$AbsSeriesCopyWithImpl<$Res, $Val extends AbsSeries>
 }
 
 /// @nodoc
-abstract class _$$_AbsSeriesCopyWith<$Res> implements $AbsSeriesCopyWith<$Res> {
+abstract class _$$_AbsSeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
   factory _$$_AbsSeriesCopyWith(
           _$_AbsSeries value, $Res Function(_$_AbsSeries) then) =
       __$$_AbsSeriesCopyWithImpl<$Res>;
@@ -123,14 +122,14 @@ abstract class _$$_AbsSeriesCopyWith<$Res> implements $AbsSeriesCopyWith<$Res> {
       String nameIgnorePrefix,
       String nameIgnorePrefixSort,
       String type,
-      List<AbsAudiobook> books,
+      List<LibraryItem> books,
       int addedAt,
       double totalDuration});
 }
 
 /// @nodoc
 class __$$_AbsSeriesCopyWithImpl<$Res>
-    extends _$AbsSeriesCopyWithImpl<$Res, _$_AbsSeries>
+    extends _$SeriesCopyWithImpl<$Res, _$_AbsSeries>
     implements _$$_AbsSeriesCopyWith<$Res> {
   __$$_AbsSeriesCopyWithImpl(
       _$_AbsSeries _value, $Res Function(_$_AbsSeries) _then)
@@ -172,7 +171,7 @@ class __$$_AbsSeriesCopyWithImpl<$Res>
       books: null == books
           ? _value._books
           : books // ignore: cast_nullable_to_non_nullable
-              as List<AbsAudiobook>,
+              as List<LibraryItem>,
       addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
@@ -194,7 +193,7 @@ class _$_AbsSeries implements _AbsSeries {
       required this.nameIgnorePrefix,
       required this.nameIgnorePrefixSort,
       required this.type,
-      required final List<AbsAudiobook> books,
+      required final List<LibraryItem> books,
       required this.addedAt,
       required this.totalDuration})
       : _books = books;
@@ -212,9 +211,9 @@ class _$_AbsSeries implements _AbsSeries {
   final String nameIgnorePrefixSort;
   @override
   final String type;
-  final List<AbsAudiobook> _books;
+  final List<LibraryItem> _books;
   @override
-  List<AbsAudiobook> get books {
+  List<LibraryItem> get books {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_books);
   }
@@ -226,7 +225,7 @@ class _$_AbsSeries implements _AbsSeries {
 
   @override
   String toString() {
-    return 'AbsSeries(id: $id, name: $name, nameIgnorePrefix: $nameIgnorePrefix, nameIgnorePrefixSort: $nameIgnorePrefixSort, type: $type, books: $books, addedAt: $addedAt, totalDuration: $totalDuration)';
+    return 'Series(id: $id, name: $name, nameIgnorePrefix: $nameIgnorePrefix, nameIgnorePrefixSort: $nameIgnorePrefixSort, type: $type, books: $books, addedAt: $addedAt, totalDuration: $totalDuration)';
   }
 
   @override
@@ -274,14 +273,14 @@ class _$_AbsSeries implements _AbsSeries {
   }
 }
 
-abstract class _AbsSeries implements AbsSeries {
+abstract class _AbsSeries implements Series {
   const factory _AbsSeries(
       {required final String id,
       required final String name,
       required final String nameIgnorePrefix,
       required final String nameIgnorePrefixSort,
       required final String type,
-      required final List<AbsAudiobook> books,
+      required final List<LibraryItem> books,
       required final int addedAt,
       required final double totalDuration}) = _$_AbsSeries;
 
@@ -299,7 +298,7 @@ abstract class _AbsSeries implements AbsSeries {
   @override
   String get type;
   @override
-  List<AbsAudiobook> get books;
+  List<LibraryItem> get books;
   @override
   int get addedAt;
   @override

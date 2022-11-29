@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'models/abs_audiobook.dart';
 
-class AbsCollection {
+class Collection {
   final String id;
   final String libraryId;
   final String userId;
@@ -10,11 +10,11 @@ class AbsCollection {
   final String? description;
   final String? cover;
   final String? coverFullPath;
-  final List<AbsAudiobook> books;
+  final List<LibraryItem> books;
   final int lastUpdate;
   final int createdAt;
 
-  AbsCollection({
+  Collection({
     required this.id,
     required this.libraryId,
     required this.userId,
@@ -27,7 +27,7 @@ class AbsCollection {
     required this.createdAt,
   });
 
-  AbsCollection copyWith({
+  Collection copyWith({
     String? id,
     String? libraryId,
     String? userId,
@@ -35,11 +35,11 @@ class AbsCollection {
     String? description,
     String? cover,
     String? coverFullPath,
-    List<AbsAudiobook>? books,
+    List<LibraryItem>? books,
     int? lastUpdate,
     int? createdAt,
   }) {
-    return AbsCollection(
+    return Collection(
       id: id ?? this.id,
       libraryId: libraryId ?? this.libraryId,
       userId: userId ?? this.userId,
@@ -68,8 +68,8 @@ class AbsCollection {
     };
   }
 
-  factory AbsCollection.fromMap(Map<String, dynamic> map) {
-    return AbsCollection(
+  factory Collection.fromMap(Map<String, dynamic> map) {
+    return Collection(
       id: map['id'],
       libraryId: map['libraryId'],
       userId: map['userId'],
@@ -77,7 +77,7 @@ class AbsCollection {
       description: map['description'],
       cover: map['cover'],
       coverFullPath: map['coverFullPath'],
-      books: [for (final book in map['books']) AbsAudiobook.fromJson(book)],
+      books: [for (final book in map['books']) LibraryItem.fromJson(book)],
       lastUpdate: map['lastUpdate']?.toInt(),
       createdAt: map['createdAt']?.toInt(),
     );
@@ -85,8 +85,8 @@ class AbsCollection {
 
   String toJson() => json.encode(toMap());
 
-  factory AbsCollection.fromJson(String source) =>
-      AbsCollection.fromMap(json.decode(source));
+  factory Collection.fromJson(String source) =>
+      Collection.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -97,7 +97,7 @@ class AbsCollection {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is AbsCollection &&
+    return other is Collection &&
         other.id == id &&
         other.libraryId == libraryId &&
         other.userId == userId &&
@@ -123,7 +123,3 @@ class AbsCollection {
         createdAt.hashCode;
   }
 }
-
-class Cover {}
-
-class CoverFullPath {}

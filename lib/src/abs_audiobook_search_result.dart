@@ -1,21 +1,21 @@
 import 'models/abs_audiobook.dart';
 
-class AbsAudiobookSearchResult {
+class AudiobookSearchResult {
   String matchKey;
   String matchText;
-  AbsAudiobook libraryItem;
+  LibraryItem libraryItem;
 
-  AbsAudiobookSearchResult({
+  AudiobookSearchResult({
     required this.matchKey,
     required this.matchText,
     required this.libraryItem,
   });
 
-  factory AbsAudiobookSearchResult.fromJson(Map<String, dynamic> json) =>
-      AbsAudiobookSearchResult(
+  factory AudiobookSearchResult.fromJson(Map<String, dynamic> json) =>
+      AudiobookSearchResult(
         matchKey: json['matchKey'],
         matchText: json['matchText'],
-        libraryItem: AbsAudiobook.fromJson(json['libraryItem']),
+        libraryItem: LibraryItem.fromJson(json['libraryItem']),
       );
 
   Map<String, dynamic> toJson() => {
@@ -26,6 +26,6 @@ class AbsAudiobookSearchResult {
 
   @override
   String toString() {
-    return 'AbsAudiobookSearchResult(matchKey: $matchKey, matchText: $matchText, libraryItem: $libraryItem)';
+    return '$runtimeType(matchKey: $matchKey, matchText: $matchText, libraryItem: $libraryItem)';
   }
 }

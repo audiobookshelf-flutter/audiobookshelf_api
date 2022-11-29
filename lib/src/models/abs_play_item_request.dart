@@ -4,16 +4,16 @@ part 'abs_play_item_request.freezed.dart';
 part 'abs_play_item_request.g.dart';
 
 @freezed
-class AbsPlayItemRequest with _$AbsPlayItemRequest {
-  const factory AbsPlayItemRequest({
+class PlayItemRequest with _$PlayItemRequest {
+  const factory PlayItemRequest({
     required String mediaPlayer,
     required bool forceDirectPlay,
     required bool forceTranscode,
     required DeviceInfo deviceInfo,
   }) = _AbsPlayItemRequest;
 
-  factory AbsPlayItemRequest.fromJson(Map<String, dynamic> json) =>
-      _$AbsPlayItemRequestFromJson(json);
+  factory PlayItemRequest.fromJson(Map<String, dynamic> json) =>
+      _$PlayItemRequestFromJson(json);
 }
 
 @freezed

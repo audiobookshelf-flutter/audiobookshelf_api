@@ -109,7 +109,7 @@ _$_Media _$$_MediaFromJson(Map<String, dynamic> json) => _$_Media(
           ?.map((e) => AudioFile.fromJson(e as Map<String, dynamic>))
           .toList(),
       chapters: (json['chapters'] as List<dynamic>?)
-          ?.map((e) => Chapter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => BookChapter.fromJson(e as Map<String, dynamic>))
           .toList(),
       missingParts: json['missingParts'] as List<dynamic>?,
       ebookFile: json['ebookFile'],
@@ -152,10 +152,11 @@ _$_AudioFile _$$_AudioFileFromJson(Map<String, dynamic> json) => _$_AudioFile(
       channels: json['channels'] as int?,
       channelLayout: json['channelLayout'] as String?,
       chapters: (json['chapters'] as List<dynamic>?)
-          ?.map((e) => Chapter.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => BookChapter.fromJson(e as Map<String, dynamic>))
           .toList(),
       embeddedCoverArt: json['embeddedCoverArt'],
-      metaTags: MetaTags.fromJson(json['metaTags'] as Map<String, dynamic>),
+      metaTags:
+          AudioMetaTags.fromJson(json['metaTags'] as Map<String, dynamic>),
       mimeType: json['mimeType'] as String?,
     );
 
@@ -291,16 +292,4 @@ Map<String, dynamic> _$$_AuthorToJson(_$_Author instance) => <String, dynamic>{
       'asin': instance.asin,
       'numBooks': instance.numBooks,
       'addedAt': instance.addedAt,
-    };
-
-_$_Series _$$_SeriesFromJson(Map<String, dynamic> json) => _$_Series(
-      id: json['id'] as String,
-      name: json['name'] as String,
-      sequence: json['sequence'] as String?,
-    );
-
-Map<String, dynamic> _$$_SeriesToJson(_$_Series instance) => <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'sequence': instance.sequence,
     };

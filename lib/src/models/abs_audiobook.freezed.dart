@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AbsAudiobook _$AbsAudiobookFromJson(Map<String, dynamic> json) {
+LibraryItem _$LibraryItemFromJson(Map<String, dynamic> json) {
   return _AbsAudiobook.fromJson(json);
 }
 
 /// @nodoc
-mixin _$AbsAudiobook {
+mixin _$LibraryItem {
   String get id => throw _privateConstructorUsedError;
   String get ino => throw _privateConstructorUsedError;
   String get libraryId => throw _privateConstructorUsedError;
@@ -42,15 +42,15 @@ mixin _$AbsAudiobook {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AbsAudiobookCopyWith<AbsAudiobook> get copyWith =>
+  $LibraryItemCopyWith<LibraryItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AbsAudiobookCopyWith<$Res> {
-  factory $AbsAudiobookCopyWith(
-          AbsAudiobook value, $Res Function(AbsAudiobook) then) =
-      _$AbsAudiobookCopyWithImpl<$Res, AbsAudiobook>;
+abstract class $LibraryItemCopyWith<$Res> {
+  factory $LibraryItemCopyWith(
+          LibraryItem value, $Res Function(LibraryItem) then) =
+      _$LibraryItemCopyWithImpl<$Res, LibraryItem>;
   @useResult
   $Res call(
       {String id,
@@ -77,9 +77,9 @@ abstract class $AbsAudiobookCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AbsAudiobookCopyWithImpl<$Res, $Val extends AbsAudiobook>
-    implements $AbsAudiobookCopyWith<$Res> {
-  _$AbsAudiobookCopyWithImpl(this._value, this._then);
+class _$LibraryItemCopyWithImpl<$Res, $Val extends LibraryItem>
+    implements $LibraryItemCopyWith<$Res> {
+  _$LibraryItemCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -200,7 +200,7 @@ class _$AbsAudiobookCopyWithImpl<$Res, $Val extends AbsAudiobook>
 
 /// @nodoc
 abstract class _$$_AbsAudiobookCopyWith<$Res>
-    implements $AbsAudiobookCopyWith<$Res> {
+    implements $LibraryItemCopyWith<$Res> {
   factory _$$_AbsAudiobookCopyWith(
           _$_AbsAudiobook value, $Res Function(_$_AbsAudiobook) then) =
       __$$_AbsAudiobookCopyWithImpl<$Res>;
@@ -233,7 +233,7 @@ abstract class _$$_AbsAudiobookCopyWith<$Res>
 
 /// @nodoc
 class __$$_AbsAudiobookCopyWithImpl<$Res>
-    extends _$AbsAudiobookCopyWithImpl<$Res, _$_AbsAudiobook>
+    extends _$LibraryItemCopyWithImpl<$Res, _$_AbsAudiobook>
     implements _$$_AbsAudiobookCopyWith<$Res> {
   __$$_AbsAudiobookCopyWithImpl(
       _$_AbsAudiobook _value, $Res Function(_$_AbsAudiobook) _then)
@@ -416,7 +416,7 @@ class _$_AbsAudiobook implements _AbsAudiobook {
 
   @override
   String toString() {
-    return 'AbsAudiobook(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtimeMs: $mtimeMs, ctimeMs: $ctimeMs, birthtimeMs: $birthtimeMs, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles)';
+    return 'LibraryItem(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtimeMs: $mtimeMs, ctimeMs: $ctimeMs, birthtimeMs: $birthtimeMs, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles)';
   }
 
   @override
@@ -494,7 +494,7 @@ class _$_AbsAudiobook implements _AbsAudiobook {
   }
 }
 
-abstract class _AbsAudiobook implements AbsAudiobook {
+abstract class _AbsAudiobook implements LibraryItem {
   const factory _AbsAudiobook(
       {required final String id,
       required final String ino,
@@ -1095,7 +1095,7 @@ mixin _$Media {
   String? get coverPath => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
   List<AudioFile>? get audioFiles => throw _privateConstructorUsedError;
-  List<Chapter>? get chapters => throw _privateConstructorUsedError;
+  List<BookChapter>? get chapters => throw _privateConstructorUsedError;
   List<dynamic>? get missingParts => throw _privateConstructorUsedError;
   dynamic get ebookFile => throw _privateConstructorUsedError;
   double? get duration => throw _privateConstructorUsedError;
@@ -1116,7 +1116,7 @@ abstract class $MediaCopyWith<$Res> {
       String? coverPath,
       List<String>? tags,
       List<AudioFile>? audioFiles,
-      List<Chapter>? chapters,
+      List<BookChapter>? chapters,
       List<dynamic>? missingParts,
       dynamic ebookFile,
       double? duration});
@@ -1171,7 +1171,7 @@ class _$MediaCopyWithImpl<$Res, $Val extends Media>
       chapters: freezed == chapters
           ? _value.chapters
           : chapters // ignore: cast_nullable_to_non_nullable
-              as List<Chapter>?,
+              as List<BookChapter>?,
       missingParts: freezed == missingParts
           ? _value.missingParts
           : missingParts // ignore: cast_nullable_to_non_nullable
@@ -1208,7 +1208,7 @@ abstract class _$$_MediaCopyWith<$Res> implements $MediaCopyWith<$Res> {
       String? coverPath,
       List<String>? tags,
       List<AudioFile>? audioFiles,
-      List<Chapter>? chapters,
+      List<BookChapter>? chapters,
       List<dynamic>? missingParts,
       dynamic ebookFile,
       double? duration});
@@ -1260,7 +1260,7 @@ class __$$_MediaCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$_Media>
       chapters: freezed == chapters
           ? _value._chapters
           : chapters // ignore: cast_nullable_to_non_nullable
-              as List<Chapter>?,
+              as List<BookChapter>?,
       missingParts: freezed == missingParts
           ? _value._missingParts
           : missingParts // ignore: cast_nullable_to_non_nullable
@@ -1286,7 +1286,7 @@ class _$_Media implements _Media {
       this.coverPath,
       final List<String>? tags,
       final List<AudioFile>? audioFiles,
-      final List<Chapter>? chapters,
+      final List<BookChapter>? chapters,
       final List<dynamic>? missingParts,
       this.ebookFile,
       this.duration})
@@ -1322,9 +1322,9 @@ class _$_Media implements _Media {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<Chapter>? _chapters;
+  final List<BookChapter>? _chapters;
   @override
-  List<Chapter>? get chapters {
+  List<BookChapter>? get chapters {
     final value = _chapters;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
@@ -1407,7 +1407,7 @@ abstract class _Media implements Media {
       final String? coverPath,
       final List<String>? tags,
       final List<AudioFile>? audioFiles,
-      final List<Chapter>? chapters,
+      final List<BookChapter>? chapters,
       final List<dynamic>? missingParts,
       final dynamic ebookFile,
       final double? duration}) = _$_Media;
@@ -1425,7 +1425,7 @@ abstract class _Media implements Media {
   @override
   List<AudioFile>? get audioFiles;
   @override
-  List<Chapter>? get chapters;
+  List<BookChapter>? get chapters;
   @override
   List<dynamic>? get missingParts;
   @override
@@ -1465,9 +1465,9 @@ mixin _$AudioFile {
   String? get timeBase => throw _privateConstructorUsedError;
   int? get channels => throw _privateConstructorUsedError;
   String? get channelLayout => throw _privateConstructorUsedError;
-  List<Chapter>? get chapters => throw _privateConstructorUsedError;
+  List<BookChapter>? get chapters => throw _privateConstructorUsedError;
   dynamic get embeddedCoverArt => throw _privateConstructorUsedError;
-  MetaTags get metaTags => throw _privateConstructorUsedError;
+  AudioMetaTags get metaTags => throw _privateConstructorUsedError;
   String? get mimeType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -1503,13 +1503,13 @@ abstract class $AudioFileCopyWith<$Res> {
       String? timeBase,
       int? channels,
       String? channelLayout,
-      List<Chapter>? chapters,
+      List<BookChapter>? chapters,
       dynamic embeddedCoverArt,
-      MetaTags metaTags,
+      AudioMetaTags metaTags,
       String? mimeType});
 
   $LibraryFileMetadataCopyWith<$Res> get metadata;
-  $MetaTagsCopyWith<$Res> get metaTags;
+  $AudioMetaTagsCopyWith<$Res> get metaTags;
 }
 
 /// @nodoc
@@ -1639,7 +1639,7 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
       chapters: freezed == chapters
           ? _value.chapters
           : chapters // ignore: cast_nullable_to_non_nullable
-              as List<Chapter>?,
+              as List<BookChapter>?,
       embeddedCoverArt: null == embeddedCoverArt
           ? _value.embeddedCoverArt
           : embeddedCoverArt // ignore: cast_nullable_to_non_nullable
@@ -1647,7 +1647,7 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
       metaTags: null == metaTags
           ? _value.metaTags
           : metaTags // ignore: cast_nullable_to_non_nullable
-              as MetaTags,
+              as AudioMetaTags,
       mimeType: freezed == mimeType
           ? _value.mimeType
           : mimeType // ignore: cast_nullable_to_non_nullable
@@ -1665,8 +1665,8 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
 
   @override
   @pragma('vm:prefer-inline')
-  $MetaTagsCopyWith<$Res> get metaTags {
-    return $MetaTagsCopyWith<$Res>(_value.metaTags, (value) {
+  $AudioMetaTagsCopyWith<$Res> get metaTags {
+    return $AudioMetaTagsCopyWith<$Res>(_value.metaTags, (value) {
       return _then(_value.copyWith(metaTags: value) as $Val);
     });
   }
@@ -1701,15 +1701,15 @@ abstract class _$$_AudioFileCopyWith<$Res> implements $AudioFileCopyWith<$Res> {
       String? timeBase,
       int? channels,
       String? channelLayout,
-      List<Chapter>? chapters,
+      List<BookChapter>? chapters,
       dynamic embeddedCoverArt,
-      MetaTags metaTags,
+      AudioMetaTags metaTags,
       String? mimeType});
 
   @override
   $LibraryFileMetadataCopyWith<$Res> get metadata;
   @override
-  $MetaTagsCopyWith<$Res> get metaTags;
+  $AudioMetaTagsCopyWith<$Res> get metaTags;
 }
 
 /// @nodoc
@@ -1837,7 +1837,7 @@ class __$$_AudioFileCopyWithImpl<$Res>
       chapters: freezed == chapters
           ? _value._chapters
           : chapters // ignore: cast_nullable_to_non_nullable
-              as List<Chapter>?,
+              as List<BookChapter>?,
       embeddedCoverArt: null == embeddedCoverArt
           ? _value.embeddedCoverArt
           : embeddedCoverArt // ignore: cast_nullable_to_non_nullable
@@ -1845,7 +1845,7 @@ class __$$_AudioFileCopyWithImpl<$Res>
       metaTags: null == metaTags
           ? _value.metaTags
           : metaTags // ignore: cast_nullable_to_non_nullable
-              as MetaTags,
+              as AudioMetaTags,
       mimeType: freezed == mimeType
           ? _value.mimeType
           : mimeType // ignore: cast_nullable_to_non_nullable
@@ -1879,7 +1879,7 @@ class _$_AudioFile implements _AudioFile {
       this.timeBase,
       this.channels,
       this.channelLayout,
-      final List<Chapter>? chapters,
+      final List<BookChapter>? chapters,
       this.embeddedCoverArt,
       required this.metaTags,
       this.mimeType})
@@ -1930,9 +1930,9 @@ class _$_AudioFile implements _AudioFile {
   final int? channels;
   @override
   final String? channelLayout;
-  final List<Chapter>? _chapters;
+  final List<BookChapter>? _chapters;
   @override
-  List<Chapter>? get chapters {
+  List<BookChapter>? get chapters {
     final value = _chapters;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
@@ -1942,7 +1942,7 @@ class _$_AudioFile implements _AudioFile {
   @override
   final dynamic embeddedCoverArt;
   @override
-  final MetaTags metaTags;
+  final AudioMetaTags metaTags;
   @override
   final String? mimeType;
 
@@ -2066,9 +2066,9 @@ abstract class _AudioFile implements AudioFile {
       final String? timeBase,
       final int? channels,
       final String? channelLayout,
-      final List<Chapter>? chapters,
+      final List<BookChapter>? chapters,
       final dynamic embeddedCoverArt,
-      required final MetaTags metaTags,
+      required final AudioMetaTags metaTags,
       final String? mimeType}) = _$_AudioFile;
 
   factory _AudioFile.fromJson(Map<String, dynamic> json) =
@@ -2117,11 +2117,11 @@ abstract class _AudioFile implements AudioFile {
   @override
   String? get channelLayout;
   @override
-  List<Chapter>? get chapters;
+  List<BookChapter>? get chapters;
   @override
   dynamic get embeddedCoverArt;
   @override
-  MetaTags get metaTags;
+  AudioMetaTags get metaTags;
   @override
   String? get mimeType;
   @override
@@ -2130,12 +2130,12 @@ abstract class _AudioFile implements AudioFile {
       throw _privateConstructorUsedError;
 }
 
-Chapter _$ChapterFromJson(Map<String, dynamic> json) {
+BookChapter _$BookChapterFromJson(Map<String, dynamic> json) {
   return _Chapter.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Chapter {
+mixin _$BookChapter {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(fromJson: _coerceStringToDouble)
   double get start => throw _privateConstructorUsedError;
@@ -2145,13 +2145,15 @@ mixin _$Chapter {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ChapterCopyWith<Chapter> get copyWith => throw _privateConstructorUsedError;
+  $BookChapterCopyWith<BookChapter> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ChapterCopyWith<$Res> {
-  factory $ChapterCopyWith(Chapter value, $Res Function(Chapter) then) =
-      _$ChapterCopyWithImpl<$Res, Chapter>;
+abstract class $BookChapterCopyWith<$Res> {
+  factory $BookChapterCopyWith(
+          BookChapter value, $Res Function(BookChapter) then) =
+      _$BookChapterCopyWithImpl<$Res, BookChapter>;
   @useResult
   $Res call(
       {int id,
@@ -2161,9 +2163,9 @@ abstract class $ChapterCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ChapterCopyWithImpl<$Res, $Val extends Chapter>
-    implements $ChapterCopyWith<$Res> {
-  _$ChapterCopyWithImpl(this._value, this._then);
+class _$BookChapterCopyWithImpl<$Res, $Val extends BookChapter>
+    implements $BookChapterCopyWith<$Res> {
+  _$BookChapterCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -2200,7 +2202,7 @@ class _$ChapterCopyWithImpl<$Res, $Val extends Chapter>
 }
 
 /// @nodoc
-abstract class _$$_ChapterCopyWith<$Res> implements $ChapterCopyWith<$Res> {
+abstract class _$$_ChapterCopyWith<$Res> implements $BookChapterCopyWith<$Res> {
   factory _$$_ChapterCopyWith(
           _$_Chapter value, $Res Function(_$_Chapter) then) =
       __$$_ChapterCopyWithImpl<$Res>;
@@ -2215,7 +2217,7 @@ abstract class _$$_ChapterCopyWith<$Res> implements $ChapterCopyWith<$Res> {
 
 /// @nodoc
 class __$$_ChapterCopyWithImpl<$Res>
-    extends _$ChapterCopyWithImpl<$Res, _$_Chapter>
+    extends _$BookChapterCopyWithImpl<$Res, _$_Chapter>
     implements _$$_ChapterCopyWith<$Res> {
   __$$_ChapterCopyWithImpl(_$_Chapter _value, $Res Function(_$_Chapter) _then)
       : super(_value, _then);
@@ -2274,7 +2276,7 @@ class _$_Chapter implements _Chapter {
 
   @override
   String toString() {
-    return 'Chapter(id: $id, start: $start, end: $end, title: $title)';
+    return 'BookChapter(id: $id, start: $start, end: $end, title: $title)';
   }
 
   @override
@@ -2306,7 +2308,7 @@ class _$_Chapter implements _Chapter {
   }
 }
 
-abstract class _Chapter implements Chapter {
+abstract class _Chapter implements BookChapter {
   const factory _Chapter(
       {required final int id,
       @JsonKey(fromJson: _coerceStringToDouble) required final double start,
@@ -2331,12 +2333,12 @@ abstract class _Chapter implements Chapter {
       throw _privateConstructorUsedError;
 }
 
-MetaTags _$MetaTagsFromJson(Map<String, dynamic> json) {
+AudioMetaTags _$AudioMetaTagsFromJson(Map<String, dynamic> json) {
   return _MetaTags.fromJson(json);
 }
 
 /// @nodoc
-mixin _$MetaTags {
+mixin _$AudioMetaTags {
   String? get tagAlbum => throw _privateConstructorUsedError;
   String? get tagArtist => throw _privateConstructorUsedError;
   String? get tagGenre => throw _privateConstructorUsedError;
@@ -2350,14 +2352,15 @@ mixin _$MetaTags {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MetaTagsCopyWith<MetaTags> get copyWith =>
+  $AudioMetaTagsCopyWith<AudioMetaTags> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MetaTagsCopyWith<$Res> {
-  factory $MetaTagsCopyWith(MetaTags value, $Res Function(MetaTags) then) =
-      _$MetaTagsCopyWithImpl<$Res, MetaTags>;
+abstract class $AudioMetaTagsCopyWith<$Res> {
+  factory $AudioMetaTagsCopyWith(
+          AudioMetaTags value, $Res Function(AudioMetaTags) then) =
+      _$AudioMetaTagsCopyWithImpl<$Res, AudioMetaTags>;
   @useResult
   $Res call(
       {String? tagAlbum,
@@ -2373,9 +2376,9 @@ abstract class $MetaTagsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MetaTagsCopyWithImpl<$Res, $Val extends MetaTags>
-    implements $MetaTagsCopyWith<$Res> {
-  _$MetaTagsCopyWithImpl(this._value, this._then);
+class _$AudioMetaTagsCopyWithImpl<$Res, $Val extends AudioMetaTags>
+    implements $AudioMetaTagsCopyWith<$Res> {
+  _$AudioMetaTagsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -2442,7 +2445,8 @@ class _$MetaTagsCopyWithImpl<$Res, $Val extends MetaTags>
 }
 
 /// @nodoc
-abstract class _$$_MetaTagsCopyWith<$Res> implements $MetaTagsCopyWith<$Res> {
+abstract class _$$_MetaTagsCopyWith<$Res>
+    implements $AudioMetaTagsCopyWith<$Res> {
   factory _$$_MetaTagsCopyWith(
           _$_MetaTags value, $Res Function(_$_MetaTags) then) =
       __$$_MetaTagsCopyWithImpl<$Res>;
@@ -2463,7 +2467,7 @@ abstract class _$$_MetaTagsCopyWith<$Res> implements $MetaTagsCopyWith<$Res> {
 
 /// @nodoc
 class __$$_MetaTagsCopyWithImpl<$Res>
-    extends _$MetaTagsCopyWithImpl<$Res, _$_MetaTags>
+    extends _$AudioMetaTagsCopyWithImpl<$Res, _$_MetaTags>
     implements _$$_MetaTagsCopyWith<$Res> {
   __$$_MetaTagsCopyWithImpl(
       _$_MetaTags _value, $Res Function(_$_MetaTags) _then)
@@ -2569,7 +2573,7 @@ class _$_MetaTags implements _MetaTags {
 
   @override
   String toString() {
-    return 'MetaTags(tagAlbum: $tagAlbum, tagArtist: $tagArtist, tagGenre: $tagGenre, tagTitle: $tagTitle, tagTrack: $tagTrack, tagAlbumArtist: $tagAlbumArtist, tagDate: $tagDate, tagComposer: $tagComposer, tagDescription: $tagDescription, tagEncoder: $tagEncoder)';
+    return 'AudioMetaTags(tagAlbum: $tagAlbum, tagArtist: $tagArtist, tagGenre: $tagGenre, tagTitle: $tagTitle, tagTrack: $tagTrack, tagAlbumArtist: $tagAlbumArtist, tagDate: $tagDate, tagComposer: $tagComposer, tagDescription: $tagDescription, tagEncoder: $tagEncoder)';
   }
 
   @override
@@ -2627,7 +2631,7 @@ class _$_MetaTags implements _MetaTags {
   }
 }
 
-abstract class _MetaTags implements MetaTags {
+abstract class _MetaTags implements AudioMetaTags {
   const factory _MetaTags(
       {final String? tagAlbum,
       final String? tagArtist,
@@ -3402,171 +3406,5 @@ abstract class _Author implements Author {
   @override
   @JsonKey(ignore: true)
   _$$_AuthorCopyWith<_$_Author> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-Series _$SeriesFromJson(Map<String, dynamic> json) {
-  return _Series.fromJson(json);
-}
-
-/// @nodoc
-mixin _$Series {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String? get sequence => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SeriesCopyWith<Series> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $SeriesCopyWith<$Res> {
-  factory $SeriesCopyWith(Series value, $Res Function(Series) then) =
-      _$SeriesCopyWithImpl<$Res, Series>;
-  @useResult
-  $Res call({String id, String name, String? sequence});
-}
-
-/// @nodoc
-class _$SeriesCopyWithImpl<$Res, $Val extends Series>
-    implements $SeriesCopyWith<$Res> {
-  _$SeriesCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? sequence = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      sequence: freezed == sequence
-          ? _value.sequence
-          : sequence // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$_SeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
-  factory _$$_SeriesCopyWith(_$_Series value, $Res Function(_$_Series) then) =
-      __$$_SeriesCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id, String name, String? sequence});
-}
-
-/// @nodoc
-class __$$_SeriesCopyWithImpl<$Res>
-    extends _$SeriesCopyWithImpl<$Res, _$_Series>
-    implements _$$_SeriesCopyWith<$Res> {
-  __$$_SeriesCopyWithImpl(_$_Series _value, $Res Function(_$_Series) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? sequence = freezed,
-  }) {
-    return _then(_$_Series(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      sequence: freezed == sequence
-          ? _value.sequence
-          : sequence // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_Series implements _Series {
-  const _$_Series({required this.id, required this.name, this.sequence});
-
-  factory _$_Series.fromJson(Map<String, dynamic> json) =>
-      _$$_SeriesFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String name;
-  @override
-  final String? sequence;
-
-  @override
-  String toString() {
-    return 'Series(id: $id, name: $name, sequence: $sequence)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Series &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.sequence, sequence) ||
-                other.sequence == sequence));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, name, sequence);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SeriesCopyWith<_$_Series> get copyWith =>
-      __$$_SeriesCopyWithImpl<_$_Series>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_SeriesToJson(
-      this,
-    );
-  }
-}
-
-abstract class _Series implements Series {
-  const factory _Series(
-      {required final String id,
-      required final String name,
-      final String? sequence}) = _$_Series;
-
-  factory _Series.fromJson(Map<String, dynamic> json) = _$_Series.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get name;
-  @override
-  String? get sequence;
-  @override
-  @JsonKey(ignore: true)
-  _$$_SeriesCopyWith<_$_Series> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,13 +1,13 @@
 import 'abs_audiobook_progress.dart';
 import 'abs_utils.dart';
 
-class AbsUser {
+class User {
   String id;
   String username;
   String type;
   String? stream;
   String token;
-  Map<String, AbsAudiobookProgress> mediaProgress;
+  Map<String, AudiobookProgress> mediaProgress;
   bool isActive;
   bool isLocked;
   DateTime? lastSeen;
@@ -16,7 +16,7 @@ class AbsUser {
   Permissions permissions;
   List<String> librariesAccessible;
 
-  AbsUser({
+  User({
     required this.id,
     required this.username,
     required this.type,
@@ -32,7 +32,7 @@ class AbsUser {
     required this.librariesAccessible,
   });
 
-  factory AbsUser.fromJson(Map<String, dynamic> json) => AbsUser(
+  factory User.fromJson(Map<String, dynamic> json) => User(
         id: json['id'],
         username: json['username'],
         type: json['type'],
@@ -40,12 +40,12 @@ class AbsUser {
         token: json['token'],
         mediaProgress: {
           for (final prog in json['mediaProgress'])
-            prog['id']: AbsAudiobookProgress.fromJson(prog)
+            prog['id']: AudiobookProgress.fromJson(prog)
         },
         isActive: json['isActive'],
         isLocked: json['isLocked'],
-        lastSeen: AbsUtils.parseDateTime(json['lastSeen']),
-        createdAt: AbsUtils.parseDateTime(json['createdAt'])!,
+        lastSeen: Utils.parseDateTime(json['lastSeen']),
+        createdAt: Utils.parseDateTime(json['createdAt'])!,
         settings: Settings.fromJson(json['settings']),
         permissions: Permissions.fromJson(json['permissions']),
         librariesAccessible: json['librariesAccessible'].cast<String>(),

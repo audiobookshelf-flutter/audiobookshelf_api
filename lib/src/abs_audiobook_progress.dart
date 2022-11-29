@@ -1,6 +1,6 @@
 import 'abs_utils.dart';
 
-class AbsAudiobookProgress {
+class AudiobookProgress {
   String id;
   Duration? duration;
   double? progress;
@@ -11,7 +11,7 @@ class AbsAudiobookProgress {
   DateTime? finishedAt;
   List<int>? bookmarks;
 
-  AbsAudiobookProgress({
+  AudiobookProgress({
     required this.id,
     this.duration,
     this.progress,
@@ -23,16 +23,16 @@ class AbsAudiobookProgress {
     this.bookmarks,
   });
 
-  factory AbsAudiobookProgress.fromJson(Map<String, dynamic> json) =>
-      AbsAudiobookProgress(
+  factory AudiobookProgress.fromJson(Map<String, dynamic> json) =>
+      AudiobookProgress(
         id: json['id'],
-        duration: AbsUtils.parseDurationFromSeconds(json['duration']),
+        duration: Utils.parseDurationFromSeconds(json['duration']),
         isFinished: json['isFinished'],
         progress: json['progress']?.toDouble(),
-        currentTime: AbsUtils.parseDurationFromSeconds(json['currentTime']),
-        lastUpdate: AbsUtils.parseDateTime(json['lastUpdate']),
-        startedAt: AbsUtils.parseDateTime(json['startedAt']),
-        finishedAt: AbsUtils.parseDateTime(json['finishedAt']),
+        currentTime: Utils.parseDurationFromSeconds(json['currentTime']),
+        lastUpdate: Utils.parseDateTime(json['lastUpdate']),
+        startedAt: Utils.parseDateTime(json['startedAt']),
+        finishedAt: Utils.parseDateTime(json['finishedAt']),
         bookmarks: json['bookmarks']?.cast<int>(),
       );
 

@@ -4,13 +4,13 @@ part 'abs_media_progress.freezed.dart';
 part 'abs_media_progress.g.dart';
 
 @freezed
-class AbsMediaProgress with _$AbsMediaProgress {
-  const factory AbsMediaProgress({
+class MediaProgress with _$MediaProgress {
+  const factory MediaProgress({
     required int timeListened,
     required double duration,
     required double currentTime,
   }) = _AbsMediaProgress;
 
-  factory AbsMediaProgress.fromJson(Map<String, dynamic> json) =>
-      _$AbsMediaProgressFromJson(json);
+  factory MediaProgress.fromJson(Map<String, dynamic> json) =>
+      _$MediaProgressFromJson(json);
 }

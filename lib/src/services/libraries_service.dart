@@ -12,18 +12,18 @@ import 'service.dart';
 class LibrariesService extends Service {
   const LibrariesService(super.api);
 
-  Future<List<AbsLibrary>> getAll() async {
+  Future<List<Library>> getAll() async {
     http.Response response = await api.client.get(
       AudiobookshelfApi.createUri(api.baseUrl, '/api/libraries'),
       headers: api.authJsonHeader,
     );
 
     return jsonDecode(utf8.decode(response.bodyBytes))
-        .map<AbsLibrary>((el) => AbsLibrary.fromJson(el))
+        .map<Library>((el) => Library.fromJson(el))
         .toList();
   }
 
-  Future<List<AbsAudiobook>> getLibraryItems(String libraryId) async {
+  Future<List<LibraryItem>> getLibraryItems(String libraryId) async {
     http.Response response = await api.client.get(
       AudiobookshelfApi.createUri(
         api.baseUrl,
@@ -32,7 +32,7 @@ class LibrariesService extends Service {
       headers: api.authJsonHeader,
     );
     return jsonDecode(utf8.decode(response.bodyBytes))['results']
-        .map<AbsAudiobook>((el) => AbsAudiobook.fromJson(el))
+        .map<LibraryItem>((el) => LibraryItem.fromJson(el))
         .toList();
   }
 
@@ -49,7 +49,7 @@ class LibrariesService extends Service {
         .toList();
   }
 
-  Future<List<AbsSeries>> getLibrarySeries(String libraryId) async {
+  Future<List<Series>> getLibrarySeries(String libraryId) async {
     http.Response response = await api.client.get(
       AudiobookshelfApi.createUri(
         api.baseUrl,
@@ -61,11 +61,11 @@ class LibrariesService extends Service {
     return jsonDecode(
       utf8.decode(response.bodyBytes),
     )['results']
-        .map<AbsSeries>((x) => AbsSeries.fromJson(x))
+        .map<Series>((x) => Series.fromJson(x))
         .toList();
   }
 
-  Future<AbsSearchResponse> searchLibrary(
+  Future<SearchResponse> searchLibrary(
     String libraryId,
     String searchTerm,
   ) async {
@@ -80,14 +80,14 @@ class LibrariesService extends Service {
       ),
       headers: api.authJsonHeader,
     );
-    return AbsSearchResponse.fromMap(
+    return SearchResponse.fromMap(
       jsonDecode(
         utf8.decode(response.bodyBytes),
       ),
     );
   }
 
-  Future<List<AbsAudiobook>> getBooksForAuthor(
+  Future<List<LibraryItem>> getBooksForAuthor(
     String libraryId,
     String authorId,
   ) async {
@@ -105,11 +105,11 @@ class LibrariesService extends Service {
     );
 
     return jsonDecode(utf8.decode(response.bodyBytes))['results']
-        .map<AbsAudiobook>((el) => AbsAudiobook.fromJson(el))
+        .map<LibraryItem>((el) => LibraryItem.fromJson(el))
         .toList();
   }
 
-  Future<List<AbsAudiobook>> getBooksForSeries(
+  Future<List<LibraryItem>> getBooksForSeries(
       String libraryId, String seriesId) async {
     final encodedSeriesId = base64Encode(utf8.encode(seriesId));
     http.Response response = await api.client.get(
@@ -125,7 +125,7 @@ class LibrariesService extends Service {
     );
 
     return jsonDecode(utf8.decode(response.bodyBytes))['results']
-        .map<AbsAudiobook>((el) => AbsAudiobook.fromJson(el))
+        .map<LibraryItem>((el) => LibraryItem.fromJson(el))
         .toList();
   }
 }

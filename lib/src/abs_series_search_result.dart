@@ -1,21 +1,22 @@
 import 'dart:convert';
 
 import 'models/abs_audiobook.dart';
+import 'models/abs_series.dart';
 
-class AbsSeriesSearchResult {
+class SeriesSearchResult {
   final Series series;
-  final List<AbsAudiobook> books;
+  final List<LibraryItem> books;
 
-  AbsSeriesSearchResult({
+  SeriesSearchResult({
     required this.series,
     required this.books,
   });
 
-  AbsSeriesSearchResult copyWith({
+  SeriesSearchResult copyWith({
     Series? series,
-    List<AbsAudiobook>? books,
+    List<LibraryItem>? books,
   }) {
-    return AbsSeriesSearchResult(
+    return SeriesSearchResult(
       series: series ?? this.series,
       books: books ?? this.books,
     );
@@ -28,17 +29,17 @@ class AbsSeriesSearchResult {
     };
   }
 
-  factory AbsSeriesSearchResult.fromMap(Map<String, dynamic> map) {
-    return AbsSeriesSearchResult(
+  factory SeriesSearchResult.fromMap(Map<String, dynamic> map) {
+    return SeriesSearchResult(
       series: Series.fromJson(map['series']),
-      books: [for (final a in map['books']) AbsAudiobook.fromJson(a)],
+      books: [for (final a in map['books']) LibraryItem.fromJson(a)],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory AbsSeriesSearchResult.fromJson(String source) =>
-      AbsSeriesSearchResult.fromMap(json.decode(source));
+  factory SeriesSearchResult.fromJson(String source) =>
+      SeriesSearchResult.fromMap(json.decode(source));
 
   @override
   String toString() => 'AbsSeriesSearchResult(series: $series, books: $books)';
@@ -47,7 +48,7 @@ class AbsSeriesSearchResult {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is AbsSeriesSearchResult && other.series == series;
+    return other is SeriesSearchResult && other.series == series;
   }
 
   @override

@@ -26,7 +26,7 @@ class SessionsService extends Service {
 
   Future<void> sendProgressSync(
     String sessionId,
-    AbsMediaProgress progress,
+    MediaProgress progress,
   ) async {
     await api.client.post(
       AudiobookshelfApi.createUri(api.baseUrl, '/api/session/$sessionId/sync'),

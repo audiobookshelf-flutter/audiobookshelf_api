@@ -28,7 +28,7 @@ class MeService extends Service {
     );
   }
 
-  Future updateProgress(AbsAudiobookProgress progress) async {
+  Future updateProgress(AudiobookProgress progress) async {
     await api.client.patch(
       AudiobookshelfApi.createUri(
         api.baseUrl,
