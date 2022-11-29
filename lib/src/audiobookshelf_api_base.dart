@@ -24,6 +24,9 @@ import 'services/users_service.dart';
 import 'utils/error_with_message.dart';
 import 'utils/exception_with_message.dart';
 
+typedef ResponseErrorHandler = void Function(http.Response response);
+typedef FromJson<T> = T? Function(dynamic json);
+
 class AudiobookshelfApi {
   /// A header identifying the request data as JSON.
   static const jsonHeader = {
@@ -140,8 +143,8 @@ class AudiobookshelfApi {
     required String path,
     Map<String, dynamic>? queryParameters,
     bool requiresAuth = false,
-    required void Function(http.Response response) responseErrorHandler,
-    required T Function(dynamic json) fromJson,
+    required ResponseErrorHandler responseErrorHandler,
+    required FromJson<T> fromJson,
   }) {
     return requestJson(
       method: 'GET',
@@ -182,8 +185,8 @@ class AudiobookshelfApi {
     Map<String, String>? formData,
     Map<String, String>? filePaths,
     bool requiresAuth = false,
-    required void Function(http.Response response) responseErrorHandler,
-    required T Function(dynamic json) fromJson,
+    required ResponseErrorHandler responseErrorHandler,
+    required FromJson<T> fromJson,
   }) {
     return requestJson(
       method: 'POST',
@@ -227,8 +230,8 @@ class AudiobookshelfApi {
     Map<String, String>? formData,
     Map<String, String>? filePaths,
     bool requiresAuth = false,
-    required void Function(http.Response response) responseErrorHandler,
-    required T Function(dynamic json) fromJson,
+    required ResponseErrorHandler responseErrorHandler,
+    required FromJson<T> fromJson,
   }) {
     return requestJson(
       method: 'PATCH',
@@ -263,8 +266,8 @@ class AudiobookshelfApi {
     required String path,
     Map<String, dynamic>? queryParameters,
     bool requiresAuth = false,
-    required void Function(http.Response response) responseErrorHandler,
-    required T Function(dynamic json) fromJson,
+    required ResponseErrorHandler responseErrorHandler,
+    required FromJson<T> fromJson,
   }) {
     return requestJson(
       method: 'DELETE',
@@ -294,8 +297,8 @@ class AudiobookshelfApi {
     Map<String, String>? formData,
     Map<String, String>? filePaths,
     bool requiresAuth = false,
-    required void Function(http.Response response) responseErrorHandler,
-    required T Function(dynamic json) fromJson,
+    required ResponseErrorHandler responseErrorHandler,
+    required FromJson<T> fromJson,
   }) async {
     final response = await request(
       method: method,
