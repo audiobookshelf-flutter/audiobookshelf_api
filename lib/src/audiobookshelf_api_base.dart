@@ -143,7 +143,7 @@ class AudiobookshelfApi {
     required String path,
     Map<String, dynamic>? queryParameters,
     bool requiresAuth = false,
-    required ResponseErrorHandler responseErrorHandler,
+    ResponseErrorHandler? responseErrorHandler,
     required FromJson<T> fromJson,
   }) {
     return requestJson(
@@ -185,7 +185,7 @@ class AudiobookshelfApi {
     Map<String, String>? formData,
     Map<String, String>? filePaths,
     bool requiresAuth = false,
-    required ResponseErrorHandler responseErrorHandler,
+    ResponseErrorHandler? responseErrorHandler,
     required FromJson<T> fromJson,
   }) {
     return requestJson(
@@ -230,7 +230,7 @@ class AudiobookshelfApi {
     Map<String, String>? formData,
     Map<String, String>? filePaths,
     bool requiresAuth = false,
-    required ResponseErrorHandler responseErrorHandler,
+    ResponseErrorHandler? responseErrorHandler,
     required FromJson<T> fromJson,
   }) {
     return requestJson(
@@ -266,7 +266,7 @@ class AudiobookshelfApi {
     required String path,
     Map<String, dynamic>? queryParameters,
     bool requiresAuth = false,
-    required ResponseErrorHandler responseErrorHandler,
+    ResponseErrorHandler? responseErrorHandler,
     required FromJson<T> fromJson,
   }) {
     return requestJson(
@@ -282,7 +282,7 @@ class AudiobookshelfApi {
   /// Makes an HTTP request and handles returned JSON.
   ///
   /// [responseErrorHandler] is called when a non-successful
-  /// status code is returned.
+  /// status code is occurs and `null` will be returned.
   ///
   /// [fromJson] converts the returned JSON
   /// (which may be [Map<String, dynamic>] or [List<Map<String, dynamic>>],
@@ -297,7 +297,7 @@ class AudiobookshelfApi {
     Map<String, String>? formData,
     Map<String, String>? filePaths,
     bool requiresAuth = false,
-    required ResponseErrorHandler responseErrorHandler,
+    ResponseErrorHandler? responseErrorHandler,
     required FromJson<T> fromJson,
   }) async {
     final response = await request(
@@ -311,7 +311,7 @@ class AudiobookshelfApi {
     );
 
     if (response.statusCode < 200 && response.statusCode >= 300) {
-      responseErrorHandler(response);
+      if (responseErrorHandler != null) responseErrorHandler(response);
       return null;
     }
 
