@@ -3,7 +3,6 @@ export 'src/login_response.dart';
 export 'src/user.dart';
 export 'src/audiobook_progress.dart';
 export 'src/models/library_item.dart';
-export 'src/models/play_item_request.dart';
 export 'src/models/series.dart';
 export 'src/audiobook_search_result.dart';
 export 'src/library.dart';

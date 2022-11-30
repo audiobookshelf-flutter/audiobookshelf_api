@@ -1,41 +1,75 @@
-import 'dart:convert';
-
-import 'package:http/http.dart' as http;
-
-import '../audiobook_progress.dart';
-import '../audiobookshelf_api_base.dart';
+import '../utils/optional_parameters.dart';
+import '../utils/precise_duration.dart';
+import '../utils/typedefs.dart';
 import 'service.dart';
 
 class MeService extends Service {
+  /// `/api/me`
+  static const basePath = '${Service.basePath}/me';
+
   const MeService(super.api);
 
-  Future markPlayed(String itemId) async {
-    (await patchAudiobook(itemId, true));
-  }
-
-  Future markUnplayed(String itemId) async {
-    await patchAudiobook(itemId, false);
-  }
-
-  Future<http.Response> patchAudiobook(String itemId, bool isRead) async {
-    return await api.client.patch(
-      AudiobookshelfApi.createUri(
-        api.baseUrl,
-        '/api/me/progress/$itemId',
-      ),
-      headers: api.authJsonHeader,
-      body: utf8.encode(jsonEncode({'isFinished': isRead})),
-    );
-  }
-
-  Future updateProgress(AudiobookProgress progress) async {
-    await api.client.patch(
-      AudiobookshelfApi.createUri(
-        api.baseUrl,
-        '/api/me/progress/${progress.id}',
-      ),
-      headers: api.authJsonHeader,
-      body: utf8.encode(jsonEncode(progress.toJson())),
+  Future<void> createUpdateMediaProgress({
+    required String libraryItemId,
+    String? episodeId,
+    Duration? duration,
+    double? progress,
+    Duration? currentTime,
+    bool? isFinished,
+    bool? hideFromContinueListening,
+    DateTime? lastUpdate,
+    DateTime? finishedAt,
+    DateTime? startedAt,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    String path = '$basePath/progress/$libraryItemId';
+    if (episodeId != null) path += '/$episodeId';
+    return api.patch(
+      path: path,
+      jsonObject: optionalParameters([
+        OptionalParameter(
+          name: 'duration',
+          defaultValue: 0,
+          value: duration?.inPreciseSeconds,
+        ),
+        OptionalParameter(
+          name: 'progress',
+          defaultValue: isFinished ?? false ? 1 : 0,
+          value: progress,
+        ),
+        OptionalParameter(
+          name: 'currentTime',
+          defaultValue: 0,
+          value: currentTime?.inPreciseSeconds,
+        ),
+        OptionalParameter(
+          name: 'isFinished',
+          defaultValue: false,
+          value: isFinished,
+        ),
+        OptionalParameter(
+          name: 'hideFromContinueListening',
+          defaultValue: false,
+          value: hideFromContinueListening,
+        ),
+        OptionalParameter(
+          name: 'lastUpdate',
+          defaultValue: null,
+          value: lastUpdate?.millisecondsSinceEpoch,
+        ),
+        OptionalParameter(
+          name: 'finishedAt',
+          defaultValue: null,
+          value: finishedAt?.millisecondsSinceEpoch,
+        ),
+        OptionalParameter(
+          name: 'startedAt',
+          defaultValue: null,
+          value: startedAt?.millisecondsSinceEpoch,
+        ),
+      ]),
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
     );
   }
 }

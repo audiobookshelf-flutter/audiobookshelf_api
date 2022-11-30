@@ -1,23 +1,26 @@
-import 'dart:convert';
-
-import 'package:http/http.dart' as http;
-
-import '../user.dart';
-import '../audiobookshelf_api_base.dart';
+import '../login_response.dart';
+import '../utils/from_json.dart';
+import '../utils/typedefs.dart';
 import 'service.dart';
 
 class MiscService extends Service {
+  /// `/api`
+  static const basePath = Service.basePath;
+
   const MiscService(super.api);
 
-  Future<User> authorize() async {
-    http.Response response = await api.client.post(
-      AudiobookshelfApi.createUri(api.baseUrl, '/api/authorize'),
-      headers: api.authJsonHeader,
+  Future<LoginResponse?> authorize({
+    ResponseErrorHandler? responseErrorHandler,
+  }) async {
+    final loginResponse = await api.postJson(
+      path: '$basePath/authorize',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, LoginResponse.fromJson),
     );
-    final decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));
-    final user = User.fromJson(decodedResponse['user']);
 
-    api.userId = user.id;
-    return user;
+    if (loginResponse != null) api.userId = loginResponse.user.id;
+
+    return loginResponse;
   }
 }

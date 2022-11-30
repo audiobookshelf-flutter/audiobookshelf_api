@@ -1,131 +1,83 @@
-import 'dart:convert';
-
-import 'package:http/http.dart' as http;
-
 import '../library.dart';
 import '../search_response.dart';
-import '../audiobookshelf_api_base.dart';
 import '../models/library_item.dart';
 import '../models/series.dart';
+import '../utils/from_json.dart';
+import '../utils/typedefs.dart';
 import 'service.dart';
 
 class LibrariesService extends Service {
+  /// `/api/libraries`
+  static const basePath = '${Service.basePath}/libraries';
+
   const LibrariesService(super.api);
 
-  Future<List<Library>> getAll() async {
-    http.Response response = await api.client.get(
-      AudiobookshelfApi.createUri(api.baseUrl, '/api/libraries'),
-      headers: api.authJsonHeader,
+  Future<List<Library>?> getAll({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: basePath,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJson(json, Library.fromJson),
     );
-
-    return jsonDecode(utf8.decode(response.bodyBytes))
-        .map<Library>((el) => Library.fromJson(el))
-        .toList();
   }
 
-  Future<List<LibraryItem>> getLibraryItems(String libraryId) async {
-    http.Response response = await api.client.get(
-      AudiobookshelfApi.createUri(
-        api.baseUrl,
-        '/api/libraries/$libraryId/items',
-      ),
-      headers: api.authJsonHeader,
-    );
-    return jsonDecode(utf8.decode(response.bodyBytes))['results']
-        .map<LibraryItem>((el) => LibraryItem.fromJson(el))
-        .toList();
-  }
-
-  Future<List<Author>> getLibraryAuthors(String libraryId) async {
-    http.Response response = await api.client.get(
-      AudiobookshelfApi.createUri(
-        api.baseUrl,
-        '/api/libraries/$libraryId/authors',
-      ),
-      headers: api.authJsonHeader,
-    );
-    return jsonDecode(utf8.decode(response.bodyBytes))
-        .map<Author>((el) => Author.fromJson(el))
-        .toList();
-  }
-
-  Future<List<Series>> getLibrarySeries(String libraryId) async {
-    http.Response response = await api.client.get(
-      AudiobookshelfApi.createUri(
-        api.baseUrl,
-        '/api/libraries/$libraryId/series',
-      ),
-      headers: api.authJsonHeader,
-    );
-
-    return jsonDecode(
-      utf8.decode(response.bodyBytes),
-    )['results']
-        .map<Series>((x) => Series.fromJson(x))
-        .toList();
-  }
-
-  Future<SearchResponse> searchLibrary(
-    String libraryId,
-    String searchTerm,
-  ) async {
-    http.Response response = await api.client.get(
-      AudiobookshelfApi.createUri(
-        api.baseUrl,
-        '/api/libraries/$libraryId/search',
-        {
-          'q': searchTerm,
-          'max': '10',
-        },
-      ),
-      headers: api.authJsonHeader,
-    );
-    return SearchResponse.fromMap(
-      jsonDecode(
-        utf8.decode(response.bodyBytes),
+  Future<List<LibraryItem>?> getLibraryItems({
+    required String libraryId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/items',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJsonKey(
+        json,
+        'results',
+        LibraryItem.fromJson,
       ),
     );
   }
 
-  Future<List<LibraryItem>> getBooksForAuthor(
-    String libraryId,
-    String authorId,
-  ) async {
-    final encodedAuthor = base64Encode(utf8.encode(authorId));
-    http.Response response = await api.client.get(
-      AudiobookshelfApi.createUri(
-        api.baseUrl,
-        '/api/libraries/$libraryId/items',
-        {
-          'expanded': '1',
-          'filter': 'authors.$encodedAuthor',
-        },
-      ),
-      headers: api.authJsonHeader,
+  Future<List<Author>?> getAuthors({
+    required String libraryId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/authors',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJson(json, Author.fromJson),
     );
-
-    return jsonDecode(utf8.decode(response.bodyBytes))['results']
-        .map<LibraryItem>((el) => LibraryItem.fromJson(el))
-        .toList();
   }
 
-  Future<List<LibraryItem>> getBooksForSeries(
-      String libraryId, String seriesId) async {
-    final encodedSeriesId = base64Encode(utf8.encode(seriesId));
-    http.Response response = await api.client.get(
-      AudiobookshelfApi.createUri(
-        api.baseUrl,
-        '/api/libraries/$libraryId/items',
-        {
-          'expanded': '1',
-          'filter': 'series.$encodedSeriesId',
-        },
-      ),
-      headers: api.authJsonHeader,
+  Future<List<Series>?> getSeries({
+    required String libraryId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/series',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJsonKey(json, 'results', Series.fromJson),
     );
+  }
 
-    return jsonDecode(utf8.decode(response.bodyBytes))['results']
-        .map<LibraryItem>((el) => LibraryItem.fromJson(el))
-        .toList();
+  Future<SearchResponse?> search({
+    required String libraryId,
+    required String query,
+    int? limit,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/search',
+      queryParameters: {
+        'q': query,
+        if (limit != null) 'limit': limit,
+      },
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, SearchResponse.fromMap),
+    );
   }
 }

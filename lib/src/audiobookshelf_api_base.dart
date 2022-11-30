@@ -23,9 +23,7 @@ import 'services/tools_service.dart';
 import 'services/users_service.dart';
 import 'utils/error_with_message.dart';
 import 'utils/exception_with_message.dart';
-
-typedef ResponseErrorHandler = void Function(http.Response response);
-typedef FromJson<T> = T? Function(dynamic json);
+import 'utils/typedefs.dart';
 
 class AudiobookshelfApi {
   /// A header identifying the request data as JSON.
@@ -128,12 +126,14 @@ class AudiobookshelfApi {
     required String path,
     Map<String, dynamic>? queryParameters,
     bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
   }) {
     return request(
       method: 'GET',
       path: path,
       queryParameters: queryParameters,
       requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
     );
   }
 
@@ -164,6 +164,7 @@ class AudiobookshelfApi {
     Map<String, String>? formData,
     Map<String, String>? filePaths,
     bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
   }) {
     return request(
       method: 'POST',
@@ -173,6 +174,7 @@ class AudiobookshelfApi {
       formData: formData,
       filePaths: filePaths,
       requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
     );
   }
 
@@ -209,6 +211,7 @@ class AudiobookshelfApi {
     Map<String, String>? formData,
     Map<String, String>? filePaths,
     bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
   }) {
     return request(
       method: 'PATCH',
@@ -218,6 +221,7 @@ class AudiobookshelfApi {
       formData: formData,
       filePaths: filePaths,
       requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
     );
   }
 
@@ -251,12 +255,14 @@ class AudiobookshelfApi {
     required String path,
     Map<String, dynamic>? queryParameters,
     bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
   }) {
     return request(
       method: 'DELETE',
       path: path,
       queryParameters: queryParameters,
       requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
     );
   }
 
@@ -280,12 +286,10 @@ class AudiobookshelfApi {
   }
 
   /// Makes an HTTP request and handles returned JSON.
-  ///
-  /// [responseErrorHandler] is called when a non-successful
-  /// status code is occurs and `null` will be returned.
+  /// Will return `null` if a non-successful response status code occurs.
   ///
   /// [fromJson] converts the returned JSON
-  /// (which may be [Map<String, dynamic>] or [List<Map<String, dynamic>>],
+  /// (which may be [Map<String, dynamic>] or [List<dynamic>],
   /// see [JsonCodec.decode]) to [T].
   ///
   /// See [request] for other parameters and more details.
@@ -308,10 +312,10 @@ class AudiobookshelfApi {
       formData: formData,
       filePaths: filePaths,
       requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
     );
 
-    if (response.statusCode < 200 && response.statusCode >= 300) {
-      if (responseErrorHandler != null) responseErrorHandler(response);
+    if (response.statusCode >= 300) {
       return null;
     }
 
@@ -341,6 +345,8 @@ class AudiobookshelfApi {
   ///
   /// [requiresAuth] is whether the request requires the authorization header.
   /// [token] must be non-null if [requiresAuth] is `true`.
+  ///
+  /// [responseErrorHandler] is called when a non-successful status code occurs.
   Future<http.Response> request({
     required String method,
     required String path,
@@ -349,6 +355,7 @@ class AudiobookshelfApi {
     Map<String, String>? formData,
     Map<String, String>? filePaths,
     bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
   }) async {
     if (jsonObject != null && (formData != null || filePaths != null)) {
       throw RequestError(
@@ -402,7 +409,15 @@ class AudiobookshelfApi {
       baseRequest.headers.addAll(authHeader);
     }
 
-    return http.Response.fromStream(await client.send(baseRequest));
+    final response = await http.Response.fromStream(
+      await client.send(baseRequest),
+    );
+
+    if (responseErrorHandler != null && response.statusCode >= 300) {
+      responseErrorHandler(response);
+    }
+
+    return response;
   }
 
   /// Cleans up this AudiobookshelfAPI instance.

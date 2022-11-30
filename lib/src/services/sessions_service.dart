@@ -1,42 +1,33 @@
-import 'dart:convert';
-
-import '../audiobookshelf_api_base.dart';
-import '../models/media_progress.dart';
+import '../utils/precise_duration.dart';
+import '../utils/typedefs.dart';
 import 'service.dart';
 
 class SessionsService extends Service {
+  /// `/api/session`
+  static const basePath = '${Service.basePath}/session';
+
+  /// `/api/sessions`
+  static const basePathS = '${basePath}s';
+
   const SessionsService(super.api);
 
-  Future<void> playbackSessionCheckIn(
-    String sessionId,
-    Duration duration,
-    Duration currentTime,
-    Duration timeListened,
-  ) async {
-    await api.client.post(
-      AudiobookshelfApi.createUri(api.baseUrl, '/api/session/$sessionId/sync'),
-      headers: api.authJsonHeader,
-      body: utf8.encode(jsonEncode({
-        'currentTime': durationToSeconds(currentTime),
-        'timeListened': durationToSeconds(timeListened),
-        'duration': durationToSeconds(duration),
-      })),
+  Future<void> sync({
+    required String sessionId,
+    required Duration currentTime,
+    required Duration timeListened,
+    required Duration duration,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$sessionId/sync',
+      jsonObject: {
+        'currentTime': currentTime.inPreciseSeconds,
+        'timeListened': timeListened.inPreciseSeconds,
+        'duration': duration.inPreciseSeconds,
+      },
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (_) => null, // TODO: add session schema
     );
-  }
-
-  Future<void> sendProgressSync(
-    String sessionId,
-    MediaProgress progress,
-  ) async {
-    await api.client.post(
-      AudiobookshelfApi.createUri(api.baseUrl, '/api/session/$sessionId/sync'),
-      headers: api.authJsonHeader,
-      body: utf8.encode(jsonEncode(progress.toJson())),
-    );
-  }
-
-  double durationToSeconds(Duration dur) {
-    const microToSeconds = 1000000;
-    return dur.inMicroseconds / microToSeconds;
   }
 }
