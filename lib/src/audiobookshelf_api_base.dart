@@ -15,6 +15,7 @@ import 'services/library_items_service.dart';
 import 'services/me_service.dart';
 import 'services/misc_service.dart';
 import 'services/notifications_service.dart';
+import 'services/playlists_service.dart';
 import 'services/podcasts_service.dart';
 import 'services/search_service.dart';
 import 'services/series_service.dart';
@@ -49,6 +50,7 @@ class AudiobookshelfApi {
   late final LibraryItemsService items;
   late final UsersService users;
   late final CollectionsService collections;
+  late final PlaylistsService playlists;
   late final MeService me;
   late final BackupsService backups;
   late final FilesystemService filesystem;
@@ -77,6 +79,7 @@ class AudiobookshelfApi {
     items = LibraryItemsService(this);
     users = UsersService(this);
     collections = CollectionsService(this);
+    playlists = PlaylistsService(this);
     me = MeService(this);
     backups = BackupsService(this);
     filesystem = FilesystemService(this);
