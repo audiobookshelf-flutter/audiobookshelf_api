@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
 
+import 'login_response.dart';
 import 'services/authors_service.dart';
 import 'services/backups_service.dart';
 import 'services/cache_service.dart';
@@ -119,6 +120,19 @@ class AudiobookshelfApi {
     }
 
     throw UnsupportedSchemeError('Unsupported scheme from URL: $url');
+  }
+
+  /// Alias for [ServerService.login]
+  Future<LoginResponse?> login({
+    required String username,
+    required String password,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return server.login(
+      username: username,
+      password: password,
+      responseErrorHandler: responseErrorHandler,
+    );
   }
 
   /// Makes a GET HTTP request. See [request] for details.
