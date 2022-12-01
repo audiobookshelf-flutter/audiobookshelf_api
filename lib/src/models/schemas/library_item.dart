@@ -2,8 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'series.dart';
 
-part 'library_item.freezed.dart';
-part 'library_item.g.dart';
+part 'generated/library_item.freezed.dart';
+part 'generated/library_item.g.dart';
 
 @freezed
 class LibraryItem with _$LibraryItem {

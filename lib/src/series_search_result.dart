@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'models/library_item.dart';
-import 'models/series.dart';
+import 'models/schemas/library_item.dart';
+import 'models/schemas/series.dart';
 
 class SeriesSearchResult {
   final Series series;

@@ -1,7 +1,7 @@
 import '../library.dart';
 import '../search_response.dart';
-import '../models/library_item.dart';
-import '../models/series.dart';
+import '../models/schemas/library_item.dart';
+import '../models/schemas/series.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';

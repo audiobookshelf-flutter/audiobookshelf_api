@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'media_progress.freezed.dart';
-part 'media_progress.g.dart';
+part 'generated/media_progress.freezed.dart';
+part 'generated/media_progress.g.dart';
 
 @freezed
 class MediaProgress with _$MediaProgress {

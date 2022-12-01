@@ -2,8 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'library_item.dart';
 
-part 'series.freezed.dart';
-part 'series.g.dart';
+part 'generated/series.freezed.dart';
+part 'generated/series.g.dart';
 
 @freezed
 abstract class Series with _$Series {

@@ -1,4 +1,4 @@
-import '../models/library_item.dart';
+import '../models/schemas/library_item.dart';
 import '../utils/from_json.dart';
 import '../utils/optional_parameters.dart';
 import '../utils/typedefs.dart';

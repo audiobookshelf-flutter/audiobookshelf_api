@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'media_progress.dart';
+part of '../media_progress.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
