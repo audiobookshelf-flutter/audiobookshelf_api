@@ -1,4 +1,4 @@
-import '../library.dart';
+import '../models/schemas/library.dart';
 import '../search_response.dart';
 import '../models/schemas/library_item.dart';
 import '../models/schemas/series.dart';
