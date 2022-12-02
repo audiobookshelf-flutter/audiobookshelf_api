@@ -10,6 +10,7 @@ import 'library_settings.dart';
 part 'generated/library.freezed.dart';
 part 'generated/library.g.dart';
 
+/// See [Library](https://api.audiobookshelf.org/#library)
 @freezed
 class Library with _$Library {
   @jsonConverters

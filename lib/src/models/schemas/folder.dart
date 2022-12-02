@@ -5,6 +5,7 @@ import '../../utils/json_converters.dart';
 part 'generated/folder.freezed.dart';
 part 'generated/folder.g.dart';
 
+/// See [Folder](https://api.audiobookshelf.org/#folder)
 @freezed
 class Folder with _$Folder {
   @jsonConverters

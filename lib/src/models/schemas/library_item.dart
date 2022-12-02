@@ -12,6 +12,7 @@ import 'podcast.dart';
 part 'generated/library_item.freezed.dart';
 part 'generated/library_item.g.dart';
 
+/// See [Library Item](https://api.audiobookshelf.org/#library-item)
 @Freezed(genericArgumentFactories: true)
 class LibraryItem<T extends Media> with _$LibraryItem<T> {
   const LibraryItem._();
