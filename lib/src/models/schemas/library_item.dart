@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils/exception_with_message.dart';
 import '../../utils/from_json.dart';
+import '../../utils/json_converters.dart';
+import '../enums/media_type.dart';
 import 'book.dart';
 import 'library_file.dart';
 import 'media.dart';
@@ -14,6 +16,10 @@ part 'generated/library_item.g.dart';
 class LibraryItem<T extends Media> with _$LibraryItem<T> {
   const LibraryItem._();
 
+  @JsonSerializable(
+    genericArgumentFactories: true,
+    converters: [DateTimeEpochConverter()],
+  )
   const factory LibraryItem({
     required String id,
     required String ino,
@@ -22,16 +28,16 @@ class LibraryItem<T extends Media> with _$LibraryItem<T> {
     required String path,
     required String relPath,
     required bool isFile,
-    int? mtimeMs,
-    int? ctimeMs,
-    int? birthtimeMs,
-    int? addedAt,
-    int? updatedAt,
-    int? lastScan,
+    @JsonKey(name: 'mtimeMs') required DateTime mtime,
+    @JsonKey(name: 'ctimeMs') required DateTime ctime,
+    @JsonKey(name: 'birthtimeMs') required DateTime birthtime,
+    required DateTime addedAt,
+    required DateTime updatedAt,
+    DateTime? lastScan,
     String? scanVersion,
     required bool isMissing,
     required bool isInvalid,
-    required String mediaType,
+    required MediaType mediaType,
     required T media,
     required List<LibraryFile> libraryFiles,
   }) = _LibraryItem;
@@ -44,16 +50,17 @@ class LibraryItem<T extends Media> with _$LibraryItem<T> {
 
   factory LibraryItem.allFromJson(dynamic json) {
     final T Function(Map<String, dynamic>) fromJsonS;
-    final String mediaType = fromJsonKey(json, 'mediaType');
+    final String mediaTypeString = fromJsonKey(json, 'mediaType');
+    final mediaType = MediaType.byType[mediaTypeString];
     switch (mediaType) {
-      case 'book':
+      case MediaType.book:
         fromJsonS = Book.fromJson as T Function(Map<String, dynamic>);
         break;
-      case 'podcast':
+      case MediaType.podcast:
         fromJsonS = Podcast.fromJson as T Function(Map<String, dynamic>);
         break;
       default:
-        throw UnsupportedMediaTypeException(mediaType);
+        throw UnsupportedMediaTypeException(mediaTypeString);
     }
     return fromJsonT(json, LibraryItem<T>.fromJson, fromJsonS);
   }

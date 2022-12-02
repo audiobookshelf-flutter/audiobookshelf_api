@@ -13,7 +13,7 @@ class DateTimeEpochConverter implements JsonConverter<DateTime, int> {
   const DateTimeEpochConverter();
 
   @override
-  DateTime fromJson(int json) => DateTime.fromMicrosecondsSinceEpoch(json);
+  DateTime fromJson(int json) => DateTime.fromMillisecondsSinceEpoch(json);
 
   @override
   int toJson(DateTime object) => object.millisecondsSinceEpoch;

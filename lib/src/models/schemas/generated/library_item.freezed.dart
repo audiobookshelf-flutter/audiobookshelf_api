@@ -28,16 +28,19 @@ mixin _$LibraryItem<T extends Media> {
   String get path => throw _privateConstructorUsedError;
   String get relPath => throw _privateConstructorUsedError;
   bool get isFile => throw _privateConstructorUsedError;
-  int? get mtimeMs => throw _privateConstructorUsedError;
-  int? get ctimeMs => throw _privateConstructorUsedError;
-  int? get birthtimeMs => throw _privateConstructorUsedError;
-  int? get addedAt => throw _privateConstructorUsedError;
-  int? get updatedAt => throw _privateConstructorUsedError;
-  int? get lastScan => throw _privateConstructorUsedError;
+  @JsonKey(name: 'mtimeMs')
+  DateTime get mtime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'ctimeMs')
+  DateTime get ctime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'birthtimeMs')
+  DateTime get birthtime => throw _privateConstructorUsedError;
+  DateTime get addedAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get lastScan => throw _privateConstructorUsedError;
   String? get scanVersion => throw _privateConstructorUsedError;
   bool get isMissing => throw _privateConstructorUsedError;
   bool get isInvalid => throw _privateConstructorUsedError;
-  String get mediaType => throw _privateConstructorUsedError;
+  MediaType get mediaType => throw _privateConstructorUsedError;
   T get media => throw _privateConstructorUsedError;
   List<LibraryFile> get libraryFiles => throw _privateConstructorUsedError;
 
@@ -62,16 +65,16 @@ abstract class $LibraryItemCopyWith<T extends Media, $Res> {
       String path,
       String relPath,
       bool isFile,
-      int? mtimeMs,
-      int? ctimeMs,
-      int? birthtimeMs,
-      int? addedAt,
-      int? updatedAt,
-      int? lastScan,
+      @JsonKey(name: 'mtimeMs') DateTime mtime,
+      @JsonKey(name: 'ctimeMs') DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+      DateTime addedAt,
+      DateTime updatedAt,
+      DateTime? lastScan,
       String? scanVersion,
       bool isMissing,
       bool isInvalid,
-      String mediaType,
+      MediaType mediaType,
       T media,
       List<LibraryFile> libraryFiles});
 }
@@ -96,11 +99,11 @@ class _$LibraryItemCopyWithImpl<T extends Media, $Res,
     Object? path = null,
     Object? relPath = null,
     Object? isFile = null,
-    Object? mtimeMs = freezed,
-    Object? ctimeMs = freezed,
-    Object? birthtimeMs = freezed,
-    Object? addedAt = freezed,
-    Object? updatedAt = freezed,
+    Object? mtime = null,
+    Object? ctime = null,
+    Object? birthtime = null,
+    Object? addedAt = null,
+    Object? updatedAt = null,
     Object? lastScan = freezed,
     Object? scanVersion = freezed,
     Object? isMissing = null,
@@ -138,30 +141,30 @@ class _$LibraryItemCopyWithImpl<T extends Media, $Res,
           ? _value.isFile
           : isFile // ignore: cast_nullable_to_non_nullable
               as bool,
-      mtimeMs: freezed == mtimeMs
-          ? _value.mtimeMs
-          : mtimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ctimeMs: freezed == ctimeMs
-          ? _value.ctimeMs
-          : ctimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      birthtimeMs: freezed == birthtimeMs
-          ? _value.birthtimeMs
-          : birthtimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      addedAt: freezed == addedAt
+      mtime: null == mtime
+          ? _value.mtime
+          : mtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      ctime: null == ctime
+          ? _value.ctime
+          : ctime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      birthtime: null == birthtime
+          ? _value.birthtime
+          : birthtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
-              as int?,
-      updatedAt: freezed == updatedAt
+              as DateTime,
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DateTime,
       lastScan: freezed == lastScan
           ? _value.lastScan
           : lastScan // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DateTime?,
       scanVersion: freezed == scanVersion
           ? _value.scanVersion
           : scanVersion // ignore: cast_nullable_to_non_nullable
@@ -177,7 +180,7 @@ class _$LibraryItemCopyWithImpl<T extends Media, $Res,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as MediaType,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -206,16 +209,16 @@ abstract class _$$_LibraryItemCopyWith<T extends Media, $Res>
       String path,
       String relPath,
       bool isFile,
-      int? mtimeMs,
-      int? ctimeMs,
-      int? birthtimeMs,
-      int? addedAt,
-      int? updatedAt,
-      int? lastScan,
+      @JsonKey(name: 'mtimeMs') DateTime mtime,
+      @JsonKey(name: 'ctimeMs') DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+      DateTime addedAt,
+      DateTime updatedAt,
+      DateTime? lastScan,
       String? scanVersion,
       bool isMissing,
       bool isInvalid,
-      String mediaType,
+      MediaType mediaType,
       T media,
       List<LibraryFile> libraryFiles});
 }
@@ -238,11 +241,11 @@ class __$$_LibraryItemCopyWithImpl<T extends Media, $Res>
     Object? path = null,
     Object? relPath = null,
     Object? isFile = null,
-    Object? mtimeMs = freezed,
-    Object? ctimeMs = freezed,
-    Object? birthtimeMs = freezed,
-    Object? addedAt = freezed,
-    Object? updatedAt = freezed,
+    Object? mtime = null,
+    Object? ctime = null,
+    Object? birthtime = null,
+    Object? addedAt = null,
+    Object? updatedAt = null,
     Object? lastScan = freezed,
     Object? scanVersion = freezed,
     Object? isMissing = null,
@@ -280,30 +283,30 @@ class __$$_LibraryItemCopyWithImpl<T extends Media, $Res>
           ? _value.isFile
           : isFile // ignore: cast_nullable_to_non_nullable
               as bool,
-      mtimeMs: freezed == mtimeMs
-          ? _value.mtimeMs
-          : mtimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ctimeMs: freezed == ctimeMs
-          ? _value.ctimeMs
-          : ctimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      birthtimeMs: freezed == birthtimeMs
-          ? _value.birthtimeMs
-          : birthtimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      addedAt: freezed == addedAt
+      mtime: null == mtime
+          ? _value.mtime
+          : mtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      ctime: null == ctime
+          ? _value.ctime
+          : ctime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      birthtime: null == birthtime
+          ? _value.birthtime
+          : birthtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
-              as int?,
-      updatedAt: freezed == updatedAt
+              as DateTime,
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DateTime,
       lastScan: freezed == lastScan
           ? _value.lastScan
           : lastScan // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DateTime?,
       scanVersion: freezed == scanVersion
           ? _value.scanVersion
           : scanVersion // ignore: cast_nullable_to_non_nullable
@@ -319,7 +322,7 @@ class __$$_LibraryItemCopyWithImpl<T extends Media, $Res>
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as MediaType,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -333,7 +336,9 @@ class __$$_LibraryItemCopyWithImpl<T extends Media, $Res>
 }
 
 /// @nodoc
-@JsonSerializable(genericArgumentFactories: true)
+
+@JsonSerializable(
+    genericArgumentFactories: true, converters: [DateTimeEpochConverter()])
 class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
   const _$_LibraryItem(
       {required this.id,
@@ -343,11 +348,11 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
       required this.path,
       required this.relPath,
       required this.isFile,
-      this.mtimeMs,
-      this.ctimeMs,
-      this.birthtimeMs,
-      this.addedAt,
-      this.updatedAt,
+      @JsonKey(name: 'mtimeMs') required this.mtime,
+      @JsonKey(name: 'ctimeMs') required this.ctime,
+      @JsonKey(name: 'birthtimeMs') required this.birthtime,
+      required this.addedAt,
+      required this.updatedAt,
       this.lastScan,
       this.scanVersion,
       required this.isMissing,
@@ -377,17 +382,20 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
   @override
   final bool isFile;
   @override
-  final int? mtimeMs;
+  @JsonKey(name: 'mtimeMs')
+  final DateTime mtime;
   @override
-  final int? ctimeMs;
+  @JsonKey(name: 'ctimeMs')
+  final DateTime ctime;
   @override
-  final int? birthtimeMs;
+  @JsonKey(name: 'birthtimeMs')
+  final DateTime birthtime;
   @override
-  final int? addedAt;
+  final DateTime addedAt;
   @override
-  final int? updatedAt;
+  final DateTime updatedAt;
   @override
-  final int? lastScan;
+  final DateTime? lastScan;
   @override
   final String? scanVersion;
   @override
@@ -395,7 +403,7 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
   @override
   final bool isInvalid;
   @override
-  final String mediaType;
+  final MediaType mediaType;
   @override
   final T media;
   final List<LibraryFile> _libraryFiles;
@@ -407,7 +415,7 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
 
   @override
   String toString() {
-    return 'LibraryItem<$T>(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtimeMs: $mtimeMs, ctimeMs: $ctimeMs, birthtimeMs: $birthtimeMs, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles)';
+    return 'LibraryItem<$T>(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles)';
   }
 
   @override
@@ -424,10 +432,10 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
             (identical(other.path, path) || other.path == path) &&
             (identical(other.relPath, relPath) || other.relPath == relPath) &&
             (identical(other.isFile, isFile) || other.isFile == isFile) &&
-            (identical(other.mtimeMs, mtimeMs) || other.mtimeMs == mtimeMs) &&
-            (identical(other.ctimeMs, ctimeMs) || other.ctimeMs == ctimeMs) &&
-            (identical(other.birthtimeMs, birthtimeMs) ||
-                other.birthtimeMs == birthtimeMs) &&
+            (identical(other.mtime, mtime) || other.mtime == mtime) &&
+            (identical(other.ctime, ctime) || other.ctime == ctime) &&
+            (identical(other.birthtime, birthtime) ||
+                other.birthtime == birthtime) &&
             (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
@@ -457,9 +465,9 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
         path,
         relPath,
         isFile,
-        mtimeMs,
-        ctimeMs,
-        birthtimeMs,
+        mtime,
+        ctime,
+        birthtime,
         addedAt,
         updatedAt,
         lastScan,
@@ -492,16 +500,16 @@ abstract class _LibraryItem<T extends Media> extends LibraryItem<T> {
       required final String path,
       required final String relPath,
       required final bool isFile,
-      final int? mtimeMs,
-      final int? ctimeMs,
-      final int? birthtimeMs,
-      final int? addedAt,
-      final int? updatedAt,
-      final int? lastScan,
+      @JsonKey(name: 'mtimeMs') required final DateTime mtime,
+      @JsonKey(name: 'ctimeMs') required final DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') required final DateTime birthtime,
+      required final DateTime addedAt,
+      required final DateTime updatedAt,
+      final DateTime? lastScan,
       final String? scanVersion,
       required final bool isMissing,
       required final bool isInvalid,
-      required final String mediaType,
+      required final MediaType mediaType,
       required final T media,
       required final List<LibraryFile> libraryFiles}) = _$_LibraryItem<T>;
   const _LibraryItem._() : super._();
@@ -525,17 +533,20 @@ abstract class _LibraryItem<T extends Media> extends LibraryItem<T> {
   @override
   bool get isFile;
   @override
-  int? get mtimeMs;
+  @JsonKey(name: 'mtimeMs')
+  DateTime get mtime;
   @override
-  int? get ctimeMs;
+  @JsonKey(name: 'ctimeMs')
+  DateTime get ctime;
   @override
-  int? get birthtimeMs;
+  @JsonKey(name: 'birthtimeMs')
+  DateTime get birthtime;
   @override
-  int? get addedAt;
+  DateTime get addedAt;
   @override
-  int? get updatedAt;
+  DateTime get updatedAt;
   @override
-  int? get lastScan;
+  DateTime? get lastScan;
   @override
   String? get scanVersion;
   @override
@@ -543,7 +554,7 @@ abstract class _LibraryItem<T extends Media> extends LibraryItem<T> {
   @override
   bool get isInvalid;
   @override
-  String get mediaType;
+  MediaType get mediaType;
   @override
   T get media;
   @override
