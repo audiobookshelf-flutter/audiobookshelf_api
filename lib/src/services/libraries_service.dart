@@ -1,3 +1,4 @@
+import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
 import '../search_response.dart';
 import '../models/schemas/library_item.dart';
@@ -34,7 +35,7 @@ class LibrariesService extends Service {
       fromJson: (json) => listFromJsonKey(
         json,
         'results',
-        LibraryItem.fromJson,
+        LibraryItem.allFromJson,
       ),
     );
   }

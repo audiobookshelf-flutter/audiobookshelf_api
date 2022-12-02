@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'library_item.dart';
+import 'author.dart';
 import 'series.dart';
 
 part 'generated/library_filter_data.freezed.dart';

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'models/schemas/library_item.dart';
+import 'utils/from_json.dart';
 
 class Collection {
   final String id;
@@ -62,7 +63,7 @@ class Collection {
       'description': description,
       'cover': cover,
       'coverFullPath': coverFullPath,
-      'books': books.map((x) => x.toJson()),
+      'books': books.map((x) => x.allToJson()),
       'lastUpdate': lastUpdate,
       'createdAt': createdAt,
     };
@@ -77,7 +78,7 @@ class Collection {
       description: map['description'],
       cover: map['cover'],
       coverFullPath: map['coverFullPath'],
-      books: [for (final book in map['books']) LibraryItem.fromJson(book)],
+      books: listFromJson(map['books'], LibraryItem.allFromJson),
       lastUpdate: map['lastUpdate']?.toInt(),
       createdAt: map['createdAt']?.toInt(),
     );

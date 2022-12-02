@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'audiobook_search_result.dart';
+import 'models/schemas/author.dart';
 import 'series_search_result.dart';
-import 'models/schemas/library_item.dart' show Author;
 
 _listEquals(List a, List b) => a.join(',') == b.join(',');
 

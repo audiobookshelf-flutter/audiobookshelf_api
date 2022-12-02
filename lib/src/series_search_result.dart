@@ -32,7 +32,7 @@ class SeriesSearchResult {
   factory SeriesSearchResult.fromMap(Map<String, dynamic> map) {
     return SeriesSearchResult(
       series: Series.fromJson(map['series']),
-      books: [for (final a in map['books']) LibraryItem.fromJson(a)],
+      books: [for (final a in map['books']) LibraryItem.allFromJson(a)],
     );
   }
 

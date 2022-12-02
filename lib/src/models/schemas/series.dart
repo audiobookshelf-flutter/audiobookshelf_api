@@ -1,19 +1,20 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'book.dart';
 import 'library_item.dart';
 
 part 'generated/series.freezed.dart';
 part 'generated/series.g.dart';
 
 @freezed
-abstract class Series with _$Series {
+class Series with _$Series {
   const factory Series({
     required String id,
     required String name,
     required String nameIgnorePrefix,
     required String nameIgnorePrefixSort,
     required String type,
-    required List<LibraryItem> books,
+    required List<LibraryItem<Book>> books,
     required int addedAt,
     required double totalDuration,
   }) = _Series;
