@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'book.dart';
 import 'library_item.dart';
 
 part 'generated/series.freezed.dart';
@@ -14,7 +13,7 @@ class Series with _$Series {
     required String nameIgnorePrefix,
     required String nameIgnorePrefixSort,
     required String type,
-    required List<LibraryItem<Book>> books,
+    required List<LibraryItem> books,
     required int addedAt,
     required double totalDuration,
   }) = _Series;

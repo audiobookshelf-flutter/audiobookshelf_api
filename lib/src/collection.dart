@@ -63,7 +63,7 @@ class Collection {
       'description': description,
       'cover': cover,
       'coverFullPath': coverFullPath,
-      'books': books.map((x) => x.allToJson()),
+      'books': books.map((x) => x.toJson()),
       'lastUpdate': lastUpdate,
       'createdAt': createdAt,
     };
@@ -78,7 +78,7 @@ class Collection {
       description: map['description'],
       cover: map['cover'],
       coverFullPath: map['coverFullPath'],
-      books: listFromJson(map['books'], LibraryItem.allFromJson),
+      books: listFromJson(map['books'], LibraryItem.fromJson),
       lastUpdate: map['lastUpdate']?.toInt(),
       createdAt: map['createdAt']?.toInt(),
     );

@@ -6,11 +6,8 @@ part of '../library_item.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LibraryItem<T> _$$_LibraryItemFromJson<T extends Media>(
-  Map<String, dynamic> json,
-  T Function(Object? json) fromJsonT,
-) =>
-    _$_LibraryItem<T>(
+_$_LibraryItem _$$_LibraryItemFromJson(Map<String, dynamic> json) =>
+    _$_LibraryItem(
       id: json['id'] as String,
       ino: json['ino'] as String,
       libraryId: json['libraryId'] as String,
@@ -31,16 +28,14 @@ _$_LibraryItem<T> _$$_LibraryItemFromJson<T extends Media>(
       isMissing: json['isMissing'] as bool,
       isInvalid: json['isInvalid'] as bool,
       mediaType: $enumDecode(_$MediaTypeEnumMap, json['mediaType']),
-      media: fromJsonT(json['media']),
+      media: const MediaConverter()
+          .fromJson(json['media'] as Map<String, dynamic>),
       libraryFiles: (json['libraryFiles'] as List<dynamic>)
           .map((e) => LibraryFile.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_LibraryItemToJson<T extends Media>(
-  _$_LibraryItem<T> instance,
-  Object? Function(T value) toJsonT,
-) =>
+Map<String, dynamic> _$$_LibraryItemToJson(_$_LibraryItem instance) =>
     <String, dynamic>{
       'id': instance.id,
       'ino': instance.ino,
@@ -60,7 +55,7 @@ Map<String, dynamic> _$$_LibraryItemToJson<T extends Media>(
       'isMissing': instance.isMissing,
       'isInvalid': instance.isInvalid,
       'mediaType': _$MediaTypeEnumMap[instance.mediaType]!,
-      'media': toJsonT(instance.media),
+      'media': const MediaConverter().toJson(instance.media),
       'libraryFiles': instance.libraryFiles,
     };
 

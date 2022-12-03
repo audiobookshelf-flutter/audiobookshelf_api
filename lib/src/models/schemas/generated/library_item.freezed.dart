@@ -14,13 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-LibraryItem<T> _$LibraryItemFromJson<T extends Media>(
-    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
-  return _LibraryItem<T>.fromJson(json, fromJsonT);
+LibraryItem _$LibraryItemFromJson(Map<String, dynamic> json) {
+  return _LibraryItem.fromJson(json);
 }
 
 /// @nodoc
-mixin _$LibraryItem<T extends Media> {
+mixin _$LibraryItem {
   String get id => throw _privateConstructorUsedError;
   String get ino => throw _privateConstructorUsedError;
   String get libraryId => throw _privateConstructorUsedError;
@@ -41,21 +40,21 @@ mixin _$LibraryItem<T extends Media> {
   bool get isMissing => throw _privateConstructorUsedError;
   bool get isInvalid => throw _privateConstructorUsedError;
   MediaType get mediaType => throw _privateConstructorUsedError;
-  T get media => throw _privateConstructorUsedError;
+  @MediaConverter()
+  Media get media => throw _privateConstructorUsedError;
   List<LibraryFile> get libraryFiles => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
-      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LibraryItemCopyWith<T, LibraryItem<T>> get copyWith =>
+  $LibraryItemCopyWith<LibraryItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LibraryItemCopyWith<T extends Media, $Res> {
+abstract class $LibraryItemCopyWith<$Res> {
   factory $LibraryItemCopyWith(
-          LibraryItem<T> value, $Res Function(LibraryItem<T>) then) =
-      _$LibraryItemCopyWithImpl<T, $Res, LibraryItem<T>>;
+          LibraryItem value, $Res Function(LibraryItem) then) =
+      _$LibraryItemCopyWithImpl<$Res, LibraryItem>;
   @useResult
   $Res call(
       {String id,
@@ -75,13 +74,15 @@ abstract class $LibraryItemCopyWith<T extends Media, $Res> {
       bool isMissing,
       bool isInvalid,
       MediaType mediaType,
-      T media,
+      @MediaConverter() Media media,
       List<LibraryFile> libraryFiles});
+
+  $MediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
-class _$LibraryItemCopyWithImpl<T extends Media, $Res,
-    $Val extends LibraryItem<T>> implements $LibraryItemCopyWith<T, $Res> {
+class _$LibraryItemCopyWithImpl<$Res, $Val extends LibraryItem>
+    implements $LibraryItemCopyWith<$Res> {
   _$LibraryItemCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -184,21 +185,29 @@ class _$LibraryItemCopyWithImpl<T extends Media, $Res,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as T,
+              as Media,
       libraryFiles: null == libraryFiles
           ? _value.libraryFiles
           : libraryFiles // ignore: cast_nullable_to_non_nullable
               as List<LibraryFile>,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MediaCopyWith<$Res> get media {
+    return $MediaCopyWith<$Res>(_value.media, (value) {
+      return _then(_value.copyWith(media: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
-abstract class _$$_LibraryItemCopyWith<T extends Media, $Res>
-    implements $LibraryItemCopyWith<T, $Res> {
+abstract class _$$_LibraryItemCopyWith<$Res>
+    implements $LibraryItemCopyWith<$Res> {
   factory _$$_LibraryItemCopyWith(
-          _$_LibraryItem<T> value, $Res Function(_$_LibraryItem<T>) then) =
-      __$$_LibraryItemCopyWithImpl<T, $Res>;
+          _$_LibraryItem value, $Res Function(_$_LibraryItem) then) =
+      __$$_LibraryItemCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -219,16 +228,19 @@ abstract class _$$_LibraryItemCopyWith<T extends Media, $Res>
       bool isMissing,
       bool isInvalid,
       MediaType mediaType,
-      T media,
+      @MediaConverter() Media media,
       List<LibraryFile> libraryFiles});
+
+  @override
+  $MediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
-class __$$_LibraryItemCopyWithImpl<T extends Media, $Res>
-    extends _$LibraryItemCopyWithImpl<T, $Res, _$_LibraryItem<T>>
-    implements _$$_LibraryItemCopyWith<T, $Res> {
+class __$$_LibraryItemCopyWithImpl<$Res>
+    extends _$LibraryItemCopyWithImpl<$Res, _$_LibraryItem>
+    implements _$$_LibraryItemCopyWith<$Res> {
   __$$_LibraryItemCopyWithImpl(
-      _$_LibraryItem<T> _value, $Res Function(_$_LibraryItem<T>) _then)
+      _$_LibraryItem _value, $Res Function(_$_LibraryItem) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -254,7 +266,7 @@ class __$$_LibraryItemCopyWithImpl<T extends Media, $Res>
     Object? media = null,
     Object? libraryFiles = null,
   }) {
-    return _then(_$_LibraryItem<T>(
+    return _then(_$_LibraryItem(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -326,7 +338,7 @@ class __$$_LibraryItemCopyWithImpl<T extends Media, $Res>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as T,
+              as Media,
       libraryFiles: null == libraryFiles
           ? _value._libraryFiles
           : libraryFiles // ignore: cast_nullable_to_non_nullable
@@ -337,9 +349,8 @@ class __$$_LibraryItemCopyWithImpl<T extends Media, $Res>
 
 /// @nodoc
 
-@JsonSerializable(
-    genericArgumentFactories: true, converters: [DateTimeEpochConverter()])
-class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
+@jsonConverters
+class _$_LibraryItem extends _LibraryItem {
   const _$_LibraryItem(
       {required this.id,
       required this.ino,
@@ -358,14 +369,13 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
       required this.isMissing,
       required this.isInvalid,
       required this.mediaType,
-      required this.media,
+      @MediaConverter() required this.media,
       required final List<LibraryFile> libraryFiles})
       : _libraryFiles = libraryFiles,
         super._();
 
-  factory _$_LibraryItem.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$$_LibraryItemFromJson(json, fromJsonT);
+  factory _$_LibraryItem.fromJson(Map<String, dynamic> json) =>
+      _$$_LibraryItemFromJson(json);
 
   @override
   final String id;
@@ -405,7 +415,8 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
   @override
   final MediaType mediaType;
   @override
-  final T media;
+  @MediaConverter()
+  final Media media;
   final List<LibraryFile> _libraryFiles;
   @override
   List<LibraryFile> get libraryFiles {
@@ -415,14 +426,14 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
 
   @override
   String toString() {
-    return 'LibraryItem<$T>(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles)';
+    return 'LibraryItem(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LibraryItem<T> &&
+            other is _$_LibraryItem &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.ino, ino) || other.ino == ino) &&
             (identical(other.libraryId, libraryId) ||
@@ -449,7 +460,7 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
                 other.isInvalid == isInvalid) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
-            const DeepCollectionEquality().equals(other.media, media) &&
+            (identical(other.media, media) || other.media == media) &&
             const DeepCollectionEquality()
                 .equals(other._libraryFiles, _libraryFiles));
   }
@@ -475,23 +486,25 @@ class _$_LibraryItem<T extends Media> extends _LibraryItem<T> {
         isMissing,
         isInvalid,
         mediaType,
-        const DeepCollectionEquality().hash(media),
+        media,
         const DeepCollectionEquality().hash(_libraryFiles)
       ]);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LibraryItemCopyWith<T, _$_LibraryItem<T>> get copyWith =>
-      __$$_LibraryItemCopyWithImpl<T, _$_LibraryItem<T>>(this, _$identity);
+  _$$_LibraryItemCopyWith<_$_LibraryItem> get copyWith =>
+      __$$_LibraryItemCopyWithImpl<_$_LibraryItem>(this, _$identity);
 
   @override
-  Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
-    return _$$_LibraryItemToJson<T>(this, toJsonT);
+  Map<String, dynamic> toJson() {
+    return _$$_LibraryItemToJson(
+      this,
+    );
   }
 }
 
-abstract class _LibraryItem<T extends Media> extends LibraryItem<T> {
+abstract class _LibraryItem extends LibraryItem {
   const factory _LibraryItem(
       {required final String id,
       required final String ino,
@@ -510,13 +523,12 @@ abstract class _LibraryItem<T extends Media> extends LibraryItem<T> {
       required final bool isMissing,
       required final bool isInvalid,
       required final MediaType mediaType,
-      required final T media,
-      required final List<LibraryFile> libraryFiles}) = _$_LibraryItem<T>;
+      @MediaConverter() required final Media media,
+      required final List<LibraryFile> libraryFiles}) = _$_LibraryItem;
   const _LibraryItem._() : super._();
 
-  factory _LibraryItem.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
-      _$_LibraryItem<T>.fromJson;
+  factory _LibraryItem.fromJson(Map<String, dynamic> json) =
+      _$_LibraryItem.fromJson;
 
   @override
   String get id;
@@ -556,11 +568,12 @@ abstract class _LibraryItem<T extends Media> extends LibraryItem<T> {
   @override
   MediaType get mediaType;
   @override
-  T get media;
+  @MediaConverter()
+  Media get media;
   @override
   List<LibraryFile> get libraryFiles;
   @override
   @JsonKey(ignore: true)
-  _$$_LibraryItemCopyWith<T, _$_LibraryItem<T>> get copyWith =>
+  _$$_LibraryItemCopyWith<_$_LibraryItem> get copyWith =>
       throw _privateConstructorUsedError;
 }

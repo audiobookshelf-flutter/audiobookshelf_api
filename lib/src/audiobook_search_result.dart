@@ -15,13 +15,13 @@ class AudiobookSearchResult {
       AudiobookSearchResult(
         matchKey: json['matchKey'],
         matchText: json['matchText'],
-        libraryItem: LibraryItem.allFromJson(json['libraryItem']),
+        libraryItem: LibraryItem.fromJson(json['libraryItem']),
       );
 
   Map<String, dynamic> toJson() => {
         'matchKey': matchKey,
         'matchText': matchText,
-        'libraryItem': libraryItem.allToJson(),
+        'libraryItem': libraryItem.toJson(),
       };
 
   @override
