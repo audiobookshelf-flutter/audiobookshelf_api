@@ -13,7 +13,7 @@ _$_Series _$$_SeriesFromJson(Map<String, dynamic> json) => _$_Series(
       nameIgnorePrefixSort: json['nameIgnorePrefixSort'] as String,
       type: json['type'] as String,
       books: (json['books'] as List<dynamic>)
-          .map((e) => LibraryItem.fromJson(e as Map<String, dynamic>))
+          .map((e) => BookLibraryItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       addedAt: json['addedAt'] as int,
       totalDuration: (json['totalDuration'] as num).toDouble(),

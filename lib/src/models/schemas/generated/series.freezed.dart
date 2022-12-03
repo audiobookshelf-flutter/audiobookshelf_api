@@ -25,7 +25,7 @@ mixin _$Series {
   String get nameIgnorePrefix => throw _privateConstructorUsedError;
   String get nameIgnorePrefixSort => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
-  List<LibraryItem> get books => throw _privateConstructorUsedError;
+  List<BookLibraryItem> get books => throw _privateConstructorUsedError;
   int get addedAt => throw _privateConstructorUsedError;
   double get totalDuration => throw _privateConstructorUsedError;
 
@@ -45,7 +45,7 @@ abstract class $SeriesCopyWith<$Res> {
       String nameIgnorePrefix,
       String nameIgnorePrefixSort,
       String type,
-      List<LibraryItem> books,
+      List<BookLibraryItem> books,
       int addedAt,
       double totalDuration});
 }
@@ -96,7 +96,7 @@ class _$SeriesCopyWithImpl<$Res, $Val extends Series>
       books: null == books
           ? _value.books
           : books // ignore: cast_nullable_to_non_nullable
-              as List<LibraryItem>,
+              as List<BookLibraryItem>,
       addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
@@ -121,7 +121,7 @@ abstract class _$$_SeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       String nameIgnorePrefix,
       String nameIgnorePrefixSort,
       String type,
-      List<LibraryItem> books,
+      List<BookLibraryItem> books,
       int addedAt,
       double totalDuration});
 }
@@ -169,7 +169,7 @@ class __$$_SeriesCopyWithImpl<$Res>
       books: null == books
           ? _value._books
           : books // ignore: cast_nullable_to_non_nullable
-              as List<LibraryItem>,
+              as List<BookLibraryItem>,
       addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
@@ -191,7 +191,7 @@ class _$_Series implements _Series {
       required this.nameIgnorePrefix,
       required this.nameIgnorePrefixSort,
       required this.type,
-      required final List<LibraryItem> books,
+      required final List<BookLibraryItem> books,
       required this.addedAt,
       required this.totalDuration})
       : _books = books;
@@ -209,9 +209,9 @@ class _$_Series implements _Series {
   final String nameIgnorePrefixSort;
   @override
   final String type;
-  final List<LibraryItem> _books;
+  final List<BookLibraryItem> _books;
   @override
-  List<LibraryItem> get books {
+  List<BookLibraryItem> get books {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_books);
   }
@@ -278,7 +278,7 @@ abstract class _Series implements Series {
       required final String nameIgnorePrefix,
       required final String nameIgnorePrefixSort,
       required final String type,
-      required final List<LibraryItem> books,
+      required final List<BookLibraryItem> books,
       required final int addedAt,
       required final double totalDuration}) = _$_Series;
 
@@ -295,7 +295,7 @@ abstract class _Series implements Series {
   @override
   String get type;
   @override
-  List<LibraryItem> get books;
+  List<BookLibraryItem> get books;
   @override
   int get addedAt;
   @override

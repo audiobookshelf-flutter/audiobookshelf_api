@@ -13,7 +13,7 @@ class Series with _$Series {
     required String nameIgnorePrefix,
     required String nameIgnorePrefixSort,
     required String type,
-    required List<LibraryItem> books,
+    required List<BookLibraryItem> books,
     required int addedAt,
     required double totalDuration,
   }) = _Series;

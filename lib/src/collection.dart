@@ -11,7 +11,7 @@ class Collection {
   final String? description;
   final String? cover;
   final String? coverFullPath;
-  final List<LibraryItem> books;
+  final List<BookLibraryItem> books;
   final int lastUpdate;
   final int createdAt;
 
@@ -36,7 +36,7 @@ class Collection {
     String? description,
     String? cover,
     String? coverFullPath,
-    List<LibraryItem>? books,
+    List<BookLibraryItem>? books,
     int? lastUpdate,
     int? createdAt,
   }) {
@@ -78,7 +78,7 @@ class Collection {
       description: map['description'],
       cover: map['cover'],
       coverFullPath: map['coverFullPath'],
-      books: listFromJson(map['books'], LibraryItem.fromJson),
+      books: listFromJson(map['books'], BookLibraryItem.fromJson),
       lastUpdate: map['lastUpdate']?.toInt(),
       createdAt: map['createdAt']?.toInt(),
     );

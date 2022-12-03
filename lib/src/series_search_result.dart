@@ -5,7 +5,7 @@ import 'models/schemas/series.dart';
 
 class SeriesSearchResult {
   final Series series;
-  final List<LibraryItem> books;
+  final List<BookLibraryItem> books;
 
   SeriesSearchResult({
     required this.series,
@@ -14,7 +14,7 @@ class SeriesSearchResult {
 
   SeriesSearchResult copyWith({
     Series? series,
-    List<LibraryItem>? books,
+    List<BookLibraryItem>? books,
   }) {
     return SeriesSearchResult(
       series: series ?? this.series,
@@ -32,7 +32,7 @@ class SeriesSearchResult {
   factory SeriesSearchResult.fromMap(Map<String, dynamic> map) {
     return SeriesSearchResult(
       series: Series.fromJson(map['series']),
-      books: [for (final a in map['books']) LibraryItem.fromJson(a)],
+      books: [for (final a in map['books']) BookLibraryItem.fromJson(a)],
     );
   }
 
