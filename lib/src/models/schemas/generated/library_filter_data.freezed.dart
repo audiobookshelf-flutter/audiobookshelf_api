@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of '../library_filter_data.dart';
 
@@ -184,6 +184,7 @@ class _$_LibraryFilterData implements _LibraryFilterData {
   final List<Author> _authors;
   @override
   List<Author> get authors {
+    if (_authors is EqualUnmodifiableListView) return _authors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_authors);
   }
@@ -191,6 +192,7 @@ class _$_LibraryFilterData implements _LibraryFilterData {
   final List<String> _genres;
   @override
   List<String> get genres {
+    if (_genres is EqualUnmodifiableListView) return _genres;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_genres);
   }
@@ -198,6 +200,7 @@ class _$_LibraryFilterData implements _LibraryFilterData {
   final List<String> _tags;
   @override
   List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_tags);
   }
@@ -205,6 +208,7 @@ class _$_LibraryFilterData implements _LibraryFilterData {
   final List<Series> _series;
   @override
   List<Series> get series {
+    if (_series is EqualUnmodifiableListView) return _series;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_series);
   }
@@ -212,6 +216,7 @@ class _$_LibraryFilterData implements _LibraryFilterData {
   final List<String> _narrators;
   @override
   List<String> get narrators {
+    if (_narrators is EqualUnmodifiableListView) return _narrators;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_narrators);
   }
@@ -219,6 +224,7 @@ class _$_LibraryFilterData implements _LibraryFilterData {
   final List<String> _languages;
   @override
   List<String> get languages {
+    if (_languages is EqualUnmodifiableListView) return _languages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_languages);
   }

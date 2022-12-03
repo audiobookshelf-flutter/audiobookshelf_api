@@ -4,6 +4,7 @@ export 'src/user.dart';
 export 'src/audiobook_progress.dart';
 export 'src/models/schemas/library.dart';
 export 'src/models/schemas/library_item.dart';
+export 'src/models/schemas/media.dart';
 export 'src/models/schemas/series.dart';
 export 'src/audiobook_search_result.dart';
 export 'src/login_response.dart';

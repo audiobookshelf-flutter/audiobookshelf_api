@@ -35,7 +35,7 @@ class LibrariesService extends Service {
       fromJson: (json) => listFromJsonKey(
         json,
         'results',
-        LibraryItem.fromJson,
+        LibraryItemConverter().fromJson,
       ),
     );
   }

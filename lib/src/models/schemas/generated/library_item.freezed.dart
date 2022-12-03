@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of '../library_item.dart';
 
@@ -16,12 +16,18 @@ final _privateConstructorUsedError = UnsupportedError(
 
 LibraryItem _$LibraryItemFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
-    case 'default':
-      return _LibraryItem.fromJson(json);
     case 'book':
       return BookLibraryItem.fromJson(json);
+    case 'bookMinified':
+      return BookLibraryItemMinified.fromJson(json);
+    case 'bookExpanded':
+      return BookLibraryItemExpanded.fromJson(json);
     case 'podcast':
       return PodcastLibraryItem.fromJson(json);
+    case 'podcastMinified':
+      return PodcastLibraryItemMinified.fromJson(json);
+    case 'podcastExpanded':
+      return PodcastLibraryItemExpanded.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'LibraryItem',
@@ -46,35 +52,12 @@ mixin _$LibraryItem {
   DateTime get birthtime => throw _privateConstructorUsedError;
   DateTime get addedAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
-  DateTime? get lastScan => throw _privateConstructorUsedError;
-  String? get scanVersion => throw _privateConstructorUsedError;
   bool get isMissing => throw _privateConstructorUsedError;
   bool get isInvalid => throw _privateConstructorUsedError;
   MediaType get mediaType => throw _privateConstructorUsedError;
-  List<LibraryFile> get libraryFiles => throw _privateConstructorUsedError;
+  dynamic get media => throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)
-        $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(
             String id,
             String ino,
@@ -109,6 +92,48 @@ mixin _$LibraryItem {
             @JsonKey(name: 'birthtimeMs') DateTime birthtime,
             DateTime addedAt,
             DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)
+        bookMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        bookExpanded,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
             DateTime? lastScan,
             String? scanVersion,
             bool isMissing,
@@ -117,11 +142,27 @@ mixin _$LibraryItem {
             Podcast media,
             List<LibraryFile> libraryFiles)
         podcast,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)
+        podcastMinified,
+    required TResult Function(
             String id,
             String ino,
             String libraryId,
@@ -139,9 +180,14 @@ mixin _$LibraryItem {
             bool isMissing,
             bool isInvalid,
             MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)?
-        $default, {
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        podcastExpanded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String id,
             String ino,
@@ -176,19 +222,14 @@ mixin _$LibraryItem {
             @JsonKey(name: 'birthtimeMs') DateTime birthtime,
             DateTime addedAt,
             DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
             bool isMissing,
             bool isInvalid,
             MediaType mediaType,
-            Podcast media,
-            List<LibraryFile> libraryFiles)?
-        podcast,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult? Function(
             String id,
             String ino,
             String libraryId,
@@ -206,9 +247,77 @@ mixin _$LibraryItem {
             bool isMissing,
             bool isInvalid,
             MediaType mediaType,
-            @MediaConverter() Media media,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
             List<LibraryFile> libraryFiles)?
-        $default, {
+        podcast,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String id,
             String ino,
@@ -243,6 +352,48 @@ mixin _$LibraryItem {
             @JsonKey(name: 'birthtimeMs') DateTime birthtime,
             DateTime addedAt,
             DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
             DateTime? lastScan,
             String? scanVersion,
             bool isMissing,
@@ -251,28 +402,79 @@ mixin _$LibraryItem {
             Podcast media,
             List<LibraryFile> libraryFiles)?
         podcast,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LibraryItem value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(BookLibraryItem value) book,
+    required TResult Function(BookLibraryItemMinified value) bookMinified,
+    required TResult Function(BookLibraryItemExpanded value) bookExpanded,
     required TResult Function(PodcastLibraryItem value) podcast,
+    required TResult Function(PodcastLibraryItemMinified value) podcastMinified,
+    required TResult Function(PodcastLibraryItemExpanded value) podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LibraryItem value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BookLibraryItem value)? book,
+    TResult? Function(BookLibraryItemMinified value)? bookMinified,
+    TResult? Function(BookLibraryItemExpanded value)? bookExpanded,
     TResult? Function(PodcastLibraryItem value)? podcast,
+    TResult? Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult? Function(PodcastLibraryItemExpanded value)? podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LibraryItem value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(BookLibraryItem value)? book,
+    TResult Function(BookLibraryItemMinified value)? bookMinified,
+    TResult Function(BookLibraryItemExpanded value)? bookExpanded,
     TResult Function(PodcastLibraryItem value)? podcast,
+    TResult Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult Function(PodcastLibraryItemExpanded value)? podcastExpanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -301,12 +503,9 @@ abstract class $LibraryItemCopyWith<$Res> {
       @JsonKey(name: 'birthtimeMs') DateTime birthtime,
       DateTime addedAt,
       DateTime updatedAt,
-      DateTime? lastScan,
-      String? scanVersion,
       bool isMissing,
       bool isInvalid,
-      MediaType mediaType,
-      List<LibraryFile> libraryFiles});
+      MediaType mediaType});
 }
 
 /// @nodoc
@@ -334,12 +533,9 @@ class _$LibraryItemCopyWithImpl<$Res, $Val extends LibraryItem>
     Object? birthtime = null,
     Object? addedAt = null,
     Object? updatedAt = null,
-    Object? lastScan = freezed,
-    Object? scanVersion = freezed,
     Object? isMissing = null,
     Object? isInvalid = null,
     Object? mediaType = null,
-    Object? libraryFiles = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -390,14 +586,6 @@ class _$LibraryItemCopyWithImpl<$Res, $Val extends LibraryItem>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      lastScan: freezed == lastScan
-          ? _value.lastScan
-          : lastScan // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      scanVersion: freezed == scanVersion
-          ? _value.scanVersion
-          : scanVersion // ignore: cast_nullable_to_non_nullable
-              as String?,
       isMissing: null == isMissing
           ? _value.isMissing
           : isMissing // ignore: cast_nullable_to_non_nullable
@@ -410,704 +598,8 @@ class _$LibraryItemCopyWithImpl<$Res, $Val extends LibraryItem>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
-      libraryFiles: null == libraryFiles
-          ? _value.libraryFiles
-          : libraryFiles // ignore: cast_nullable_to_non_nullable
-              as List<LibraryFile>,
     ) as $Val);
   }
-}
-
-/// @nodoc
-abstract class _$$_LibraryItemCopyWith<$Res>
-    implements $LibraryItemCopyWith<$Res> {
-  factory _$$_LibraryItemCopyWith(
-          _$_LibraryItem value, $Res Function(_$_LibraryItem) then) =
-      __$$_LibraryItemCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String id,
-      String ino,
-      String libraryId,
-      String folderId,
-      String path,
-      String relPath,
-      bool isFile,
-      @JsonKey(name: 'mtimeMs') DateTime mtime,
-      @JsonKey(name: 'ctimeMs') DateTime ctime,
-      @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-      DateTime addedAt,
-      DateTime updatedAt,
-      DateTime? lastScan,
-      String? scanVersion,
-      bool isMissing,
-      bool isInvalid,
-      MediaType mediaType,
-      @MediaConverter() Media media,
-      List<LibraryFile> libraryFiles});
-
-  $MediaCopyWith<$Res> get media;
-}
-
-/// @nodoc
-class __$$_LibraryItemCopyWithImpl<$Res>
-    extends _$LibraryItemCopyWithImpl<$Res, _$_LibraryItem>
-    implements _$$_LibraryItemCopyWith<$Res> {
-  __$$_LibraryItemCopyWithImpl(
-      _$_LibraryItem _value, $Res Function(_$_LibraryItem) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? ino = null,
-    Object? libraryId = null,
-    Object? folderId = null,
-    Object? path = null,
-    Object? relPath = null,
-    Object? isFile = null,
-    Object? mtime = null,
-    Object? ctime = null,
-    Object? birthtime = null,
-    Object? addedAt = null,
-    Object? updatedAt = null,
-    Object? lastScan = freezed,
-    Object? scanVersion = freezed,
-    Object? isMissing = null,
-    Object? isInvalid = null,
-    Object? mediaType = null,
-    Object? media = null,
-    Object? libraryFiles = null,
-  }) {
-    return _then(_$_LibraryItem(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      ino: null == ino
-          ? _value.ino
-          : ino // ignore: cast_nullable_to_non_nullable
-              as String,
-      libraryId: null == libraryId
-          ? _value.libraryId
-          : libraryId // ignore: cast_nullable_to_non_nullable
-              as String,
-      folderId: null == folderId
-          ? _value.folderId
-          : folderId // ignore: cast_nullable_to_non_nullable
-              as String,
-      path: null == path
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String,
-      relPath: null == relPath
-          ? _value.relPath
-          : relPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      isFile: null == isFile
-          ? _value.isFile
-          : isFile // ignore: cast_nullable_to_non_nullable
-              as bool,
-      mtime: null == mtime
-          ? _value.mtime
-          : mtime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      ctime: null == ctime
-          ? _value.ctime
-          : ctime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      birthtime: null == birthtime
-          ? _value.birthtime
-          : birthtime // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      addedAt: null == addedAt
-          ? _value.addedAt
-          : addedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      lastScan: freezed == lastScan
-          ? _value.lastScan
-          : lastScan // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
-      scanVersion: freezed == scanVersion
-          ? _value.scanVersion
-          : scanVersion // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isMissing: null == isMissing
-          ? _value.isMissing
-          : isMissing // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isInvalid: null == isInvalid
-          ? _value.isInvalid
-          : isInvalid // ignore: cast_nullable_to_non_nullable
-              as bool,
-      mediaType: null == mediaType
-          ? _value.mediaType
-          : mediaType // ignore: cast_nullable_to_non_nullable
-              as MediaType,
-      media: null == media
-          ? _value.media
-          : media // ignore: cast_nullable_to_non_nullable
-              as Media,
-      libraryFiles: null == libraryFiles
-          ? _value._libraryFiles
-          : libraryFiles // ignore: cast_nullable_to_non_nullable
-              as List<LibraryFile>,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $MediaCopyWith<$Res> get media {
-    return $MediaCopyWith<$Res>(_value.media, (value) {
-      return _then(_value.copyWith(media: value));
-    });
-  }
-}
-
-/// @nodoc
-
-@jsonConverters
-class _$_LibraryItem extends _LibraryItem {
-  const _$_LibraryItem(
-      {required this.id,
-      required this.ino,
-      required this.libraryId,
-      required this.folderId,
-      required this.path,
-      required this.relPath,
-      required this.isFile,
-      @JsonKey(name: 'mtimeMs') required this.mtime,
-      @JsonKey(name: 'ctimeMs') required this.ctime,
-      @JsonKey(name: 'birthtimeMs') required this.birthtime,
-      required this.addedAt,
-      required this.updatedAt,
-      this.lastScan,
-      this.scanVersion,
-      required this.isMissing,
-      required this.isInvalid,
-      required this.mediaType,
-      @MediaConverter() required this.media,
-      required final List<LibraryFile> libraryFiles,
-      final String? $type})
-      : _libraryFiles = libraryFiles,
-        $type = $type ?? 'default',
-        super._();
-
-  factory _$_LibraryItem.fromJson(Map<String, dynamic> json) =>
-      _$$_LibraryItemFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String ino;
-  @override
-  final String libraryId;
-  @override
-  final String folderId;
-  @override
-  final String path;
-  @override
-  final String relPath;
-  @override
-  final bool isFile;
-  @override
-  @JsonKey(name: 'mtimeMs')
-  final DateTime mtime;
-  @override
-  @JsonKey(name: 'ctimeMs')
-  final DateTime ctime;
-  @override
-  @JsonKey(name: 'birthtimeMs')
-  final DateTime birthtime;
-  @override
-  final DateTime addedAt;
-  @override
-  final DateTime updatedAt;
-  @override
-  final DateTime? lastScan;
-  @override
-  final String? scanVersion;
-  @override
-  final bool isMissing;
-  @override
-  final bool isInvalid;
-  @override
-  final MediaType mediaType;
-  @override
-  @MediaConverter()
-  final Media media;
-  final List<LibraryFile> _libraryFiles;
-  @override
-  List<LibraryFile> get libraryFiles {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_libraryFiles);
-  }
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'LibraryItem(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_LibraryItem &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.ino, ino) || other.ino == ino) &&
-            (identical(other.libraryId, libraryId) ||
-                other.libraryId == libraryId) &&
-            (identical(other.folderId, folderId) ||
-                other.folderId == folderId) &&
-            (identical(other.path, path) || other.path == path) &&
-            (identical(other.relPath, relPath) || other.relPath == relPath) &&
-            (identical(other.isFile, isFile) || other.isFile == isFile) &&
-            (identical(other.mtime, mtime) || other.mtime == mtime) &&
-            (identical(other.ctime, ctime) || other.ctime == ctime) &&
-            (identical(other.birthtime, birthtime) ||
-                other.birthtime == birthtime) &&
-            (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.lastScan, lastScan) ||
-                other.lastScan == lastScan) &&
-            (identical(other.scanVersion, scanVersion) ||
-                other.scanVersion == scanVersion) &&
-            (identical(other.isMissing, isMissing) ||
-                other.isMissing == isMissing) &&
-            (identical(other.isInvalid, isInvalid) ||
-                other.isInvalid == isInvalid) &&
-            (identical(other.mediaType, mediaType) ||
-                other.mediaType == mediaType) &&
-            (identical(other.media, media) || other.media == media) &&
-            const DeepCollectionEquality()
-                .equals(other._libraryFiles, _libraryFiles));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        id,
-        ino,
-        libraryId,
-        folderId,
-        path,
-        relPath,
-        isFile,
-        mtime,
-        ctime,
-        birthtime,
-        addedAt,
-        updatedAt,
-        lastScan,
-        scanVersion,
-        isMissing,
-        isInvalid,
-        mediaType,
-        media,
-        const DeepCollectionEquality().hash(_libraryFiles)
-      ]);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_LibraryItemCopyWith<_$_LibraryItem> get copyWith =>
-      __$$_LibraryItemCopyWithImpl<_$_LibraryItem>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)
-        $default, {
-    required TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            Book media,
-            List<LibraryFile> libraryFiles)
-        book,
-    required TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            Podcast media,
-            List<LibraryFile> libraryFiles)
-        podcast,
-  }) {
-    return $default(
-        id,
-        ino,
-        libraryId,
-        folderId,
-        path,
-        relPath,
-        isFile,
-        mtime,
-        ctime,
-        birthtime,
-        addedAt,
-        updatedAt,
-        lastScan,
-        scanVersion,
-        isMissing,
-        isInvalid,
-        mediaType,
-        media,
-        libraryFiles);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)?
-        $default, {
-    TResult? Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            Book media,
-            List<LibraryFile> libraryFiles)?
-        book,
-    TResult? Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            Podcast media,
-            List<LibraryFile> libraryFiles)?
-        podcast,
-  }) {
-    return $default?.call(
-        id,
-        ino,
-        libraryId,
-        folderId,
-        path,
-        relPath,
-        isFile,
-        mtime,
-        ctime,
-        birthtime,
-        addedAt,
-        updatedAt,
-        lastScan,
-        scanVersion,
-        isMissing,
-        isInvalid,
-        mediaType,
-        media,
-        libraryFiles);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)?
-        $default, {
-    TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            Book media,
-            List<LibraryFile> libraryFiles)?
-        book,
-    TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            Podcast media,
-            List<LibraryFile> libraryFiles)?
-        podcast,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(
-          id,
-          ino,
-          libraryId,
-          folderId,
-          path,
-          relPath,
-          isFile,
-          mtime,
-          ctime,
-          birthtime,
-          addedAt,
-          updatedAt,
-          lastScan,
-          scanVersion,
-          isMissing,
-          isInvalid,
-          mediaType,
-          media,
-          libraryFiles);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LibraryItem value) $default, {
-    required TResult Function(BookLibraryItem value) book,
-    required TResult Function(PodcastLibraryItem value) podcast,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LibraryItem value)? $default, {
-    TResult? Function(BookLibraryItem value)? book,
-    TResult? Function(PodcastLibraryItem value)? podcast,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LibraryItem value)? $default, {
-    TResult Function(BookLibraryItem value)? book,
-    TResult Function(PodcastLibraryItem value)? podcast,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_LibraryItemToJson(
-      this,
-    );
-  }
-}
-
-abstract class _LibraryItem extends LibraryItem {
-  const factory _LibraryItem(
-      {required final String id,
-      required final String ino,
-      required final String libraryId,
-      required final String folderId,
-      required final String path,
-      required final String relPath,
-      required final bool isFile,
-      @JsonKey(name: 'mtimeMs') required final DateTime mtime,
-      @JsonKey(name: 'ctimeMs') required final DateTime ctime,
-      @JsonKey(name: 'birthtimeMs') required final DateTime birthtime,
-      required final DateTime addedAt,
-      required final DateTime updatedAt,
-      final DateTime? lastScan,
-      final String? scanVersion,
-      required final bool isMissing,
-      required final bool isInvalid,
-      required final MediaType mediaType,
-      @MediaConverter() required final Media media,
-      required final List<LibraryFile> libraryFiles}) = _$_LibraryItem;
-  const _LibraryItem._() : super._();
-
-  factory _LibraryItem.fromJson(Map<String, dynamic> json) =
-      _$_LibraryItem.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get ino;
-  @override
-  String get libraryId;
-  @override
-  String get folderId;
-  @override
-  String get path;
-  @override
-  String get relPath;
-  @override
-  bool get isFile;
-  @override
-  @JsonKey(name: 'mtimeMs')
-  DateTime get mtime;
-  @override
-  @JsonKey(name: 'ctimeMs')
-  DateTime get ctime;
-  @override
-  @JsonKey(name: 'birthtimeMs')
-  DateTime get birthtime;
-  @override
-  DateTime get addedAt;
-  @override
-  DateTime get updatedAt;
-  @override
-  DateTime? get lastScan;
-  @override
-  String? get scanVersion;
-  @override
-  bool get isMissing;
-  @override
-  bool get isInvalid;
-  @override
-  MediaType get mediaType;
-  @MediaConverter()
-  Media get media;
-  @override
-  List<LibraryFile> get libraryFiles;
-  @override
-  @JsonKey(ignore: true)
-  _$$_LibraryItemCopyWith<_$_LibraryItem> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1168,7 +660,7 @@ class __$$BookLibraryItemCopyWithImpl<$Res>
     Object? isMissing = null,
     Object? isInvalid = null,
     Object? mediaType = null,
-    Object? media = null,
+    Object? media = freezed,
     Object? libraryFiles = null,
   }) {
     return _then(_$BookLibraryItem(
@@ -1240,7 +732,7 @@ class __$$BookLibraryItemCopyWithImpl<$Res>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
-      media: null == media
+      media: freezed == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as Book,
@@ -1326,6 +818,7 @@ class _$BookLibraryItem extends BookLibraryItem {
   final List<LibraryFile> _libraryFiles;
   @override
   List<LibraryFile> get libraryFiles {
+    if (_libraryFiles is EqualUnmodifiableListView) return _libraryFiles;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_libraryFiles);
   }
@@ -1407,28 +900,7 @@ class _$BookLibraryItem extends BookLibraryItem {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)
-        $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(
             String id,
             String ino,
@@ -1463,6 +935,48 @@ class _$BookLibraryItem extends BookLibraryItem {
             @JsonKey(name: 'birthtimeMs') DateTime birthtime,
             DateTime addedAt,
             DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)
+        bookMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        bookExpanded,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
             DateTime? lastScan,
             String? scanVersion,
             bool isMissing,
@@ -1471,6 +985,48 @@ class _$BookLibraryItem extends BookLibraryItem {
             Podcast media,
             List<LibraryFile> libraryFiles)
         podcast,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        podcastExpanded,
   }) {
     return book(
         id,
@@ -1496,28 +1052,7 @@ class _$BookLibraryItem extends BookLibraryItem {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)?
-        $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String id,
             String ino,
@@ -1552,6 +1087,48 @@ class _$BookLibraryItem extends BookLibraryItem {
             @JsonKey(name: 'birthtimeMs') DateTime birthtime,
             DateTime addedAt,
             DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
             DateTime? lastScan,
             String? scanVersion,
             bool isMissing,
@@ -1560,6 +1137,48 @@ class _$BookLibraryItem extends BookLibraryItem {
             Podcast media,
             List<LibraryFile> libraryFiles)?
         podcast,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
   }) {
     return book?.call(
         id,
@@ -1585,28 +1204,7 @@ class _$BookLibraryItem extends BookLibraryItem {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)?
-        $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String id,
             String ino,
@@ -1641,6 +1239,48 @@ class _$BookLibraryItem extends BookLibraryItem {
             @JsonKey(name: 'birthtimeMs') DateTime birthtime,
             DateTime addedAt,
             DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
             DateTime? lastScan,
             String? scanVersion,
             bool isMissing,
@@ -1649,6 +1289,48 @@ class _$BookLibraryItem extends BookLibraryItem {
             Podcast media,
             List<LibraryFile> libraryFiles)?
         podcast,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (book != null) {
@@ -1678,30 +1360,39 @@ class _$BookLibraryItem extends BookLibraryItem {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LibraryItem value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(BookLibraryItem value) book,
+    required TResult Function(BookLibraryItemMinified value) bookMinified,
+    required TResult Function(BookLibraryItemExpanded value) bookExpanded,
     required TResult Function(PodcastLibraryItem value) podcast,
+    required TResult Function(PodcastLibraryItemMinified value) podcastMinified,
+    required TResult Function(PodcastLibraryItemExpanded value) podcastExpanded,
   }) {
     return book(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LibraryItem value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BookLibraryItem value)? book,
+    TResult? Function(BookLibraryItemMinified value)? bookMinified,
+    TResult? Function(BookLibraryItemExpanded value)? bookExpanded,
     TResult? Function(PodcastLibraryItem value)? podcast,
+    TResult? Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult? Function(PodcastLibraryItemExpanded value)? podcastExpanded,
   }) {
     return book?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LibraryItem value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(BookLibraryItem value)? book,
+    TResult Function(BookLibraryItemMinified value)? bookMinified,
+    TResult Function(BookLibraryItemExpanded value)? bookExpanded,
     TResult Function(PodcastLibraryItem value)? podcast,
+    TResult Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult Function(PodcastLibraryItemExpanded value)? podcastExpanded,
     required TResult orElse(),
   }) {
     if (book != null) {
@@ -1771,9 +1462,7 @@ abstract class BookLibraryItem extends LibraryItem {
   DateTime get addedAt;
   @override
   DateTime get updatedAt;
-  @override
   DateTime? get lastScan;
-  @override
   String? get scanVersion;
   @override
   bool get isMissing;
@@ -1781,12 +1470,1760 @@ abstract class BookLibraryItem extends LibraryItem {
   bool get isInvalid;
   @override
   MediaType get mediaType;
-  Book get media;
   @override
+  Book get media;
   List<LibraryFile> get libraryFiles;
   @override
   @JsonKey(ignore: true)
   _$$BookLibraryItemCopyWith<_$BookLibraryItem> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BookLibraryItemMinifiedCopyWith<$Res>
+    implements $LibraryItemCopyWith<$Res> {
+  factory _$$BookLibraryItemMinifiedCopyWith(_$BookLibraryItemMinified value,
+          $Res Function(_$BookLibraryItemMinified) then) =
+      __$$BookLibraryItemMinifiedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String ino,
+      String libraryId,
+      String folderId,
+      String path,
+      String relPath,
+      bool isFile,
+      @JsonKey(name: 'mtimeMs') DateTime mtime,
+      @JsonKey(name: 'ctimeMs') DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+      DateTime addedAt,
+      DateTime updatedAt,
+      bool isMissing,
+      bool isInvalid,
+      MediaType mediaType,
+      BookMinified media,
+      int numFiles,
+      int size});
+}
+
+/// @nodoc
+class __$$BookLibraryItemMinifiedCopyWithImpl<$Res>
+    extends _$LibraryItemCopyWithImpl<$Res, _$BookLibraryItemMinified>
+    implements _$$BookLibraryItemMinifiedCopyWith<$Res> {
+  __$$BookLibraryItemMinifiedCopyWithImpl(_$BookLibraryItemMinified _value,
+      $Res Function(_$BookLibraryItemMinified) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? ino = null,
+    Object? libraryId = null,
+    Object? folderId = null,
+    Object? path = null,
+    Object? relPath = null,
+    Object? isFile = null,
+    Object? mtime = null,
+    Object? ctime = null,
+    Object? birthtime = null,
+    Object? addedAt = null,
+    Object? updatedAt = null,
+    Object? isMissing = null,
+    Object? isInvalid = null,
+    Object? mediaType = null,
+    Object? media = freezed,
+    Object? numFiles = null,
+    Object? size = null,
+  }) {
+    return _then(_$BookLibraryItemMinified(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      ino: null == ino
+          ? _value.ino
+          : ino // ignore: cast_nullable_to_non_nullable
+              as String,
+      libraryId: null == libraryId
+          ? _value.libraryId
+          : libraryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      folderId: null == folderId
+          ? _value.folderId
+          : folderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      path: null == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      relPath: null == relPath
+          ? _value.relPath
+          : relPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      isFile: null == isFile
+          ? _value.isFile
+          : isFile // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mtime: null == mtime
+          ? _value.mtime
+          : mtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      ctime: null == ctime
+          ? _value.ctime
+          : ctime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      birthtime: null == birthtime
+          ? _value.birthtime
+          : birthtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      addedAt: null == addedAt
+          ? _value.addedAt
+          : addedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      isMissing: null == isMissing
+          ? _value.isMissing
+          : isMissing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInvalid: null == isInvalid
+          ? _value.isInvalid
+          : isInvalid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mediaType: null == mediaType
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as MediaType,
+      media: freezed == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as BookMinified,
+      numFiles: null == numFiles
+          ? _value.numFiles
+          : numFiles // ignore: cast_nullable_to_non_nullable
+              as int,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonConverters
+class _$BookLibraryItemMinified extends BookLibraryItemMinified {
+  const _$BookLibraryItemMinified(
+      {required this.id,
+      required this.ino,
+      required this.libraryId,
+      required this.folderId,
+      required this.path,
+      required this.relPath,
+      required this.isFile,
+      @JsonKey(name: 'mtimeMs') required this.mtime,
+      @JsonKey(name: 'ctimeMs') required this.ctime,
+      @JsonKey(name: 'birthtimeMs') required this.birthtime,
+      required this.addedAt,
+      required this.updatedAt,
+      required this.isMissing,
+      required this.isInvalid,
+      required this.mediaType,
+      required this.media,
+      required this.numFiles,
+      required this.size,
+      final String? $type})
+      : $type = $type ?? 'bookMinified',
+        super._();
+
+  factory _$BookLibraryItemMinified.fromJson(Map<String, dynamic> json) =>
+      _$$BookLibraryItemMinifiedFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String ino;
+  @override
+  final String libraryId;
+  @override
+  final String folderId;
+  @override
+  final String path;
+  @override
+  final String relPath;
+  @override
+  final bool isFile;
+  @override
+  @JsonKey(name: 'mtimeMs')
+  final DateTime mtime;
+  @override
+  @JsonKey(name: 'ctimeMs')
+  final DateTime ctime;
+  @override
+  @JsonKey(name: 'birthtimeMs')
+  final DateTime birthtime;
+  @override
+  final DateTime addedAt;
+  @override
+  final DateTime updatedAt;
+  @override
+  final bool isMissing;
+  @override
+  final bool isInvalid;
+  @override
+  final MediaType mediaType;
+  @override
+  final BookMinified media;
+  @override
+  final int numFiles;
+  @override
+  final int size;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'LibraryItem.bookMinified(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, numFiles: $numFiles, size: $size)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BookLibraryItemMinified &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.ino, ino) || other.ino == ino) &&
+            (identical(other.libraryId, libraryId) ||
+                other.libraryId == libraryId) &&
+            (identical(other.folderId, folderId) ||
+                other.folderId == folderId) &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.relPath, relPath) || other.relPath == relPath) &&
+            (identical(other.isFile, isFile) || other.isFile == isFile) &&
+            (identical(other.mtime, mtime) || other.mtime == mtime) &&
+            (identical(other.ctime, ctime) || other.ctime == ctime) &&
+            (identical(other.birthtime, birthtime) ||
+                other.birthtime == birthtime) &&
+            (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.isMissing, isMissing) ||
+                other.isMissing == isMissing) &&
+            (identical(other.isInvalid, isInvalid) ||
+                other.isInvalid == isInvalid) &&
+            (identical(other.mediaType, mediaType) ||
+                other.mediaType == mediaType) &&
+            const DeepCollectionEquality().equals(other.media, media) &&
+            (identical(other.numFiles, numFiles) ||
+                other.numFiles == numFiles) &&
+            (identical(other.size, size) || other.size == size));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      ino,
+      libraryId,
+      folderId,
+      path,
+      relPath,
+      isFile,
+      mtime,
+      ctime,
+      birthtime,
+      addedAt,
+      updatedAt,
+      isMissing,
+      isInvalid,
+      mediaType,
+      const DeepCollectionEquality().hash(media),
+      numFiles,
+      size);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BookLibraryItemMinifiedCopyWith<_$BookLibraryItemMinified> get copyWith =>
+      __$$BookLibraryItemMinifiedCopyWithImpl<_$BookLibraryItemMinified>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)
+        book,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)
+        bookMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        bookExpanded,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)
+        podcast,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        podcastExpanded,
+  }) {
+    return bookMinified(
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        isMissing,
+        isInvalid,
+        mediaType,
+        media,
+        numFiles,
+        size);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)?
+        book,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)?
+        podcast,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
+  }) {
+    return bookMinified?.call(
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        isMissing,
+        isInvalid,
+        mediaType,
+        media,
+        numFiles,
+        size);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)?
+        book,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)?
+        podcast,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (bookMinified != null) {
+      return bookMinified(
+          id,
+          ino,
+          libraryId,
+          folderId,
+          path,
+          relPath,
+          isFile,
+          mtime,
+          ctime,
+          birthtime,
+          addedAt,
+          updatedAt,
+          isMissing,
+          isInvalid,
+          mediaType,
+          media,
+          numFiles,
+          size);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BookLibraryItem value) book,
+    required TResult Function(BookLibraryItemMinified value) bookMinified,
+    required TResult Function(BookLibraryItemExpanded value) bookExpanded,
+    required TResult Function(PodcastLibraryItem value) podcast,
+    required TResult Function(PodcastLibraryItemMinified value) podcastMinified,
+    required TResult Function(PodcastLibraryItemExpanded value) podcastExpanded,
+  }) {
+    return bookMinified(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BookLibraryItem value)? book,
+    TResult? Function(BookLibraryItemMinified value)? bookMinified,
+    TResult? Function(BookLibraryItemExpanded value)? bookExpanded,
+    TResult? Function(PodcastLibraryItem value)? podcast,
+    TResult? Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult? Function(PodcastLibraryItemExpanded value)? podcastExpanded,
+  }) {
+    return bookMinified?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BookLibraryItem value)? book,
+    TResult Function(BookLibraryItemMinified value)? bookMinified,
+    TResult Function(BookLibraryItemExpanded value)? bookExpanded,
+    TResult Function(PodcastLibraryItem value)? podcast,
+    TResult Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult Function(PodcastLibraryItemExpanded value)? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (bookMinified != null) {
+      return bookMinified(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BookLibraryItemMinifiedToJson(
+      this,
+    );
+  }
+}
+
+abstract class BookLibraryItemMinified extends LibraryItem {
+  const factory BookLibraryItemMinified(
+      {required final String id,
+      required final String ino,
+      required final String libraryId,
+      required final String folderId,
+      required final String path,
+      required final String relPath,
+      required final bool isFile,
+      @JsonKey(name: 'mtimeMs') required final DateTime mtime,
+      @JsonKey(name: 'ctimeMs') required final DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') required final DateTime birthtime,
+      required final DateTime addedAt,
+      required final DateTime updatedAt,
+      required final bool isMissing,
+      required final bool isInvalid,
+      required final MediaType mediaType,
+      required final BookMinified media,
+      required final int numFiles,
+      required final int size}) = _$BookLibraryItemMinified;
+  const BookLibraryItemMinified._() : super._();
+
+  factory BookLibraryItemMinified.fromJson(Map<String, dynamic> json) =
+      _$BookLibraryItemMinified.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get ino;
+  @override
+  String get libraryId;
+  @override
+  String get folderId;
+  @override
+  String get path;
+  @override
+  String get relPath;
+  @override
+  bool get isFile;
+  @override
+  @JsonKey(name: 'mtimeMs')
+  DateTime get mtime;
+  @override
+  @JsonKey(name: 'ctimeMs')
+  DateTime get ctime;
+  @override
+  @JsonKey(name: 'birthtimeMs')
+  DateTime get birthtime;
+  @override
+  DateTime get addedAt;
+  @override
+  DateTime get updatedAt;
+  @override
+  bool get isMissing;
+  @override
+  bool get isInvalid;
+  @override
+  MediaType get mediaType;
+  @override
+  BookMinified get media;
+  int get numFiles;
+  int get size;
+  @override
+  @JsonKey(ignore: true)
+  _$$BookLibraryItemMinifiedCopyWith<_$BookLibraryItemMinified> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BookLibraryItemExpandedCopyWith<$Res>
+    implements $LibraryItemCopyWith<$Res> {
+  factory _$$BookLibraryItemExpandedCopyWith(_$BookLibraryItemExpanded value,
+          $Res Function(_$BookLibraryItemExpanded) then) =
+      __$$BookLibraryItemExpandedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String ino,
+      String libraryId,
+      String folderId,
+      String path,
+      String relPath,
+      bool isFile,
+      @JsonKey(name: 'mtimeMs') DateTime mtime,
+      @JsonKey(name: 'ctimeMs') DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+      DateTime addedAt,
+      DateTime updatedAt,
+      DateTime? lastScan,
+      String? scanVersion,
+      bool isMissing,
+      bool isInvalid,
+      MediaType mediaType,
+      Book media,
+      List<LibraryFile> libraryFiles,
+      int size});
+}
+
+/// @nodoc
+class __$$BookLibraryItemExpandedCopyWithImpl<$Res>
+    extends _$LibraryItemCopyWithImpl<$Res, _$BookLibraryItemExpanded>
+    implements _$$BookLibraryItemExpandedCopyWith<$Res> {
+  __$$BookLibraryItemExpandedCopyWithImpl(_$BookLibraryItemExpanded _value,
+      $Res Function(_$BookLibraryItemExpanded) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? ino = null,
+    Object? libraryId = null,
+    Object? folderId = null,
+    Object? path = null,
+    Object? relPath = null,
+    Object? isFile = null,
+    Object? mtime = null,
+    Object? ctime = null,
+    Object? birthtime = null,
+    Object? addedAt = null,
+    Object? updatedAt = null,
+    Object? lastScan = freezed,
+    Object? scanVersion = freezed,
+    Object? isMissing = null,
+    Object? isInvalid = null,
+    Object? mediaType = null,
+    Object? media = freezed,
+    Object? libraryFiles = null,
+    Object? size = null,
+  }) {
+    return _then(_$BookLibraryItemExpanded(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      ino: null == ino
+          ? _value.ino
+          : ino // ignore: cast_nullable_to_non_nullable
+              as String,
+      libraryId: null == libraryId
+          ? _value.libraryId
+          : libraryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      folderId: null == folderId
+          ? _value.folderId
+          : folderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      path: null == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      relPath: null == relPath
+          ? _value.relPath
+          : relPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      isFile: null == isFile
+          ? _value.isFile
+          : isFile // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mtime: null == mtime
+          ? _value.mtime
+          : mtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      ctime: null == ctime
+          ? _value.ctime
+          : ctime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      birthtime: null == birthtime
+          ? _value.birthtime
+          : birthtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      addedAt: null == addedAt
+          ? _value.addedAt
+          : addedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      lastScan: freezed == lastScan
+          ? _value.lastScan
+          : lastScan // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      scanVersion: freezed == scanVersion
+          ? _value.scanVersion
+          : scanVersion // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isMissing: null == isMissing
+          ? _value.isMissing
+          : isMissing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInvalid: null == isInvalid
+          ? _value.isInvalid
+          : isInvalid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mediaType: null == mediaType
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as MediaType,
+      media: freezed == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as Book,
+      libraryFiles: null == libraryFiles
+          ? _value._libraryFiles
+          : libraryFiles // ignore: cast_nullable_to_non_nullable
+              as List<LibraryFile>,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonConverters
+class _$BookLibraryItemExpanded extends BookLibraryItemExpanded {
+  const _$BookLibraryItemExpanded(
+      {required this.id,
+      required this.ino,
+      required this.libraryId,
+      required this.folderId,
+      required this.path,
+      required this.relPath,
+      required this.isFile,
+      @JsonKey(name: 'mtimeMs') required this.mtime,
+      @JsonKey(name: 'ctimeMs') required this.ctime,
+      @JsonKey(name: 'birthtimeMs') required this.birthtime,
+      required this.addedAt,
+      required this.updatedAt,
+      this.lastScan,
+      this.scanVersion,
+      required this.isMissing,
+      required this.isInvalid,
+      required this.mediaType,
+      required this.media,
+      required final List<LibraryFile> libraryFiles,
+      required this.size,
+      final String? $type})
+      : _libraryFiles = libraryFiles,
+        $type = $type ?? 'bookExpanded',
+        super._();
+
+  factory _$BookLibraryItemExpanded.fromJson(Map<String, dynamic> json) =>
+      _$$BookLibraryItemExpandedFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String ino;
+  @override
+  final String libraryId;
+  @override
+  final String folderId;
+  @override
+  final String path;
+  @override
+  final String relPath;
+  @override
+  final bool isFile;
+  @override
+  @JsonKey(name: 'mtimeMs')
+  final DateTime mtime;
+  @override
+  @JsonKey(name: 'ctimeMs')
+  final DateTime ctime;
+  @override
+  @JsonKey(name: 'birthtimeMs')
+  final DateTime birthtime;
+  @override
+  final DateTime addedAt;
+  @override
+  final DateTime updatedAt;
+  @override
+  final DateTime? lastScan;
+  @override
+  final String? scanVersion;
+  @override
+  final bool isMissing;
+  @override
+  final bool isInvalid;
+  @override
+  final MediaType mediaType;
+  @override
+  final Book media;
+  final List<LibraryFile> _libraryFiles;
+  @override
+  List<LibraryFile> get libraryFiles {
+    if (_libraryFiles is EqualUnmodifiableListView) return _libraryFiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_libraryFiles);
+  }
+
+  @override
+  final int size;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'LibraryItem.bookExpanded(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, size: $size)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BookLibraryItemExpanded &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.ino, ino) || other.ino == ino) &&
+            (identical(other.libraryId, libraryId) ||
+                other.libraryId == libraryId) &&
+            (identical(other.folderId, folderId) ||
+                other.folderId == folderId) &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.relPath, relPath) || other.relPath == relPath) &&
+            (identical(other.isFile, isFile) || other.isFile == isFile) &&
+            (identical(other.mtime, mtime) || other.mtime == mtime) &&
+            (identical(other.ctime, ctime) || other.ctime == ctime) &&
+            (identical(other.birthtime, birthtime) ||
+                other.birthtime == birthtime) &&
+            (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.lastScan, lastScan) ||
+                other.lastScan == lastScan) &&
+            (identical(other.scanVersion, scanVersion) ||
+                other.scanVersion == scanVersion) &&
+            (identical(other.isMissing, isMissing) ||
+                other.isMissing == isMissing) &&
+            (identical(other.isInvalid, isInvalid) ||
+                other.isInvalid == isInvalid) &&
+            (identical(other.mediaType, mediaType) ||
+                other.mediaType == mediaType) &&
+            const DeepCollectionEquality().equals(other.media, media) &&
+            const DeepCollectionEquality()
+                .equals(other._libraryFiles, _libraryFiles) &&
+            (identical(other.size, size) || other.size == size));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        lastScan,
+        scanVersion,
+        isMissing,
+        isInvalid,
+        mediaType,
+        const DeepCollectionEquality().hash(media),
+        const DeepCollectionEquality().hash(_libraryFiles),
+        size
+      ]);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BookLibraryItemExpandedCopyWith<_$BookLibraryItemExpanded> get copyWith =>
+      __$$BookLibraryItemExpandedCopyWithImpl<_$BookLibraryItemExpanded>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)
+        book,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)
+        bookMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        bookExpanded,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)
+        podcast,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        podcastExpanded,
+  }) {
+    return bookExpanded(
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        lastScan,
+        scanVersion,
+        isMissing,
+        isInvalid,
+        mediaType,
+        media,
+        libraryFiles,
+        size);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)?
+        book,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)?
+        podcast,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
+  }) {
+    return bookExpanded?.call(
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        lastScan,
+        scanVersion,
+        isMissing,
+        isInvalid,
+        mediaType,
+        media,
+        libraryFiles,
+        size);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)?
+        book,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)?
+        podcast,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (bookExpanded != null) {
+      return bookExpanded(
+          id,
+          ino,
+          libraryId,
+          folderId,
+          path,
+          relPath,
+          isFile,
+          mtime,
+          ctime,
+          birthtime,
+          addedAt,
+          updatedAt,
+          lastScan,
+          scanVersion,
+          isMissing,
+          isInvalid,
+          mediaType,
+          media,
+          libraryFiles,
+          size);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BookLibraryItem value) book,
+    required TResult Function(BookLibraryItemMinified value) bookMinified,
+    required TResult Function(BookLibraryItemExpanded value) bookExpanded,
+    required TResult Function(PodcastLibraryItem value) podcast,
+    required TResult Function(PodcastLibraryItemMinified value) podcastMinified,
+    required TResult Function(PodcastLibraryItemExpanded value) podcastExpanded,
+  }) {
+    return bookExpanded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BookLibraryItem value)? book,
+    TResult? Function(BookLibraryItemMinified value)? bookMinified,
+    TResult? Function(BookLibraryItemExpanded value)? bookExpanded,
+    TResult? Function(PodcastLibraryItem value)? podcast,
+    TResult? Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult? Function(PodcastLibraryItemExpanded value)? podcastExpanded,
+  }) {
+    return bookExpanded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BookLibraryItem value)? book,
+    TResult Function(BookLibraryItemMinified value)? bookMinified,
+    TResult Function(BookLibraryItemExpanded value)? bookExpanded,
+    TResult Function(PodcastLibraryItem value)? podcast,
+    TResult Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult Function(PodcastLibraryItemExpanded value)? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (bookExpanded != null) {
+      return bookExpanded(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$BookLibraryItemExpandedToJson(
+      this,
+    );
+  }
+}
+
+abstract class BookLibraryItemExpanded extends LibraryItem {
+  const factory BookLibraryItemExpanded(
+      {required final String id,
+      required final String ino,
+      required final String libraryId,
+      required final String folderId,
+      required final String path,
+      required final String relPath,
+      required final bool isFile,
+      @JsonKey(name: 'mtimeMs') required final DateTime mtime,
+      @JsonKey(name: 'ctimeMs') required final DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') required final DateTime birthtime,
+      required final DateTime addedAt,
+      required final DateTime updatedAt,
+      final DateTime? lastScan,
+      final String? scanVersion,
+      required final bool isMissing,
+      required final bool isInvalid,
+      required final MediaType mediaType,
+      required final Book media,
+      required final List<LibraryFile> libraryFiles,
+      required final int size}) = _$BookLibraryItemExpanded;
+  const BookLibraryItemExpanded._() : super._();
+
+  factory BookLibraryItemExpanded.fromJson(Map<String, dynamic> json) =
+      _$BookLibraryItemExpanded.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get ino;
+  @override
+  String get libraryId;
+  @override
+  String get folderId;
+  @override
+  String get path;
+  @override
+  String get relPath;
+  @override
+  bool get isFile;
+  @override
+  @JsonKey(name: 'mtimeMs')
+  DateTime get mtime;
+  @override
+  @JsonKey(name: 'ctimeMs')
+  DateTime get ctime;
+  @override
+  @JsonKey(name: 'birthtimeMs')
+  DateTime get birthtime;
+  @override
+  DateTime get addedAt;
+  @override
+  DateTime get updatedAt;
+  DateTime? get lastScan;
+  String? get scanVersion;
+  @override
+  bool get isMissing;
+  @override
+  bool get isInvalid;
+  @override
+  MediaType get mediaType;
+  @override
+  Book get media;
+  List<LibraryFile> get libraryFiles;
+  int get size;
+  @override
+  @JsonKey(ignore: true)
+  _$$BookLibraryItemExpandedCopyWith<_$BookLibraryItemExpanded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1848,7 +3285,7 @@ class __$$PodcastLibraryItemCopyWithImpl<$Res>
     Object? isMissing = null,
     Object? isInvalid = null,
     Object? mediaType = null,
-    Object? media = null,
+    Object? media = freezed,
     Object? libraryFiles = null,
   }) {
     return _then(_$PodcastLibraryItem(
@@ -1920,7 +3357,7 @@ class __$$PodcastLibraryItemCopyWithImpl<$Res>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
-      media: null == media
+      media: freezed == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as Podcast,
@@ -2006,6 +3443,7 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
   final List<LibraryFile> _libraryFiles;
   @override
   List<LibraryFile> get libraryFiles {
+    if (_libraryFiles is EqualUnmodifiableListView) return _libraryFiles;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_libraryFiles);
   }
@@ -2088,28 +3526,7 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)
-        $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function(
             String id,
             String ino,
@@ -2144,6 +3561,48 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
             @JsonKey(name: 'birthtimeMs') DateTime birthtime,
             DateTime addedAt,
             DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)
+        bookMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        bookExpanded,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
             DateTime? lastScan,
             String? scanVersion,
             bool isMissing,
@@ -2152,6 +3611,48 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
             Podcast media,
             List<LibraryFile> libraryFiles)
         podcast,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        podcastExpanded,
   }) {
     return podcast(
         id,
@@ -2177,28 +3678,7 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)?
-        $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String id,
             String ino,
@@ -2233,6 +3713,48 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
             @JsonKey(name: 'birthtimeMs') DateTime birthtime,
             DateTime addedAt,
             DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
             DateTime? lastScan,
             String? scanVersion,
             bool isMissing,
@@ -2241,6 +3763,48 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
             Podcast media,
             List<LibraryFile> libraryFiles)?
         podcast,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
   }) {
     return podcast?.call(
         id,
@@ -2266,28 +3830,7 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            String id,
-            String ino,
-            String libraryId,
-            String folderId,
-            String path,
-            String relPath,
-            bool isFile,
-            @JsonKey(name: 'mtimeMs') DateTime mtime,
-            @JsonKey(name: 'ctimeMs') DateTime ctime,
-            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
-            DateTime addedAt,
-            DateTime updatedAt,
-            DateTime? lastScan,
-            String? scanVersion,
-            bool isMissing,
-            bool isInvalid,
-            MediaType mediaType,
-            @MediaConverter() Media media,
-            List<LibraryFile> libraryFiles)?
-        $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String id,
             String ino,
@@ -2322,6 +3865,48 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
             @JsonKey(name: 'birthtimeMs') DateTime birthtime,
             DateTime addedAt,
             DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
             DateTime? lastScan,
             String? scanVersion,
             bool isMissing,
@@ -2330,6 +3915,48 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
             Podcast media,
             List<LibraryFile> libraryFiles)?
         podcast,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (podcast != null) {
@@ -2359,30 +3986,39 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_LibraryItem value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(BookLibraryItem value) book,
+    required TResult Function(BookLibraryItemMinified value) bookMinified,
+    required TResult Function(BookLibraryItemExpanded value) bookExpanded,
     required TResult Function(PodcastLibraryItem value) podcast,
+    required TResult Function(PodcastLibraryItemMinified value) podcastMinified,
+    required TResult Function(PodcastLibraryItemExpanded value) podcastExpanded,
   }) {
     return podcast(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_LibraryItem value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(BookLibraryItem value)? book,
+    TResult? Function(BookLibraryItemMinified value)? bookMinified,
+    TResult? Function(BookLibraryItemExpanded value)? bookExpanded,
     TResult? Function(PodcastLibraryItem value)? podcast,
+    TResult? Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult? Function(PodcastLibraryItemExpanded value)? podcastExpanded,
   }) {
     return podcast?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_LibraryItem value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(BookLibraryItem value)? book,
+    TResult Function(BookLibraryItemMinified value)? bookMinified,
+    TResult Function(BookLibraryItemExpanded value)? bookExpanded,
     TResult Function(PodcastLibraryItem value)? podcast,
+    TResult Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult Function(PodcastLibraryItemExpanded value)? podcastExpanded,
     required TResult orElse(),
   }) {
     if (podcast != null) {
@@ -2452,9 +4088,7 @@ abstract class PodcastLibraryItem extends LibraryItem {
   DateTime get addedAt;
   @override
   DateTime get updatedAt;
-  @override
   DateTime? get lastScan;
-  @override
   String? get scanVersion;
   @override
   bool get isMissing;
@@ -2462,11 +4096,1763 @@ abstract class PodcastLibraryItem extends LibraryItem {
   bool get isInvalid;
   @override
   MediaType get mediaType;
-  Podcast get media;
   @override
+  Podcast get media;
   List<LibraryFile> get libraryFiles;
   @override
   @JsonKey(ignore: true)
   _$$PodcastLibraryItemCopyWith<_$PodcastLibraryItem> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PodcastLibraryItemMinifiedCopyWith<$Res>
+    implements $LibraryItemCopyWith<$Res> {
+  factory _$$PodcastLibraryItemMinifiedCopyWith(
+          _$PodcastLibraryItemMinified value,
+          $Res Function(_$PodcastLibraryItemMinified) then) =
+      __$$PodcastLibraryItemMinifiedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String ino,
+      String libraryId,
+      String folderId,
+      String path,
+      String relPath,
+      bool isFile,
+      @JsonKey(name: 'mtimeMs') DateTime mtime,
+      @JsonKey(name: 'ctimeMs') DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+      DateTime addedAt,
+      DateTime updatedAt,
+      bool isMissing,
+      bool isInvalid,
+      MediaType mediaType,
+      PodcastMinified media,
+      int numFiles,
+      int size});
+}
+
+/// @nodoc
+class __$$PodcastLibraryItemMinifiedCopyWithImpl<$Res>
+    extends _$LibraryItemCopyWithImpl<$Res, _$PodcastLibraryItemMinified>
+    implements _$$PodcastLibraryItemMinifiedCopyWith<$Res> {
+  __$$PodcastLibraryItemMinifiedCopyWithImpl(
+      _$PodcastLibraryItemMinified _value,
+      $Res Function(_$PodcastLibraryItemMinified) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? ino = null,
+    Object? libraryId = null,
+    Object? folderId = null,
+    Object? path = null,
+    Object? relPath = null,
+    Object? isFile = null,
+    Object? mtime = null,
+    Object? ctime = null,
+    Object? birthtime = null,
+    Object? addedAt = null,
+    Object? updatedAt = null,
+    Object? isMissing = null,
+    Object? isInvalid = null,
+    Object? mediaType = null,
+    Object? media = freezed,
+    Object? numFiles = null,
+    Object? size = null,
+  }) {
+    return _then(_$PodcastLibraryItemMinified(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      ino: null == ino
+          ? _value.ino
+          : ino // ignore: cast_nullable_to_non_nullable
+              as String,
+      libraryId: null == libraryId
+          ? _value.libraryId
+          : libraryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      folderId: null == folderId
+          ? _value.folderId
+          : folderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      path: null == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      relPath: null == relPath
+          ? _value.relPath
+          : relPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      isFile: null == isFile
+          ? _value.isFile
+          : isFile // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mtime: null == mtime
+          ? _value.mtime
+          : mtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      ctime: null == ctime
+          ? _value.ctime
+          : ctime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      birthtime: null == birthtime
+          ? _value.birthtime
+          : birthtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      addedAt: null == addedAt
+          ? _value.addedAt
+          : addedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      isMissing: null == isMissing
+          ? _value.isMissing
+          : isMissing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInvalid: null == isInvalid
+          ? _value.isInvalid
+          : isInvalid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mediaType: null == mediaType
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as MediaType,
+      media: freezed == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as PodcastMinified,
+      numFiles: null == numFiles
+          ? _value.numFiles
+          : numFiles // ignore: cast_nullable_to_non_nullable
+              as int,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonConverters
+class _$PodcastLibraryItemMinified extends PodcastLibraryItemMinified {
+  const _$PodcastLibraryItemMinified(
+      {required this.id,
+      required this.ino,
+      required this.libraryId,
+      required this.folderId,
+      required this.path,
+      required this.relPath,
+      required this.isFile,
+      @JsonKey(name: 'mtimeMs') required this.mtime,
+      @JsonKey(name: 'ctimeMs') required this.ctime,
+      @JsonKey(name: 'birthtimeMs') required this.birthtime,
+      required this.addedAt,
+      required this.updatedAt,
+      required this.isMissing,
+      required this.isInvalid,
+      required this.mediaType,
+      required this.media,
+      required this.numFiles,
+      required this.size,
+      final String? $type})
+      : $type = $type ?? 'podcastMinified',
+        super._();
+
+  factory _$PodcastLibraryItemMinified.fromJson(Map<String, dynamic> json) =>
+      _$$PodcastLibraryItemMinifiedFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String ino;
+  @override
+  final String libraryId;
+  @override
+  final String folderId;
+  @override
+  final String path;
+  @override
+  final String relPath;
+  @override
+  final bool isFile;
+  @override
+  @JsonKey(name: 'mtimeMs')
+  final DateTime mtime;
+  @override
+  @JsonKey(name: 'ctimeMs')
+  final DateTime ctime;
+  @override
+  @JsonKey(name: 'birthtimeMs')
+  final DateTime birthtime;
+  @override
+  final DateTime addedAt;
+  @override
+  final DateTime updatedAt;
+  @override
+  final bool isMissing;
+  @override
+  final bool isInvalid;
+  @override
+  final MediaType mediaType;
+  @override
+  final PodcastMinified media;
+  @override
+  final int numFiles;
+  @override
+  final int size;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'LibraryItem.podcastMinified(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, numFiles: $numFiles, size: $size)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PodcastLibraryItemMinified &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.ino, ino) || other.ino == ino) &&
+            (identical(other.libraryId, libraryId) ||
+                other.libraryId == libraryId) &&
+            (identical(other.folderId, folderId) ||
+                other.folderId == folderId) &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.relPath, relPath) || other.relPath == relPath) &&
+            (identical(other.isFile, isFile) || other.isFile == isFile) &&
+            (identical(other.mtime, mtime) || other.mtime == mtime) &&
+            (identical(other.ctime, ctime) || other.ctime == ctime) &&
+            (identical(other.birthtime, birthtime) ||
+                other.birthtime == birthtime) &&
+            (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.isMissing, isMissing) ||
+                other.isMissing == isMissing) &&
+            (identical(other.isInvalid, isInvalid) ||
+                other.isInvalid == isInvalid) &&
+            (identical(other.mediaType, mediaType) ||
+                other.mediaType == mediaType) &&
+            const DeepCollectionEquality().equals(other.media, media) &&
+            (identical(other.numFiles, numFiles) ||
+                other.numFiles == numFiles) &&
+            (identical(other.size, size) || other.size == size));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      ino,
+      libraryId,
+      folderId,
+      path,
+      relPath,
+      isFile,
+      mtime,
+      ctime,
+      birthtime,
+      addedAt,
+      updatedAt,
+      isMissing,
+      isInvalid,
+      mediaType,
+      const DeepCollectionEquality().hash(media),
+      numFiles,
+      size);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PodcastLibraryItemMinifiedCopyWith<_$PodcastLibraryItemMinified>
+      get copyWith => __$$PodcastLibraryItemMinifiedCopyWithImpl<
+          _$PodcastLibraryItemMinified>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)
+        book,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)
+        bookMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        bookExpanded,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)
+        podcast,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        podcastExpanded,
+  }) {
+    return podcastMinified(
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        isMissing,
+        isInvalid,
+        mediaType,
+        media,
+        numFiles,
+        size);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)?
+        book,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)?
+        podcast,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
+  }) {
+    return podcastMinified?.call(
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        isMissing,
+        isInvalid,
+        mediaType,
+        media,
+        numFiles,
+        size);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)?
+        book,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)?
+        podcast,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcastMinified != null) {
+      return podcastMinified(
+          id,
+          ino,
+          libraryId,
+          folderId,
+          path,
+          relPath,
+          isFile,
+          mtime,
+          ctime,
+          birthtime,
+          addedAt,
+          updatedAt,
+          isMissing,
+          isInvalid,
+          mediaType,
+          media,
+          numFiles,
+          size);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BookLibraryItem value) book,
+    required TResult Function(BookLibraryItemMinified value) bookMinified,
+    required TResult Function(BookLibraryItemExpanded value) bookExpanded,
+    required TResult Function(PodcastLibraryItem value) podcast,
+    required TResult Function(PodcastLibraryItemMinified value) podcastMinified,
+    required TResult Function(PodcastLibraryItemExpanded value) podcastExpanded,
+  }) {
+    return podcastMinified(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BookLibraryItem value)? book,
+    TResult? Function(BookLibraryItemMinified value)? bookMinified,
+    TResult? Function(BookLibraryItemExpanded value)? bookExpanded,
+    TResult? Function(PodcastLibraryItem value)? podcast,
+    TResult? Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult? Function(PodcastLibraryItemExpanded value)? podcastExpanded,
+  }) {
+    return podcastMinified?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BookLibraryItem value)? book,
+    TResult Function(BookLibraryItemMinified value)? bookMinified,
+    TResult Function(BookLibraryItemExpanded value)? bookExpanded,
+    TResult Function(PodcastLibraryItem value)? podcast,
+    TResult Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult Function(PodcastLibraryItemExpanded value)? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcastMinified != null) {
+      return podcastMinified(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PodcastLibraryItemMinifiedToJson(
+      this,
+    );
+  }
+}
+
+abstract class PodcastLibraryItemMinified extends LibraryItem {
+  const factory PodcastLibraryItemMinified(
+      {required final String id,
+      required final String ino,
+      required final String libraryId,
+      required final String folderId,
+      required final String path,
+      required final String relPath,
+      required final bool isFile,
+      @JsonKey(name: 'mtimeMs') required final DateTime mtime,
+      @JsonKey(name: 'ctimeMs') required final DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') required final DateTime birthtime,
+      required final DateTime addedAt,
+      required final DateTime updatedAt,
+      required final bool isMissing,
+      required final bool isInvalid,
+      required final MediaType mediaType,
+      required final PodcastMinified media,
+      required final int numFiles,
+      required final int size}) = _$PodcastLibraryItemMinified;
+  const PodcastLibraryItemMinified._() : super._();
+
+  factory PodcastLibraryItemMinified.fromJson(Map<String, dynamic> json) =
+      _$PodcastLibraryItemMinified.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get ino;
+  @override
+  String get libraryId;
+  @override
+  String get folderId;
+  @override
+  String get path;
+  @override
+  String get relPath;
+  @override
+  bool get isFile;
+  @override
+  @JsonKey(name: 'mtimeMs')
+  DateTime get mtime;
+  @override
+  @JsonKey(name: 'ctimeMs')
+  DateTime get ctime;
+  @override
+  @JsonKey(name: 'birthtimeMs')
+  DateTime get birthtime;
+  @override
+  DateTime get addedAt;
+  @override
+  DateTime get updatedAt;
+  @override
+  bool get isMissing;
+  @override
+  bool get isInvalid;
+  @override
+  MediaType get mediaType;
+  @override
+  PodcastMinified get media;
+  int get numFiles;
+  int get size;
+  @override
+  @JsonKey(ignore: true)
+  _$$PodcastLibraryItemMinifiedCopyWith<_$PodcastLibraryItemMinified>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PodcastLibraryItemExpandedCopyWith<$Res>
+    implements $LibraryItemCopyWith<$Res> {
+  factory _$$PodcastLibraryItemExpandedCopyWith(
+          _$PodcastLibraryItemExpanded value,
+          $Res Function(_$PodcastLibraryItemExpanded) then) =
+      __$$PodcastLibraryItemExpandedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String ino,
+      String libraryId,
+      String folderId,
+      String path,
+      String relPath,
+      bool isFile,
+      @JsonKey(name: 'mtimeMs') DateTime mtime,
+      @JsonKey(name: 'ctimeMs') DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+      DateTime addedAt,
+      DateTime updatedAt,
+      DateTime? lastScan,
+      String? scanVersion,
+      bool isMissing,
+      bool isInvalid,
+      MediaType mediaType,
+      Podcast media,
+      List<LibraryFile> libraryFiles,
+      int size});
+}
+
+/// @nodoc
+class __$$PodcastLibraryItemExpandedCopyWithImpl<$Res>
+    extends _$LibraryItemCopyWithImpl<$Res, _$PodcastLibraryItemExpanded>
+    implements _$$PodcastLibraryItemExpandedCopyWith<$Res> {
+  __$$PodcastLibraryItemExpandedCopyWithImpl(
+      _$PodcastLibraryItemExpanded _value,
+      $Res Function(_$PodcastLibraryItemExpanded) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? ino = null,
+    Object? libraryId = null,
+    Object? folderId = null,
+    Object? path = null,
+    Object? relPath = null,
+    Object? isFile = null,
+    Object? mtime = null,
+    Object? ctime = null,
+    Object? birthtime = null,
+    Object? addedAt = null,
+    Object? updatedAt = null,
+    Object? lastScan = freezed,
+    Object? scanVersion = freezed,
+    Object? isMissing = null,
+    Object? isInvalid = null,
+    Object? mediaType = null,
+    Object? media = freezed,
+    Object? libraryFiles = null,
+    Object? size = null,
+  }) {
+    return _then(_$PodcastLibraryItemExpanded(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      ino: null == ino
+          ? _value.ino
+          : ino // ignore: cast_nullable_to_non_nullable
+              as String,
+      libraryId: null == libraryId
+          ? _value.libraryId
+          : libraryId // ignore: cast_nullable_to_non_nullable
+              as String,
+      folderId: null == folderId
+          ? _value.folderId
+          : folderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      path: null == path
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      relPath: null == relPath
+          ? _value.relPath
+          : relPath // ignore: cast_nullable_to_non_nullable
+              as String,
+      isFile: null == isFile
+          ? _value.isFile
+          : isFile // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mtime: null == mtime
+          ? _value.mtime
+          : mtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      ctime: null == ctime
+          ? _value.ctime
+          : ctime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      birthtime: null == birthtime
+          ? _value.birthtime
+          : birthtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      addedAt: null == addedAt
+          ? _value.addedAt
+          : addedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: null == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      lastScan: freezed == lastScan
+          ? _value.lastScan
+          : lastScan // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      scanVersion: freezed == scanVersion
+          ? _value.scanVersion
+          : scanVersion // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isMissing: null == isMissing
+          ? _value.isMissing
+          : isMissing // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isInvalid: null == isInvalid
+          ? _value.isInvalid
+          : isInvalid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mediaType: null == mediaType
+          ? _value.mediaType
+          : mediaType // ignore: cast_nullable_to_non_nullable
+              as MediaType,
+      media: freezed == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as Podcast,
+      libraryFiles: null == libraryFiles
+          ? _value._libraryFiles
+          : libraryFiles // ignore: cast_nullable_to_non_nullable
+              as List<LibraryFile>,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonConverters
+class _$PodcastLibraryItemExpanded extends PodcastLibraryItemExpanded {
+  const _$PodcastLibraryItemExpanded(
+      {required this.id,
+      required this.ino,
+      required this.libraryId,
+      required this.folderId,
+      required this.path,
+      required this.relPath,
+      required this.isFile,
+      @JsonKey(name: 'mtimeMs') required this.mtime,
+      @JsonKey(name: 'ctimeMs') required this.ctime,
+      @JsonKey(name: 'birthtimeMs') required this.birthtime,
+      required this.addedAt,
+      required this.updatedAt,
+      this.lastScan,
+      this.scanVersion,
+      required this.isMissing,
+      required this.isInvalid,
+      required this.mediaType,
+      required this.media,
+      required final List<LibraryFile> libraryFiles,
+      required this.size,
+      final String? $type})
+      : _libraryFiles = libraryFiles,
+        $type = $type ?? 'podcastExpanded',
+        super._();
+
+  factory _$PodcastLibraryItemExpanded.fromJson(Map<String, dynamic> json) =>
+      _$$PodcastLibraryItemExpandedFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String ino;
+  @override
+  final String libraryId;
+  @override
+  final String folderId;
+  @override
+  final String path;
+  @override
+  final String relPath;
+  @override
+  final bool isFile;
+  @override
+  @JsonKey(name: 'mtimeMs')
+  final DateTime mtime;
+  @override
+  @JsonKey(name: 'ctimeMs')
+  final DateTime ctime;
+  @override
+  @JsonKey(name: 'birthtimeMs')
+  final DateTime birthtime;
+  @override
+  final DateTime addedAt;
+  @override
+  final DateTime updatedAt;
+  @override
+  final DateTime? lastScan;
+  @override
+  final String? scanVersion;
+  @override
+  final bool isMissing;
+  @override
+  final bool isInvalid;
+  @override
+  final MediaType mediaType;
+  @override
+  final Podcast media;
+  final List<LibraryFile> _libraryFiles;
+  @override
+  List<LibraryFile> get libraryFiles {
+    if (_libraryFiles is EqualUnmodifiableListView) return _libraryFiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_libraryFiles);
+  }
+
+  @override
+  final int size;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'LibraryItem.podcastExpanded(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, size: $size)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PodcastLibraryItemExpanded &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.ino, ino) || other.ino == ino) &&
+            (identical(other.libraryId, libraryId) ||
+                other.libraryId == libraryId) &&
+            (identical(other.folderId, folderId) ||
+                other.folderId == folderId) &&
+            (identical(other.path, path) || other.path == path) &&
+            (identical(other.relPath, relPath) || other.relPath == relPath) &&
+            (identical(other.isFile, isFile) || other.isFile == isFile) &&
+            (identical(other.mtime, mtime) || other.mtime == mtime) &&
+            (identical(other.ctime, ctime) || other.ctime == ctime) &&
+            (identical(other.birthtime, birthtime) ||
+                other.birthtime == birthtime) &&
+            (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
+            (identical(other.lastScan, lastScan) ||
+                other.lastScan == lastScan) &&
+            (identical(other.scanVersion, scanVersion) ||
+                other.scanVersion == scanVersion) &&
+            (identical(other.isMissing, isMissing) ||
+                other.isMissing == isMissing) &&
+            (identical(other.isInvalid, isInvalid) ||
+                other.isInvalid == isInvalid) &&
+            (identical(other.mediaType, mediaType) ||
+                other.mediaType == mediaType) &&
+            const DeepCollectionEquality().equals(other.media, media) &&
+            const DeepCollectionEquality()
+                .equals(other._libraryFiles, _libraryFiles) &&
+            (identical(other.size, size) || other.size == size));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        lastScan,
+        scanVersion,
+        isMissing,
+        isInvalid,
+        mediaType,
+        const DeepCollectionEquality().hash(media),
+        const DeepCollectionEquality().hash(_libraryFiles),
+        size
+      ]);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PodcastLibraryItemExpandedCopyWith<_$PodcastLibraryItemExpanded>
+      get copyWith => __$$PodcastLibraryItemExpandedCopyWithImpl<
+          _$PodcastLibraryItemExpanded>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)
+        book,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)
+        bookMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        bookExpanded,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)
+        podcast,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)
+        podcastExpanded,
+  }) {
+    return podcastExpanded(
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        lastScan,
+        scanVersion,
+        isMissing,
+        isInvalid,
+        mediaType,
+        media,
+        libraryFiles,
+        size);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)?
+        book,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)?
+        podcast,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
+  }) {
+    return podcastExpanded?.call(
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        lastScan,
+        scanVersion,
+        isMissing,
+        isInvalid,
+        mediaType,
+        media,
+        libraryFiles,
+        size);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles)?
+        book,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            BookMinified media,
+            int numFiles,
+            int size)?
+        bookMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Book media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        bookExpanded,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles)?
+        podcast,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            PodcastMinified media,
+            int numFiles,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String id,
+            String ino,
+            String libraryId,
+            String folderId,
+            String path,
+            String relPath,
+            bool isFile,
+            @JsonKey(name: 'mtimeMs') DateTime mtime,
+            @JsonKey(name: 'ctimeMs') DateTime ctime,
+            @JsonKey(name: 'birthtimeMs') DateTime birthtime,
+            DateTime addedAt,
+            DateTime updatedAt,
+            DateTime? lastScan,
+            String? scanVersion,
+            bool isMissing,
+            bool isInvalid,
+            MediaType mediaType,
+            Podcast media,
+            List<LibraryFile> libraryFiles,
+            int size)?
+        podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcastExpanded != null) {
+      return podcastExpanded(
+          id,
+          ino,
+          libraryId,
+          folderId,
+          path,
+          relPath,
+          isFile,
+          mtime,
+          ctime,
+          birthtime,
+          addedAt,
+          updatedAt,
+          lastScan,
+          scanVersion,
+          isMissing,
+          isInvalid,
+          mediaType,
+          media,
+          libraryFiles,
+          size);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BookLibraryItem value) book,
+    required TResult Function(BookLibraryItemMinified value) bookMinified,
+    required TResult Function(BookLibraryItemExpanded value) bookExpanded,
+    required TResult Function(PodcastLibraryItem value) podcast,
+    required TResult Function(PodcastLibraryItemMinified value) podcastMinified,
+    required TResult Function(PodcastLibraryItemExpanded value) podcastExpanded,
+  }) {
+    return podcastExpanded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BookLibraryItem value)? book,
+    TResult? Function(BookLibraryItemMinified value)? bookMinified,
+    TResult? Function(BookLibraryItemExpanded value)? bookExpanded,
+    TResult? Function(PodcastLibraryItem value)? podcast,
+    TResult? Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult? Function(PodcastLibraryItemExpanded value)? podcastExpanded,
+  }) {
+    return podcastExpanded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BookLibraryItem value)? book,
+    TResult Function(BookLibraryItemMinified value)? bookMinified,
+    TResult Function(BookLibraryItemExpanded value)? bookExpanded,
+    TResult Function(PodcastLibraryItem value)? podcast,
+    TResult Function(PodcastLibraryItemMinified value)? podcastMinified,
+    TResult Function(PodcastLibraryItemExpanded value)? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcastExpanded != null) {
+      return podcastExpanded(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PodcastLibraryItemExpandedToJson(
+      this,
+    );
+  }
+}
+
+abstract class PodcastLibraryItemExpanded extends LibraryItem {
+  const factory PodcastLibraryItemExpanded(
+      {required final String id,
+      required final String ino,
+      required final String libraryId,
+      required final String folderId,
+      required final String path,
+      required final String relPath,
+      required final bool isFile,
+      @JsonKey(name: 'mtimeMs') required final DateTime mtime,
+      @JsonKey(name: 'ctimeMs') required final DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') required final DateTime birthtime,
+      required final DateTime addedAt,
+      required final DateTime updatedAt,
+      final DateTime? lastScan,
+      final String? scanVersion,
+      required final bool isMissing,
+      required final bool isInvalid,
+      required final MediaType mediaType,
+      required final Podcast media,
+      required final List<LibraryFile> libraryFiles,
+      required final int size}) = _$PodcastLibraryItemExpanded;
+  const PodcastLibraryItemExpanded._() : super._();
+
+  factory PodcastLibraryItemExpanded.fromJson(Map<String, dynamic> json) =
+      _$PodcastLibraryItemExpanded.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get ino;
+  @override
+  String get libraryId;
+  @override
+  String get folderId;
+  @override
+  String get path;
+  @override
+  String get relPath;
+  @override
+  bool get isFile;
+  @override
+  @JsonKey(name: 'mtimeMs')
+  DateTime get mtime;
+  @override
+  @JsonKey(name: 'ctimeMs')
+  DateTime get ctime;
+  @override
+  @JsonKey(name: 'birthtimeMs')
+  DateTime get birthtime;
+  @override
+  DateTime get addedAt;
+  @override
+  DateTime get updatedAt;
+  DateTime? get lastScan;
+  String? get scanVersion;
+  @override
+  bool get isMissing;
+  @override
+  bool get isInvalid;
+  @override
+  MediaType get mediaType;
+  @override
+  Podcast get media;
+  List<LibraryFile> get libraryFiles;
+  int get size;
+  @override
+  @JsonKey(ignore: true)
+  _$$PodcastLibraryItemExpandedCopyWith<_$PodcastLibraryItemExpanded>
+      get copyWith => throw _privateConstructorUsedError;
 }

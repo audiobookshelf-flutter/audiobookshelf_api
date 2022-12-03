@@ -22,7 +22,7 @@ linter:
 analyzer:
   exclude:
   - lib/src/models/schemas/generated/*.g.dart
-  - lib/src/models/schemas/generated/*.freezed.dart
+  # - lib/src/models/schemas/generated/*.freezed.dart
   errors:
     invalid_annotation_target: ignore
 

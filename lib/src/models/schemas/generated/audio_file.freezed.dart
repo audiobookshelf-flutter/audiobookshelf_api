@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of '../audio_file.dart';
 
@@ -107,13 +107,13 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
     Object? addedAt = freezed,
     Object? updatedAt = freezed,
     Object? trackNumFromMeta = freezed,
-    Object? discNumFromMeta = null,
-    Object? trackNumFromFilename = null,
-    Object? discNumFromFilename = null,
+    Object? discNumFromMeta = freezed,
+    Object? trackNumFromFilename = freezed,
+    Object? discNumFromFilename = freezed,
     Object? manuallyVerified = null,
     Object? invalid = null,
     Object? exclude = null,
-    Object? error = null,
+    Object? error = freezed,
     Object? format = freezed,
     Object? duration = freezed,
     Object? bitRate = freezed,
@@ -123,7 +123,7 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
     Object? channels = freezed,
     Object? channelLayout = freezed,
     Object? chapters = freezed,
-    Object? embeddedCoverArt = null,
+    Object? embeddedCoverArt = freezed,
     Object? metaTags = null,
     Object? mimeType = freezed,
   }) {
@@ -152,15 +152,15 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
           ? _value.trackNumFromMeta
           : trackNumFromMeta // ignore: cast_nullable_to_non_nullable
               as int?,
-      discNumFromMeta: null == discNumFromMeta
+      discNumFromMeta: freezed == discNumFromMeta
           ? _value.discNumFromMeta
           : discNumFromMeta // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      trackNumFromFilename: null == trackNumFromFilename
+      trackNumFromFilename: freezed == trackNumFromFilename
           ? _value.trackNumFromFilename
           : trackNumFromFilename // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      discNumFromFilename: null == discNumFromFilename
+      discNumFromFilename: freezed == discNumFromFilename
           ? _value.discNumFromFilename
           : discNumFromFilename // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -176,7 +176,7 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
           ? _value.exclude
           : exclude // ignore: cast_nullable_to_non_nullable
               as bool,
-      error: null == error
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -216,7 +216,7 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
           ? _value.chapters
           : chapters // ignore: cast_nullable_to_non_nullable
               as List<BookChapter>?,
-      embeddedCoverArt: null == embeddedCoverArt
+      embeddedCoverArt: freezed == embeddedCoverArt
           ? _value.embeddedCoverArt
           : embeddedCoverArt // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -305,13 +305,13 @@ class __$$_AudioFileCopyWithImpl<$Res>
     Object? addedAt = freezed,
     Object? updatedAt = freezed,
     Object? trackNumFromMeta = freezed,
-    Object? discNumFromMeta = null,
-    Object? trackNumFromFilename = null,
-    Object? discNumFromFilename = null,
+    Object? discNumFromMeta = freezed,
+    Object? trackNumFromFilename = freezed,
+    Object? discNumFromFilename = freezed,
     Object? manuallyVerified = null,
     Object? invalid = null,
     Object? exclude = null,
-    Object? error = null,
+    Object? error = freezed,
     Object? format = freezed,
     Object? duration = freezed,
     Object? bitRate = freezed,
@@ -321,7 +321,7 @@ class __$$_AudioFileCopyWithImpl<$Res>
     Object? channels = freezed,
     Object? channelLayout = freezed,
     Object? chapters = freezed,
-    Object? embeddedCoverArt = null,
+    Object? embeddedCoverArt = freezed,
     Object? metaTags = null,
     Object? mimeType = freezed,
   }) {
@@ -350,15 +350,15 @@ class __$$_AudioFileCopyWithImpl<$Res>
           ? _value.trackNumFromMeta
           : trackNumFromMeta // ignore: cast_nullable_to_non_nullable
               as int?,
-      discNumFromMeta: null == discNumFromMeta
+      discNumFromMeta: freezed == discNumFromMeta
           ? _value.discNumFromMeta
           : discNumFromMeta // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      trackNumFromFilename: null == trackNumFromFilename
+      trackNumFromFilename: freezed == trackNumFromFilename
           ? _value.trackNumFromFilename
           : trackNumFromFilename // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      discNumFromFilename: null == discNumFromFilename
+      discNumFromFilename: freezed == discNumFromFilename
           ? _value.discNumFromFilename
           : discNumFromFilename // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -374,7 +374,7 @@ class __$$_AudioFileCopyWithImpl<$Res>
           ? _value.exclude
           : exclude // ignore: cast_nullable_to_non_nullable
               as bool,
-      error: null == error
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -414,7 +414,7 @@ class __$$_AudioFileCopyWithImpl<$Res>
           ? _value._chapters
           : chapters // ignore: cast_nullable_to_non_nullable
               as List<BookChapter>?,
-      embeddedCoverArt: null == embeddedCoverArt
+      embeddedCoverArt: freezed == embeddedCoverArt
           ? _value.embeddedCoverArt
           : embeddedCoverArt // ignore: cast_nullable_to_non_nullable
               as dynamic,
@@ -511,6 +511,7 @@ class _$_AudioFile implements _AudioFile {
   List<BookChapter>? get chapters {
     final value = _chapters;
     if (value == null) return null;
+    if (_chapters is EqualUnmodifiableListView) return _chapters;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }

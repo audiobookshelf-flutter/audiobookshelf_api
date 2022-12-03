@@ -342,8 +342,8 @@ class AudiobookshelfApi {
 
     try {
       return fromJson(json.decode(response.body));
-    } on TypeError {
-      if (responseErrorHandler != null) responseErrorHandler(response);
+    } on TypeError catch (e) {
+      if (responseErrorHandler != null) responseErrorHandler(response, e);
     }
 
     return null;
