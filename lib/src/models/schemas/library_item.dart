@@ -153,7 +153,7 @@ class LibraryItem with _$LibraryItem {
   }) = PodcastLibraryItemExpanded;
 
   factory LibraryItem.fromJson(Map<String, dynamic> json) =>
-      _$LibraryItemFromJson(json);
+      LibraryItemConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(
@@ -173,6 +173,8 @@ class LibraryItemConverter
 
   @override
   LibraryItem fromJson(Map<String, dynamic> json) {
+    if (json.containsKey('runtimeType')) return _$LibraryItemFromJson(json);
+
     final mediaType = MediaType.byType[json['mediaType']];
     if (mediaType == null) {
       throw CheckedFromJsonException(
@@ -182,6 +184,7 @@ class LibraryItemConverter
         'Unknown media type: ${json['mediaType']}',
       );
     }
+
     final SchemaVariant variant;
     if (json.containsKey('numFiles')) {
       variant = SchemaVariant.minified;
@@ -190,6 +193,7 @@ class LibraryItemConverter
     } else {
       variant = SchemaVariant.base;
     }
+
     switch (mediaType) {
       case MediaType.book:
         switch (variant) {

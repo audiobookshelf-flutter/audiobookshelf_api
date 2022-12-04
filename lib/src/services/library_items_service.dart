@@ -29,7 +29,7 @@ class LibraryItemsService extends Service {
       ),
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJson(json, LibraryItemConverter().fromJson),
+      fromJson: (json) => fromJson(json, LibraryItem.fromJson),
     );
   }
 
