@@ -22,9 +22,6 @@ PodcastEpisodeEnclosure _$PodcastEpisodeEnclosureFromJson(
 /// @nodoc
 mixin _$PodcastEpisodeEnclosure {
   Uri get url => throw _privateConstructorUsedError;
-  @JsonKey(
-      fromJson: _httpParserMediaTypeFromJson,
-      toJson: _httpParserMediaTypeToJson)
   http_parser.MediaType get type => throw _privateConstructorUsedError;
   String get length => throw _privateConstructorUsedError;
 
@@ -40,11 +37,7 @@ abstract class $PodcastEpisodeEnclosureCopyWith<$Res> {
           $Res Function(PodcastEpisodeEnclosure) then) =
       _$PodcastEpisodeEnclosureCopyWithImpl<$Res, PodcastEpisodeEnclosure>;
   @useResult
-  $Res call(
-      {Uri url,
-      @JsonKey(fromJson: _httpParserMediaTypeFromJson, toJson: _httpParserMediaTypeToJson)
-          http_parser.MediaType type,
-      String length});
+  $Res call({Uri url, http_parser.MediaType type, String length});
 }
 
 /// @nodoc
@@ -90,11 +83,7 @@ abstract class _$$_PodcastEpisodeEnclosureCopyWith<$Res>
       __$$_PodcastEpisodeEnclosureCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {Uri url,
-      @JsonKey(fromJson: _httpParserMediaTypeFromJson, toJson: _httpParserMediaTypeToJson)
-          http_parser.MediaType type,
-      String length});
+  $Res call({Uri url, http_parser.MediaType type, String length});
 }
 
 /// @nodoc
@@ -131,13 +120,11 @@ class __$$_PodcastEpisodeEnclosureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$_PodcastEpisodeEnclosure implements _PodcastEpisodeEnclosure {
   const _$_PodcastEpisodeEnclosure(
-      {required this.url,
-      @JsonKey(fromJson: _httpParserMediaTypeFromJson, toJson: _httpParserMediaTypeToJson)
-          required this.type,
-      required this.length});
+      {required this.url, required this.type, required this.length});
 
   factory _$_PodcastEpisodeEnclosure.fromJson(Map<String, dynamic> json) =>
       _$$_PodcastEpisodeEnclosureFromJson(json);
@@ -145,9 +132,6 @@ class _$_PodcastEpisodeEnclosure implements _PodcastEpisodeEnclosure {
   @override
   final Uri url;
   @override
-  @JsonKey(
-      fromJson: _httpParserMediaTypeFromJson,
-      toJson: _httpParserMediaTypeToJson)
   final http_parser.MediaType type;
   @override
   final String length;
@@ -190,8 +174,7 @@ class _$_PodcastEpisodeEnclosure implements _PodcastEpisodeEnclosure {
 abstract class _PodcastEpisodeEnclosure implements PodcastEpisodeEnclosure {
   const factory _PodcastEpisodeEnclosure(
       {required final Uri url,
-      @JsonKey(fromJson: _httpParserMediaTypeFromJson, toJson: _httpParserMediaTypeToJson)
-          required final http_parser.MediaType type,
+      required final http_parser.MediaType type,
       required final String length}) = _$_PodcastEpisodeEnclosure;
 
   factory _PodcastEpisodeEnclosure.fromJson(Map<String, dynamic> json) =
@@ -200,9 +183,6 @@ abstract class _PodcastEpisodeEnclosure implements PodcastEpisodeEnclosure {
   @override
   Uri get url;
   @override
-  @JsonKey(
-      fromJson: _httpParserMediaTypeFromJson,
-      toJson: _httpParserMediaTypeToJson)
   http_parser.MediaType get type;
   @override
   String get length;

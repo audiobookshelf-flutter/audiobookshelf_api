@@ -10,31 +10,34 @@ _$_AudioFile _$$_AudioFileFromJson(Map<String, dynamic> json) => _$_AudioFile(
       index: json['index'] as int,
       ino: json['ino'] as String,
       metadata: FileMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
-      addedAt: json['addedAt'] as int?,
-      updatedAt: json['updatedAt'] as int?,
+      addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
+      updatedAt:
+          const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
       trackNumFromMeta: json['trackNumFromMeta'] as int?,
-      discNumFromMeta: json['discNumFromMeta'],
-      trackNumFromFilename: json['trackNumFromFilename'],
-      discNumFromFilename: json['discNumFromFilename'],
+      discNumFromMeta: json['discNumFromMeta'] as int?,
+      trackNumFromFilename: json['trackNumFromFilename'] as int?,
+      discNumFromFilename: json['discNumFromFilename'] as int?,
       manuallyVerified: json['manuallyVerified'] as bool,
       invalid: json['invalid'] as bool,
       exclude: json['exclude'] as bool,
-      error: json['error'],
+      error: json['error'] as String?,
       format: json['format'] as String?,
-      duration: (json['duration'] as num?)?.toDouble(),
-      bitRate: json['bitRate'] as int?,
+      duration: const DurationPreciseSecondsConverter()
+          .fromJson(json['duration'] as double),
+      bitRate: json['bitRate'] as int,
       language: json['language'] as String?,
-      codec: json['codec'] as String?,
-      timeBase: json['timeBase'] as String?,
-      channels: json['channels'] as int?,
-      channelLayout: json['channelLayout'] as String?,
-      chapters: (json['chapters'] as List<dynamic>?)
-          ?.map((e) => BookChapter.fromJson(e as Map<String, dynamic>))
+      codec: json['codec'] as String,
+      timeBase: json['timeBase'] as String,
+      channels: json['channels'] as int,
+      channelLayout: json['channelLayout'] as String,
+      chapters: (json['chapters'] as List<dynamic>)
+          .map((e) => BookChapter.fromJson(e as Map<String, dynamic>))
           .toList(),
-      embeddedCoverArt: json['embeddedCoverArt'],
+      embeddedCoverArt: json['embeddedCoverArt'] as String?,
       metaTags:
           AudioMetaTags.fromJson(json['metaTags'] as Map<String, dynamic>),
-      mimeType: json['mimeType'] as String?,
+      mimeType: const HttpParserMediaTypeConverter()
+          .fromJson(json['mimeType'] as String),
     );
 
 Map<String, dynamic> _$$_AudioFileToJson(_$_AudioFile instance) =>
@@ -42,8 +45,8 @@ Map<String, dynamic> _$$_AudioFileToJson(_$_AudioFile instance) =>
       'index': instance.index,
       'ino': instance.ino,
       'metadata': instance.metadata,
-      'addedAt': instance.addedAt,
-      'updatedAt': instance.updatedAt,
+      'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
+      'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
       'trackNumFromMeta': instance.trackNumFromMeta,
       'discNumFromMeta': instance.discNumFromMeta,
       'trackNumFromFilename': instance.trackNumFromFilename,
@@ -53,7 +56,8 @@ Map<String, dynamic> _$$_AudioFileToJson(_$_AudioFile instance) =>
       'exclude': instance.exclude,
       'error': instance.error,
       'format': instance.format,
-      'duration': instance.duration,
+      'duration':
+          const DurationPreciseSecondsConverter().toJson(instance.duration),
       'bitRate': instance.bitRate,
       'language': instance.language,
       'codec': instance.codec,
@@ -63,5 +67,6 @@ Map<String, dynamic> _$$_AudioFileToJson(_$_AudioFile instance) =>
       'chapters': instance.chapters,
       'embeddedCoverArt': instance.embeddedCoverArt,
       'metaTags': instance.metaTags,
-      'mimeType': instance.mimeType,
+      'mimeType':
+          const HttpParserMediaTypeConverter().toJson(instance.mimeType),
     };

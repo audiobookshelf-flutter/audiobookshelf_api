@@ -23,28 +23,28 @@ mixin _$AudioFile {
   int get index => throw _privateConstructorUsedError;
   String get ino => throw _privateConstructorUsedError;
   FileMetadata get metadata => throw _privateConstructorUsedError;
-  int? get addedAt => throw _privateConstructorUsedError;
-  int? get updatedAt => throw _privateConstructorUsedError;
+  DateTime get addedAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
   int? get trackNumFromMeta => throw _privateConstructorUsedError;
-  dynamic get discNumFromMeta => throw _privateConstructorUsedError;
-  dynamic get trackNumFromFilename => throw _privateConstructorUsedError;
-  dynamic get discNumFromFilename => throw _privateConstructorUsedError;
+  int? get discNumFromMeta => throw _privateConstructorUsedError;
+  int? get trackNumFromFilename => throw _privateConstructorUsedError;
+  int? get discNumFromFilename => throw _privateConstructorUsedError;
   bool get manuallyVerified => throw _privateConstructorUsedError;
   bool get invalid => throw _privateConstructorUsedError;
   bool get exclude => throw _privateConstructorUsedError;
-  dynamic get error => throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
   String? get format => throw _privateConstructorUsedError;
-  double? get duration => throw _privateConstructorUsedError;
-  int? get bitRate => throw _privateConstructorUsedError;
+  Duration get duration => throw _privateConstructorUsedError;
+  int get bitRate => throw _privateConstructorUsedError;
   String? get language => throw _privateConstructorUsedError;
-  String? get codec => throw _privateConstructorUsedError;
-  String? get timeBase => throw _privateConstructorUsedError;
-  int? get channels => throw _privateConstructorUsedError;
-  String? get channelLayout => throw _privateConstructorUsedError;
-  List<BookChapter>? get chapters => throw _privateConstructorUsedError;
-  dynamic get embeddedCoverArt => throw _privateConstructorUsedError;
+  String get codec => throw _privateConstructorUsedError;
+  String get timeBase => throw _privateConstructorUsedError;
+  int get channels => throw _privateConstructorUsedError;
+  String get channelLayout => throw _privateConstructorUsedError;
+  List<BookChapter> get chapters => throw _privateConstructorUsedError;
+  String? get embeddedCoverArt => throw _privateConstructorUsedError;
   AudioMetaTags get metaTags => throw _privateConstructorUsedError;
-  String? get mimeType => throw _privateConstructorUsedError;
+  http_parser.MediaType get mimeType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,28 +61,28 @@ abstract class $AudioFileCopyWith<$Res> {
       {int index,
       String ino,
       FileMetadata metadata,
-      int? addedAt,
-      int? updatedAt,
+      DateTime addedAt,
+      DateTime updatedAt,
       int? trackNumFromMeta,
-      dynamic discNumFromMeta,
-      dynamic trackNumFromFilename,
-      dynamic discNumFromFilename,
+      int? discNumFromMeta,
+      int? trackNumFromFilename,
+      int? discNumFromFilename,
       bool manuallyVerified,
       bool invalid,
       bool exclude,
-      dynamic error,
+      String? error,
       String? format,
-      double? duration,
-      int? bitRate,
+      Duration duration,
+      int bitRate,
       String? language,
-      String? codec,
-      String? timeBase,
-      int? channels,
-      String? channelLayout,
-      List<BookChapter>? chapters,
-      dynamic embeddedCoverArt,
+      String codec,
+      String timeBase,
+      int channels,
+      String channelLayout,
+      List<BookChapter> chapters,
+      String? embeddedCoverArt,
       AudioMetaTags metaTags,
-      String? mimeType});
+      http_parser.MediaType mimeType});
 
   $FileMetadataCopyWith<$Res> get metadata;
   $AudioMetaTagsCopyWith<$Res> get metaTags;
@@ -104,8 +104,8 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
     Object? index = null,
     Object? ino = null,
     Object? metadata = null,
-    Object? addedAt = freezed,
-    Object? updatedAt = freezed,
+    Object? addedAt = null,
+    Object? updatedAt = null,
     Object? trackNumFromMeta = freezed,
     Object? discNumFromMeta = freezed,
     Object? trackNumFromFilename = freezed,
@@ -115,17 +115,17 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
     Object? exclude = null,
     Object? error = freezed,
     Object? format = freezed,
-    Object? duration = freezed,
-    Object? bitRate = freezed,
+    Object? duration = null,
+    Object? bitRate = null,
     Object? language = freezed,
-    Object? codec = freezed,
-    Object? timeBase = freezed,
-    Object? channels = freezed,
-    Object? channelLayout = freezed,
-    Object? chapters = freezed,
+    Object? codec = null,
+    Object? timeBase = null,
+    Object? channels = null,
+    Object? channelLayout = null,
+    Object? chapters = null,
     Object? embeddedCoverArt = freezed,
     Object? metaTags = null,
-    Object? mimeType = freezed,
+    Object? mimeType = null,
   }) {
     return _then(_value.copyWith(
       index: null == index
@@ -140,14 +140,14 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
               as FileMetadata,
-      addedAt: freezed == addedAt
+      addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
-              as int?,
-      updatedAt: freezed == updatedAt
+              as DateTime,
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DateTime,
       trackNumFromMeta: freezed == trackNumFromMeta
           ? _value.trackNumFromMeta
           : trackNumFromMeta // ignore: cast_nullable_to_non_nullable
@@ -155,15 +155,15 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
       discNumFromMeta: freezed == discNumFromMeta
           ? _value.discNumFromMeta
           : discNumFromMeta // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as int?,
       trackNumFromFilename: freezed == trackNumFromFilename
           ? _value.trackNumFromFilename
           : trackNumFromFilename // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as int?,
       discNumFromFilename: freezed == discNumFromFilename
           ? _value.discNumFromFilename
           : discNumFromFilename // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as int?,
       manuallyVerified: null == manuallyVerified
           ? _value.manuallyVerified
           : manuallyVerified // ignore: cast_nullable_to_non_nullable
@@ -179,55 +179,55 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
               as String?,
-      duration: freezed == duration
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as double?,
-      bitRate: freezed == bitRate
+              as Duration,
+      bitRate: null == bitRate
           ? _value.bitRate
           : bitRate // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String?,
-      codec: freezed == codec
+      codec: null == codec
           ? _value.codec
           : codec // ignore: cast_nullable_to_non_nullable
-              as String?,
-      timeBase: freezed == timeBase
+              as String,
+      timeBase: null == timeBase
           ? _value.timeBase
           : timeBase // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channels: freezed == channels
+              as String,
+      channels: null == channels
           ? _value.channels
           : channels // ignore: cast_nullable_to_non_nullable
-              as int?,
-      channelLayout: freezed == channelLayout
+              as int,
+      channelLayout: null == channelLayout
           ? _value.channelLayout
           : channelLayout // ignore: cast_nullable_to_non_nullable
-              as String?,
-      chapters: freezed == chapters
+              as String,
+      chapters: null == chapters
           ? _value.chapters
           : chapters // ignore: cast_nullable_to_non_nullable
-              as List<BookChapter>?,
+              as List<BookChapter>,
       embeddedCoverArt: freezed == embeddedCoverArt
           ? _value.embeddedCoverArt
           : embeddedCoverArt // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       metaTags: null == metaTags
           ? _value.metaTags
           : metaTags // ignore: cast_nullable_to_non_nullable
               as AudioMetaTags,
-      mimeType: freezed == mimeType
+      mimeType: null == mimeType
           ? _value.mimeType
           : mimeType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as http_parser.MediaType,
     ) as $Val);
   }
 
@@ -259,28 +259,28 @@ abstract class _$$_AudioFileCopyWith<$Res> implements $AudioFileCopyWith<$Res> {
       {int index,
       String ino,
       FileMetadata metadata,
-      int? addedAt,
-      int? updatedAt,
+      DateTime addedAt,
+      DateTime updatedAt,
       int? trackNumFromMeta,
-      dynamic discNumFromMeta,
-      dynamic trackNumFromFilename,
-      dynamic discNumFromFilename,
+      int? discNumFromMeta,
+      int? trackNumFromFilename,
+      int? discNumFromFilename,
       bool manuallyVerified,
       bool invalid,
       bool exclude,
-      dynamic error,
+      String? error,
       String? format,
-      double? duration,
-      int? bitRate,
+      Duration duration,
+      int bitRate,
       String? language,
-      String? codec,
-      String? timeBase,
-      int? channels,
-      String? channelLayout,
-      List<BookChapter>? chapters,
-      dynamic embeddedCoverArt,
+      String codec,
+      String timeBase,
+      int channels,
+      String channelLayout,
+      List<BookChapter> chapters,
+      String? embeddedCoverArt,
       AudioMetaTags metaTags,
-      String? mimeType});
+      http_parser.MediaType mimeType});
 
   @override
   $FileMetadataCopyWith<$Res> get metadata;
@@ -302,8 +302,8 @@ class __$$_AudioFileCopyWithImpl<$Res>
     Object? index = null,
     Object? ino = null,
     Object? metadata = null,
-    Object? addedAt = freezed,
-    Object? updatedAt = freezed,
+    Object? addedAt = null,
+    Object? updatedAt = null,
     Object? trackNumFromMeta = freezed,
     Object? discNumFromMeta = freezed,
     Object? trackNumFromFilename = freezed,
@@ -313,17 +313,17 @@ class __$$_AudioFileCopyWithImpl<$Res>
     Object? exclude = null,
     Object? error = freezed,
     Object? format = freezed,
-    Object? duration = freezed,
-    Object? bitRate = freezed,
+    Object? duration = null,
+    Object? bitRate = null,
     Object? language = freezed,
-    Object? codec = freezed,
-    Object? timeBase = freezed,
-    Object? channels = freezed,
-    Object? channelLayout = freezed,
-    Object? chapters = freezed,
+    Object? codec = null,
+    Object? timeBase = null,
+    Object? channels = null,
+    Object? channelLayout = null,
+    Object? chapters = null,
     Object? embeddedCoverArt = freezed,
     Object? metaTags = null,
-    Object? mimeType = freezed,
+    Object? mimeType = null,
   }) {
     return _then(_$_AudioFile(
       index: null == index
@@ -338,14 +338,14 @@ class __$$_AudioFileCopyWithImpl<$Res>
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
               as FileMetadata,
-      addedAt: freezed == addedAt
+      addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
-              as int?,
-      updatedAt: freezed == updatedAt
+              as DateTime,
+      updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as DateTime,
       trackNumFromMeta: freezed == trackNumFromMeta
           ? _value.trackNumFromMeta
           : trackNumFromMeta // ignore: cast_nullable_to_non_nullable
@@ -353,15 +353,15 @@ class __$$_AudioFileCopyWithImpl<$Res>
       discNumFromMeta: freezed == discNumFromMeta
           ? _value.discNumFromMeta
           : discNumFromMeta // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as int?,
       trackNumFromFilename: freezed == trackNumFromFilename
           ? _value.trackNumFromFilename
           : trackNumFromFilename // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as int?,
       discNumFromFilename: freezed == discNumFromFilename
           ? _value.discNumFromFilename
           : discNumFromFilename // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as int?,
       manuallyVerified: null == manuallyVerified
           ? _value.manuallyVerified
           : manuallyVerified // ignore: cast_nullable_to_non_nullable
@@ -377,68 +377,69 @@ class __$$_AudioFileCopyWithImpl<$Res>
       error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       format: freezed == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
               as String?,
-      duration: freezed == duration
+      duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
-              as double?,
-      bitRate: freezed == bitRate
+              as Duration,
+      bitRate: null == bitRate
           ? _value.bitRate
           : bitRate // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String?,
-      codec: freezed == codec
+      codec: null == codec
           ? _value.codec
           : codec // ignore: cast_nullable_to_non_nullable
-              as String?,
-      timeBase: freezed == timeBase
+              as String,
+      timeBase: null == timeBase
           ? _value.timeBase
           : timeBase // ignore: cast_nullable_to_non_nullable
-              as String?,
-      channels: freezed == channels
+              as String,
+      channels: null == channels
           ? _value.channels
           : channels // ignore: cast_nullable_to_non_nullable
-              as int?,
-      channelLayout: freezed == channelLayout
+              as int,
+      channelLayout: null == channelLayout
           ? _value.channelLayout
           : channelLayout // ignore: cast_nullable_to_non_nullable
-              as String?,
-      chapters: freezed == chapters
+              as String,
+      chapters: null == chapters
           ? _value._chapters
           : chapters // ignore: cast_nullable_to_non_nullable
-              as List<BookChapter>?,
+              as List<BookChapter>,
       embeddedCoverArt: freezed == embeddedCoverArt
           ? _value.embeddedCoverArt
           : embeddedCoverArt // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as String?,
       metaTags: null == metaTags
           ? _value.metaTags
           : metaTags // ignore: cast_nullable_to_non_nullable
               as AudioMetaTags,
-      mimeType: freezed == mimeType
+      mimeType: null == mimeType
           ? _value.mimeType
           : mimeType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as http_parser.MediaType,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$_AudioFile implements _AudioFile {
   const _$_AudioFile(
       {required this.index,
       required this.ino,
       required this.metadata,
-      this.addedAt,
-      this.updatedAt,
+      required this.addedAt,
+      required this.updatedAt,
       this.trackNumFromMeta,
       this.discNumFromMeta,
       this.trackNumFromFilename,
@@ -448,17 +449,17 @@ class _$_AudioFile implements _AudioFile {
       required this.exclude,
       this.error,
       this.format,
-      this.duration,
-      this.bitRate,
+      required this.duration,
+      required this.bitRate,
       this.language,
-      this.codec,
-      this.timeBase,
-      this.channels,
-      this.channelLayout,
-      final List<BookChapter>? chapters,
+      required this.codec,
+      required this.timeBase,
+      required this.channels,
+      required this.channelLayout,
+      required final List<BookChapter> chapters,
       this.embeddedCoverArt,
       required this.metaTags,
-      this.mimeType})
+      required this.mimeType})
       : _chapters = chapters;
 
   factory _$_AudioFile.fromJson(Map<String, dynamic> json) =>
@@ -471,17 +472,17 @@ class _$_AudioFile implements _AudioFile {
   @override
   final FileMetadata metadata;
   @override
-  final int? addedAt;
+  final DateTime addedAt;
   @override
-  final int? updatedAt;
+  final DateTime updatedAt;
   @override
   final int? trackNumFromMeta;
   @override
-  final dynamic discNumFromMeta;
+  final int? discNumFromMeta;
   @override
-  final dynamic trackNumFromFilename;
+  final int? trackNumFromFilename;
   @override
-  final dynamic discNumFromFilename;
+  final int? discNumFromFilename;
   @override
   final bool manuallyVerified;
   @override
@@ -489,39 +490,37 @@ class _$_AudioFile implements _AudioFile {
   @override
   final bool exclude;
   @override
-  final dynamic error;
+  final String? error;
   @override
   final String? format;
   @override
-  final double? duration;
+  final Duration duration;
   @override
-  final int? bitRate;
+  final int bitRate;
   @override
   final String? language;
   @override
-  final String? codec;
+  final String codec;
   @override
-  final String? timeBase;
+  final String timeBase;
   @override
-  final int? channels;
+  final int channels;
   @override
-  final String? channelLayout;
-  final List<BookChapter>? _chapters;
+  final String channelLayout;
+  final List<BookChapter> _chapters;
   @override
-  List<BookChapter>? get chapters {
-    final value = _chapters;
-    if (value == null) return null;
+  List<BookChapter> get chapters {
     if (_chapters is EqualUnmodifiableListView) return _chapters;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_chapters);
   }
 
   @override
-  final dynamic embeddedCoverArt;
+  final String? embeddedCoverArt;
   @override
   final AudioMetaTags metaTags;
   @override
-  final String? mimeType;
+  final http_parser.MediaType mimeType;
 
   @override
   String toString() {
@@ -542,17 +541,17 @@ class _$_AudioFile implements _AudioFile {
                 other.updatedAt == updatedAt) &&
             (identical(other.trackNumFromMeta, trackNumFromMeta) ||
                 other.trackNumFromMeta == trackNumFromMeta) &&
-            const DeepCollectionEquality()
-                .equals(other.discNumFromMeta, discNumFromMeta) &&
-            const DeepCollectionEquality()
-                .equals(other.trackNumFromFilename, trackNumFromFilename) &&
-            const DeepCollectionEquality()
-                .equals(other.discNumFromFilename, discNumFromFilename) &&
+            (identical(other.discNumFromMeta, discNumFromMeta) ||
+                other.discNumFromMeta == discNumFromMeta) &&
+            (identical(other.trackNumFromFilename, trackNumFromFilename) ||
+                other.trackNumFromFilename == trackNumFromFilename) &&
+            (identical(other.discNumFromFilename, discNumFromFilename) ||
+                other.discNumFromFilename == discNumFromFilename) &&
             (identical(other.manuallyVerified, manuallyVerified) ||
                 other.manuallyVerified == manuallyVerified) &&
             (identical(other.invalid, invalid) || other.invalid == invalid) &&
             (identical(other.exclude, exclude) || other.exclude == exclude) &&
-            const DeepCollectionEquality().equals(other.error, error) &&
+            (identical(other.error, error) || other.error == error) &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
@@ -567,8 +566,8 @@ class _$_AudioFile implements _AudioFile {
             (identical(other.channelLayout, channelLayout) ||
                 other.channelLayout == channelLayout) &&
             const DeepCollectionEquality().equals(other._chapters, _chapters) &&
-            const DeepCollectionEquality()
-                .equals(other.embeddedCoverArt, embeddedCoverArt) &&
+            (identical(other.embeddedCoverArt, embeddedCoverArt) ||
+                other.embeddedCoverArt == embeddedCoverArt) &&
             (identical(other.metaTags, metaTags) ||
                 other.metaTags == metaTags) &&
             (identical(other.mimeType, mimeType) ||
@@ -585,13 +584,13 @@ class _$_AudioFile implements _AudioFile {
         addedAt,
         updatedAt,
         trackNumFromMeta,
-        const DeepCollectionEquality().hash(discNumFromMeta),
-        const DeepCollectionEquality().hash(trackNumFromFilename),
-        const DeepCollectionEquality().hash(discNumFromFilename),
+        discNumFromMeta,
+        trackNumFromFilename,
+        discNumFromFilename,
         manuallyVerified,
         invalid,
         exclude,
-        const DeepCollectionEquality().hash(error),
+        error,
         format,
         duration,
         bitRate,
@@ -601,7 +600,7 @@ class _$_AudioFile implements _AudioFile {
         channels,
         channelLayout,
         const DeepCollectionEquality().hash(_chapters),
-        const DeepCollectionEquality().hash(embeddedCoverArt),
+        embeddedCoverArt,
         metaTags,
         mimeType
       ]);
@@ -625,28 +624,28 @@ abstract class _AudioFile implements AudioFile {
       {required final int index,
       required final String ino,
       required final FileMetadata metadata,
-      final int? addedAt,
-      final int? updatedAt,
+      required final DateTime addedAt,
+      required final DateTime updatedAt,
       final int? trackNumFromMeta,
-      final dynamic discNumFromMeta,
-      final dynamic trackNumFromFilename,
-      final dynamic discNumFromFilename,
+      final int? discNumFromMeta,
+      final int? trackNumFromFilename,
+      final int? discNumFromFilename,
       required final bool manuallyVerified,
       required final bool invalid,
       required final bool exclude,
-      final dynamic error,
+      final String? error,
       final String? format,
-      final double? duration,
-      final int? bitRate,
+      required final Duration duration,
+      required final int bitRate,
       final String? language,
-      final String? codec,
-      final String? timeBase,
-      final int? channels,
-      final String? channelLayout,
-      final List<BookChapter>? chapters,
-      final dynamic embeddedCoverArt,
+      required final String codec,
+      required final String timeBase,
+      required final int channels,
+      required final String channelLayout,
+      required final List<BookChapter> chapters,
+      final String? embeddedCoverArt,
       required final AudioMetaTags metaTags,
-      final String? mimeType}) = _$_AudioFile;
+      required final http_parser.MediaType mimeType}) = _$_AudioFile;
 
   factory _AudioFile.fromJson(Map<String, dynamic> json) =
       _$_AudioFile.fromJson;
@@ -658,17 +657,17 @@ abstract class _AudioFile implements AudioFile {
   @override
   FileMetadata get metadata;
   @override
-  int? get addedAt;
+  DateTime get addedAt;
   @override
-  int? get updatedAt;
+  DateTime get updatedAt;
   @override
   int? get trackNumFromMeta;
   @override
-  dynamic get discNumFromMeta;
+  int? get discNumFromMeta;
   @override
-  dynamic get trackNumFromFilename;
+  int? get trackNumFromFilename;
   @override
-  dynamic get discNumFromFilename;
+  int? get discNumFromFilename;
   @override
   bool get manuallyVerified;
   @override
@@ -676,31 +675,31 @@ abstract class _AudioFile implements AudioFile {
   @override
   bool get exclude;
   @override
-  dynamic get error;
+  String? get error;
   @override
   String? get format;
   @override
-  double? get duration;
+  Duration get duration;
   @override
-  int? get bitRate;
+  int get bitRate;
   @override
   String? get language;
   @override
-  String? get codec;
+  String get codec;
   @override
-  String? get timeBase;
+  String get timeBase;
   @override
-  int? get channels;
+  int get channels;
   @override
-  String? get channelLayout;
+  String get channelLayout;
   @override
-  List<BookChapter>? get chapters;
+  List<BookChapter> get chapters;
   @override
-  dynamic get embeddedCoverArt;
+  String? get embeddedCoverArt;
   @override
   AudioMetaTags get metaTags;
   @override
-  String? get mimeType;
+  http_parser.MediaType get mimeType;
   @override
   @JsonKey(ignore: true)
   _$$_AudioFileCopyWith<_$_AudioFile> get copyWith =>

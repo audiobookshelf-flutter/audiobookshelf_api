@@ -1,3 +1,4 @@
+import 'package:http_parser/http_parser.dart' as http_parser;
 import 'package:json_annotation/json_annotation.dart';
 
 import 'precise_duration.dart';
@@ -6,6 +7,7 @@ const jsonConverters = JsonSerializable(
   converters: [
     DateTimeEpochConverter(),
     DurationPreciseSecondsConverter(),
+    HttpParserMediaTypeConverter(),
   ],
 );
 
@@ -28,4 +30,16 @@ class DurationPreciseSecondsConverter
 
   @override
   double toJson(Duration object) => object.inPreciseSeconds;
+}
+
+class HttpParserMediaTypeConverter
+    implements JsonConverter<http_parser.MediaType, String> {
+  const HttpParserMediaTypeConverter();
+
+  @override
+  http_parser.MediaType fromJson(String json) =>
+      http_parser.MediaType.parse(json);
+
+  @override
+  String toJson(http_parser.MediaType object) => object.mimeType;
 }
