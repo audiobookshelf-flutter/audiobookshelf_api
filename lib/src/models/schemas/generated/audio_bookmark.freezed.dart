@@ -20,7 +20,15 @@ AudioBookmark _$AudioBookmarkFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AudioBookmark {
+  String get libraryItemId => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  Duration get time => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AudioBookmarkCopyWith<AudioBookmark> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -28,6 +36,9 @@ abstract class $AudioBookmarkCopyWith<$Res> {
   factory $AudioBookmarkCopyWith(
           AudioBookmark value, $Res Function(AudioBookmark) then) =
       _$AudioBookmarkCopyWithImpl<$Res, AudioBookmark>;
+  @useResult
+  $Res call(
+      {String libraryItemId, String title, Duration time, DateTime createdAt});
 }
 
 /// @nodoc
@@ -39,13 +50,46 @@ class _$AudioBookmarkCopyWithImpl<$Res, $Val extends AudioBookmark>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? libraryItemId = null,
+    Object? title = null,
+    Object? time = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_value.copyWith(
+      libraryItemId: null == libraryItemId
+          ? _value.libraryItemId
+          : libraryItemId // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_AudioBookmarkCopyWith<$Res> {
+abstract class _$$_AudioBookmarkCopyWith<$Res>
+    implements $AudioBookmarkCopyWith<$Res> {
   factory _$$_AudioBookmarkCopyWith(
           _$_AudioBookmark value, $Res Function(_$_AudioBookmark) then) =
       __$$_AudioBookmarkCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String libraryItemId, String title, Duration time, DateTime createdAt});
 }
 
 /// @nodoc
@@ -55,30 +99,86 @@ class __$$_AudioBookmarkCopyWithImpl<$Res>
   __$$_AudioBookmarkCopyWithImpl(
       _$_AudioBookmark _value, $Res Function(_$_AudioBookmark) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? libraryItemId = null,
+    Object? title = null,
+    Object? time = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_$_AudioBookmark(
+      libraryItemId: null == libraryItemId
+          ? _value.libraryItemId
+          : libraryItemId // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      time: null == time
+          ? _value.time
+          : time // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$_AudioBookmark implements _AudioBookmark {
-  const _$_AudioBookmark();
+  const _$_AudioBookmark(
+      {required this.libraryItemId,
+      required this.title,
+      required this.time,
+      required this.createdAt});
 
   factory _$_AudioBookmark.fromJson(Map<String, dynamic> json) =>
       _$$_AudioBookmarkFromJson(json);
 
   @override
+  final String libraryItemId;
+  @override
+  final String title;
+  @override
+  final Duration time;
+  @override
+  final DateTime createdAt;
+
+  @override
   String toString() {
-    return 'AudioBookmark()';
+    return 'AudioBookmark(libraryItemId: $libraryItemId, title: $title, time: $time, createdAt: $createdAt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AudioBookmark);
+        (other.runtimeType == runtimeType &&
+            other is _$_AudioBookmark &&
+            (identical(other.libraryItemId, libraryItemId) ||
+                other.libraryItemId == libraryItemId) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.time, time) || other.time == time) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, libraryItemId, title, time, createdAt);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AudioBookmarkCopyWith<_$_AudioBookmark> get copyWith =>
+      __$$_AudioBookmarkCopyWithImpl<_$_AudioBookmark>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -89,8 +189,25 @@ class _$_AudioBookmark implements _AudioBookmark {
 }
 
 abstract class _AudioBookmark implements AudioBookmark {
-  const factory _AudioBookmark() = _$_AudioBookmark;
+  const factory _AudioBookmark(
+      {required final String libraryItemId,
+      required final String title,
+      required final Duration time,
+      required final DateTime createdAt}) = _$_AudioBookmark;
 
   factory _AudioBookmark.fromJson(Map<String, dynamic> json) =
       _$_AudioBookmark.fromJson;
+
+  @override
+  String get libraryItemId;
+  @override
+  String get title;
+  @override
+  Duration get time;
+  @override
+  DateTime get createdAt;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AudioBookmarkCopyWith<_$_AudioBookmark> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'generated/user_permissions.freezed.dart';
 part 'generated/user_permissions.g.dart';
 
+/// See [User Permissions](https://api.audiobookshelf.org/#user-permissions)
 @freezed
 class UserPermissions with _$UserPermissions {
   const factory UserPermissions({
