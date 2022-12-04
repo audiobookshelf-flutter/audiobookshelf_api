@@ -39,7 +39,7 @@ class Playlist with _$Playlist {
   }) = PlaylistExpanded;
 
   factory Playlist.fromJson(Map<String, dynamic> json) =>
-      _$PlaylistFromJson(json);
+      PlaylistConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(
