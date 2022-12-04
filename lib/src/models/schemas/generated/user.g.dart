@@ -6,7 +6,7 @@ part of '../user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
+_$UserBase _$$UserBaseFromJson(Map<String, dynamic> json) => _$UserBase(
       id: json['id'] as String,
       username: json['username'] as String,
       type: $enumDecode(_$UserTypeEnumMap, json['type']),
@@ -39,7 +39,8 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
+Map<String, dynamic> _$$UserBaseToJson(_$UserBase instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'username': instance.username,
       'type': _$UserTypeEnumMap[instance.type]!,
@@ -86,7 +87,7 @@ _$UserWithProgressDetails _$$UserWithProgressDetailsFromJson(
       username: json['username'] as String,
       type: $enumDecode(_$UserTypeEnumMap, json['type']),
       token: json['token'] as String,
-      mediaProgressWithMedia: (json['mediaProgressWithMedia'] as List<dynamic>)
+      mediaProgressWithMedia: (json['mediaProgress'] as List<dynamic>)
           .map(
               (e) => MediaProgressWithMedia.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -122,7 +123,7 @@ Map<String, dynamic> _$$UserWithProgressDetailsToJson(
       'username': instance.username,
       'type': _$UserTypeEnumMap[instance.type]!,
       'token': instance.token,
-      'mediaProgressWithMedia': instance.mediaProgressWithMedia,
+      'mediaProgress': instance.mediaProgressWithMedia,
       'seriesHideFromContinueListening':
           instance.seriesHideFromContinueListening,
       'bookmarks': instance.bookmarks,

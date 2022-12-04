@@ -22,7 +22,7 @@ class ServerService extends Service {
     );
 
     if (loginResponse != null) {
-      api.token = loginResponse.user.mapOrNull((user) => user.token);
+      api.token = loginResponse.user.token;
       api.userId = loginResponse.user.id;
     }
 

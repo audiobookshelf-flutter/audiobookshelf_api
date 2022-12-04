@@ -14,6 +14,8 @@ part 'generated/user.g.dart';
 /// See [User](https://api.audiobookshelf.org/#user)
 @freezed
 class User with _$User {
+  const User._();
+
   @jsonConverters
   const factory User({
     required String id,
@@ -31,7 +33,7 @@ class User with _$User {
     required UserPermissions permissions,
     required List<String> librariesAccessible,
     required List<String> itemTagsAccessible,
-  }) = _User;
+  }) = UserBase;
 
   @jsonConverters
   const factory User.withProgressDetails({
@@ -39,7 +41,8 @@ class User with _$User {
     required String username,
     required UserType type,
     required String token,
-    required List<MediaProgressWithMedia> mediaProgressWithMedia,
+    @JsonKey(name: 'mediaProgress')
+        required List<MediaProgressWithMedia> mediaProgressWithMedia,
     required List<String> seriesHideFromContinueListening,
     required List<AudioBookmark> bookmarks,
     required bool isActive,
@@ -63,5 +66,53 @@ class User with _$User {
     required DateTime createdAt,
   }) = UserWithSessionAndMostRecentProgress;
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  factory User.fromJson(Map<String, dynamic> json) =>
+      UserConverter().fromJson(json);
+
+  UserVariant get variant {
+    return map(
+      (_) => UserVariant.base,
+      withProgressDetails: (_) => UserVariant.withProgressDetails,
+      withSessionAndMostRecentProgress: (_) =>
+          UserVariant.withSessionAndMostRecentProgress,
+    );
+  }
+}
+
+enum UserVariant { base, withProgressDetails, withSessionAndMostRecentProgress }
+
+class UserConverter implements JsonConverter<User, Map<String, dynamic>> {
+  const UserConverter();
+
+  @override
+  User fromJson(Map<String, dynamic> json) {
+    if (json.containsKey('runtimeType')) return _$UserFromJson(json);
+
+    UserVariant? variant;
+    if (!json.containsKey('token')) {
+      variant = UserVariant.withSessionAndMostRecentProgress;
+    } else {
+      final mediaProgressJson = json['mediaProgress'] as List<dynamic>?;
+      if (mediaProgressJson != null && mediaProgressJson.isNotEmpty) {
+        final firstMediaProgress =
+            mediaProgressJson.first as Map<String, dynamic>;
+        if (firstMediaProgress.containsKey('media')) {
+          variant = UserVariant.withProgressDetails;
+        }
+      }
+    }
+    variant ??= UserVariant.base;
+
+    switch (variant) {
+      case UserVariant.base:
+        return UserBase.fromJson(json);
+      case UserVariant.withProgressDetails:
+        return UserWithProgressDetails.fromJson(json);
+      case UserVariant.withSessionAndMostRecentProgress:
+        return UserWithSessionAndMostRecentProgress.fromJson(json);
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(User object) => object.toJson();
 }

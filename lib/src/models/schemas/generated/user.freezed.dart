@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 User _$UserFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'default':
-      return _User.fromJson(json);
+      return UserBase.fromJson(json);
     case 'withProgressDetails':
       return UserWithProgressDetails.fromJson(json);
     case 'withSessionAndMostRecentProgress':
@@ -60,7 +60,8 @@ mixin _$User {
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -107,7 +108,8 @@ mixin _$User {
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -154,7 +156,8 @@ mixin _$User {
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -180,7 +183,7 @@ mixin _$User {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_User value) $default, {
+    TResult Function(UserBase value) $default, {
     required TResult Function(UserWithProgressDetails value)
         withProgressDetails,
     required TResult Function(UserWithSessionAndMostRecentProgress value)
@@ -189,7 +192,7 @@ mixin _$User {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_User value)? $default, {
+    TResult? Function(UserBase value)? $default, {
     TResult? Function(UserWithProgressDetails value)? withProgressDetails,
     TResult? Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
@@ -197,7 +200,7 @@ mixin _$User {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_User value)? $default, {
+    TResult Function(UserBase value)? $default, {
     TResult Function(UserWithProgressDetails value)? withProgressDetails,
     TResult Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
@@ -267,9 +270,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 }
 
 /// @nodoc
-abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
-      __$$_UserCopyWithImpl<$Res>;
+abstract class _$$UserBaseCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$$UserBaseCopyWith(
+          _$UserBase value, $Res Function(_$UserBase) then) =
+      __$$UserBaseCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -294,9 +298,10 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
-    implements _$$_UserCopyWith<$Res> {
-  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
+class __$$UserBaseCopyWithImpl<$Res>
+    extends _$UserCopyWithImpl<$Res, _$UserBase>
+    implements _$$UserBaseCopyWith<$Res> {
+  __$$UserBaseCopyWithImpl(_$UserBase _value, $Res Function(_$UserBase) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -318,7 +323,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? librariesAccessible = null,
     Object? itemTagsAccessible = null,
   }) {
-    return _then(_$_User(
+    return _then(_$UserBase(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -402,8 +407,8 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 /// @nodoc
 
 @jsonConverters
-class _$_User implements _User {
-  const _$_User(
+class _$UserBase extends UserBase {
+  const _$UserBase(
       {required this.id,
       required this.username,
       required this.type,
@@ -425,9 +430,11 @@ class _$_User implements _User {
         _bookmarks = bookmarks,
         _librariesAccessible = librariesAccessible,
         _itemTagsAccessible = itemTagsAccessible,
-        $type = $type ?? 'default';
+        $type = $type ?? 'default',
+        super._();
 
-  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
+  factory _$UserBase.fromJson(Map<String, dynamic> json) =>
+      _$$UserBaseFromJson(json);
 
   @override
   final String id;
@@ -504,7 +511,7 @@ class _$_User implements _User {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_User &&
+            other is _$UserBase &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.username, username) ||
                 other.username == username) &&
@@ -558,8 +565,8 @@ class _$_User implements _User {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserCopyWith<_$_User> get copyWith =>
-      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+  _$$UserBaseCopyWith<_$UserBase> get copyWith =>
+      __$$UserBaseCopyWithImpl<_$UserBase>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -586,7 +593,8 @@ class _$_User implements _User {
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -651,7 +659,8 @@ class _$_User implements _User {
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -716,7 +725,8 @@ class _$_User implements _User {
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -763,7 +773,7 @@ class _$_User implements _User {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_User value) $default, {
+    TResult Function(UserBase value) $default, {
     required TResult Function(UserWithProgressDetails value)
         withProgressDetails,
     required TResult Function(UserWithSessionAndMostRecentProgress value)
@@ -775,7 +785,7 @@ class _$_User implements _User {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_User value)? $default, {
+    TResult? Function(UserBase value)? $default, {
     TResult? Function(UserWithProgressDetails value)? withProgressDetails,
     TResult? Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
@@ -786,7 +796,7 @@ class _$_User implements _User {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_User value)? $default, {
+    TResult Function(UserBase value)? $default, {
     TResult Function(UserWithProgressDetails value)? withProgressDetails,
     TResult Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
@@ -800,14 +810,14 @@ class _$_User implements _User {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserToJson(
+    return _$$UserBaseToJson(
       this,
     );
   }
 }
 
-abstract class _User implements User {
-  const factory _User(
+abstract class UserBase extends User {
+  const factory UserBase(
       {required final String id,
       required final String username,
       required final UserType type,
@@ -822,9 +832,10 @@ abstract class _User implements User {
       required final UserSettings settings,
       required final UserPermissions permissions,
       required final List<String> librariesAccessible,
-      required final List<String> itemTagsAccessible}) = _$_User;
+      required final List<String> itemTagsAccessible}) = _$UserBase;
+  const UserBase._() : super._();
 
-  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
+  factory UserBase.fromJson(Map<String, dynamic> json) = _$UserBase.fromJson;
 
   @override
   String get id;
@@ -848,7 +859,8 @@ abstract class _User implements User {
   List<String> get itemTagsAccessible;
   @override
   @JsonKey(ignore: true)
-  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
+  _$$UserBaseCopyWith<_$UserBase> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -864,7 +876,8 @@ abstract class _$$UserWithProgressDetailsCopyWith<$Res>
       String username,
       UserType type,
       String token,
-      List<MediaProgressWithMedia> mediaProgressWithMedia,
+      @JsonKey(name: 'mediaProgress')
+          List<MediaProgressWithMedia> mediaProgressWithMedia,
       List<String> seriesHideFromContinueListening,
       List<AudioBookmark> bookmarks,
       bool isActive,
@@ -991,13 +1004,14 @@ class __$$UserWithProgressDetailsCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$UserWithProgressDetails implements UserWithProgressDetails {
+class _$UserWithProgressDetails extends UserWithProgressDetails {
   const _$UserWithProgressDetails(
       {required this.id,
       required this.username,
       required this.type,
       required this.token,
-      required final List<MediaProgressWithMedia> mediaProgressWithMedia,
+      @JsonKey(name: 'mediaProgress')
+          required final List<MediaProgressWithMedia> mediaProgressWithMedia,
       required final List<String> seriesHideFromContinueListening,
       required final List<AudioBookmark> bookmarks,
       required this.isActive,
@@ -1014,7 +1028,8 @@ class _$UserWithProgressDetails implements UserWithProgressDetails {
         _bookmarks = bookmarks,
         _librariesAccessible = librariesAccessible,
         _itemTagsAccessible = itemTagsAccessible,
-        $type = $type ?? 'withProgressDetails';
+        $type = $type ?? 'withProgressDetails',
+        super._();
 
   factory _$UserWithProgressDetails.fromJson(Map<String, dynamic> json) =>
       _$$UserWithProgressDetailsFromJson(json);
@@ -1029,6 +1044,7 @@ class _$UserWithProgressDetails implements UserWithProgressDetails {
   final String token;
   final List<MediaProgressWithMedia> _mediaProgressWithMedia;
   @override
+  @JsonKey(name: 'mediaProgress')
   List<MediaProgressWithMedia> get mediaProgressWithMedia {
     if (_mediaProgressWithMedia is EqualUnmodifiableListView)
       return _mediaProgressWithMedia;
@@ -1178,7 +1194,8 @@ class _$UserWithProgressDetails implements UserWithProgressDetails {
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -1243,7 +1260,8 @@ class _$UserWithProgressDetails implements UserWithProgressDetails {
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -1308,7 +1326,8 @@ class _$UserWithProgressDetails implements UserWithProgressDetails {
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -1355,7 +1374,7 @@ class _$UserWithProgressDetails implements UserWithProgressDetails {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_User value) $default, {
+    TResult Function(UserBase value) $default, {
     required TResult Function(UserWithProgressDetails value)
         withProgressDetails,
     required TResult Function(UserWithSessionAndMostRecentProgress value)
@@ -1367,7 +1386,7 @@ class _$UserWithProgressDetails implements UserWithProgressDetails {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_User value)? $default, {
+    TResult? Function(UserBase value)? $default, {
     TResult? Function(UserWithProgressDetails value)? withProgressDetails,
     TResult? Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
@@ -1378,7 +1397,7 @@ class _$UserWithProgressDetails implements UserWithProgressDetails {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_User value)? $default, {
+    TResult Function(UserBase value)? $default, {
     TResult Function(UserWithProgressDetails value)? withProgressDetails,
     TResult Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
@@ -1398,24 +1417,26 @@ class _$UserWithProgressDetails implements UserWithProgressDetails {
   }
 }
 
-abstract class UserWithProgressDetails implements User {
+abstract class UserWithProgressDetails extends User {
   const factory UserWithProgressDetails(
-          {required final String id,
-          required final String username,
-          required final UserType type,
-          required final String token,
+      {required final String id,
+      required final String username,
+      required final UserType type,
+      required final String token,
+      @JsonKey(name: 'mediaProgress')
           required final List<MediaProgressWithMedia> mediaProgressWithMedia,
-          required final List<String> seriesHideFromContinueListening,
-          required final List<AudioBookmark> bookmarks,
-          required final bool isActive,
-          required final bool isLocked,
-          final DateTime? lastSeen,
-          required final DateTime createdAt,
-          required final UserSettings settings,
-          required final UserPermissions permissions,
-          required final List<String> librariesAccessible,
-          required final List<String> itemTagsAccessible}) =
-      _$UserWithProgressDetails;
+      required final List<String> seriesHideFromContinueListening,
+      required final List<AudioBookmark> bookmarks,
+      required final bool isActive,
+      required final bool isLocked,
+      final DateTime? lastSeen,
+      required final DateTime createdAt,
+      required final UserSettings settings,
+      required final UserPermissions permissions,
+      required final List<String> librariesAccessible,
+      required final List<String>
+          itemTagsAccessible}) = _$UserWithProgressDetails;
+  const UserWithProgressDetails._() : super._();
 
   factory UserWithProgressDetails.fromJson(Map<String, dynamic> json) =
       _$UserWithProgressDetails.fromJson;
@@ -1427,6 +1448,7 @@ abstract class UserWithProgressDetails implements User {
   @override
   UserType get type;
   String get token;
+  @JsonKey(name: 'mediaProgress')
   List<MediaProgressWithMedia> get mediaProgressWithMedia;
   List<String> get seriesHideFromContinueListening;
   List<AudioBookmark> get bookmarks;
@@ -1536,7 +1558,7 @@ class __$$UserWithSessionAndMostRecentProgressCopyWithImpl<$Res>
 
 @jsonConverters
 class _$UserWithSessionAndMostRecentProgress
-    implements UserWithSessionAndMostRecentProgress {
+    extends UserWithSessionAndMostRecentProgress {
   const _$UserWithSessionAndMostRecentProgress(
       {required this.id,
       required this.username,
@@ -1546,7 +1568,8 @@ class _$UserWithSessionAndMostRecentProgress
       this.lastSeen,
       required this.createdAt,
       final String? $type})
-      : $type = $type ?? 'withSessionAndMostRecentProgress';
+      : $type = $type ?? 'withSessionAndMostRecentProgress',
+        super._();
 
   factory _$UserWithSessionAndMostRecentProgress.fromJson(
           Map<String, dynamic> json) =>
@@ -1631,7 +1654,8 @@ class _$UserWithSessionAndMostRecentProgress
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -1682,7 +1706,8 @@ class _$UserWithSessionAndMostRecentProgress
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -1733,7 +1758,8 @@ class _$UserWithSessionAndMostRecentProgress
             String username,
             UserType type,
             String token,
-            List<MediaProgressWithMedia> mediaProgressWithMedia,
+            @JsonKey(name: 'mediaProgress')
+                List<MediaProgressWithMedia> mediaProgressWithMedia,
             List<String> seriesHideFromContinueListening,
             List<AudioBookmark> bookmarks,
             bool isActive,
@@ -1766,7 +1792,7 @@ class _$UserWithSessionAndMostRecentProgress
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(_User value) $default, {
+    TResult Function(UserBase value) $default, {
     required TResult Function(UserWithProgressDetails value)
         withProgressDetails,
     required TResult Function(UserWithSessionAndMostRecentProgress value)
@@ -1778,7 +1804,7 @@ class _$UserWithSessionAndMostRecentProgress
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_User value)? $default, {
+    TResult? Function(UserBase value)? $default, {
     TResult? Function(UserWithProgressDetails value)? withProgressDetails,
     TResult? Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
@@ -1789,7 +1815,7 @@ class _$UserWithSessionAndMostRecentProgress
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(_User value)? $default, {
+    TResult Function(UserBase value)? $default, {
     TResult Function(UserWithProgressDetails value)? withProgressDetails,
     TResult Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
@@ -1809,7 +1835,7 @@ class _$UserWithSessionAndMostRecentProgress
   }
 }
 
-abstract class UserWithSessionAndMostRecentProgress implements User {
+abstract class UserWithSessionAndMostRecentProgress extends User {
   const factory UserWithSessionAndMostRecentProgress(
           {required final String id,
           required final String username,
@@ -1819,6 +1845,7 @@ abstract class UserWithSessionAndMostRecentProgress implements User {
           final DateTime? lastSeen,
           required final DateTime createdAt}) =
       _$UserWithSessionAndMostRecentProgress;
+  const UserWithSessionAndMostRecentProgress._() : super._();
 
   factory UserWithSessionAndMostRecentProgress.fromJson(
           Map<String, dynamic> json) =

@@ -1,15 +1,17 @@
 import 'models/schemas/user.dart';
 
 class LoginResponse {
-  User user;
+  UserBase user;
 
   LoginResponse({required this.user});
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
-        user: User.fromJson(
-          json['user'],
-        ),
-      );
+  factory LoginResponse.fromJson(Map<String, dynamic> json) {
+    return LoginResponse(
+      user: UserBase.fromJson(
+        json['user'],
+      ),
+    );
+  }
 
   Map<String, dynamic> toJson() => {'user': user.toJson()};
 }
