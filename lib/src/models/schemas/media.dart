@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../audio_track.dart';
 import '../../utils/json_converters.dart';
 import '../enums/media_type.dart';
 import '../enums/schema_variant.dart';
 import 'audio_file.dart';
+import 'audio_track.dart';
 import 'book_chapter.dart';
 import 'ebook_file.dart';
 import 'media_metadata.dart';

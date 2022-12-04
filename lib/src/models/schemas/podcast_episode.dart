@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../audio_track.dart';
 import '../../utils/json_converters.dart';
 import '../enums/schema_variant.dart';
 import 'audio_file.dart';
+import 'audio_track.dart';
 import 'podcast_episode_enclosure.dart';
 
 part 'generated/podcast_episode.freezed.dart';
