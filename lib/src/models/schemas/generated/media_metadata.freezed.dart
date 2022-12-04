@@ -561,7 +561,7 @@ class __$$BookMetadataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BookMetadata implements BookMetadata {
+class _$BookMetadata extends BookMetadata {
   const _$BookMetadata(
       {this.title,
       this.subtitle,
@@ -582,7 +582,8 @@ class _$BookMetadata implements BookMetadata {
         _narrators = narrators,
         _series = series,
         _genres = genres,
-        $type = $type ?? 'book';
+        $type = $type ?? 'book',
+        super._();
 
   factory _$BookMetadata.fromJson(Map<String, dynamic> json) =>
       _$$BookMetadataFromJson(json);
@@ -1122,7 +1123,7 @@ class _$BookMetadata implements BookMetadata {
   }
 }
 
-abstract class BookMetadata implements MediaMetadata {
+abstract class BookMetadata extends MediaMetadata {
   const factory BookMetadata(
       {final String? title,
       final String? subtitle,
@@ -1138,6 +1139,7 @@ abstract class BookMetadata implements MediaMetadata {
       final String? asin,
       final String? language,
       final bool explicit}) = _$BookMetadata;
+  const BookMetadata._() : super._();
 
   factory BookMetadata.fromJson(Map<String, dynamic> json) =
       _$BookMetadata.fromJson;
@@ -1293,7 +1295,7 @@ class __$$BookMetadataMinifiedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BookMetadataMinified implements BookMetadataMinified {
+class _$BookMetadataMinified extends BookMetadataMinified {
   const _$BookMetadataMinified(
       {this.title,
       this.titleIgnorePrefix,
@@ -1313,7 +1315,8 @@ class _$BookMetadataMinified implements BookMetadataMinified {
       this.explicit = false,
       final String? $type})
       : _genres = genres,
-        $type = $type ?? 'bookMinified';
+        $type = $type ?? 'bookMinified',
+        super._();
 
   factory _$BookMetadataMinified.fromJson(Map<String, dynamic> json) =>
       _$$BookMetadataMinifiedFromJson(json);
@@ -1851,7 +1854,7 @@ class _$BookMetadataMinified implements BookMetadataMinified {
   }
 }
 
-abstract class BookMetadataMinified implements MediaMetadata {
+abstract class BookMetadataMinified extends MediaMetadata {
   const factory BookMetadataMinified(
       {final String? title,
       final String? titleIgnorePrefix,
@@ -1869,6 +1872,7 @@ abstract class BookMetadataMinified implements MediaMetadata {
       final String? asin,
       final String? language,
       final bool explicit}) = _$BookMetadataMinified;
+  const BookMetadataMinified._() : super._();
 
   factory BookMetadataMinified.fromJson(Map<String, dynamic> json) =
       _$BookMetadataMinified.fromJson;
@@ -2044,7 +2048,7 @@ class __$$BookMetadataExpandedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BookMetadataExpanded implements BookMetadataExpanded {
+class _$BookMetadataExpanded extends BookMetadataExpanded {
   const _$BookMetadataExpanded(
       {this.title,
       this.titleIgnorePrefix,
@@ -2070,7 +2074,8 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
         _narrators = narrators,
         _series = series,
         _genres = genres,
-        $type = $type ?? 'bookExpanded';
+        $type = $type ?? 'bookExpanded',
+        super._();
 
   factory _$BookMetadataExpanded.fromJson(Map<String, dynamic> json) =>
       _$$BookMetadataExpandedFromJson(json);
@@ -2652,7 +2657,7 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
   }
 }
 
-abstract class BookMetadataExpanded implements MediaMetadata {
+abstract class BookMetadataExpanded extends MediaMetadata {
   const factory BookMetadataExpanded(
       {final String? title,
       final String? titleIgnorePrefix,
@@ -2673,6 +2678,7 @@ abstract class BookMetadataExpanded implements MediaMetadata {
       final String? authorNameLF,
       final String? narratorName,
       final String? seriesName}) = _$BookMetadataExpanded;
+  const BookMetadataExpanded._() : super._();
 
   factory BookMetadataExpanded.fromJson(Map<String, dynamic> json) =
       _$BookMetadataExpanded.fromJson;
@@ -2809,7 +2815,7 @@ class __$$PodcastMetadataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PodcastMetadata implements PodcastMetadata {
+class _$PodcastMetadata extends PodcastMetadata {
   const _$PodcastMetadata(
       {this.title,
       this.author,
@@ -2825,7 +2831,8 @@ class _$PodcastMetadata implements PodcastMetadata {
       this.language,
       final String? $type})
       : _genres = genres,
-        $type = $type ?? 'podcast';
+        $type = $type ?? 'podcast',
+        super._();
 
   factory _$PodcastMetadata.fromJson(Map<String, dynamic> json) =>
       _$$PodcastMetadataFromJson(json);
@@ -3319,7 +3326,7 @@ class _$PodcastMetadata implements PodcastMetadata {
   }
 }
 
-abstract class PodcastMetadata implements MediaMetadata {
+abstract class PodcastMetadata extends MediaMetadata {
   const factory PodcastMetadata(
       {final String? title,
       final String? author,
@@ -3333,6 +3340,7 @@ abstract class PodcastMetadata implements MediaMetadata {
       final int? itunesArtistId,
       final bool explicit,
       final String? language}) = _$PodcastMetadata;
+  const PodcastMetadata._() : super._();
 
   factory PodcastMetadata.fromJson(Map<String, dynamic> json) =
       _$PodcastMetadata.fromJson;
@@ -3468,7 +3476,7 @@ class __$$PodcastMetadataMinifiedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PodcastMetadataMinified implements PodcastMetadataMinified {
+class _$PodcastMetadataMinified extends PodcastMetadataMinified {
   const _$PodcastMetadataMinified(
       {this.title,
       this.titleIgnorePrefix,
@@ -3485,7 +3493,8 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
       this.language,
       final String? $type})
       : _genres = genres,
-        $type = $type ?? 'podcastMinified';
+        $type = $type ?? 'podcastMinified',
+        super._();
 
   factory _$PodcastMetadataMinified.fromJson(Map<String, dynamic> json) =>
       _$$PodcastMetadataMinifiedFromJson(json);
@@ -3999,7 +4008,7 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
   }
 }
 
-abstract class PodcastMetadataMinified implements MediaMetadata {
+abstract class PodcastMetadataMinified extends MediaMetadata {
   const factory PodcastMetadataMinified(
       {final String? title,
       final String? titleIgnorePrefix,
@@ -4014,6 +4023,7 @@ abstract class PodcastMetadataMinified implements MediaMetadata {
       final int? itunesArtistId,
       final bool explicit,
       final String? language}) = _$PodcastMetadataMinified;
+  const PodcastMetadataMinified._() : super._();
 
   factory PodcastMetadataMinified.fromJson(Map<String, dynamic> json) =
       _$PodcastMetadataMinified.fromJson;
@@ -4150,7 +4160,7 @@ class __$$PodcastMetadataExpandedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
+class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
   const _$PodcastMetadataExpanded(
       {this.title,
       this.titleIgnorePrefix,
@@ -4167,7 +4177,8 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
       this.language,
       final String? $type})
       : _genres = genres,
-        $type = $type ?? 'podcastExpanded';
+        $type = $type ?? 'podcastExpanded',
+        super._();
 
   factory _$PodcastMetadataExpanded.fromJson(Map<String, dynamic> json) =>
       _$$PodcastMetadataExpandedFromJson(json);
@@ -4681,7 +4692,7 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
   }
 }
 
-abstract class PodcastMetadataExpanded implements MediaMetadata {
+abstract class PodcastMetadataExpanded extends MediaMetadata {
   const factory PodcastMetadataExpanded(
       {final String? title,
       final String? titleIgnorePrefix,
@@ -4696,6 +4707,7 @@ abstract class PodcastMetadataExpanded implements MediaMetadata {
       final int? itunesArtistId,
       final bool explicit,
       final String? language}) = _$PodcastMetadataExpanded;
+  const PodcastMetadataExpanded._() : super._();
 
   factory PodcastMetadataExpanded.fromJson(Map<String, dynamic> json) =
       _$PodcastMetadataExpanded.fromJson;
