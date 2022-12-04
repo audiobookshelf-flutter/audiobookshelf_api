@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils/json_converters.dart';
+import '../enums/schema_variant.dart';
 import 'library_item.dart';
 
 part 'generated/collection.freezed.dart';
@@ -9,6 +10,8 @@ part 'generated/collection.g.dart';
 /// See [Collection](https://api.audiobookshelf.org/#collection)
 @freezed
 class Collection with _$Collection {
+  const Collection._();
+
   @jsonConverters
   const factory Collection({
     required String id,
@@ -38,5 +41,40 @@ class Collection with _$Collection {
   }) = CollectionExpanded;
 
   factory Collection.fromJson(Map<String, dynamic> json) =>
-      _$CollectionFromJson(json);
+      CollectionConverter().fromJson(json);
+
+  SchemaVariant get variant {
+    return map(
+      (_) => SchemaVariant.base,
+      expanded: (_) => SchemaVariant.expanded,
+    );
+  }
+}
+
+class CollectionConverter
+    implements JsonConverter<Collection, Map<String, dynamic>> {
+  const CollectionConverter();
+
+  @override
+  Collection fromJson(Map<String, dynamic> json) {
+    if (json.containsKey('runtimeType')) return _$CollectionFromJson(json);
+
+    final SchemaVariant variant;
+    if ((json['books'] as Map<String, dynamic>).containsKey('size')) {
+      variant = SchemaVariant.expanded;
+    } else {
+      variant = SchemaVariant.base;
+    }
+
+    switch (variant) {
+      case SchemaVariant.minified:
+      case SchemaVariant.base:
+        return _$CollectionFromJson(json);
+      case SchemaVariant.expanded:
+        return CollectionExpanded.fromJson(json);
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(Collection object) => object.toJson();
 }

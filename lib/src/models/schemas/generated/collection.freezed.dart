@@ -322,7 +322,7 @@ class __$$_CollectionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$_Collection implements _Collection {
+class _$_Collection extends _Collection {
   const _$_Collection(
       {required this.id,
       required this.libraryId,
@@ -336,7 +336,8 @@ class _$_Collection implements _Collection {
       required this.createdAt,
       final String? $type})
       : _books = books,
-        $type = $type ?? 'default';
+        $type = $type ?? 'default',
+        super._();
 
   factory _$_Collection.fromJson(Map<String, dynamic> json) =>
       _$$_CollectionFromJson(json);
@@ -558,7 +559,7 @@ class _$_Collection implements _Collection {
   }
 }
 
-abstract class _Collection implements Collection {
+abstract class _Collection extends Collection {
   const factory _Collection(
       {required final String id,
       required final String libraryId,
@@ -570,6 +571,7 @@ abstract class _Collection implements Collection {
       required final List<BookLibraryItem> books,
       required final DateTime lastUpdate,
       required final DateTime createdAt}) = _$_Collection;
+  const _Collection._() : super._();
 
   factory _Collection.fromJson(Map<String, dynamic> json) =
       _$_Collection.fromJson;
@@ -691,7 +693,7 @@ class __$$CollectionExpandedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$CollectionExpanded implements CollectionExpanded {
+class _$CollectionExpanded extends CollectionExpanded {
   const _$CollectionExpanded(
       {required this.id,
       required this.libraryId,
@@ -705,7 +707,8 @@ class _$CollectionExpanded implements CollectionExpanded {
       required this.createdAt,
       final String? $type})
       : _books = books,
-        $type = $type ?? 'expanded';
+        $type = $type ?? 'expanded',
+        super._();
 
   factory _$CollectionExpanded.fromJson(Map<String, dynamic> json) =>
       _$$CollectionExpandedFromJson(json);
@@ -928,7 +931,7 @@ class _$CollectionExpanded implements CollectionExpanded {
   }
 }
 
-abstract class CollectionExpanded implements Collection {
+abstract class CollectionExpanded extends Collection {
   const factory CollectionExpanded(
       {required final String id,
       required final String libraryId,
@@ -940,6 +943,7 @@ abstract class CollectionExpanded implements Collection {
       required final List<BookLibraryItemExpanded> books,
       required final DateTime lastUpdate,
       required final DateTime createdAt}) = _$CollectionExpanded;
+  const CollectionExpanded._() : super._();
 
   factory CollectionExpanded.fromJson(Map<String, dynamic> json) =
       _$CollectionExpanded.fromJson;
