@@ -1,39 +1,117 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 
-import 'abs_audiobook_progress.dart';
-import 'abs_collection.dart';
-import 'abs_library.dart';
-import 'abs_login_response.dart';
-import 'abs_search_response.dart';
-import 'abs_user.dart';
-import 'models/abs_audiobook.dart';
-import 'models/abs_media_progress.dart';
-import 'models/abs_play_item_request.dart';
-import 'models/abs_series.dart';
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
+import 'package:mime/mime.dart';
+
+import 'login_response.dart';
+import 'services/authors_service.dart';
+import 'services/backups_service.dart';
+import 'services/cache_service.dart';
+import 'services/collections_service.dart';
+import 'services/filesystem_service.dart';
+import 'services/libraries_service.dart';
+import 'services/library_items_service.dart';
+import 'services/me_service.dart';
+import 'services/misc_service.dart';
+import 'services/notifications_service.dart';
+import 'services/playlists_service.dart';
+import 'services/podcasts_service.dart';
+import 'services/search_service.dart';
+import 'services/series_service.dart';
+import 'services/server_service.dart';
+import 'services/sessions_service.dart';
+import 'services/tools_service.dart';
+import 'services/users_service.dart';
+import 'utils/error_with_message.dart';
+import 'utils/exception_with_message.dart';
+import 'utils/typedefs.dart';
 
 class AudiobookshelfApi {
-  String? baseUrl;
-  String? token;
-  Map<String, String> headers;
-  String? userId;
-  AbsUser? user;
+  /// A header identifying the request data as JSON.
+  static const jsonHeader = {
+    'Content-Type': 'application/json',
+  };
+
+  static final mimeTypeResolver = MimeTypeResolver()
+    ..addExtension('m4b', 'audio/mp4')
+    ..addExtension('opus', 'audio/opus')
+    ..addExtension('aac', 'audio/aac')
+    ..addExtension('wav', 'audio/wav')
+    ..addExtension('webma', 'audio/webm')
+    ..addExtension('azw3', 'application/vnd.amazon.mobi8-ebook')
+    ..addExtension('abs', 'text/plain')
+    ..addExtension('audiobookshelf', 'application/zip');
+
   final client = http.Client();
 
-  AudiobookshelfApi({
-    this.baseUrl,
-    this.token,
-    this.headers = const {},
-  });
+  late final ServerService server;
+  late final LibrariesService libraries;
+  late final LibraryItemsService items;
+  late final UsersService users;
+  late final CollectionsService collections;
+  late final PlaylistsService playlists;
+  late final MeService me;
+  late final BackupsService backups;
+  late final FilesystemService filesystem;
+  late final AuthorsService authors;
+  late final SeriesService series;
+  late final SessionsService sessions;
+  late final PodcastsService podcasts;
+  late final NotificationsService notifications;
+  late final SearchService search;
+  late final CacheService cache;
+  late final ToolsService tools;
+  late final MiscService misc;
 
-  Uri createUri(
+  final String baseUrl;
+  final Uri _baseUri;
+
+  String? token;
+  String? userId;
+
+  AudiobookshelfApi({
+    required this.baseUrl,
+    this.token,
+  }) : _baseUri = createUri(baseUrl) {
+    server = ServerService(this);
+    libraries = LibrariesService(this);
+    items = LibraryItemsService(this);
+    users = UsersService(this);
+    collections = CollectionsService(this);
+    playlists = PlaylistsService(this);
+    me = MeService(this);
+    backups = BackupsService(this);
+    filesystem = FilesystemService(this);
+    authors = AuthorsService(this);
+    series = SeriesService(this);
+    sessions = SessionsService(this);
+    podcasts = PodcastsService(this);
+    notifications = NotificationsService(this);
+    search = SearchService(this);
+    cache = CacheService(this);
+    tools = ToolsService(this);
+    misc = MiscService(this);
+  }
+
+  /// A header for authenticating the logged in user.
+  /// [token] must be non-null when authenticating.
+  Map<String, String> get authHeader {
+    if (token == null) throw AuthError('token must be set for authentication');
+    return {'Authorization': 'Bearer $token'};
+  }
+
+  /// Combines [authHeader] and [jsonHeader].
+  Map<String, String> get authJsonHeader => authHeader..addAll(jsonHeader);
+
+  static Uri createUri(
     String url, [
     String? path,
     Map<String, dynamic>? queryParameters,
   ]) {
-    var isHttp = false;
-    if (url.startsWith('https://') || (isHttp = url.startsWith('http://'))) {
-      var authority = url.substring((isHttp ? 'http://' : 'https://').length);
+    final isHttp = url.startsWith('http://');
+    if (isHttp || url.startsWith('https://')) {
+      final authority = url.substring((isHttp ? 'http://' : 'https://').length);
 
       if (isHttp) {
         return Uri.http(authority, path ?? '', queryParameters);
@@ -41,313 +119,344 @@ class AudiobookshelfApi {
         return Uri.https(authority, path ?? '', queryParameters);
       }
     } else if (url.startsWith('localhost')) {
-      return createUri('http://$url', '', queryParameters);
+      return createUri('http://$url', path ?? '', queryParameters);
     }
 
-    throw Exception('Unsupported scheme');
+    throw UnsupportedSchemeError('Unsupported scheme from URL: $url');
   }
 
-  Future<AbsLoginResponse> login(String username, String password) async {
-    http.Response response = await client.post(
-      createUri(baseUrl!, '/login'),
-      headers: {
-        'content-type': 'application/json',
-      },
-      body: utf8.encode(
-        jsonEncode({'username': username, 'password': password}),
-      ),
+  /// Alias for [ServerService.login]
+  Future<LoginResponse?> login({
+    required String username,
+    required String password,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return server.login(
+      username: username,
+      password: password,
+      responseErrorHandler: responseErrorHandler,
     );
-    final alr = AbsLoginResponse.fromJson(
-      jsonDecode(utf8.decode(response.bodyBytes)),
+  }
+
+  /// Makes a GET HTTP request. See [request] for details.
+  Future<http.Response> get({
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return request(
+      method: 'GET',
+      path: path,
+      queryParameters: queryParameters,
+      requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
     );
-    token = alr.user.token;
-    userId = alr.user.id;
-    user = alr.user;
-    return alr;
   }
 
-  Future<AbsUser> getUser() async {
-    http.Response response = await client.post(
-      createUri(baseUrl!, '/api/authorize'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+  /// Makes a GET HTTP request and handles returned JSON.
+  /// See [requestJson] for details.
+  Future<T?> getJson<T>({
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+    required FromJson<T> fromJson,
+  }) {
+    return requestJson(
+      method: 'GET',
+      path: path,
+      queryParameters: queryParameters,
+      requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: fromJson,
     );
-    final decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));
-    user = AbsUser.fromJson(decodedResponse['user']);
-    return user!;
   }
 
-  Future<List<AbsAudiobook>> getAll(String library) async {
-    http.Response response = await client.get(
-      createUri(
-          baseUrl!, '/api/libraries/$library/items'), // {'minified': '1'}),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+  /// Makes a POST HTTP request. See [request] for details.
+  Future<http.Response> post({
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    Object? jsonObject,
+    Map<String, String>? formData,
+    Map<String, String>? filePaths,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return request(
+      method: 'POST',
+      path: path,
+      queryParameters: queryParameters,
+      jsonObject: jsonObject,
+      formData: formData,
+      filePaths: filePaths,
+      requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
     );
-    return _convertBody(response.bodyBytes);
   }
 
-  Future<List<AbsLibrary>> getLibraries() async {
-    http.Response response = await client.get(
-      createUri(baseUrl!, '/api/libraries'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+  /// Makes a POST HTTP request and handles returned JSON.
+  /// See [requestJson] for details.
+  Future<T?> postJson<T>({
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    Object? jsonObject,
+    Map<String, String>? formData,
+    Map<String, String>? filePaths,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+    required FromJson<T> fromJson,
+  }) {
+    return requestJson(
+      method: 'POST',
+      path: path,
+      queryParameters: queryParameters,
+      jsonObject: jsonObject,
+      formData: formData,
+      filePaths: filePaths,
+      requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: fromJson,
+    );
+  }
+
+  /// Makes a PATCH HTTP request. See [request] for details.
+  Future<http.Response> patch({
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    Object? jsonObject,
+    Map<String, String>? formData,
+    Map<String, String>? filePaths,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return request(
+      method: 'PATCH',
+      path: path,
+      queryParameters: queryParameters,
+      jsonObject: jsonObject,
+      formData: formData,
+      filePaths: filePaths,
+      requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// Makes a PATCH HTTP request and handles returned JSON.
+  /// See [requestJson] for details.
+  Future<T?> patchJson<T>({
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    Object? jsonObject,
+    Map<String, String>? formData,
+    Map<String, String>? filePaths,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+    required FromJson<T> fromJson,
+  }) {
+    return requestJson(
+      method: 'PATCH',
+      path: path,
+      queryParameters: queryParameters,
+      jsonObject: jsonObject,
+      formData: formData,
+      filePaths: filePaths,
+      requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: fromJson,
+    );
+  }
+
+  /// Makes a DELETE HTTP request. See [request] for details.
+  Future<http.Response> delete({
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return request(
+      method: 'DELETE',
+      path: path,
+      queryParameters: queryParameters,
+      requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// Makes a DELETE HTTP request and handles returned JSON.
+  /// See [requestJson] for details.
+  Future<T?> deleteJson<T>({
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+    required FromJson<T> fromJson,
+  }) {
+    return requestJson(
+      method: 'DELETE',
+      path: path,
+      queryParameters: queryParameters,
+      requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: fromJson,
+    );
+  }
+
+  /// Makes an HTTP request and handles returned JSON.
+  /// Will return `null` if a non-successful response status code occurs.
+  ///
+  /// [fromJson] converts the returned JSON
+  /// (which may be [Map<String, dynamic>] or [List<dynamic>],
+  /// see [JsonCodec.decode]) to [T].
+  ///
+  /// See [request] for other parameters and more details.
+  Future<T?> requestJson<T>({
+    required String method,
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    Object? jsonObject,
+    Map<String, String>? formData,
+    Map<String, String>? filePaths,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+    required FromJson<T> fromJson,
+  }) async {
+    final response = await request(
+      method: method,
+      path: path,
+      queryParameters: queryParameters,
+      jsonObject: jsonObject,
+      formData: formData,
+      filePaths: filePaths,
+      requiresAuth: requiresAuth,
+      responseErrorHandler: responseErrorHandler,
     );
 
-    return jsonDecode(utf8.decode(response.bodyBytes))
-        .map<AbsLibrary>((el) => AbsLibrary.fromJson(el))
-        .toList();
-  }
-
-  Future<Map<String, AbsAudiobookProgress>> getRecentlyPlayed() async {
-    await getUser();
-    return user?.mediaProgress ?? {};
-  }
-
-  int sortByAddedDate(AbsAudiobook a, AbsAudiobook b) {
-    if (a.addedAt == null || b.addedAt == null) return 0;
-    if (a.addedAt! < b.addedAt!) {
-      return 1;
-    } else if (a.addedAt! > b.addedAt!) {
-      return -1;
+    if (response.statusCode >= 300) {
+      return null;
     }
-    return 0;
+
+    return fromJson(json.decode(response.body));
   }
 
-  Future<List<AbsAudiobook>> getRecentlyAdded(String libraryId) async {
-    http.Response response = await client.get(
-      createUri(baseUrl!, '/api/libraries/$libraryId/items', {
-        'sort': 'addedAt',
-        'desc': '1',
-        'limit': '10',
-      }),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+  /// Makes an HTTP request to the [baseUrl] and returns the response.
+  ///
+  /// [method] is the HTTP method to use for the request.
+  ///
+  /// [path] is the URL path (after the [baseUrl]) to request from.
+  ///
+  /// [queryParameters] are the **unencoded** URL query parameters.
+  ///
+  /// See the [Uri] constructor for details.
+  ///
+  /// [jsonObject] will be JSON encoded (see [JsonCodec.encode])
+  /// for the request body.
+  ///
+  /// [formData] will be encoded as form fields (see [http.Request.bodyFields])
+  /// for the request body.
+  ///
+  /// Each key in [filePaths] will be a form field name, with the value as the
+  /// path of a file to upload for the request.
+  ///
+  /// If [formData] or [filePaths] is non-null, [jsonObject] must be null.
+  ///
+  /// [requiresAuth] is whether the request requires the authorization header.
+  /// [token] must be non-null if [requiresAuth] is `true`.
+  ///
+  /// [responseErrorHandler] is called when a non-successful status code occurs.
+  Future<http.Response> request({
+    required String method,
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    Object? jsonObject,
+    Map<String, String>? formData,
+    Map<String, String>? filePaths,
+    bool requiresAuth = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) async {
+    if (jsonObject != null && (formData != null || filePaths != null)) {
+      throw RequestError(
+        'Cannot put jsonData and formData/files in the same request.',
+      );
+    }
+
+    final url = _baseUri.replace(
+      path: path,
+      queryParameters: queryParameters,
     );
 
-    return jsonDecode(utf8.decode(response.bodyBytes))['results']
-        .map<AbsAudiobook>((el) => AbsAudiobook.fromJson(el))
-        .toList();
-  }
+    late final http.BaseRequest baseRequest;
 
-  Future<List<Author>> getAuthors(String libraryId) async {
-    http.Response response = await client.get(
-      createUri(baseUrl!, '/api/libraries/$libraryId/authors'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
-    );
-    return jsonDecode(utf8.decode(response.bodyBytes))
-        .map<Author>((el) => Author.fromJson(el))
-        .toList();
-  }
+    if (formData != null || filePaths != null) {
+      final multiRequest = http.MultipartRequest(method, url);
 
-  Future<List<AbsAudiobook>> getBooksForAuthor(
-      String libraryId, String author) async {
-    final encodedAuthor = base64Encode(utf8.encode(author));
-    http.Response response = await client.get(
-      createUri(
-        baseUrl!,
-        '/api/libraries/$libraryId/items',
-        {
-          'expanded': '1',
-          'filter': 'authors.$encodedAuthor',
-        },
-      ),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
-    );
+      if (formData != null && formData.isNotEmpty) {
+        multiRequest.fields.addAll(formData);
+      }
 
-    return jsonDecode(utf8.decode(response.bodyBytes))['results']
-        .map<AbsAudiobook>((el) => AbsAudiobook.fromJson(el))
-        .toList();
-  }
+      if (filePaths != null && filePaths.isNotEmpty) {
+        filePaths.forEach((field, filePath) async {
+          final mimeType = mimeTypeResolver.lookup(filePath);
+          if (mimeType == null) {
+            throw RequestException('Invalid MIME type for file: $filePath');
+          }
+          multiRequest.files.add(
+            await http.MultipartFile.fromPath(
+              field,
+              filePath,
+              contentType: MediaType.parse(mimeType),
+            ),
+          );
+        });
+      }
 
-  Future<AbsSearchResponse> search(String libraryId, String searchTerm) async {
-    http.Response response = await client.get(
-      createUri(
-        baseUrl!,
-        '/api/libraries/$libraryId/search',
-        {
-          'q': searchTerm,
-          'max': '10',
-        },
-      ),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
-    );
-    return AbsSearchResponse.fromMap(
-      jsonDecode(
-        utf8.decode(response.bodyBytes),
-      ),
-    );
-  }
+      baseRequest = multiRequest;
+    } else {
+      final request = http.Request(method, url);
 
-  Future<AbsAudiobook> getBookInfo(String bookId) async {
-    http.Response response = await client.get(
-      createUri(baseUrl!, '/api/items/$bookId', {'expanded': '1'}),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
+      if (jsonObject != null) {
+        request.headers.addAll(jsonHeader);
+        request.body = json.encode(jsonObject);
+      }
+
+      baseRequest = request;
+    }
+
+    if (requiresAuth) {
+      baseRequest.headers.addAll(authHeader);
+    }
+
+    final response = await http.Response.fromStream(
+      await client.send(baseRequest),
     );
 
-    return AbsAudiobook.fromJson(jsonDecode(utf8.decode(response.bodyBytes)));
+    if (responseErrorHandler != null && response.statusCode >= 300) {
+      responseErrorHandler(response);
+    }
+
+    return response;
   }
 
-  Future<List<AbsCollection>> getCollections() async {
-    http.Response response = await client.get(
-      createUri(baseUrl!, '/api/collections'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
-    );
-
-    return jsonDecode(
-      utf8.decode(response.bodyBytes),
-    ).map<AbsCollection>((x) => AbsCollection.fromMap(x)).toList();
-  }
-
-  Future<List<AbsAudiobook>> getBooksForCollection(String collectionId) async {
-    http.Response response = await client.get(
-      createUri(baseUrl!, '/api/collections/$collectionId'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
-    );
-
-    return AbsCollection.fromMap(jsonDecode(
-      utf8.decode(response.bodyBytes),
-    )).books;
-  }
-
-  Future<List<AbsSeries>> getSeries(String libraryId) async {
-    http.Response response = await client.get(
-      createUri(baseUrl!, '/api/libraries/$libraryId/series'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
-    );
-
-    return jsonDecode(
-      utf8.decode(response.bodyBytes),
-    )['results']
-        .map<AbsSeries>((x) => AbsSeries.fromJson(x))
-        .toList();
-  }
-
-  Future<List<AbsAudiobook>> getBooksForSeries(
-      String libraryId, String seriesId) async {
-    final encodedSeriesId = base64Encode(utf8.encode(seriesId));
-    http.Response response = await client.get(
-      createUri(
-        baseUrl!,
-        '/api/libraries/$libraryId/items',
-        {
-          'expanded': '1',
-          'filter': 'series.$encodedSeriesId',
-        },
-      ),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
-    );
-
-    return jsonDecode(utf8.decode(response.bodyBytes))['results']
-        .map<AbsAudiobook>((el) => AbsAudiobook.fromJson(el))
-        .toList();
-  }
-
-  Future<String> startPlaybackSession(
-      String id, AbsPlayItemRequest playRequest) async {
-    http.Response response = await client.post(
-      createUri(baseUrl!, '/api/items/$id/play'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
-      body: jsonEncode(playRequest.toJson()),
-    );
-    return jsonDecode(response.body)['id'];
-  }
-
-  Future markPlayed(String itemId) async {
-    (await patchAudiobook(itemId, true));
-  }
-
-  Future markUnplayed(String itemId) async {
-    await patchAudiobook(itemId, false);
-  }
-
-  Future<http.Response> patchAudiobook(String itemId, bool isRead) async {
-    return await client.patch(createUri(baseUrl!, '/api/me/progress/$itemId'),
-        headers: {
-          'content-type': 'application/json',
-          'authorization': 'Bearer $token',
-        },
-        body: utf8.encode(jsonEncode({'isFinished': isRead})));
-  }
-
-  Future updateProgress(AbsAudiobookProgress progress) async {
-    await client.patch(createUri(baseUrl!, '/api/me/progress/${progress.id}'),
-        headers: {
-          'content-type': 'application/json',
-          'authorization': 'Bearer $token',
-        },
-        body: utf8.encode(jsonEncode(progress.toJson())));
-  }
-
-  Future playbackSessionCheckIn(String sessionId, Duration duration,
-      Duration currentTime, Duration timeListened) async {
-    await client.post(createUri(baseUrl!, '/api/session/$sessionId/sync'),
-        headers: {
-          'content-type': 'application/json',
-          'authorization': 'Bearer $token',
-        },
-        body: utf8.encode(jsonEncode({
-          'currentTime': durationToSeconds(currentTime),
-          'timeListened': durationToSeconds(timeListened),
-          'duration': durationToSeconds(duration),
-        })));
-  }
-
-  Future sendProgressSync(String sessionId, AbsMediaProgress progress) async {
-    await client.post(
-      createUri(baseUrl!, '/api/session/$sessionId/sync'),
-      headers: {
-        'content-type': 'application/json',
-        'authorization': 'Bearer $token',
-      },
-      body: utf8.encode(jsonEncode(progress.toJson())),
-    );
+  /// Cleans up this AudiobookshelfAPI instance.
+  /// No methods of this instance should be called after disposing.
+  void dispose() {
+    token = null;
+    client.close();
   }
 }
 
-const microToSeconds = 1000000;
-
-double durationToSeconds(Duration dur) {
-  return dur.inMicroseconds / microToSeconds;
+class AuthError extends ErrorWithMessage {
+  AuthError(super.message);
 }
 
-List<AbsAudiobook> _convertBody(List<int> bodyBytes) {
-  return jsonDecode(utf8.decode(bodyBytes))['results']
-      .map<AbsAudiobook>((el) => AbsAudiobook.fromJson(el))
-      .toList();
+class UnsupportedSchemeError extends ErrorWithMessage {
+  UnsupportedSchemeError(super.message);
+}
+
+class RequestError extends ErrorWithMessage {
+  RequestError(super.message);
+}
+
+class RequestException extends ExceptionWithMessage {
+  RequestException(super.message);
 }
