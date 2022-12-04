@@ -9,7 +9,7 @@ export 'src/models/schemas/library.dart';
 export 'src/models/schemas/library_item.dart';
 export 'src/models/schemas/media.dart';
 export 'src/models/schemas/series.dart';
+export 'src/models/schemas/user.dart';
 export 'src/search_response.dart';
 export 'src/series_search_result.dart';
-export 'src/user.dart';
 export 'src/utils.dart';

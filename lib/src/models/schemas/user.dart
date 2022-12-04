@@ -1,5 +1,5 @@
-import 'audiobook_progress.dart';
-import 'utils.dart';
+import '../../audiobook_progress.dart';
+import '../../utils.dart';
 
 class User {
   String id;

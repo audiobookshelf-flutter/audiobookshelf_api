@@ -1,4 +1,4 @@
-import 'user.dart';
+import 'models/schemas/user.dart';
 
 class LoginResponse {
   User user;
