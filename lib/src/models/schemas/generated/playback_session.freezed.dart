@@ -37,7 +37,6 @@ mixin _$PlaybackSession {
   String get userId => throw _privateConstructorUsedError;
   String get libraryId => throw _privateConstructorUsedError;
   String get libraryItemId => throw _privateConstructorUsedError;
-  String? get episodeId => throw _privateConstructorUsedError;
   MediaType get mediaType => throw _privateConstructorUsedError;
   MediaMetadata get mediaMetadata => throw _privateConstructorUsedError;
   String get displayTitle => throw _privateConstructorUsedError;
@@ -61,7 +60,6 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -85,7 +83,6 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -111,7 +108,7 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -134,7 +131,7 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -163,7 +160,6 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -187,7 +183,6 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -213,7 +208,7 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -236,7 +231,7 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -265,7 +260,6 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -289,7 +283,6 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -315,7 +308,7 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -338,7 +331,7 @@ mixin _$PlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -404,7 +397,6 @@ abstract class $PlaybackSessionCopyWith<$Res> {
       String userId,
       String libraryId,
       String libraryItemId,
-      String? episodeId,
       MediaType mediaType,
       String displayTitle,
       String displayAuthor,
@@ -441,7 +433,6 @@ class _$PlaybackSessionCopyWithImpl<$Res, $Val extends PlaybackSession>
     Object? userId = null,
     Object? libraryId = null,
     Object? libraryItemId = null,
-    Object? episodeId = freezed,
     Object? mediaType = null,
     Object? displayTitle = null,
     Object? displayAuthor = null,
@@ -475,10 +466,6 @@ class _$PlaybackSessionCopyWithImpl<$Res, $Val extends PlaybackSession>
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
-      episodeId: freezed == episodeId
-          ? _value.episodeId
-          : episodeId // ignore: cast_nullable_to_non_nullable
-              as String?,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -564,7 +551,6 @@ abstract class _$$BookPlaybackSessionCopyWith<$Res>
       String userId,
       String libraryId,
       String libraryItemId,
-      String? episodeId,
       MediaType mediaType,
       BookMetadata mediaMetadata,
       List<BookChapter> chapters,
@@ -602,7 +588,6 @@ class __$$BookPlaybackSessionCopyWithImpl<$Res>
     Object? userId = null,
     Object? libraryId = null,
     Object? libraryItemId = null,
-    Object? episodeId = freezed,
     Object? mediaType = null,
     Object? mediaMetadata = null,
     Object? chapters = null,
@@ -638,10 +623,6 @@ class __$$BookPlaybackSessionCopyWithImpl<$Res>
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
-      episodeId: freezed == episodeId
-          ? _value.episodeId
-          : episodeId // ignore: cast_nullable_to_non_nullable
-              as String?,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -723,7 +704,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
       required this.userId,
       required this.libraryId,
       required this.libraryItemId,
-      this.episodeId,
       this.mediaType = MediaType.book,
       required this.mediaMetadata,
       required final List<BookChapter> chapters,
@@ -757,8 +737,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
   final String libraryId;
   @override
   final String libraryItemId;
-  @override
-  final String? episodeId;
   @override
   @JsonKey()
   final MediaType mediaType;
@@ -806,7 +784,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
 
   @override
   String toString() {
-    return 'PlaybackSession.book(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt)';
+    return 'PlaybackSession.book(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -820,8 +798,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
                 other.libraryId == libraryId) &&
             (identical(other.libraryItemId, libraryItemId) ||
                 other.libraryItemId == libraryItemId) &&
-            (identical(other.episodeId, episodeId) ||
-                other.episodeId == episodeId) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
             (identical(other.mediaMetadata, mediaMetadata) ||
@@ -864,7 +840,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
         userId,
         libraryId,
         libraryItemId,
-        episodeId,
         mediaType,
         mediaMetadata,
         const DeepCollectionEquality().hash(_chapters),
@@ -899,7 +874,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -923,7 +897,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -949,7 +922,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -972,7 +945,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -998,7 +971,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
         userId,
         libraryId,
         libraryItemId,
-        episodeId,
         mediaType,
         mediaMetadata,
         chapters,
@@ -1026,7 +998,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -1050,7 +1021,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -1076,7 +1046,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -1099,7 +1069,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -1125,7 +1095,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
         userId,
         libraryId,
         libraryItemId,
-        episodeId,
         mediaType,
         mediaMetadata,
         chapters,
@@ -1153,7 +1122,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -1177,7 +1145,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -1203,7 +1170,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -1226,7 +1193,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -1254,7 +1221,6 @@ class _$BookPlaybackSession extends BookPlaybackSession {
           userId,
           libraryId,
           libraryItemId,
-          episodeId,
           mediaType,
           mediaMetadata,
           chapters,
@@ -1328,7 +1294,6 @@ abstract class BookPlaybackSession extends PlaybackSession {
       required final String userId,
       required final String libraryId,
       required final String libraryItemId,
-      final String? episodeId,
       final MediaType mediaType,
       required final BookMetadata mediaMetadata,
       required final List<BookChapter> chapters,
@@ -1359,8 +1324,6 @@ abstract class BookPlaybackSession extends PlaybackSession {
   String get libraryId;
   @override
   String get libraryItemId;
-  @override
-  String? get episodeId;
   @override
   MediaType get mediaType;
   @override
@@ -1414,7 +1377,6 @@ abstract class _$$BookPlaybackSessionExpandedCopyWith<$Res>
       String userId,
       String libraryId,
       String libraryItemId,
-      String? episodeId,
       MediaType mediaType,
       BookMetadata mediaMetadata,
       List<BookChapter> chapters,
@@ -1455,7 +1417,6 @@ class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
     Object? userId = null,
     Object? libraryId = null,
     Object? libraryItemId = null,
-    Object? episodeId = freezed,
     Object? mediaType = null,
     Object? mediaMetadata = null,
     Object? chapters = null,
@@ -1493,10 +1454,6 @@ class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
-      episodeId: freezed == episodeId
-          ? _value.episodeId
-          : episodeId // ignore: cast_nullable_to_non_nullable
-              as String?,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -1586,7 +1543,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
       required this.userId,
       required this.libraryId,
       required this.libraryItemId,
-      this.episodeId,
       this.mediaType = MediaType.book,
       required this.mediaMetadata,
       required final List<BookChapter> chapters,
@@ -1623,8 +1579,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
   final String libraryId;
   @override
   final String libraryItemId;
-  @override
-  final String? episodeId;
   @override
   @JsonKey()
   final MediaType mediaType;
@@ -1682,7 +1636,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
 
   @override
   String toString() {
-    return 'PlaybackSession.bookExpanded(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, audioTracks: $audioTracks, libraryItem: $libraryItem)';
+    return 'PlaybackSession.bookExpanded(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, audioTracks: $audioTracks, libraryItem: $libraryItem)';
   }
 
   @override
@@ -1696,8 +1650,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
                 other.libraryId == libraryId) &&
             (identical(other.libraryItemId, libraryItemId) ||
                 other.libraryItemId == libraryItemId) &&
-            (identical(other.episodeId, episodeId) ||
-                other.episodeId == episodeId) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
             (identical(other.mediaMetadata, mediaMetadata) ||
@@ -1744,7 +1696,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
         userId,
         libraryId,
         libraryItemId,
-        episodeId,
         mediaType,
         mediaMetadata,
         const DeepCollectionEquality().hash(_chapters),
@@ -1781,7 +1732,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -1805,7 +1755,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -1831,7 +1780,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -1854,7 +1803,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -1880,7 +1829,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
         userId,
         libraryId,
         libraryItemId,
-        episodeId,
         mediaType,
         mediaMetadata,
         chapters,
@@ -1910,7 +1858,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -1934,7 +1881,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -1960,7 +1906,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -1983,7 +1929,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -2009,7 +1955,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
         userId,
         libraryId,
         libraryItemId,
-        episodeId,
         mediaType,
         mediaMetadata,
         chapters,
@@ -2039,7 +1984,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -2063,7 +2007,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -2089,7 +2032,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -2112,7 +2055,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -2140,7 +2083,6 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
           userId,
           libraryId,
           libraryItemId,
-          episodeId,
           mediaType,
           mediaMetadata,
           chapters,
@@ -2216,7 +2158,6 @@ abstract class BookPlaybackSessionExpanded extends PlaybackSession {
           required final String userId,
           required final String libraryId,
           required final String libraryItemId,
-          final String? episodeId,
           final MediaType mediaType,
           required final BookMetadata mediaMetadata,
           required final List<BookChapter> chapters,
@@ -2250,8 +2191,6 @@ abstract class BookPlaybackSessionExpanded extends PlaybackSession {
   String get libraryId;
   @override
   String get libraryItemId;
-  @override
-  String? get episodeId;
   @override
   MediaType get mediaType;
   @override
@@ -2306,7 +2245,7 @@ abstract class _$$PodcastPlaybackSessionCopyWith<$Res>
       String userId,
       String libraryId,
       String libraryItemId,
-      String? episodeId,
+      String episodeId,
       MediaType mediaType,
       PodcastMetadata mediaMetadata,
       String displayTitle,
@@ -2343,7 +2282,7 @@ class __$$PodcastPlaybackSessionCopyWithImpl<$Res>
     Object? userId = null,
     Object? libraryId = null,
     Object? libraryItemId = null,
-    Object? episodeId = freezed,
+    Object? episodeId = null,
     Object? mediaType = null,
     Object? mediaMetadata = null,
     Object? displayTitle = null,
@@ -2378,10 +2317,10 @@ class __$$PodcastPlaybackSessionCopyWithImpl<$Res>
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
-      episodeId: freezed == episodeId
+      episodeId: null == episodeId
           ? _value.episodeId
           : episodeId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -2459,8 +2398,8 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
       required this.userId,
       required this.libraryId,
       required this.libraryItemId,
-      this.episodeId,
-      this.mediaType = MediaType.book,
+      required this.episodeId,
+      this.mediaType = MediaType.podcast,
       required this.mediaMetadata,
       required this.displayTitle,
       required this.displayAuthor,
@@ -2492,7 +2431,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
   @override
   final String libraryItemId;
   @override
-  final String? episodeId;
+  final String episodeId;
   @override
   @JsonKey()
   final MediaType mediaType;
@@ -2623,7 +2562,6 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -2647,7 +2585,6 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -2673,7 +2610,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -2696,7 +2633,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -2749,7 +2686,6 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -2773,7 +2709,6 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -2799,7 +2734,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -2822,7 +2757,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -2875,7 +2810,6 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -2899,7 +2833,6 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -2925,7 +2858,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -2948,7 +2881,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -3049,7 +2982,7 @@ abstract class PodcastPlaybackSession extends PlaybackSession {
       required final String userId,
       required final String libraryId,
       required final String libraryItemId,
-      final String? episodeId,
+      required final String episodeId,
       final MediaType mediaType,
       required final PodcastMetadata mediaMetadata,
       required final String displayTitle,
@@ -3079,8 +3012,7 @@ abstract class PodcastPlaybackSession extends PlaybackSession {
   String get libraryId;
   @override
   String get libraryItemId;
-  @override
-  String? get episodeId;
+  String get episodeId;
   @override
   MediaType get mediaType;
   @override
@@ -3133,7 +3065,7 @@ abstract class _$$PodcastPlaybackSessionExpandedCopyWith<$Res>
       String userId,
       String libraryId,
       String libraryItemId,
-      String? episodeId,
+      String episodeId,
       MediaType mediaType,
       PodcastMetadata mediaMetadata,
       String displayTitle,
@@ -3174,7 +3106,7 @@ class __$$PodcastPlaybackSessionExpandedCopyWithImpl<$Res>
     Object? userId = null,
     Object? libraryId = null,
     Object? libraryItemId = null,
-    Object? episodeId = freezed,
+    Object? episodeId = null,
     Object? mediaType = null,
     Object? mediaMetadata = null,
     Object? displayTitle = null,
@@ -3211,10 +3143,10 @@ class __$$PodcastPlaybackSessionExpandedCopyWithImpl<$Res>
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
-      episodeId: freezed == episodeId
+      episodeId: null == episodeId
           ? _value.episodeId
           : episodeId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -3300,8 +3232,8 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
       required this.userId,
       required this.libraryId,
       required this.libraryItemId,
-      this.episodeId,
-      this.mediaType = MediaType.book,
+      required this.episodeId,
+      this.mediaType = MediaType.podcast,
       required this.mediaMetadata,
       required this.displayTitle,
       required this.displayAuthor,
@@ -3337,7 +3269,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
   @override
   final String libraryItemId;
   @override
-  final String? episodeId;
+  final String episodeId;
   @override
   @JsonKey()
   final MediaType mediaType;
@@ -3484,7 +3416,6 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -3508,7 +3439,6 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -3534,7 +3464,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -3557,7 +3487,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -3612,7 +3542,6 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -3636,7 +3565,6 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -3662,7 +3590,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -3685,7 +3613,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -3740,7 +3668,6 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -3764,7 +3691,6 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
             MediaType mediaType,
             BookMetadata mediaMetadata,
             List<BookChapter> chapters,
@@ -3790,7 +3716,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -3813,7 +3739,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             String userId,
             String libraryId,
             String libraryItemId,
-            String? episodeId,
+            String episodeId,
             MediaType mediaType,
             PodcastMetadata mediaMetadata,
             String displayTitle,
@@ -3916,7 +3842,7 @@ abstract class PodcastPlaybackSessionExpanded extends PlaybackSession {
           required final String userId,
           required final String libraryId,
           required final String libraryItemId,
-          final String? episodeId,
+          required final String episodeId,
           final MediaType mediaType,
           required final PodcastMetadata mediaMetadata,
           required final String displayTitle,
@@ -3949,8 +3875,7 @@ abstract class PodcastPlaybackSessionExpanded extends PlaybackSession {
   String get libraryId;
   @override
   String get libraryItemId;
-  @override
-  String? get episodeId;
+  String get episodeId;
   @override
   MediaType get mediaType;
   @override

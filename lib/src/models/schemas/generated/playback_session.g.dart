@@ -13,7 +13,6 @@ _$BookPlaybackSession _$$BookPlaybackSessionFromJson(
       userId: json['userId'] as String,
       libraryId: json['libraryId'] as String,
       libraryItemId: json['libraryItemId'] as String,
-      episodeId: json['episodeId'] as String?,
       mediaType: $enumDecodeNullable(_$MediaTypeEnumMap, json['mediaType']) ??
           MediaType.book,
       mediaMetadata:
@@ -52,7 +51,6 @@ Map<String, dynamic> _$$BookPlaybackSessionToJson(
       'userId': instance.userId,
       'libraryId': instance.libraryId,
       'libraryItemId': instance.libraryItemId,
-      'episodeId': instance.episodeId,
       'mediaType': _$MediaTypeEnumMap[instance.mediaType]!,
       'mediaMetadata': instance.mediaMetadata,
       'chapters': instance.chapters,
@@ -96,7 +94,6 @@ _$BookPlaybackSessionExpanded _$$BookPlaybackSessionExpandedFromJson(
       userId: json['userId'] as String,
       libraryId: json['libraryId'] as String,
       libraryItemId: json['libraryItemId'] as String,
-      episodeId: json['episodeId'] as String?,
       mediaType: $enumDecodeNullable(_$MediaTypeEnumMap, json['mediaType']) ??
           MediaType.book,
       mediaMetadata:
@@ -140,7 +137,6 @@ Map<String, dynamic> _$$BookPlaybackSessionExpandedToJson(
       'userId': instance.userId,
       'libraryId': instance.libraryId,
       'libraryItemId': instance.libraryItemId,
-      'episodeId': instance.episodeId,
       'mediaType': _$MediaTypeEnumMap[instance.mediaType]!,
       'mediaMetadata': instance.mediaMetadata,
       'chapters': instance.chapters,
@@ -174,9 +170,9 @@ _$PodcastPlaybackSession _$$PodcastPlaybackSessionFromJson(
       userId: json['userId'] as String,
       libraryId: json['libraryId'] as String,
       libraryItemId: json['libraryItemId'] as String,
-      episodeId: json['episodeId'] as String?,
+      episodeId: json['episodeId'] as String,
       mediaType: $enumDecodeNullable(_$MediaTypeEnumMap, json['mediaType']) ??
-          MediaType.book,
+          MediaType.podcast,
       mediaMetadata: PodcastMetadata.fromJson(
           json['mediaMetadata'] as Map<String, dynamic>),
       displayTitle: json['displayTitle'] as String,
@@ -241,9 +237,9 @@ _$PodcastPlaybackSessionExpanded _$$PodcastPlaybackSessionExpandedFromJson(
       userId: json['userId'] as String,
       libraryId: json['libraryId'] as String,
       libraryItemId: json['libraryItemId'] as String,
-      episodeId: json['episodeId'] as String?,
+      episodeId: json['episodeId'] as String,
       mediaType: $enumDecodeNullable(_$MediaTypeEnumMap, json['mediaType']) ??
-          MediaType.book,
+          MediaType.podcast,
       mediaMetadata: PodcastMetadata.fromJson(
           json['mediaMetadata'] as Map<String, dynamic>),
       displayTitle: json['displayTitle'] as String,
