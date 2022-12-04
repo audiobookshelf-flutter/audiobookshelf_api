@@ -8,8 +8,39 @@ part of '../podcast_feed_episode.dart';
 
 _$_PodcastFeedEpisode _$$_PodcastFeedEpisodeFromJson(
         Map<String, dynamic> json) =>
-    _$_PodcastFeedEpisode();
+    _$_PodcastFeedEpisode(
+      title: json['title'] as String,
+      subtitle: json['subtitle'] as String,
+      description: json['description'] as String,
+      descriptionPlain: json['descriptionPlain'] as String,
+      pubDate: json['pubDate'] as String,
+      episodeType: json['episodeType'] as String,
+      season: json['season'] as String,
+      episode: json['episode'] as String,
+      author: json['author'] as String,
+      duration: json['duration'] as String,
+      explicit: json['explicit'] as String,
+      publishedAt:
+          const DateTimeEpochConverter().fromJson(json['publishedAt'] as int),
+      enclosure: PodcastEpisodeEnclosure.fromJson(
+          json['enclosure'] as Map<String, dynamic>),
+    );
 
 Map<String, dynamic> _$$_PodcastFeedEpisodeToJson(
         _$_PodcastFeedEpisode instance) =>
-    <String, dynamic>{};
+    <String, dynamic>{
+      'title': instance.title,
+      'subtitle': instance.subtitle,
+      'description': instance.description,
+      'descriptionPlain': instance.descriptionPlain,
+      'pubDate': instance.pubDate,
+      'episodeType': instance.episodeType,
+      'season': instance.season,
+      'episode': instance.episode,
+      'author': instance.author,
+      'duration': instance.duration,
+      'explicit': instance.explicit,
+      'publishedAt':
+          const DateTimeEpochConverter().toJson(instance.publishedAt),
+      'enclosure': instance.enclosure,
+    };
