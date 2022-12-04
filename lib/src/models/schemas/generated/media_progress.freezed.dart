@@ -353,7 +353,7 @@ class __$$_MediaProgressCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$_MediaProgress implements _MediaProgress {
+class _$_MediaProgress extends _MediaProgress {
   const _$_MediaProgress(
       {required this.id,
       required this.libraryItemId,
@@ -367,7 +367,8 @@ class _$_MediaProgress implements _MediaProgress {
       required this.startedAt,
       this.finishedAt,
       final String? $type})
-      : $type = $type ?? 'default';
+      : $type = $type ?? 'default',
+        super._();
 
   factory _$_MediaProgress.fromJson(Map<String, dynamic> json) =>
       _$$_MediaProgressFromJson(json);
@@ -635,7 +636,7 @@ class _$_MediaProgress implements _MediaProgress {
   }
 }
 
-abstract class _MediaProgress implements MediaProgress {
+abstract class _MediaProgress extends MediaProgress {
   const factory _MediaProgress(
       {required final String id,
       required final String libraryItemId,
@@ -648,6 +649,7 @@ abstract class _MediaProgress implements MediaProgress {
       required final DateTime lastUpdate,
       required final DateTime startedAt,
       final DateTime? finishedAt}) = _$_MediaProgress;
+  const _MediaProgress._() : super._();
 
   factory _MediaProgress.fromJson(Map<String, dynamic> json) =
       _$_MediaProgress.fromJson;
@@ -812,7 +814,7 @@ class __$$MediaProgressWithMediaCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$MediaProgressWithMedia implements MediaProgressWithMedia {
+class _$MediaProgressWithMedia extends MediaProgressWithMedia {
   const _$MediaProgressWithMedia(
       {required this.id,
       required this.libraryItemId,
@@ -828,7 +830,8 @@ class _$MediaProgressWithMedia implements MediaProgressWithMedia {
       required this.media,
       this.episode,
       final String? $type})
-      : $type = $type ?? 'withMedia';
+      : $type = $type ?? 'withMedia',
+        super._();
 
   factory _$MediaProgressWithMedia.fromJson(Map<String, dynamic> json) =>
       _$$MediaProgressWithMediaFromJson(json);
@@ -1111,7 +1114,7 @@ class _$MediaProgressWithMedia implements MediaProgressWithMedia {
   }
 }
 
-abstract class MediaProgressWithMedia implements MediaProgress {
+abstract class MediaProgressWithMedia extends MediaProgress {
   const factory MediaProgressWithMedia(
       {required final String id,
       required final String libraryItemId,
@@ -1126,6 +1129,7 @@ abstract class MediaProgressWithMedia implements MediaProgress {
       final DateTime? finishedAt,
       required final Media media,
       final PodcastEpisode? episode}) = _$MediaProgressWithMedia;
+  const MediaProgressWithMedia._() : super._();
 
   factory MediaProgressWithMedia.fromJson(Map<String, dynamic> json) =
       _$MediaProgressWithMedia.fromJson;

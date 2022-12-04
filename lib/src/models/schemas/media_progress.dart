@@ -10,6 +10,8 @@ part 'generated/media_progress.g.dart';
 /// See [Media Progress](https://api.audiobookshelf.org/#media-progress)
 @freezed
 class MediaProgress with _$MediaProgress {
+  const MediaProgress._();
+
   @jsonConverters
   const factory MediaProgress({
     required String id,
@@ -43,5 +45,41 @@ class MediaProgress with _$MediaProgress {
   }) = MediaProgressWithMedia;
 
   factory MediaProgress.fromJson(Map<String, dynamic> json) =>
-      _$MediaProgressFromJson(json);
+      MediaProgressConverter().fromJson(json);
+
+  MediaProgressVariant get variant {
+    return map(
+      (_) => MediaProgressVariant.base,
+      withMedia: (_) => MediaProgressVariant.withMedia,
+    );
+  }
+}
+
+enum MediaProgressVariant { base, withMedia }
+
+class MediaProgressConverter
+    implements JsonConverter<MediaProgress, Map<String, dynamic>> {
+  const MediaProgressConverter();
+
+  @override
+  MediaProgress fromJson(Map<String, dynamic> json) {
+    if (json.containsKey('runtimeType')) return _$MediaProgressFromJson(json);
+
+    final MediaProgressVariant variant;
+    if (json.containsKey('media')) {
+      variant = MediaProgressVariant.withMedia;
+    } else {
+      variant = MediaProgressVariant.base;
+    }
+
+    switch (variant) {
+      case MediaProgressVariant.base:
+        return _MediaProgress.fromJson(json);
+      case MediaProgressVariant.withMedia:
+        return MediaProgressWithMedia.fromJson(json);
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(MediaProgress object) => object.toJson();
 }
