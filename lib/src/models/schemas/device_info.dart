@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'generated/device_info.freezed.dart';
 part 'generated/device_info.g.dart';
 
+/// See [Device Info](https://api.audiobookshelf.org/#device-info)
 @freezed
 class DeviceInfo with _$DeviceInfo {
   const factory DeviceInfo({
