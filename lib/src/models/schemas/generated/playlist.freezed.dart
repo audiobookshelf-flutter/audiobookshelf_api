@@ -300,7 +300,7 @@ class __$$_PlaylistCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$_Playlist implements _Playlist {
+class _$_Playlist extends _Playlist {
   const _$_Playlist(
       {required this.id,
       required this.libraryId,
@@ -313,7 +313,8 @@ class _$_Playlist implements _Playlist {
       required this.createdAt,
       final String? $type})
       : _items = items,
-        $type = $type ?? 'default';
+        $type = $type ?? 'default',
+        super._();
 
   factory _$_Playlist.fromJson(Map<String, dynamic> json) =>
       _$$_PlaylistFromJson(json);
@@ -525,7 +526,7 @@ class _$_Playlist implements _Playlist {
   }
 }
 
-abstract class _Playlist implements Playlist {
+abstract class _Playlist extends Playlist {
   const factory _Playlist(
       {required final String id,
       required final String libraryId,
@@ -536,6 +537,7 @@ abstract class _Playlist implements Playlist {
       required final List<PlaylistItem> items,
       required final DateTime lastUpdate,
       required final DateTime createdAt}) = _$_Playlist;
+  const _Playlist._() : super._();
 
   factory _Playlist.fromJson(Map<String, dynamic> json) = _$_Playlist.fromJson;
 
@@ -647,7 +649,7 @@ class __$$PlaylistExpandedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$PlaylistExpanded implements PlaylistExpanded {
+class _$PlaylistExpanded extends PlaylistExpanded {
   const _$PlaylistExpanded(
       {required this.id,
       required this.libraryId,
@@ -661,7 +663,8 @@ class _$PlaylistExpanded implements PlaylistExpanded {
       required this.createdAt,
       final String? $type})
       : _itemsExpanded = itemsExpanded,
-        $type = $type ?? 'expanded';
+        $type = $type ?? 'expanded',
+        super._();
 
   factory _$PlaylistExpanded.fromJson(Map<String, dynamic> json) =>
       _$$PlaylistExpandedFromJson(json);
@@ -875,7 +878,7 @@ class _$PlaylistExpanded implements PlaylistExpanded {
   }
 }
 
-abstract class PlaylistExpanded implements Playlist {
+abstract class PlaylistExpanded extends Playlist {
   const factory PlaylistExpanded(
       {required final String id,
       required final String libraryId,
@@ -887,6 +890,7 @@ abstract class PlaylistExpanded implements Playlist {
           required final List<PlaylistItemExpanded> itemsExpanded,
       required final DateTime lastUpdate,
       required final DateTime createdAt}) = _$PlaylistExpanded;
+  const PlaylistExpanded._() : super._();
 
   factory PlaylistExpanded.fromJson(Map<String, dynamic> json) =
       _$PlaylistExpanded.fromJson;

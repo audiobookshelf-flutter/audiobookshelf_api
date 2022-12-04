@@ -60,7 +60,8 @@ class CollectionConverter
     if (json.containsKey('runtimeType')) return _$CollectionFromJson(json);
 
     final SchemaVariant variant;
-    if ((json['books'] as Map<String, dynamic>).containsKey('size')) {
+    if ((json['books'] as Map<String, dynamic>?)?.containsKey('size') ??
+        false) {
       variant = SchemaVariant.expanded;
     } else {
       variant = SchemaVariant.base;
