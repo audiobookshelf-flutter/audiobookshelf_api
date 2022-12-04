@@ -717,7 +717,7 @@ class __$$BookPlaybackSessionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$BookPlaybackSession implements BookPlaybackSession {
+class _$BookPlaybackSession extends BookPlaybackSession {
   const _$BookPlaybackSession(
       {required this.id,
       required this.userId,
@@ -743,7 +743,8 @@ class _$BookPlaybackSession implements BookPlaybackSession {
       required this.updatedAt,
       final String? $type})
       : _chapters = chapters,
-        $type = $type ?? 'book';
+        $type = $type ?? 'book',
+        super._();
 
   factory _$BookPlaybackSession.fromJson(Map<String, dynamic> json) =>
       _$$BookPlaybackSessionFromJson(json);
@@ -1321,7 +1322,7 @@ class _$BookPlaybackSession implements BookPlaybackSession {
   }
 }
 
-abstract class BookPlaybackSession implements PlaybackSession {
+abstract class BookPlaybackSession extends PlaybackSession {
   const factory BookPlaybackSession(
       {required final String id,
       required final String userId,
@@ -1345,6 +1346,7 @@ abstract class BookPlaybackSession implements PlaybackSession {
       required final Duration currentTime,
       required final DateTime startedAt,
       required final DateTime updatedAt}) = _$BookPlaybackSession;
+  const BookPlaybackSession._() : super._();
 
   factory BookPlaybackSession.fromJson(Map<String, dynamic> json) =
       _$BookPlaybackSession.fromJson;
@@ -1578,7 +1580,7 @@ class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$BookPlaybackSessionExpanded implements BookPlaybackSessionExpanded {
+class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
   const _$BookPlaybackSessionExpanded(
       {required this.id,
       required this.userId,
@@ -1607,7 +1609,8 @@ class _$BookPlaybackSessionExpanded implements BookPlaybackSessionExpanded {
       final String? $type})
       : _chapters = chapters,
         _audioTracks = audioTracks,
-        $type = $type ?? 'bookExpanded';
+        $type = $type ?? 'bookExpanded',
+        super._();
 
   factory _$BookPlaybackSessionExpanded.fromJson(Map<String, dynamic> json) =>
       _$$BookPlaybackSessionExpandedFromJson(json);
@@ -2207,7 +2210,7 @@ class _$BookPlaybackSessionExpanded implements BookPlaybackSessionExpanded {
   }
 }
 
-abstract class BookPlaybackSessionExpanded implements PlaybackSession {
+abstract class BookPlaybackSessionExpanded extends PlaybackSession {
   const factory BookPlaybackSessionExpanded(
           {required final String id,
           required final String userId,
@@ -2234,6 +2237,7 @@ abstract class BookPlaybackSessionExpanded implements PlaybackSession {
           required final List<AudioTrack> audioTracks,
           required final BookLibraryItemExpanded libraryItem}) =
       _$BookPlaybackSessionExpanded;
+  const BookPlaybackSessionExpanded._() : super._();
 
   factory BookPlaybackSessionExpanded.fromJson(Map<String, dynamic> json) =
       _$BookPlaybackSessionExpanded.fromJson;
@@ -2449,7 +2453,7 @@ class __$$PodcastPlaybackSessionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$PodcastPlaybackSession implements PodcastPlaybackSession {
+class _$PodcastPlaybackSession extends PodcastPlaybackSession {
   const _$PodcastPlaybackSession(
       {required this.id,
       required this.userId,
@@ -2473,7 +2477,8 @@ class _$PodcastPlaybackSession implements PodcastPlaybackSession {
       required this.startedAt,
       required this.updatedAt,
       final String? $type})
-      : $type = $type ?? 'podcast';
+      : $type = $type ?? 'podcast',
+        super._();
 
   factory _$PodcastPlaybackSession.fromJson(Map<String, dynamic> json) =>
       _$$PodcastPlaybackSessionFromJson(json);
@@ -3038,7 +3043,7 @@ class _$PodcastPlaybackSession implements PodcastPlaybackSession {
   }
 }
 
-abstract class PodcastPlaybackSession implements PlaybackSession {
+abstract class PodcastPlaybackSession extends PlaybackSession {
   const factory PodcastPlaybackSession(
       {required final String id,
       required final String userId,
@@ -3061,6 +3066,7 @@ abstract class PodcastPlaybackSession implements PlaybackSession {
       required final Duration currentTime,
       required final DateTime startedAt,
       required final DateTime updatedAt}) = _$PodcastPlaybackSession;
+  const PodcastPlaybackSession._() : super._();
 
   factory PodcastPlaybackSession.fromJson(Map<String, dynamic> json) =
       _$PodcastPlaybackSession.fromJson;
@@ -3288,8 +3294,7 @@ class __$$PodcastPlaybackSessionExpandedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$PodcastPlaybackSessionExpanded
-    implements PodcastPlaybackSessionExpanded {
+class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
   const _$PodcastPlaybackSessionExpanded(
       {required this.id,
       required this.userId,
@@ -3316,7 +3321,8 @@ class _$PodcastPlaybackSessionExpanded
       required this.libraryItem,
       final String? $type})
       : _audioTracks = audioTracks,
-        $type = $type ?? 'podcastExpanded';
+        $type = $type ?? 'podcastExpanded',
+        super._();
 
   factory _$PodcastPlaybackSessionExpanded.fromJson(
           Map<String, dynamic> json) =>
@@ -3904,7 +3910,7 @@ class _$PodcastPlaybackSessionExpanded
   }
 }
 
-abstract class PodcastPlaybackSessionExpanded implements PlaybackSession {
+abstract class PodcastPlaybackSessionExpanded extends PlaybackSession {
   const factory PodcastPlaybackSessionExpanded(
           {required final String id,
           required final String userId,
@@ -3930,6 +3936,7 @@ abstract class PodcastPlaybackSessionExpanded implements PlaybackSession {
           required final List<AudioTrack> audioTracks,
           required final PodcastLibraryItemExpanded libraryItem}) =
       _$PodcastPlaybackSessionExpanded;
+  const PodcastPlaybackSessionExpanded._() : super._();
 
   factory PodcastPlaybackSessionExpanded.fromJson(Map<String, dynamic> json) =
       _$PodcastPlaybackSessionExpanded.fromJson;

@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../utils/json_converters.dart';
 import '../enums/media_type.dart';
 import '../enums/play_method.dart';
+import '../enums/schema_variant.dart';
 import 'audio_track.dart';
 import 'book_chapter.dart';
 import 'device_info.dart';
@@ -12,8 +13,11 @@ import 'media_metadata.dart';
 part 'generated/playback_session.freezed.dart';
 part 'generated/playback_session.g.dart';
 
+/// See [Playback Session](https://api.audiobookshelf.org/#playback-session)
 @freezed
 class PlaybackSession with _$PlaybackSession {
+  const PlaybackSession._();
+
   @jsonConverters
   const factory PlaybackSession.book({
     required String id,
@@ -121,5 +125,73 @@ class PlaybackSession with _$PlaybackSession {
   }) = PodcastPlaybackSessionExpanded;
 
   factory PlaybackSession.fromJson(Map<String, dynamic> json) =>
-      _$PlaybackSessionFromJson(json);
+      PlaybackSessionConverter().fromJson(json);
+
+  SchemaVariant get variant {
+    return map(
+      book: (_) => SchemaVariant.base,
+      bookExpanded: (_) => SchemaVariant.expanded,
+      podcast: (_) => SchemaVariant.base,
+      podcastExpanded: (_) => SchemaVariant.expanded,
+    );
+  }
+}
+
+class PlaybackSessionConverter
+    implements JsonConverter<PlaybackSession, Map<String, dynamic>> {
+  final MediaType? mediaType;
+
+  const PlaybackSessionConverter([this.mediaType]);
+
+  @override
+  PlaybackSession fromJson(Map<String, dynamic> json) {
+    if (json.containsKey('runtimeType')) return _$PlaybackSessionFromJson(json);
+
+    final MediaType mediaType;
+    final type = this.mediaType;
+    if (type != null) {
+      mediaType = type;
+    } else {
+      final foundType = MediaType.byType[json['mediaType']];
+      if (foundType != null) {
+        mediaType = foundType;
+      } else {
+        throw CheckedFromJsonException(
+          json,
+          'mediaType',
+          'PlaybackSession',
+          'Unknown media type: ${json['mediaType']}',
+        );
+      }
+    }
+
+    final SchemaVariant variant;
+    if (json.containsKey('libraryItem')) {
+      variant = SchemaVariant.expanded;
+    } else {
+      variant = SchemaVariant.base;
+    }
+
+    switch (mediaType) {
+      case MediaType.book:
+        switch (variant) {
+          case SchemaVariant.minified:
+          case SchemaVariant.base:
+            return BookPlaybackSession.fromJson(json);
+          case SchemaVariant.expanded:
+            return BookPlaybackSessionExpanded.fromJson(json);
+        }
+      case MediaType.podcast:
+        switch (variant) {
+          case SchemaVariant.minified:
+          case SchemaVariant.base:
+            return PodcastPlaybackSession.fromJson(json);
+          case SchemaVariant.expanded:
+            return PodcastPlaybackSessionExpanded.fromJson(json);
+        }
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(PlaybackSession object) => object.toJson();
 }
