@@ -25,9 +25,12 @@ mixin _$FileMetadata {
   String get path => throw _privateConstructorUsedError;
   String get relPath => throw _privateConstructorUsedError;
   int get size => throw _privateConstructorUsedError;
-  int? get mtimeMs => throw _privateConstructorUsedError;
-  int? get ctimeMs => throw _privateConstructorUsedError;
-  int? get birthtimeMs => throw _privateConstructorUsedError;
+  @JsonKey(name: 'mtimeMs')
+  DateTime get mtime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'ctimeMs')
+  DateTime get ctime => throw _privateConstructorUsedError;
+  @JsonKey(name: 'birthtimeMs')
+  DateTime get birthtime => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,9 +50,9 @@ abstract class $FileMetadataCopyWith<$Res> {
       String path,
       String relPath,
       int size,
-      int? mtimeMs,
-      int? ctimeMs,
-      int? birthtimeMs});
+      @JsonKey(name: 'mtimeMs') DateTime mtime,
+      @JsonKey(name: 'ctimeMs') DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') DateTime birthtime});
 }
 
 /// @nodoc
@@ -70,9 +73,9 @@ class _$FileMetadataCopyWithImpl<$Res, $Val extends FileMetadata>
     Object? path = null,
     Object? relPath = null,
     Object? size = null,
-    Object? mtimeMs = freezed,
-    Object? ctimeMs = freezed,
-    Object? birthtimeMs = freezed,
+    Object? mtime = null,
+    Object? ctime = null,
+    Object? birthtime = null,
   }) {
     return _then(_value.copyWith(
       filename: null == filename
@@ -95,18 +98,18 @@ class _$FileMetadataCopyWithImpl<$Res, $Val extends FileMetadata>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int,
-      mtimeMs: freezed == mtimeMs
-          ? _value.mtimeMs
-          : mtimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ctimeMs: freezed == ctimeMs
-          ? _value.ctimeMs
-          : ctimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      birthtimeMs: freezed == birthtimeMs
-          ? _value.birthtimeMs
-          : birthtimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
+      mtime: null == mtime
+          ? _value.mtime
+          : mtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      ctime: null == ctime
+          ? _value.ctime
+          : ctime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      birthtime: null == birthtime
+          ? _value.birthtime
+          : birthtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ) as $Val);
   }
 }
@@ -125,9 +128,9 @@ abstract class _$$_FileMetadataCopyWith<$Res>
       String path,
       String relPath,
       int size,
-      int? mtimeMs,
-      int? ctimeMs,
-      int? birthtimeMs});
+      @JsonKey(name: 'mtimeMs') DateTime mtime,
+      @JsonKey(name: 'ctimeMs') DateTime ctime,
+      @JsonKey(name: 'birthtimeMs') DateTime birthtime});
 }
 
 /// @nodoc
@@ -146,9 +149,9 @@ class __$$_FileMetadataCopyWithImpl<$Res>
     Object? path = null,
     Object? relPath = null,
     Object? size = null,
-    Object? mtimeMs = freezed,
-    Object? ctimeMs = freezed,
-    Object? birthtimeMs = freezed,
+    Object? mtime = null,
+    Object? ctime = null,
+    Object? birthtime = null,
   }) {
     return _then(_$_FileMetadata(
       filename: null == filename
@@ -171,24 +174,25 @@ class __$$_FileMetadataCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int,
-      mtimeMs: freezed == mtimeMs
-          ? _value.mtimeMs
-          : mtimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      ctimeMs: freezed == ctimeMs
-          ? _value.ctimeMs
-          : ctimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
-      birthtimeMs: freezed == birthtimeMs
-          ? _value.birthtimeMs
-          : birthtimeMs // ignore: cast_nullable_to_non_nullable
-              as int?,
+      mtime: null == mtime
+          ? _value.mtime
+          : mtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      ctime: null == ctime
+          ? _value.ctime
+          : ctime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      birthtime: null == birthtime
+          ? _value.birthtime
+          : birthtime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$_FileMetadata implements _FileMetadata {
   const _$_FileMetadata(
       {required this.filename,
@@ -196,9 +200,9 @@ class _$_FileMetadata implements _FileMetadata {
       required this.path,
       required this.relPath,
       required this.size,
-      this.mtimeMs,
-      this.ctimeMs,
-      this.birthtimeMs});
+      @JsonKey(name: 'mtimeMs') required this.mtime,
+      @JsonKey(name: 'ctimeMs') required this.ctime,
+      @JsonKey(name: 'birthtimeMs') required this.birthtime});
 
   factory _$_FileMetadata.fromJson(Map<String, dynamic> json) =>
       _$$_FileMetadataFromJson(json);
@@ -214,15 +218,18 @@ class _$_FileMetadata implements _FileMetadata {
   @override
   final int size;
   @override
-  final int? mtimeMs;
+  @JsonKey(name: 'mtimeMs')
+  final DateTime mtime;
   @override
-  final int? ctimeMs;
+  @JsonKey(name: 'ctimeMs')
+  final DateTime ctime;
   @override
-  final int? birthtimeMs;
+  @JsonKey(name: 'birthtimeMs')
+  final DateTime birthtime;
 
   @override
   String toString() {
-    return 'FileMetadata(filename: $filename, ext: $ext, path: $path, relPath: $relPath, size: $size, mtimeMs: $mtimeMs, ctimeMs: $ctimeMs, birthtimeMs: $birthtimeMs)';
+    return 'FileMetadata(filename: $filename, ext: $ext, path: $path, relPath: $relPath, size: $size, mtime: $mtime, ctime: $ctime, birthtime: $birthtime)';
   }
 
   @override
@@ -236,16 +243,16 @@ class _$_FileMetadata implements _FileMetadata {
             (identical(other.path, path) || other.path == path) &&
             (identical(other.relPath, relPath) || other.relPath == relPath) &&
             (identical(other.size, size) || other.size == size) &&
-            (identical(other.mtimeMs, mtimeMs) || other.mtimeMs == mtimeMs) &&
-            (identical(other.ctimeMs, ctimeMs) || other.ctimeMs == ctimeMs) &&
-            (identical(other.birthtimeMs, birthtimeMs) ||
-                other.birthtimeMs == birthtimeMs));
+            (identical(other.mtime, mtime) || other.mtime == mtime) &&
+            (identical(other.ctime, ctime) || other.ctime == ctime) &&
+            (identical(other.birthtime, birthtime) ||
+                other.birthtime == birthtime));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, filename, ext, path, relPath,
-      size, mtimeMs, ctimeMs, birthtimeMs);
+  int get hashCode => Object.hash(
+      runtimeType, filename, ext, path, relPath, size, mtime, ctime, birthtime);
 
   @JsonKey(ignore: true)
   @override
@@ -263,14 +270,15 @@ class _$_FileMetadata implements _FileMetadata {
 
 abstract class _FileMetadata implements FileMetadata {
   const factory _FileMetadata(
-      {required final String filename,
-      required final String ext,
-      required final String path,
-      required final String relPath,
-      required final int size,
-      final int? mtimeMs,
-      final int? ctimeMs,
-      final int? birthtimeMs}) = _$_FileMetadata;
+          {required final String filename,
+          required final String ext,
+          required final String path,
+          required final String relPath,
+          required final int size,
+          @JsonKey(name: 'mtimeMs') required final DateTime mtime,
+          @JsonKey(name: 'ctimeMs') required final DateTime ctime,
+          @JsonKey(name: 'birthtimeMs') required final DateTime birthtime}) =
+      _$_FileMetadata;
 
   factory _FileMetadata.fromJson(Map<String, dynamic> json) =
       _$_FileMetadata.fromJson;
@@ -286,11 +294,14 @@ abstract class _FileMetadata implements FileMetadata {
   @override
   int get size;
   @override
-  int? get mtimeMs;
+  @JsonKey(name: 'mtimeMs')
+  DateTime get mtime;
   @override
-  int? get ctimeMs;
+  @JsonKey(name: 'ctimeMs')
+  DateTime get ctime;
   @override
-  int? get birthtimeMs;
+  @JsonKey(name: 'birthtimeMs')
+  DateTime get birthtime;
   @override
   @JsonKey(ignore: true)
   _$$_FileMetadataCopyWith<_$_FileMetadata> get copyWith =>

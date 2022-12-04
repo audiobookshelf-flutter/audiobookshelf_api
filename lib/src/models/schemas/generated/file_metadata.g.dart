@@ -13,9 +13,10 @@ _$_FileMetadata _$$_FileMetadataFromJson(Map<String, dynamic> json) =>
       path: json['path'] as String,
       relPath: json['relPath'] as String,
       size: json['size'] as int,
-      mtimeMs: json['mtimeMs'] as int?,
-      ctimeMs: json['ctimeMs'] as int?,
-      birthtimeMs: json['birthtimeMs'] as int?,
+      mtime: const DateTimeEpochConverter().fromJson(json['mtimeMs'] as int),
+      ctime: const DateTimeEpochConverter().fromJson(json['ctimeMs'] as int),
+      birthtime:
+          const DateTimeEpochConverter().fromJson(json['birthtimeMs'] as int),
     );
 
 Map<String, dynamic> _$$_FileMetadataToJson(_$_FileMetadata instance) =>
@@ -25,7 +26,7 @@ Map<String, dynamic> _$$_FileMetadataToJson(_$_FileMetadata instance) =>
       'path': instance.path,
       'relPath': instance.relPath,
       'size': instance.size,
-      'mtimeMs': instance.mtimeMs,
-      'ctimeMs': instance.ctimeMs,
-      'birthtimeMs': instance.birthtimeMs,
+      'mtimeMs': const DateTimeEpochConverter().toJson(instance.mtime),
+      'ctimeMs': const DateTimeEpochConverter().toJson(instance.ctime),
+      'birthtimeMs': const DateTimeEpochConverter().toJson(instance.birthtime),
     };
