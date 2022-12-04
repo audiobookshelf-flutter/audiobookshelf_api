@@ -159,10 +159,11 @@ class __$$_PlaylistItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PlaylistItem implements _PlaylistItem {
+class _$_PlaylistItem extends _PlaylistItem {
   const _$_PlaylistItem(
       {required this.libraryItemId, this.episodeId, final String? $type})
-      : $type = $type ?? 'default';
+      : $type = $type ?? 'default',
+        super._();
 
   factory _$_PlaylistItem.fromJson(Map<String, dynamic> json) =>
       _$$_PlaylistItemFromJson(json);
@@ -277,10 +278,11 @@ class _$_PlaylistItem implements _PlaylistItem {
   }
 }
 
-abstract class _PlaylistItem implements PlaylistItem {
+abstract class _PlaylistItem extends PlaylistItem {
   const factory _PlaylistItem(
       {required final String libraryItemId,
       final String? episodeId}) = _$_PlaylistItem;
+  const _PlaylistItem._() : super._();
 
   factory _PlaylistItem.fromJson(Map<String, dynamic> json) =
       _$_PlaylistItem.fromJson;
@@ -359,14 +361,15 @@ class __$$PlaylistItemExpandedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PlaylistItemExpanded implements PlaylistItemExpanded {
+class _$PlaylistItemExpanded extends PlaylistItemExpanded {
   const _$PlaylistItemExpanded(
       {required this.libraryItemId,
       this.episodeId,
       this.episode,
       required this.libraryItem,
       final String? $type})
-      : $type = $type ?? 'expanded';
+      : $type = $type ?? 'expanded',
+        super._();
 
   factory _$PlaylistItemExpanded.fromJson(Map<String, dynamic> json) =>
       _$$PlaylistItemExpandedFromJson(json);
@@ -490,12 +493,13 @@ class _$PlaylistItemExpanded implements PlaylistItemExpanded {
   }
 }
 
-abstract class PlaylistItemExpanded implements PlaylistItem {
+abstract class PlaylistItemExpanded extends PlaylistItem {
   const factory PlaylistItemExpanded(
       {required final String libraryItemId,
       final String? episodeId,
       final PodcastEpisodeExpanded? episode,
       required final LibraryItem libraryItem}) = _$PlaylistItemExpanded;
+  const PlaylistItemExpanded._() : super._();
 
   factory PlaylistItemExpanded.fromJson(Map<String, dynamic> json) =
       _$PlaylistItemExpanded.fromJson;
