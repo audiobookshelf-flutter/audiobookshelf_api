@@ -85,7 +85,7 @@ mixin _$Media {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)
@@ -96,7 +96,7 @@ mixin _$Media {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -109,7 +109,7 @@ mixin _$Media {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -162,7 +162,7 @@ mixin _$Media {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -173,7 +173,7 @@ mixin _$Media {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -186,7 +186,7 @@ mixin _$Media {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -239,7 +239,7 @@ mixin _$Media {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -250,7 +250,7 @@ mixin _$Media {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -263,7 +263,7 @@ mixin _$Media {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -588,7 +588,7 @@ class _$Book extends Book {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)
@@ -599,7 +599,7 @@ class _$Book extends Book {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -612,7 +612,7 @@ class _$Book extends Book {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -669,7 +669,7 @@ class _$Book extends Book {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -680,7 +680,7 @@ class _$Book extends Book {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -693,7 +693,7 @@ class _$Book extends Book {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -750,7 +750,7 @@ class _$Book extends Book {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -761,7 +761,7 @@ class _$Book extends Book {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -774,7 +774,7 @@ class _$Book extends Book {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1119,7 +1119,7 @@ class _$BookMinified extends BookMinified {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)
@@ -1130,7 +1130,7 @@ class _$BookMinified extends BookMinified {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1143,7 +1143,7 @@ class _$BookMinified extends BookMinified {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1210,7 +1210,7 @@ class _$BookMinified extends BookMinified {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -1221,7 +1221,7 @@ class _$BookMinified extends BookMinified {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1234,7 +1234,7 @@ class _$BookMinified extends BookMinified {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1301,7 +1301,7 @@ class _$BookMinified extends BookMinified {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -1312,7 +1312,7 @@ class _$BookMinified extends BookMinified {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1325,7 +1325,7 @@ class _$BookMinified extends BookMinified {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1728,7 +1728,7 @@ class _$BookExpanded extends BookExpanded {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)
@@ -1739,7 +1739,7 @@ class _$BookExpanded extends BookExpanded {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1752,7 +1752,7 @@ class _$BookExpanded extends BookExpanded {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1809,7 +1809,7 @@ class _$BookExpanded extends BookExpanded {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -1820,7 +1820,7 @@ class _$BookExpanded extends BookExpanded {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1833,7 +1833,7 @@ class _$BookExpanded extends BookExpanded {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1890,7 +1890,7 @@ class _$BookExpanded extends BookExpanded {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -1901,7 +1901,7 @@ class _$BookExpanded extends BookExpanded {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -1914,7 +1914,7 @@ class _$BookExpanded extends BookExpanded {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2031,7 +2031,7 @@ abstract class _$$PodcastCopyWith<$Res> implements $MediaCopyWith<$Res> {
       List<String> tags,
       List<PodcastEpisode> episodes,
       bool autoDownloadEpisodes,
-      String autoDownloadSchedule,
+      String? autoDownloadSchedule,
       DateTime lastEpisodeCheck,
       int maxEpisodesToKeep,
       int maxNewEpisodesToDownload});
@@ -2052,7 +2052,7 @@ class __$$PodcastCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$Podcast>
     Object? tags = null,
     Object? episodes = null,
     Object? autoDownloadEpisodes = null,
-    Object? autoDownloadSchedule = null,
+    Object? autoDownloadSchedule = freezed,
     Object? lastEpisodeCheck = null,
     Object? maxEpisodesToKeep = null,
     Object? maxNewEpisodesToDownload = null,
@@ -2082,10 +2082,10 @@ class __$$PodcastCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$Podcast>
           ? _value.autoDownloadEpisodes
           : autoDownloadEpisodes // ignore: cast_nullable_to_non_nullable
               as bool,
-      autoDownloadSchedule: null == autoDownloadSchedule
+      autoDownloadSchedule: freezed == autoDownloadSchedule
           ? _value.autoDownloadSchedule
           : autoDownloadSchedule // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       lastEpisodeCheck: null == lastEpisodeCheck
           ? _value.lastEpisodeCheck
           : lastEpisodeCheck // ignore: cast_nullable_to_non_nullable
@@ -2113,7 +2113,7 @@ class _$Podcast extends Podcast {
       required final List<String> tags,
       required final List<PodcastEpisode> episodes,
       required this.autoDownloadEpisodes,
-      required this.autoDownloadSchedule,
+      this.autoDownloadSchedule,
       required this.lastEpisodeCheck,
       required this.maxEpisodesToKeep,
       required this.maxNewEpisodesToDownload,
@@ -2151,7 +2151,7 @@ class _$Podcast extends Podcast {
   @override
   final bool autoDownloadEpisodes;
   @override
-  final String autoDownloadSchedule;
+  final String? autoDownloadSchedule;
   @override
   final DateTime lastEpisodeCheck;
   @override
@@ -2260,7 +2260,7 @@ class _$Podcast extends Podcast {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)
@@ -2271,7 +2271,7 @@ class _$Podcast extends Podcast {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2284,7 +2284,7 @@ class _$Podcast extends Podcast {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2350,7 +2350,7 @@ class _$Podcast extends Podcast {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -2361,7 +2361,7 @@ class _$Podcast extends Podcast {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2374,7 +2374,7 @@ class _$Podcast extends Podcast {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2440,7 +2440,7 @@ class _$Podcast extends Podcast {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -2451,7 +2451,7 @@ class _$Podcast extends Podcast {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2464,7 +2464,7 @@ class _$Podcast extends Podcast {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2547,7 +2547,7 @@ abstract class Podcast extends Media {
       required final List<String> tags,
       required final List<PodcastEpisode> episodes,
       required final bool autoDownloadEpisodes,
-      required final String autoDownloadSchedule,
+      final String? autoDownloadSchedule,
       required final DateTime lastEpisodeCheck,
       required final int maxEpisodesToKeep,
       required final int maxNewEpisodesToDownload}) = _$Podcast;
@@ -2564,7 +2564,7 @@ abstract class Podcast extends Media {
   List<String> get tags;
   List<PodcastEpisode> get episodes;
   bool get autoDownloadEpisodes;
-  String get autoDownloadSchedule;
+  String? get autoDownloadSchedule;
   DateTime get lastEpisodeCheck;
   int get maxEpisodesToKeep;
   int get maxNewEpisodesToDownload;
@@ -2588,7 +2588,7 @@ abstract class _$$PodcastMinifiedCopyWith<$Res>
       List<String> tags,
       int numEpisodes,
       bool autoDownloadEpisodes,
-      String autoDownloadSchedule,
+      String? autoDownloadSchedule,
       DateTime lastEpisodeCheck,
       int maxEpisodesToKeep,
       int maxNewEpisodesToDownload,
@@ -2611,7 +2611,7 @@ class __$$PodcastMinifiedCopyWithImpl<$Res>
     Object? tags = null,
     Object? numEpisodes = null,
     Object? autoDownloadEpisodes = null,
-    Object? autoDownloadSchedule = null,
+    Object? autoDownloadSchedule = freezed,
     Object? lastEpisodeCheck = null,
     Object? maxEpisodesToKeep = null,
     Object? maxNewEpisodesToDownload = null,
@@ -2638,10 +2638,10 @@ class __$$PodcastMinifiedCopyWithImpl<$Res>
           ? _value.autoDownloadEpisodes
           : autoDownloadEpisodes // ignore: cast_nullable_to_non_nullable
               as bool,
-      autoDownloadSchedule: null == autoDownloadSchedule
+      autoDownloadSchedule: freezed == autoDownloadSchedule
           ? _value.autoDownloadSchedule
           : autoDownloadSchedule // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       lastEpisodeCheck: null == lastEpisodeCheck
           ? _value.lastEpisodeCheck
           : lastEpisodeCheck // ignore: cast_nullable_to_non_nullable
@@ -2672,7 +2672,7 @@ class _$PodcastMinified extends PodcastMinified {
       required final List<String> tags,
       required this.numEpisodes,
       required this.autoDownloadEpisodes,
-      required this.autoDownloadSchedule,
+      this.autoDownloadSchedule,
       required this.lastEpisodeCheck,
       required this.maxEpisodesToKeep,
       required this.maxNewEpisodesToDownload,
@@ -2702,7 +2702,7 @@ class _$PodcastMinified extends PodcastMinified {
   @override
   final bool autoDownloadEpisodes;
   @override
-  final String autoDownloadSchedule;
+  final String? autoDownloadSchedule;
   @override
   final DateTime lastEpisodeCheck;
   @override
@@ -2813,7 +2813,7 @@ class _$PodcastMinified extends PodcastMinified {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)
@@ -2824,7 +2824,7 @@ class _$PodcastMinified extends PodcastMinified {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2837,7 +2837,7 @@ class _$PodcastMinified extends PodcastMinified {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2903,7 +2903,7 @@ class _$PodcastMinified extends PodcastMinified {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -2914,7 +2914,7 @@ class _$PodcastMinified extends PodcastMinified {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2927,7 +2927,7 @@ class _$PodcastMinified extends PodcastMinified {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -2993,7 +2993,7 @@ class _$PodcastMinified extends PodcastMinified {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -3004,7 +3004,7 @@ class _$PodcastMinified extends PodcastMinified {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -3017,7 +3017,7 @@ class _$PodcastMinified extends PodcastMinified {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -3099,7 +3099,7 @@ abstract class PodcastMinified extends Media {
       required final List<String> tags,
       required final int numEpisodes,
       required final bool autoDownloadEpisodes,
-      required final String autoDownloadSchedule,
+      final String? autoDownloadSchedule,
       required final DateTime lastEpisodeCheck,
       required final int maxEpisodesToKeep,
       required final int maxNewEpisodesToDownload,
@@ -3117,7 +3117,7 @@ abstract class PodcastMinified extends Media {
   List<String> get tags;
   int get numEpisodes;
   bool get autoDownloadEpisodes;
-  String get autoDownloadSchedule;
+  String? get autoDownloadSchedule;
   DateTime get lastEpisodeCheck;
   int get maxEpisodesToKeep;
   int get maxNewEpisodesToDownload;
@@ -3143,7 +3143,7 @@ abstract class _$$PodcastExpandedCopyWith<$Res>
       List<String> tags,
       List<PodcastEpisodeExpanded> episodes,
       bool autoDownloadEpisodes,
-      String autoDownloadSchedule,
+      String? autoDownloadSchedule,
       DateTime lastEpisodeCheck,
       int maxEpisodesToKeep,
       int maxNewEpisodesToDownload,
@@ -3167,7 +3167,7 @@ class __$$PodcastExpandedCopyWithImpl<$Res>
     Object? tags = null,
     Object? episodes = null,
     Object? autoDownloadEpisodes = null,
-    Object? autoDownloadSchedule = null,
+    Object? autoDownloadSchedule = freezed,
     Object? lastEpisodeCheck = null,
     Object? maxEpisodesToKeep = null,
     Object? maxNewEpisodesToDownload = null,
@@ -3198,10 +3198,10 @@ class __$$PodcastExpandedCopyWithImpl<$Res>
           ? _value.autoDownloadEpisodes
           : autoDownloadEpisodes // ignore: cast_nullable_to_non_nullable
               as bool,
-      autoDownloadSchedule: null == autoDownloadSchedule
+      autoDownloadSchedule: freezed == autoDownloadSchedule
           ? _value.autoDownloadSchedule
           : autoDownloadSchedule // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       lastEpisodeCheck: null == lastEpisodeCheck
           ? _value.lastEpisodeCheck
           : lastEpisodeCheck // ignore: cast_nullable_to_non_nullable
@@ -3233,7 +3233,7 @@ class _$PodcastExpanded extends PodcastExpanded {
       required final List<String> tags,
       required final List<PodcastEpisodeExpanded> episodes,
       required this.autoDownloadEpisodes,
-      required this.autoDownloadSchedule,
+      this.autoDownloadSchedule,
       required this.lastEpisodeCheck,
       required this.maxEpisodesToKeep,
       required this.maxNewEpisodesToDownload,
@@ -3272,7 +3272,7 @@ class _$PodcastExpanded extends PodcastExpanded {
   @override
   final bool autoDownloadEpisodes;
   @override
-  final String autoDownloadSchedule;
+  final String? autoDownloadSchedule;
   @override
   final DateTime lastEpisodeCheck;
   @override
@@ -3385,7 +3385,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)
@@ -3396,7 +3396,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -3409,7 +3409,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -3476,7 +3476,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -3487,7 +3487,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -3500,7 +3500,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -3567,7 +3567,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<String> tags,
             List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload)?
@@ -3578,7 +3578,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<String> tags,
             int numEpisodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -3591,7 +3591,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<String> tags,
             List<PodcastEpisodeExpanded> episodes,
             bool autoDownloadEpisodes,
-            String autoDownloadSchedule,
+            String? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
             int maxEpisodesToKeep,
             int maxNewEpisodesToDownload,
@@ -3675,7 +3675,7 @@ abstract class PodcastExpanded extends Media {
       required final List<String> tags,
       required final List<PodcastEpisodeExpanded> episodes,
       required final bool autoDownloadEpisodes,
-      required final String autoDownloadSchedule,
+      final String? autoDownloadSchedule,
       required final DateTime lastEpisodeCheck,
       required final int maxEpisodesToKeep,
       required final int maxNewEpisodesToDownload,
@@ -3694,7 +3694,7 @@ abstract class PodcastExpanded extends Media {
   List<String> get tags;
   List<PodcastEpisodeExpanded> get episodes;
   bool get autoDownloadEpisodes;
-  String get autoDownloadSchedule;
+  String? get autoDownloadSchedule;
   DateTime get lastEpisodeCheck;
   int get maxEpisodesToKeep;
   int get maxNewEpisodesToDownload;

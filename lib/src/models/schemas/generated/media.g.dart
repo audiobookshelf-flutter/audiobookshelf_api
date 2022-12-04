@@ -126,7 +126,7 @@ _$Podcast _$$PodcastFromJson(Map<String, dynamic> json) => _$Podcast(
           .map((e) => PodcastEpisode.fromJson(e as Map<String, dynamic>))
           .toList(),
       autoDownloadEpisodes: json['autoDownloadEpisodes'] as bool,
-      autoDownloadSchedule: json['autoDownloadSchedule'] as String,
+      autoDownloadSchedule: json['autoDownloadSchedule'] as String?,
       lastEpisodeCheck: const DateTimeEpochConverter()
           .fromJson(json['lastEpisodeCheck'] as int),
       maxEpisodesToKeep: json['maxEpisodesToKeep'] as int,
@@ -157,7 +157,7 @@ _$PodcastMinified _$$PodcastMinifiedFromJson(Map<String, dynamic> json) =>
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       numEpisodes: json['numEpisodes'] as int,
       autoDownloadEpisodes: json['autoDownloadEpisodes'] as bool,
-      autoDownloadSchedule: json['autoDownloadSchedule'] as String,
+      autoDownloadSchedule: json['autoDownloadSchedule'] as String?,
       lastEpisodeCheck: const DateTimeEpochConverter()
           .fromJson(json['lastEpisodeCheck'] as int),
       maxEpisodesToKeep: json['maxEpisodesToKeep'] as int,
@@ -194,7 +194,7 @@ _$PodcastExpanded _$$PodcastExpandedFromJson(Map<String, dynamic> json) =>
               (e) => PodcastEpisodeExpanded.fromJson(e as Map<String, dynamic>))
           .toList(),
       autoDownloadEpisodes: json['autoDownloadEpisodes'] as bool,
-      autoDownloadSchedule: json['autoDownloadSchedule'] as String,
+      autoDownloadSchedule: json['autoDownloadSchedule'] as String?,
       lastEpisodeCheck: const DateTimeEpochConverter()
           .fromJson(json['lastEpisodeCheck'] as int),
       maxEpisodesToKeep: json['maxEpisodesToKeep'] as int,
