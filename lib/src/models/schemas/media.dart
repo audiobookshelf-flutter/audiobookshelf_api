@@ -1,27 +1,61 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../audio_track.dart';
+import '../../utils/json_converters.dart';
 import '../enums/media_type.dart';
 import '../enums/schema_variant.dart';
+import 'audio_file.dart';
+import 'book_chapter.dart';
+import 'ebook_file.dart';
+import 'media_metadata.dart';
 
 part 'generated/media.freezed.dart';
 part 'generated/media.g.dart';
 
+/// See [Book](https://api.audiobookshelf.org/#book) and [Podcast](https://api.audiobookshelf.org/#podcast)
 @freezed
 class Media with _$Media {
   const Media._();
 
   const factory Media.book({
     required String libraryItemId,
+    required BookMetadata metadata,
     String? coverPath,
+    required List<String> tags,
+    required List<AudioFile> audioFiles,
+    required List<BookChapter> chapters,
+    required List<int> missingParts,
+    EBookFile? ebookFile,
   }) = Book;
 
+  @jsonConverters
   const factory Media.bookMinified({
+    required BookMetadataMinified metadata,
     String? coverPath,
+    required List<String> tags,
+    required int numTracks,
+    required int numAudioFiles,
+    required int numChapters,
+    required int numMissingParts,
+    required int numInvalidAudioFiles,
+    required Duration duration,
+    required int size,
+    String? ebookFormat,
   }) = BookMinified;
 
+  @jsonConverters
   const factory Media.bookExpanded({
     required String libraryItemId,
+    required BookMetadataExpanded metadata,
     String? coverPath,
+    required List<String> tags,
+    required List<AudioFile> audioFiles,
+    required List<BookChapter> chapters,
+    required Duration duration,
+    required int size,
+    required List<AudioTrack> tracks,
+    required List<int> missingParts,
+    EBookFile? ebookFile,
   }) = BookExpanded;
 
   const factory Media.podcast({
@@ -38,7 +72,8 @@ class Media with _$Media {
     String? coverPath,
   }) = PodcastExpanded;
 
-  factory Media.fromJson(Map<String, dynamic> json) => _$MediaFromJson(json);
+  factory Media.fromJson(Map<String, dynamic> json) =>
+      MediaConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(
@@ -59,6 +94,8 @@ class MediaConverter implements JsonConverter<Media, Map<String, dynamic>> {
 
   @override
   Media fromJson(Map<String, dynamic> json) {
+    if (json.containsKey('runtimeType')) return _$MediaFromJson(json);
+
     final MediaType mediaType;
     final type = this.mediaType;
     if (type != null) {
@@ -75,6 +112,7 @@ class MediaConverter implements JsonConverter<Media, Map<String, dynamic>> {
         'Unknown media type',
       );
     }
+
     final SchemaVariant variant;
     if (json.containsKey('numChapters') || json.containsKey('numEpisodes')) {
       variant = SchemaVariant.minified;
@@ -83,6 +121,7 @@ class MediaConverter implements JsonConverter<Media, Map<String, dynamic>> {
     } else {
       variant = SchemaVariant.base;
     }
+
     switch (mediaType) {
       case MediaType.book:
         switch (variant) {

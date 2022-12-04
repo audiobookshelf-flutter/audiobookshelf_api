@@ -55,7 +55,7 @@ mixin _$LibraryItem {
   bool get isMissing => throw _privateConstructorUsedError;
   bool get isInvalid => throw _privateConstructorUsedError;
   MediaType get mediaType => throw _privateConstructorUsedError;
-  dynamic get media => throw _privateConstructorUsedError;
+  Media get media => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -660,7 +660,7 @@ class __$$BookLibraryItemCopyWithImpl<$Res>
     Object? isMissing = null,
     Object? isInvalid = null,
     Object? mediaType = null,
-    Object? media = freezed,
+    Object? media = null,
     Object? libraryFiles = null,
   }) {
     return _then(_$BookLibraryItem(
@@ -732,7 +732,7 @@ class __$$BookLibraryItemCopyWithImpl<$Res>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
-      media: freezed == media
+      media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as Book,
@@ -862,7 +862,7 @@ class _$BookLibraryItem extends BookLibraryItem {
                 other.isInvalid == isInvalid) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
-            const DeepCollectionEquality().equals(other.media, media) &&
+            (identical(other.media, media) || other.media == media) &&
             const DeepCollectionEquality()
                 .equals(other._libraryFiles, _libraryFiles));
   }
@@ -888,7 +888,7 @@ class _$BookLibraryItem extends BookLibraryItem {
         isMissing,
         isInvalid,
         mediaType,
-        const DeepCollectionEquality().hash(media),
+        media,
         const DeepCollectionEquality().hash(_libraryFiles)
       ]);
 
@@ -1534,7 +1534,7 @@ class __$$BookLibraryItemMinifiedCopyWithImpl<$Res>
     Object? isMissing = null,
     Object? isInvalid = null,
     Object? mediaType = null,
-    Object? media = freezed,
+    Object? media = null,
     Object? numFiles = null,
     Object? size = null,
   }) {
@@ -1599,7 +1599,7 @@ class __$$BookLibraryItemMinifiedCopyWithImpl<$Res>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
-      media: freezed == media
+      media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as BookMinified,
@@ -1720,7 +1720,7 @@ class _$BookLibraryItemMinified extends BookLibraryItemMinified {
                 other.isInvalid == isInvalid) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
-            const DeepCollectionEquality().equals(other.media, media) &&
+            (identical(other.media, media) || other.media == media) &&
             (identical(other.numFiles, numFiles) ||
                 other.numFiles == numFiles) &&
             (identical(other.size, size) || other.size == size));
@@ -1745,7 +1745,7 @@ class _$BookLibraryItemMinified extends BookLibraryItemMinified {
       isMissing,
       isInvalid,
       mediaType,
-      const DeepCollectionEquality().hash(media),
+      media,
       numFiles,
       size);
 
@@ -2391,7 +2391,7 @@ class __$$BookLibraryItemExpandedCopyWithImpl<$Res>
     Object? isMissing = null,
     Object? isInvalid = null,
     Object? mediaType = null,
-    Object? media = freezed,
+    Object? media = null,
     Object? libraryFiles = null,
     Object? size = null,
   }) {
@@ -2464,7 +2464,7 @@ class __$$BookLibraryItemExpandedCopyWithImpl<$Res>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
-      media: freezed == media
+      media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as Book,
@@ -2602,7 +2602,7 @@ class _$BookLibraryItemExpanded extends BookLibraryItemExpanded {
                 other.isInvalid == isInvalid) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
-            const DeepCollectionEquality().equals(other.media, media) &&
+            (identical(other.media, media) || other.media == media) &&
             const DeepCollectionEquality()
                 .equals(other._libraryFiles, _libraryFiles) &&
             (identical(other.size, size) || other.size == size));
@@ -2629,7 +2629,7 @@ class _$BookLibraryItemExpanded extends BookLibraryItemExpanded {
         isMissing,
         isInvalid,
         mediaType,
-        const DeepCollectionEquality().hash(media),
+        media,
         const DeepCollectionEquality().hash(_libraryFiles),
         size
       ]);
@@ -3285,7 +3285,7 @@ class __$$PodcastLibraryItemCopyWithImpl<$Res>
     Object? isMissing = null,
     Object? isInvalid = null,
     Object? mediaType = null,
-    Object? media = freezed,
+    Object? media = null,
     Object? libraryFiles = null,
   }) {
     return _then(_$PodcastLibraryItem(
@@ -3357,7 +3357,7 @@ class __$$PodcastLibraryItemCopyWithImpl<$Res>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
-      media: freezed == media
+      media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as Podcast,
@@ -3487,7 +3487,7 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
                 other.isInvalid == isInvalid) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
-            const DeepCollectionEquality().equals(other.media, media) &&
+            (identical(other.media, media) || other.media == media) &&
             const DeepCollectionEquality()
                 .equals(other._libraryFiles, _libraryFiles));
   }
@@ -3513,7 +3513,7 @@ class _$PodcastLibraryItem extends PodcastLibraryItem {
         isMissing,
         isInvalid,
         mediaType,
-        const DeepCollectionEquality().hash(media),
+        media,
         const DeepCollectionEquality().hash(_libraryFiles)
       ]);
 
@@ -4162,7 +4162,7 @@ class __$$PodcastLibraryItemMinifiedCopyWithImpl<$Res>
     Object? isMissing = null,
     Object? isInvalid = null,
     Object? mediaType = null,
-    Object? media = freezed,
+    Object? media = null,
     Object? numFiles = null,
     Object? size = null,
   }) {
@@ -4227,7 +4227,7 @@ class __$$PodcastLibraryItemMinifiedCopyWithImpl<$Res>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
-      media: freezed == media
+      media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as PodcastMinified,
@@ -4348,7 +4348,7 @@ class _$PodcastLibraryItemMinified extends PodcastLibraryItemMinified {
                 other.isInvalid == isInvalid) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
-            const DeepCollectionEquality().equals(other.media, media) &&
+            (identical(other.media, media) || other.media == media) &&
             (identical(other.numFiles, numFiles) ||
                 other.numFiles == numFiles) &&
             (identical(other.size, size) || other.size == size));
@@ -4373,7 +4373,7 @@ class _$PodcastLibraryItemMinified extends PodcastLibraryItemMinified {
       isMissing,
       isInvalid,
       mediaType,
-      const DeepCollectionEquality().hash(media),
+      media,
       numFiles,
       size);
 
@@ -5021,7 +5021,7 @@ class __$$PodcastLibraryItemExpandedCopyWithImpl<$Res>
     Object? isMissing = null,
     Object? isInvalid = null,
     Object? mediaType = null,
-    Object? media = freezed,
+    Object? media = null,
     Object? libraryFiles = null,
     Object? size = null,
   }) {
@@ -5094,7 +5094,7 @@ class __$$PodcastLibraryItemExpandedCopyWithImpl<$Res>
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
-      media: freezed == media
+      media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as Podcast,
@@ -5232,7 +5232,7 @@ class _$PodcastLibraryItemExpanded extends PodcastLibraryItemExpanded {
                 other.isInvalid == isInvalid) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
-            const DeepCollectionEquality().equals(other.media, media) &&
+            (identical(other.media, media) || other.media == media) &&
             const DeepCollectionEquality()
                 .equals(other._libraryFiles, _libraryFiles) &&
             (identical(other.size, size) || other.size == size));
@@ -5259,7 +5259,7 @@ class _$PodcastLibraryItemExpanded extends PodcastLibraryItemExpanded {
         isMissing,
         isInvalid,
         mediaType,
-        const DeepCollectionEquality().hash(media),
+        media,
         const DeepCollectionEquality().hash(_libraryFiles),
         size
       ]);

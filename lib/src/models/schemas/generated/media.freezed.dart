@@ -40,9 +40,41 @@ mixin _$Media {
   String? get coverPath => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String libraryItemId, String? coverPath) book,
-    required TResult Function(String? coverPath) bookMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)
+        book,
+    required TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)
+        bookMinified,
+    required TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)
         bookExpanded,
     required TResult Function(String libraryItemId, String? coverPath) podcast,
     required TResult Function(String? coverPath) podcastMinified,
@@ -52,9 +84,42 @@ mixin _$Media {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String libraryItemId, String? coverPath)? book,
-    TResult? Function(String? coverPath)? bookMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult? Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult? Function(String libraryItemId, String? coverPath)? podcast,
     TResult? Function(String? coverPath)? podcastMinified,
     TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
@@ -62,9 +127,42 @@ mixin _$Media {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String libraryItemId, String? coverPath)? book,
-    TResult Function(String? coverPath)? bookMinified,
-    TResult Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult Function(String libraryItemId, String? coverPath)? podcast,
     TResult Function(String? coverPath)? podcastMinified,
     TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
@@ -145,7 +243,17 @@ abstract class _$$BookCopyWith<$Res> implements $MediaCopyWith<$Res> {
       __$$BookCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String libraryItemId, String? coverPath});
+  $Res call(
+      {String libraryItemId,
+      BookMetadata metadata,
+      String? coverPath,
+      List<String> tags,
+      List<AudioFile> audioFiles,
+      List<BookChapter> chapters,
+      List<int> missingParts,
+      EBookFile? ebookFile});
+
+  $EBookFileCopyWith<$Res>? get ebookFile;
 }
 
 /// @nodoc
@@ -158,18 +266,60 @@ class __$$BookCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$Book>
   @override
   $Res call({
     Object? libraryItemId = null,
+    Object? metadata = null,
     Object? coverPath = freezed,
+    Object? tags = null,
+    Object? audioFiles = null,
+    Object? chapters = null,
+    Object? missingParts = null,
+    Object? ebookFile = freezed,
   }) {
     return _then(_$Book(
       libraryItemId: null == libraryItemId
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as BookMetadata,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      tags: null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      audioFiles: null == audioFiles
+          ? _value._audioFiles
+          : audioFiles // ignore: cast_nullable_to_non_nullable
+              as List<AudioFile>,
+      chapters: null == chapters
+          ? _value._chapters
+          : chapters // ignore: cast_nullable_to_non_nullable
+              as List<BookChapter>,
+      missingParts: null == missingParts
+          ? _value._missingParts
+          : missingParts // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      ebookFile: freezed == ebookFile
+          ? _value.ebookFile
+          : ebookFile // ignore: cast_nullable_to_non_nullable
+              as EBookFile?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EBookFileCopyWith<$Res>? get ebookFile {
+    if (_value.ebookFile == null) {
+      return null;
+    }
+
+    return $EBookFileCopyWith<$Res>(_value.ebookFile!, (value) {
+      return _then(_value.copyWith(ebookFile: value));
+    });
   }
 }
 
@@ -177,8 +327,20 @@ class __$$BookCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$Book>
 @JsonSerializable()
 class _$Book extends Book {
   const _$Book(
-      {required this.libraryItemId, this.coverPath, final String? $type})
-      : $type = $type ?? 'book',
+      {required this.libraryItemId,
+      required this.metadata,
+      this.coverPath,
+      required final List<String> tags,
+      required final List<AudioFile> audioFiles,
+      required final List<BookChapter> chapters,
+      required final List<int> missingParts,
+      this.ebookFile,
+      final String? $type})
+      : _tags = tags,
+        _audioFiles = audioFiles,
+        _chapters = chapters,
+        _missingParts = missingParts,
+        $type = $type ?? 'book',
         super._();
 
   factory _$Book.fromJson(Map<String, dynamic> json) => _$$BookFromJson(json);
@@ -186,14 +348,50 @@ class _$Book extends Book {
   @override
   final String libraryItemId;
   @override
+  final BookMetadata metadata;
+  @override
   final String? coverPath;
+  final List<String> _tags;
+  @override
+  List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
+  final List<AudioFile> _audioFiles;
+  @override
+  List<AudioFile> get audioFiles {
+    if (_audioFiles is EqualUnmodifiableListView) return _audioFiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_audioFiles);
+  }
+
+  final List<BookChapter> _chapters;
+  @override
+  List<BookChapter> get chapters {
+    if (_chapters is EqualUnmodifiableListView) return _chapters;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_chapters);
+  }
+
+  final List<int> _missingParts;
+  @override
+  List<int> get missingParts {
+    if (_missingParts is EqualUnmodifiableListView) return _missingParts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_missingParts);
+  }
+
+  @override
+  final EBookFile? ebookFile;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Media.book(libraryItemId: $libraryItemId, coverPath: $coverPath)';
+    return 'Media.book(libraryItemId: $libraryItemId, metadata: $metadata, coverPath: $coverPath, tags: $tags, audioFiles: $audioFiles, chapters: $chapters, missingParts: $missingParts, ebookFile: $ebookFile)';
   }
 
   @override
@@ -203,13 +401,32 @@ class _$Book extends Book {
             other is _$Book &&
             (identical(other.libraryItemId, libraryItemId) ||
                 other.libraryItemId == libraryItemId) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata) &&
             (identical(other.coverPath, coverPath) ||
-                other.coverPath == coverPath));
+                other.coverPath == coverPath) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            const DeepCollectionEquality()
+                .equals(other._audioFiles, _audioFiles) &&
+            const DeepCollectionEquality().equals(other._chapters, _chapters) &&
+            const DeepCollectionEquality()
+                .equals(other._missingParts, _missingParts) &&
+            (identical(other.ebookFile, ebookFile) ||
+                other.ebookFile == ebookFile));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, libraryItemId, coverPath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      libraryItemId,
+      metadata,
+      coverPath,
+      const DeepCollectionEquality().hash(_tags),
+      const DeepCollectionEquality().hash(_audioFiles),
+      const DeepCollectionEquality().hash(_chapters),
+      const DeepCollectionEquality().hash(_missingParts),
+      ebookFile);
 
   @JsonKey(ignore: true)
   @override
@@ -220,44 +437,145 @@ class _$Book extends Book {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String libraryItemId, String? coverPath) book,
-    required TResult Function(String? coverPath) bookMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)
+        book,
+    required TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)
+        bookMinified,
+    required TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)
         bookExpanded,
     required TResult Function(String libraryItemId, String? coverPath) podcast,
     required TResult Function(String? coverPath) podcastMinified,
     required TResult Function(String libraryItemId, String? coverPath)
         podcastExpanded,
   }) {
-    return book(libraryItemId, coverPath);
+    return book(libraryItemId, metadata, coverPath, tags, audioFiles, chapters,
+        missingParts, ebookFile);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String libraryItemId, String? coverPath)? book,
-    TResult? Function(String? coverPath)? bookMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult? Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult? Function(String libraryItemId, String? coverPath)? podcast,
     TResult? Function(String? coverPath)? podcastMinified,
     TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
   }) {
-    return book?.call(libraryItemId, coverPath);
+    return book?.call(libraryItemId, metadata, coverPath, tags, audioFiles,
+        chapters, missingParts, ebookFile);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String libraryItemId, String? coverPath)? book,
-    TResult Function(String? coverPath)? bookMinified,
-    TResult Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult Function(String libraryItemId, String? coverPath)? podcast,
     TResult Function(String? coverPath)? podcastMinified,
     TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
     required TResult orElse(),
   }) {
     if (book != null) {
-      return book(libraryItemId, coverPath);
+      return book(libraryItemId, metadata, coverPath, tags, audioFiles,
+          chapters, missingParts, ebookFile);
     }
     return orElse();
   }
@@ -315,14 +633,27 @@ class _$Book extends Book {
 
 abstract class Book extends Media {
   const factory Book(
-      {required final String libraryItemId, final String? coverPath}) = _$Book;
+      {required final String libraryItemId,
+      required final BookMetadata metadata,
+      final String? coverPath,
+      required final List<String> tags,
+      required final List<AudioFile> audioFiles,
+      required final List<BookChapter> chapters,
+      required final List<int> missingParts,
+      final EBookFile? ebookFile}) = _$Book;
   const Book._() : super._();
 
   factory Book.fromJson(Map<String, dynamic> json) = _$Book.fromJson;
 
   String get libraryItemId;
+  BookMetadata get metadata;
   @override
   String? get coverPath;
+  List<String> get tags;
+  List<AudioFile> get audioFiles;
+  List<BookChapter> get chapters;
+  List<int> get missingParts;
+  EBookFile? get ebookFile;
   @override
   @JsonKey(ignore: true)
   _$$BookCopyWith<_$Book> get copyWith => throw _privateConstructorUsedError;
@@ -335,7 +666,18 @@ abstract class _$$BookMinifiedCopyWith<$Res> implements $MediaCopyWith<$Res> {
       __$$BookMinifiedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? coverPath});
+  $Res call(
+      {BookMetadataMinified metadata,
+      String? coverPath,
+      List<String> tags,
+      int numTracks,
+      int numAudioFiles,
+      int numChapters,
+      int numMissingParts,
+      int numInvalidAudioFiles,
+      Duration duration,
+      int size,
+      String? ebookFormat});
 }
 
 /// @nodoc
@@ -349,36 +691,126 @@ class __$$BookMinifiedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? metadata = null,
     Object? coverPath = freezed,
+    Object? tags = null,
+    Object? numTracks = null,
+    Object? numAudioFiles = null,
+    Object? numChapters = null,
+    Object? numMissingParts = null,
+    Object? numInvalidAudioFiles = null,
+    Object? duration = null,
+    Object? size = null,
+    Object? ebookFormat = freezed,
   }) {
     return _then(_$BookMinified(
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as BookMetadataMinified,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tags: null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      numTracks: null == numTracks
+          ? _value.numTracks
+          : numTracks // ignore: cast_nullable_to_non_nullable
+              as int,
+      numAudioFiles: null == numAudioFiles
+          ? _value.numAudioFiles
+          : numAudioFiles // ignore: cast_nullable_to_non_nullable
+              as int,
+      numChapters: null == numChapters
+          ? _value.numChapters
+          : numChapters // ignore: cast_nullable_to_non_nullable
+              as int,
+      numMissingParts: null == numMissingParts
+          ? _value.numMissingParts
+          : numMissingParts // ignore: cast_nullable_to_non_nullable
+              as int,
+      numInvalidAudioFiles: null == numInvalidAudioFiles
+          ? _value.numInvalidAudioFiles
+          : numInvalidAudioFiles // ignore: cast_nullable_to_non_nullable
+              as int,
+      duration: null == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int,
+      ebookFormat: freezed == ebookFormat
+          ? _value.ebookFormat
+          : ebookFormat // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$BookMinified extends BookMinified {
-  const _$BookMinified({this.coverPath, final String? $type})
-      : $type = $type ?? 'bookMinified',
+  const _$BookMinified(
+      {required this.metadata,
+      this.coverPath,
+      required final List<String> tags,
+      required this.numTracks,
+      required this.numAudioFiles,
+      required this.numChapters,
+      required this.numMissingParts,
+      required this.numInvalidAudioFiles,
+      required this.duration,
+      required this.size,
+      this.ebookFormat,
+      final String? $type})
+      : _tags = tags,
+        $type = $type ?? 'bookMinified',
         super._();
 
   factory _$BookMinified.fromJson(Map<String, dynamic> json) =>
       _$$BookMinifiedFromJson(json);
 
   @override
+  final BookMetadataMinified metadata;
+  @override
   final String? coverPath;
+  final List<String> _tags;
+  @override
+  List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
+  @override
+  final int numTracks;
+  @override
+  final int numAudioFiles;
+  @override
+  final int numChapters;
+  @override
+  final int numMissingParts;
+  @override
+  final int numInvalidAudioFiles;
+  @override
+  final Duration duration;
+  @override
+  final int size;
+  @override
+  final String? ebookFormat;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Media.bookMinified(coverPath: $coverPath)';
+    return 'Media.bookMinified(metadata: $metadata, coverPath: $coverPath, tags: $tags, numTracks: $numTracks, numAudioFiles: $numAudioFiles, numChapters: $numChapters, numMissingParts: $numMissingParts, numInvalidAudioFiles: $numInvalidAudioFiles, duration: $duration, size: $size, ebookFormat: $ebookFormat)';
   }
 
   @override
@@ -386,13 +818,43 @@ class _$BookMinified extends BookMinified {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookMinified &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata) &&
             (identical(other.coverPath, coverPath) ||
-                other.coverPath == coverPath));
+                other.coverPath == coverPath) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            (identical(other.numTracks, numTracks) ||
+                other.numTracks == numTracks) &&
+            (identical(other.numAudioFiles, numAudioFiles) ||
+                other.numAudioFiles == numAudioFiles) &&
+            (identical(other.numChapters, numChapters) ||
+                other.numChapters == numChapters) &&
+            (identical(other.numMissingParts, numMissingParts) ||
+                other.numMissingParts == numMissingParts) &&
+            (identical(other.numInvalidAudioFiles, numInvalidAudioFiles) ||
+                other.numInvalidAudioFiles == numInvalidAudioFiles) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.ebookFormat, ebookFormat) ||
+                other.ebookFormat == ebookFormat));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, coverPath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      metadata,
+      coverPath,
+      const DeepCollectionEquality().hash(_tags),
+      numTracks,
+      numAudioFiles,
+      numChapters,
+      numMissingParts,
+      numInvalidAudioFiles,
+      duration,
+      size,
+      ebookFormat);
 
   @JsonKey(ignore: true)
   @override
@@ -403,44 +865,175 @@ class _$BookMinified extends BookMinified {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String libraryItemId, String? coverPath) book,
-    required TResult Function(String? coverPath) bookMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)
+        book,
+    required TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)
+        bookMinified,
+    required TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)
         bookExpanded,
     required TResult Function(String libraryItemId, String? coverPath) podcast,
     required TResult Function(String? coverPath) podcastMinified,
     required TResult Function(String libraryItemId, String? coverPath)
         podcastExpanded,
   }) {
-    return bookMinified(coverPath);
+    return bookMinified(
+        metadata,
+        coverPath,
+        tags,
+        numTracks,
+        numAudioFiles,
+        numChapters,
+        numMissingParts,
+        numInvalidAudioFiles,
+        duration,
+        size,
+        ebookFormat);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String libraryItemId, String? coverPath)? book,
-    TResult? Function(String? coverPath)? bookMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult? Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult? Function(String libraryItemId, String? coverPath)? podcast,
     TResult? Function(String? coverPath)? podcastMinified,
     TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
   }) {
-    return bookMinified?.call(coverPath);
+    return bookMinified?.call(
+        metadata,
+        coverPath,
+        tags,
+        numTracks,
+        numAudioFiles,
+        numChapters,
+        numMissingParts,
+        numInvalidAudioFiles,
+        duration,
+        size,
+        ebookFormat);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String libraryItemId, String? coverPath)? book,
-    TResult Function(String? coverPath)? bookMinified,
-    TResult Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult Function(String libraryItemId, String? coverPath)? podcast,
     TResult Function(String? coverPath)? podcastMinified,
     TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookMinified != null) {
-      return bookMinified(coverPath);
+      return bookMinified(
+          metadata,
+          coverPath,
+          tags,
+          numTracks,
+          numAudioFiles,
+          numChapters,
+          numMissingParts,
+          numInvalidAudioFiles,
+          duration,
+          size,
+          ebookFormat);
     }
     return orElse();
   }
@@ -497,14 +1090,35 @@ class _$BookMinified extends BookMinified {
 }
 
 abstract class BookMinified extends Media {
-  const factory BookMinified({final String? coverPath}) = _$BookMinified;
+  const factory BookMinified(
+      {required final BookMetadataMinified metadata,
+      final String? coverPath,
+      required final List<String> tags,
+      required final int numTracks,
+      required final int numAudioFiles,
+      required final int numChapters,
+      required final int numMissingParts,
+      required final int numInvalidAudioFiles,
+      required final Duration duration,
+      required final int size,
+      final String? ebookFormat}) = _$BookMinified;
   const BookMinified._() : super._();
 
   factory BookMinified.fromJson(Map<String, dynamic> json) =
       _$BookMinified.fromJson;
 
+  BookMetadataMinified get metadata;
   @override
   String? get coverPath;
+  List<String> get tags;
+  int get numTracks;
+  int get numAudioFiles;
+  int get numChapters;
+  int get numMissingParts;
+  int get numInvalidAudioFiles;
+  Duration get duration;
+  int get size;
+  String? get ebookFormat;
   @override
   @JsonKey(ignore: true)
   _$$BookMinifiedCopyWith<_$BookMinified> get copyWith =>
@@ -518,7 +1132,20 @@ abstract class _$$BookExpandedCopyWith<$Res> implements $MediaCopyWith<$Res> {
       __$$BookExpandedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String libraryItemId, String? coverPath});
+  $Res call(
+      {String libraryItemId,
+      BookMetadataExpanded metadata,
+      String? coverPath,
+      List<String> tags,
+      List<AudioFile> audioFiles,
+      List<BookChapter> chapters,
+      Duration duration,
+      int size,
+      List<AudioTrack> tracks,
+      List<int> missingParts,
+      EBookFile? ebookFile});
+
+  $EBookFileCopyWith<$Res>? get ebookFile;
 }
 
 /// @nodoc
@@ -533,27 +1160,101 @@ class __$$BookExpandedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? libraryItemId = null,
+    Object? metadata = null,
     Object? coverPath = freezed,
+    Object? tags = null,
+    Object? audioFiles = null,
+    Object? chapters = null,
+    Object? duration = null,
+    Object? size = null,
+    Object? tracks = null,
+    Object? missingParts = null,
+    Object? ebookFile = freezed,
   }) {
     return _then(_$BookExpanded(
       libraryItemId: null == libraryItemId
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as BookMetadataExpanded,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      tags: null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      audioFiles: null == audioFiles
+          ? _value._audioFiles
+          : audioFiles // ignore: cast_nullable_to_non_nullable
+              as List<AudioFile>,
+      chapters: null == chapters
+          ? _value._chapters
+          : chapters // ignore: cast_nullable_to_non_nullable
+              as List<BookChapter>,
+      duration: null == duration
+          ? _value.duration
+          : duration // ignore: cast_nullable_to_non_nullable
+              as Duration,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int,
+      tracks: null == tracks
+          ? _value._tracks
+          : tracks // ignore: cast_nullable_to_non_nullable
+              as List<AudioTrack>,
+      missingParts: null == missingParts
+          ? _value._missingParts
+          : missingParts // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+      ebookFile: freezed == ebookFile
+          ? _value.ebookFile
+          : ebookFile // ignore: cast_nullable_to_non_nullable
+              as EBookFile?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EBookFileCopyWith<$Res>? get ebookFile {
+    if (_value.ebookFile == null) {
+      return null;
+    }
+
+    return $EBookFileCopyWith<$Res>(_value.ebookFile!, (value) {
+      return _then(_value.copyWith(ebookFile: value));
+    });
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$BookExpanded extends BookExpanded {
   const _$BookExpanded(
-      {required this.libraryItemId, this.coverPath, final String? $type})
-      : $type = $type ?? 'bookExpanded',
+      {required this.libraryItemId,
+      required this.metadata,
+      this.coverPath,
+      required final List<String> tags,
+      required final List<AudioFile> audioFiles,
+      required final List<BookChapter> chapters,
+      required this.duration,
+      required this.size,
+      required final List<AudioTrack> tracks,
+      required final List<int> missingParts,
+      this.ebookFile,
+      final String? $type})
+      : _tags = tags,
+        _audioFiles = audioFiles,
+        _chapters = chapters,
+        _tracks = tracks,
+        _missingParts = missingParts,
+        $type = $type ?? 'bookExpanded',
         super._();
 
   factory _$BookExpanded.fromJson(Map<String, dynamic> json) =>
@@ -562,14 +1263,62 @@ class _$BookExpanded extends BookExpanded {
   @override
   final String libraryItemId;
   @override
+  final BookMetadataExpanded metadata;
+  @override
   final String? coverPath;
+  final List<String> _tags;
+  @override
+  List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
+  final List<AudioFile> _audioFiles;
+  @override
+  List<AudioFile> get audioFiles {
+    if (_audioFiles is EqualUnmodifiableListView) return _audioFiles;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_audioFiles);
+  }
+
+  final List<BookChapter> _chapters;
+  @override
+  List<BookChapter> get chapters {
+    if (_chapters is EqualUnmodifiableListView) return _chapters;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_chapters);
+  }
+
+  @override
+  final Duration duration;
+  @override
+  final int size;
+  final List<AudioTrack> _tracks;
+  @override
+  List<AudioTrack> get tracks {
+    if (_tracks is EqualUnmodifiableListView) return _tracks;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tracks);
+  }
+
+  final List<int> _missingParts;
+  @override
+  List<int> get missingParts {
+    if (_missingParts is EqualUnmodifiableListView) return _missingParts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_missingParts);
+  }
+
+  @override
+  final EBookFile? ebookFile;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Media.bookExpanded(libraryItemId: $libraryItemId, coverPath: $coverPath)';
+    return 'Media.bookExpanded(libraryItemId: $libraryItemId, metadata: $metadata, coverPath: $coverPath, tags: $tags, audioFiles: $audioFiles, chapters: $chapters, duration: $duration, size: $size, tracks: $tracks, missingParts: $missingParts, ebookFile: $ebookFile)';
   }
 
   @override
@@ -579,13 +1328,39 @@ class _$BookExpanded extends BookExpanded {
             other is _$BookExpanded &&
             (identical(other.libraryItemId, libraryItemId) ||
                 other.libraryItemId == libraryItemId) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata) &&
             (identical(other.coverPath, coverPath) ||
-                other.coverPath == coverPath));
+                other.coverPath == coverPath) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            const DeepCollectionEquality()
+                .equals(other._audioFiles, _audioFiles) &&
+            const DeepCollectionEquality().equals(other._chapters, _chapters) &&
+            (identical(other.duration, duration) ||
+                other.duration == duration) &&
+            (identical(other.size, size) || other.size == size) &&
+            const DeepCollectionEquality().equals(other._tracks, _tracks) &&
+            const DeepCollectionEquality()
+                .equals(other._missingParts, _missingParts) &&
+            (identical(other.ebookFile, ebookFile) ||
+                other.ebookFile == ebookFile));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, libraryItemId, coverPath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      libraryItemId,
+      metadata,
+      coverPath,
+      const DeepCollectionEquality().hash(_tags),
+      const DeepCollectionEquality().hash(_audioFiles),
+      const DeepCollectionEquality().hash(_chapters),
+      duration,
+      size,
+      const DeepCollectionEquality().hash(_tracks),
+      const DeepCollectionEquality().hash(_missingParts),
+      ebookFile);
 
   @JsonKey(ignore: true)
   @override
@@ -596,44 +1371,145 @@ class _$BookExpanded extends BookExpanded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String libraryItemId, String? coverPath) book,
-    required TResult Function(String? coverPath) bookMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)
+        book,
+    required TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)
+        bookMinified,
+    required TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)
         bookExpanded,
     required TResult Function(String libraryItemId, String? coverPath) podcast,
     required TResult Function(String? coverPath) podcastMinified,
     required TResult Function(String libraryItemId, String? coverPath)
         podcastExpanded,
   }) {
-    return bookExpanded(libraryItemId, coverPath);
+    return bookExpanded(libraryItemId, metadata, coverPath, tags, audioFiles,
+        chapters, duration, size, tracks, missingParts, ebookFile);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String libraryItemId, String? coverPath)? book,
-    TResult? Function(String? coverPath)? bookMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult? Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult? Function(String libraryItemId, String? coverPath)? podcast,
     TResult? Function(String? coverPath)? podcastMinified,
     TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
   }) {
-    return bookExpanded?.call(libraryItemId, coverPath);
+    return bookExpanded?.call(libraryItemId, metadata, coverPath, tags,
+        audioFiles, chapters, duration, size, tracks, missingParts, ebookFile);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String libraryItemId, String? coverPath)? book,
-    TResult Function(String? coverPath)? bookMinified,
-    TResult Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult Function(String libraryItemId, String? coverPath)? podcast,
     TResult Function(String? coverPath)? podcastMinified,
     TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookExpanded != null) {
-      return bookExpanded(libraryItemId, coverPath);
+      return bookExpanded(libraryItemId, metadata, coverPath, tags, audioFiles,
+          chapters, duration, size, tracks, missingParts, ebookFile);
     }
     return orElse();
   }
@@ -692,15 +1568,33 @@ class _$BookExpanded extends BookExpanded {
 abstract class BookExpanded extends Media {
   const factory BookExpanded(
       {required final String libraryItemId,
-      final String? coverPath}) = _$BookExpanded;
+      required final BookMetadataExpanded metadata,
+      final String? coverPath,
+      required final List<String> tags,
+      required final List<AudioFile> audioFiles,
+      required final List<BookChapter> chapters,
+      required final Duration duration,
+      required final int size,
+      required final List<AudioTrack> tracks,
+      required final List<int> missingParts,
+      final EBookFile? ebookFile}) = _$BookExpanded;
   const BookExpanded._() : super._();
 
   factory BookExpanded.fromJson(Map<String, dynamic> json) =
       _$BookExpanded.fromJson;
 
   String get libraryItemId;
+  BookMetadataExpanded get metadata;
   @override
   String? get coverPath;
+  List<String> get tags;
+  List<AudioFile> get audioFiles;
+  List<BookChapter> get chapters;
+  Duration get duration;
+  int get size;
+  List<AudioTrack> get tracks;
+  List<int> get missingParts;
+  EBookFile? get ebookFile;
   @override
   @JsonKey(ignore: true)
   _$$BookExpandedCopyWith<_$BookExpanded> get copyWith =>
@@ -789,9 +1683,41 @@ class _$Podcast extends Podcast {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String libraryItemId, String? coverPath) book,
-    required TResult Function(String? coverPath) bookMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)
+        book,
+    required TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)
+        bookMinified,
+    required TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)
         bookExpanded,
     required TResult Function(String libraryItemId, String? coverPath) podcast,
     required TResult Function(String? coverPath) podcastMinified,
@@ -804,9 +1730,42 @@ class _$Podcast extends Podcast {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String libraryItemId, String? coverPath)? book,
-    TResult? Function(String? coverPath)? bookMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult? Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult? Function(String libraryItemId, String? coverPath)? podcast,
     TResult? Function(String? coverPath)? podcastMinified,
     TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
@@ -817,9 +1776,42 @@ class _$Podcast extends Podcast {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String libraryItemId, String? coverPath)? book,
-    TResult Function(String? coverPath)? bookMinified,
-    TResult Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult Function(String libraryItemId, String? coverPath)? podcast,
     TResult Function(String? coverPath)? podcastMinified,
     TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
@@ -975,9 +1967,41 @@ class _$PodcastMinified extends PodcastMinified {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String libraryItemId, String? coverPath) book,
-    required TResult Function(String? coverPath) bookMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)
+        book,
+    required TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)
+        bookMinified,
+    required TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)
         bookExpanded,
     required TResult Function(String libraryItemId, String? coverPath) podcast,
     required TResult Function(String? coverPath) podcastMinified,
@@ -990,9 +2014,42 @@ class _$PodcastMinified extends PodcastMinified {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String libraryItemId, String? coverPath)? book,
-    TResult? Function(String? coverPath)? bookMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult? Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult? Function(String libraryItemId, String? coverPath)? podcast,
     TResult? Function(String? coverPath)? podcastMinified,
     TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
@@ -1003,9 +2060,42 @@ class _$PodcastMinified extends PodcastMinified {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String libraryItemId, String? coverPath)? book,
-    TResult Function(String? coverPath)? bookMinified,
-    TResult Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult Function(String libraryItemId, String? coverPath)? podcast,
     TResult Function(String? coverPath)? podcastMinified,
     TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
@@ -1169,9 +2259,41 @@ class _$PodcastExpanded extends PodcastExpanded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String libraryItemId, String? coverPath) book,
-    required TResult Function(String? coverPath) bookMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)
+        book,
+    required TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)
+        bookMinified,
+    required TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)
         bookExpanded,
     required TResult Function(String libraryItemId, String? coverPath) podcast,
     required TResult Function(String? coverPath) podcastMinified,
@@ -1184,9 +2306,42 @@ class _$PodcastExpanded extends PodcastExpanded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String libraryItemId, String? coverPath)? book,
-    TResult? Function(String? coverPath)? bookMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult? Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult? Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult? Function(String libraryItemId, String? coverPath)? podcast,
     TResult? Function(String? coverPath)? podcastMinified,
     TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
@@ -1197,9 +2352,42 @@ class _$PodcastExpanded extends PodcastExpanded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String libraryItemId, String? coverPath)? book,
-    TResult Function(String? coverPath)? bookMinified,
-    TResult Function(String libraryItemId, String? coverPath)? bookExpanded,
+    TResult Function(
+            String libraryItemId,
+            BookMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        book,
+    TResult Function(
+            BookMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numTracks,
+            int numAudioFiles,
+            int numChapters,
+            int numMissingParts,
+            int numInvalidAudioFiles,
+            Duration duration,
+            int size,
+            String? ebookFormat)?
+        bookMinified,
+    TResult Function(
+            String libraryItemId,
+            BookMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<AudioFile> audioFiles,
+            List<BookChapter> chapters,
+            Duration duration,
+            int size,
+            List<AudioTrack> tracks,
+            List<int> missingParts,
+            EBookFile? ebookFile)?
+        bookExpanded,
     TResult Function(String libraryItemId, String? coverPath)? podcast,
     TResult Function(String? coverPath)? podcastMinified,
     TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
