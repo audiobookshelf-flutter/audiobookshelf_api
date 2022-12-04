@@ -252,7 +252,7 @@ class __$$_AuthorCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$_Author implements _Author {
+class _$_Author extends _Author {
   const _$_Author(
       {required this.id,
       this.asin,
@@ -263,7 +263,8 @@ class _$_Author implements _Author {
       required this.addedAt,
       required this.updatedAt,
       final String? $type})
-      : $type = $type ?? 'default';
+      : $type = $type ?? 'default',
+        super._();
 
   factory _$_Author.fromJson(Map<String, dynamic> json) =>
       _$$_AuthorFromJson(json);
@@ -459,7 +460,7 @@ class _$_Author implements _Author {
   }
 }
 
-abstract class _Author implements Author {
+abstract class _Author extends Author {
   const factory _Author(
       {required final String id,
       final String? asin,
@@ -469,6 +470,7 @@ abstract class _Author implements Author {
       final String? relImagePath,
       required final DateTime addedAt,
       required final DateTime updatedAt}) = _$_Author;
+  const _Author._() : super._();
 
   factory _Author.fromJson(Map<String, dynamic> json) = _$_Author.fromJson;
 
@@ -529,10 +531,11 @@ class __$$AuthorMinifiedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$AuthorMinified implements AuthorMinified {
+class _$AuthorMinified extends AuthorMinified {
   const _$AuthorMinified(
       {required this.id, required this.name, final String? $type})
-      : $type = $type ?? 'minified';
+      : $type = $type ?? 'minified',
+        super._();
 
   factory _$AuthorMinified.fromJson(Map<String, dynamic> json) =>
       _$$AuthorMinifiedFromJson(json);
@@ -702,10 +705,11 @@ class _$AuthorMinified implements AuthorMinified {
   }
 }
 
-abstract class AuthorMinified implements Author {
+abstract class AuthorMinified extends Author {
   const factory AuthorMinified(
       {required final String id,
       required final String name}) = _$AuthorMinified;
+  const AuthorMinified._() : super._();
 
   factory AuthorMinified.fromJson(Map<String, dynamic> json) =
       _$AuthorMinified.fromJson;
@@ -805,7 +809,7 @@ class __$$AuthorExpandedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$AuthorExpanded implements AuthorExpanded {
+class _$AuthorExpanded extends AuthorExpanded {
   const _$AuthorExpanded(
       {required this.id,
       this.asin,
@@ -817,7 +821,8 @@ class _$AuthorExpanded implements AuthorExpanded {
       required this.updatedAt,
       required this.numBooks,
       final String? $type})
-      : $type = $type ?? 'expanded';
+      : $type = $type ?? 'expanded',
+        super._();
 
   factory _$AuthorExpanded.fromJson(Map<String, dynamic> json) =>
       _$$AuthorExpandedFromJson(json);
@@ -1017,7 +1022,7 @@ class _$AuthorExpanded implements AuthorExpanded {
   }
 }
 
-abstract class AuthorExpanded implements Author {
+abstract class AuthorExpanded extends Author {
   const factory AuthorExpanded(
       {required final String id,
       final String? asin,
@@ -1028,6 +1033,7 @@ abstract class AuthorExpanded implements Author {
       required final DateTime addedAt,
       required final DateTime updatedAt,
       required final int numBooks}) = _$AuthorExpanded;
+  const AuthorExpanded._() : super._();
 
   factory AuthorExpanded.fromJson(Map<String, dynamic> json) =
       _$AuthorExpanded.fromJson;

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils/json_converters.dart';
+import '../enums/schema_variant.dart';
 
 part 'generated/author.freezed.dart';
 part 'generated/author.g.dart';
@@ -8,6 +9,8 @@ part 'generated/author.g.dart';
 /// See [Author](https://api.audiobookshelf.org/#author)
 @freezed
 class Author with _$Author {
+  const Author._();
+
   @jsonConverters
   const factory Author({
     required String id,
@@ -39,5 +42,44 @@ class Author with _$Author {
     required int numBooks,
   }) = AuthorExpanded;
 
-  factory Author.fromJson(Map<String, dynamic> json) => _$AuthorFromJson(json);
+  factory Author.fromJson(Map<String, dynamic> json) =>
+      AuthorConverter().fromJson(json);
+
+  SchemaVariant get variant {
+    return map(
+      (_) => SchemaVariant.base,
+      minified: (_) => SchemaVariant.minified,
+      expanded: (_) => SchemaVariant.expanded,
+    );
+  }
+}
+
+class AuthorConverter implements JsonConverter<Author, Map<String, dynamic>> {
+  const AuthorConverter();
+
+  @override
+  Author fromJson(Map<String, dynamic> json) {
+    if (json.containsKey('runtimeType')) return _$AuthorFromJson(json);
+
+    final SchemaVariant variant;
+    if (json.containsKey('numBooks')) {
+      variant = SchemaVariant.expanded;
+    } else if (json.containsKey('addedAt')) {
+      variant = SchemaVariant.base;
+    } else {
+      variant = SchemaVariant.minified;
+    }
+
+    switch (variant) {
+      case SchemaVariant.base:
+        return _$AuthorFromJson(json);
+      case SchemaVariant.minified:
+        return AuthorMinified.fromJson(json);
+      case SchemaVariant.expanded:
+        return AuthorExpanded.fromJson(json);
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(Author object) => object.toJson();
 }
