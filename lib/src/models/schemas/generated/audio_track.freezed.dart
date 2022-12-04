@@ -21,20 +21,12 @@ AudioTrack _$AudioTrackFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AudioTrack {
   int get index => throw _privateConstructorUsedError;
-  String get ino => throw _privateConstructorUsedError;
-  String get path => throw _privateConstructorUsedError;
-  String get fullPath => throw _privateConstructorUsedError;
-  String get ext => throw _privateConstructorUsedError;
-  String get filename => throw _privateConstructorUsedError;
-  String get format => throw _privateConstructorUsedError;
+  Duration get startOffset => throw _privateConstructorUsedError;
   Duration get duration => throw _privateConstructorUsedError;
-  int get size => throw _privateConstructorUsedError;
-  int get bitRate => throw _privateConstructorUsedError;
-  String? get language => throw _privateConstructorUsedError;
-  String get codec => throw _privateConstructorUsedError;
-  String get timeBase => throw _privateConstructorUsedError;
-  int get channels => throw _privateConstructorUsedError;
-  String get channelLayout => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
+  String get contentUrl => throw _privateConstructorUsedError;
+  http_parser.MediaType get mimeType => throw _privateConstructorUsedError;
+  FileMetadata? get metadata => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,20 +42,14 @@ abstract class $AudioTrackCopyWith<$Res> {
   @useResult
   $Res call(
       {int index,
-      String ino,
-      String path,
-      String fullPath,
-      String ext,
-      String filename,
-      String format,
+      Duration startOffset,
       Duration duration,
-      int size,
-      int bitRate,
-      String? language,
-      String codec,
-      String timeBase,
-      int channels,
-      String channelLayout});
+      String title,
+      String contentUrl,
+      http_parser.MediaType mimeType,
+      FileMetadata? metadata});
+
+  $FileMetadataCopyWith<$Res>? get metadata;
 }
 
 /// @nodoc
@@ -80,83 +66,55 @@ class _$AudioTrackCopyWithImpl<$Res, $Val extends AudioTrack>
   @override
   $Res call({
     Object? index = null,
-    Object? ino = null,
-    Object? path = null,
-    Object? fullPath = null,
-    Object? ext = null,
-    Object? filename = null,
-    Object? format = null,
+    Object? startOffset = null,
     Object? duration = null,
-    Object? size = null,
-    Object? bitRate = null,
-    Object? language = freezed,
-    Object? codec = null,
-    Object? timeBase = null,
-    Object? channels = null,
-    Object? channelLayout = null,
+    Object? title = null,
+    Object? contentUrl = null,
+    Object? mimeType = null,
+    Object? metadata = freezed,
   }) {
     return _then(_value.copyWith(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      ino: null == ino
-          ? _value.ino
-          : ino // ignore: cast_nullable_to_non_nullable
-              as String,
-      path: null == path
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String,
-      fullPath: null == fullPath
-          ? _value.fullPath
-          : fullPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      ext: null == ext
-          ? _value.ext
-          : ext // ignore: cast_nullable_to_non_nullable
-              as String,
-      filename: null == filename
-          ? _value.filename
-          : filename // ignore: cast_nullable_to_non_nullable
-              as String,
-      format: null == format
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as String,
+      startOffset: null == startOffset
+          ? _value.startOffset
+          : startOffset // ignore: cast_nullable_to_non_nullable
+              as Duration,
       duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      bitRate: null == bitRate
-          ? _value.bitRate
-          : bitRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      codec: null == codec
-          ? _value.codec
-          : codec // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
-      timeBase: null == timeBase
-          ? _value.timeBase
-          : timeBase // ignore: cast_nullable_to_non_nullable
+      contentUrl: null == contentUrl
+          ? _value.contentUrl
+          : contentUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      channels: null == channels
-          ? _value.channels
-          : channels // ignore: cast_nullable_to_non_nullable
-              as int,
-      channelLayout: null == channelLayout
-          ? _value.channelLayout
-          : channelLayout // ignore: cast_nullable_to_non_nullable
-              as String,
+      mimeType: null == mimeType
+          ? _value.mimeType
+          : mimeType // ignore: cast_nullable_to_non_nullable
+              as http_parser.MediaType,
+      metadata: freezed == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as FileMetadata?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FileMetadataCopyWith<$Res>? get metadata {
+    if (_value.metadata == null) {
+      return null;
+    }
+
+    return $FileMetadataCopyWith<$Res>(_value.metadata!, (value) {
+      return _then(_value.copyWith(metadata: value) as $Val);
+    });
   }
 }
 
@@ -170,20 +128,15 @@ abstract class _$$_AudioTrackCopyWith<$Res>
   @useResult
   $Res call(
       {int index,
-      String ino,
-      String path,
-      String fullPath,
-      String ext,
-      String filename,
-      String format,
+      Duration startOffset,
       Duration duration,
-      int size,
-      int bitRate,
-      String? language,
-      String codec,
-      String timeBase,
-      int channels,
-      String channelLayout});
+      String title,
+      String contentUrl,
+      http_parser.MediaType mimeType,
+      FileMetadata? metadata});
+
+  @override
+  $FileMetadataCopyWith<$Res>? get metadata;
 }
 
 /// @nodoc
@@ -198,105 +151,58 @@ class __$$_AudioTrackCopyWithImpl<$Res>
   @override
   $Res call({
     Object? index = null,
-    Object? ino = null,
-    Object? path = null,
-    Object? fullPath = null,
-    Object? ext = null,
-    Object? filename = null,
-    Object? format = null,
+    Object? startOffset = null,
     Object? duration = null,
-    Object? size = null,
-    Object? bitRate = null,
-    Object? language = freezed,
-    Object? codec = null,
-    Object? timeBase = null,
-    Object? channels = null,
-    Object? channelLayout = null,
+    Object? title = null,
+    Object? contentUrl = null,
+    Object? mimeType = null,
+    Object? metadata = freezed,
   }) {
     return _then(_$_AudioTrack(
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
               as int,
-      ino: null == ino
-          ? _value.ino
-          : ino // ignore: cast_nullable_to_non_nullable
-              as String,
-      path: null == path
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as String,
-      fullPath: null == fullPath
-          ? _value.fullPath
-          : fullPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      ext: null == ext
-          ? _value.ext
-          : ext // ignore: cast_nullable_to_non_nullable
-              as String,
-      filename: null == filename
-          ? _value.filename
-          : filename // ignore: cast_nullable_to_non_nullable
-              as String,
-      format: null == format
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as String,
+      startOffset: null == startOffset
+          ? _value.startOffset
+          : startOffset // ignore: cast_nullable_to_non_nullable
+              as Duration,
       duration: null == duration
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration,
-      size: null == size
-          ? _value.size
-          : size // ignore: cast_nullable_to_non_nullable
-              as int,
-      bitRate: null == bitRate
-          ? _value.bitRate
-          : bitRate // ignore: cast_nullable_to_non_nullable
-              as int,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      codec: null == codec
-          ? _value.codec
-          : codec // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
-      timeBase: null == timeBase
-          ? _value.timeBase
-          : timeBase // ignore: cast_nullable_to_non_nullable
+      contentUrl: null == contentUrl
+          ? _value.contentUrl
+          : contentUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      channels: null == channels
-          ? _value.channels
-          : channels // ignore: cast_nullable_to_non_nullable
-              as int,
-      channelLayout: null == channelLayout
-          ? _value.channelLayout
-          : channelLayout // ignore: cast_nullable_to_non_nullable
-              as String,
+      mimeType: null == mimeType
+          ? _value.mimeType
+          : mimeType // ignore: cast_nullable_to_non_nullable
+              as http_parser.MediaType,
+      metadata: freezed == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as FileMetadata?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$_AudioTrack implements _AudioTrack {
   const _$_AudioTrack(
       {required this.index,
-      required this.ino,
-      required this.path,
-      required this.fullPath,
-      required this.ext,
-      required this.filename,
-      required this.format,
+      required this.startOffset,
       required this.duration,
-      required this.size,
-      required this.bitRate,
-      required this.language,
-      required this.codec,
-      required this.timeBase,
-      required this.channels,
-      required this.channelLayout});
+      required this.title,
+      required this.contentUrl,
+      required this.mimeType,
+      this.metadata});
 
   factory _$_AudioTrack.fromJson(Map<String, dynamic> json) =>
       _$$_AudioTrackFromJson(json);
@@ -304,37 +210,21 @@ class _$_AudioTrack implements _AudioTrack {
   @override
   final int index;
   @override
-  final String ino;
-  @override
-  final String path;
-  @override
-  final String fullPath;
-  @override
-  final String ext;
-  @override
-  final String filename;
-  @override
-  final String format;
+  final Duration startOffset;
   @override
   final Duration duration;
   @override
-  final int size;
+  final String title;
   @override
-  final int bitRate;
+  final String contentUrl;
   @override
-  final String? language;
+  final http_parser.MediaType mimeType;
   @override
-  final String codec;
-  @override
-  final String timeBase;
-  @override
-  final int channels;
-  @override
-  final String channelLayout;
+  final FileMetadata? metadata;
 
   @override
   String toString() {
-    return 'AudioTrack(index: $index, ino: $ino, path: $path, fullPath: $fullPath, ext: $ext, filename: $filename, format: $format, duration: $duration, size: $size, bitRate: $bitRate, language: $language, codec: $codec, timeBase: $timeBase, channels: $channels, channelLayout: $channelLayout)';
+    return 'AudioTrack(index: $index, startOffset: $startOffset, duration: $duration, title: $title, contentUrl: $contentUrl, mimeType: $mimeType, metadata: $metadata)';
   }
 
   @override
@@ -343,48 +233,23 @@ class _$_AudioTrack implements _AudioTrack {
         (other.runtimeType == runtimeType &&
             other is _$_AudioTrack &&
             (identical(other.index, index) || other.index == index) &&
-            (identical(other.ino, ino) || other.ino == ino) &&
-            (identical(other.path, path) || other.path == path) &&
-            (identical(other.fullPath, fullPath) ||
-                other.fullPath == fullPath) &&
-            (identical(other.ext, ext) || other.ext == ext) &&
-            (identical(other.filename, filename) ||
-                other.filename == filename) &&
-            (identical(other.format, format) || other.format == format) &&
+            (identical(other.startOffset, startOffset) ||
+                other.startOffset == startOffset) &&
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
-            (identical(other.size, size) || other.size == size) &&
-            (identical(other.bitRate, bitRate) || other.bitRate == bitRate) &&
-            (identical(other.language, language) ||
-                other.language == language) &&
-            (identical(other.codec, codec) || other.codec == codec) &&
-            (identical(other.timeBase, timeBase) ||
-                other.timeBase == timeBase) &&
-            (identical(other.channels, channels) ||
-                other.channels == channels) &&
-            (identical(other.channelLayout, channelLayout) ||
-                other.channelLayout == channelLayout));
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.contentUrl, contentUrl) ||
+                other.contentUrl == contentUrl) &&
+            (identical(other.mimeType, mimeType) ||
+                other.mimeType == mimeType) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      index,
-      ino,
-      path,
-      fullPath,
-      ext,
-      filename,
-      format,
-      duration,
-      size,
-      bitRate,
-      language,
-      codec,
-      timeBase,
-      channels,
-      channelLayout);
+  int get hashCode => Object.hash(runtimeType, index, startOffset, duration,
+      title, contentUrl, mimeType, metadata);
 
   @JsonKey(ignore: true)
   @override
@@ -403,20 +268,12 @@ class _$_AudioTrack implements _AudioTrack {
 abstract class _AudioTrack implements AudioTrack {
   const factory _AudioTrack(
       {required final int index,
-      required final String ino,
-      required final String path,
-      required final String fullPath,
-      required final String ext,
-      required final String filename,
-      required final String format,
+      required final Duration startOffset,
       required final Duration duration,
-      required final int size,
-      required final int bitRate,
-      required final String? language,
-      required final String codec,
-      required final String timeBase,
-      required final int channels,
-      required final String channelLayout}) = _$_AudioTrack;
+      required final String title,
+      required final String contentUrl,
+      required final http_parser.MediaType mimeType,
+      final FileMetadata? metadata}) = _$_AudioTrack;
 
   factory _AudioTrack.fromJson(Map<String, dynamic> json) =
       _$_AudioTrack.fromJson;
@@ -424,33 +281,17 @@ abstract class _AudioTrack implements AudioTrack {
   @override
   int get index;
   @override
-  String get ino;
-  @override
-  String get path;
-  @override
-  String get fullPath;
-  @override
-  String get ext;
-  @override
-  String get filename;
-  @override
-  String get format;
+  Duration get startOffset;
   @override
   Duration get duration;
   @override
-  int get size;
+  String get title;
   @override
-  int get bitRate;
+  String get contentUrl;
   @override
-  String? get language;
+  http_parser.MediaType get mimeType;
   @override
-  String get codec;
-  @override
-  String get timeBase;
-  @override
-  int get channels;
-  @override
-  String get channelLayout;
+  FileMetadata? get metadata;
   @override
   @JsonKey(ignore: true)
   _$$_AudioTrackCopyWith<_$_AudioTrack> get copyWith =>

@@ -9,37 +9,29 @@ part of '../audio_track.dart';
 _$_AudioTrack _$$_AudioTrackFromJson(Map<String, dynamic> json) =>
     _$_AudioTrack(
       index: json['index'] as int,
-      ino: json['ino'] as String,
-      path: json['path'] as String,
-      fullPath: json['fullPath'] as String,
-      ext: json['ext'] as String,
-      filename: json['filename'] as String,
-      format: json['format'] as String,
-      duration: Duration(microseconds: json['duration'] as int),
-      size: json['size'] as int,
-      bitRate: json['bitRate'] as int,
-      language: json['language'] as String?,
-      codec: json['codec'] as String,
-      timeBase: json['timeBase'] as String,
-      channels: json['channels'] as int,
-      channelLayout: json['channelLayout'] as String,
+      startOffset: const DurationPreciseSecondsConverter()
+          .fromJson(json['startOffset'] as double),
+      duration: const DurationPreciseSecondsConverter()
+          .fromJson(json['duration'] as double),
+      title: json['title'] as String,
+      contentUrl: json['contentUrl'] as String,
+      mimeType: const HttpParserMediaTypeConverter()
+          .fromJson(json['mimeType'] as String),
+      metadata: json['metadata'] == null
+          ? null
+          : FileMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_AudioTrackToJson(_$_AudioTrack instance) =>
     <String, dynamic>{
       'index': instance.index,
-      'ino': instance.ino,
-      'path': instance.path,
-      'fullPath': instance.fullPath,
-      'ext': instance.ext,
-      'filename': instance.filename,
-      'format': instance.format,
-      'duration': instance.duration.inMicroseconds,
-      'size': instance.size,
-      'bitRate': instance.bitRate,
-      'language': instance.language,
-      'codec': instance.codec,
-      'timeBase': instance.timeBase,
-      'channels': instance.channels,
-      'channelLayout': instance.channelLayout,
+      'startOffset':
+          const DurationPreciseSecondsConverter().toJson(instance.startOffset),
+      'duration':
+          const DurationPreciseSecondsConverter().toJson(instance.duration),
+      'title': instance.title,
+      'contentUrl': instance.contentUrl,
+      'mimeType':
+          const HttpParserMediaTypeConverter().toJson(instance.mimeType),
+      'metadata': instance.metadata,
     };

@@ -1,26 +1,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:http_parser/http_parser.dart' as http_parser;
+
+import '../../utils/json_converters.dart';
+import 'file_metadata.dart';
 
 part 'generated/audio_track.freezed.dart';
 part 'generated/audio_track.g.dart';
 
+/// See [Audio Track](https://api.audiobookshelf.org/#audio-track)
 @freezed
 class AudioTrack with _$AudioTrack {
+  @jsonConverters
   const factory AudioTrack({
     required int index,
-    required String ino,
-    required String path,
-    required String fullPath,
-    required String ext,
-    required String filename,
-    required String format,
+    required Duration startOffset,
     required Duration duration,
-    required int size,
-    required int bitRate,
-    required String? language,
-    required String codec,
-    required String timeBase,
-    required int channels,
-    required String channelLayout,
+    required String title,
+    required String contentUrl,
+    required http_parser.MediaType mimeType,
+    FileMetadata? metadata,
   }) = _AudioTrack;
 
   factory AudioTrack.fromJson(Map<String, dynamic> json) =>
