@@ -8,22 +8,68 @@ part of '../author.dart';
 
 _$_Author _$$_AuthorFromJson(Map<String, dynamic> json) => _$_Author(
       id: json['id'] as String,
-      name: json['name'] as String,
-      updatedAt: json['updatedAt'] as int?,
-      imagePath: json['imagePath'] as String?,
-      description: json['description'] as String?,
       asin: json['asin'] as String?,
-      numBooks: json['numBooks'] as int?,
-      addedAt: json['addedAt'] as int?,
+      name: json['name'] as String,
+      description: json['description'] as String?,
+      imagePath: json['imagePath'] as String?,
+      relImagePath: json['relImagePath'] as String?,
+      addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
+      updatedAt:
+          const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
+      $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$_AuthorToJson(_$_Author instance) => <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
-      'updatedAt': instance.updatedAt,
-      'imagePath': instance.imagePath,
-      'description': instance.description,
       'asin': instance.asin,
+      'name': instance.name,
+      'description': instance.description,
+      'imagePath': instance.imagePath,
+      'relImagePath': instance.relImagePath,
+      'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
+      'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
+      'runtimeType': instance.$type,
+    };
+
+_$AuthorMinified _$$AuthorMinifiedFromJson(Map<String, dynamic> json) =>
+    _$AuthorMinified(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$AuthorMinifiedToJson(_$AuthorMinified instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'runtimeType': instance.$type,
+    };
+
+_$AuthorExpanded _$$AuthorExpandedFromJson(Map<String, dynamic> json) =>
+    _$AuthorExpanded(
+      id: json['id'] as String,
+      asin: json['asin'] as String?,
+      name: json['name'] as String,
+      description: json['description'] as String?,
+      imagePath: json['imagePath'] as String?,
+      relImagePath: json['relImagePath'] as String?,
+      addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
+      updatedAt:
+          const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
+      numBooks: json['numBooks'] as int,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$AuthorExpandedToJson(_$AuthorExpanded instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'asin': instance.asin,
+      'name': instance.name,
+      'description': instance.description,
+      'imagePath': instance.imagePath,
+      'relImagePath': instance.relImagePath,
+      'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
+      'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
       'numBooks': instance.numBooks,
-      'addedAt': instance.addedAt,
+      'runtimeType': instance.$type,
     };
