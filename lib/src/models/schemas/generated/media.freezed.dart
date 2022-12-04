@@ -37,7 +37,9 @@ Media _$MediaFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Media {
+  MediaMetadata get metadata => throw _privateConstructorUsedError;
   String? get coverPath => throw _privateConstructorUsedError;
+  List<String> get tags => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -76,9 +78,42 @@ mixin _$Media {
             List<int> missingParts,
             EBookFile? ebookFile)
         bookExpanded,
-    required TResult Function(String libraryItemId, String? coverPath) podcast,
-    required TResult Function(String? coverPath) podcastMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)
+        podcast,
+    required TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
         podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
@@ -120,9 +155,43 @@ mixin _$Media {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult? Function(String libraryItemId, String? coverPath)? podcast,
-    TResult? Function(String? coverPath)? podcastMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult? Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -163,9 +232,43 @@ mixin _$Media {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult Function(String libraryItemId, String? coverPath)? podcast,
-    TResult Function(String? coverPath)? podcastMinified,
-    TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -210,7 +313,7 @@ abstract class $MediaCopyWith<$Res> {
   factory $MediaCopyWith(Media value, $Res Function(Media) then) =
       _$MediaCopyWithImpl<$Res, Media>;
   @useResult
-  $Res call({String? coverPath});
+  $Res call({String? coverPath, List<String> tags});
 }
 
 /// @nodoc
@@ -227,12 +330,17 @@ class _$MediaCopyWithImpl<$Res, $Val extends Media>
   @override
   $Res call({
     Object? coverPath = freezed,
+    Object? tags = null,
   }) {
     return _then(_value.copyWith(
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      tags: null == tags
+          ? _value.tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -473,9 +581,42 @@ class _$Book extends Book {
             List<int> missingParts,
             EBookFile? ebookFile)
         bookExpanded,
-    required TResult Function(String libraryItemId, String? coverPath) podcast,
-    required TResult Function(String? coverPath) podcastMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)
+        podcast,
+    required TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
         podcastExpanded,
   }) {
     return book(libraryItemId, metadata, coverPath, tags, audioFiles, chapters,
@@ -521,9 +662,43 @@ class _$Book extends Book {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult? Function(String libraryItemId, String? coverPath)? podcast,
-    TResult? Function(String? coverPath)? podcastMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult? Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
   }) {
     return book?.call(libraryItemId, metadata, coverPath, tags, audioFiles,
         chapters, missingParts, ebookFile);
@@ -568,9 +743,43 @@ class _$Book extends Book {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult Function(String libraryItemId, String? coverPath)? podcast,
-    TResult Function(String? coverPath)? podcastMinified,
-    TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (book != null) {
@@ -646,9 +855,11 @@ abstract class Book extends Media {
   factory Book.fromJson(Map<String, dynamic> json) = _$Book.fromJson;
 
   String get libraryItemId;
+  @override
   BookMetadata get metadata;
   @override
   String? get coverPath;
+  @override
   List<String> get tags;
   List<AudioFile> get audioFiles;
   List<BookChapter> get chapters;
@@ -901,9 +1112,42 @@ class _$BookMinified extends BookMinified {
             List<int> missingParts,
             EBookFile? ebookFile)
         bookExpanded,
-    required TResult Function(String libraryItemId, String? coverPath) podcast,
-    required TResult Function(String? coverPath) podcastMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)
+        podcast,
+    required TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
         podcastExpanded,
   }) {
     return bookMinified(
@@ -959,9 +1203,43 @@ class _$BookMinified extends BookMinified {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult? Function(String libraryItemId, String? coverPath)? podcast,
-    TResult? Function(String? coverPath)? podcastMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult? Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
   }) {
     return bookMinified?.call(
         metadata,
@@ -1016,9 +1294,43 @@ class _$BookMinified extends BookMinified {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult Function(String libraryItemId, String? coverPath)? podcast,
-    TResult Function(String? coverPath)? podcastMinified,
-    TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookMinified != null) {
@@ -1107,9 +1419,11 @@ abstract class BookMinified extends Media {
   factory BookMinified.fromJson(Map<String, dynamic> json) =
       _$BookMinified.fromJson;
 
+  @override
   BookMetadataMinified get metadata;
   @override
   String? get coverPath;
+  @override
   List<String> get tags;
   int get numTracks;
   int get numAudioFiles;
@@ -1407,9 +1721,42 @@ class _$BookExpanded extends BookExpanded {
             List<int> missingParts,
             EBookFile? ebookFile)
         bookExpanded,
-    required TResult Function(String libraryItemId, String? coverPath) podcast,
-    required TResult Function(String? coverPath) podcastMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)
+        podcast,
+    required TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
         podcastExpanded,
   }) {
     return bookExpanded(libraryItemId, metadata, coverPath, tags, audioFiles,
@@ -1455,9 +1802,43 @@ class _$BookExpanded extends BookExpanded {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult? Function(String libraryItemId, String? coverPath)? podcast,
-    TResult? Function(String? coverPath)? podcastMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult? Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
   }) {
     return bookExpanded?.call(libraryItemId, metadata, coverPath, tags,
         audioFiles, chapters, duration, size, tracks, missingParts, ebookFile);
@@ -1502,9 +1883,43 @@ class _$BookExpanded extends BookExpanded {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult Function(String libraryItemId, String? coverPath)? podcast,
-    TResult Function(String? coverPath)? podcastMinified,
-    TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookExpanded != null) {
@@ -1584,9 +1999,11 @@ abstract class BookExpanded extends Media {
       _$BookExpanded.fromJson;
 
   String get libraryItemId;
+  @override
   BookMetadataExpanded get metadata;
   @override
   String? get coverPath;
+  @override
   List<String> get tags;
   List<AudioFile> get audioFiles;
   List<BookChapter> get chapters;
@@ -1607,7 +2024,17 @@ abstract class _$$PodcastCopyWith<$Res> implements $MediaCopyWith<$Res> {
       __$$PodcastCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String libraryItemId, String? coverPath});
+  $Res call(
+      {String libraryItemId,
+      PodcastMetadata metadata,
+      String? coverPath,
+      List<String> tags,
+      List<PodcastEpisode> episodes,
+      bool autoDownloadEpisodes,
+      String autoDownloadSchedule,
+      DateTime lastEpisodeCheck,
+      int maxEpisodesToKeep,
+      int maxNewEpisodesToDownload});
 }
 
 /// @nodoc
@@ -1620,27 +2047,80 @@ class __$$PodcastCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$Podcast>
   @override
   $Res call({
     Object? libraryItemId = null,
+    Object? metadata = null,
     Object? coverPath = freezed,
+    Object? tags = null,
+    Object? episodes = null,
+    Object? autoDownloadEpisodes = null,
+    Object? autoDownloadSchedule = null,
+    Object? lastEpisodeCheck = null,
+    Object? maxEpisodesToKeep = null,
+    Object? maxNewEpisodesToDownload = null,
   }) {
     return _then(_$Podcast(
       libraryItemId: null == libraryItemId
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as PodcastMetadata,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      tags: null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      episodes: null == episodes
+          ? _value._episodes
+          : episodes // ignore: cast_nullable_to_non_nullable
+              as List<PodcastEpisode>,
+      autoDownloadEpisodes: null == autoDownloadEpisodes
+          ? _value.autoDownloadEpisodes
+          : autoDownloadEpisodes // ignore: cast_nullable_to_non_nullable
+              as bool,
+      autoDownloadSchedule: null == autoDownloadSchedule
+          ? _value.autoDownloadSchedule
+          : autoDownloadSchedule // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastEpisodeCheck: null == lastEpisodeCheck
+          ? _value.lastEpisodeCheck
+          : lastEpisodeCheck // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      maxEpisodesToKeep: null == maxEpisodesToKeep
+          ? _value.maxEpisodesToKeep
+          : maxEpisodesToKeep // ignore: cast_nullable_to_non_nullable
+              as int,
+      maxNewEpisodesToDownload: null == maxNewEpisodesToDownload
+          ? _value.maxNewEpisodesToDownload
+          : maxNewEpisodesToDownload // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$Podcast extends Podcast {
   const _$Podcast(
-      {required this.libraryItemId, this.coverPath, final String? $type})
-      : $type = $type ?? 'podcast',
+      {required this.libraryItemId,
+      required this.metadata,
+      this.coverPath,
+      required final List<String> tags,
+      required final List<PodcastEpisode> episodes,
+      required this.autoDownloadEpisodes,
+      required this.autoDownloadSchedule,
+      required this.lastEpisodeCheck,
+      required this.maxEpisodesToKeep,
+      required this.maxNewEpisodesToDownload,
+      final String? $type})
+      : _tags = tags,
+        _episodes = episodes,
+        $type = $type ?? 'podcast',
         super._();
 
   factory _$Podcast.fromJson(Map<String, dynamic> json) =>
@@ -1649,14 +2129,42 @@ class _$Podcast extends Podcast {
   @override
   final String libraryItemId;
   @override
+  final PodcastMetadata metadata;
+  @override
   final String? coverPath;
+  final List<String> _tags;
+  @override
+  List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
+  final List<PodcastEpisode> _episodes;
+  @override
+  List<PodcastEpisode> get episodes {
+    if (_episodes is EqualUnmodifiableListView) return _episodes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_episodes);
+  }
+
+  @override
+  final bool autoDownloadEpisodes;
+  @override
+  final String autoDownloadSchedule;
+  @override
+  final DateTime lastEpisodeCheck;
+  @override
+  final int maxEpisodesToKeep;
+  @override
+  final int maxNewEpisodesToDownload;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Media.podcast(libraryItemId: $libraryItemId, coverPath: $coverPath)';
+    return 'Media.podcast(libraryItemId: $libraryItemId, metadata: $metadata, coverPath: $coverPath, tags: $tags, episodes: $episodes, autoDownloadEpisodes: $autoDownloadEpisodes, autoDownloadSchedule: $autoDownloadSchedule, lastEpisodeCheck: $lastEpisodeCheck, maxEpisodesToKeep: $maxEpisodesToKeep, maxNewEpisodesToDownload: $maxNewEpisodesToDownload)';
   }
 
   @override
@@ -1666,13 +2174,39 @@ class _$Podcast extends Podcast {
             other is _$Podcast &&
             (identical(other.libraryItemId, libraryItemId) ||
                 other.libraryItemId == libraryItemId) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata) &&
             (identical(other.coverPath, coverPath) ||
-                other.coverPath == coverPath));
+                other.coverPath == coverPath) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            const DeepCollectionEquality().equals(other._episodes, _episodes) &&
+            (identical(other.autoDownloadEpisodes, autoDownloadEpisodes) ||
+                other.autoDownloadEpisodes == autoDownloadEpisodes) &&
+            (identical(other.autoDownloadSchedule, autoDownloadSchedule) ||
+                other.autoDownloadSchedule == autoDownloadSchedule) &&
+            (identical(other.lastEpisodeCheck, lastEpisodeCheck) ||
+                other.lastEpisodeCheck == lastEpisodeCheck) &&
+            (identical(other.maxEpisodesToKeep, maxEpisodesToKeep) ||
+                other.maxEpisodesToKeep == maxEpisodesToKeep) &&
+            (identical(
+                    other.maxNewEpisodesToDownload, maxNewEpisodesToDownload) ||
+                other.maxNewEpisodesToDownload == maxNewEpisodesToDownload));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, libraryItemId, coverPath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      libraryItemId,
+      metadata,
+      coverPath,
+      const DeepCollectionEquality().hash(_tags),
+      const DeepCollectionEquality().hash(_episodes),
+      autoDownloadEpisodes,
+      autoDownloadSchedule,
+      lastEpisodeCheck,
+      maxEpisodesToKeep,
+      maxNewEpisodesToDownload);
 
   @JsonKey(ignore: true)
   @override
@@ -1719,12 +2253,55 @@ class _$Podcast extends Podcast {
             List<int> missingParts,
             EBookFile? ebookFile)
         bookExpanded,
-    required TResult Function(String libraryItemId, String? coverPath) podcast,
-    required TResult Function(String? coverPath) podcastMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)
+        podcast,
+    required TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
         podcastExpanded,
   }) {
-    return podcast(libraryItemId, coverPath);
+    return podcast(
+        libraryItemId,
+        metadata,
+        coverPath,
+        tags,
+        episodes,
+        autoDownloadEpisodes,
+        autoDownloadSchedule,
+        lastEpisodeCheck,
+        maxEpisodesToKeep,
+        maxNewEpisodesToDownload);
   }
 
   @override
@@ -1766,11 +2343,55 @@ class _$Podcast extends Podcast {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult? Function(String libraryItemId, String? coverPath)? podcast,
-    TResult? Function(String? coverPath)? podcastMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult? Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
   }) {
-    return podcast?.call(libraryItemId, coverPath);
+    return podcast?.call(
+        libraryItemId,
+        metadata,
+        coverPath,
+        tags,
+        episodes,
+        autoDownloadEpisodes,
+        autoDownloadSchedule,
+        lastEpisodeCheck,
+        maxEpisodesToKeep,
+        maxNewEpisodesToDownload);
   }
 
   @override
@@ -1812,13 +2433,57 @@ class _$Podcast extends Podcast {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult Function(String libraryItemId, String? coverPath)? podcast,
-    TResult Function(String? coverPath)? podcastMinified,
-    TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (podcast != null) {
-      return podcast(libraryItemId, coverPath);
+      return podcast(
+          libraryItemId,
+          metadata,
+          coverPath,
+          tags,
+          episodes,
+          autoDownloadEpisodes,
+          autoDownloadSchedule,
+          lastEpisodeCheck,
+          maxEpisodesToKeep,
+          maxNewEpisodesToDownload);
     }
     return orElse();
   }
@@ -1877,14 +2542,32 @@ class _$Podcast extends Podcast {
 abstract class Podcast extends Media {
   const factory Podcast(
       {required final String libraryItemId,
-      final String? coverPath}) = _$Podcast;
+      required final PodcastMetadata metadata,
+      final String? coverPath,
+      required final List<String> tags,
+      required final List<PodcastEpisode> episodes,
+      required final bool autoDownloadEpisodes,
+      required final String autoDownloadSchedule,
+      required final DateTime lastEpisodeCheck,
+      required final int maxEpisodesToKeep,
+      required final int maxNewEpisodesToDownload}) = _$Podcast;
   const Podcast._() : super._();
 
   factory Podcast.fromJson(Map<String, dynamic> json) = _$Podcast.fromJson;
 
   String get libraryItemId;
   @override
+  PodcastMetadata get metadata;
+  @override
   String? get coverPath;
+  @override
+  List<String> get tags;
+  List<PodcastEpisode> get episodes;
+  bool get autoDownloadEpisodes;
+  String get autoDownloadSchedule;
+  DateTime get lastEpisodeCheck;
+  int get maxEpisodesToKeep;
+  int get maxNewEpisodesToDownload;
   @override
   @JsonKey(ignore: true)
   _$$PodcastCopyWith<_$Podcast> get copyWith =>
@@ -1899,7 +2582,17 @@ abstract class _$$PodcastMinifiedCopyWith<$Res>
       __$$PodcastMinifiedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? coverPath});
+  $Res call(
+      {PodcastMetadataMinified metadata,
+      String? coverPath,
+      List<String> tags,
+      int numEpisodes,
+      bool autoDownloadEpisodes,
+      String autoDownloadSchedule,
+      DateTime lastEpisodeCheck,
+      int maxEpisodesToKeep,
+      int maxNewEpisodesToDownload,
+      int size});
 }
 
 /// @nodoc
@@ -1913,36 +2606,118 @@ class __$$PodcastMinifiedCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? metadata = null,
     Object? coverPath = freezed,
+    Object? tags = null,
+    Object? numEpisodes = null,
+    Object? autoDownloadEpisodes = null,
+    Object? autoDownloadSchedule = null,
+    Object? lastEpisodeCheck = null,
+    Object? maxEpisodesToKeep = null,
+    Object? maxNewEpisodesToDownload = null,
+    Object? size = null,
   }) {
     return _then(_$PodcastMinified(
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as PodcastMetadataMinified,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      tags: null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      numEpisodes: null == numEpisodes
+          ? _value.numEpisodes
+          : numEpisodes // ignore: cast_nullable_to_non_nullable
+              as int,
+      autoDownloadEpisodes: null == autoDownloadEpisodes
+          ? _value.autoDownloadEpisodes
+          : autoDownloadEpisodes // ignore: cast_nullable_to_non_nullable
+              as bool,
+      autoDownloadSchedule: null == autoDownloadSchedule
+          ? _value.autoDownloadSchedule
+          : autoDownloadSchedule // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastEpisodeCheck: null == lastEpisodeCheck
+          ? _value.lastEpisodeCheck
+          : lastEpisodeCheck // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      maxEpisodesToKeep: null == maxEpisodesToKeep
+          ? _value.maxEpisodesToKeep
+          : maxEpisodesToKeep // ignore: cast_nullable_to_non_nullable
+              as int,
+      maxNewEpisodesToDownload: null == maxNewEpisodesToDownload
+          ? _value.maxNewEpisodesToDownload
+          : maxNewEpisodesToDownload // ignore: cast_nullable_to_non_nullable
+              as int,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$PodcastMinified extends PodcastMinified {
-  const _$PodcastMinified({this.coverPath, final String? $type})
-      : $type = $type ?? 'podcastMinified',
+  const _$PodcastMinified(
+      {required this.metadata,
+      this.coverPath,
+      required final List<String> tags,
+      required this.numEpisodes,
+      required this.autoDownloadEpisodes,
+      required this.autoDownloadSchedule,
+      required this.lastEpisodeCheck,
+      required this.maxEpisodesToKeep,
+      required this.maxNewEpisodesToDownload,
+      required this.size,
+      final String? $type})
+      : _tags = tags,
+        $type = $type ?? 'podcastMinified',
         super._();
 
   factory _$PodcastMinified.fromJson(Map<String, dynamic> json) =>
       _$$PodcastMinifiedFromJson(json);
 
   @override
+  final PodcastMetadataMinified metadata;
+  @override
   final String? coverPath;
+  final List<String> _tags;
+  @override
+  List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
+  @override
+  final int numEpisodes;
+  @override
+  final bool autoDownloadEpisodes;
+  @override
+  final String autoDownloadSchedule;
+  @override
+  final DateTime lastEpisodeCheck;
+  @override
+  final int maxEpisodesToKeep;
+  @override
+  final int maxNewEpisodesToDownload;
+  @override
+  final int size;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Media.podcastMinified(coverPath: $coverPath)';
+    return 'Media.podcastMinified(metadata: $metadata, coverPath: $coverPath, tags: $tags, numEpisodes: $numEpisodes, autoDownloadEpisodes: $autoDownloadEpisodes, autoDownloadSchedule: $autoDownloadSchedule, lastEpisodeCheck: $lastEpisodeCheck, maxEpisodesToKeep: $maxEpisodesToKeep, maxNewEpisodesToDownload: $maxNewEpisodesToDownload, size: $size)';
   }
 
   @override
@@ -1950,13 +2725,41 @@ class _$PodcastMinified extends PodcastMinified {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PodcastMinified &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata) &&
             (identical(other.coverPath, coverPath) ||
-                other.coverPath == coverPath));
+                other.coverPath == coverPath) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            (identical(other.numEpisodes, numEpisodes) ||
+                other.numEpisodes == numEpisodes) &&
+            (identical(other.autoDownloadEpisodes, autoDownloadEpisodes) ||
+                other.autoDownloadEpisodes == autoDownloadEpisodes) &&
+            (identical(other.autoDownloadSchedule, autoDownloadSchedule) ||
+                other.autoDownloadSchedule == autoDownloadSchedule) &&
+            (identical(other.lastEpisodeCheck, lastEpisodeCheck) ||
+                other.lastEpisodeCheck == lastEpisodeCheck) &&
+            (identical(other.maxEpisodesToKeep, maxEpisodesToKeep) ||
+                other.maxEpisodesToKeep == maxEpisodesToKeep) &&
+            (identical(
+                    other.maxNewEpisodesToDownload, maxNewEpisodesToDownload) ||
+                other.maxNewEpisodesToDownload == maxNewEpisodesToDownload) &&
+            (identical(other.size, size) || other.size == size));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, coverPath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      metadata,
+      coverPath,
+      const DeepCollectionEquality().hash(_tags),
+      numEpisodes,
+      autoDownloadEpisodes,
+      autoDownloadSchedule,
+      lastEpisodeCheck,
+      maxEpisodesToKeep,
+      maxNewEpisodesToDownload,
+      size);
 
   @JsonKey(ignore: true)
   @override
@@ -2003,12 +2806,55 @@ class _$PodcastMinified extends PodcastMinified {
             List<int> missingParts,
             EBookFile? ebookFile)
         bookExpanded,
-    required TResult Function(String libraryItemId, String? coverPath) podcast,
-    required TResult Function(String? coverPath) podcastMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)
+        podcast,
+    required TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
         podcastExpanded,
   }) {
-    return podcastMinified(coverPath);
+    return podcastMinified(
+        metadata,
+        coverPath,
+        tags,
+        numEpisodes,
+        autoDownloadEpisodes,
+        autoDownloadSchedule,
+        lastEpisodeCheck,
+        maxEpisodesToKeep,
+        maxNewEpisodesToDownload,
+        size);
   }
 
   @override
@@ -2050,11 +2896,55 @@ class _$PodcastMinified extends PodcastMinified {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult? Function(String libraryItemId, String? coverPath)? podcast,
-    TResult? Function(String? coverPath)? podcastMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult? Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
   }) {
-    return podcastMinified?.call(coverPath);
+    return podcastMinified?.call(
+        metadata,
+        coverPath,
+        tags,
+        numEpisodes,
+        autoDownloadEpisodes,
+        autoDownloadSchedule,
+        lastEpisodeCheck,
+        maxEpisodesToKeep,
+        maxNewEpisodesToDownload,
+        size);
   }
 
   @override
@@ -2096,13 +2986,57 @@ class _$PodcastMinified extends PodcastMinified {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult Function(String libraryItemId, String? coverPath)? podcast,
-    TResult Function(String? coverPath)? podcastMinified,
-    TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (podcastMinified != null) {
-      return podcastMinified(coverPath);
+      return podcastMinified(
+          metadata,
+          coverPath,
+          tags,
+          numEpisodes,
+          autoDownloadEpisodes,
+          autoDownloadSchedule,
+          lastEpisodeCheck,
+          maxEpisodesToKeep,
+          maxNewEpisodesToDownload,
+          size);
     }
     return orElse();
   }
@@ -2159,14 +3093,35 @@ class _$PodcastMinified extends PodcastMinified {
 }
 
 abstract class PodcastMinified extends Media {
-  const factory PodcastMinified({final String? coverPath}) = _$PodcastMinified;
+  const factory PodcastMinified(
+      {required final PodcastMetadataMinified metadata,
+      final String? coverPath,
+      required final List<String> tags,
+      required final int numEpisodes,
+      required final bool autoDownloadEpisodes,
+      required final String autoDownloadSchedule,
+      required final DateTime lastEpisodeCheck,
+      required final int maxEpisodesToKeep,
+      required final int maxNewEpisodesToDownload,
+      required final int size}) = _$PodcastMinified;
   const PodcastMinified._() : super._();
 
   factory PodcastMinified.fromJson(Map<String, dynamic> json) =
       _$PodcastMinified.fromJson;
 
   @override
+  PodcastMetadataMinified get metadata;
+  @override
   String? get coverPath;
+  @override
+  List<String> get tags;
+  int get numEpisodes;
+  bool get autoDownloadEpisodes;
+  String get autoDownloadSchedule;
+  DateTime get lastEpisodeCheck;
+  int get maxEpisodesToKeep;
+  int get maxNewEpisodesToDownload;
+  int get size;
   @override
   @JsonKey(ignore: true)
   _$$PodcastMinifiedCopyWith<_$PodcastMinified> get copyWith =>
@@ -2181,7 +3136,18 @@ abstract class _$$PodcastExpandedCopyWith<$Res>
       __$$PodcastExpandedCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String libraryItemId, String? coverPath});
+  $Res call(
+      {String libraryItemId,
+      PodcastMetadataExpanded metadata,
+      String? coverPath,
+      List<String> tags,
+      List<PodcastEpisodeExpanded> episodes,
+      bool autoDownloadEpisodes,
+      String autoDownloadSchedule,
+      DateTime lastEpisodeCheck,
+      int maxEpisodesToKeep,
+      int maxNewEpisodesToDownload,
+      int size});
 }
 
 /// @nodoc
@@ -2196,27 +3162,86 @@ class __$$PodcastExpandedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? libraryItemId = null,
+    Object? metadata = null,
     Object? coverPath = freezed,
+    Object? tags = null,
+    Object? episodes = null,
+    Object? autoDownloadEpisodes = null,
+    Object? autoDownloadSchedule = null,
+    Object? lastEpisodeCheck = null,
+    Object? maxEpisodesToKeep = null,
+    Object? maxNewEpisodesToDownload = null,
+    Object? size = null,
   }) {
     return _then(_$PodcastExpanded(
       libraryItemId: null == libraryItemId
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as PodcastMetadataExpanded,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      tags: null == tags
+          ? _value._tags
+          : tags // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      episodes: null == episodes
+          ? _value._episodes
+          : episodes // ignore: cast_nullable_to_non_nullable
+              as List<PodcastEpisodeExpanded>,
+      autoDownloadEpisodes: null == autoDownloadEpisodes
+          ? _value.autoDownloadEpisodes
+          : autoDownloadEpisodes // ignore: cast_nullable_to_non_nullable
+              as bool,
+      autoDownloadSchedule: null == autoDownloadSchedule
+          ? _value.autoDownloadSchedule
+          : autoDownloadSchedule // ignore: cast_nullable_to_non_nullable
+              as String,
+      lastEpisodeCheck: null == lastEpisodeCheck
+          ? _value.lastEpisodeCheck
+          : lastEpisodeCheck // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      maxEpisodesToKeep: null == maxEpisodesToKeep
+          ? _value.maxEpisodesToKeep
+          : maxEpisodesToKeep // ignore: cast_nullable_to_non_nullable
+              as int,
+      maxNewEpisodesToDownload: null == maxNewEpisodesToDownload
+          ? _value.maxNewEpisodesToDownload
+          : maxNewEpisodesToDownload // ignore: cast_nullable_to_non_nullable
+              as int,
+      size: null == size
+          ? _value.size
+          : size // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$PodcastExpanded extends PodcastExpanded {
   const _$PodcastExpanded(
-      {required this.libraryItemId, this.coverPath, final String? $type})
-      : $type = $type ?? 'podcastExpanded',
+      {required this.libraryItemId,
+      required this.metadata,
+      this.coverPath,
+      required final List<String> tags,
+      required final List<PodcastEpisodeExpanded> episodes,
+      required this.autoDownloadEpisodes,
+      required this.autoDownloadSchedule,
+      required this.lastEpisodeCheck,
+      required this.maxEpisodesToKeep,
+      required this.maxNewEpisodesToDownload,
+      required this.size,
+      final String? $type})
+      : _tags = tags,
+        _episodes = episodes,
+        $type = $type ?? 'podcastExpanded',
         super._();
 
   factory _$PodcastExpanded.fromJson(Map<String, dynamic> json) =>
@@ -2225,14 +3250,44 @@ class _$PodcastExpanded extends PodcastExpanded {
   @override
   final String libraryItemId;
   @override
+  final PodcastMetadataExpanded metadata;
+  @override
   final String? coverPath;
+  final List<String> _tags;
+  @override
+  List<String> get tags {
+    if (_tags is EqualUnmodifiableListView) return _tags;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
+
+  final List<PodcastEpisodeExpanded> _episodes;
+  @override
+  List<PodcastEpisodeExpanded> get episodes {
+    if (_episodes is EqualUnmodifiableListView) return _episodes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_episodes);
+  }
+
+  @override
+  final bool autoDownloadEpisodes;
+  @override
+  final String autoDownloadSchedule;
+  @override
+  final DateTime lastEpisodeCheck;
+  @override
+  final int maxEpisodesToKeep;
+  @override
+  final int maxNewEpisodesToDownload;
+  @override
+  final int size;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Media.podcastExpanded(libraryItemId: $libraryItemId, coverPath: $coverPath)';
+    return 'Media.podcastExpanded(libraryItemId: $libraryItemId, metadata: $metadata, coverPath: $coverPath, tags: $tags, episodes: $episodes, autoDownloadEpisodes: $autoDownloadEpisodes, autoDownloadSchedule: $autoDownloadSchedule, lastEpisodeCheck: $lastEpisodeCheck, maxEpisodesToKeep: $maxEpisodesToKeep, maxNewEpisodesToDownload: $maxNewEpisodesToDownload, size: $size)';
   }
 
   @override
@@ -2242,13 +3297,41 @@ class _$PodcastExpanded extends PodcastExpanded {
             other is _$PodcastExpanded &&
             (identical(other.libraryItemId, libraryItemId) ||
                 other.libraryItemId == libraryItemId) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata) &&
             (identical(other.coverPath, coverPath) ||
-                other.coverPath == coverPath));
+                other.coverPath == coverPath) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            const DeepCollectionEquality().equals(other._episodes, _episodes) &&
+            (identical(other.autoDownloadEpisodes, autoDownloadEpisodes) ||
+                other.autoDownloadEpisodes == autoDownloadEpisodes) &&
+            (identical(other.autoDownloadSchedule, autoDownloadSchedule) ||
+                other.autoDownloadSchedule == autoDownloadSchedule) &&
+            (identical(other.lastEpisodeCheck, lastEpisodeCheck) ||
+                other.lastEpisodeCheck == lastEpisodeCheck) &&
+            (identical(other.maxEpisodesToKeep, maxEpisodesToKeep) ||
+                other.maxEpisodesToKeep == maxEpisodesToKeep) &&
+            (identical(
+                    other.maxNewEpisodesToDownload, maxNewEpisodesToDownload) ||
+                other.maxNewEpisodesToDownload == maxNewEpisodesToDownload) &&
+            (identical(other.size, size) || other.size == size));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, libraryItemId, coverPath);
+  int get hashCode => Object.hash(
+      runtimeType,
+      libraryItemId,
+      metadata,
+      coverPath,
+      const DeepCollectionEquality().hash(_tags),
+      const DeepCollectionEquality().hash(_episodes),
+      autoDownloadEpisodes,
+      autoDownloadSchedule,
+      lastEpisodeCheck,
+      maxEpisodesToKeep,
+      maxNewEpisodesToDownload,
+      size);
 
   @JsonKey(ignore: true)
   @override
@@ -2295,12 +3378,56 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<int> missingParts,
             EBookFile? ebookFile)
         bookExpanded,
-    required TResult Function(String libraryItemId, String? coverPath) podcast,
-    required TResult Function(String? coverPath) podcastMinified,
-    required TResult Function(String libraryItemId, String? coverPath)
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)
+        podcast,
+    required TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
+        podcastMinified,
+    required TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)
         podcastExpanded,
   }) {
-    return podcastExpanded(libraryItemId, coverPath);
+    return podcastExpanded(
+        libraryItemId,
+        metadata,
+        coverPath,
+        tags,
+        episodes,
+        autoDownloadEpisodes,
+        autoDownloadSchedule,
+        lastEpisodeCheck,
+        maxEpisodesToKeep,
+        maxNewEpisodesToDownload,
+        size);
   }
 
   @override
@@ -2342,11 +3469,56 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult? Function(String libraryItemId, String? coverPath)? podcast,
-    TResult? Function(String? coverPath)? podcastMinified,
-    TResult? Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult? Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult? Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
   }) {
-    return podcastExpanded?.call(libraryItemId, coverPath);
+    return podcastExpanded?.call(
+        libraryItemId,
+        metadata,
+        coverPath,
+        tags,
+        episodes,
+        autoDownloadEpisodes,
+        autoDownloadSchedule,
+        lastEpisodeCheck,
+        maxEpisodesToKeep,
+        maxNewEpisodesToDownload,
+        size);
   }
 
   @override
@@ -2388,13 +3560,58 @@ class _$PodcastExpanded extends PodcastExpanded {
             List<int> missingParts,
             EBookFile? ebookFile)?
         bookExpanded,
-    TResult Function(String libraryItemId, String? coverPath)? podcast,
-    TResult Function(String? coverPath)? podcastMinified,
-    TResult Function(String libraryItemId, String? coverPath)? podcastExpanded,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadata metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisode> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload)?
+        podcast,
+    TResult Function(
+            PodcastMetadataMinified metadata,
+            String? coverPath,
+            List<String> tags,
+            int numEpisodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastMinified,
+    TResult Function(
+            String libraryItemId,
+            PodcastMetadataExpanded metadata,
+            String? coverPath,
+            List<String> tags,
+            List<PodcastEpisodeExpanded> episodes,
+            bool autoDownloadEpisodes,
+            String autoDownloadSchedule,
+            DateTime lastEpisodeCheck,
+            int maxEpisodesToKeep,
+            int maxNewEpisodesToDownload,
+            int size)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (podcastExpanded != null) {
-      return podcastExpanded(libraryItemId, coverPath);
+      return podcastExpanded(
+          libraryItemId,
+          metadata,
+          coverPath,
+          tags,
+          episodes,
+          autoDownloadEpisodes,
+          autoDownloadSchedule,
+          lastEpisodeCheck,
+          maxEpisodesToKeep,
+          maxNewEpisodesToDownload,
+          size);
     }
     return orElse();
   }
@@ -2453,7 +3670,16 @@ class _$PodcastExpanded extends PodcastExpanded {
 abstract class PodcastExpanded extends Media {
   const factory PodcastExpanded(
       {required final String libraryItemId,
-      final String? coverPath}) = _$PodcastExpanded;
+      required final PodcastMetadataExpanded metadata,
+      final String? coverPath,
+      required final List<String> tags,
+      required final List<PodcastEpisodeExpanded> episodes,
+      required final bool autoDownloadEpisodes,
+      required final String autoDownloadSchedule,
+      required final DateTime lastEpisodeCheck,
+      required final int maxEpisodesToKeep,
+      required final int maxNewEpisodesToDownload,
+      required final int size}) = _$PodcastExpanded;
   const PodcastExpanded._() : super._();
 
   factory PodcastExpanded.fromJson(Map<String, dynamic> json) =
@@ -2461,7 +3687,18 @@ abstract class PodcastExpanded extends Media {
 
   String get libraryItemId;
   @override
+  PodcastMetadataExpanded get metadata;
+  @override
   String? get coverPath;
+  @override
+  List<String> get tags;
+  List<PodcastEpisodeExpanded> get episodes;
+  bool get autoDownloadEpisodes;
+  String get autoDownloadSchedule;
+  DateTime get lastEpisodeCheck;
+  int get maxEpisodesToKeep;
+  int get maxNewEpisodesToDownload;
+  int get size;
   @override
   @JsonKey(ignore: true)
   _$$PodcastExpandedCopyWith<_$PodcastExpanded> get copyWith =>

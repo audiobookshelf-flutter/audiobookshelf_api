@@ -8,6 +8,7 @@ import 'audio_file.dart';
 import 'book_chapter.dart';
 import 'ebook_file.dart';
 import 'media_metadata.dart';
+import 'podcast_episode.dart';
 
 part 'generated/media.freezed.dart';
 part 'generated/media.g.dart';
@@ -58,18 +59,47 @@ class Media with _$Media {
     EBookFile? ebookFile,
   }) = BookExpanded;
 
+  @jsonConverters
   const factory Media.podcast({
     required String libraryItemId,
+    required PodcastMetadata metadata,
     String? coverPath,
+    required List<String> tags,
+    required List<PodcastEpisode> episodes,
+    required bool autoDownloadEpisodes,
+    required String autoDownloadSchedule,
+    required DateTime lastEpisodeCheck,
+    required int maxEpisodesToKeep,
+    required int maxNewEpisodesToDownload,
   }) = Podcast;
 
+  @jsonConverters
   const factory Media.podcastMinified({
+    required PodcastMetadataMinified metadata,
     String? coverPath,
+    required List<String> tags,
+    required int numEpisodes,
+    required bool autoDownloadEpisodes,
+    required String autoDownloadSchedule,
+    required DateTime lastEpisodeCheck,
+    required int maxEpisodesToKeep,
+    required int maxNewEpisodesToDownload,
+    required int size,
   }) = PodcastMinified;
 
+  @jsonConverters
   const factory Media.podcastExpanded({
     required String libraryItemId,
+    required PodcastMetadataExpanded metadata,
     String? coverPath,
+    required List<String> tags,
+    required List<PodcastEpisodeExpanded> episodes,
+    required bool autoDownloadEpisodes,
+    required String autoDownloadSchedule,
+    required DateTime lastEpisodeCheck,
+    required int maxEpisodesToKeep,
+    required int maxNewEpisodesToDownload,
+    required int size,
   }) = PodcastExpanded;
 
   factory Media.fromJson(Map<String, dynamic> json) =>

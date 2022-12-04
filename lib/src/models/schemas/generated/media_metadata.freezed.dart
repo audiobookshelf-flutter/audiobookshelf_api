@@ -22,6 +22,12 @@ MediaMetadata _$MediaMetadataFromJson(Map<String, dynamic> json) {
       return BookMetadataMinified.fromJson(json);
     case 'bookExpanded':
       return BookMetadataExpanded.fromJson(json);
+    case 'podcast':
+      return PodcastMetadata.fromJson(json);
+    case 'podcastMinified':
+      return PodcastMetadataMinified.fromJson(json);
+    case 'podcastExpanded':
+      return PodcastMetadataExpanded.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'MediaMetadata',
@@ -31,17 +37,6 @@ MediaMetadata _$MediaMetadataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MediaMetadata {
-  String? get title => throw _privateConstructorUsedError;
-  String? get subtitle => throw _privateConstructorUsedError;
-  List<String> get genres => throw _privateConstructorUsedError;
-  String? get publishedYear => throw _privateConstructorUsedError;
-  int? get publishedDate => throw _privateConstructorUsedError;
-  String? get publisher => throw _privateConstructorUsedError;
-  String? get description => throw _privateConstructorUsedError;
-  String? get isbn => throw _privateConstructorUsedError;
-  String? get asin => throw _privateConstructorUsedError;
-  String? get language => throw _privateConstructorUsedError;
-  bool get explicit => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -99,6 +94,9 @@ mixin _$MediaMetadata {
             String? narratorName,
             String? seriesName)
         bookExpanded,
+    required TResult Function() podcast,
+    required TResult Function() podcastMinified,
+    required TResult Function() podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -158,6 +156,9 @@ mixin _$MediaMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
+    TResult? Function()? podcast,
+    TResult? Function()? podcastMinified,
+    TResult? Function()? podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -217,6 +218,9 @@ mixin _$MediaMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
+    TResult Function()? podcast,
+    TResult Function()? podcastMinified,
+    TResult Function()? podcastExpanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -225,6 +229,9 @@ mixin _$MediaMetadata {
     required TResult Function(BookMetadata value) book,
     required TResult Function(BookMetadataMinified value) bookMinified,
     required TResult Function(BookMetadataExpanded value) bookExpanded,
+    required TResult Function(PodcastMetadata value) podcast,
+    required TResult Function(PodcastMetadataMinified value) podcastMinified,
+    required TResult Function(PodcastMetadataExpanded value) podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -232,6 +239,9 @@ mixin _$MediaMetadata {
     TResult? Function(BookMetadata value)? book,
     TResult? Function(BookMetadataMinified value)? bookMinified,
     TResult? Function(BookMetadataExpanded value)? bookExpanded,
+    TResult? Function(PodcastMetadata value)? podcast,
+    TResult? Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult? Function(PodcastMetadataExpanded value)? podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -239,13 +249,13 @@ mixin _$MediaMetadata {
     TResult Function(BookMetadata value)? book,
     TResult Function(BookMetadataMinified value)? bookMinified,
     TResult Function(BookMetadataExpanded value)? bookExpanded,
+    TResult Function(PodcastMetadata value)? podcast,
+    TResult Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult Function(PodcastMetadataExpanded value)? podcastExpanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $MediaMetadataCopyWith<MediaMetadata> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -253,19 +263,6 @@ abstract class $MediaMetadataCopyWith<$Res> {
   factory $MediaMetadataCopyWith(
           MediaMetadata value, $Res Function(MediaMetadata) then) =
       _$MediaMetadataCopyWithImpl<$Res, MediaMetadata>;
-  @useResult
-  $Res call(
-      {String? title,
-      String? subtitle,
-      List<String> genres,
-      String? publishedYear,
-      int? publishedDate,
-      String? publisher,
-      String? description,
-      String? isbn,
-      String? asin,
-      String? language,
-      bool explicit});
 }
 
 /// @nodoc
@@ -277,78 +274,13 @@ class _$MediaMetadataCopyWithImpl<$Res, $Val extends MediaMetadata>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? title = freezed,
-    Object? subtitle = freezed,
-    Object? genres = null,
-    Object? publishedYear = freezed,
-    Object? publishedDate = freezed,
-    Object? publisher = freezed,
-    Object? description = freezed,
-    Object? isbn = freezed,
-    Object? asin = freezed,
-    Object? language = freezed,
-    Object? explicit = null,
-  }) {
-    return _then(_value.copyWith(
-      title: freezed == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String?,
-      subtitle: freezed == subtitle
-          ? _value.subtitle
-          : subtitle // ignore: cast_nullable_to_non_nullable
-              as String?,
-      genres: null == genres
-          ? _value.genres
-          : genres // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      publishedYear: freezed == publishedYear
-          ? _value.publishedYear
-          : publishedYear // ignore: cast_nullable_to_non_nullable
-              as String?,
-      publishedDate: freezed == publishedDate
-          ? _value.publishedDate
-          : publishedDate // ignore: cast_nullable_to_non_nullable
-              as int?,
-      publisher: freezed == publisher
-          ? _value.publisher
-          : publisher // ignore: cast_nullable_to_non_nullable
-              as String?,
-      description: freezed == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
-      isbn: freezed == isbn
-          ? _value.isbn
-          : isbn // ignore: cast_nullable_to_non_nullable
-              as String?,
-      asin: freezed == asin
-          ? _value.asin
-          : asin // ignore: cast_nullable_to_non_nullable
-              as String?,
-      language: freezed == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String?,
-      explicit: null == explicit
-          ? _value.explicit
-          : explicit // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$BookMetadataCopyWith<$Res>
-    implements $MediaMetadataCopyWith<$Res> {
+abstract class _$$BookMetadataCopyWith<$Res> {
   factory _$$BookMetadataCopyWith(
           _$BookMetadata value, $Res Function(_$BookMetadata) then) =
       __$$BookMetadataCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {String? title,
@@ -660,6 +592,9 @@ class _$BookMetadata implements BookMetadata {
             String? narratorName,
             String? seriesName)
         bookExpanded,
+    required TResult Function() podcast,
+    required TResult Function() podcastMinified,
+    required TResult Function() podcastExpanded,
   }) {
     return book(
         title,
@@ -736,6 +671,9 @@ class _$BookMetadata implements BookMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
+    TResult? Function()? podcast,
+    TResult? Function()? podcastMinified,
+    TResult? Function()? podcastExpanded,
   }) {
     return book?.call(
         title,
@@ -812,6 +750,9 @@ class _$BookMetadata implements BookMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
+    TResult Function()? podcast,
+    TResult Function()? podcastMinified,
+    TResult Function()? podcastExpanded,
     required TResult orElse(),
   }) {
     if (book != null) {
@@ -840,6 +781,9 @@ class _$BookMetadata implements BookMetadata {
     required TResult Function(BookMetadata value) book,
     required TResult Function(BookMetadataMinified value) bookMinified,
     required TResult Function(BookMetadataExpanded value) bookExpanded,
+    required TResult Function(PodcastMetadata value) podcast,
+    required TResult Function(PodcastMetadataMinified value) podcastMinified,
+    required TResult Function(PodcastMetadataExpanded value) podcastExpanded,
   }) {
     return book(this);
   }
@@ -850,6 +794,9 @@ class _$BookMetadata implements BookMetadata {
     TResult? Function(BookMetadata value)? book,
     TResult? Function(BookMetadataMinified value)? bookMinified,
     TResult? Function(BookMetadataExpanded value)? bookExpanded,
+    TResult? Function(PodcastMetadata value)? podcast,
+    TResult? Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult? Function(PodcastMetadataExpanded value)? podcastExpanded,
   }) {
     return book?.call(this);
   }
@@ -860,6 +807,9 @@ class _$BookMetadata implements BookMetadata {
     TResult Function(BookMetadata value)? book,
     TResult Function(BookMetadataMinified value)? bookMinified,
     TResult Function(BookMetadataExpanded value)? bookExpanded,
+    TResult Function(PodcastMetadata value)? podcast,
+    TResult Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult Function(PodcastMetadataExpanded value)? podcastExpanded,
     required TResult orElse(),
   }) {
     if (book != null) {
@@ -896,44 +846,30 @@ abstract class BookMetadata implements MediaMetadata {
   factory BookMetadata.fromJson(Map<String, dynamic> json) =
       _$BookMetadata.fromJson;
 
-  @override
   String? get title;
-  @override
   String? get subtitle;
   List<Author> get authors;
   List<String> get narrators;
   List<Series> get series;
-  @override
   List<String> get genres;
-  @override
   String? get publishedYear;
-  @override
   int? get publishedDate;
-  @override
   String? get publisher;
-  @override
   String? get description;
-  @override
   String? get isbn;
-  @override
   String? get asin;
-  @override
   String? get language;
-  @override
   bool get explicit;
-  @override
   @JsonKey(ignore: true)
   _$$BookMetadataCopyWith<_$BookMetadata> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BookMetadataMinifiedCopyWith<$Res>
-    implements $MediaMetadataCopyWith<$Res> {
+abstract class _$$BookMetadataMinifiedCopyWith<$Res> {
   factory _$$BookMetadataMinifiedCopyWith(_$BookMetadataMinified value,
           $Res Function(_$BookMetadataMinified) then) =
       __$$BookMetadataMinifiedCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {String? title,
@@ -1248,6 +1184,9 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             String? narratorName,
             String? seriesName)
         bookExpanded,
+    required TResult Function() podcast,
+    required TResult Function() podcastMinified,
+    required TResult Function() podcastExpanded,
   }) {
     return bookMinified(
         title,
@@ -1326,6 +1265,9 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
+    TResult? Function()? podcast,
+    TResult? Function()? podcastMinified,
+    TResult? Function()? podcastExpanded,
   }) {
     return bookMinified?.call(
         title,
@@ -1404,6 +1346,9 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
+    TResult Function()? podcast,
+    TResult Function()? podcastMinified,
+    TResult Function()? podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookMinified != null) {
@@ -1434,6 +1379,9 @@ class _$BookMetadataMinified implements BookMetadataMinified {
     required TResult Function(BookMetadata value) book,
     required TResult Function(BookMetadataMinified value) bookMinified,
     required TResult Function(BookMetadataExpanded value) bookExpanded,
+    required TResult Function(PodcastMetadata value) podcast,
+    required TResult Function(PodcastMetadataMinified value) podcastMinified,
+    required TResult Function(PodcastMetadataExpanded value) podcastExpanded,
   }) {
     return bookMinified(this);
   }
@@ -1444,6 +1392,9 @@ class _$BookMetadataMinified implements BookMetadataMinified {
     TResult? Function(BookMetadata value)? book,
     TResult? Function(BookMetadataMinified value)? bookMinified,
     TResult? Function(BookMetadataExpanded value)? bookExpanded,
+    TResult? Function(PodcastMetadata value)? podcast,
+    TResult? Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult? Function(PodcastMetadataExpanded value)? podcastExpanded,
   }) {
     return bookMinified?.call(this);
   }
@@ -1454,6 +1405,9 @@ class _$BookMetadataMinified implements BookMetadataMinified {
     TResult Function(BookMetadata value)? book,
     TResult Function(BookMetadataMinified value)? bookMinified,
     TResult Function(BookMetadataExpanded value)? bookExpanded,
+    TResult Function(PodcastMetadata value)? podcast,
+    TResult Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult Function(PodcastMetadataExpanded value)? podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookMinified != null) {
@@ -1492,46 +1446,32 @@ abstract class BookMetadataMinified implements MediaMetadata {
   factory BookMetadataMinified.fromJson(Map<String, dynamic> json) =
       _$BookMetadataMinified.fromJson;
 
-  @override
   String? get title;
   String? get titleIgnorePrefix;
-  @override
   String? get subtitle;
   String? get authorName;
   String? get authorNameLF;
   String? get narratorName;
   String? get seriesName;
-  @override
   List<String> get genres;
-  @override
   String? get publishedYear;
-  @override
   int? get publishedDate;
-  @override
   String? get publisher;
-  @override
   String? get description;
-  @override
   String? get isbn;
-  @override
   String? get asin;
-  @override
   String? get language;
-  @override
   bool get explicit;
-  @override
   @JsonKey(ignore: true)
   _$$BookMetadataMinifiedCopyWith<_$BookMetadataMinified> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BookMetadataExpandedCopyWith<$Res>
-    implements $MediaMetadataCopyWith<$Res> {
+abstract class _$$BookMetadataExpandedCopyWith<$Res> {
   factory _$$BookMetadataExpandedCopyWith(_$BookMetadataExpanded value,
           $Res Function(_$BookMetadataExpanded) then) =
       __$$BookMetadataExpandedCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {String? title,
@@ -1905,6 +1845,9 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             String? narratorName,
             String? seriesName)
         bookExpanded,
+    required TResult Function() podcast,
+    required TResult Function() podcastMinified,
+    required TResult Function() podcastExpanded,
   }) {
     return bookExpanded(
         title,
@@ -1986,6 +1929,9 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
+    TResult? Function()? podcast,
+    TResult? Function()? podcastMinified,
+    TResult? Function()? podcastExpanded,
   }) {
     return bookExpanded?.call(
         title,
@@ -2067,6 +2013,9 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
+    TResult Function()? podcast,
+    TResult Function()? podcastMinified,
+    TResult Function()? podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookExpanded != null) {
@@ -2100,6 +2049,9 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
     required TResult Function(BookMetadata value) book,
     required TResult Function(BookMetadataMinified value) bookMinified,
     required TResult Function(BookMetadataExpanded value) bookExpanded,
+    required TResult Function(PodcastMetadata value) podcast,
+    required TResult Function(PodcastMetadataMinified value) podcastMinified,
+    required TResult Function(PodcastMetadataExpanded value) podcastExpanded,
   }) {
     return bookExpanded(this);
   }
@@ -2110,6 +2062,9 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
     TResult? Function(BookMetadata value)? book,
     TResult? Function(BookMetadataMinified value)? bookMinified,
     TResult? Function(BookMetadataExpanded value)? bookExpanded,
+    TResult? Function(PodcastMetadata value)? podcast,
+    TResult? Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult? Function(PodcastMetadataExpanded value)? podcastExpanded,
   }) {
     return bookExpanded?.call(this);
   }
@@ -2120,6 +2075,9 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
     TResult Function(BookMetadata value)? book,
     TResult Function(BookMetadataMinified value)? bookMinified,
     TResult Function(BookMetadataExpanded value)? bookExpanded,
+    TResult Function(PodcastMetadata value)? podcast,
+    TResult Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult Function(PodcastMetadataExpanded value)? podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookExpanded != null) {
@@ -2161,38 +2119,927 @@ abstract class BookMetadataExpanded implements MediaMetadata {
   factory BookMetadataExpanded.fromJson(Map<String, dynamic> json) =
       _$BookMetadataExpanded.fromJson;
 
-  @override
   String? get title;
   String? get titleIgnorePrefix;
-  @override
   String? get subtitle;
   List<Author> get authors;
   List<String> get narrators;
   List<Series> get series;
-  @override
   List<String> get genres;
-  @override
   String? get publishedYear;
-  @override
   int? get publishedDate;
-  @override
   String? get publisher;
-  @override
   String? get description;
-  @override
   String? get isbn;
-  @override
   String? get asin;
-  @override
   String? get language;
-  @override
   bool get explicit;
   String? get authorName;
   String? get authorNameLF;
   String? get narratorName;
   String? get seriesName;
-  @override
   @JsonKey(ignore: true)
   _$$BookMetadataExpandedCopyWith<_$BookMetadataExpanded> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PodcastMetadataCopyWith<$Res> {
+  factory _$$PodcastMetadataCopyWith(
+          _$PodcastMetadata value, $Res Function(_$PodcastMetadata) then) =
+      __$$PodcastMetadataCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PodcastMetadataCopyWithImpl<$Res>
+    extends _$MediaMetadataCopyWithImpl<$Res, _$PodcastMetadata>
+    implements _$$PodcastMetadataCopyWith<$Res> {
+  __$$PodcastMetadataCopyWithImpl(
+      _$PodcastMetadata _value, $Res Function(_$PodcastMetadata) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PodcastMetadata implements PodcastMetadata {
+  const _$PodcastMetadata({final String? $type}) : $type = $type ?? 'podcast';
+
+  factory _$PodcastMetadata.fromJson(Map<String, dynamic> json) =>
+      _$$PodcastMetadataFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'MediaMetadata.podcast()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$PodcastMetadata);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String? title,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)
+        book,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)
+        bookMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName)
+        bookExpanded,
+    required TResult Function() podcast,
+    required TResult Function() podcastMinified,
+    required TResult Function() podcastExpanded,
+  }) {
+    return podcast();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String? title,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        book,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        bookMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName)?
+        bookExpanded,
+    TResult? Function()? podcast,
+    TResult? Function()? podcastMinified,
+    TResult? Function()? podcastExpanded,
+  }) {
+    return podcast?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String? title,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        book,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        bookMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName)?
+        bookExpanded,
+    TResult Function()? podcast,
+    TResult Function()? podcastMinified,
+    TResult Function()? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcast != null) {
+      return podcast();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BookMetadata value) book,
+    required TResult Function(BookMetadataMinified value) bookMinified,
+    required TResult Function(BookMetadataExpanded value) bookExpanded,
+    required TResult Function(PodcastMetadata value) podcast,
+    required TResult Function(PodcastMetadataMinified value) podcastMinified,
+    required TResult Function(PodcastMetadataExpanded value) podcastExpanded,
+  }) {
+    return podcast(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BookMetadata value)? book,
+    TResult? Function(BookMetadataMinified value)? bookMinified,
+    TResult? Function(BookMetadataExpanded value)? bookExpanded,
+    TResult? Function(PodcastMetadata value)? podcast,
+    TResult? Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult? Function(PodcastMetadataExpanded value)? podcastExpanded,
+  }) {
+    return podcast?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BookMetadata value)? book,
+    TResult Function(BookMetadataMinified value)? bookMinified,
+    TResult Function(BookMetadataExpanded value)? bookExpanded,
+    TResult Function(PodcastMetadata value)? podcast,
+    TResult Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult Function(PodcastMetadataExpanded value)? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcast != null) {
+      return podcast(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PodcastMetadataToJson(
+      this,
+    );
+  }
+}
+
+abstract class PodcastMetadata implements MediaMetadata {
+  const factory PodcastMetadata() = _$PodcastMetadata;
+
+  factory PodcastMetadata.fromJson(Map<String, dynamic> json) =
+      _$PodcastMetadata.fromJson;
+}
+
+/// @nodoc
+abstract class _$$PodcastMetadataMinifiedCopyWith<$Res> {
+  factory _$$PodcastMetadataMinifiedCopyWith(_$PodcastMetadataMinified value,
+          $Res Function(_$PodcastMetadataMinified) then) =
+      __$$PodcastMetadataMinifiedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PodcastMetadataMinifiedCopyWithImpl<$Res>
+    extends _$MediaMetadataCopyWithImpl<$Res, _$PodcastMetadataMinified>
+    implements _$$PodcastMetadataMinifiedCopyWith<$Res> {
+  __$$PodcastMetadataMinifiedCopyWithImpl(_$PodcastMetadataMinified _value,
+      $Res Function(_$PodcastMetadataMinified) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PodcastMetadataMinified implements PodcastMetadataMinified {
+  const _$PodcastMetadataMinified({final String? $type})
+      : $type = $type ?? 'podcastMinified';
+
+  factory _$PodcastMetadataMinified.fromJson(Map<String, dynamic> json) =>
+      _$$PodcastMetadataMinifiedFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'MediaMetadata.podcastMinified()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PodcastMetadataMinified);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String? title,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)
+        book,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)
+        bookMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName)
+        bookExpanded,
+    required TResult Function() podcast,
+    required TResult Function() podcastMinified,
+    required TResult Function() podcastExpanded,
+  }) {
+    return podcastMinified();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String? title,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        book,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        bookMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName)?
+        bookExpanded,
+    TResult? Function()? podcast,
+    TResult? Function()? podcastMinified,
+    TResult? Function()? podcastExpanded,
+  }) {
+    return podcastMinified?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String? title,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        book,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        bookMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName)?
+        bookExpanded,
+    TResult Function()? podcast,
+    TResult Function()? podcastMinified,
+    TResult Function()? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcastMinified != null) {
+      return podcastMinified();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BookMetadata value) book,
+    required TResult Function(BookMetadataMinified value) bookMinified,
+    required TResult Function(BookMetadataExpanded value) bookExpanded,
+    required TResult Function(PodcastMetadata value) podcast,
+    required TResult Function(PodcastMetadataMinified value) podcastMinified,
+    required TResult Function(PodcastMetadataExpanded value) podcastExpanded,
+  }) {
+    return podcastMinified(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BookMetadata value)? book,
+    TResult? Function(BookMetadataMinified value)? bookMinified,
+    TResult? Function(BookMetadataExpanded value)? bookExpanded,
+    TResult? Function(PodcastMetadata value)? podcast,
+    TResult? Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult? Function(PodcastMetadataExpanded value)? podcastExpanded,
+  }) {
+    return podcastMinified?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BookMetadata value)? book,
+    TResult Function(BookMetadataMinified value)? bookMinified,
+    TResult Function(BookMetadataExpanded value)? bookExpanded,
+    TResult Function(PodcastMetadata value)? podcast,
+    TResult Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult Function(PodcastMetadataExpanded value)? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcastMinified != null) {
+      return podcastMinified(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PodcastMetadataMinifiedToJson(
+      this,
+    );
+  }
+}
+
+abstract class PodcastMetadataMinified implements MediaMetadata {
+  const factory PodcastMetadataMinified() = _$PodcastMetadataMinified;
+
+  factory PodcastMetadataMinified.fromJson(Map<String, dynamic> json) =
+      _$PodcastMetadataMinified.fromJson;
+}
+
+/// @nodoc
+abstract class _$$PodcastMetadataExpandedCopyWith<$Res> {
+  factory _$$PodcastMetadataExpandedCopyWith(_$PodcastMetadataExpanded value,
+          $Res Function(_$PodcastMetadataExpanded) then) =
+      __$$PodcastMetadataExpandedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$PodcastMetadataExpandedCopyWithImpl<$Res>
+    extends _$MediaMetadataCopyWithImpl<$Res, _$PodcastMetadataExpanded>
+    implements _$$PodcastMetadataExpandedCopyWith<$Res> {
+  __$$PodcastMetadataExpandedCopyWithImpl(_$PodcastMetadataExpanded _value,
+      $Res Function(_$PodcastMetadataExpanded) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
+  const _$PodcastMetadataExpanded({final String? $type})
+      : $type = $type ?? 'podcastExpanded';
+
+  factory _$PodcastMetadataExpanded.fromJson(Map<String, dynamic> json) =>
+      _$$PodcastMetadataExpandedFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'MediaMetadata.podcastExpanded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PodcastMetadataExpanded);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String? title,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)
+        book,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)
+        bookMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName)
+        bookExpanded,
+    required TResult Function() podcast,
+    required TResult Function() podcastMinified,
+    required TResult Function() podcastExpanded,
+  }) {
+    return podcastExpanded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String? title,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        book,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        bookMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName)?
+        bookExpanded,
+    TResult? Function()? podcast,
+    TResult? Function()? podcastMinified,
+    TResult? Function()? podcastExpanded,
+  }) {
+    return podcastExpanded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String? title,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        book,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit)?
+        bookMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? subtitle,
+            List<Author> authors,
+            List<String> narrators,
+            List<Series> series,
+            List<String> genres,
+            String? publishedYear,
+            int? publishedDate,
+            String? publisher,
+            String? description,
+            String? isbn,
+            String? asin,
+            String? language,
+            bool explicit,
+            String? authorName,
+            String? authorNameLF,
+            String? narratorName,
+            String? seriesName)?
+        bookExpanded,
+    TResult Function()? podcast,
+    TResult Function()? podcastMinified,
+    TResult Function()? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcastExpanded != null) {
+      return podcastExpanded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(BookMetadata value) book,
+    required TResult Function(BookMetadataMinified value) bookMinified,
+    required TResult Function(BookMetadataExpanded value) bookExpanded,
+    required TResult Function(PodcastMetadata value) podcast,
+    required TResult Function(PodcastMetadataMinified value) podcastMinified,
+    required TResult Function(PodcastMetadataExpanded value) podcastExpanded,
+  }) {
+    return podcastExpanded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(BookMetadata value)? book,
+    TResult? Function(BookMetadataMinified value)? bookMinified,
+    TResult? Function(BookMetadataExpanded value)? bookExpanded,
+    TResult? Function(PodcastMetadata value)? podcast,
+    TResult? Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult? Function(PodcastMetadataExpanded value)? podcastExpanded,
+  }) {
+    return podcastExpanded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(BookMetadata value)? book,
+    TResult Function(BookMetadataMinified value)? bookMinified,
+    TResult Function(BookMetadataExpanded value)? bookExpanded,
+    TResult Function(PodcastMetadata value)? podcast,
+    TResult Function(PodcastMetadataMinified value)? podcastMinified,
+    TResult Function(PodcastMetadataExpanded value)? podcastExpanded,
+    required TResult orElse(),
+  }) {
+    if (podcastExpanded != null) {
+      return podcastExpanded(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PodcastMetadataExpandedToJson(
+      this,
+    );
+  }
+}
+
+abstract class PodcastMetadataExpanded implements MediaMetadata {
+  const factory PodcastMetadataExpanded() = _$PodcastMetadataExpanded;
+
+  factory PodcastMetadataExpanded.fromJson(Map<String, dynamic> json) =
+      _$PodcastMetadataExpanded.fromJson;
 }

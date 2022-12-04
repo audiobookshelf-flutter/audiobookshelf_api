@@ -66,6 +66,12 @@ class MediaMetadata with _$MediaMetadata {
     String? seriesName,
   }) = BookMetadataExpanded;
 
+  const factory MediaMetadata.podcast() = PodcastMetadata;
+
+  const factory MediaMetadata.podcastMinified() = PodcastMetadataMinified;
+
+  const factory MediaMetadata.podcastExpanded() = PodcastMetadataExpanded;
+
   factory MediaMetadata.fromJson(Map<String, dynamic> json) =>
       _$MediaMetadataFromJson(json);
 }

@@ -164,3 +164,37 @@ Map<String, dynamic> _$$BookMetadataExpandedToJson(
       'seriesName': instance.seriesName,
       'runtimeType': instance.$type,
     };
+
+_$PodcastMetadata _$$PodcastMetadataFromJson(Map<String, dynamic> json) =>
+    _$PodcastMetadata(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$PodcastMetadataToJson(_$PodcastMetadata instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$PodcastMetadataMinified _$$PodcastMetadataMinifiedFromJson(
+        Map<String, dynamic> json) =>
+    _$PodcastMetadataMinified(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$PodcastMetadataMinifiedToJson(
+        _$PodcastMetadataMinified instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$PodcastMetadataExpanded _$$PodcastMetadataExpandedFromJson(
+        Map<String, dynamic> json) =>
+    _$PodcastMetadataExpanded(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$PodcastMetadataExpandedToJson(
+        _$PodcastMetadataExpanded instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
