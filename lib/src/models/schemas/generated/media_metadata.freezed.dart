@@ -37,6 +37,11 @@ MediaMetadata _$MediaMetadataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MediaMetadata {
+  String? get title => throw _privateConstructorUsedError;
+  List<String> get genres => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
+  bool get explicit => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
@@ -47,7 +52,7 @@ mixin _$MediaMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -82,7 +87,7 @@ mixin _$MediaMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -94,9 +99,50 @@ mixin _$MediaMetadata {
             String? narratorName,
             String? seriesName)
         bookExpanded,
-    required TResult Function() podcast,
-    required TResult Function() podcastMinified,
-    required TResult Function() podcastExpanded,
+    required TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcast,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -109,7 +155,7 @@ mixin _$MediaMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -144,7 +190,7 @@ mixin _$MediaMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -156,9 +202,50 @@ mixin _$MediaMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult? Function()? podcast,
-    TResult? Function()? podcastMinified,
-    TResult? Function()? podcastExpanded,
+    TResult? Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -171,7 +258,7 @@ mixin _$MediaMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -206,7 +293,7 @@ mixin _$MediaMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -218,9 +305,50 @@ mixin _$MediaMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult Function()? podcast,
-    TResult Function()? podcastMinified,
-    TResult Function()? podcastExpanded,
+    TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -256,6 +384,9 @@ mixin _$MediaMetadata {
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MediaMetadataCopyWith<MediaMetadata> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -263,6 +394,13 @@ abstract class $MediaMetadataCopyWith<$Res> {
   factory $MediaMetadataCopyWith(
           MediaMetadata value, $Res Function(MediaMetadata) then) =
       _$MediaMetadataCopyWithImpl<$Res, MediaMetadata>;
+  @useResult
+  $Res call(
+      {String? title,
+      List<String> genres,
+      String? description,
+      String? language,
+      bool explicit});
 }
 
 /// @nodoc
@@ -274,13 +412,48 @@ class _$MediaMetadataCopyWithImpl<$Res, $Val extends MediaMetadata>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = freezed,
+    Object? genres = null,
+    Object? description = freezed,
+    Object? language = freezed,
+    Object? explicit = null,
+  }) {
+    return _then(_value.copyWith(
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      genres: null == genres
+          ? _value.genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+      explicit: null == explicit
+          ? _value.explicit
+          : explicit // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$BookMetadataCopyWith<$Res> {
+abstract class _$$BookMetadataCopyWith<$Res>
+    implements $MediaMetadataCopyWith<$Res> {
   factory _$$BookMetadataCopyWith(
           _$BookMetadata value, $Res Function(_$BookMetadata) then) =
       __$$BookMetadataCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
       {String? title,
@@ -290,7 +463,7 @@ abstract class _$$BookMetadataCopyWith<$Res> {
       List<Series> series,
       List<String> genres,
       String? publishedYear,
-      int? publishedDate,
+      String? publishedDate,
       String? publisher,
       String? description,
       String? isbn,
@@ -357,7 +530,7 @@ class __$$BookMetadataCopyWithImpl<$Res>
       publishedDate: freezed == publishedDate
           ? _value.publishedDate
           : publishedDate // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       publisher: freezed == publisher
           ? _value.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
@@ -392,10 +565,10 @@ class _$BookMetadata implements BookMetadata {
   const _$BookMetadata(
       {this.title,
       this.subtitle,
-      final List<Author> authors = const [],
-      final List<String> narrators = const [],
-      final List<Series> series = const [],
-      final List<String> genres = const [],
+      final List<Author> authors = const <Author>[],
+      final List<String> narrators = const <String>[],
+      final List<Series> series = const <Series>[],
+      final List<String> genres = const <String>[],
       this.publishedYear,
       this.publishedDate,
       this.publisher,
@@ -457,7 +630,7 @@ class _$BookMetadata implements BookMetadata {
   @override
   final String? publishedYear;
   @override
-  final int? publishedDate;
+  final String? publishedDate;
   @override
   final String? publisher;
   @override
@@ -545,7 +718,7 @@ class _$BookMetadata implements BookMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -580,7 +753,7 @@ class _$BookMetadata implements BookMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -592,9 +765,50 @@ class _$BookMetadata implements BookMetadata {
             String? narratorName,
             String? seriesName)
         bookExpanded,
-    required TResult Function() podcast,
-    required TResult Function() podcastMinified,
-    required TResult Function() podcastExpanded,
+    required TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcast,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastExpanded,
   }) {
     return book(
         title,
@@ -624,7 +838,7 @@ class _$BookMetadata implements BookMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -659,7 +873,7 @@ class _$BookMetadata implements BookMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -671,9 +885,50 @@ class _$BookMetadata implements BookMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult? Function()? podcast,
-    TResult? Function()? podcastMinified,
-    TResult? Function()? podcastExpanded,
+    TResult? Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
   }) {
     return book?.call(
         title,
@@ -703,7 +958,7 @@ class _$BookMetadata implements BookMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -738,7 +993,7 @@ class _$BookMetadata implements BookMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -750,9 +1005,50 @@ class _$BookMetadata implements BookMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult Function()? podcast,
-    TResult Function()? podcastMinified,
-    TResult Function()? podcastExpanded,
+    TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (book != null) {
@@ -835,7 +1131,7 @@ abstract class BookMetadata implements MediaMetadata {
       final List<Series> series,
       final List<String> genres,
       final String? publishedYear,
-      final int? publishedDate,
+      final String? publishedDate,
       final String? publisher,
       final String? description,
       final String? isbn,
@@ -846,30 +1142,38 @@ abstract class BookMetadata implements MediaMetadata {
   factory BookMetadata.fromJson(Map<String, dynamic> json) =
       _$BookMetadata.fromJson;
 
+  @override
   String? get title;
   String? get subtitle;
   List<Author> get authors;
   List<String> get narrators;
   List<Series> get series;
+  @override
   List<String> get genres;
   String? get publishedYear;
-  int? get publishedDate;
+  String? get publishedDate;
   String? get publisher;
+  @override
   String? get description;
   String? get isbn;
   String? get asin;
+  @override
   String? get language;
+  @override
   bool get explicit;
+  @override
   @JsonKey(ignore: true)
   _$$BookMetadataCopyWith<_$BookMetadata> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BookMetadataMinifiedCopyWith<$Res> {
+abstract class _$$BookMetadataMinifiedCopyWith<$Res>
+    implements $MediaMetadataCopyWith<$Res> {
   factory _$$BookMetadataMinifiedCopyWith(_$BookMetadataMinified value,
           $Res Function(_$BookMetadataMinified) then) =
       __$$BookMetadataMinifiedCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
       {String? title,
@@ -998,7 +1302,7 @@ class _$BookMetadataMinified implements BookMetadataMinified {
       this.authorNameLF,
       this.narratorName,
       this.seriesName,
-      final List<String> genres = const [],
+      final List<String> genres = const <String>[],
       this.publishedYear,
       this.publishedDate,
       this.publisher,
@@ -1137,7 +1441,7 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1172,7 +1476,7 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1184,9 +1488,50 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             String? narratorName,
             String? seriesName)
         bookExpanded,
-    required TResult Function() podcast,
-    required TResult Function() podcastMinified,
-    required TResult Function() podcastExpanded,
+    required TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcast,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastExpanded,
   }) {
     return bookMinified(
         title,
@@ -1218,7 +1563,7 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1253,7 +1598,7 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1265,9 +1610,50 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult? Function()? podcast,
-    TResult? Function()? podcastMinified,
-    TResult? Function()? podcastExpanded,
+    TResult? Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
   }) {
     return bookMinified?.call(
         title,
@@ -1299,7 +1685,7 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1334,7 +1720,7 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1346,9 +1732,50 @@ class _$BookMetadataMinified implements BookMetadataMinified {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult Function()? podcast,
-    TResult Function()? podcastMinified,
-    TResult Function()? podcastExpanded,
+    TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookMinified != null) {
@@ -1446,6 +1873,7 @@ abstract class BookMetadataMinified implements MediaMetadata {
   factory BookMetadataMinified.fromJson(Map<String, dynamic> json) =
       _$BookMetadataMinified.fromJson;
 
+  @override
   String? get title;
   String? get titleIgnorePrefix;
   String? get subtitle;
@@ -1453,25 +1881,32 @@ abstract class BookMetadataMinified implements MediaMetadata {
   String? get authorNameLF;
   String? get narratorName;
   String? get seriesName;
+  @override
   List<String> get genres;
   String? get publishedYear;
   int? get publishedDate;
   String? get publisher;
+  @override
   String? get description;
   String? get isbn;
   String? get asin;
+  @override
   String? get language;
+  @override
   bool get explicit;
+  @override
   @JsonKey(ignore: true)
   _$$BookMetadataMinifiedCopyWith<_$BookMetadataMinified> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BookMetadataExpandedCopyWith<$Res> {
+abstract class _$$BookMetadataExpandedCopyWith<$Res>
+    implements $MediaMetadataCopyWith<$Res> {
   factory _$$BookMetadataExpandedCopyWith(_$BookMetadataExpanded value,
           $Res Function(_$BookMetadataExpanded) then) =
       __$$BookMetadataExpandedCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call(
       {String? title,
@@ -1482,7 +1917,7 @@ abstract class _$$BookMetadataExpandedCopyWith<$Res> {
       List<Series> series,
       List<String> genres,
       String? publishedYear,
-      int? publishedDate,
+      String? publishedDate,
       String? publisher,
       String? description,
       String? isbn,
@@ -1562,7 +1997,7 @@ class __$$BookMetadataExpandedCopyWithImpl<$Res>
       publishedDate: freezed == publishedDate
           ? _value.publishedDate
           : publishedDate // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       publisher: freezed == publisher
           ? _value.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
@@ -1614,10 +2049,10 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
       {this.title,
       this.titleIgnorePrefix,
       this.subtitle,
-      final List<Author> authors = const [],
-      final List<String> narrators = const [],
-      final List<Series> series = const [],
-      final List<String> genres = const [],
+      final List<Author> authors = const <Author>[],
+      final List<String> narrators = const <String>[],
+      final List<Series> series = const <Series>[],
+      final List<String> genres = const <String>[],
       this.publishedYear,
       this.publishedDate,
       this.publisher,
@@ -1685,7 +2120,7 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
   @override
   final String? publishedYear;
   @override
-  final int? publishedDate;
+  final String? publishedDate;
   @override
   final String? publisher;
   @override
@@ -1798,7 +2233,7 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1833,7 +2268,7 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1845,9 +2280,50 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             String? narratorName,
             String? seriesName)
         bookExpanded,
-    required TResult Function() podcast,
-    required TResult Function() podcastMinified,
-    required TResult Function() podcastExpanded,
+    required TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcast,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastExpanded,
   }) {
     return bookExpanded(
         title,
@@ -1882,7 +2358,7 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1917,7 +2393,7 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -1929,9 +2405,50 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult? Function()? podcast,
-    TResult? Function()? podcastMinified,
-    TResult? Function()? podcastExpanded,
+    TResult? Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
   }) {
     return bookExpanded?.call(
         title,
@@ -1966,7 +2483,7 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2001,7 +2518,7 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2013,9 +2530,50 @@ class _$BookMetadataExpanded implements BookMetadataExpanded {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult Function()? podcast,
-    TResult Function()? podcastMinified,
-    TResult Function()? podcastExpanded,
+    TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (bookExpanded != null) {
@@ -2104,7 +2662,7 @@ abstract class BookMetadataExpanded implements MediaMetadata {
       final List<Series> series,
       final List<String> genres,
       final String? publishedYear,
-      final int? publishedDate,
+      final String? publishedDate,
       final String? publisher,
       final String? description,
       final String? isbn,
@@ -2119,35 +2677,57 @@ abstract class BookMetadataExpanded implements MediaMetadata {
   factory BookMetadataExpanded.fromJson(Map<String, dynamic> json) =
       _$BookMetadataExpanded.fromJson;
 
+  @override
   String? get title;
   String? get titleIgnorePrefix;
   String? get subtitle;
   List<Author> get authors;
   List<String> get narrators;
   List<Series> get series;
+  @override
   List<String> get genres;
   String? get publishedYear;
-  int? get publishedDate;
+  String? get publishedDate;
   String? get publisher;
+  @override
   String? get description;
   String? get isbn;
   String? get asin;
+  @override
   String? get language;
+  @override
   bool get explicit;
   String? get authorName;
   String? get authorNameLF;
   String? get narratorName;
   String? get seriesName;
+  @override
   @JsonKey(ignore: true)
   _$$BookMetadataExpandedCopyWith<_$BookMetadataExpanded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PodcastMetadataCopyWith<$Res> {
+abstract class _$$PodcastMetadataCopyWith<$Res>
+    implements $MediaMetadataCopyWith<$Res> {
   factory _$$PodcastMetadataCopyWith(
           _$PodcastMetadata value, $Res Function(_$PodcastMetadata) then) =
       __$$PodcastMetadataCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? title,
+      String? author,
+      String? description,
+      DateTime? releaseDate,
+      List<String> genres,
+      Uri? feedUrl,
+      Uri? imageUrl,
+      Uri? itunesPageUrl,
+      int? itunesId,
+      int? itunesArtistId,
+      bool explicit,
+      String? language});
 }
 
 /// @nodoc
@@ -2157,33 +2737,189 @@ class __$$PodcastMetadataCopyWithImpl<$Res>
   __$$PodcastMetadataCopyWithImpl(
       _$PodcastMetadata _value, $Res Function(_$PodcastMetadata) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = freezed,
+    Object? author = freezed,
+    Object? description = freezed,
+    Object? releaseDate = freezed,
+    Object? genres = null,
+    Object? feedUrl = freezed,
+    Object? imageUrl = freezed,
+    Object? itunesPageUrl = freezed,
+    Object? itunesId = freezed,
+    Object? itunesArtistId = freezed,
+    Object? explicit = null,
+    Object? language = freezed,
+  }) {
+    return _then(_$PodcastMetadata(
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      releaseDate: freezed == releaseDate
+          ? _value.releaseDate
+          : releaseDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      genres: null == genres
+          ? _value._genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      feedUrl: freezed == feedUrl
+          ? _value.feedUrl
+          : feedUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      itunesPageUrl: freezed == itunesPageUrl
+          ? _value.itunesPageUrl
+          : itunesPageUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      itunesId: freezed == itunesId
+          ? _value.itunesId
+          : itunesId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      itunesArtistId: freezed == itunesArtistId
+          ? _value.itunesArtistId
+          : itunesArtistId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      explicit: null == explicit
+          ? _value.explicit
+          : explicit // ignore: cast_nullable_to_non_nullable
+              as bool,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PodcastMetadata implements PodcastMetadata {
-  const _$PodcastMetadata({final String? $type}) : $type = $type ?? 'podcast';
+  const _$PodcastMetadata(
+      {this.title,
+      this.author,
+      this.description,
+      this.releaseDate,
+      final List<String> genres = const <String>[],
+      this.feedUrl,
+      this.imageUrl,
+      this.itunesPageUrl,
+      this.itunesId,
+      this.itunesArtistId,
+      this.explicit = false,
+      this.language,
+      final String? $type})
+      : _genres = genres,
+        $type = $type ?? 'podcast';
 
   factory _$PodcastMetadata.fromJson(Map<String, dynamic> json) =>
       _$$PodcastMetadataFromJson(json);
+
+  @override
+  final String? title;
+  @override
+  final String? author;
+  @override
+  final String? description;
+  @override
+  final DateTime? releaseDate;
+  final List<String> _genres;
+  @override
+  @JsonKey()
+  List<String> get genres {
+    if (_genres is EqualUnmodifiableListView) return _genres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genres);
+  }
+
+  @override
+  final Uri? feedUrl;
+  @override
+  final Uri? imageUrl;
+  @override
+  final Uri? itunesPageUrl;
+  @override
+  final int? itunesId;
+  @override
+  final int? itunesArtistId;
+  @override
+  @JsonKey()
+  final bool explicit;
+  @override
+  final String? language;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'MediaMetadata.podcast()';
+    return 'MediaMetadata.podcast(title: $title, author: $author, description: $description, releaseDate: $releaseDate, genres: $genres, feedUrl: $feedUrl, imageUrl: $imageUrl, itunesPageUrl: $itunesPageUrl, itunesId: $itunesId, itunesArtistId: $itunesArtistId, explicit: $explicit, language: $language)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PodcastMetadata);
+        (other.runtimeType == runtimeType &&
+            other is _$PodcastMetadata &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.releaseDate, releaseDate) ||
+                other.releaseDate == releaseDate) &&
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            (identical(other.feedUrl, feedUrl) || other.feedUrl == feedUrl) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.itunesPageUrl, itunesPageUrl) ||
+                other.itunesPageUrl == itunesPageUrl) &&
+            (identical(other.itunesId, itunesId) ||
+                other.itunesId == itunesId) &&
+            (identical(other.itunesArtistId, itunesArtistId) ||
+                other.itunesArtistId == itunesArtistId) &&
+            (identical(other.explicit, explicit) ||
+                other.explicit == explicit) &&
+            (identical(other.language, language) ||
+                other.language == language));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      title,
+      author,
+      description,
+      releaseDate,
+      const DeepCollectionEquality().hash(_genres),
+      feedUrl,
+      imageUrl,
+      itunesPageUrl,
+      itunesId,
+      itunesArtistId,
+      explicit,
+      language);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PodcastMetadataCopyWith<_$PodcastMetadata> get copyWith =>
+      __$$PodcastMetadataCopyWithImpl<_$PodcastMetadata>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2196,7 +2932,7 @@ class _$PodcastMetadata implements PodcastMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2231,7 +2967,7 @@ class _$PodcastMetadata implements PodcastMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2243,11 +2979,53 @@ class _$PodcastMetadata implements PodcastMetadata {
             String? narratorName,
             String? seriesName)
         bookExpanded,
-    required TResult Function() podcast,
-    required TResult Function() podcastMinified,
-    required TResult Function() podcastExpanded,
+    required TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcast,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastExpanded,
   }) {
-    return podcast();
+    return podcast(title, author, description, releaseDate, genres, feedUrl,
+        imageUrl, itunesPageUrl, itunesId, itunesArtistId, explicit, language);
   }
 
   @override
@@ -2261,7 +3039,7 @@ class _$PodcastMetadata implements PodcastMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2296,7 +3074,7 @@ class _$PodcastMetadata implements PodcastMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2308,11 +3086,64 @@ class _$PodcastMetadata implements PodcastMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult? Function()? podcast,
-    TResult? Function()? podcastMinified,
-    TResult? Function()? podcastExpanded,
+    TResult? Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
   }) {
-    return podcast?.call();
+    return podcast?.call(
+        title,
+        author,
+        description,
+        releaseDate,
+        genres,
+        feedUrl,
+        imageUrl,
+        itunesPageUrl,
+        itunesId,
+        itunesArtistId,
+        explicit,
+        language);
   }
 
   @override
@@ -2326,7 +3157,7 @@ class _$PodcastMetadata implements PodcastMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2361,7 +3192,7 @@ class _$PodcastMetadata implements PodcastMetadata {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2373,13 +3204,66 @@ class _$PodcastMetadata implements PodcastMetadata {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult Function()? podcast,
-    TResult Function()? podcastMinified,
-    TResult Function()? podcastExpanded,
+    TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (podcast != null) {
-      return podcast();
+      return podcast(
+          title,
+          author,
+          description,
+          releaseDate,
+          genres,
+          feedUrl,
+          imageUrl,
+          itunesPageUrl,
+          itunesId,
+          itunesArtistId,
+          explicit,
+          language);
     }
     return orElse();
   }
@@ -2436,17 +3320,68 @@ class _$PodcastMetadata implements PodcastMetadata {
 }
 
 abstract class PodcastMetadata implements MediaMetadata {
-  const factory PodcastMetadata() = _$PodcastMetadata;
+  const factory PodcastMetadata(
+      {final String? title,
+      final String? author,
+      final String? description,
+      final DateTime? releaseDate,
+      final List<String> genres,
+      final Uri? feedUrl,
+      final Uri? imageUrl,
+      final Uri? itunesPageUrl,
+      final int? itunesId,
+      final int? itunesArtistId,
+      final bool explicit,
+      final String? language}) = _$PodcastMetadata;
 
   factory PodcastMetadata.fromJson(Map<String, dynamic> json) =
       _$PodcastMetadata.fromJson;
+
+  @override
+  String? get title;
+  String? get author;
+  @override
+  String? get description;
+  DateTime? get releaseDate;
+  @override
+  List<String> get genres;
+  Uri? get feedUrl;
+  Uri? get imageUrl;
+  Uri? get itunesPageUrl;
+  int? get itunesId;
+  int? get itunesArtistId;
+  @override
+  bool get explicit;
+  @override
+  String? get language;
+  @override
+  @JsonKey(ignore: true)
+  _$$PodcastMetadataCopyWith<_$PodcastMetadata> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PodcastMetadataMinifiedCopyWith<$Res> {
+abstract class _$$PodcastMetadataMinifiedCopyWith<$Res>
+    implements $MediaMetadataCopyWith<$Res> {
   factory _$$PodcastMetadataMinifiedCopyWith(_$PodcastMetadataMinified value,
           $Res Function(_$PodcastMetadataMinified) then) =
       __$$PodcastMetadataMinifiedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? title,
+      String? titleIgnorePrefix,
+      String? author,
+      String? description,
+      DateTime? releaseDate,
+      List<String> genres,
+      Uri? feedUrl,
+      Uri? imageUrl,
+      Uri? itunesPageUrl,
+      int? itunesId,
+      int? itunesArtistId,
+      bool explicit,
+      String? language});
 }
 
 /// @nodoc
@@ -2456,35 +3391,201 @@ class __$$PodcastMetadataMinifiedCopyWithImpl<$Res>
   __$$PodcastMetadataMinifiedCopyWithImpl(_$PodcastMetadataMinified _value,
       $Res Function(_$PodcastMetadataMinified) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = freezed,
+    Object? titleIgnorePrefix = freezed,
+    Object? author = freezed,
+    Object? description = freezed,
+    Object? releaseDate = freezed,
+    Object? genres = null,
+    Object? feedUrl = freezed,
+    Object? imageUrl = freezed,
+    Object? itunesPageUrl = freezed,
+    Object? itunesId = freezed,
+    Object? itunesArtistId = freezed,
+    Object? explicit = null,
+    Object? language = freezed,
+  }) {
+    return _then(_$PodcastMetadataMinified(
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      titleIgnorePrefix: freezed == titleIgnorePrefix
+          ? _value.titleIgnorePrefix
+          : titleIgnorePrefix // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      releaseDate: freezed == releaseDate
+          ? _value.releaseDate
+          : releaseDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      genres: null == genres
+          ? _value._genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      feedUrl: freezed == feedUrl
+          ? _value.feedUrl
+          : feedUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      itunesPageUrl: freezed == itunesPageUrl
+          ? _value.itunesPageUrl
+          : itunesPageUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      itunesId: freezed == itunesId
+          ? _value.itunesId
+          : itunesId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      itunesArtistId: freezed == itunesArtistId
+          ? _value.itunesArtistId
+          : itunesArtistId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      explicit: null == explicit
+          ? _value.explicit
+          : explicit // ignore: cast_nullable_to_non_nullable
+              as bool,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PodcastMetadataMinified implements PodcastMetadataMinified {
-  const _$PodcastMetadataMinified({final String? $type})
-      : $type = $type ?? 'podcastMinified';
+  const _$PodcastMetadataMinified(
+      {this.title,
+      this.titleIgnorePrefix,
+      this.author,
+      this.description,
+      this.releaseDate,
+      final List<String> genres = const <String>[],
+      this.feedUrl,
+      this.imageUrl,
+      this.itunesPageUrl,
+      this.itunesId,
+      this.itunesArtistId,
+      this.explicit = false,
+      this.language,
+      final String? $type})
+      : _genres = genres,
+        $type = $type ?? 'podcastMinified';
 
   factory _$PodcastMetadataMinified.fromJson(Map<String, dynamic> json) =>
       _$$PodcastMetadataMinifiedFromJson(json);
+
+  @override
+  final String? title;
+  @override
+  final String? titleIgnorePrefix;
+  @override
+  final String? author;
+  @override
+  final String? description;
+  @override
+  final DateTime? releaseDate;
+  final List<String> _genres;
+  @override
+  @JsonKey()
+  List<String> get genres {
+    if (_genres is EqualUnmodifiableListView) return _genres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genres);
+  }
+
+  @override
+  final Uri? feedUrl;
+  @override
+  final Uri? imageUrl;
+  @override
+  final Uri? itunesPageUrl;
+  @override
+  final int? itunesId;
+  @override
+  final int? itunesArtistId;
+  @override
+  @JsonKey()
+  final bool explicit;
+  @override
+  final String? language;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'MediaMetadata.podcastMinified()';
+    return 'MediaMetadata.podcastMinified(title: $title, titleIgnorePrefix: $titleIgnorePrefix, author: $author, description: $description, releaseDate: $releaseDate, genres: $genres, feedUrl: $feedUrl, imageUrl: $imageUrl, itunesPageUrl: $itunesPageUrl, itunesId: $itunesId, itunesArtistId: $itunesArtistId, explicit: $explicit, language: $language)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PodcastMetadataMinified);
+            other is _$PodcastMetadataMinified &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.titleIgnorePrefix, titleIgnorePrefix) ||
+                other.titleIgnorePrefix == titleIgnorePrefix) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.releaseDate, releaseDate) ||
+                other.releaseDate == releaseDate) &&
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            (identical(other.feedUrl, feedUrl) || other.feedUrl == feedUrl) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.itunesPageUrl, itunesPageUrl) ||
+                other.itunesPageUrl == itunesPageUrl) &&
+            (identical(other.itunesId, itunesId) ||
+                other.itunesId == itunesId) &&
+            (identical(other.itunesArtistId, itunesArtistId) ||
+                other.itunesArtistId == itunesArtistId) &&
+            (identical(other.explicit, explicit) ||
+                other.explicit == explicit) &&
+            (identical(other.language, language) ||
+                other.language == language));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      title,
+      titleIgnorePrefix,
+      author,
+      description,
+      releaseDate,
+      const DeepCollectionEquality().hash(_genres),
+      feedUrl,
+      imageUrl,
+      itunesPageUrl,
+      itunesId,
+      itunesArtistId,
+      explicit,
+      language);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PodcastMetadataMinifiedCopyWith<_$PodcastMetadataMinified> get copyWith =>
+      __$$PodcastMetadataMinifiedCopyWithImpl<_$PodcastMetadataMinified>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2497,7 +3598,7 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2532,7 +3633,7 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2544,11 +3645,65 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
             String? narratorName,
             String? seriesName)
         bookExpanded,
-    required TResult Function() podcast,
-    required TResult Function() podcastMinified,
-    required TResult Function() podcastExpanded,
+    required TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcast,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastExpanded,
   }) {
-    return podcastMinified();
+    return podcastMinified(
+        title,
+        titleIgnorePrefix,
+        author,
+        description,
+        releaseDate,
+        genres,
+        feedUrl,
+        imageUrl,
+        itunesPageUrl,
+        itunesId,
+        itunesArtistId,
+        explicit,
+        language);
   }
 
   @override
@@ -2562,7 +3717,7 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2597,7 +3752,7 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2609,11 +3764,65 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult? Function()? podcast,
-    TResult? Function()? podcastMinified,
-    TResult? Function()? podcastExpanded,
+    TResult? Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
   }) {
-    return podcastMinified?.call();
+    return podcastMinified?.call(
+        title,
+        titleIgnorePrefix,
+        author,
+        description,
+        releaseDate,
+        genres,
+        feedUrl,
+        imageUrl,
+        itunesPageUrl,
+        itunesId,
+        itunesArtistId,
+        explicit,
+        language);
   }
 
   @override
@@ -2627,7 +3836,7 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2662,7 +3871,7 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2674,13 +3883,67 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult Function()? podcast,
-    TResult Function()? podcastMinified,
-    TResult Function()? podcastExpanded,
+    TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (podcastMinified != null) {
-      return podcastMinified();
+      return podcastMinified(
+          title,
+          titleIgnorePrefix,
+          author,
+          description,
+          releaseDate,
+          genres,
+          feedUrl,
+          imageUrl,
+          itunesPageUrl,
+          itunesId,
+          itunesArtistId,
+          explicit,
+          language);
     }
     return orElse();
   }
@@ -2737,17 +4000,70 @@ class _$PodcastMetadataMinified implements PodcastMetadataMinified {
 }
 
 abstract class PodcastMetadataMinified implements MediaMetadata {
-  const factory PodcastMetadataMinified() = _$PodcastMetadataMinified;
+  const factory PodcastMetadataMinified(
+      {final String? title,
+      final String? titleIgnorePrefix,
+      final String? author,
+      final String? description,
+      final DateTime? releaseDate,
+      final List<String> genres,
+      final Uri? feedUrl,
+      final Uri? imageUrl,
+      final Uri? itunesPageUrl,
+      final int? itunesId,
+      final int? itunesArtistId,
+      final bool explicit,
+      final String? language}) = _$PodcastMetadataMinified;
 
   factory PodcastMetadataMinified.fromJson(Map<String, dynamic> json) =
       _$PodcastMetadataMinified.fromJson;
+
+  @override
+  String? get title;
+  String? get titleIgnorePrefix;
+  String? get author;
+  @override
+  String? get description;
+  DateTime? get releaseDate;
+  @override
+  List<String> get genres;
+  Uri? get feedUrl;
+  Uri? get imageUrl;
+  Uri? get itunesPageUrl;
+  int? get itunesId;
+  int? get itunesArtistId;
+  @override
+  bool get explicit;
+  @override
+  String? get language;
+  @override
+  @JsonKey(ignore: true)
+  _$$PodcastMetadataMinifiedCopyWith<_$PodcastMetadataMinified> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PodcastMetadataExpandedCopyWith<$Res> {
+abstract class _$$PodcastMetadataExpandedCopyWith<$Res>
+    implements $MediaMetadataCopyWith<$Res> {
   factory _$$PodcastMetadataExpandedCopyWith(_$PodcastMetadataExpanded value,
           $Res Function(_$PodcastMetadataExpanded) then) =
       __$$PodcastMetadataExpandedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String? title,
+      String? titleIgnorePrefix,
+      String? author,
+      String? description,
+      DateTime? releaseDate,
+      List<String> genres,
+      Uri? feedUrl,
+      Uri? imageUrl,
+      Uri? itunesPageUrl,
+      int? itunesId,
+      int? itunesArtistId,
+      bool explicit,
+      String? language});
 }
 
 /// @nodoc
@@ -2757,35 +4073,201 @@ class __$$PodcastMetadataExpandedCopyWithImpl<$Res>
   __$$PodcastMetadataExpandedCopyWithImpl(_$PodcastMetadataExpanded _value,
       $Res Function(_$PodcastMetadataExpanded) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = freezed,
+    Object? titleIgnorePrefix = freezed,
+    Object? author = freezed,
+    Object? description = freezed,
+    Object? releaseDate = freezed,
+    Object? genres = null,
+    Object? feedUrl = freezed,
+    Object? imageUrl = freezed,
+    Object? itunesPageUrl = freezed,
+    Object? itunesId = freezed,
+    Object? itunesArtistId = freezed,
+    Object? explicit = null,
+    Object? language = freezed,
+  }) {
+    return _then(_$PodcastMetadataExpanded(
+      title: freezed == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      titleIgnorePrefix: freezed == titleIgnorePrefix
+          ? _value.titleIgnorePrefix
+          : titleIgnorePrefix // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      releaseDate: freezed == releaseDate
+          ? _value.releaseDate
+          : releaseDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      genres: null == genres
+          ? _value._genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      feedUrl: freezed == feedUrl
+          ? _value.feedUrl
+          : feedUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      imageUrl: freezed == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      itunesPageUrl: freezed == itunesPageUrl
+          ? _value.itunesPageUrl
+          : itunesPageUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      itunesId: freezed == itunesId
+          ? _value.itunesId
+          : itunesId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      itunesArtistId: freezed == itunesArtistId
+          ? _value.itunesArtistId
+          : itunesArtistId // ignore: cast_nullable_to_non_nullable
+              as int?,
+      explicit: null == explicit
+          ? _value.explicit
+          : explicit // ignore: cast_nullable_to_non_nullable
+              as bool,
+      language: freezed == language
+          ? _value.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
-  const _$PodcastMetadataExpanded({final String? $type})
-      : $type = $type ?? 'podcastExpanded';
+  const _$PodcastMetadataExpanded(
+      {this.title,
+      this.titleIgnorePrefix,
+      this.author,
+      this.description,
+      this.releaseDate,
+      final List<String> genres = const <String>[],
+      this.feedUrl,
+      this.imageUrl,
+      this.itunesPageUrl,
+      this.itunesId,
+      this.itunesArtistId,
+      this.explicit = false,
+      this.language,
+      final String? $type})
+      : _genres = genres,
+        $type = $type ?? 'podcastExpanded';
 
   factory _$PodcastMetadataExpanded.fromJson(Map<String, dynamic> json) =>
       _$$PodcastMetadataExpandedFromJson(json);
+
+  @override
+  final String? title;
+  @override
+  final String? titleIgnorePrefix;
+  @override
+  final String? author;
+  @override
+  final String? description;
+  @override
+  final DateTime? releaseDate;
+  final List<String> _genres;
+  @override
+  @JsonKey()
+  List<String> get genres {
+    if (_genres is EqualUnmodifiableListView) return _genres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genres);
+  }
+
+  @override
+  final Uri? feedUrl;
+  @override
+  final Uri? imageUrl;
+  @override
+  final Uri? itunesPageUrl;
+  @override
+  final int? itunesId;
+  @override
+  final int? itunesArtistId;
+  @override
+  @JsonKey()
+  final bool explicit;
+  @override
+  final String? language;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'MediaMetadata.podcastExpanded()';
+    return 'MediaMetadata.podcastExpanded(title: $title, titleIgnorePrefix: $titleIgnorePrefix, author: $author, description: $description, releaseDate: $releaseDate, genres: $genres, feedUrl: $feedUrl, imageUrl: $imageUrl, itunesPageUrl: $itunesPageUrl, itunesId: $itunesId, itunesArtistId: $itunesArtistId, explicit: $explicit, language: $language)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PodcastMetadataExpanded);
+            other is _$PodcastMetadataExpanded &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.titleIgnorePrefix, titleIgnorePrefix) ||
+                other.titleIgnorePrefix == titleIgnorePrefix) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.releaseDate, releaseDate) ||
+                other.releaseDate == releaseDate) &&
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            (identical(other.feedUrl, feedUrl) || other.feedUrl == feedUrl) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.itunesPageUrl, itunesPageUrl) ||
+                other.itunesPageUrl == itunesPageUrl) &&
+            (identical(other.itunesId, itunesId) ||
+                other.itunesId == itunesId) &&
+            (identical(other.itunesArtistId, itunesArtistId) ||
+                other.itunesArtistId == itunesArtistId) &&
+            (identical(other.explicit, explicit) ||
+                other.explicit == explicit) &&
+            (identical(other.language, language) ||
+                other.language == language));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      title,
+      titleIgnorePrefix,
+      author,
+      description,
+      releaseDate,
+      const DeepCollectionEquality().hash(_genres),
+      feedUrl,
+      imageUrl,
+      itunesPageUrl,
+      itunesId,
+      itunesArtistId,
+      explicit,
+      language);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PodcastMetadataExpandedCopyWith<_$PodcastMetadataExpanded> get copyWith =>
+      __$$PodcastMetadataExpandedCopyWithImpl<_$PodcastMetadataExpanded>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2798,7 +4280,7 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2833,7 +4315,7 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2845,11 +4327,65 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
             String? narratorName,
             String? seriesName)
         bookExpanded,
-    required TResult Function() podcast,
-    required TResult Function() podcastMinified,
-    required TResult Function() podcastExpanded,
+    required TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcast,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastMinified,
+    required TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)
+        podcastExpanded,
   }) {
-    return podcastExpanded();
+    return podcastExpanded(
+        title,
+        titleIgnorePrefix,
+        author,
+        description,
+        releaseDate,
+        genres,
+        feedUrl,
+        imageUrl,
+        itunesPageUrl,
+        itunesId,
+        itunesArtistId,
+        explicit,
+        language);
   }
 
   @override
@@ -2863,7 +4399,7 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2898,7 +4434,7 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2910,11 +4446,65 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult? Function()? podcast,
-    TResult? Function()? podcastMinified,
-    TResult? Function()? podcastExpanded,
+    TResult? Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult? Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
   }) {
-    return podcastExpanded?.call();
+    return podcastExpanded?.call(
+        title,
+        titleIgnorePrefix,
+        author,
+        description,
+        releaseDate,
+        genres,
+        feedUrl,
+        imageUrl,
+        itunesPageUrl,
+        itunesId,
+        itunesArtistId,
+        explicit,
+        language);
   }
 
   @override
@@ -2928,7 +4518,7 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2963,7 +4553,7 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
             List<Series> series,
             List<String> genres,
             String? publishedYear,
-            int? publishedDate,
+            String? publishedDate,
             String? publisher,
             String? description,
             String? isbn,
@@ -2975,13 +4565,67 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
             String? narratorName,
             String? seriesName)?
         bookExpanded,
-    TResult Function()? podcast,
-    TResult Function()? podcastMinified,
-    TResult Function()? podcastExpanded,
+    TResult Function(
+            String? title,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcast,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastMinified,
+    TResult Function(
+            String? title,
+            String? titleIgnorePrefix,
+            String? author,
+            String? description,
+            DateTime? releaseDate,
+            List<String> genres,
+            Uri? feedUrl,
+            Uri? imageUrl,
+            Uri? itunesPageUrl,
+            int? itunesId,
+            int? itunesArtistId,
+            bool explicit,
+            String? language)?
+        podcastExpanded,
     required TResult orElse(),
   }) {
     if (podcastExpanded != null) {
-      return podcastExpanded();
+      return podcastExpanded(
+          title,
+          titleIgnorePrefix,
+          author,
+          description,
+          releaseDate,
+          genres,
+          feedUrl,
+          imageUrl,
+          itunesPageUrl,
+          itunesId,
+          itunesArtistId,
+          explicit,
+          language);
     }
     return orElse();
   }
@@ -3038,8 +4682,44 @@ class _$PodcastMetadataExpanded implements PodcastMetadataExpanded {
 }
 
 abstract class PodcastMetadataExpanded implements MediaMetadata {
-  const factory PodcastMetadataExpanded() = _$PodcastMetadataExpanded;
+  const factory PodcastMetadataExpanded(
+      {final String? title,
+      final String? titleIgnorePrefix,
+      final String? author,
+      final String? description,
+      final DateTime? releaseDate,
+      final List<String> genres,
+      final Uri? feedUrl,
+      final Uri? imageUrl,
+      final Uri? itunesPageUrl,
+      final int? itunesId,
+      final int? itunesArtistId,
+      final bool explicit,
+      final String? language}) = _$PodcastMetadataExpanded;
 
   factory PodcastMetadataExpanded.fromJson(Map<String, dynamic> json) =
       _$PodcastMetadataExpanded.fromJson;
+
+  @override
+  String? get title;
+  String? get titleIgnorePrefix;
+  String? get author;
+  @override
+  String? get description;
+  DateTime? get releaseDate;
+  @override
+  List<String> get genres;
+  Uri? get feedUrl;
+  Uri? get imageUrl;
+  Uri? get itunesPageUrl;
+  int? get itunesId;
+  int? get itunesArtistId;
+  @override
+  bool get explicit;
+  @override
+  String? get language;
+  @override
+  @JsonKey(ignore: true)
+  _$$PodcastMetadataExpandedCopyWith<_$PodcastMetadataExpanded> get copyWith =>
+      throw _privateConstructorUsedError;
 }

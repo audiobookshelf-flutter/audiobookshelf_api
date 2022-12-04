@@ -13,7 +13,8 @@ import 'podcast_episode.dart';
 part 'generated/media.freezed.dart';
 part 'generated/media.g.dart';
 
-/// See [Book](https://api.audiobookshelf.org/#book) and [Podcast](https://api.audiobookshelf.org/#podcast)
+/// See [Book](https://api.audiobookshelf.org/#book)
+/// and [Podcast](https://api.audiobookshelf.org/#podcast)
 @freezed
 class Media with _$Media {
   const Media._();

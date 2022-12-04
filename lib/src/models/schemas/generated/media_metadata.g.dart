@@ -13,21 +13,21 @@ _$BookMetadata _$$BookMetadataFromJson(Map<String, dynamic> json) =>
       authors: (json['authors'] as List<dynamic>?)
               ?.map((e) => Author.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const [],
+          const <Author>[],
       narrators: (json['narrators'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          const [],
+          const <String>[],
       series: (json['series'] as List<dynamic>?)
               ?.map((e) => Series.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const [],
+          const <Series>[],
       genres: (json['genres'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          const [],
+          const <String>[],
       publishedYear: json['publishedYear'] as String?,
-      publishedDate: json['publishedDate'] as int?,
+      publishedDate: json['publishedDate'] as String?,
       publisher: json['publisher'] as String?,
       description: json['description'] as String?,
       isbn: json['isbn'] as String?,
@@ -69,7 +69,7 @@ _$BookMetadataMinified _$$BookMetadataMinifiedFromJson(
       genres: (json['genres'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          const [],
+          const <String>[],
       publishedYear: json['publishedYear'] as String?,
       publishedDate: json['publishedDate'] as int?,
       publisher: json['publisher'] as String?,
@@ -112,21 +112,21 @@ _$BookMetadataExpanded _$$BookMetadataExpandedFromJson(
       authors: (json['authors'] as List<dynamic>?)
               ?.map((e) => Author.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const [],
+          const <Author>[],
       narrators: (json['narrators'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          const [],
+          const <String>[],
       series: (json['series'] as List<dynamic>?)
               ?.map((e) => Series.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const [],
+          const <Series>[],
       genres: (json['genres'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
-          const [],
+          const <String>[],
       publishedYear: json['publishedYear'] as String?,
-      publishedDate: json['publishedDate'] as int?,
+      publishedDate: json['publishedDate'] as String?,
       publisher: json['publisher'] as String?,
       description: json['description'] as String?,
       isbn: json['isbn'] as String?,
@@ -167,34 +167,140 @@ Map<String, dynamic> _$$BookMetadataExpandedToJson(
 
 _$PodcastMetadata _$$PodcastMetadataFromJson(Map<String, dynamic> json) =>
     _$PodcastMetadata(
+      title: json['title'] as String?,
+      author: json['author'] as String?,
+      description: json['description'] as String?,
+      releaseDate: json['releaseDate'] == null
+          ? null
+          : DateTime.parse(json['releaseDate'] as String),
+      genres: (json['genres'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const <String>[],
+      feedUrl:
+          json['feedUrl'] == null ? null : Uri.parse(json['feedUrl'] as String),
+      imageUrl: json['imageUrl'] == null
+          ? null
+          : Uri.parse(json['imageUrl'] as String),
+      itunesPageUrl: json['itunesPageUrl'] == null
+          ? null
+          : Uri.parse(json['itunesPageUrl'] as String),
+      itunesId: json['itunesId'] as int?,
+      itunesArtistId: json['itunesArtistId'] as int?,
+      explicit: json['explicit'] as bool? ?? false,
+      language: json['language'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$PodcastMetadataToJson(_$PodcastMetadata instance) =>
     <String, dynamic>{
+      'title': instance.title,
+      'author': instance.author,
+      'description': instance.description,
+      'releaseDate': instance.releaseDate?.toIso8601String(),
+      'genres': instance.genres,
+      'feedUrl': instance.feedUrl?.toString(),
+      'imageUrl': instance.imageUrl?.toString(),
+      'itunesPageUrl': instance.itunesPageUrl?.toString(),
+      'itunesId': instance.itunesId,
+      'itunesArtistId': instance.itunesArtistId,
+      'explicit': instance.explicit,
+      'language': instance.language,
       'runtimeType': instance.$type,
     };
 
 _$PodcastMetadataMinified _$$PodcastMetadataMinifiedFromJson(
         Map<String, dynamic> json) =>
     _$PodcastMetadataMinified(
+      title: json['title'] as String?,
+      titleIgnorePrefix: json['titleIgnorePrefix'] as String?,
+      author: json['author'] as String?,
+      description: json['description'] as String?,
+      releaseDate: json['releaseDate'] == null
+          ? null
+          : DateTime.parse(json['releaseDate'] as String),
+      genres: (json['genres'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const <String>[],
+      feedUrl:
+          json['feedUrl'] == null ? null : Uri.parse(json['feedUrl'] as String),
+      imageUrl: json['imageUrl'] == null
+          ? null
+          : Uri.parse(json['imageUrl'] as String),
+      itunesPageUrl: json['itunesPageUrl'] == null
+          ? null
+          : Uri.parse(json['itunesPageUrl'] as String),
+      itunesId: json['itunesId'] as int?,
+      itunesArtistId: json['itunesArtistId'] as int?,
+      explicit: json['explicit'] as bool? ?? false,
+      language: json['language'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$PodcastMetadataMinifiedToJson(
         _$PodcastMetadataMinified instance) =>
     <String, dynamic>{
+      'title': instance.title,
+      'titleIgnorePrefix': instance.titleIgnorePrefix,
+      'author': instance.author,
+      'description': instance.description,
+      'releaseDate': instance.releaseDate?.toIso8601String(),
+      'genres': instance.genres,
+      'feedUrl': instance.feedUrl?.toString(),
+      'imageUrl': instance.imageUrl?.toString(),
+      'itunesPageUrl': instance.itunesPageUrl?.toString(),
+      'itunesId': instance.itunesId,
+      'itunesArtistId': instance.itunesArtistId,
+      'explicit': instance.explicit,
+      'language': instance.language,
       'runtimeType': instance.$type,
     };
 
 _$PodcastMetadataExpanded _$$PodcastMetadataExpandedFromJson(
         Map<String, dynamic> json) =>
     _$PodcastMetadataExpanded(
+      title: json['title'] as String?,
+      titleIgnorePrefix: json['titleIgnorePrefix'] as String?,
+      author: json['author'] as String?,
+      description: json['description'] as String?,
+      releaseDate: json['releaseDate'] == null
+          ? null
+          : DateTime.parse(json['releaseDate'] as String),
+      genres: (json['genres'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const <String>[],
+      feedUrl:
+          json['feedUrl'] == null ? null : Uri.parse(json['feedUrl'] as String),
+      imageUrl: json['imageUrl'] == null
+          ? null
+          : Uri.parse(json['imageUrl'] as String),
+      itunesPageUrl: json['itunesPageUrl'] == null
+          ? null
+          : Uri.parse(json['itunesPageUrl'] as String),
+      itunesId: json['itunesId'] as int?,
+      itunesArtistId: json['itunesArtistId'] as int?,
+      explicit: json['explicit'] as bool? ?? false,
+      language: json['language'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$PodcastMetadataExpandedToJson(
         _$PodcastMetadataExpanded instance) =>
     <String, dynamic>{
+      'title': instance.title,
+      'titleIgnorePrefix': instance.titleIgnorePrefix,
+      'author': instance.author,
+      'description': instance.description,
+      'releaseDate': instance.releaseDate?.toIso8601String(),
+      'genres': instance.genres,
+      'feedUrl': instance.feedUrl?.toString(),
+      'imageUrl': instance.imageUrl?.toString(),
+      'itunesPageUrl': instance.itunesPageUrl?.toString(),
+      'itunesId': instance.itunesId,
+      'itunesArtistId': instance.itunesArtistId,
+      'explicit': instance.explicit,
+      'language': instance.language,
       'runtimeType': instance.$type,
     };
