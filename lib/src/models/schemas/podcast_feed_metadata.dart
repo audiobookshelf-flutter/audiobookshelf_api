@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'generated/podcast_feed_metadata.freezed.dart';
 part 'generated/podcast_feed_metadata.g.dart';
 
+/// See [Podcast Feed Metadata](https://api.audiobookshelf.org/#podcast-feed-metadata)
 @freezed
 class PodcastFeedMetadata with _$PodcastFeedMetadata {
   const factory PodcastFeedMetadata({

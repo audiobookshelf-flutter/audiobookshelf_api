@@ -9,6 +9,7 @@ import 'podcast_episode_enclosure.dart';
 part 'generated/podcast_episode.freezed.dart';
 part 'generated/podcast_episode.g.dart';
 
+/// See [Podcast Episode](https://api.audiobookshelf.org/#podcast-episode)
 @freezed
 class PodcastEpisode with _$PodcastEpisode {
   const PodcastEpisode._();

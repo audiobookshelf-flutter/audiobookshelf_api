@@ -7,6 +7,7 @@ import 'podcast_feed_metadata.dart';
 part 'generated/podcast_feed.freezed.dart';
 part 'generated/podcast_feed.g.dart';
 
+/// See [Podcast Feed](https://api.audiobookshelf.org/#podcast-feed)
 @freezed
 class PodcastFeed with _$PodcastFeed {
   const PodcastFeed._();
