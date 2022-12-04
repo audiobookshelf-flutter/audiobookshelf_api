@@ -24,12 +24,23 @@ mixin _$AudioMetaTags {
   String? get tagArtist => throw _privateConstructorUsedError;
   String? get tagGenre => throw _privateConstructorUsedError;
   String? get tagTitle => throw _privateConstructorUsedError;
+  String? get tagSeries => throw _privateConstructorUsedError;
+  String? get tagSeriesPart => throw _privateConstructorUsedError;
   String? get tagTrack => throw _privateConstructorUsedError;
+  String? get tagDisc => throw _privateConstructorUsedError;
+  String? get tagSubtitle => throw _privateConstructorUsedError;
   String? get tagAlbumArtist => throw _privateConstructorUsedError;
   String? get tagDate => throw _privateConstructorUsedError;
   String? get tagComposer => throw _privateConstructorUsedError;
+  String? get tagPublisher => throw _privateConstructorUsedError;
+  String? get tagComment => throw _privateConstructorUsedError;
   String? get tagDescription => throw _privateConstructorUsedError;
   String? get tagEncoder => throw _privateConstructorUsedError;
+  String? get tagEncodedBy => throw _privateConstructorUsedError;
+  String? get tagIsbn => throw _privateConstructorUsedError;
+  String? get tagLanguage => throw _privateConstructorUsedError;
+  String? get tagASIN => throw _privateConstructorUsedError;
+  String? get tagOverdriveMediaMarker => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,12 +59,23 @@ abstract class $AudioMetaTagsCopyWith<$Res> {
       String? tagArtist,
       String? tagGenre,
       String? tagTitle,
+      String? tagSeries,
+      String? tagSeriesPart,
       String? tagTrack,
+      String? tagDisc,
+      String? tagSubtitle,
       String? tagAlbumArtist,
       String? tagDate,
       String? tagComposer,
+      String? tagPublisher,
+      String? tagComment,
       String? tagDescription,
-      String? tagEncoder});
+      String? tagEncoder,
+      String? tagEncodedBy,
+      String? tagIsbn,
+      String? tagLanguage,
+      String? tagASIN,
+      String? tagOverdriveMediaMarker});
 }
 
 /// @nodoc
@@ -73,12 +95,23 @@ class _$AudioMetaTagsCopyWithImpl<$Res, $Val extends AudioMetaTags>
     Object? tagArtist = freezed,
     Object? tagGenre = freezed,
     Object? tagTitle = freezed,
+    Object? tagSeries = freezed,
+    Object? tagSeriesPart = freezed,
     Object? tagTrack = freezed,
+    Object? tagDisc = freezed,
+    Object? tagSubtitle = freezed,
     Object? tagAlbumArtist = freezed,
     Object? tagDate = freezed,
     Object? tagComposer = freezed,
+    Object? tagPublisher = freezed,
+    Object? tagComment = freezed,
     Object? tagDescription = freezed,
     Object? tagEncoder = freezed,
+    Object? tagEncodedBy = freezed,
+    Object? tagIsbn = freezed,
+    Object? tagLanguage = freezed,
+    Object? tagASIN = freezed,
+    Object? tagOverdriveMediaMarker = freezed,
   }) {
     return _then(_value.copyWith(
       tagAlbum: freezed == tagAlbum
@@ -97,9 +130,25 @@ class _$AudioMetaTagsCopyWithImpl<$Res, $Val extends AudioMetaTags>
           ? _value.tagTitle
           : tagTitle // ignore: cast_nullable_to_non_nullable
               as String?,
+      tagSeries: freezed == tagSeries
+          ? _value.tagSeries
+          : tagSeries // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagSeriesPart: freezed == tagSeriesPart
+          ? _value.tagSeriesPart
+          : tagSeriesPart // ignore: cast_nullable_to_non_nullable
+              as String?,
       tagTrack: freezed == tagTrack
           ? _value.tagTrack
           : tagTrack // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagDisc: freezed == tagDisc
+          ? _value.tagDisc
+          : tagDisc // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagSubtitle: freezed == tagSubtitle
+          ? _value.tagSubtitle
+          : tagSubtitle // ignore: cast_nullable_to_non_nullable
               as String?,
       tagAlbumArtist: freezed == tagAlbumArtist
           ? _value.tagAlbumArtist
@@ -113,6 +162,14 @@ class _$AudioMetaTagsCopyWithImpl<$Res, $Val extends AudioMetaTags>
           ? _value.tagComposer
           : tagComposer // ignore: cast_nullable_to_non_nullable
               as String?,
+      tagPublisher: freezed == tagPublisher
+          ? _value.tagPublisher
+          : tagPublisher // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagComment: freezed == tagComment
+          ? _value.tagComment
+          : tagComment // ignore: cast_nullable_to_non_nullable
+              as String?,
       tagDescription: freezed == tagDescription
           ? _value.tagDescription
           : tagDescription // ignore: cast_nullable_to_non_nullable
@@ -120,6 +177,26 @@ class _$AudioMetaTagsCopyWithImpl<$Res, $Val extends AudioMetaTags>
       tagEncoder: freezed == tagEncoder
           ? _value.tagEncoder
           : tagEncoder // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagEncodedBy: freezed == tagEncodedBy
+          ? _value.tagEncodedBy
+          : tagEncodedBy // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagIsbn: freezed == tagIsbn
+          ? _value.tagIsbn
+          : tagIsbn // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagLanguage: freezed == tagLanguage
+          ? _value.tagLanguage
+          : tagLanguage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagASIN: freezed == tagASIN
+          ? _value.tagASIN
+          : tagASIN // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagOverdriveMediaMarker: freezed == tagOverdriveMediaMarker
+          ? _value.tagOverdriveMediaMarker
+          : tagOverdriveMediaMarker // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -138,12 +215,23 @@ abstract class _$$_AudioMetaTagsCopyWith<$Res>
       String? tagArtist,
       String? tagGenre,
       String? tagTitle,
+      String? tagSeries,
+      String? tagSeriesPart,
       String? tagTrack,
+      String? tagDisc,
+      String? tagSubtitle,
       String? tagAlbumArtist,
       String? tagDate,
       String? tagComposer,
+      String? tagPublisher,
+      String? tagComment,
       String? tagDescription,
-      String? tagEncoder});
+      String? tagEncoder,
+      String? tagEncodedBy,
+      String? tagIsbn,
+      String? tagLanguage,
+      String? tagASIN,
+      String? tagOverdriveMediaMarker});
 }
 
 /// @nodoc
@@ -161,12 +249,23 @@ class __$$_AudioMetaTagsCopyWithImpl<$Res>
     Object? tagArtist = freezed,
     Object? tagGenre = freezed,
     Object? tagTitle = freezed,
+    Object? tagSeries = freezed,
+    Object? tagSeriesPart = freezed,
     Object? tagTrack = freezed,
+    Object? tagDisc = freezed,
+    Object? tagSubtitle = freezed,
     Object? tagAlbumArtist = freezed,
     Object? tagDate = freezed,
     Object? tagComposer = freezed,
+    Object? tagPublisher = freezed,
+    Object? tagComment = freezed,
     Object? tagDescription = freezed,
     Object? tagEncoder = freezed,
+    Object? tagEncodedBy = freezed,
+    Object? tagIsbn = freezed,
+    Object? tagLanguage = freezed,
+    Object? tagASIN = freezed,
+    Object? tagOverdriveMediaMarker = freezed,
   }) {
     return _then(_$_AudioMetaTags(
       tagAlbum: freezed == tagAlbum
@@ -185,9 +284,25 @@ class __$$_AudioMetaTagsCopyWithImpl<$Res>
           ? _value.tagTitle
           : tagTitle // ignore: cast_nullable_to_non_nullable
               as String?,
+      tagSeries: freezed == tagSeries
+          ? _value.tagSeries
+          : tagSeries // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagSeriesPart: freezed == tagSeriesPart
+          ? _value.tagSeriesPart
+          : tagSeriesPart // ignore: cast_nullable_to_non_nullable
+              as String?,
       tagTrack: freezed == tagTrack
           ? _value.tagTrack
           : tagTrack // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagDisc: freezed == tagDisc
+          ? _value.tagDisc
+          : tagDisc // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagSubtitle: freezed == tagSubtitle
+          ? _value.tagSubtitle
+          : tagSubtitle // ignore: cast_nullable_to_non_nullable
               as String?,
       tagAlbumArtist: freezed == tagAlbumArtist
           ? _value.tagAlbumArtist
@@ -201,6 +316,14 @@ class __$$_AudioMetaTagsCopyWithImpl<$Res>
           ? _value.tagComposer
           : tagComposer // ignore: cast_nullable_to_non_nullable
               as String?,
+      tagPublisher: freezed == tagPublisher
+          ? _value.tagPublisher
+          : tagPublisher // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagComment: freezed == tagComment
+          ? _value.tagComment
+          : tagComment // ignore: cast_nullable_to_non_nullable
+              as String?,
       tagDescription: freezed == tagDescription
           ? _value.tagDescription
           : tagDescription // ignore: cast_nullable_to_non_nullable
@@ -209,24 +332,56 @@ class __$$_AudioMetaTagsCopyWithImpl<$Res>
           ? _value.tagEncoder
           : tagEncoder // ignore: cast_nullable_to_non_nullable
               as String?,
+      tagEncodedBy: freezed == tagEncodedBy
+          ? _value.tagEncodedBy
+          : tagEncodedBy // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagIsbn: freezed == tagIsbn
+          ? _value.tagIsbn
+          : tagIsbn // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagLanguage: freezed == tagLanguage
+          ? _value.tagLanguage
+          : tagLanguage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagASIN: freezed == tagASIN
+          ? _value.tagASIN
+          : tagASIN // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagOverdriveMediaMarker: freezed == tagOverdriveMediaMarker
+          ? _value.tagOverdriveMediaMarker
+          : tagOverdriveMediaMarker // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_AudioMetaTags implements _AudioMetaTags {
   const _$_AudioMetaTags(
       {this.tagAlbum,
       this.tagArtist,
       this.tagGenre,
       this.tagTitle,
+      this.tagSeries,
+      this.tagSeriesPart,
       this.tagTrack,
+      this.tagDisc,
+      this.tagSubtitle,
       this.tagAlbumArtist,
       this.tagDate,
       this.tagComposer,
+      this.tagPublisher,
+      this.tagComment,
       this.tagDescription,
-      this.tagEncoder});
+      this.tagEncoder,
+      this.tagEncodedBy,
+      this.tagIsbn,
+      this.tagLanguage,
+      this.tagASIN,
+      this.tagOverdriveMediaMarker});
 
   factory _$_AudioMetaTags.fromJson(Map<String, dynamic> json) =>
       _$$_AudioMetaTagsFromJson(json);
@@ -240,7 +395,15 @@ class _$_AudioMetaTags implements _AudioMetaTags {
   @override
   final String? tagTitle;
   @override
+  final String? tagSeries;
+  @override
+  final String? tagSeriesPart;
+  @override
   final String? tagTrack;
+  @override
+  final String? tagDisc;
+  @override
+  final String? tagSubtitle;
   @override
   final String? tagAlbumArtist;
   @override
@@ -248,13 +411,27 @@ class _$_AudioMetaTags implements _AudioMetaTags {
   @override
   final String? tagComposer;
   @override
+  final String? tagPublisher;
+  @override
+  final String? tagComment;
+  @override
   final String? tagDescription;
   @override
   final String? tagEncoder;
+  @override
+  final String? tagEncodedBy;
+  @override
+  final String? tagIsbn;
+  @override
+  final String? tagLanguage;
+  @override
+  final String? tagASIN;
+  @override
+  final String? tagOverdriveMediaMarker;
 
   @override
   String toString() {
-    return 'AudioMetaTags(tagAlbum: $tagAlbum, tagArtist: $tagArtist, tagGenre: $tagGenre, tagTitle: $tagTitle, tagTrack: $tagTrack, tagAlbumArtist: $tagAlbumArtist, tagDate: $tagDate, tagComposer: $tagComposer, tagDescription: $tagDescription, tagEncoder: $tagEncoder)';
+    return 'AudioMetaTags(tagAlbum: $tagAlbum, tagArtist: $tagArtist, tagGenre: $tagGenre, tagTitle: $tagTitle, tagSeries: $tagSeries, tagSeriesPart: $tagSeriesPart, tagTrack: $tagTrack, tagDisc: $tagDisc, tagSubtitle: $tagSubtitle, tagAlbumArtist: $tagAlbumArtist, tagDate: $tagDate, tagComposer: $tagComposer, tagPublisher: $tagPublisher, tagComment: $tagComment, tagDescription: $tagDescription, tagEncoder: $tagEncoder, tagEncodedBy: $tagEncodedBy, tagIsbn: $tagIsbn, tagLanguage: $tagLanguage, tagASIN: $tagASIN, tagOverdriveMediaMarker: $tagOverdriveMediaMarker)';
   }
 
   @override
@@ -270,33 +447,65 @@ class _$_AudioMetaTags implements _AudioMetaTags {
                 other.tagGenre == tagGenre) &&
             (identical(other.tagTitle, tagTitle) ||
                 other.tagTitle == tagTitle) &&
+            (identical(other.tagSeries, tagSeries) ||
+                other.tagSeries == tagSeries) &&
+            (identical(other.tagSeriesPart, tagSeriesPart) ||
+                other.tagSeriesPart == tagSeriesPart) &&
             (identical(other.tagTrack, tagTrack) ||
                 other.tagTrack == tagTrack) &&
+            (identical(other.tagDisc, tagDisc) || other.tagDisc == tagDisc) &&
+            (identical(other.tagSubtitle, tagSubtitle) ||
+                other.tagSubtitle == tagSubtitle) &&
             (identical(other.tagAlbumArtist, tagAlbumArtist) ||
                 other.tagAlbumArtist == tagAlbumArtist) &&
             (identical(other.tagDate, tagDate) || other.tagDate == tagDate) &&
             (identical(other.tagComposer, tagComposer) ||
                 other.tagComposer == tagComposer) &&
+            (identical(other.tagPublisher, tagPublisher) ||
+                other.tagPublisher == tagPublisher) &&
+            (identical(other.tagComment, tagComment) ||
+                other.tagComment == tagComment) &&
             (identical(other.tagDescription, tagDescription) ||
                 other.tagDescription == tagDescription) &&
             (identical(other.tagEncoder, tagEncoder) ||
-                other.tagEncoder == tagEncoder));
+                other.tagEncoder == tagEncoder) &&
+            (identical(other.tagEncodedBy, tagEncodedBy) ||
+                other.tagEncodedBy == tagEncodedBy) &&
+            (identical(other.tagIsbn, tagIsbn) || other.tagIsbn == tagIsbn) &&
+            (identical(other.tagLanguage, tagLanguage) ||
+                other.tagLanguage == tagLanguage) &&
+            (identical(other.tagASIN, tagASIN) || other.tagASIN == tagASIN) &&
+            (identical(
+                    other.tagOverdriveMediaMarker, tagOverdriveMediaMarker) ||
+                other.tagOverdriveMediaMarker == tagOverdriveMediaMarker));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      tagAlbum,
-      tagArtist,
-      tagGenre,
-      tagTitle,
-      tagTrack,
-      tagAlbumArtist,
-      tagDate,
-      tagComposer,
-      tagDescription,
-      tagEncoder);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        tagAlbum,
+        tagArtist,
+        tagGenre,
+        tagTitle,
+        tagSeries,
+        tagSeriesPart,
+        tagTrack,
+        tagDisc,
+        tagSubtitle,
+        tagAlbumArtist,
+        tagDate,
+        tagComposer,
+        tagPublisher,
+        tagComment,
+        tagDescription,
+        tagEncoder,
+        tagEncodedBy,
+        tagIsbn,
+        tagLanguage,
+        tagASIN,
+        tagOverdriveMediaMarker
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -318,12 +527,23 @@ abstract class _AudioMetaTags implements AudioMetaTags {
       final String? tagArtist,
       final String? tagGenre,
       final String? tagTitle,
+      final String? tagSeries,
+      final String? tagSeriesPart,
       final String? tagTrack,
+      final String? tagDisc,
+      final String? tagSubtitle,
       final String? tagAlbumArtist,
       final String? tagDate,
       final String? tagComposer,
+      final String? tagPublisher,
+      final String? tagComment,
       final String? tagDescription,
-      final String? tagEncoder}) = _$_AudioMetaTags;
+      final String? tagEncoder,
+      final String? tagEncodedBy,
+      final String? tagIsbn,
+      final String? tagLanguage,
+      final String? tagASIN,
+      final String? tagOverdriveMediaMarker}) = _$_AudioMetaTags;
 
   factory _AudioMetaTags.fromJson(Map<String, dynamic> json) =
       _$_AudioMetaTags.fromJson;
@@ -337,7 +557,15 @@ abstract class _AudioMetaTags implements AudioMetaTags {
   @override
   String? get tagTitle;
   @override
+  String? get tagSeries;
+  @override
+  String? get tagSeriesPart;
+  @override
   String? get tagTrack;
+  @override
+  String? get tagDisc;
+  @override
+  String? get tagSubtitle;
   @override
   String? get tagAlbumArtist;
   @override
@@ -345,9 +573,23 @@ abstract class _AudioMetaTags implements AudioMetaTags {
   @override
   String? get tagComposer;
   @override
+  String? get tagPublisher;
+  @override
+  String? get tagComment;
+  @override
   String? get tagDescription;
   @override
   String? get tagEncoder;
+  @override
+  String? get tagEncodedBy;
+  @override
+  String? get tagIsbn;
+  @override
+  String? get tagLanguage;
+  @override
+  String? get tagASIN;
+  @override
+  String? get tagOverdriveMediaMarker;
   @override
   @JsonKey(ignore: true)
   _$$_AudioMetaTagsCopyWith<_$_AudioMetaTags> get copyWith =>

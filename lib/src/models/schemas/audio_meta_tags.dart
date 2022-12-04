@@ -3,19 +3,32 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'generated/audio_meta_tags.freezed.dart';
 part 'generated/audio_meta_tags.g.dart';
 
+/// See [Audio Meta Tags](https://api.audiobookshelf.org/#audio-meta-tags)
 @freezed
 class AudioMetaTags with _$AudioMetaTags {
+  @JsonSerializable(includeIfNull: false)
   const factory AudioMetaTags({
     String? tagAlbum,
     String? tagArtist,
     String? tagGenre,
     String? tagTitle,
+    String? tagSeries,
+    String? tagSeriesPart,
     String? tagTrack,
+    String? tagDisc,
+    String? tagSubtitle,
     String? tagAlbumArtist,
     String? tagDate,
     String? tagComposer,
+    String? tagPublisher,
+    String? tagComment,
     String? tagDescription,
     String? tagEncoder,
+    String? tagEncodedBy,
+    String? tagIsbn,
+    String? tagLanguage,
+    String? tagASIN,
+    String? tagOverdriveMediaMarker,
   }) = _AudioMetaTags;
 
   factory AudioMetaTags.fromJson(Map<String, dynamic> json) =>
