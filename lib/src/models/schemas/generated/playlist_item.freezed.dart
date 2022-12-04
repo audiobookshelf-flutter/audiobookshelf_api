@@ -29,22 +29,30 @@ PlaylistItem _$PlaylistItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PlaylistItem {
+  String get libraryItemId => throw _privateConstructorUsedError;
+  String? get episodeId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() expanded,
+    TResult Function(String libraryItemId, String? episodeId) $default, {
+    required TResult Function(String libraryItemId, String? episodeId,
+            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)
+        expanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? expanded,
+    TResult? Function(String libraryItemId, String? episodeId)? $default, {
+    TResult? Function(String libraryItemId, String? episodeId,
+            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+        expanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? expanded,
+    TResult Function(String libraryItemId, String? episodeId)? $default, {
+    TResult Function(String libraryItemId, String? episodeId,
+            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+        expanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +76,9 @@ mixin _$PlaylistItem {
   }) =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PlaylistItemCopyWith<PlaylistItem> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -75,6 +86,8 @@ abstract class $PlaylistItemCopyWith<$Res> {
   factory $PlaylistItemCopyWith(
           PlaylistItem value, $Res Function(PlaylistItem) then) =
       _$PlaylistItemCopyWithImpl<$Res, PlaylistItem>;
+  @useResult
+  $Res call({String libraryItemId, String? episodeId});
 }
 
 /// @nodoc
@@ -86,13 +99,35 @@ class _$PlaylistItemCopyWithImpl<$Res, $Val extends PlaylistItem>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? libraryItemId = null,
+    Object? episodeId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      libraryItemId: null == libraryItemId
+          ? _value.libraryItemId
+          : libraryItemId // ignore: cast_nullable_to_non_nullable
+              as String,
+      episodeId: freezed == episodeId
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_PlaylistItemCopyWith<$Res> {
+abstract class _$$_PlaylistItemCopyWith<$Res>
+    implements $PlaylistItemCopyWith<$Res> {
   factory _$$_PlaylistItemCopyWith(
           _$_PlaylistItem value, $Res Function(_$_PlaylistItem) then) =
       __$$_PlaylistItemCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String libraryItemId, String? episodeId});
 }
 
 /// @nodoc
@@ -102,61 +137,103 @@ class __$$_PlaylistItemCopyWithImpl<$Res>
   __$$_PlaylistItemCopyWithImpl(
       _$_PlaylistItem _value, $Res Function(_$_PlaylistItem) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? libraryItemId = null,
+    Object? episodeId = freezed,
+  }) {
+    return _then(_$_PlaylistItem(
+      libraryItemId: null == libraryItemId
+          ? _value.libraryItemId
+          : libraryItemId // ignore: cast_nullable_to_non_nullable
+              as String,
+      episodeId: freezed == episodeId
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$_PlaylistItem implements _PlaylistItem {
-  const _$_PlaylistItem({final String? $type}) : $type = $type ?? 'default';
+  const _$_PlaylistItem(
+      {required this.libraryItemId, this.episodeId, final String? $type})
+      : $type = $type ?? 'default';
 
   factory _$_PlaylistItem.fromJson(Map<String, dynamic> json) =>
       _$$_PlaylistItemFromJson(json);
+
+  @override
+  final String libraryItemId;
+  @override
+  final String? episodeId;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PlaylistItem()';
+    return 'PlaylistItem(libraryItemId: $libraryItemId, episodeId: $episodeId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PlaylistItem);
+        (other.runtimeType == runtimeType &&
+            other is _$_PlaylistItem &&
+            (identical(other.libraryItemId, libraryItemId) ||
+                other.libraryItemId == libraryItemId) &&
+            (identical(other.episodeId, episodeId) ||
+                other.episodeId == episodeId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, libraryItemId, episodeId);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PlaylistItemCopyWith<_$_PlaylistItem> get copyWith =>
+      __$$_PlaylistItemCopyWithImpl<_$_PlaylistItem>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() expanded,
+    TResult Function(String libraryItemId, String? episodeId) $default, {
+    required TResult Function(String libraryItemId, String? episodeId,
+            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)
+        expanded,
   }) {
-    return $default();
+    return $default(libraryItemId, episodeId);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? expanded,
+    TResult? Function(String libraryItemId, String? episodeId)? $default, {
+    TResult? Function(String libraryItemId, String? episodeId,
+            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+        expanded,
   }) {
-    return $default?.call();
+    return $default?.call(libraryItemId, episodeId);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? expanded,
+    TResult Function(String libraryItemId, String? episodeId)? $default, {
+    TResult Function(String libraryItemId, String? episodeId,
+            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+        expanded,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default();
+      return $default(libraryItemId, episodeId);
     }
     return orElse();
   }
@@ -201,17 +278,38 @@ class _$_PlaylistItem implements _PlaylistItem {
 }
 
 abstract class _PlaylistItem implements PlaylistItem {
-  const factory _PlaylistItem() = _$_PlaylistItem;
+  const factory _PlaylistItem(
+      {required final String libraryItemId,
+      final String? episodeId}) = _$_PlaylistItem;
 
   factory _PlaylistItem.fromJson(Map<String, dynamic> json) =
       _$_PlaylistItem.fromJson;
+
+  @override
+  String get libraryItemId;
+  @override
+  String? get episodeId;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PlaylistItemCopyWith<_$_PlaylistItem> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PlaylistItemExpandedCopyWith<$Res> {
+abstract class _$$PlaylistItemExpandedCopyWith<$Res>
+    implements $PlaylistItemCopyWith<$Res> {
   factory _$$PlaylistItemExpandedCopyWith(_$PlaylistItemExpanded value,
           $Res Function(_$PlaylistItemExpanded) then) =
       __$$PlaylistItemExpandedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String libraryItemId,
+      String? episodeId,
+      PodcastEpisodeExpanded? episode,
+      LibraryItem libraryItem});
+
+  $LibraryItemCopyWith<$Res> get libraryItem;
 }
 
 /// @nodoc
@@ -221,62 +319,134 @@ class __$$PlaylistItemExpandedCopyWithImpl<$Res>
   __$$PlaylistItemExpandedCopyWithImpl(_$PlaylistItemExpanded _value,
       $Res Function(_$PlaylistItemExpanded) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? libraryItemId = null,
+    Object? episodeId = freezed,
+    Object? episode = freezed,
+    Object? libraryItem = null,
+  }) {
+    return _then(_$PlaylistItemExpanded(
+      libraryItemId: null == libraryItemId
+          ? _value.libraryItemId
+          : libraryItemId // ignore: cast_nullable_to_non_nullable
+              as String,
+      episodeId: freezed == episodeId
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      episode: freezed == episode
+          ? _value.episode
+          : episode // ignore: cast_nullable_to_non_nullable
+              as PodcastEpisodeExpanded?,
+      libraryItem: null == libraryItem
+          ? _value.libraryItem
+          : libraryItem // ignore: cast_nullable_to_non_nullable
+              as LibraryItem,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LibraryItemCopyWith<$Res> get libraryItem {
+    return $LibraryItemCopyWith<$Res>(_value.libraryItem, (value) {
+      return _then(_value.copyWith(libraryItem: value));
+    });
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PlaylistItemExpanded implements PlaylistItemExpanded {
-  const _$PlaylistItemExpanded({final String? $type})
+  const _$PlaylistItemExpanded(
+      {required this.libraryItemId,
+      this.episodeId,
+      this.episode,
+      required this.libraryItem,
+      final String? $type})
       : $type = $type ?? 'expanded';
 
   factory _$PlaylistItemExpanded.fromJson(Map<String, dynamic> json) =>
       _$$PlaylistItemExpandedFromJson(json);
+
+  @override
+  final String libraryItemId;
+  @override
+  final String? episodeId;
+  @override
+  final PodcastEpisodeExpanded? episode;
+  @override
+  final LibraryItem libraryItem;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PlaylistItem.expanded()';
+    return 'PlaylistItem.expanded(libraryItemId: $libraryItemId, episodeId: $episodeId, episode: $episode, libraryItem: $libraryItem)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PlaylistItemExpanded);
+        (other.runtimeType == runtimeType &&
+            other is _$PlaylistItemExpanded &&
+            (identical(other.libraryItemId, libraryItemId) ||
+                other.libraryItemId == libraryItemId) &&
+            (identical(other.episodeId, episodeId) ||
+                other.episodeId == episodeId) &&
+            (identical(other.episode, episode) || other.episode == episode) &&
+            (identical(other.libraryItem, libraryItem) ||
+                other.libraryItem == libraryItem));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, libraryItemId, episodeId, episode, libraryItem);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PlaylistItemExpandedCopyWith<_$PlaylistItemExpanded> get copyWith =>
+      __$$PlaylistItemExpandedCopyWithImpl<_$PlaylistItemExpanded>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() expanded,
+    TResult Function(String libraryItemId, String? episodeId) $default, {
+    required TResult Function(String libraryItemId, String? episodeId,
+            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)
+        expanded,
   }) {
-    return expanded();
+    return expanded(libraryItemId, episodeId, episode, libraryItem);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? expanded,
+    TResult? Function(String libraryItemId, String? episodeId)? $default, {
+    TResult? Function(String libraryItemId, String? episodeId,
+            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+        expanded,
   }) {
-    return expanded?.call();
+    return expanded?.call(libraryItemId, episodeId, episode, libraryItem);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? expanded,
+    TResult Function(String libraryItemId, String? episodeId)? $default, {
+    TResult Function(String libraryItemId, String? episodeId,
+            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+        expanded,
     required TResult orElse(),
   }) {
     if (expanded != null) {
-      return expanded();
+      return expanded(libraryItemId, episodeId, episode, libraryItem);
     }
     return orElse();
   }
@@ -321,8 +491,23 @@ class _$PlaylistItemExpanded implements PlaylistItemExpanded {
 }
 
 abstract class PlaylistItemExpanded implements PlaylistItem {
-  const factory PlaylistItemExpanded() = _$PlaylistItemExpanded;
+  const factory PlaylistItemExpanded(
+      {required final String libraryItemId,
+      final String? episodeId,
+      final PodcastEpisodeExpanded? episode,
+      required final LibraryItem libraryItem}) = _$PlaylistItemExpanded;
 
   factory PlaylistItemExpanded.fromJson(Map<String, dynamic> json) =
       _$PlaylistItemExpanded.fromJson;
+
+  @override
+  String get libraryItemId;
+  @override
+  String? get episodeId;
+  PodcastEpisodeExpanded? get episode;
+  LibraryItem get libraryItem;
+  @override
+  @JsonKey(ignore: true)
+  _$$PlaylistItemExpandedCopyWith<_$PlaylistItemExpanded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
