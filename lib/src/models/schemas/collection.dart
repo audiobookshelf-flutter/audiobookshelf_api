@@ -69,7 +69,7 @@ class CollectionConverter
     switch (variant) {
       case SchemaVariant.minified:
       case SchemaVariant.base:
-        return _$CollectionFromJson(json);
+        return _Collection.fromJson(json);
       case SchemaVariant.expanded:
         return CollectionExpanded.fromJson(json);
     }

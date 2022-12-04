@@ -72,7 +72,7 @@ class AuthorConverter implements JsonConverter<Author, Map<String, dynamic>> {
 
     switch (variant) {
       case SchemaVariant.base:
-        return _$AuthorFromJson(json);
+        return _Author.fromJson(json);
       case SchemaVariant.minified:
         return AuthorMinified.fromJson(json);
       case SchemaVariant.expanded:

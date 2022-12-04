@@ -88,7 +88,7 @@ class SeriesConverter implements JsonConverter<Series, Map<String, dynamic>> {
 
     switch (variant) {
       case SeriesVariant.base:
-        return _$SeriesFromJson(json);
+        return _Series.fromJson(json);
       case SeriesVariant.numBooks:
         return SeriesNumBooks.fromJson(json);
       case SeriesVariant.books:

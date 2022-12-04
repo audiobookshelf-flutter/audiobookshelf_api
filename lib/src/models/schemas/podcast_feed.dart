@@ -51,7 +51,7 @@ class PodcastFeedConverter
     switch (variant) {
       case SchemaVariant.expanded:
       case SchemaVariant.base:
-        return _$PodcastFeedFromJson(json);
+        return _PodcastFeed.fromJson(json);
       case SchemaVariant.minified:
         return PodcastFeedMinified.fromJson(json);
     }
