@@ -16,7 +16,7 @@ class CollectionsService extends Service {
       path: basePath,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, Collection.fromMap),
+      fromJson: (json) => listFromJson(json, Collection.fromJson),
     );
   }
 
@@ -28,7 +28,7 @@ class CollectionsService extends Service {
       path: '$basePath/$collectionId',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJson(json, Collection.fromMap),
+      fromJson: (json) => fromJson(json, Collection.fromJson),
     );
   }
 }

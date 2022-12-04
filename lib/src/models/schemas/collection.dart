@@ -1,126 +1,25 @@
-import 'dart:convert';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'library_item.dart';
-import '../../utils/from_json.dart';
 
-class Collection {
-  final String id;
-  final String libraryId;
-  final String userId;
-  final String name;
-  final String? description;
-  final String? cover;
-  final String? coverFullPath;
-  final List<BookLibraryItem> books;
-  final int lastUpdate;
-  final int createdAt;
+part 'generated/collection.freezed.dart';
+part 'generated/collection.g.dart';
 
-  Collection({
-    required this.id,
-    required this.libraryId,
-    required this.userId,
-    required this.name,
-    required this.description,
-    required this.cover,
-    required this.coverFullPath,
-    required this.books,
-    required this.lastUpdate,
-    required this.createdAt,
-  });
-
-  Collection copyWith({
-    String? id,
-    String? libraryId,
-    String? userId,
-    String? name,
+@freezed
+class Collection with _$Collection {
+  const factory Collection({
+    required String id,
+    required String libraryId,
+    required String userId,
+    required String name,
     String? description,
     String? cover,
     String? coverFullPath,
-    List<BookLibraryItem>? books,
-    int? lastUpdate,
-    int? createdAt,
-  }) {
-    return Collection(
-      id: id ?? this.id,
-      libraryId: libraryId ?? this.libraryId,
-      userId: userId ?? this.userId,
-      name: name ?? this.name,
-      description: description ?? this.description,
-      cover: cover ?? this.cover,
-      coverFullPath: coverFullPath ?? this.coverFullPath,
-      books: books ?? this.books,
-      lastUpdate: lastUpdate ?? this.lastUpdate,
-      createdAt: createdAt ?? this.createdAt,
-    );
-  }
+    required List<BookLibraryItem> books,
+    required int lastUpdate,
+    required int createdAt,
+  }) = _Collection;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'libraryId': libraryId,
-      'userId': userId,
-      'name': name,
-      'description': description,
-      'cover': cover,
-      'coverFullPath': coverFullPath,
-      'books': books.map((x) => x.toJson()),
-      'lastUpdate': lastUpdate,
-      'createdAt': createdAt,
-    };
-  }
-
-  factory Collection.fromMap(Map<String, dynamic> map) {
-    return Collection(
-      id: map['id'],
-      libraryId: map['libraryId'],
-      userId: map['userId'],
-      name: map['name'],
-      description: map['description'],
-      cover: map['cover'],
-      coverFullPath: map['coverFullPath'],
-      books: listFromJson(map['books'], BookLibraryItem.fromJson),
-      lastUpdate: map['lastUpdate']?.toInt(),
-      createdAt: map['createdAt']?.toInt(),
-    );
-  }
-
-  String toJson() => json.encode(toMap());
-
-  factory Collection.fromJson(String source) =>
-      Collection.fromMap(json.decode(source));
-
-  @override
-  String toString() {
-    return 'AbsCollection(id: $id, libraryId: $libraryId, userId: $userId, name: $name, description: $description, cover: $cover, coverFullPath: $coverFullPath, books: $books, lastUpdate: $lastUpdate, createdAt: $createdAt)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is Collection &&
-        other.id == id &&
-        other.libraryId == libraryId &&
-        other.userId == userId &&
-        other.name == name &&
-        other.description == description &&
-        other.cover == cover &&
-        other.coverFullPath == coverFullPath &&
-        other.lastUpdate == lastUpdate &&
-        other.createdAt == createdAt;
-  }
-
-  @override
-  int get hashCode {
-    return id.hashCode ^
-        libraryId.hashCode ^
-        userId.hashCode ^
-        name.hashCode ^
-        description.hashCode ^
-        cover.hashCode ^
-        coverFullPath.hashCode ^
-        books.hashCode ^
-        lastUpdate.hashCode ^
-        createdAt.hashCode;
-  }
+  factory Collection.fromJson(Map<String, dynamic> json) =>
+      _$CollectionFromJson(json);
 }
