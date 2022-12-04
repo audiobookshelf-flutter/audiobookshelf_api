@@ -17,6 +17,7 @@ _$_Series _$$_SeriesFromJson(Map<String, dynamic> json) => _$_Series(
           .toList(),
       addedAt: json['addedAt'] as int,
       totalDuration: (json['totalDuration'] as num).toDouble(),
+      $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$_SeriesToJson(_$_Series instance) => <String, dynamic>{
@@ -28,4 +29,15 @@ Map<String, dynamic> _$$_SeriesToJson(_$_Series instance) => <String, dynamic>{
       'books': instance.books,
       'addedAt': instance.addedAt,
       'totalDuration': instance.totalDuration,
+      'runtimeType': instance.$type,
+    };
+
+_$SeriesSequence _$$SeriesSequenceFromJson(Map<String, dynamic> json) =>
+    _$SeriesSequence(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SeriesSequenceToJson(_$SeriesSequence instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
     };

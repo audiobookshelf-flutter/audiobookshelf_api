@@ -18,5 +18,7 @@ class Series with _$Series {
     required double totalDuration,
   }) = _Series;
 
+  const factory Series.sequence() = SeriesSequence;
+
   factory Series.fromJson(Map<String, dynamic> json) => _$SeriesFromJson(json);
 }

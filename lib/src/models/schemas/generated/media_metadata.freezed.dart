@@ -47,9 +47,9 @@ mixin _$MediaMetadata {
     required TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -82,9 +82,9 @@ mixin _$MediaMetadata {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -150,9 +150,9 @@ mixin _$MediaMetadata {
     TResult? Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -185,9 +185,9 @@ mixin _$MediaMetadata {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -253,9 +253,9 @@ mixin _$MediaMetadata {
     TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -288,9 +288,9 @@ mixin _$MediaMetadata {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -458,9 +458,9 @@ abstract class _$$BookMetadataCopyWith<$Res>
   $Res call(
       {String? title,
       String? subtitle,
-      List<Author> authors,
+      List<AuthorMinified> authors,
       List<String> narrators,
-      List<Series> series,
+      List<SeriesSequence> series,
       List<String> genres,
       String? publishedYear,
       String? publishedDate,
@@ -510,7 +510,7 @@ class __$$BookMetadataCopyWithImpl<$Res>
       authors: null == authors
           ? _value._authors
           : authors // ignore: cast_nullable_to_non_nullable
-              as List<Author>,
+              as List<AuthorMinified>,
       narrators: null == narrators
           ? _value._narrators
           : narrators // ignore: cast_nullable_to_non_nullable
@@ -518,7 +518,7 @@ class __$$BookMetadataCopyWithImpl<$Res>
       series: null == series
           ? _value._series
           : series // ignore: cast_nullable_to_non_nullable
-              as List<Series>,
+              as List<SeriesSequence>,
       genres: null == genres
           ? _value._genres
           : genres // ignore: cast_nullable_to_non_nullable
@@ -565,9 +565,9 @@ class _$BookMetadata extends BookMetadata {
   const _$BookMetadata(
       {this.title,
       this.subtitle,
-      final List<Author> authors = const <Author>[],
+      final List<AuthorMinified> authors = const <AuthorMinified>[],
       final List<String> narrators = const <String>[],
-      final List<Series> series = const <Series>[],
+      final List<SeriesSequence> series = const <SeriesSequence>[],
       final List<String> genres = const <String>[],
       this.publishedYear,
       this.publishedDate,
@@ -592,10 +592,10 @@ class _$BookMetadata extends BookMetadata {
   final String? title;
   @override
   final String? subtitle;
-  final List<Author> _authors;
+  final List<AuthorMinified> _authors;
   @override
   @JsonKey()
-  List<Author> get authors {
+  List<AuthorMinified> get authors {
     if (_authors is EqualUnmodifiableListView) return _authors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_authors);
@@ -610,10 +610,10 @@ class _$BookMetadata extends BookMetadata {
     return EqualUnmodifiableListView(_narrators);
   }
 
-  final List<Series> _series;
+  final List<SeriesSequence> _series;
   @override
   @JsonKey()
-  List<Series> get series {
+  List<SeriesSequence> get series {
     if (_series is EqualUnmodifiableListView) return _series;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_series);
@@ -714,9 +714,9 @@ class _$BookMetadata extends BookMetadata {
     required TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -749,9 +749,9 @@ class _$BookMetadata extends BookMetadata {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -834,9 +834,9 @@ class _$BookMetadata extends BookMetadata {
     TResult? Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -869,9 +869,9 @@ class _$BookMetadata extends BookMetadata {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -954,9 +954,9 @@ class _$BookMetadata extends BookMetadata {
     TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -989,9 +989,9 @@ class _$BookMetadata extends BookMetadata {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -1127,9 +1127,9 @@ abstract class BookMetadata extends MediaMetadata {
   const factory BookMetadata(
       {final String? title,
       final String? subtitle,
-      final List<Author> authors,
+      final List<AuthorMinified> authors,
       final List<String> narrators,
-      final List<Series> series,
+      final List<SeriesSequence> series,
       final List<String> genres,
       final String? publishedYear,
       final String? publishedDate,
@@ -1147,9 +1147,9 @@ abstract class BookMetadata extends MediaMetadata {
   @override
   String? get title;
   String? get subtitle;
-  List<Author> get authors;
+  List<AuthorMinified> get authors;
   List<String> get narrators;
-  List<Series> get series;
+  List<SeriesSequence> get series;
   @override
   List<String> get genres;
   String? get publishedYear;
@@ -1439,9 +1439,9 @@ class _$BookMetadataMinified extends BookMetadataMinified {
     required TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -1474,9 +1474,9 @@ class _$BookMetadataMinified extends BookMetadataMinified {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -1561,9 +1561,9 @@ class _$BookMetadataMinified extends BookMetadataMinified {
     TResult? Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -1596,9 +1596,9 @@ class _$BookMetadataMinified extends BookMetadataMinified {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -1683,9 +1683,9 @@ class _$BookMetadataMinified extends BookMetadataMinified {
     TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -1718,9 +1718,9 @@ class _$BookMetadataMinified extends BookMetadataMinified {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -1916,9 +1916,9 @@ abstract class _$$BookMetadataExpandedCopyWith<$Res>
       {String? title,
       String? titleIgnorePrefix,
       String? subtitle,
-      List<Author> authors,
+      List<AuthorMinified> authors,
       List<String> narrators,
-      List<Series> series,
+      List<SeriesSequence> series,
       List<String> genres,
       String? publishedYear,
       String? publishedDate,
@@ -1981,7 +1981,7 @@ class __$$BookMetadataExpandedCopyWithImpl<$Res>
       authors: null == authors
           ? _value._authors
           : authors // ignore: cast_nullable_to_non_nullable
-              as List<Author>,
+              as List<AuthorMinified>,
       narrators: null == narrators
           ? _value._narrators
           : narrators // ignore: cast_nullable_to_non_nullable
@@ -1989,7 +1989,7 @@ class __$$BookMetadataExpandedCopyWithImpl<$Res>
       series: null == series
           ? _value._series
           : series // ignore: cast_nullable_to_non_nullable
-              as List<Series>,
+              as List<SeriesSequence>,
       genres: null == genres
           ? _value._genres
           : genres // ignore: cast_nullable_to_non_nullable
@@ -2053,9 +2053,9 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
       {this.title,
       this.titleIgnorePrefix,
       this.subtitle,
-      final List<Author> authors = const <Author>[],
+      final List<AuthorMinified> authors = const <AuthorMinified>[],
       final List<String> narrators = const <String>[],
-      final List<Series> series = const <Series>[],
+      final List<SeriesSequence> series = const <SeriesSequence>[],
       final List<String> genres = const <String>[],
       this.publishedYear,
       this.publishedDate,
@@ -2086,10 +2086,10 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
   final String? titleIgnorePrefix;
   @override
   final String? subtitle;
-  final List<Author> _authors;
+  final List<AuthorMinified> _authors;
   @override
   @JsonKey()
-  List<Author> get authors {
+  List<AuthorMinified> get authors {
     if (_authors is EqualUnmodifiableListView) return _authors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_authors);
@@ -2104,10 +2104,10 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
     return EqualUnmodifiableListView(_narrators);
   }
 
-  final List<Series> _series;
+  final List<SeriesSequence> _series;
   @override
   @JsonKey()
-  List<Series> get series {
+  List<SeriesSequence> get series {
     if (_series is EqualUnmodifiableListView) return _series;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_series);
@@ -2233,9 +2233,9 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
     required TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -2268,9 +2268,9 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -2358,9 +2358,9 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
     TResult? Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -2393,9 +2393,9 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -2483,9 +2483,9 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
     TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -2518,9 +2518,9 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -2662,9 +2662,9 @@ abstract class BookMetadataExpanded extends MediaMetadata {
       {final String? title,
       final String? titleIgnorePrefix,
       final String? subtitle,
-      final List<Author> authors,
+      final List<AuthorMinified> authors,
       final List<String> narrators,
-      final List<Series> series,
+      final List<SeriesSequence> series,
       final List<String> genres,
       final String? publishedYear,
       final String? publishedDate,
@@ -2687,9 +2687,9 @@ abstract class BookMetadataExpanded extends MediaMetadata {
   String? get title;
   String? get titleIgnorePrefix;
   String? get subtitle;
-  List<Author> get authors;
+  List<AuthorMinified> get authors;
   List<String> get narrators;
-  List<Series> get series;
+  List<SeriesSequence> get series;
   @override
   List<String> get genres;
   String? get publishedYear;
@@ -2934,9 +2934,9 @@ class _$PodcastMetadata extends PodcastMetadata {
     required TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -2969,9 +2969,9 @@ class _$PodcastMetadata extends PodcastMetadata {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3041,9 +3041,9 @@ class _$PodcastMetadata extends PodcastMetadata {
     TResult? Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3076,9 +3076,9 @@ class _$PodcastMetadata extends PodcastMetadata {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3159,9 +3159,9 @@ class _$PodcastMetadata extends PodcastMetadata {
     TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3194,9 +3194,9 @@ class _$PodcastMetadata extends PodcastMetadata {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3602,9 +3602,9 @@ class _$PodcastMetadataMinified extends PodcastMetadataMinified {
     required TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3637,9 +3637,9 @@ class _$PodcastMetadataMinified extends PodcastMetadataMinified {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3721,9 +3721,9 @@ class _$PodcastMetadataMinified extends PodcastMetadataMinified {
     TResult? Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3756,9 +3756,9 @@ class _$PodcastMetadataMinified extends PodcastMetadataMinified {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3840,9 +3840,9 @@ class _$PodcastMetadataMinified extends PodcastMetadataMinified {
     TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -3875,9 +3875,9 @@ class _$PodcastMetadataMinified extends PodcastMetadataMinified {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -4286,9 +4286,9 @@ class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
     required TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -4321,9 +4321,9 @@ class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -4405,9 +4405,9 @@ class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
     TResult? Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -4440,9 +4440,9 @@ class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -4524,9 +4524,9 @@ class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
     TResult Function(
             String? title,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,
@@ -4559,9 +4559,9 @@ class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
             String? title,
             String? titleIgnorePrefix,
             String? subtitle,
-            List<Author> authors,
+            List<AuthorMinified> authors,
             List<String> narrators,
-            List<Series> series,
+            List<SeriesSequence> series,
             List<String> genres,
             String? publishedYear,
             String? publishedDate,

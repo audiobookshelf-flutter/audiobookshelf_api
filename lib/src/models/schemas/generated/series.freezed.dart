@@ -15,39 +15,92 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Series _$SeriesFromJson(Map<String, dynamic> json) {
-  return _Series.fromJson(json);
+  switch (json['runtimeType']) {
+    case 'default':
+      return _Series.fromJson(json);
+    case 'sequence':
+      return SeriesSequence.fromJson(json);
+
+    default:
+      throw CheckedFromJsonException(json, 'runtimeType', 'Series',
+          'Invalid union type "${json['runtimeType']}"!');
+  }
 }
 
 /// @nodoc
 mixin _$Series {
-  String get id => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
-  String get nameIgnorePrefix => throw _privateConstructorUsedError;
-  String get nameIgnorePrefixSort => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
-  List<BookLibraryItem> get books => throw _privateConstructorUsedError;
-  int get addedAt => throw _privateConstructorUsedError;
-  double get totalDuration => throw _privateConstructorUsedError;
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<BookLibraryItem> books,
+            int addedAt,
+            double totalDuration)
+        $default, {
+    required TResult Function() sequence,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<BookLibraryItem> books,
+            int addedAt,
+            double totalDuration)?
+        $default, {
+    TResult? Function()? sequence,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<BookLibraryItem> books,
+            int addedAt,
+            double totalDuration)?
+        $default, {
+    TResult Function()? sequence,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Series value) $default, {
+    required TResult Function(SeriesSequence value) sequence,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Series value)? $default, {
+    TResult? Function(SeriesSequence value)? sequence,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Series value)? $default, {
+    TResult Function(SeriesSequence value)? sequence,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $SeriesCopyWith<Series> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SeriesCopyWith<$Res> {
   factory $SeriesCopyWith(Series value, $Res Function(Series) then) =
       _$SeriesCopyWithImpl<$Res, Series>;
-  @useResult
-  $Res call(
-      {String id,
-      String name,
-      String nameIgnorePrefix,
-      String nameIgnorePrefixSort,
-      String type,
-      List<BookLibraryItem> books,
-      int addedAt,
-      double totalDuration});
 }
 
 /// @nodoc
@@ -59,61 +112,12 @@ class _$SeriesCopyWithImpl<$Res, $Val extends Series>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? name = null,
-    Object? nameIgnorePrefix = null,
-    Object? nameIgnorePrefixSort = null,
-    Object? type = null,
-    Object? books = null,
-    Object? addedAt = null,
-    Object? totalDuration = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      nameIgnorePrefix: null == nameIgnorePrefix
-          ? _value.nameIgnorePrefix
-          : nameIgnorePrefix // ignore: cast_nullable_to_non_nullable
-              as String,
-      nameIgnorePrefixSort: null == nameIgnorePrefixSort
-          ? _value.nameIgnorePrefixSort
-          : nameIgnorePrefixSort // ignore: cast_nullable_to_non_nullable
-              as String,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      books: null == books
-          ? _value.books
-          : books // ignore: cast_nullable_to_non_nullable
-              as List<BookLibraryItem>,
-      addedAt: null == addedAt
-          ? _value.addedAt
-          : addedAt // ignore: cast_nullable_to_non_nullable
-              as int,
-      totalDuration: null == totalDuration
-          ? _value.totalDuration
-          : totalDuration // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_SeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
+abstract class _$$_SeriesCopyWith<$Res> {
   factory _$$_SeriesCopyWith(_$_Series value, $Res Function(_$_Series) then) =
       __$$_SeriesCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
       {String id,
@@ -193,8 +197,10 @@ class _$_Series implements _Series {
       required this.type,
       required final List<BookLibraryItem> books,
       required this.addedAt,
-      required this.totalDuration})
-      : _books = books;
+      required this.totalDuration,
+      final String? $type})
+      : _books = books,
+        $type = $type ?? 'default';
 
   factory _$_Series.fromJson(Map<String, dynamic> json) =>
       _$$_SeriesFromJson(json);
@@ -221,6 +227,9 @@ class _$_Series implements _Series {
   final int addedAt;
   @override
   final double totalDuration;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
 
   @override
   String toString() {
@@ -265,6 +274,98 @@ class _$_Series implements _Series {
       __$$_SeriesCopyWithImpl<_$_Series>(this, _$identity);
 
   @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<BookLibraryItem> books,
+            int addedAt,
+            double totalDuration)
+        $default, {
+    required TResult Function() sequence,
+  }) {
+    return $default(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
+        books, addedAt, totalDuration);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<BookLibraryItem> books,
+            int addedAt,
+            double totalDuration)?
+        $default, {
+    TResult? Function()? sequence,
+  }) {
+    return $default?.call(id, name, nameIgnorePrefix, nameIgnorePrefixSort,
+        type, books, addedAt, totalDuration);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<BookLibraryItem> books,
+            int addedAt,
+            double totalDuration)?
+        $default, {
+    TResult Function()? sequence,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
+          books, addedAt, totalDuration);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Series value) $default, {
+    required TResult Function(SeriesSequence value) sequence,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Series value)? $default, {
+    TResult? Function(SeriesSequence value)? sequence,
+  }) {
+    return $default?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Series value)? $default, {
+    TResult Function(SeriesSequence value)? sequence,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+
+  @override
   Map<String, dynamic> toJson() {
     return _$$_SeriesToJson(
       this,
@@ -285,24 +386,161 @@ abstract class _Series implements Series {
 
   factory _Series.fromJson(Map<String, dynamic> json) = _$_Series.fromJson;
 
-  @override
   String get id;
-  @override
   String get name;
-  @override
   String get nameIgnorePrefix;
-  @override
   String get nameIgnorePrefixSort;
-  @override
   String get type;
-  @override
   List<BookLibraryItem> get books;
-  @override
   int get addedAt;
-  @override
   double get totalDuration;
-  @override
   @JsonKey(ignore: true)
   _$$_SeriesCopyWith<_$_Series> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SeriesSequenceCopyWith<$Res> {
+  factory _$$SeriesSequenceCopyWith(
+          _$SeriesSequence value, $Res Function(_$SeriesSequence) then) =
+      __$$SeriesSequenceCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SeriesSequenceCopyWithImpl<$Res>
+    extends _$SeriesCopyWithImpl<$Res, _$SeriesSequence>
+    implements _$$SeriesSequenceCopyWith<$Res> {
+  __$$SeriesSequenceCopyWithImpl(
+      _$SeriesSequence _value, $Res Function(_$SeriesSequence) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SeriesSequence implements SeriesSequence {
+  const _$SeriesSequence({final String? $type}) : $type = $type ?? 'sequence';
+
+  factory _$SeriesSequence.fromJson(Map<String, dynamic> json) =>
+      _$$SeriesSequenceFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Series.sequence()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SeriesSequence);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<BookLibraryItem> books,
+            int addedAt,
+            double totalDuration)
+        $default, {
+    required TResult Function() sequence,
+  }) {
+    return sequence();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<BookLibraryItem> books,
+            int addedAt,
+            double totalDuration)?
+        $default, {
+    TResult? Function()? sequence,
+  }) {
+    return sequence?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<BookLibraryItem> books,
+            int addedAt,
+            double totalDuration)?
+        $default, {
+    TResult Function()? sequence,
+    required TResult orElse(),
+  }) {
+    if (sequence != null) {
+      return sequence();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Series value) $default, {
+    required TResult Function(SeriesSequence value) sequence,
+  }) {
+    return sequence(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Series value)? $default, {
+    TResult? Function(SeriesSequence value)? sequence,
+  }) {
+    return sequence?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Series value)? $default, {
+    TResult Function(SeriesSequence value)? sequence,
+    required TResult orElse(),
+  }) {
+    if (sequence != null) {
+      return sequence(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SeriesSequenceToJson(
+      this,
+    );
+  }
+}
+
+abstract class SeriesSequence implements Series {
+  const factory SeriesSequence() = _$SeriesSequence;
+
+  factory SeriesSequence.fromJson(Map<String, dynamic> json) =
+      _$SeriesSequence.fromJson;
 }
