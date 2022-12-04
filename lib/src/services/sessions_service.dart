@@ -1,3 +1,5 @@
+import '../models/schemas/playback_session.dart';
+import '../utils/from_json.dart';
 import '../utils/precise_duration.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -27,7 +29,7 @@ class SessionsService extends Service {
       },
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (_) => null, // TODO: add session schema
+      fromJson: (json) => fromJson(json, PlaybackSession.fromJson),
     );
   }
 }
