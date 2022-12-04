@@ -23,17 +23,17 @@ Map<String, dynamic> _$$_PodcastFeedToJson(_$_PodcastFeed instance) =>
       'runtimeType': instance.$type,
     };
 
-_$PodcastFeedMinimized _$$PodcastFeedMinimizedFromJson(
+_$PodcastFeedMinified _$$PodcastFeedMinifiedFromJson(
         Map<String, dynamic> json) =>
-    _$PodcastFeedMinimized(
+    _$PodcastFeedMinified(
       metadata: PodcastFeedMetadata.fromJson(
           json['metadata'] as Map<String, dynamic>),
       numEpisodes: json['numEpisodes'] as int,
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$PodcastFeedMinimizedToJson(
-        _$PodcastFeedMinimized instance) =>
+Map<String, dynamic> _$$PodcastFeedMinifiedToJson(
+        _$PodcastFeedMinified instance) =>
     <String, dynamic>{
       'metadata': instance.metadata,
       'numEpisodes': instance.numEpisodes,

@@ -83,8 +83,7 @@ class PodcastEpisodeConverter
     switch (variant) {
       case SchemaVariant.minified:
       case SchemaVariant.base:
-        json['runtimeType'] = 'default';
-        return PodcastEpisode.fromJson(json);
+        return _$PodcastEpisodeFromJson(json);
       case SchemaVariant.expanded:
         return PodcastEpisodeExpanded.fromJson(json);
     }

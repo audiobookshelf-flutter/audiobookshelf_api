@@ -18,8 +18,8 @@ PodcastFeed _$PodcastFeedFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'default':
       return _PodcastFeed.fromJson(json);
-    case 'minimized':
-      return PodcastFeedMinimized.fromJson(json);
+    case 'minified':
+      return PodcastFeedMinified.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'PodcastFeed',
@@ -36,7 +36,7 @@ mixin _$PodcastFeed {
             PodcastFeedMetadata metadata, List<PodcastFeedEpisode> episodes)
         $default, {
     required TResult Function(PodcastFeedMetadata metadata, int numEpisodes)
-        minimized,
+        minified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,7 +44,7 @@ mixin _$PodcastFeed {
     TResult? Function(
             PodcastFeedMetadata metadata, List<PodcastFeedEpisode> episodes)?
         $default, {
-    TResult? Function(PodcastFeedMetadata metadata, int numEpisodes)? minimized,
+    TResult? Function(PodcastFeedMetadata metadata, int numEpisodes)? minified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,26 +52,26 @@ mixin _$PodcastFeed {
     TResult Function(
             PodcastFeedMetadata metadata, List<PodcastFeedEpisode> episodes)?
         $default, {
-    TResult Function(PodcastFeedMetadata metadata, int numEpisodes)? minimized,
+    TResult Function(PodcastFeedMetadata metadata, int numEpisodes)? minified,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_PodcastFeed value) $default, {
-    required TResult Function(PodcastFeedMinimized value) minimized,
+    required TResult Function(PodcastFeedMinified value) minified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_PodcastFeed value)? $default, {
-    TResult? Function(PodcastFeedMinimized value)? minimized,
+    TResult? Function(PodcastFeedMinified value)? minified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_PodcastFeed value)? $default, {
-    TResult Function(PodcastFeedMinimized value)? minimized,
+    TResult Function(PodcastFeedMinified value)? minified,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -167,13 +167,14 @@ class __$$_PodcastFeedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PodcastFeed implements _PodcastFeed {
+class _$_PodcastFeed extends _PodcastFeed {
   const _$_PodcastFeed(
       {required this.metadata,
       required final List<PodcastFeedEpisode> episodes,
       final String? $type})
       : _episodes = episodes,
-        $type = $type ?? 'default';
+        $type = $type ?? 'default',
+        super._();
 
   factory _$_PodcastFeed.fromJson(Map<String, dynamic> json) =>
       _$$_PodcastFeedFromJson(json);
@@ -224,7 +225,7 @@ class _$_PodcastFeed implements _PodcastFeed {
             PodcastFeedMetadata metadata, List<PodcastFeedEpisode> episodes)
         $default, {
     required TResult Function(PodcastFeedMetadata metadata, int numEpisodes)
-        minimized,
+        minified,
   }) {
     return $default(metadata, episodes);
   }
@@ -235,7 +236,7 @@ class _$_PodcastFeed implements _PodcastFeed {
     TResult? Function(
             PodcastFeedMetadata metadata, List<PodcastFeedEpisode> episodes)?
         $default, {
-    TResult? Function(PodcastFeedMetadata metadata, int numEpisodes)? minimized,
+    TResult? Function(PodcastFeedMetadata metadata, int numEpisodes)? minified,
   }) {
     return $default?.call(metadata, episodes);
   }
@@ -246,7 +247,7 @@ class _$_PodcastFeed implements _PodcastFeed {
     TResult Function(
             PodcastFeedMetadata metadata, List<PodcastFeedEpisode> episodes)?
         $default, {
-    TResult Function(PodcastFeedMetadata metadata, int numEpisodes)? minimized,
+    TResult Function(PodcastFeedMetadata metadata, int numEpisodes)? minified,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -259,7 +260,7 @@ class _$_PodcastFeed implements _PodcastFeed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_PodcastFeed value) $default, {
-    required TResult Function(PodcastFeedMinimized value) minimized,
+    required TResult Function(PodcastFeedMinified value) minified,
   }) {
     return $default(this);
   }
@@ -268,7 +269,7 @@ class _$_PodcastFeed implements _PodcastFeed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_PodcastFeed value)? $default, {
-    TResult? Function(PodcastFeedMinimized value)? minimized,
+    TResult? Function(PodcastFeedMinified value)? minified,
   }) {
     return $default?.call(this);
   }
@@ -277,7 +278,7 @@ class _$_PodcastFeed implements _PodcastFeed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_PodcastFeed value)? $default, {
-    TResult Function(PodcastFeedMinimized value)? minimized,
+    TResult Function(PodcastFeedMinified value)? minified,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -294,10 +295,11 @@ class _$_PodcastFeed implements _PodcastFeed {
   }
 }
 
-abstract class _PodcastFeed implements PodcastFeed {
+abstract class _PodcastFeed extends PodcastFeed {
   const factory _PodcastFeed(
       {required final PodcastFeedMetadata metadata,
       required final List<PodcastFeedEpisode> episodes}) = _$_PodcastFeed;
+  const _PodcastFeed._() : super._();
 
   factory _PodcastFeed.fromJson(Map<String, dynamic> json) =
       _$_PodcastFeed.fromJson;
@@ -312,11 +314,11 @@ abstract class _PodcastFeed implements PodcastFeed {
 }
 
 /// @nodoc
-abstract class _$$PodcastFeedMinimizedCopyWith<$Res>
+abstract class _$$PodcastFeedMinifiedCopyWith<$Res>
     implements $PodcastFeedCopyWith<$Res> {
-  factory _$$PodcastFeedMinimizedCopyWith(_$PodcastFeedMinimized value,
-          $Res Function(_$PodcastFeedMinimized) then) =
-      __$$PodcastFeedMinimizedCopyWithImpl<$Res>;
+  factory _$$PodcastFeedMinifiedCopyWith(_$PodcastFeedMinified value,
+          $Res Function(_$PodcastFeedMinified) then) =
+      __$$PodcastFeedMinifiedCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PodcastFeedMetadata metadata, int numEpisodes});
@@ -326,11 +328,11 @@ abstract class _$$PodcastFeedMinimizedCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PodcastFeedMinimizedCopyWithImpl<$Res>
-    extends _$PodcastFeedCopyWithImpl<$Res, _$PodcastFeedMinimized>
-    implements _$$PodcastFeedMinimizedCopyWith<$Res> {
-  __$$PodcastFeedMinimizedCopyWithImpl(_$PodcastFeedMinimized _value,
-      $Res Function(_$PodcastFeedMinimized) _then)
+class __$$PodcastFeedMinifiedCopyWithImpl<$Res>
+    extends _$PodcastFeedCopyWithImpl<$Res, _$PodcastFeedMinified>
+    implements _$$PodcastFeedMinifiedCopyWith<$Res> {
+  __$$PodcastFeedMinifiedCopyWithImpl(
+      _$PodcastFeedMinified _value, $Res Function(_$PodcastFeedMinified) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -339,7 +341,7 @@ class __$$PodcastFeedMinimizedCopyWithImpl<$Res>
     Object? metadata = null,
     Object? numEpisodes = null,
   }) {
-    return _then(_$PodcastFeedMinimized(
+    return _then(_$PodcastFeedMinified(
       metadata: null == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
@@ -354,13 +356,14 @@ class __$$PodcastFeedMinimizedCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PodcastFeedMinimized implements PodcastFeedMinimized {
-  const _$PodcastFeedMinimized(
+class _$PodcastFeedMinified extends PodcastFeedMinified {
+  const _$PodcastFeedMinified(
       {required this.metadata, required this.numEpisodes, final String? $type})
-      : $type = $type ?? 'minimized';
+      : $type = $type ?? 'minified',
+        super._();
 
-  factory _$PodcastFeedMinimized.fromJson(Map<String, dynamic> json) =>
-      _$$PodcastFeedMinimizedFromJson(json);
+  factory _$PodcastFeedMinified.fromJson(Map<String, dynamic> json) =>
+      _$$PodcastFeedMinifiedFromJson(json);
 
   @override
   final PodcastFeedMetadata metadata;
@@ -372,14 +375,14 @@ class _$PodcastFeedMinimized implements PodcastFeedMinimized {
 
   @override
   String toString() {
-    return 'PodcastFeed.minimized(metadata: $metadata, numEpisodes: $numEpisodes)';
+    return 'PodcastFeed.minified(metadata: $metadata, numEpisodes: $numEpisodes)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PodcastFeedMinimized &&
+            other is _$PodcastFeedMinified &&
             (identical(other.metadata, metadata) ||
                 other.metadata == metadata) &&
             (identical(other.numEpisodes, numEpisodes) ||
@@ -393,8 +396,8 @@ class _$PodcastFeedMinimized implements PodcastFeedMinimized {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PodcastFeedMinimizedCopyWith<_$PodcastFeedMinimized> get copyWith =>
-      __$$PodcastFeedMinimizedCopyWithImpl<_$PodcastFeedMinimized>(
+  _$$PodcastFeedMinifiedCopyWith<_$PodcastFeedMinified> get copyWith =>
+      __$$PodcastFeedMinifiedCopyWithImpl<_$PodcastFeedMinified>(
           this, _$identity);
 
   @override
@@ -404,9 +407,9 @@ class _$PodcastFeedMinimized implements PodcastFeedMinimized {
             PodcastFeedMetadata metadata, List<PodcastFeedEpisode> episodes)
         $default, {
     required TResult Function(PodcastFeedMetadata metadata, int numEpisodes)
-        minimized,
+        minified,
   }) {
-    return minimized(metadata, numEpisodes);
+    return minified(metadata, numEpisodes);
   }
 
   @override
@@ -415,9 +418,9 @@ class _$PodcastFeedMinimized implements PodcastFeedMinimized {
     TResult? Function(
             PodcastFeedMetadata metadata, List<PodcastFeedEpisode> episodes)?
         $default, {
-    TResult? Function(PodcastFeedMetadata metadata, int numEpisodes)? minimized,
+    TResult? Function(PodcastFeedMetadata metadata, int numEpisodes)? minified,
   }) {
-    return minimized?.call(metadata, numEpisodes);
+    return minified?.call(metadata, numEpisodes);
   }
 
   @override
@@ -426,11 +429,11 @@ class _$PodcastFeedMinimized implements PodcastFeedMinimized {
     TResult Function(
             PodcastFeedMetadata metadata, List<PodcastFeedEpisode> episodes)?
         $default, {
-    TResult Function(PodcastFeedMetadata metadata, int numEpisodes)? minimized,
+    TResult Function(PodcastFeedMetadata metadata, int numEpisodes)? minified,
     required TResult orElse(),
   }) {
-    if (minimized != null) {
-      return minimized(metadata, numEpisodes);
+    if (minified != null) {
+      return minified(metadata, numEpisodes);
     }
     return orElse();
   }
@@ -439,54 +442,55 @@ class _$PodcastFeedMinimized implements PodcastFeedMinimized {
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(_PodcastFeed value) $default, {
-    required TResult Function(PodcastFeedMinimized value) minimized,
+    required TResult Function(PodcastFeedMinified value) minified,
   }) {
-    return minimized(this);
+    return minified(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_PodcastFeed value)? $default, {
-    TResult? Function(PodcastFeedMinimized value)? minimized,
+    TResult? Function(PodcastFeedMinified value)? minified,
   }) {
-    return minimized?.call(this);
+    return minified?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_PodcastFeed value)? $default, {
-    TResult Function(PodcastFeedMinimized value)? minimized,
+    TResult Function(PodcastFeedMinified value)? minified,
     required TResult orElse(),
   }) {
-    if (minimized != null) {
-      return minimized(this);
+    if (minified != null) {
+      return minified(this);
     }
     return orElse();
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PodcastFeedMinimizedToJson(
+    return _$$PodcastFeedMinifiedToJson(
       this,
     );
   }
 }
 
-abstract class PodcastFeedMinimized implements PodcastFeed {
-  const factory PodcastFeedMinimized(
+abstract class PodcastFeedMinified extends PodcastFeed {
+  const factory PodcastFeedMinified(
       {required final PodcastFeedMetadata metadata,
-      required final int numEpisodes}) = _$PodcastFeedMinimized;
+      required final int numEpisodes}) = _$PodcastFeedMinified;
+  const PodcastFeedMinified._() : super._();
 
-  factory PodcastFeedMinimized.fromJson(Map<String, dynamic> json) =
-      _$PodcastFeedMinimized.fromJson;
+  factory PodcastFeedMinified.fromJson(Map<String, dynamic> json) =
+      _$PodcastFeedMinified.fromJson;
 
   @override
   PodcastFeedMetadata get metadata;
   int get numEpisodes;
   @override
   @JsonKey(ignore: true)
-  _$$PodcastFeedMinimizedCopyWith<_$PodcastFeedMinimized> get copyWith =>
+  _$$PodcastFeedMinifiedCopyWith<_$PodcastFeedMinified> get copyWith =>
       throw _privateConstructorUsedError;
 }
