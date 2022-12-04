@@ -1,4 +1,4 @@
-import '../collection.dart';
+import '../models/schemas/collection.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';

@@ -1,10 +1,10 @@
 export 'src/audiobook_progress.dart';
 export 'src/audiobook_search_result.dart';
 export 'src/audiobookshelf_api_base.dart';
-export 'src/collection.dart';
 export 'src/login_response.dart';
 export 'src/login_response.dart';
 export 'src/models/schemas/audio_track.dart';
+export 'src/models/schemas/collection.dart';
 export 'src/models/schemas/library.dart';
 export 'src/models/schemas/library_item.dart';
 export 'src/models/schemas/media.dart';

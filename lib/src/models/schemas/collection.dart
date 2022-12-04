@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'models/schemas/library_item.dart';
-import 'utils/from_json.dart';
+import 'library_item.dart';
+import '../../utils/from_json.dart';
 
 class Collection {
   final String id;
