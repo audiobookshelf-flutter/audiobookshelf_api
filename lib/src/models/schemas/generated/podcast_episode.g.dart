@@ -71,7 +71,8 @@ _$PodcastEpisodeExpanded _$$PodcastEpisodeExpandedFromJson(
       addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
       updatedAt:
           const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
-      audioTrack: AudioTrack.fromJson(json['audioTrack'] as String),
+      audioTrack:
+          AudioTrack.fromJson(json['audioTrack'] as Map<String, dynamic>),
       duration: const DurationPreciseSecondsConverter()
           .fromJson(json['duration'] as double),
       size: json['size'] as int,

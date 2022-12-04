@@ -885,6 +885,7 @@ abstract class _$$PodcastEpisodeExpandedCopyWith<$Res>
   $PodcastEpisodeEnclosureCopyWith<$Res> get enclosure;
   @override
   $AudioFileCopyWith<$Res> get audioFile;
+  $AudioTrackCopyWith<$Res> get audioTrack;
 }
 
 /// @nodoc
@@ -991,6 +992,14 @@ class __$$PodcastEpisodeExpandedCopyWithImpl<$Res>
           : size // ignore: cast_nullable_to_non_nullable
               as int,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AudioTrackCopyWith<$Res> get audioTrack {
+    return $AudioTrackCopyWith<$Res>(_value.audioTrack, (value) {
+      return _then(_value.copyWith(audioTrack: value));
+    });
   }
 }
 

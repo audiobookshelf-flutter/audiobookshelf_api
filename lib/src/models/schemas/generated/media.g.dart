@@ -89,7 +89,7 @@ _$BookExpanded _$$BookExpandedFromJson(Map<String, dynamic> json) =>
           .fromJson(json['duration'] as double),
       size: json['size'] as int,
       tracks: (json['tracks'] as List<dynamic>)
-          .map((e) => AudioTrack.fromJson(e as String))
+          .map((e) => AudioTrack.fromJson(e as Map<String, dynamic>))
           .toList(),
       missingParts:
           (json['missingParts'] as List<dynamic>).map((e) => e as int).toList(),
