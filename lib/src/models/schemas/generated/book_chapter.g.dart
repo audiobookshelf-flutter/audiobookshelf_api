@@ -9,15 +9,17 @@ part of '../book_chapter.dart';
 _$_BookChapter _$$_BookChapterFromJson(Map<String, dynamic> json) =>
     _$_BookChapter(
       id: json['id'] as int,
-      start: (json['start'] as num).toDouble(),
-      end: (json['end'] as num).toDouble(),
+      start: const DurationPreciseSecondsConverter()
+          .fromJson(json['start'] as double),
+      end: const DurationPreciseSecondsConverter()
+          .fromJson(json['end'] as double),
       title: json['title'] as String,
     );
 
 Map<String, dynamic> _$$_BookChapterToJson(_$_BookChapter instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'start': instance.start,
-      'end': instance.end,
+      'start': const DurationPreciseSecondsConverter().toJson(instance.start),
+      'end': const DurationPreciseSecondsConverter().toJson(instance.end),
       'title': instance.title,
     };

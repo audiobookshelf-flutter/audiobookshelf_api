@@ -21,8 +21,8 @@ BookChapter _$BookChapterFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BookChapter {
   int get id => throw _privateConstructorUsedError;
-  double get start => throw _privateConstructorUsedError;
-  double get end => throw _privateConstructorUsedError;
+  Duration get start => throw _privateConstructorUsedError;
+  Duration get end => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $BookChapterCopyWith<$Res> {
           BookChapter value, $Res Function(BookChapter) then) =
       _$BookChapterCopyWithImpl<$Res, BookChapter>;
   @useResult
-  $Res call({int id, double start, double end, String title});
+  $Res call({int id, Duration start, Duration end, String title});
 }
 
 /// @nodoc
@@ -66,11 +66,11 @@ class _$BookChapterCopyWithImpl<$Res, $Val extends BookChapter>
       start: null == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
-              as double,
+              as Duration,
       end: null == end
           ? _value.end
           : end // ignore: cast_nullable_to_non_nullable
-              as double,
+              as Duration,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -87,7 +87,7 @@ abstract class _$$_BookChapterCopyWith<$Res>
       __$$_BookChapterCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, double start, double end, String title});
+  $Res call({int id, Duration start, Duration end, String title});
 }
 
 /// @nodoc
@@ -114,11 +114,11 @@ class __$$_BookChapterCopyWithImpl<$Res>
       start: null == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
-              as double,
+              as Duration,
       end: null == end
           ? _value.end
           : end // ignore: cast_nullable_to_non_nullable
-              as double,
+              as Duration,
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -128,7 +128,8 @@ class __$$_BookChapterCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$_BookChapter implements _BookChapter {
   const _$_BookChapter(
       {required this.id,
@@ -142,9 +143,9 @@ class _$_BookChapter implements _BookChapter {
   @override
   final int id;
   @override
-  final double start;
+  final Duration start;
   @override
-  final double end;
+  final Duration end;
   @override
   final String title;
 
@@ -185,8 +186,8 @@ class _$_BookChapter implements _BookChapter {
 abstract class _BookChapter implements BookChapter {
   const factory _BookChapter(
       {required final int id,
-      required final double start,
-      required final double end,
+      required final Duration start,
+      required final Duration end,
       required final String title}) = _$_BookChapter;
 
   factory _BookChapter.fromJson(Map<String, dynamic> json) =
@@ -195,9 +196,9 @@ abstract class _BookChapter implements BookChapter {
   @override
   int get id;
   @override
-  double get start;
+  Duration get start;
   @override
-  double get end;
+  Duration get end;
   @override
   String get title;
   @override
