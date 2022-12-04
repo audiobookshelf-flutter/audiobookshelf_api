@@ -225,7 +225,7 @@ class __$$_SeriesCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$_Series implements _Series {
+class _$_Series extends _Series {
   const _$_Series(
       {required this.id,
       required this.name,
@@ -233,7 +233,8 @@ class _$_Series implements _Series {
       required this.addedAt,
       required this.updatedAt,
       final String? $type})
-      : $type = $type ?? 'default';
+      : $type = $type ?? 'default',
+        super._();
 
   factory _$_Series.fromJson(Map<String, dynamic> json) =>
       _$$_SeriesFromJson(json);
@@ -404,13 +405,14 @@ class _$_Series implements _Series {
   }
 }
 
-abstract class _Series implements Series {
+abstract class _Series extends Series {
   const factory _Series(
       {required final String id,
       required final String name,
       final String? description,
       required final DateTime addedAt,
       required final DateTime updatedAt}) = _$_Series;
+  const _Series._() : super._();
 
   factory _Series.fromJson(Map<String, dynamic> json) = _$_Series.fromJson;
 
@@ -477,14 +479,15 @@ class __$$SeriesNumBooksCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SeriesNumBooks implements SeriesNumBooks {
+class _$SeriesNumBooks extends SeriesNumBooks {
   const _$SeriesNumBooks(
       {required this.id,
       required this.name,
       required this.nameIgnorePrefix,
       required this.numBooks,
       final String? $type})
-      : $type = $type ?? 'numBooks';
+      : $type = $type ?? 'numBooks',
+        super._();
 
   factory _$SeriesNumBooks.fromJson(Map<String, dynamic> json) =>
       _$$SeriesNumBooksFromJson(json);
@@ -652,12 +655,13 @@ class _$SeriesNumBooks implements SeriesNumBooks {
   }
 }
 
-abstract class SeriesNumBooks implements Series {
+abstract class SeriesNumBooks extends Series {
   const factory SeriesNumBooks(
       {required final String id,
       required final String name,
       required final String nameIgnorePrefix,
       required final int numBooks}) = _$SeriesNumBooks;
+  const SeriesNumBooks._() : super._();
 
   factory SeriesNumBooks.fromJson(Map<String, dynamic> json) =
       _$SeriesNumBooks.fromJson;
@@ -752,7 +756,7 @@ class __$$SeriesBooksCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$SeriesBooks implements SeriesBooks {
+class _$SeriesBooks extends SeriesBooks {
   const _$SeriesBooks(
       {required this.id,
       required this.name,
@@ -764,7 +768,8 @@ class _$SeriesBooks implements SeriesBooks {
       required this.totalDuration,
       final String? $type})
       : _books = books,
-        $type = $type ?? 'books';
+        $type = $type ?? 'books',
+        super._();
 
   factory _$SeriesBooks.fromJson(Map<String, dynamic> json) =>
       _$$SeriesBooksFromJson(json);
@@ -963,7 +968,7 @@ class _$SeriesBooks implements SeriesBooks {
   }
 }
 
-abstract class SeriesBooks implements Series {
+abstract class SeriesBooks extends Series {
   const factory SeriesBooks(
       {required final String id,
       required final String name,
@@ -973,6 +978,7 @@ abstract class SeriesBooks implements Series {
       required final List<BookLibraryItem> books,
       required final DateTime addedAt,
       required final Duration totalDuration}) = _$SeriesBooks;
+  const SeriesBooks._() : super._();
 
   factory SeriesBooks.fromJson(Map<String, dynamic> json) =
       _$SeriesBooks.fromJson;
@@ -1038,13 +1044,14 @@ class __$$SeriesSequenceCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SeriesSequence implements SeriesSequence {
+class _$SeriesSequence extends SeriesSequence {
   const _$SeriesSequence(
       {required this.id,
       required this.name,
       this.sequence,
       final String? $type})
-      : $type = $type ?? 'sequence';
+      : $type = $type ?? 'sequence',
+        super._();
 
   factory _$SeriesSequence.fromJson(Map<String, dynamic> json) =>
       _$$SeriesSequenceFromJson(json);
@@ -1207,11 +1214,12 @@ class _$SeriesSequence implements SeriesSequence {
   }
 }
 
-abstract class SeriesSequence implements Series {
+abstract class SeriesSequence extends Series {
   const factory SeriesSequence(
       {required final String id,
       required final String name,
       final String? sequence}) = _$SeriesSequence;
+  const SeriesSequence._() : super._();
 
   factory SeriesSequence.fromJson(Map<String, dynamic> json) =
       _$SeriesSequence.fromJson;
