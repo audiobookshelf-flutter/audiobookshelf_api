@@ -22,9 +22,9 @@ LibraryFile _$LibraryFileFromJson(Map<String, dynamic> json) {
 mixin _$LibraryFile {
   String get ino => throw _privateConstructorUsedError;
   FileMetadata get metadata => throw _privateConstructorUsedError;
-  int get addedAt => throw _privateConstructorUsedError;
-  int get updatedAt => throw _privateConstructorUsedError;
-  String get fileType => throw _privateConstructorUsedError;
+  DateTime get addedAt => throw _privateConstructorUsedError;
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+  FileType get fileType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,9 +41,9 @@ abstract class $LibraryFileCopyWith<$Res> {
   $Res call(
       {String ino,
       FileMetadata metadata,
-      int addedAt,
-      int updatedAt,
-      String fileType});
+      DateTime addedAt,
+      DateTime updatedAt,
+      FileType fileType});
 
   $FileMetadataCopyWith<$Res> get metadata;
 }
@@ -79,15 +79,15 @@ class _$LibraryFileCopyWithImpl<$Res, $Val extends LibraryFile>
       addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       fileType: null == fileType
           ? _value.fileType
           : fileType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as FileType,
     ) as $Val);
   }
 
@@ -111,9 +111,9 @@ abstract class _$$_LibraryFileCopyWith<$Res>
   $Res call(
       {String ino,
       FileMetadata metadata,
-      int addedAt,
-      int updatedAt,
-      String fileType});
+      DateTime addedAt,
+      DateTime updatedAt,
+      FileType fileType});
 
   @override
   $FileMetadataCopyWith<$Res> get metadata;
@@ -148,21 +148,22 @@ class __$$_LibraryFileCopyWithImpl<$Res>
       addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       updatedAt: null == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as int,
+              as DateTime,
       fileType: null == fileType
           ? _value.fileType
           : fileType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as FileType,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$_LibraryFile implements _LibraryFile {
   const _$_LibraryFile(
       {required this.ino,
@@ -179,11 +180,11 @@ class _$_LibraryFile implements _LibraryFile {
   @override
   final FileMetadata metadata;
   @override
-  final int addedAt;
+  final DateTime addedAt;
   @override
-  final int updatedAt;
+  final DateTime updatedAt;
   @override
-  final String fileType;
+  final FileType fileType;
 
   @override
   String toString() {
@@ -228,9 +229,9 @@ abstract class _LibraryFile implements LibraryFile {
   const factory _LibraryFile(
       {required final String ino,
       required final FileMetadata metadata,
-      required final int addedAt,
-      required final int updatedAt,
-      required final String fileType}) = _$_LibraryFile;
+      required final DateTime addedAt,
+      required final DateTime updatedAt,
+      required final FileType fileType}) = _$_LibraryFile;
 
   factory _LibraryFile.fromJson(Map<String, dynamic> json) =
       _$_LibraryFile.fromJson;
@@ -240,11 +241,11 @@ abstract class _LibraryFile implements LibraryFile {
   @override
   FileMetadata get metadata;
   @override
-  int get addedAt;
+  DateTime get addedAt;
   @override
-  int get updatedAt;
+  DateTime get updatedAt;
   @override
-  String get fileType;
+  FileType get fileType;
   @override
   @JsonKey(ignore: true)
   _$$_LibraryFileCopyWith<_$_LibraryFile> get copyWith =>
