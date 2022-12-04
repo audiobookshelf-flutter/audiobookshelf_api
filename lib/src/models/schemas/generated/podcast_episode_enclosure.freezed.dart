@@ -21,7 +21,17 @@ PodcastEpisodeEnclosure _$PodcastEpisodeEnclosureFromJson(
 
 /// @nodoc
 mixin _$PodcastEpisodeEnclosure {
+  Uri get url => throw _privateConstructorUsedError;
+  @JsonKey(
+      fromJson: _httpParserMediaTypeFromJson,
+      toJson: _httpParserMediaTypeToJson)
+  http_parser.MediaType get type => throw _privateConstructorUsedError;
+  String get length => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PodcastEpisodeEnclosureCopyWith<PodcastEpisodeEnclosure> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -29,6 +39,12 @@ abstract class $PodcastEpisodeEnclosureCopyWith<$Res> {
   factory $PodcastEpisodeEnclosureCopyWith(PodcastEpisodeEnclosure value,
           $Res Function(PodcastEpisodeEnclosure) then) =
       _$PodcastEpisodeEnclosureCopyWithImpl<$Res, PodcastEpisodeEnclosure>;
+  @useResult
+  $Res call(
+      {Uri url,
+      @JsonKey(fromJson: _httpParserMediaTypeFromJson, toJson: _httpParserMediaTypeToJson)
+          http_parser.MediaType type,
+      String length});
 }
 
 /// @nodoc
@@ -41,13 +57,44 @@ class _$PodcastEpisodeEnclosureCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? url = null,
+    Object? type = null,
+    Object? length = null,
+  }) {
+    return _then(_value.copyWith(
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as Uri,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as http_parser.MediaType,
+      length: null == length
+          ? _value.length
+          : length // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$_PodcastEpisodeEnclosureCopyWith<$Res> {
+abstract class _$$_PodcastEpisodeEnclosureCopyWith<$Res>
+    implements $PodcastEpisodeEnclosureCopyWith<$Res> {
   factory _$$_PodcastEpisodeEnclosureCopyWith(_$_PodcastEpisodeEnclosure value,
           $Res Function(_$_PodcastEpisodeEnclosure) then) =
       __$$_PodcastEpisodeEnclosureCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {Uri url,
+      @JsonKey(fromJson: _httpParserMediaTypeFromJson, toJson: _httpParserMediaTypeToJson)
+          http_parser.MediaType type,
+      String length});
 }
 
 /// @nodoc
@@ -58,31 +105,79 @@ class __$$_PodcastEpisodeEnclosureCopyWithImpl<$Res>
   __$$_PodcastEpisodeEnclosureCopyWithImpl(_$_PodcastEpisodeEnclosure _value,
       $Res Function(_$_PodcastEpisodeEnclosure) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? url = null,
+    Object? type = null,
+    Object? length = null,
+  }) {
+    return _then(_$_PodcastEpisodeEnclosure(
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as Uri,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as http_parser.MediaType,
+      length: null == length
+          ? _value.length
+          : length // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$_PodcastEpisodeEnclosure implements _PodcastEpisodeEnclosure {
-  const _$_PodcastEpisodeEnclosure();
+  const _$_PodcastEpisodeEnclosure(
+      {required this.url,
+      @JsonKey(fromJson: _httpParserMediaTypeFromJson, toJson: _httpParserMediaTypeToJson)
+          required this.type,
+      required this.length});
 
   factory _$_PodcastEpisodeEnclosure.fromJson(Map<String, dynamic> json) =>
       _$$_PodcastEpisodeEnclosureFromJson(json);
 
   @override
+  final Uri url;
+  @override
+  @JsonKey(
+      fromJson: _httpParserMediaTypeFromJson,
+      toJson: _httpParserMediaTypeToJson)
+  final http_parser.MediaType type;
+  @override
+  final String length;
+
+  @override
   String toString() {
-    return 'PodcastEpisodeEnclosure()';
+    return 'PodcastEpisodeEnclosure(url: $url, type: $type, length: $length)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PodcastEpisodeEnclosure);
+            other is _$_PodcastEpisodeEnclosure &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.length, length) || other.length == length));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, url, type, length);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PodcastEpisodeEnclosureCopyWith<_$_PodcastEpisodeEnclosure>
+      get copyWith =>
+          __$$_PodcastEpisodeEnclosureCopyWithImpl<_$_PodcastEpisodeEnclosure>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -93,8 +188,26 @@ class _$_PodcastEpisodeEnclosure implements _PodcastEpisodeEnclosure {
 }
 
 abstract class _PodcastEpisodeEnclosure implements PodcastEpisodeEnclosure {
-  const factory _PodcastEpisodeEnclosure() = _$_PodcastEpisodeEnclosure;
+  const factory _PodcastEpisodeEnclosure(
+      {required final Uri url,
+      @JsonKey(fromJson: _httpParserMediaTypeFromJson, toJson: _httpParserMediaTypeToJson)
+          required final http_parser.MediaType type,
+      required final String length}) = _$_PodcastEpisodeEnclosure;
 
   factory _PodcastEpisodeEnclosure.fromJson(Map<String, dynamic> json) =
       _$_PodcastEpisodeEnclosure.fromJson;
+
+  @override
+  Uri get url;
+  @override
+  @JsonKey(
+      fromJson: _httpParserMediaTypeFromJson,
+      toJson: _httpParserMediaTypeToJson)
+  http_parser.MediaType get type;
+  @override
+  String get length;
+  @override
+  @JsonKey(ignore: true)
+  _$$_PodcastEpisodeEnclosureCopyWith<_$_PodcastEpisodeEnclosure>
+      get copyWith => throw _privateConstructorUsedError;
 }

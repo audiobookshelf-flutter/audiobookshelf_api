@@ -456,7 +456,7 @@ class __$$_PodcastEpisodeCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$_PodcastEpisode implements _PodcastEpisode {
+class _$_PodcastEpisode extends _PodcastEpisode {
   const _$_PodcastEpisode(
       {required this.libraryItemId,
       required this.id,
@@ -474,7 +474,8 @@ class _$_PodcastEpisode implements _PodcastEpisode {
       required this.addedAt,
       required this.updatedAt,
       final String? $type})
-      : $type = $type ?? 'default';
+      : $type = $type ?? 'default',
+        super._();
 
   factory _$_PodcastEpisode.fromJson(Map<String, dynamic> json) =>
       _$$_PodcastEpisodeFromJson(json);
@@ -794,7 +795,7 @@ class _$_PodcastEpisode implements _PodcastEpisode {
   }
 }
 
-abstract class _PodcastEpisode implements PodcastEpisode {
+abstract class _PodcastEpisode extends PodcastEpisode {
   const factory _PodcastEpisode(
       {required final String libraryItemId,
       required final String id,
@@ -811,6 +812,7 @@ abstract class _PodcastEpisode implements PodcastEpisode {
       required final DateTime publishedAt,
       required final DateTime addedAt,
       required final DateTime updatedAt}) = _$_PodcastEpisode;
+  const _PodcastEpisode._() : super._();
 
   factory _PodcastEpisode.fromJson(Map<String, dynamic> json) =
       _$_PodcastEpisode.fromJson;
@@ -995,7 +997,7 @@ class __$$PodcastEpisodeExpandedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$PodcastEpisodeExpanded implements PodcastEpisodeExpanded {
+class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
   const _$PodcastEpisodeExpanded(
       {required this.libraryItemId,
       required this.id,
@@ -1016,7 +1018,8 @@ class _$PodcastEpisodeExpanded implements PodcastEpisodeExpanded {
       required this.duration,
       required this.size,
       final String? $type})
-      : $type = $type ?? 'expanded';
+      : $type = $type ?? 'expanded',
+        super._();
 
   factory _$PodcastEpisodeExpanded.fromJson(Map<String, dynamic> json) =>
       _$$PodcastEpisodeExpandedFromJson(json);
@@ -1360,7 +1363,7 @@ class _$PodcastEpisodeExpanded implements PodcastEpisodeExpanded {
   }
 }
 
-abstract class PodcastEpisodeExpanded implements PodcastEpisode {
+abstract class PodcastEpisodeExpanded extends PodcastEpisode {
   const factory PodcastEpisodeExpanded(
       {required final String libraryItemId,
       required final String id,
@@ -1380,6 +1383,7 @@ abstract class PodcastEpisodeExpanded implements PodcastEpisode {
       required final AudioTrack audioTrack,
       required final Duration duration,
       required final int size}) = _$PodcastEpisodeExpanded;
+  const PodcastEpisodeExpanded._() : super._();
 
   factory PodcastEpisodeExpanded.fromJson(Map<String, dynamic> json) =
       _$PodcastEpisodeExpanded.fromJson;
