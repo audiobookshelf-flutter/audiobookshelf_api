@@ -1,6 +1,7 @@
 import 'package:http_parser/http_parser.dart' as http_parser;
 import 'package:json_annotation/json_annotation.dart';
 
+import '../models/utils/cron_expression.dart';
 import 'precise_duration.dart';
 
 const jsonConverters = JsonSerializable(
@@ -8,6 +9,7 @@ const jsonConverters = JsonSerializable(
     DateTimeEpochConverter(),
     DurationPreciseSecondsConverter(),
     HttpParserMediaTypeConverter(),
+    CronExpressionConverter(),
   ],
 );
 
@@ -52,4 +54,14 @@ class HttpParserMediaTypeConverter
 
   @override
   String toJson(http_parser.MediaType object) => object.mimeType;
+}
+
+class CronExpressionConverter implements JsonConverter<CronExpression, String> {
+  const CronExpressionConverter();
+
+  @override
+  CronExpression fromJson(String json) => CronExpression.parse(json);
+
+  @override
+  String toJson(CronExpression object) => object.toString();
 }

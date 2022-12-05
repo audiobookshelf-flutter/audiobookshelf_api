@@ -48,8 +48,6 @@ class CronExpression with _$CronExpression {
     );
   }
 
-  static CronExpression fromJson(String json) => parse(json);
-
   @override
   String toString() {
     final minutes = this.minutes.toRangeString(0, 59);
@@ -60,8 +58,6 @@ class CronExpression with _$CronExpression {
 
     return '$minutes $hours $daysOfMonth $months $daysOfWeek';
   }
-
-  String toJson() => toString();
 }
 
 extension on Iterable<int> {
