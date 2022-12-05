@@ -13,6 +13,16 @@ const jsonConverters = JsonSerializable(
   ],
 );
 
+class BoolBinaryConverter implements JsonConverter<bool, int> {
+  const BoolBinaryConverter();
+
+  @override
+  bool fromJson(int json) => json == 1;
+
+  @override
+  int toJson(bool object) => object ? 1 : 0;
+}
+
 class DateTimeEpochConverter implements JsonConverter<DateTime, int> {
   const DateTimeEpochConverter();
 
