@@ -26,7 +26,7 @@ mixin _$NotificationSettings {
   List<Notification> get notifications => throw _privateConstructorUsedError;
   int get maxFailedAttempts => throw _privateConstructorUsedError;
   int get maxNotificationQueue => throw _privateConstructorUsedError;
-  @_DurationMsConverter()
+  @DurationMsConverter()
   Duration get notificationDelay => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $NotificationSettingsCopyWith<$Res> {
       List<Notification> notifications,
       int maxFailedAttempts,
       int maxNotificationQueue,
-      @_DurationMsConverter() Duration notificationDelay});
+      @DurationMsConverter() Duration notificationDelay});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ abstract class _$$_NotificationSettingsCopyWith<$Res>
       List<Notification> notifications,
       int maxFailedAttempts,
       int maxNotificationQueue,
-      @_DurationMsConverter() Duration notificationDelay});
+      @DurationMsConverter() Duration notificationDelay});
 }
 
 /// @nodoc
@@ -186,7 +186,7 @@ class _$_NotificationSettings implements _NotificationSettings {
       required final List<Notification> notifications,
       required this.maxFailedAttempts,
       required this.maxNotificationQueue,
-      @_DurationMsConverter() required this.notificationDelay})
+      @DurationMsConverter() required this.notificationDelay})
       : _notifications = notifications;
 
   factory _$_NotificationSettings.fromJson(Map<String, dynamic> json) =>
@@ -211,7 +211,7 @@ class _$_NotificationSettings implements _NotificationSettings {
   @override
   final int maxNotificationQueue;
   @override
-  @_DurationMsConverter()
+  @DurationMsConverter()
   final Duration notificationDelay;
 
   @override
@@ -274,7 +274,7 @@ abstract class _NotificationSettings implements NotificationSettings {
           required final List<Notification> notifications,
           required final int maxFailedAttempts,
           required final int maxNotificationQueue,
-          @_DurationMsConverter() required final Duration notificationDelay}) =
+          @DurationMsConverter() required final Duration notificationDelay}) =
       _$_NotificationSettings;
 
   factory _NotificationSettings.fromJson(Map<String, dynamic> json) =
@@ -293,7 +293,7 @@ abstract class _NotificationSettings implements NotificationSettings {
   @override
   int get maxNotificationQueue;
   @override
-  @_DurationMsConverter()
+  @DurationMsConverter()
   Duration get notificationDelay;
   @override
   @JsonKey(ignore: true)

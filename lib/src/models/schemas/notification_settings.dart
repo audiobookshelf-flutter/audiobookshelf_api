@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../utils/json_converters.dart';
 import 'notification.dart';
 
 part 'generated/notification_settings.freezed.dart';
@@ -15,19 +16,9 @@ class NotificationSettings with _$NotificationSettings {
     required List<Notification> notifications,
     required int maxFailedAttempts,
     required int maxNotificationQueue,
-    @_DurationMsConverter() required Duration notificationDelay,
+    @DurationMsConverter() required Duration notificationDelay,
   }) = _NotificationSettings;
 
   factory NotificationSettings.fromJson(Map<String, dynamic> json) =>
       _$NotificationSettingsFromJson(json);
-}
-
-class _DurationMsConverter implements JsonConverter<Duration, int> {
-  const _DurationMsConverter();
-
-  @override
-  Duration fromJson(int json) => Duration(milliseconds: json);
-
-  @override
-  int toJson(Duration object) => object.inMilliseconds;
 }

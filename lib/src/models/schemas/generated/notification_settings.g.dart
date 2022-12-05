@@ -19,7 +19,7 @@ _$_NotificationSettings _$$_NotificationSettingsFromJson(
           .toList(),
       maxFailedAttempts: json['maxFailedAttempts'] as int,
       maxNotificationQueue: json['maxNotificationQueue'] as int,
-      notificationDelay: const _DurationMsConverter()
+      notificationDelay: const DurationMsConverter()
           .fromJson(json['notificationDelay'] as int),
     );
 
@@ -33,5 +33,5 @@ Map<String, dynamic> _$$_NotificationSettingsToJson(
       'maxFailedAttempts': instance.maxFailedAttempts,
       'maxNotificationQueue': instance.maxNotificationQueue,
       'notificationDelay':
-          const _DurationMsConverter().toJson(instance.notificationDelay),
+          const DurationMsConverter().toJson(instance.notificationDelay),
     };
