@@ -9,3 +9,4 @@ targets:
         options:
           build_extensions:
             '^lib/src/models/schemas/{{}}.dart': 'lib/src/models/schemas/generated/{{}}.freezed.dart'
+            '^lib/src/models/utils/{{}}.dart': 'lib/src/models/utils/generated/{{}}.freezed.dart'
