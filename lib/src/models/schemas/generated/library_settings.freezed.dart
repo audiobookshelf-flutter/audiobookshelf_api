@@ -24,7 +24,8 @@ mixin _$LibrarySettings {
   bool get disableWatcher => throw _privateConstructorUsedError;
   bool get skipMatchingMediaWithAsin => throw _privateConstructorUsedError;
   bool get skipMatchingMediaWithIsbn => throw _privateConstructorUsedError;
-  String? get autoScanCronExpression => throw _privateConstructorUsedError;
+  CronExpression? get autoScanCronExpression =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,9 @@ abstract class $LibrarySettingsCopyWith<$Res> {
       bool disableWatcher,
       bool skipMatchingMediaWithAsin,
       bool skipMatchingMediaWithIsbn,
-      String? autoScanCronExpression});
+      CronExpression? autoScanCronExpression});
+
+  $CronExpressionCopyWith<$Res>? get autoScanCronExpression;
 }
 
 /// @nodoc
@@ -85,8 +88,21 @@ class _$LibrarySettingsCopyWithImpl<$Res, $Val extends LibrarySettings>
       autoScanCronExpression: freezed == autoScanCronExpression
           ? _value.autoScanCronExpression
           : autoScanCronExpression // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CronExpression?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CronExpressionCopyWith<$Res>? get autoScanCronExpression {
+    if (_value.autoScanCronExpression == null) {
+      return null;
+    }
+
+    return $CronExpressionCopyWith<$Res>(_value.autoScanCronExpression!,
+        (value) {
+      return _then(_value.copyWith(autoScanCronExpression: value) as $Val);
+    });
   }
 }
 
@@ -103,7 +119,10 @@ abstract class _$$_LibrarySettingsCopyWith<$Res>
       bool disableWatcher,
       bool skipMatchingMediaWithAsin,
       bool skipMatchingMediaWithIsbn,
-      String? autoScanCronExpression});
+      CronExpression? autoScanCronExpression});
+
+  @override
+  $CronExpressionCopyWith<$Res>? get autoScanCronExpression;
 }
 
 /// @nodoc
@@ -143,13 +162,14 @@ class __$$_LibrarySettingsCopyWithImpl<$Res>
       autoScanCronExpression: freezed == autoScanCronExpression
           ? _value.autoScanCronExpression
           : autoScanCronExpression // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CronExpression?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@jsonConverters
 class _$_LibrarySettings implements _LibrarySettings {
   const _$_LibrarySettings(
       {required this.coverAspectRatio,
@@ -170,7 +190,7 @@ class _$_LibrarySettings implements _LibrarySettings {
   @override
   final bool skipMatchingMediaWithIsbn;
   @override
-  final String? autoScanCronExpression;
+  final CronExpression? autoScanCronExpression;
 
   @override
   String toString() {
@@ -226,7 +246,7 @@ abstract class _LibrarySettings implements LibrarySettings {
       required final bool disableWatcher,
       required final bool skipMatchingMediaWithAsin,
       required final bool skipMatchingMediaWithIsbn,
-      final String? autoScanCronExpression}) = _$_LibrarySettings;
+      final CronExpression? autoScanCronExpression}) = _$_LibrarySettings;
 
   factory _LibrarySettings.fromJson(Map<String, dynamic> json) =
       _$_LibrarySettings.fromJson;
@@ -240,7 +260,7 @@ abstract class _LibrarySettings implements LibrarySettings {
   @override
   bool get skipMatchingMediaWithIsbn;
   @override
-  String? get autoScanCronExpression;
+  CronExpression? get autoScanCronExpression;
   @override
   @JsonKey(ignore: true)
   _$$_LibrarySettingsCopyWith<_$_LibrarySettings> get copyWith =>

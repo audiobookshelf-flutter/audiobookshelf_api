@@ -126,7 +126,9 @@ _$Podcast _$$PodcastFromJson(Map<String, dynamic> json) => _$Podcast(
           .map((e) => PodcastEpisode.fromJson(e as Map<String, dynamic>))
           .toList(),
       autoDownloadEpisodes: json['autoDownloadEpisodes'] as bool,
-      autoDownloadSchedule: json['autoDownloadSchedule'] as String?,
+      autoDownloadSchedule: _$JsonConverterFromJson<String, CronExpression>(
+          json['autoDownloadSchedule'],
+          const CronExpressionConverter().fromJson),
       lastEpisodeCheck: const DateTimeEpochConverter()
           .fromJson(json['lastEpisodeCheck'] as int),
       maxEpisodesToKeep: json['maxEpisodesToKeep'] as int,
@@ -141,13 +143,27 @@ Map<String, dynamic> _$$PodcastToJson(_$Podcast instance) => <String, dynamic>{
       'tags': instance.tags,
       'episodes': instance.episodes,
       'autoDownloadEpisodes': instance.autoDownloadEpisodes,
-      'autoDownloadSchedule': instance.autoDownloadSchedule,
+      'autoDownloadSchedule': _$JsonConverterToJson<String, CronExpression>(
+          instance.autoDownloadSchedule,
+          const CronExpressionConverter().toJson),
       'lastEpisodeCheck':
           const DateTimeEpochConverter().toJson(instance.lastEpisodeCheck),
       'maxEpisodesToKeep': instance.maxEpisodesToKeep,
       'maxNewEpisodesToDownload': instance.maxNewEpisodesToDownload,
       'runtimeType': instance.$type,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
 
 _$PodcastMinified _$$PodcastMinifiedFromJson(Map<String, dynamic> json) =>
     _$PodcastMinified(
@@ -157,7 +173,9 @@ _$PodcastMinified _$$PodcastMinifiedFromJson(Map<String, dynamic> json) =>
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       numEpisodes: json['numEpisodes'] as int,
       autoDownloadEpisodes: json['autoDownloadEpisodes'] as bool,
-      autoDownloadSchedule: json['autoDownloadSchedule'] as String?,
+      autoDownloadSchedule: _$JsonConverterFromJson<String, CronExpression>(
+          json['autoDownloadSchedule'],
+          const CronExpressionConverter().fromJson),
       lastEpisodeCheck: const DateTimeEpochConverter()
           .fromJson(json['lastEpisodeCheck'] as int),
       maxEpisodesToKeep: json['maxEpisodesToKeep'] as int,
@@ -173,7 +191,9 @@ Map<String, dynamic> _$$PodcastMinifiedToJson(_$PodcastMinified instance) =>
       'tags': instance.tags,
       'numEpisodes': instance.numEpisodes,
       'autoDownloadEpisodes': instance.autoDownloadEpisodes,
-      'autoDownloadSchedule': instance.autoDownloadSchedule,
+      'autoDownloadSchedule': _$JsonConverterToJson<String, CronExpression>(
+          instance.autoDownloadSchedule,
+          const CronExpressionConverter().toJson),
       'lastEpisodeCheck':
           const DateTimeEpochConverter().toJson(instance.lastEpisodeCheck),
       'maxEpisodesToKeep': instance.maxEpisodesToKeep,
@@ -194,7 +214,9 @@ _$PodcastExpanded _$$PodcastExpandedFromJson(Map<String, dynamic> json) =>
               (e) => PodcastEpisodeExpanded.fromJson(e as Map<String, dynamic>))
           .toList(),
       autoDownloadEpisodes: json['autoDownloadEpisodes'] as bool,
-      autoDownloadSchedule: json['autoDownloadSchedule'] as String?,
+      autoDownloadSchedule: _$JsonConverterFromJson<String, CronExpression>(
+          json['autoDownloadSchedule'],
+          const CronExpressionConverter().fromJson),
       lastEpisodeCheck: const DateTimeEpochConverter()
           .fromJson(json['lastEpisodeCheck'] as int),
       maxEpisodesToKeep: json['maxEpisodesToKeep'] as int,
@@ -211,7 +233,9 @@ Map<String, dynamic> _$$PodcastExpandedToJson(_$PodcastExpanded instance) =>
       'tags': instance.tags,
       'episodes': instance.episodes,
       'autoDownloadEpisodes': instance.autoDownloadEpisodes,
-      'autoDownloadSchedule': instance.autoDownloadSchedule,
+      'autoDownloadSchedule': _$JsonConverterToJson<String, CronExpression>(
+          instance.autoDownloadSchedule,
+          const CronExpressionConverter().toJson),
       'lastEpisodeCheck':
           const DateTimeEpochConverter().toJson(instance.lastEpisodeCheck),
       'maxEpisodesToKeep': instance.maxEpisodesToKeep,

@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../utils/json_converters.dart';
 import '../enums/media_type.dart';
 import '../enums/schema_variant.dart';
+import '../utils/cron_expression.dart';
 import 'audio_file.dart';
 import 'audio_track.dart';
 import 'book_chapter.dart';
@@ -68,7 +69,7 @@ class Media with _$Media {
     required List<String> tags,
     required List<PodcastEpisode> episodes,
     required bool autoDownloadEpisodes,
-    String? autoDownloadSchedule,
+    CronExpression? autoDownloadSchedule,
     required DateTime lastEpisodeCheck,
     required int maxEpisodesToKeep,
     required int maxNewEpisodesToDownload,
@@ -81,7 +82,7 @@ class Media with _$Media {
     required List<String> tags,
     required int numEpisodes,
     required bool autoDownloadEpisodes,
-    String? autoDownloadSchedule,
+    CronExpression? autoDownloadSchedule,
     required DateTime lastEpisodeCheck,
     required int maxEpisodesToKeep,
     required int maxNewEpisodesToDownload,
@@ -96,7 +97,7 @@ class Media with _$Media {
     required List<String> tags,
     required List<PodcastEpisodeExpanded> episodes,
     required bool autoDownloadEpisodes,
-    String? autoDownloadSchedule,
+    CronExpression? autoDownloadSchedule,
     required DateTime lastEpisodeCheck,
     required int maxEpisodesToKeep,
     required int maxNewEpisodesToDownload,
