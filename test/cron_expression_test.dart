@@ -6,7 +6,7 @@ void main() {
   group('CronExpression', () {
     const cronString = '5 4 * * 1-5/2,6';
 
-    test('fromJson/parse', () {
+    test('parse', () {
       expect(
         CronExpression.parse(cronString),
         allOf(
@@ -25,7 +25,7 @@ void main() {
       );
     });
 
-    test('toJson/toString', () {
+    test('toString', () {
       expect(
         CronExpression(
           minutes: {0, 2, 3, 5, 6, 7, 10},
@@ -33,7 +33,7 @@ void main() {
           daysOfWeek: {
             DayOfTheWeek.sunday,
           },
-        ).toJson(),
+        ).toString(),
         equals('0,2,3,5-7,10 4 * * 0'),
       );
     });
