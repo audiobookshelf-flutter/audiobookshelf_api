@@ -22,7 +22,7 @@ NotificationEvent _$NotificationEventFromJson(Map<String, dynamic> json) {
 mixin _$NotificationEvent {
   String get name => throw _privateConstructorUsedError;
   bool get requiresLibrary => throw _privateConstructorUsedError;
-  String? get libraryMediaType => throw _privateConstructorUsedError;
+  MediaType? get libraryMediaType => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   List<String> get variables => throw _privateConstructorUsedError;
   NotificationEventDefaults get defaults => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $NotificationEventCopyWith<$Res> {
   $Res call(
       {String name,
       bool requiresLibrary,
-      String? libraryMediaType,
+      MediaType? libraryMediaType,
       String description,
       List<String> variables,
       NotificationEventDefaults defaults,
@@ -83,7 +83,7 @@ class _$NotificationEventCopyWithImpl<$Res, $Val extends NotificationEvent>
       libraryMediaType: freezed == libraryMediaType
           ? _value.libraryMediaType
           : libraryMediaType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as MediaType?,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -115,7 +115,7 @@ abstract class _$$_NotificationEventCopyWith<$Res>
   $Res call(
       {String name,
       bool requiresLibrary,
-      String? libraryMediaType,
+      MediaType? libraryMediaType,
       String description,
       List<String> variables,
       NotificationEventDefaults defaults,
@@ -153,7 +153,7 @@ class __$$_NotificationEventCopyWithImpl<$Res>
       libraryMediaType: freezed == libraryMediaType
           ? _value.libraryMediaType
           : libraryMediaType // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as MediaType?,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -196,7 +196,7 @@ class _$_NotificationEvent implements _NotificationEvent {
   @override
   final bool requiresLibrary;
   @override
-  final String? libraryMediaType;
+  final MediaType? libraryMediaType;
   @override
   final String description;
   final List<String> _variables;
@@ -272,7 +272,7 @@ abstract class _NotificationEvent implements NotificationEvent {
   const factory _NotificationEvent(
       {required final String name,
       required final bool requiresLibrary,
-      final String? libraryMediaType,
+      final MediaType? libraryMediaType,
       required final String description,
       required final List<String> variables,
       required final NotificationEventDefaults defaults,
@@ -286,7 +286,7 @@ abstract class _NotificationEvent implements NotificationEvent {
   @override
   bool get requiresLibrary;
   @override
-  String? get libraryMediaType;
+  MediaType? get libraryMediaType;
   @override
   String get description;
   @override

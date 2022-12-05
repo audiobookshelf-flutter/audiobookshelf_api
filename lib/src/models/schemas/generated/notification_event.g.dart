@@ -24,7 +24,8 @@ _$_NotificationEvent _$$_NotificationEventFromJson(Map<String, dynamic> json) =>
     _$_NotificationEvent(
       name: json['name'] as String,
       requiresLibrary: json['requiresLibrary'] as bool,
-      libraryMediaType: json['libraryMediaType'] as String?,
+      libraryMediaType:
+          $enumDecodeNullable(_$MediaTypeEnumMap, json['libraryMediaType']),
       description: json['description'] as String,
       variables:
           (json['variables'] as List<dynamic>).map((e) => e as String).toList(),
@@ -38,9 +39,14 @@ Map<String, dynamic> _$$_NotificationEventToJson(
     <String, dynamic>{
       'name': instance.name,
       'requiresLibrary': instance.requiresLibrary,
-      'libraryMediaType': instance.libraryMediaType,
+      'libraryMediaType': _$MediaTypeEnumMap[instance.libraryMediaType],
       'description': instance.description,
       'variables': instance.variables,
       'defaults': instance.defaults,
       'testData': instance.testData,
     };
+
+const _$MediaTypeEnumMap = {
+  MediaType.book: 'book',
+  MediaType.podcast: 'podcast',
+};

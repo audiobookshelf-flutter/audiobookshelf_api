@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../enums/media_type.dart';
+
 part 'generated/notification_event.freezed.dart';
 part 'generated/notification_event.g.dart';
 
@@ -9,7 +11,7 @@ class NotificationEvent with _$NotificationEvent {
   const factory NotificationEvent({
     required String name,
     required bool requiresLibrary,
-    String? libraryMediaType,
+    MediaType? libraryMediaType,
     required String description,
     required List<String> variables,
     required NotificationEventDefaults defaults,
