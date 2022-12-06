@@ -1,4 +1,4 @@
-import '../login_response.dart';
+import '../models/responses/login_response.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
