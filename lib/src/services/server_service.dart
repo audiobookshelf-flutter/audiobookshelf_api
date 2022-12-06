@@ -32,18 +32,20 @@ class ServerService extends Service {
 
   /// See [Logout](https://api.audiobookshelf.org/#logout)
   ///
-  /// Nullifies the `token` and `userId` of [api].
+  /// Nullifies the `token` and `userId` of [api] if successful.
   Future<void> logout({
     // String? socketId, // TODO: do this with api's socket once made
     ResponseErrorHandler? responseErrorHandler,
   }) async {
-    await api.post(
+    final response = await api.post(
       path: '/logout',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
     );
 
-    api.token = null;
-    api.userId = null;
+    if (response.statusCode == 200) {
+      api.token = null;
+      api.userId = null;
+    }
   }
 }
