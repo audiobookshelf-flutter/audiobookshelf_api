@@ -28,6 +28,7 @@ class LibrariesService extends Service {
     );
   }
 
+  /// See [Get All Libraries](https://api.audiobookshelf.org/#get-all-libraries)
   Future<List<Library>?> getAll({
     ResponseErrorHandler? responseErrorHandler,
   }) {
