@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../audiobookshelf_api.dart';
 import '../../utils/json_converters.dart';
 import 'library_item.dart';
 
