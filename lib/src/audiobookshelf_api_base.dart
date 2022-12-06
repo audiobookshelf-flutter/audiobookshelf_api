@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
 
-import 'login_response.dart';
+import 'models/responses/login_response.dart';
 import 'services/authors_service.dart';
 import 'services/backups_service.dart';
 import 'services/cache_service.dart';
