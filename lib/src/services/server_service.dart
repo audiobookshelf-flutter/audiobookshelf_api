@@ -87,4 +87,12 @@ class ServerService extends Service {
       fromJson: (json) => fromJsonKey(json, 'success'),
     );
   }
+
+  /// See [Healthcheck](https://api.audiobookshelf.org/#healthcheck)
+  Future<void> healthcheck({ResponseErrorHandler? responseErrorHandler}) {
+    return api.get(
+      path: '/healthcheck',
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
