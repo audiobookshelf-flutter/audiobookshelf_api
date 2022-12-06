@@ -68,7 +68,7 @@ class ServerService extends Service {
     );
   }
 
-  /// See [Check the Server's Status](https://api.audiobookshelf.org/#initialize-the-server)
+  /// See [Check the Server's Status](https://api.audiobookshelf.org/#check-the-server-39-s-status)
   Future<ServerStatusResponse?> status({
     ResponseErrorHandler? responseErrorHandler,
   }) {
@@ -76,6 +76,15 @@ class ServerService extends Service {
       path: '/status',
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, ServerStatusResponse.fromJson),
+    );
+  }
+
+  /// See [Ping the Server](https://api.audiobookshelf.org/#ping-the-server)
+  Future<bool?> ping({ResponseErrorHandler? responseErrorHandler}) {
+    return api.getJson(
+      path: '/ping',
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJsonKey(json, 'success'),
     );
   }
 }
