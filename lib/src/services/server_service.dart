@@ -1,4 +1,5 @@
 import '../models/responses/login_response.dart';
+import '../models/responses/server_status_response.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -64,6 +65,17 @@ class ServerService extends Service {
         }
       },
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Check the Server's Status](https://api.audiobookshelf.org/#initialize-the-server)
+  Future<ServerStatusResponse?> status({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '/status',
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, ServerStatusResponse.fromJson),
     );
   }
 }

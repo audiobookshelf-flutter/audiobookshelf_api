@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'generated/server_status_response.freezed.dart';
 part 'generated/server_status_response.g.dart';
 
+/// See [Check the Server's Status](https://api.audiobookshelf.org/#initialize-the-server)
 @freezed
 class ServerStatusResponse with _$ServerStatusResponse {
   const factory ServerStatusResponse({
