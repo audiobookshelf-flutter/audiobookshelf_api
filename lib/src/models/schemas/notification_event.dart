@@ -28,4 +28,9 @@ class NotificationEventDefaults {
   final String body;
 
   const NotificationEventDefaults({required this.title, required this.body});
+
+  factory NotificationEventDefaults.fromJson(Map<String, dynamic> json) =>
+      _$NotificationEventDefaultsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$NotificationEventDefaultsToJson(this);
 }
