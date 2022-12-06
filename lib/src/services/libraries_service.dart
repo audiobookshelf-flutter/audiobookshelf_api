@@ -1,3 +1,4 @@
+import '../models/request_parameters/create_library_req_params.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
 import '../search_response.dart';
@@ -12,6 +13,20 @@ class LibrariesService extends Service {
   static const basePath = '${Service.basePath}/libraries';
 
   const LibrariesService(super.api);
+
+  /// See [Create a Library](https://api.audiobookshelf.org/#create-a-library)
+  Future<Library?> create({
+    required CreateLibraryReqParams parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: basePath,
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Library.fromJson),
+    );
+  }
 
   Future<List<Library>?> getAll({
     ResponseErrorHandler? responseErrorHandler,
