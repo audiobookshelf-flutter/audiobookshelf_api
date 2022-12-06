@@ -48,4 +48,22 @@ class ServerService extends Service {
       api.userId = null;
     }
   }
+
+  /// See [Initialize the Server](https://api.audiobookshelf.org/#initialize-the-server)
+  Future<void> init({
+    required String newRootUsername,
+    required String newRootPassword,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '/init',
+      jsonObject: {
+        'newRoot': {
+          'username': newRootUsername,
+          'password': newRootPassword,
+        }
+      },
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
