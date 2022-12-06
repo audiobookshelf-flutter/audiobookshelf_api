@@ -4,9 +4,11 @@ targets:
       source_gen|combining_builder:
         options:
           build_extensions:
+            '^lib/src/models/responses/{{}}.dart': 'lib/src/models/responses/generated/{{}}.g.dart'
             '^lib/src/models/schemas/{{}}.dart': 'lib/src/models/schemas/generated/{{}}.g.dart'
       freezed:
         options:
           build_extensions:
+            '^lib/src/models/responses/{{}}.dart': 'lib/src/models/responses/generated/{{}}.freezed.dart'
             '^lib/src/models/schemas/{{}}.dart': 'lib/src/models/schemas/generated/{{}}.freezed.dart'
             '^lib/src/models/utils/{{}}.dart': 'lib/src/models/utils/generated/{{}}.freezed.dart'
