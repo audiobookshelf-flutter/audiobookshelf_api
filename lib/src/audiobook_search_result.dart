@@ -1,4 +1,4 @@
-import 'models/library_item.dart';
+import 'models/schemas/library_item.dart';
 
 class AudiobookSearchResult {
   String matchKey;

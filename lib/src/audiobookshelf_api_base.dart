@@ -303,7 +303,11 @@ class AudiobookshelfApi {
   }
 
   /// Makes an HTTP request and handles returned JSON.
-  /// Will return `null` if a non-successful response status code occurs.
+  ///
+  /// [responseErrorHandler] is called if a non-successful response status code
+  /// or [TypeError] (such as when converting JSON) occurs.
+  /// `null` is returned in those cases.
+  /// No other types of errors or exceptions are caught.
   ///
   /// [fromJson] converts the returned JSON
   /// (which may be [Map<String, dynamic>] or [List<dynamic>],
@@ -336,7 +340,13 @@ class AudiobookshelfApi {
       return null;
     }
 
-    return fromJson(json.decode(response.body));
+    try {
+      return fromJson(json.decode(response.body));
+    } on TypeError catch (e) {
+      if (responseErrorHandler != null) responseErrorHandler(response, e);
+    }
+
+    return null;
   }
 
   /// Makes an HTTP request to the [baseUrl] and returns the response.
