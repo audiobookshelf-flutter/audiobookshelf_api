@@ -1,4 +1,5 @@
 import '../models/request_parameters/create_library_req_params.dart';
+import '../models/responses/get_library_response.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
 import '../search_response.dart';
@@ -37,6 +38,21 @@ class LibrariesService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJson(json, Library.fromJson),
+    );
+  }
+
+  /// See [Get a Library](https://api.audiobookshelf.org/#get-a-library)
+  Future<GetLibraryResponse?> get({
+    required String libraryId,
+    bool includeFilterData = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId',
+      queryParameters: includeFilterData ? {'include': 'filterdata'} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetLibraryResponse.fromJson),
     );
   }
 
