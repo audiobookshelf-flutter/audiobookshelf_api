@@ -7,6 +7,7 @@ import '../schemas/user.dart';
 part 'generated/login_response.freezed.dart';
 part 'generated/login_response.g.dart';
 
+/// See [Login](https://api.audiobookshelf.org/#login)
 @freezed
 class LoginResponse with _$LoginResponse {
   const factory LoginResponse({

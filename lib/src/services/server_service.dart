@@ -6,6 +6,7 @@ import 'service.dart';
 class ServerService extends Service {
   const ServerService(super.api);
 
+  /// See [Login](https://api.audiobookshelf.org/#login)
   Future<LoginResponse?> login({
     required String username,
     required String password,
@@ -27,5 +28,22 @@ class ServerService extends Service {
     }
 
     return loginResponse;
+  }
+
+  /// See [Logout](https://api.audiobookshelf.org/#logout)
+  ///
+  /// Nullifies the `token` and `userId` of [api].
+  Future<void> logout({
+    // String? socketId, // TODO: do this with api's socket once made
+    ResponseErrorHandler? responseErrorHandler,
+  }) async {
+    await api.post(
+      path: '/logout',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+
+    api.token = null;
+    api.userId = null;
   }
 }
