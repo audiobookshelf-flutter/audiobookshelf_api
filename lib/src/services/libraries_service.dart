@@ -102,6 +102,18 @@ class LibrariesService extends Service {
     );
   }
 
+  /// See [Remove a Library's Items With Issues](https://api.audiobookshelf.org/#remove-a-library-39-s-items-with-issues)
+  Future<void> removeItemsWithIssues({
+    required String libraryId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePath/$libraryId/issues',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
+
   Future<List<Author>?> getAuthors({
     required String libraryId,
     ResponseErrorHandler? responseErrorHandler,
