@@ -15,7 +15,7 @@ class CreateLibraryReqParams {
     'icon': 'database',
     'mediaType': 'book',
     'provider': 'google',
-    'settings': null
+    'settings': null,
   };
 
   final String name;

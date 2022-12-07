@@ -1,4 +1,5 @@
 import '../models/request_parameters/create_library_req_params.dart';
+import '../models/request_parameters/update_library_req_params.dart';
 import '../models/responses/get_library_response.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
@@ -53,6 +54,21 @@ class LibrariesService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, GetLibraryResponse.fromJson),
+    );
+  }
+
+  /// See [Update a Library](https://api.audiobookshelf.org/#update-a-library)
+  Future<Library?> update({
+    UpdateLibraryReqParams? parameters,
+    required String libraryId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$libraryId',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Library.fromJson),
     );
   }
 

@@ -21,6 +21,13 @@ const requestToJson = JsonSerializable(
   converters: _converters,
 );
 
+const requestToJsonRemoveNull = JsonSerializable(
+  createFactory: false,
+  explicitToJson: true,
+  includeIfNull: false,
+  converters: _converters,
+);
+
 class BoolBinaryConverter implements JsonConverter<bool, int> {
   const BoolBinaryConverter();
 
