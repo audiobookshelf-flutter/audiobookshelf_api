@@ -6,7 +6,7 @@ part of '../user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UserBase _$$UserBaseFromJson(Map<String, dynamic> json) => _$UserBase(
+_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       id: json['id'] as String,
       username: json['username'] as String,
       type: $enumDecode(_$UserTypeEnumMap, json['type']),
@@ -39,8 +39,7 @@ _$UserBase _$$UserBaseFromJson(Map<String, dynamic> json) => _$UserBase(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$UserBaseToJson(_$UserBase instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'id': instance.id,
       'username': instance.username,
       'type': _$UserTypeEnumMap[instance.type]!,

@@ -24,7 +24,8 @@ class ServerService extends Service {
     );
 
     if (loginResponse != null) {
-      api.token = loginResponse.user.token;
+      final token = loginResponse.user.mapOrNull((user) => user.token);
+      if (token != null) api.token = token;
       api.userId = loginResponse.user.id;
     }
 

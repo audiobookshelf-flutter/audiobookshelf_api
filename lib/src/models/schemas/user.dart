@@ -33,7 +33,7 @@ class User with _$User {
     required UserPermissions permissions,
     required List<String> librariesAccessible,
     required List<String> itemTagsAccessible,
-  }) = UserBase;
+  }) = _User;
 
   @jsonConverters
   const factory User.withSessionAndMostRecentProgress({
@@ -76,7 +76,7 @@ class UserConverter implements JsonConverter<User, Map<String, dynamic>> {
 
     switch (variant) {
       case UserVariant.base:
-        return UserBase.fromJson(json);
+        return _User.fromJson(json);
       case UserVariant.withSessionAndMostRecentProgress:
         return UserWithSessionAndMostRecentProgress.fromJson(json);
     }

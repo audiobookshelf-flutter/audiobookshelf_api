@@ -20,7 +20,7 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LoginResponse {
-  UserBase get user => throw _privateConstructorUsedError;
+  User get user => throw _privateConstructorUsedError;
   String get userDefaultLibraryId => throw _privateConstructorUsedError;
   ServerSettings get serverSettings => throw _privateConstructorUsedError;
   List<RSSFeed> get feeds => throw _privateConstructorUsedError;
@@ -39,12 +39,13 @@ abstract class $LoginResponseCopyWith<$Res> {
       _$LoginResponseCopyWithImpl<$Res, LoginResponse>;
   @useResult
   $Res call(
-      {UserBase user,
+      {User user,
       String userDefaultLibraryId,
       ServerSettings serverSettings,
       List<RSSFeed> feeds,
       String source});
 
+  $UserCopyWith<$Res> get user;
   $ServerSettingsCopyWith<$Res> get serverSettings;
 }
 
@@ -71,7 +72,7 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserBase,
+              as User,
       userDefaultLibraryId: null == userDefaultLibraryId
           ? _value.userDefaultLibraryId
           : userDefaultLibraryId // ignore: cast_nullable_to_non_nullable
@@ -93,6 +94,14 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
 
   @override
   @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res> get user {
+    return $UserCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ServerSettingsCopyWith<$Res> get serverSettings {
     return $ServerSettingsCopyWith<$Res>(_value.serverSettings, (value) {
       return _then(_value.copyWith(serverSettings: value) as $Val);
@@ -109,12 +118,14 @@ abstract class _$$_LoginResponseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UserBase user,
+      {User user,
       String userDefaultLibraryId,
       ServerSettings serverSettings,
       List<RSSFeed> feeds,
       String source});
 
+  @override
+  $UserCopyWith<$Res> get user;
   @override
   $ServerSettingsCopyWith<$Res> get serverSettings;
 }
@@ -140,7 +151,7 @@ class __$$_LoginResponseCopyWithImpl<$Res>
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
-              as UserBase,
+              as User,
       userDefaultLibraryId: null == userDefaultLibraryId
           ? _value.userDefaultLibraryId
           : userDefaultLibraryId // ignore: cast_nullable_to_non_nullable
@@ -176,7 +187,7 @@ class _$_LoginResponse implements _LoginResponse {
       _$$_LoginResponseFromJson(json);
 
   @override
-  final UserBase user;
+  final User user;
   @override
   final String userDefaultLibraryId;
   @override
@@ -232,7 +243,7 @@ class _$_LoginResponse implements _LoginResponse {
 
 abstract class _LoginResponse implements LoginResponse {
   const factory _LoginResponse(
-      {required final UserBase user,
+      {required final User user,
       required final String userDefaultLibraryId,
       required final ServerSettings serverSettings,
       required final List<RSSFeed> feeds,
@@ -242,7 +253,7 @@ abstract class _LoginResponse implements LoginResponse {
       _$_LoginResponse.fromJson;
 
   @override
-  UserBase get user;
+  User get user;
   @override
   String get userDefaultLibraryId;
   @override

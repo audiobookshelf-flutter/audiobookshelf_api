@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 User _$UserFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'default':
-      return UserBase.fromJson(json);
+      return _User.fromJson(json);
     case 'withSessionAndMostRecentProgress':
       return UserWithSessionAndMostRecentProgress.fromJson(json);
 
@@ -127,21 +127,21 @@ mixin _$User {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(UserBase value) $default, {
+    TResult Function(_User value) $default, {
     required TResult Function(UserWithSessionAndMostRecentProgress value)
         withSessionAndMostRecentProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(UserBase value)? $default, {
+    TResult? Function(_User value)? $default, {
     TResult? Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(UserBase value)? $default, {
+    TResult Function(_User value)? $default, {
     TResult Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
     required TResult orElse(),
@@ -210,10 +210,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 }
 
 /// @nodoc
-abstract class _$$UserBaseCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$UserBaseCopyWith(
-          _$UserBase value, $Res Function(_$UserBase) then) =
-      __$$UserBaseCopyWithImpl<$Res>;
+abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
+  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
+      __$$_UserCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -238,10 +237,9 @@ abstract class _$$UserBaseCopyWith<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UserBaseCopyWithImpl<$Res>
-    extends _$UserCopyWithImpl<$Res, _$UserBase>
-    implements _$$UserBaseCopyWith<$Res> {
-  __$$UserBaseCopyWithImpl(_$UserBase _value, $Res Function(_$UserBase) _then)
+class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
+    implements _$$_UserCopyWith<$Res> {
+  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -263,7 +261,7 @@ class __$$UserBaseCopyWithImpl<$Res>
     Object? librariesAccessible = null,
     Object? itemTagsAccessible = null,
   }) {
-    return _then(_$UserBase(
+    return _then(_$_User(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -347,8 +345,8 @@ class __$$UserBaseCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$UserBase extends UserBase {
-  const _$UserBase(
+class _$_User extends _User {
+  const _$_User(
       {required this.id,
       required this.username,
       required this.type,
@@ -373,8 +371,7 @@ class _$UserBase extends UserBase {
         $type = $type ?? 'default',
         super._();
 
-  factory _$UserBase.fromJson(Map<String, dynamic> json) =>
-      _$$UserBaseFromJson(json);
+  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
   final String id;
@@ -451,7 +448,7 @@ class _$UserBase extends UserBase {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserBase &&
+            other is _$_User &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.username, username) ||
                 other.username == username) &&
@@ -505,8 +502,8 @@ class _$UserBase extends UserBase {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UserBaseCopyWith<_$UserBase> get copyWith =>
-      __$$UserBaseCopyWithImpl<_$UserBase>(this, _$identity);
+  _$$_UserCopyWith<_$_User> get copyWith =>
+      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -659,7 +656,7 @@ class _$UserBase extends UserBase {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(UserBase value) $default, {
+    TResult Function(_User value) $default, {
     required TResult Function(UserWithSessionAndMostRecentProgress value)
         withSessionAndMostRecentProgress,
   }) {
@@ -669,7 +666,7 @@ class _$UserBase extends UserBase {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(UserBase value)? $default, {
+    TResult? Function(_User value)? $default, {
     TResult? Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
   }) {
@@ -679,7 +676,7 @@ class _$UserBase extends UserBase {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(UserBase value)? $default, {
+    TResult Function(_User value)? $default, {
     TResult Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
     required TResult orElse(),
@@ -692,14 +689,14 @@ class _$UserBase extends UserBase {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UserBaseToJson(
+    return _$$_UserToJson(
       this,
     );
   }
 }
 
-abstract class UserBase extends User {
-  const factory UserBase(
+abstract class _User extends User {
+  const factory _User(
       {required final String id,
       required final String username,
       required final UserType type,
@@ -714,10 +711,10 @@ abstract class UserBase extends User {
       required final UserSettings settings,
       required final UserPermissions permissions,
       required final List<String> librariesAccessible,
-      required final List<String> itemTagsAccessible}) = _$UserBase;
-  const UserBase._() : super._();
+      required final List<String> itemTagsAccessible}) = _$_User;
+  const _User._() : super._();
 
-  factory UserBase.fromJson(Map<String, dynamic> json) = _$UserBase.fromJson;
+  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
   String get id;
@@ -741,8 +738,7 @@ abstract class UserBase extends User {
   List<String> get itemTagsAccessible;
   @override
   @JsonKey(ignore: true)
-  _$$UserBaseCopyWith<_$UserBase> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1028,7 +1024,7 @@ class _$UserWithSessionAndMostRecentProgress
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
-    TResult Function(UserBase value) $default, {
+    TResult Function(_User value) $default, {
     required TResult Function(UserWithSessionAndMostRecentProgress value)
         withSessionAndMostRecentProgress,
   }) {
@@ -1038,7 +1034,7 @@ class _$UserWithSessionAndMostRecentProgress
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(UserBase value)? $default, {
+    TResult? Function(_User value)? $default, {
     TResult? Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
   }) {
@@ -1048,7 +1044,7 @@ class _$UserWithSessionAndMostRecentProgress
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
-    TResult Function(UserBase value)? $default, {
+    TResult Function(_User value)? $default, {
     TResult Function(UserWithSessionAndMostRecentProgress value)?
         withSessionAndMostRecentProgress,
     required TResult orElse(),
