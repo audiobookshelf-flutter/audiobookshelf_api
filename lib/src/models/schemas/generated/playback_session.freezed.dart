@@ -101,7 +101,7 @@ mixin _$PlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         bookExpanded,
     required TResult Function(
             String id,
@@ -149,7 +149,7 @@ mixin _$PlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
@@ -201,7 +201,7 @@ mixin _$PlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult? Function(
             String id,
@@ -249,7 +249,7 @@ mixin _$PlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
   }) =>
       throw _privateConstructorUsedError;
@@ -301,7 +301,7 @@ mixin _$PlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult Function(
             String id,
@@ -349,7 +349,7 @@ mixin _$PlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
     required TResult orElse(),
   }) =>
@@ -915,7 +915,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         bookExpanded,
     required TResult Function(
             String id,
@@ -963,7 +963,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         podcastExpanded,
   }) {
     return book(
@@ -1039,7 +1039,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult? Function(
             String id,
@@ -1087,7 +1087,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
   }) {
     return book?.call(
@@ -1163,7 +1163,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult Function(
             String id,
@@ -1211,7 +1211,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
     required TResult orElse(),
   }) {
@@ -1395,10 +1395,11 @@ abstract class _$$BookPlaybackSessionExpandedCopyWith<$Res>
       DateTime startedAt,
       DateTime updatedAt,
       List<AudioTrack> audioTracks,
-      BookLibraryItemExpanded libraryItem});
+      LibraryItem libraryItem});
 
   @override
   $DeviceInfoCopyWith<$Res> get deviceInfo;
+  $LibraryItemCopyWith<$Res> get libraryItem;
 }
 
 /// @nodoc
@@ -1529,8 +1530,16 @@ class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
       libraryItem: null == libraryItem
           ? _value.libraryItem
           : libraryItem // ignore: cast_nullable_to_non_nullable
-              as BookLibraryItemExpanded,
+              as LibraryItem,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LibraryItemCopyWith<$Res> get libraryItem {
+    return $LibraryItemCopyWith<$Res>(_value.libraryItem, (value) {
+      return _then(_value.copyWith(libraryItem: value));
+    });
   }
 }
 
@@ -1629,7 +1638,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
   }
 
   @override
-  final BookLibraryItemExpanded libraryItem;
+  final LibraryItem libraryItem;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -1773,7 +1782,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         bookExpanded,
     required TResult Function(
             String id,
@@ -1821,7 +1830,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         podcastExpanded,
   }) {
     return bookExpanded(
@@ -1899,7 +1908,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult? Function(
             String id,
@@ -1947,7 +1956,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
   }) {
     return bookExpanded?.call(
@@ -2025,7 +2034,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult Function(
             String id,
@@ -2073,7 +2082,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
     required TResult orElse(),
   }) {
@@ -2154,30 +2163,29 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
 
 abstract class BookPlaybackSessionExpanded extends PlaybackSession {
   const factory BookPlaybackSessionExpanded(
-          {required final String id,
-          required final String userId,
-          required final String libraryId,
-          required final String libraryItemId,
-          final MediaType mediaType,
-          required final BookMetadata mediaMetadata,
-          required final List<BookChapter> chapters,
-          required final String displayTitle,
-          required final String displayAuthor,
-          required final String coverPath,
-          required final Duration duration,
-          required final PlayMethod playMethod,
-          required final String mediaPlayer,
-          required final DeviceInfo deviceInfo,
-          required final String day,
-          required final String dayOfWeek,
-          required final Duration timeListening,
-          required final Duration startTime,
-          required final Duration currentTime,
-          required final DateTime startedAt,
-          required final DateTime updatedAt,
-          required final List<AudioTrack> audioTracks,
-          required final BookLibraryItemExpanded libraryItem}) =
-      _$BookPlaybackSessionExpanded;
+      {required final String id,
+      required final String userId,
+      required final String libraryId,
+      required final String libraryItemId,
+      final MediaType mediaType,
+      required final BookMetadata mediaMetadata,
+      required final List<BookChapter> chapters,
+      required final String displayTitle,
+      required final String displayAuthor,
+      required final String coverPath,
+      required final Duration duration,
+      required final PlayMethod playMethod,
+      required final String mediaPlayer,
+      required final DeviceInfo deviceInfo,
+      required final String day,
+      required final String dayOfWeek,
+      required final Duration timeListening,
+      required final Duration startTime,
+      required final Duration currentTime,
+      required final DateTime startedAt,
+      required final DateTime updatedAt,
+      required final List<AudioTrack> audioTracks,
+      required final LibraryItem libraryItem}) = _$BookPlaybackSessionExpanded;
   const BookPlaybackSessionExpanded._() : super._();
 
   factory BookPlaybackSessionExpanded.fromJson(Map<String, dynamic> json) =
@@ -2225,7 +2233,7 @@ abstract class BookPlaybackSessionExpanded extends PlaybackSession {
   @override
   DateTime get updatedAt;
   List<AudioTrack> get audioTracks;
-  BookLibraryItemExpanded get libraryItem;
+  LibraryItem get libraryItem;
   @override
   @JsonKey(ignore: true)
   _$$BookPlaybackSessionExpandedCopyWith<_$BookPlaybackSessionExpanded>
@@ -2603,7 +2611,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         bookExpanded,
     required TResult Function(
             String id,
@@ -2651,7 +2659,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         podcastExpanded,
   }) {
     return podcast(
@@ -2727,7 +2735,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult? Function(
             String id,
@@ -2775,7 +2783,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
   }) {
     return podcast?.call(
@@ -2851,7 +2859,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult Function(
             String id,
@@ -2899,7 +2907,7 @@ class _$PodcastPlaybackSession extends PodcastPlaybackSession {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
     required TResult orElse(),
   }) {
@@ -3083,10 +3091,11 @@ abstract class _$$PodcastPlaybackSessionExpandedCopyWith<$Res>
       DateTime startedAt,
       DateTime updatedAt,
       List<AudioTrack> audioTracks,
-      PodcastLibraryItemExpanded libraryItem});
+      LibraryItem libraryItem});
 
   @override
   $DeviceInfoCopyWith<$Res> get deviceInfo;
+  $LibraryItemCopyWith<$Res> get libraryItem;
 }
 
 /// @nodoc
@@ -3218,8 +3227,16 @@ class __$$PodcastPlaybackSessionExpandedCopyWithImpl<$Res>
       libraryItem: null == libraryItem
           ? _value.libraryItem
           : libraryItem // ignore: cast_nullable_to_non_nullable
-              as PodcastLibraryItemExpanded,
+              as LibraryItem,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LibraryItemCopyWith<$Res> get libraryItem {
+    return $LibraryItemCopyWith<$Res>(_value.libraryItem, (value) {
+      return _then(_value.copyWith(libraryItem: value));
+    });
   }
 }
 
@@ -3312,7 +3329,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
   }
 
   @override
-  final PodcastLibraryItemExpanded libraryItem;
+  final LibraryItem libraryItem;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
@@ -3457,7 +3474,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         bookExpanded,
     required TResult Function(
             String id,
@@ -3505,7 +3522,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)
+            LibraryItem libraryItem)
         podcastExpanded,
   }) {
     return podcastExpanded(
@@ -3583,7 +3600,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult? Function(
             String id,
@@ -3631,7 +3648,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
   }) {
     return podcastExpanded?.call(
@@ -3709,7 +3726,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            BookLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         bookExpanded,
     TResult Function(
             String id,
@@ -3757,7 +3774,7 @@ class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
             DateTime startedAt,
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
-            PodcastLibraryItemExpanded libraryItem)?
+            LibraryItem libraryItem)?
         podcastExpanded,
     required TResult orElse(),
   }) {
@@ -3860,7 +3877,7 @@ abstract class PodcastPlaybackSessionExpanded extends PlaybackSession {
           required final DateTime startedAt,
           required final DateTime updatedAt,
           required final List<AudioTrack> audioTracks,
-          required final PodcastLibraryItemExpanded libraryItem}) =
+          required final LibraryItem libraryItem}) =
       _$PodcastPlaybackSessionExpanded;
   const PodcastPlaybackSessionExpanded._() : super._();
 
@@ -3909,7 +3926,7 @@ abstract class PodcastPlaybackSessionExpanded extends PlaybackSession {
   @override
   DateTime get updatedAt;
   List<AudioTrack> get audioTracks;
-  PodcastLibraryItemExpanded get libraryItem;
+  LibraryItem get libraryItem;
   @override
   @JsonKey(ignore: true)
   _$$PodcastPlaybackSessionExpandedCopyWith<_$PodcastPlaybackSessionExpanded>

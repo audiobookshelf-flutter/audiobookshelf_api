@@ -67,7 +67,7 @@ class PlaybackSession with _$PlaybackSession {
     required DateTime startedAt,
     required DateTime updatedAt,
     required List<AudioTrack> audioTracks,
-    required BookLibraryItemExpanded libraryItem,
+    required LibraryItem libraryItem,
   }) = BookPlaybackSessionExpanded;
 
   @jsonConverters
@@ -119,7 +119,7 @@ class PlaybackSession with _$PlaybackSession {
     required DateTime startedAt,
     required DateTime updatedAt,
     required List<AudioTrack> audioTracks,
-    required PodcastLibraryItemExpanded libraryItem,
+    required LibraryItem libraryItem,
   }) = PodcastPlaybackSessionExpanded;
 
   factory PlaybackSession.fromJson(Map<String, dynamic> json) =>

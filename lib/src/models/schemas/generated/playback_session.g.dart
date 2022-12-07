@@ -125,8 +125,8 @@ _$BookPlaybackSessionExpanded _$$BookPlaybackSessionExpandedFromJson(
       audioTracks: (json['audioTracks'] as List<dynamic>)
           .map((e) => AudioTrack.fromJson(e as Map<String, dynamic>))
           .toList(),
-      libraryItem: BookLibraryItemExpanded.fromJson(
-          json['libraryItem'] as Map<String, dynamic>),
+      libraryItem:
+          LibraryItem.fromJson(json['libraryItem'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -266,8 +266,8 @@ _$PodcastPlaybackSessionExpanded _$$PodcastPlaybackSessionExpandedFromJson(
       audioTracks: (json['audioTracks'] as List<dynamic>)
           .map((e) => AudioTrack.fromJson(e as Map<String, dynamic>))
           .toList(),
-      libraryItem: PodcastLibraryItemExpanded.fromJson(
-          json['libraryItem'] as Map<String, dynamic>),
+      libraryItem:
+          LibraryItem.fromJson(json['libraryItem'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
