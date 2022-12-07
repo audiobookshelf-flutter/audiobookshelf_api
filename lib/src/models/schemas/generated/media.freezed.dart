@@ -107,7 +107,7 @@ mixin _$Media {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -184,7 +184,7 @@ mixin _$Media {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -261,7 +261,7 @@ mixin _$Media {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -627,7 +627,7 @@ class _$Book extends Book {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -708,7 +708,7 @@ class _$Book extends Book {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -789,7 +789,7 @@ class _$Book extends Book {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1161,7 +1161,7 @@ class _$BookMinified extends BookMinified {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1252,7 +1252,7 @@ class _$BookMinified extends BookMinified {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1343,7 +1343,7 @@ class _$BookMinified extends BookMinified {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1772,7 +1772,7 @@ class _$BookExpanded extends BookExpanded {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1853,7 +1853,7 @@ class _$BookExpanded extends BookExpanded {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1934,7 +1934,7 @@ class _$BookExpanded extends BookExpanded {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2320,7 +2320,7 @@ class _$Podcast extends Podcast {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2410,7 +2410,7 @@ class _$Podcast extends Podcast {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2500,7 +2500,7 @@ class _$Podcast extends Podcast {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2889,7 +2889,7 @@ class _$PodcastMinified extends PodcastMinified {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2979,7 +2979,7 @@ class _$PodcastMinified extends PodcastMinified {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -3069,7 +3069,7 @@ class _$PodcastMinified extends PodcastMinified {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -3195,7 +3195,7 @@ abstract class _$$PodcastExpandedCopyWith<$Res>
       MediaMetadata metadata,
       String? coverPath,
       List<String> tags,
-      List<PodcastEpisodeExpanded> episodes,
+      List<PodcastEpisode> episodes,
       bool autoDownloadEpisodes,
       CronExpression? autoDownloadSchedule,
       DateTime lastEpisodeCheck,
@@ -3251,7 +3251,7 @@ class __$$PodcastExpandedCopyWithImpl<$Res>
       episodes: null == episodes
           ? _value._episodes
           : episodes // ignore: cast_nullable_to_non_nullable
-              as List<PodcastEpisodeExpanded>,
+              as List<PodcastEpisode>,
       autoDownloadEpisodes: null == autoDownloadEpisodes
           ? _value.autoDownloadEpisodes
           : autoDownloadEpisodes // ignore: cast_nullable_to_non_nullable
@@ -3301,7 +3301,7 @@ class _$PodcastExpanded extends PodcastExpanded {
       required this.metadata,
       this.coverPath,
       required final List<String> tags,
-      required final List<PodcastEpisodeExpanded> episodes,
+      required final List<PodcastEpisode> episodes,
       required this.autoDownloadEpisodes,
       this.autoDownloadSchedule,
       required this.lastEpisodeCheck,
@@ -3331,9 +3331,9 @@ class _$PodcastExpanded extends PodcastExpanded {
     return EqualUnmodifiableListView(_tags);
   }
 
-  final List<PodcastEpisodeExpanded> _episodes;
+  final List<PodcastEpisode> _episodes;
   @override
-  List<PodcastEpisodeExpanded> get episodes {
+  List<PodcastEpisode> get episodes {
     if (_episodes is EqualUnmodifiableListView) return _episodes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_episodes);
@@ -3477,7 +3477,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -3568,7 +3568,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -3659,7 +3659,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -3743,7 +3743,7 @@ abstract class PodcastExpanded extends Media {
       required final MediaMetadata metadata,
       final String? coverPath,
       required final List<String> tags,
-      required final List<PodcastEpisodeExpanded> episodes,
+      required final List<PodcastEpisode> episodes,
       required final bool autoDownloadEpisodes,
       final CronExpression? autoDownloadSchedule,
       required final DateTime lastEpisodeCheck,
@@ -3762,7 +3762,7 @@ abstract class PodcastExpanded extends Media {
   String? get coverPath;
   @override
   List<String> get tags;
-  List<PodcastEpisodeExpanded> get episodes;
+  List<PodcastEpisode> get episodes;
   bool get autoDownloadEpisodes;
   CronExpression? get autoDownloadSchedule;
   DateTime get lastEpisodeCheck;

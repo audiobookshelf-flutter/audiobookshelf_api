@@ -95,7 +95,7 @@ class Media with _$Media {
     required MediaMetadata metadata,
     String? coverPath,
     required List<String> tags,
-    required List<PodcastEpisodeExpanded> episodes,
+    required List<PodcastEpisode> episodes,
     required bool autoDownloadEpisodes,
     CronExpression? autoDownloadSchedule,
     required DateTime lastEpisodeCheck,

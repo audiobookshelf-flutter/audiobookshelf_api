@@ -27,8 +27,7 @@ _$PlaylistItemExpanded _$$PlaylistItemExpandedFromJson(
       episodeId: json['episodeId'] as String?,
       episode: json['episode'] == null
           ? null
-          : PodcastEpisodeExpanded.fromJson(
-              json['episode'] as Map<String, dynamic>),
+          : PodcastEpisode.fromJson(json['episode'] as Map<String, dynamic>),
       libraryItem:
           LibraryItem.fromJson(json['libraryItem'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,

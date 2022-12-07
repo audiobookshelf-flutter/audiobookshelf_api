@@ -20,7 +20,7 @@ class PlaylistItem with _$PlaylistItem {
   const factory PlaylistItem.expanded({
     required String libraryItemId,
     String? episodeId,
-    PodcastEpisodeExpanded? episode,
+    PodcastEpisode? episode,
     required LibraryItem libraryItem,
   }) = PlaylistItemExpanded;
 

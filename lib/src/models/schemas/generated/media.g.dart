@@ -211,8 +211,7 @@ _$PodcastExpanded _$$PodcastExpandedFromJson(Map<String, dynamic> json) =>
       coverPath: json['coverPath'] as String?,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       episodes: (json['episodes'] as List<dynamic>)
-          .map(
-              (e) => PodcastEpisodeExpanded.fromJson(e as Map<String, dynamic>))
+          .map((e) => PodcastEpisode.fromJson(e as Map<String, dynamic>))
           .toList(),
       autoDownloadEpisodes: json['autoDownloadEpisodes'] as bool,
       autoDownloadSchedule: _$JsonConverterFromJson<String, CronExpression>(
