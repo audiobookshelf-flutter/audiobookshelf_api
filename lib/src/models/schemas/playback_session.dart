@@ -19,13 +19,14 @@ class PlaybackSession with _$PlaybackSession {
   const PlaybackSession._();
 
   @jsonConverters
-  const factory PlaybackSession.book({
+  const factory PlaybackSession({
     required String id,
     required String userId,
     required String libraryId,
     required String libraryItemId,
-    @Default(MediaType.book) MediaType mediaType,
-    required BookMetadata mediaMetadata,
+    String? episodeId,
+    required MediaType mediaType,
+    required MediaMetadata mediaMetadata,
     required List<BookChapter> chapters,
     required String displayTitle,
     required String displayAuthor,
@@ -41,16 +42,17 @@ class PlaybackSession with _$PlaybackSession {
     required Duration currentTime,
     required DateTime startedAt,
     required DateTime updatedAt,
-  }) = BookPlaybackSession;
+  }) = _PlaybackSession;
 
   @jsonConverters
-  const factory PlaybackSession.bookExpanded({
+  const factory PlaybackSession.expanded({
     required String id,
     required String userId,
     required String libraryId,
     required String libraryItemId,
-    @Default(MediaType.book) MediaType mediaType,
-    required BookMetadata mediaMetadata,
+    String? episodeId,
+    required MediaType mediaType,
+    required MediaMetadata mediaMetadata,
     required List<BookChapter> chapters,
     required String displayTitle,
     required String displayAuthor,
@@ -67,101 +69,27 @@ class PlaybackSession with _$PlaybackSession {
     required DateTime startedAt,
     required DateTime updatedAt,
     required List<AudioTrack> audioTracks,
-    required BookLibraryItemExpanded libraryItem,
-  }) = BookPlaybackSessionExpanded;
-
-  @jsonConverters
-  const factory PlaybackSession.podcast({
-    required String id,
-    required String userId,
-    required String libraryId,
-    required String libraryItemId,
-    required String episodeId,
-    @Default(MediaType.podcast) MediaType mediaType,
-    required PodcastMetadata mediaMetadata,
-    required String displayTitle,
-    required String displayAuthor,
-    required String coverPath,
-    required Duration duration,
-    required PlayMethod playMethod,
-    required String mediaPlayer,
-    required DeviceInfo deviceInfo,
-    required String day,
-    required String dayOfWeek,
-    required Duration timeListening,
-    required Duration startTime,
-    required Duration currentTime,
-    required DateTime startedAt,
-    required DateTime updatedAt,
-  }) = PodcastPlaybackSession;
-
-  @jsonConverters
-  const factory PlaybackSession.podcastExpanded({
-    required String id,
-    required String userId,
-    required String libraryId,
-    required String libraryItemId,
-    required String episodeId,
-    @Default(MediaType.podcast) MediaType mediaType,
-    required PodcastMetadata mediaMetadata,
-    required String displayTitle,
-    required String displayAuthor,
-    required String coverPath,
-    required Duration duration,
-    required PlayMethod playMethod,
-    required String mediaPlayer,
-    required DeviceInfo deviceInfo,
-    required String day,
-    required String dayOfWeek,
-    required Duration timeListening,
-    required Duration startTime,
-    required Duration currentTime,
-    required DateTime startedAt,
-    required DateTime updatedAt,
-    required List<AudioTrack> audioTracks,
-    required PodcastLibraryItemExpanded libraryItem,
-  }) = PodcastPlaybackSessionExpanded;
+    required LibraryItem libraryItem,
+  }) = PlaybackSessionExpanded;
 
   factory PlaybackSession.fromJson(Map<String, dynamic> json) =>
       PlaybackSessionConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(
-      book: (_) => SchemaVariant.base,
-      bookExpanded: (_) => SchemaVariant.expanded,
-      podcast: (_) => SchemaVariant.base,
-      podcastExpanded: (_) => SchemaVariant.expanded,
+      (_) => SchemaVariant.base,
+      expanded: (_) => SchemaVariant.expanded,
     );
   }
 }
 
 class PlaybackSessionConverter
     implements JsonConverter<PlaybackSession, Map<String, dynamic>> {
-  final MediaType? mediaType;
-
-  const PlaybackSessionConverter([this.mediaType]);
+  const PlaybackSessionConverter();
 
   @override
   PlaybackSession fromJson(Map<String, dynamic> json) {
     if (json.containsKey('runtimeType')) return _$PlaybackSessionFromJson(json);
-
-    final MediaType mediaType;
-    final type = this.mediaType;
-    if (type != null) {
-      mediaType = type;
-    } else {
-      final foundType = MediaType.byType[json['mediaType']];
-      if (foundType != null) {
-        mediaType = foundType;
-      } else {
-        throw CheckedFromJsonException(
-          json,
-          'mediaType',
-          'PlaybackSession',
-          'Unknown media type: ${json['mediaType']}',
-        );
-      }
-    }
 
     final SchemaVariant variant;
     if (json.containsKey('libraryItem')) {
@@ -170,23 +98,12 @@ class PlaybackSessionConverter
       variant = SchemaVariant.base;
     }
 
-    switch (mediaType) {
-      case MediaType.book:
-        switch (variant) {
-          case SchemaVariant.minified:
-          case SchemaVariant.base:
-            return BookPlaybackSession.fromJson(json);
-          case SchemaVariant.expanded:
-            return BookPlaybackSessionExpanded.fromJson(json);
-        }
-      case MediaType.podcast:
-        switch (variant) {
-          case SchemaVariant.minified:
-          case SchemaVariant.base:
-            return PodcastPlaybackSession.fromJson(json);
-          case SchemaVariant.expanded:
-            return PodcastPlaybackSessionExpanded.fromJson(json);
-        }
+    switch (variant) {
+      case SchemaVariant.minified:
+      case SchemaVariant.base:
+        return _PlaybackSession.fromJson(json);
+      case SchemaVariant.expanded:
+        return PlaybackSessionExpanded.fromJson(json);
     }
   }
 

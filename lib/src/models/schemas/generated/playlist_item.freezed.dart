@@ -35,7 +35,7 @@ mixin _$PlaylistItem {
   TResult when<TResult extends Object?>(
     TResult Function(String libraryItemId, String? episodeId) $default, {
     required TResult Function(String libraryItemId, String? episodeId,
-            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)
+            PodcastEpisode? episode, LibraryItem libraryItem)
         expanded,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ mixin _$PlaylistItem {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String libraryItemId, String? episodeId)? $default, {
     TResult? Function(String libraryItemId, String? episodeId,
-            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+            PodcastEpisode? episode, LibraryItem libraryItem)?
         expanded,
   }) =>
       throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ mixin _$PlaylistItem {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String libraryItemId, String? episodeId)? $default, {
     TResult Function(String libraryItemId, String? episodeId,
-            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+            PodcastEpisode? episode, LibraryItem libraryItem)?
         expanded,
     required TResult orElse(),
   }) =>
@@ -207,7 +207,7 @@ class _$_PlaylistItem extends _PlaylistItem {
   TResult when<TResult extends Object?>(
     TResult Function(String libraryItemId, String? episodeId) $default, {
     required TResult Function(String libraryItemId, String? episodeId,
-            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)
+            PodcastEpisode? episode, LibraryItem libraryItem)
         expanded,
   }) {
     return $default(libraryItemId, episodeId);
@@ -218,7 +218,7 @@ class _$_PlaylistItem extends _PlaylistItem {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String libraryItemId, String? episodeId)? $default, {
     TResult? Function(String libraryItemId, String? episodeId,
-            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+            PodcastEpisode? episode, LibraryItem libraryItem)?
         expanded,
   }) {
     return $default?.call(libraryItemId, episodeId);
@@ -229,7 +229,7 @@ class _$_PlaylistItem extends _PlaylistItem {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String libraryItemId, String? episodeId)? $default, {
     TResult Function(String libraryItemId, String? episodeId,
-            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+            PodcastEpisode? episode, LibraryItem libraryItem)?
         expanded,
     required TResult orElse(),
   }) {
@@ -308,9 +308,10 @@ abstract class _$$PlaylistItemExpandedCopyWith<$Res>
   $Res call(
       {String libraryItemId,
       String? episodeId,
-      PodcastEpisodeExpanded? episode,
+      PodcastEpisode? episode,
       LibraryItem libraryItem});
 
+  $PodcastEpisodeCopyWith<$Res>? get episode;
   $LibraryItemCopyWith<$Res> get libraryItem;
 }
 
@@ -342,12 +343,24 @@ class __$$PlaylistItemExpandedCopyWithImpl<$Res>
       episode: freezed == episode
           ? _value.episode
           : episode // ignore: cast_nullable_to_non_nullable
-              as PodcastEpisodeExpanded?,
+              as PodcastEpisode?,
       libraryItem: null == libraryItem
           ? _value.libraryItem
           : libraryItem // ignore: cast_nullable_to_non_nullable
               as LibraryItem,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PodcastEpisodeCopyWith<$Res>? get episode {
+    if (_value.episode == null) {
+      return null;
+    }
+
+    return $PodcastEpisodeCopyWith<$Res>(_value.episode!, (value) {
+      return _then(_value.copyWith(episode: value));
+    });
   }
 
   @override
@@ -379,7 +392,7 @@ class _$PlaylistItemExpanded extends PlaylistItemExpanded {
   @override
   final String? episodeId;
   @override
-  final PodcastEpisodeExpanded? episode;
+  final PodcastEpisode? episode;
   @override
   final LibraryItem libraryItem;
 
@@ -422,7 +435,7 @@ class _$PlaylistItemExpanded extends PlaylistItemExpanded {
   TResult when<TResult extends Object?>(
     TResult Function(String libraryItemId, String? episodeId) $default, {
     required TResult Function(String libraryItemId, String? episodeId,
-            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)
+            PodcastEpisode? episode, LibraryItem libraryItem)
         expanded,
   }) {
     return expanded(libraryItemId, episodeId, episode, libraryItem);
@@ -433,7 +446,7 @@ class _$PlaylistItemExpanded extends PlaylistItemExpanded {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String libraryItemId, String? episodeId)? $default, {
     TResult? Function(String libraryItemId, String? episodeId,
-            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+            PodcastEpisode? episode, LibraryItem libraryItem)?
         expanded,
   }) {
     return expanded?.call(libraryItemId, episodeId, episode, libraryItem);
@@ -444,7 +457,7 @@ class _$PlaylistItemExpanded extends PlaylistItemExpanded {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String libraryItemId, String? episodeId)? $default, {
     TResult Function(String libraryItemId, String? episodeId,
-            PodcastEpisodeExpanded? episode, LibraryItem libraryItem)?
+            PodcastEpisode? episode, LibraryItem libraryItem)?
         expanded,
     required TResult orElse(),
   }) {
@@ -497,7 +510,7 @@ abstract class PlaylistItemExpanded extends PlaylistItem {
   const factory PlaylistItemExpanded(
       {required final String libraryItemId,
       final String? episodeId,
-      final PodcastEpisodeExpanded? episode,
+      final PodcastEpisode? episode,
       required final LibraryItem libraryItem}) = _$PlaylistItemExpanded;
   const PlaylistItemExpanded._() : super._();
 
@@ -508,7 +521,7 @@ abstract class PlaylistItemExpanded extends PlaylistItem {
   String get libraryItemId;
   @override
   String? get episodeId;
-  PodcastEpisodeExpanded? get episode;
+  PodcastEpisode? get episode;
   LibraryItem get libraryItem;
   @override
   @JsonKey(ignore: true)

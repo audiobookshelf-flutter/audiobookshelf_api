@@ -11,7 +11,7 @@ part 'generated/login_response.g.dart';
 @freezed
 class LoginResponse with _$LoginResponse {
   const factory LoginResponse({
-    required UserBase user,
+    required User user,
     required String userDefaultLibraryId,
     required ServerSettings serverSettings,
     required List<RSSFeed> feeds,

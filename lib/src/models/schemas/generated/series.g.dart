@@ -51,7 +51,7 @@ _$SeriesBooks _$$SeriesBooksFromJson(Map<String, dynamic> json) =>
       nameIgnorePrefixSort: json['nameIgnorePrefixSort'] as String,
       type: json['type'] as String? ?? 'series',
       books: (json['books'] as List<dynamic>)
-          .map((e) => BookLibraryItem.fromJson(e as Map<String, dynamic>))
+          .map((e) => LibraryItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
       totalDuration: const DurationPreciseSecondsConverter()

@@ -44,7 +44,7 @@ mixin _$Media {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -53,7 +53,7 @@ mixin _$Media {
             EBookFile? ebookFile)
         book,
     required TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -67,7 +67,7 @@ mixin _$Media {
         bookMinified,
     required TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -80,7 +80,7 @@ mixin _$Media {
         bookExpanded,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -91,7 +91,7 @@ mixin _$Media {
             int maxNewEpisodesToDownload)
         podcast,
     required TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -104,10 +104,10 @@ mixin _$Media {
         podcastMinified,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -121,7 +121,7 @@ mixin _$Media {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -130,7 +130,7 @@ mixin _$Media {
             EBookFile? ebookFile)?
         book,
     TResult? Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -144,7 +144,7 @@ mixin _$Media {
         bookMinified,
     TResult? Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -157,7 +157,7 @@ mixin _$Media {
         bookExpanded,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -168,7 +168,7 @@ mixin _$Media {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult? Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -181,10 +181,10 @@ mixin _$Media {
         podcastMinified,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -198,7 +198,7 @@ mixin _$Media {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -207,7 +207,7 @@ mixin _$Media {
             EBookFile? ebookFile)?
         book,
     TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -221,7 +221,7 @@ mixin _$Media {
         bookMinified,
     TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -234,7 +234,7 @@ mixin _$Media {
         bookExpanded,
     TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -245,7 +245,7 @@ mixin _$Media {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -258,10 +258,10 @@ mixin _$Media {
         podcastMinified,
     TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -313,7 +313,9 @@ abstract class $MediaCopyWith<$Res> {
   factory $MediaCopyWith(Media value, $Res Function(Media) then) =
       _$MediaCopyWithImpl<$Res, Media>;
   @useResult
-  $Res call({String? coverPath, List<String> tags});
+  $Res call({MediaMetadata metadata, String? coverPath, List<String> tags});
+
+  $MediaMetadataCopyWith<$Res> get metadata;
 }
 
 /// @nodoc
@@ -329,10 +331,15 @@ class _$MediaCopyWithImpl<$Res, $Val extends Media>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? metadata = null,
     Object? coverPath = freezed,
     Object? tags = null,
   }) {
     return _then(_value.copyWith(
+      metadata: null == metadata
+          ? _value.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as MediaMetadata,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
@@ -342,6 +349,14 @@ class _$MediaCopyWithImpl<$Res, $Val extends Media>
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MediaMetadataCopyWith<$Res> get metadata {
+    return $MediaMetadataCopyWith<$Res>(_value.metadata, (value) {
+      return _then(_value.copyWith(metadata: value) as $Val);
+    });
   }
 }
 
@@ -353,7 +368,7 @@ abstract class _$$BookCopyWith<$Res> implements $MediaCopyWith<$Res> {
   @useResult
   $Res call(
       {String libraryItemId,
-      BookMetadata metadata,
+      MediaMetadata metadata,
       String? coverPath,
       List<String> tags,
       List<AudioFile> audioFiles,
@@ -361,6 +376,8 @@ abstract class _$$BookCopyWith<$Res> implements $MediaCopyWith<$Res> {
       List<int> missingParts,
       EBookFile? ebookFile});
 
+  @override
+  $MediaMetadataCopyWith<$Res> get metadata;
   $EBookFileCopyWith<$Res>? get ebookFile;
 }
 
@@ -390,7 +407,7 @@ class __$$BookCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$Book>
       metadata: null == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
-              as BookMetadata,
+              as MediaMetadata,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
@@ -456,7 +473,7 @@ class _$Book extends Book {
   @override
   final String libraryItemId;
   @override
-  final BookMetadata metadata;
+  final MediaMetadata metadata;
   @override
   final String? coverPath;
   final List<String> _tags;
@@ -547,7 +564,7 @@ class _$Book extends Book {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -556,7 +573,7 @@ class _$Book extends Book {
             EBookFile? ebookFile)
         book,
     required TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -570,7 +587,7 @@ class _$Book extends Book {
         bookMinified,
     required TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -583,7 +600,7 @@ class _$Book extends Book {
         bookExpanded,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -594,7 +611,7 @@ class _$Book extends Book {
             int maxNewEpisodesToDownload)
         podcast,
     required TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -607,10 +624,10 @@ class _$Book extends Book {
         podcastMinified,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -628,7 +645,7 @@ class _$Book extends Book {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -637,7 +654,7 @@ class _$Book extends Book {
             EBookFile? ebookFile)?
         book,
     TResult? Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -651,7 +668,7 @@ class _$Book extends Book {
         bookMinified,
     TResult? Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -664,7 +681,7 @@ class _$Book extends Book {
         bookExpanded,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -675,7 +692,7 @@ class _$Book extends Book {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult? Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -688,10 +705,10 @@ class _$Book extends Book {
         podcastMinified,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -709,7 +726,7 @@ class _$Book extends Book {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -718,7 +735,7 @@ class _$Book extends Book {
             EBookFile? ebookFile)?
         book,
     TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -732,7 +749,7 @@ class _$Book extends Book {
         bookMinified,
     TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -745,7 +762,7 @@ class _$Book extends Book {
         bookExpanded,
     TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -756,7 +773,7 @@ class _$Book extends Book {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -769,10 +786,10 @@ class _$Book extends Book {
         podcastMinified,
     TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -843,7 +860,7 @@ class _$Book extends Book {
 abstract class Book extends Media {
   const factory Book(
       {required final String libraryItemId,
-      required final BookMetadata metadata,
+      required final MediaMetadata metadata,
       final String? coverPath,
       required final List<String> tags,
       required final List<AudioFile> audioFiles,
@@ -856,7 +873,7 @@ abstract class Book extends Media {
 
   String get libraryItemId;
   @override
-  BookMetadata get metadata;
+  MediaMetadata get metadata;
   @override
   String? get coverPath;
   @override
@@ -878,7 +895,7 @@ abstract class _$$BookMinifiedCopyWith<$Res> implements $MediaCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {BookMetadataMinified metadata,
+      {MediaMetadata metadata,
       String? coverPath,
       List<String> tags,
       int numTracks,
@@ -889,6 +906,9 @@ abstract class _$$BookMinifiedCopyWith<$Res> implements $MediaCopyWith<$Res> {
       Duration duration,
       int size,
       String? ebookFormat});
+
+  @override
+  $MediaMetadataCopyWith<$Res> get metadata;
 }
 
 /// @nodoc
@@ -918,7 +938,7 @@ class __$$BookMinifiedCopyWithImpl<$Res>
       metadata: null == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
-              as BookMetadataMinified,
+              as MediaMetadata,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
@@ -988,7 +1008,7 @@ class _$BookMinified extends BookMinified {
       _$$BookMinifiedFromJson(json);
 
   @override
-  final BookMetadataMinified metadata;
+  final MediaMetadata metadata;
   @override
   final String? coverPath;
   final List<String> _tags;
@@ -1078,7 +1098,7 @@ class _$BookMinified extends BookMinified {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1087,7 +1107,7 @@ class _$BookMinified extends BookMinified {
             EBookFile? ebookFile)
         book,
     required TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -1101,7 +1121,7 @@ class _$BookMinified extends BookMinified {
         bookMinified,
     required TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1114,7 +1134,7 @@ class _$BookMinified extends BookMinified {
         bookExpanded,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -1125,7 +1145,7 @@ class _$BookMinified extends BookMinified {
             int maxNewEpisodesToDownload)
         podcast,
     required TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -1138,10 +1158,10 @@ class _$BookMinified extends BookMinified {
         podcastMinified,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1169,7 +1189,7 @@ class _$BookMinified extends BookMinified {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1178,7 +1198,7 @@ class _$BookMinified extends BookMinified {
             EBookFile? ebookFile)?
         book,
     TResult? Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -1192,7 +1212,7 @@ class _$BookMinified extends BookMinified {
         bookMinified,
     TResult? Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1205,7 +1225,7 @@ class _$BookMinified extends BookMinified {
         bookExpanded,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -1216,7 +1236,7 @@ class _$BookMinified extends BookMinified {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult? Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -1229,10 +1249,10 @@ class _$BookMinified extends BookMinified {
         podcastMinified,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1260,7 +1280,7 @@ class _$BookMinified extends BookMinified {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1269,7 +1289,7 @@ class _$BookMinified extends BookMinified {
             EBookFile? ebookFile)?
         book,
     TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -1283,7 +1303,7 @@ class _$BookMinified extends BookMinified {
         bookMinified,
     TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1296,7 +1316,7 @@ class _$BookMinified extends BookMinified {
         bookExpanded,
     TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -1307,7 +1327,7 @@ class _$BookMinified extends BookMinified {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -1320,10 +1340,10 @@ class _$BookMinified extends BookMinified {
         podcastMinified,
     TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1403,7 +1423,7 @@ class _$BookMinified extends BookMinified {
 
 abstract class BookMinified extends Media {
   const factory BookMinified(
-      {required final BookMetadataMinified metadata,
+      {required final MediaMetadata metadata,
       final String? coverPath,
       required final List<String> tags,
       required final int numTracks,
@@ -1420,7 +1440,7 @@ abstract class BookMinified extends Media {
       _$BookMinified.fromJson;
 
   @override
-  BookMetadataMinified get metadata;
+  MediaMetadata get metadata;
   @override
   String? get coverPath;
   @override
@@ -1448,7 +1468,7 @@ abstract class _$$BookExpandedCopyWith<$Res> implements $MediaCopyWith<$Res> {
   @useResult
   $Res call(
       {String libraryItemId,
-      BookMetadataExpanded metadata,
+      MediaMetadata metadata,
       String? coverPath,
       List<String> tags,
       List<AudioFile> audioFiles,
@@ -1459,6 +1479,8 @@ abstract class _$$BookExpandedCopyWith<$Res> implements $MediaCopyWith<$Res> {
       List<int> missingParts,
       EBookFile? ebookFile});
 
+  @override
+  $MediaMetadataCopyWith<$Res> get metadata;
   $EBookFileCopyWith<$Res>? get ebookFile;
 }
 
@@ -1493,7 +1515,7 @@ class __$$BookExpandedCopyWithImpl<$Res>
       metadata: null == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
-              as BookMetadataExpanded,
+              as MediaMetadata,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
@@ -1577,7 +1599,7 @@ class _$BookExpanded extends BookExpanded {
   @override
   final String libraryItemId;
   @override
-  final BookMetadataExpanded metadata;
+  final MediaMetadata metadata;
   @override
   final String? coverPath;
   final List<String> _tags;
@@ -1687,7 +1709,7 @@ class _$BookExpanded extends BookExpanded {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1696,7 +1718,7 @@ class _$BookExpanded extends BookExpanded {
             EBookFile? ebookFile)
         book,
     required TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -1710,7 +1732,7 @@ class _$BookExpanded extends BookExpanded {
         bookMinified,
     required TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1723,7 +1745,7 @@ class _$BookExpanded extends BookExpanded {
         bookExpanded,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -1734,7 +1756,7 @@ class _$BookExpanded extends BookExpanded {
             int maxNewEpisodesToDownload)
         podcast,
     required TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -1747,10 +1769,10 @@ class _$BookExpanded extends BookExpanded {
         podcastMinified,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1768,7 +1790,7 @@ class _$BookExpanded extends BookExpanded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1777,7 +1799,7 @@ class _$BookExpanded extends BookExpanded {
             EBookFile? ebookFile)?
         book,
     TResult? Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -1791,7 +1813,7 @@ class _$BookExpanded extends BookExpanded {
         bookMinified,
     TResult? Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1804,7 +1826,7 @@ class _$BookExpanded extends BookExpanded {
         bookExpanded,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -1815,7 +1837,7 @@ class _$BookExpanded extends BookExpanded {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult? Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -1828,10 +1850,10 @@ class _$BookExpanded extends BookExpanded {
         podcastMinified,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1849,7 +1871,7 @@ class _$BookExpanded extends BookExpanded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1858,7 +1880,7 @@ class _$BookExpanded extends BookExpanded {
             EBookFile? ebookFile)?
         book,
     TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -1872,7 +1894,7 @@ class _$BookExpanded extends BookExpanded {
         bookMinified,
     TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -1885,7 +1907,7 @@ class _$BookExpanded extends BookExpanded {
         bookExpanded,
     TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -1896,7 +1918,7 @@ class _$BookExpanded extends BookExpanded {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -1909,10 +1931,10 @@ class _$BookExpanded extends BookExpanded {
         podcastMinified,
     TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -1983,7 +2005,7 @@ class _$BookExpanded extends BookExpanded {
 abstract class BookExpanded extends Media {
   const factory BookExpanded(
       {required final String libraryItemId,
-      required final BookMetadataExpanded metadata,
+      required final MediaMetadata metadata,
       final String? coverPath,
       required final List<String> tags,
       required final List<AudioFile> audioFiles,
@@ -2000,7 +2022,7 @@ abstract class BookExpanded extends Media {
 
   String get libraryItemId;
   @override
-  BookMetadataExpanded get metadata;
+  MediaMetadata get metadata;
   @override
   String? get coverPath;
   @override
@@ -2026,7 +2048,7 @@ abstract class _$$PodcastCopyWith<$Res> implements $MediaCopyWith<$Res> {
   @useResult
   $Res call(
       {String libraryItemId,
-      PodcastMetadata metadata,
+      MediaMetadata metadata,
       String? coverPath,
       List<String> tags,
       List<PodcastEpisode> episodes,
@@ -2036,6 +2058,8 @@ abstract class _$$PodcastCopyWith<$Res> implements $MediaCopyWith<$Res> {
       int maxEpisodesToKeep,
       int maxNewEpisodesToDownload});
 
+  @override
+  $MediaMetadataCopyWith<$Res> get metadata;
   $CronExpressionCopyWith<$Res>? get autoDownloadSchedule;
 }
 
@@ -2067,7 +2091,7 @@ class __$$PodcastCopyWithImpl<$Res> extends _$MediaCopyWithImpl<$Res, _$Podcast>
       metadata: null == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
-              as PodcastMetadata,
+              as MediaMetadata,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
@@ -2143,7 +2167,7 @@ class _$Podcast extends Podcast {
   @override
   final String libraryItemId;
   @override
-  final PodcastMetadata metadata;
+  final MediaMetadata metadata;
   @override
   final String? coverPath;
   final List<String> _tags;
@@ -2233,7 +2257,7 @@ class _$Podcast extends Podcast {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2242,7 +2266,7 @@ class _$Podcast extends Podcast {
             EBookFile? ebookFile)
         book,
     required TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -2256,7 +2280,7 @@ class _$Podcast extends Podcast {
         bookMinified,
     required TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2269,7 +2293,7 @@ class _$Podcast extends Podcast {
         bookExpanded,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -2280,7 +2304,7 @@ class _$Podcast extends Podcast {
             int maxNewEpisodesToDownload)
         podcast,
     required TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -2293,10 +2317,10 @@ class _$Podcast extends Podcast {
         podcastMinified,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2323,7 +2347,7 @@ class _$Podcast extends Podcast {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2332,7 +2356,7 @@ class _$Podcast extends Podcast {
             EBookFile? ebookFile)?
         book,
     TResult? Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -2346,7 +2370,7 @@ class _$Podcast extends Podcast {
         bookMinified,
     TResult? Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2359,7 +2383,7 @@ class _$Podcast extends Podcast {
         bookExpanded,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -2370,7 +2394,7 @@ class _$Podcast extends Podcast {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult? Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -2383,10 +2407,10 @@ class _$Podcast extends Podcast {
         podcastMinified,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2413,7 +2437,7 @@ class _$Podcast extends Podcast {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2422,7 +2446,7 @@ class _$Podcast extends Podcast {
             EBookFile? ebookFile)?
         book,
     TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -2436,7 +2460,7 @@ class _$Podcast extends Podcast {
         bookMinified,
     TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2449,7 +2473,7 @@ class _$Podcast extends Podcast {
         bookExpanded,
     TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -2460,7 +2484,7 @@ class _$Podcast extends Podcast {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -2473,10 +2497,10 @@ class _$Podcast extends Podcast {
         podcastMinified,
     TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2556,7 +2580,7 @@ class _$Podcast extends Podcast {
 abstract class Podcast extends Media {
   const factory Podcast(
       {required final String libraryItemId,
-      required final PodcastMetadata metadata,
+      required final MediaMetadata metadata,
       final String? coverPath,
       required final List<String> tags,
       required final List<PodcastEpisode> episodes,
@@ -2571,7 +2595,7 @@ abstract class Podcast extends Media {
 
   String get libraryItemId;
   @override
-  PodcastMetadata get metadata;
+  MediaMetadata get metadata;
   @override
   String? get coverPath;
   @override
@@ -2597,7 +2621,7 @@ abstract class _$$PodcastMinifiedCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {PodcastMetadataMinified metadata,
+      {MediaMetadata metadata,
       String? coverPath,
       List<String> tags,
       int numEpisodes,
@@ -2608,6 +2632,8 @@ abstract class _$$PodcastMinifiedCopyWith<$Res>
       int maxNewEpisodesToDownload,
       int size});
 
+  @override
+  $MediaMetadataCopyWith<$Res> get metadata;
   $CronExpressionCopyWith<$Res>? get autoDownloadSchedule;
 }
 
@@ -2637,7 +2663,7 @@ class __$$PodcastMinifiedCopyWithImpl<$Res>
       metadata: null == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
-              as PodcastMetadataMinified,
+              as MediaMetadata,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
@@ -2714,7 +2740,7 @@ class _$PodcastMinified extends PodcastMinified {
       _$$PodcastMinifiedFromJson(json);
 
   @override
-  final PodcastMetadataMinified metadata;
+  final MediaMetadata metadata;
   @override
   final String? coverPath;
   final List<String> _tags;
@@ -2800,7 +2826,7 @@ class _$PodcastMinified extends PodcastMinified {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2809,7 +2835,7 @@ class _$PodcastMinified extends PodcastMinified {
             EBookFile? ebookFile)
         book,
     required TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -2823,7 +2849,7 @@ class _$PodcastMinified extends PodcastMinified {
         bookMinified,
     required TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2836,7 +2862,7 @@ class _$PodcastMinified extends PodcastMinified {
         bookExpanded,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -2847,7 +2873,7 @@ class _$PodcastMinified extends PodcastMinified {
             int maxNewEpisodesToDownload)
         podcast,
     required TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -2860,10 +2886,10 @@ class _$PodcastMinified extends PodcastMinified {
         podcastMinified,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2890,7 +2916,7 @@ class _$PodcastMinified extends PodcastMinified {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2899,7 +2925,7 @@ class _$PodcastMinified extends PodcastMinified {
             EBookFile? ebookFile)?
         book,
     TResult? Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -2913,7 +2939,7 @@ class _$PodcastMinified extends PodcastMinified {
         bookMinified,
     TResult? Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2926,7 +2952,7 @@ class _$PodcastMinified extends PodcastMinified {
         bookExpanded,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -2937,7 +2963,7 @@ class _$PodcastMinified extends PodcastMinified {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult? Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -2950,10 +2976,10 @@ class _$PodcastMinified extends PodcastMinified {
         podcastMinified,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -2980,7 +3006,7 @@ class _$PodcastMinified extends PodcastMinified {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -2989,7 +3015,7 @@ class _$PodcastMinified extends PodcastMinified {
             EBookFile? ebookFile)?
         book,
     TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -3003,7 +3029,7 @@ class _$PodcastMinified extends PodcastMinified {
         bookMinified,
     TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -3016,7 +3042,7 @@ class _$PodcastMinified extends PodcastMinified {
         bookExpanded,
     TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -3027,7 +3053,7 @@ class _$PodcastMinified extends PodcastMinified {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -3040,10 +3066,10 @@ class _$PodcastMinified extends PodcastMinified {
         podcastMinified,
     TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -3122,7 +3148,7 @@ class _$PodcastMinified extends PodcastMinified {
 
 abstract class PodcastMinified extends Media {
   const factory PodcastMinified(
-      {required final PodcastMetadataMinified metadata,
+      {required final MediaMetadata metadata,
       final String? coverPath,
       required final List<String> tags,
       required final int numEpisodes,
@@ -3138,7 +3164,7 @@ abstract class PodcastMinified extends Media {
       _$PodcastMinified.fromJson;
 
   @override
-  PodcastMetadataMinified get metadata;
+  MediaMetadata get metadata;
   @override
   String? get coverPath;
   @override
@@ -3166,10 +3192,10 @@ abstract class _$$PodcastExpandedCopyWith<$Res>
   @useResult
   $Res call(
       {String libraryItemId,
-      PodcastMetadataExpanded metadata,
+      MediaMetadata metadata,
       String? coverPath,
       List<String> tags,
-      List<PodcastEpisodeExpanded> episodes,
+      List<PodcastEpisode> episodes,
       bool autoDownloadEpisodes,
       CronExpression? autoDownloadSchedule,
       DateTime lastEpisodeCheck,
@@ -3177,6 +3203,8 @@ abstract class _$$PodcastExpandedCopyWith<$Res>
       int maxNewEpisodesToDownload,
       int size});
 
+  @override
+  $MediaMetadataCopyWith<$Res> get metadata;
   $CronExpressionCopyWith<$Res>? get autoDownloadSchedule;
 }
 
@@ -3211,7 +3239,7 @@ class __$$PodcastExpandedCopyWithImpl<$Res>
       metadata: null == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
-              as PodcastMetadataExpanded,
+              as MediaMetadata,
       coverPath: freezed == coverPath
           ? _value.coverPath
           : coverPath // ignore: cast_nullable_to_non_nullable
@@ -3223,7 +3251,7 @@ class __$$PodcastExpandedCopyWithImpl<$Res>
       episodes: null == episodes
           ? _value._episodes
           : episodes // ignore: cast_nullable_to_non_nullable
-              as List<PodcastEpisodeExpanded>,
+              as List<PodcastEpisode>,
       autoDownloadEpisodes: null == autoDownloadEpisodes
           ? _value.autoDownloadEpisodes
           : autoDownloadEpisodes // ignore: cast_nullable_to_non_nullable
@@ -3273,7 +3301,7 @@ class _$PodcastExpanded extends PodcastExpanded {
       required this.metadata,
       this.coverPath,
       required final List<String> tags,
-      required final List<PodcastEpisodeExpanded> episodes,
+      required final List<PodcastEpisode> episodes,
       required this.autoDownloadEpisodes,
       this.autoDownloadSchedule,
       required this.lastEpisodeCheck,
@@ -3292,7 +3320,7 @@ class _$PodcastExpanded extends PodcastExpanded {
   @override
   final String libraryItemId;
   @override
-  final PodcastMetadataExpanded metadata;
+  final MediaMetadata metadata;
   @override
   final String? coverPath;
   final List<String> _tags;
@@ -3303,9 +3331,9 @@ class _$PodcastExpanded extends PodcastExpanded {
     return EqualUnmodifiableListView(_tags);
   }
 
-  final List<PodcastEpisodeExpanded> _episodes;
+  final List<PodcastEpisode> _episodes;
   @override
-  List<PodcastEpisodeExpanded> get episodes {
+  List<PodcastEpisode> get episodes {
     if (_episodes is EqualUnmodifiableListView) return _episodes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_episodes);
@@ -3386,7 +3414,7 @@ class _$PodcastExpanded extends PodcastExpanded {
   TResult when<TResult extends Object?>({
     required TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -3395,7 +3423,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             EBookFile? ebookFile)
         book,
     required TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -3409,7 +3437,7 @@ class _$PodcastExpanded extends PodcastExpanded {
         bookMinified,
     required TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -3422,7 +3450,7 @@ class _$PodcastExpanded extends PodcastExpanded {
         bookExpanded,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -3433,7 +3461,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             int maxNewEpisodesToDownload)
         podcast,
     required TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -3446,10 +3474,10 @@ class _$PodcastExpanded extends PodcastExpanded {
         podcastMinified,
     required TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -3477,7 +3505,7 @@ class _$PodcastExpanded extends PodcastExpanded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -3486,7 +3514,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             EBookFile? ebookFile)?
         book,
     TResult? Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -3500,7 +3528,7 @@ class _$PodcastExpanded extends PodcastExpanded {
         bookMinified,
     TResult? Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -3513,7 +3541,7 @@ class _$PodcastExpanded extends PodcastExpanded {
         bookExpanded,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -3524,7 +3552,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult? Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -3537,10 +3565,10 @@ class _$PodcastExpanded extends PodcastExpanded {
         podcastMinified,
     TResult? Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -3568,7 +3596,7 @@ class _$PodcastExpanded extends PodcastExpanded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
             String libraryItemId,
-            BookMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -3577,7 +3605,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             EBookFile? ebookFile)?
         book,
     TResult Function(
-            BookMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numTracks,
@@ -3591,7 +3619,7 @@ class _$PodcastExpanded extends PodcastExpanded {
         bookMinified,
     TResult Function(
             String libraryItemId,
-            BookMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<AudioFile> audioFiles,
@@ -3604,7 +3632,7 @@ class _$PodcastExpanded extends PodcastExpanded {
         bookExpanded,
     TResult Function(
             String libraryItemId,
-            PodcastMetadata metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             List<PodcastEpisode> episodes,
@@ -3615,7 +3643,7 @@ class _$PodcastExpanded extends PodcastExpanded {
             int maxNewEpisodesToDownload)?
         podcast,
     TResult Function(
-            PodcastMetadataMinified metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
             int numEpisodes,
@@ -3628,10 +3656,10 @@ class _$PodcastExpanded extends PodcastExpanded {
         podcastMinified,
     TResult Function(
             String libraryItemId,
-            PodcastMetadataExpanded metadata,
+            MediaMetadata metadata,
             String? coverPath,
             List<String> tags,
-            List<PodcastEpisodeExpanded> episodes,
+            List<PodcastEpisode> episodes,
             bool autoDownloadEpisodes,
             CronExpression? autoDownloadSchedule,
             DateTime lastEpisodeCheck,
@@ -3712,10 +3740,10 @@ class _$PodcastExpanded extends PodcastExpanded {
 abstract class PodcastExpanded extends Media {
   const factory PodcastExpanded(
       {required final String libraryItemId,
-      required final PodcastMetadataExpanded metadata,
+      required final MediaMetadata metadata,
       final String? coverPath,
       required final List<String> tags,
-      required final List<PodcastEpisodeExpanded> episodes,
+      required final List<PodcastEpisode> episodes,
       required final bool autoDownloadEpisodes,
       final CronExpression? autoDownloadSchedule,
       required final DateTime lastEpisodeCheck,
@@ -3729,12 +3757,12 @@ abstract class PodcastExpanded extends Media {
 
   String get libraryItemId;
   @override
-  PodcastMetadataExpanded get metadata;
+  MediaMetadata get metadata;
   @override
   String? get coverPath;
   @override
   List<String> get tags;
-  List<PodcastEpisodeExpanded> get episodes;
+  List<PodcastEpisode> get episodes;
   bool get autoDownloadEpisodes;
   CronExpression? get autoDownloadSchedule;
   DateTime get lastEpisodeCheck;

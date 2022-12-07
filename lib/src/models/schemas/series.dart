@@ -35,7 +35,7 @@ class Series with _$Series {
     required String nameIgnorePrefix,
     required String nameIgnorePrefixSort,
     @Default('series') String type,
-    required List<BookLibraryItem> books,
+    required List<LibraryItem> books,
     required DateTime addedAt,
     required Duration totalDuration,
   }) = SeriesBooks;

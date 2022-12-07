@@ -15,7 +15,7 @@ class LibraryItem with _$LibraryItem {
   const LibraryItem._();
 
   @jsonConverters
-  const factory LibraryItem.book({
+  const factory LibraryItem({
     required String id,
     required String ino,
     required String libraryId,
@@ -33,12 +33,12 @@ class LibraryItem with _$LibraryItem {
     required bool isMissing,
     required bool isInvalid,
     required MediaType mediaType,
-    required Book media,
+    required Media media,
     required List<LibraryFile> libraryFiles,
-  }) = BookLibraryItem;
+  }) = _LibraryItem;
 
   @jsonConverters
-  const factory LibraryItem.bookMinified({
+  const factory LibraryItem.minified({
     required String id,
     required String ino,
     required String libraryId,
@@ -54,13 +54,13 @@ class LibraryItem with _$LibraryItem {
     required bool isMissing,
     required bool isInvalid,
     required MediaType mediaType,
-    required BookMinified media,
+    required Media media,
     required int numFiles,
     required int size,
-  }) = BookLibraryItemMinified;
+  }) = LibraryItemMinified;
 
   @jsonConverters
-  const factory LibraryItem.bookExpanded({
+  const factory LibraryItem.expanded({
     required String id,
     required String ino,
     required String libraryId,
@@ -78,91 +78,19 @@ class LibraryItem with _$LibraryItem {
     required bool isMissing,
     required bool isInvalid,
     required MediaType mediaType,
-    required Book media,
+    required Media media,
     required List<LibraryFile> libraryFiles,
     required int size,
-  }) = BookLibraryItemExpanded;
-
-  @jsonConverters
-  const factory LibraryItem.podcast({
-    required String id,
-    required String ino,
-    required String libraryId,
-    required String folderId,
-    required String path,
-    required String relPath,
-    required bool isFile,
-    @JsonKey(name: 'mtimeMs') required DateTime mtime,
-    @JsonKey(name: 'ctimeMs') required DateTime ctime,
-    @JsonKey(name: 'birthtimeMs') required DateTime birthtime,
-    required DateTime addedAt,
-    required DateTime updatedAt,
-    DateTime? lastScan,
-    String? scanVersion,
-    required bool isMissing,
-    required bool isInvalid,
-    required MediaType mediaType,
-    required Podcast media,
-    required List<LibraryFile> libraryFiles,
-  }) = PodcastLibraryItem;
-
-  @jsonConverters
-  const factory LibraryItem.podcastMinified({
-    required String id,
-    required String ino,
-    required String libraryId,
-    required String folderId,
-    required String path,
-    required String relPath,
-    required bool isFile,
-    @JsonKey(name: 'mtimeMs') required DateTime mtime,
-    @JsonKey(name: 'ctimeMs') required DateTime ctime,
-    @JsonKey(name: 'birthtimeMs') required DateTime birthtime,
-    required DateTime addedAt,
-    required DateTime updatedAt,
-    required bool isMissing,
-    required bool isInvalid,
-    required MediaType mediaType,
-    required PodcastMinified media,
-    required int numFiles,
-    required int size,
-  }) = PodcastLibraryItemMinified;
-
-  @jsonConverters
-  const factory LibraryItem.podcastExpanded({
-    required String id,
-    required String ino,
-    required String libraryId,
-    required String folderId,
-    required String path,
-    required String relPath,
-    required bool isFile,
-    @JsonKey(name: 'mtimeMs') required DateTime mtime,
-    @JsonKey(name: 'ctimeMs') required DateTime ctime,
-    @JsonKey(name: 'birthtimeMs') required DateTime birthtime,
-    required DateTime addedAt,
-    required DateTime updatedAt,
-    DateTime? lastScan,
-    String? scanVersion,
-    required bool isMissing,
-    required bool isInvalid,
-    required MediaType mediaType,
-    required Podcast media,
-    required List<LibraryFile> libraryFiles,
-    required int size,
-  }) = PodcastLibraryItemExpanded;
+  }) = LibraryItemExpanded;
 
   factory LibraryItem.fromJson(Map<String, dynamic> json) =>
       LibraryItemConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(
-      book: (_) => SchemaVariant.base,
-      bookMinified: (_) => SchemaVariant.minified,
-      bookExpanded: (_) => SchemaVariant.expanded,
-      podcast: (_) => SchemaVariant.base,
-      podcastMinified: (_) => SchemaVariant.minified,
-      podcastExpanded: (_) => SchemaVariant.expanded,
+      (_) => SchemaVariant.base,
+      minified: (_) => SchemaVariant.minified,
+      expanded: (_) => SchemaVariant.expanded,
     );
   }
 }
@@ -175,16 +103,6 @@ class LibraryItemConverter
   LibraryItem fromJson(Map<String, dynamic> json) {
     if (json.containsKey('runtimeType')) return _$LibraryItemFromJson(json);
 
-    final mediaType = MediaType.byType[json['mediaType']];
-    if (mediaType == null) {
-      throw CheckedFromJsonException(
-        json,
-        'mediaType',
-        'LibraryItem',
-        'Unknown media type: ${json['mediaType']}',
-      );
-    }
-
     final SchemaVariant variant;
     if (json.containsKey('numFiles')) {
       variant = SchemaVariant.minified;
@@ -194,25 +112,13 @@ class LibraryItemConverter
       variant = SchemaVariant.base;
     }
 
-    switch (mediaType) {
-      case MediaType.book:
-        switch (variant) {
-          case SchemaVariant.base:
-            return BookLibraryItem.fromJson(json);
-          case SchemaVariant.minified:
-            return BookLibraryItemMinified.fromJson(json);
-          case SchemaVariant.expanded:
-            return BookLibraryItemExpanded.fromJson(json);
-        }
-      case MediaType.podcast:
-        switch (variant) {
-          case SchemaVariant.base:
-            return PodcastLibraryItem.fromJson(json);
-          case SchemaVariant.minified:
-            return PodcastLibraryItemMinified.fromJson(json);
-          case SchemaVariant.expanded:
-            return PodcastLibraryItemExpanded.fromJson(json);
-        }
+    switch (variant) {
+      case SchemaVariant.base:
+        return _LibraryItem.fromJson(json);
+      case SchemaVariant.minified:
+        return LibraryItemMinified.fromJson(json);
+      case SchemaVariant.expanded:
+        return LibraryItemExpanded.fromJson(json);
     }
   }
 

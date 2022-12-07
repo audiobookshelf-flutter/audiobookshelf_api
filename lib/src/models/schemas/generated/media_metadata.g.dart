@@ -11,17 +11,17 @@ _$BookMetadata _$$BookMetadataFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String?,
       subtitle: json['subtitle'] as String?,
       authors: (json['authors'] as List<dynamic>?)
-              ?.map((e) => AuthorMinified.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => Author.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <AuthorMinified>[],
+          const <Author>[],
       narrators: (json['narrators'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
       series: (json['series'] as List<dynamic>?)
-              ?.map((e) => SeriesSequence.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => Series.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <SeriesSequence>[],
+          const <Series>[],
       genres: (json['genres'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -110,17 +110,17 @@ _$BookMetadataExpanded _$$BookMetadataExpandedFromJson(
       titleIgnorePrefix: json['titleIgnorePrefix'] as String?,
       subtitle: json['subtitle'] as String?,
       authors: (json['authors'] as List<dynamic>?)
-              ?.map((e) => AuthorMinified.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => Author.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <AuthorMinified>[],
+          const <Author>[],
       narrators: (json['narrators'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const <String>[],
       series: (json['series'] as List<dynamic>?)
-              ?.map((e) => SeriesSequence.fromJson(e as Map<String, dynamic>))
+              ?.map((e) => Series.fromJson(e as Map<String, dynamic>))
               .toList() ??
-          const <SeriesSequence>[],
+          const <Series>[],
       genres: (json['genres'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??

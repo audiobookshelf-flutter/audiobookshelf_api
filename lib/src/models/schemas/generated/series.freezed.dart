@@ -49,7 +49,7 @@ mixin _$Series {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)
         books,
@@ -71,7 +71,7 @@ mixin _$Series {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,
@@ -92,7 +92,7 @@ mixin _$Series {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,
@@ -298,7 +298,7 @@ class _$_Series extends _Series {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)
         books,
@@ -323,7 +323,7 @@ class _$_Series extends _Series {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,
@@ -347,7 +347,7 @@ class _$_Series extends _Series {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,
@@ -548,7 +548,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)
         books,
@@ -573,7 +573,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,
@@ -597,7 +597,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,
@@ -691,7 +691,7 @@ abstract class _$$SeriesBooksCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       String nameIgnorePrefix,
       String nameIgnorePrefixSort,
       String type,
-      List<BookLibraryItem> books,
+      List<LibraryItem> books,
       DateTime addedAt,
       Duration totalDuration});
 }
@@ -740,7 +740,7 @@ class __$$SeriesBooksCopyWithImpl<$Res>
       books: null == books
           ? _value._books
           : books // ignore: cast_nullable_to_non_nullable
-              as List<BookLibraryItem>,
+              as List<LibraryItem>,
       addedAt: null == addedAt
           ? _value.addedAt
           : addedAt // ignore: cast_nullable_to_non_nullable
@@ -763,7 +763,7 @@ class _$SeriesBooks extends SeriesBooks {
       required this.nameIgnorePrefix,
       required this.nameIgnorePrefixSort,
       this.type = 'series',
-      required final List<BookLibraryItem> books,
+      required final List<LibraryItem> books,
       required this.addedAt,
       required this.totalDuration,
       final String? $type})
@@ -785,9 +785,9 @@ class _$SeriesBooks extends SeriesBooks {
   @override
   @JsonKey()
   final String type;
-  final List<BookLibraryItem> _books;
+  final List<LibraryItem> _books;
   @override
-  List<BookLibraryItem> get books {
+  List<LibraryItem> get books {
     if (_books is EqualUnmodifiableListView) return _books;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_books);
@@ -858,7 +858,7 @@ class _$SeriesBooks extends SeriesBooks {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)
         books,
@@ -884,7 +884,7 @@ class _$SeriesBooks extends SeriesBooks {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,
@@ -909,7 +909,7 @@ class _$SeriesBooks extends SeriesBooks {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,
@@ -975,7 +975,7 @@ abstract class SeriesBooks extends Series {
       required final String nameIgnorePrefix,
       required final String nameIgnorePrefixSort,
       final String type,
-      required final List<BookLibraryItem> books,
+      required final List<LibraryItem> books,
       required final DateTime addedAt,
       required final Duration totalDuration}) = _$SeriesBooks;
   const SeriesBooks._() : super._();
@@ -990,7 +990,7 @@ abstract class SeriesBooks extends Series {
   String get nameIgnorePrefix;
   String get nameIgnorePrefixSort;
   String get type;
-  List<BookLibraryItem> get books;
+  List<LibraryItem> get books;
   DateTime get addedAt;
   Duration get totalDuration;
   @override
@@ -1107,7 +1107,7 @@ class _$SeriesSequence extends SeriesSequence {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)
         books,
@@ -1132,7 +1132,7 @@ class _$SeriesSequence extends SeriesSequence {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,
@@ -1156,7 +1156,7 @@ class _$SeriesSequence extends SeriesSequence {
             String nameIgnorePrefix,
             String nameIgnorePrefixSort,
             String type,
-            List<BookLibraryItem> books,
+            List<LibraryItem> books,
             DateTime addedAt,
             Duration totalDuration)?
         books,

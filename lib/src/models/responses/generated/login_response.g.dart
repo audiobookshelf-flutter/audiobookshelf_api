@@ -8,7 +8,7 @@ part of '../login_response.dart';
 
 _$_LoginResponse _$$_LoginResponseFromJson(Map<String, dynamic> json) =>
     _$_LoginResponse(
-      user: UserBase.fromJson(json['user'] as Map<String, dynamic>),
+      user: User.fromJson(json['user'] as Map<String, dynamic>),
       userDefaultLibraryId: json['userDefaultLibraryId'] as String,
       serverSettings: ServerSettings.fromJson(
           json['serverSettings'] as Map<String, dynamic>),
