@@ -59,13 +59,26 @@ class LibrariesService extends Service {
 
   /// See [Update a Library](https://api.audiobookshelf.org/#update-a-library)
   Future<Library?> update({
-    UpdateLibraryReqParams? parameters,
     required String libraryId,
+    UpdateLibraryReqParams? parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.patchJson(
       path: '$basePath/$libraryId',
       jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Library.fromJson),
+    );
+  }
+
+  /// See [Delete a Library](https://api.audiobookshelf.org/#delete-a-library)
+  Future<Library?> delete({
+    required String libraryId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/$libraryId',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, Library.fromJson),
