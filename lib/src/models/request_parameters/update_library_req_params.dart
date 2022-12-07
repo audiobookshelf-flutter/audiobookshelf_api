@@ -51,6 +51,7 @@ class UpdateLibrarySettingsReqParams {
   @JsonKey(includeIfNull: true)
   final CronExpression? autoScanCronExpression;
 
+  /// See [Update a Library](https://api.audiobookshelf.org/#update-a-library)
   const UpdateLibrarySettingsReqParams({
     this.coverAspectRatio,
     this.disableWatcher,

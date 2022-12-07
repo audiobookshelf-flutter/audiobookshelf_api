@@ -8,7 +8,6 @@ import 'new_folder.dart';
 
 part 'generated/create_library_req_params.g.dart';
 
-/// See [Create a Library](https://api.audiobookshelf.org/#create-a-library)
 @requestToJson
 class CreateLibraryReqParams {
   static const defaults = {
@@ -25,6 +24,7 @@ class CreateLibraryReqParams {
   final MetadataProvider provider;
   final CreateLibrarySettingsReqParams? settings;
 
+  /// See [Create a Library](https://api.audiobookshelf.org/#create-a-library)
   const CreateLibraryReqParams({
     required this.name,
     required this.folders,
@@ -54,6 +54,7 @@ class CreateLibrarySettingsReqParams {
   final bool skipMatchingMediaWithIsbn;
   final CronExpression? autoScanCronExpression;
 
+  /// See [Create a Library](https://api.audiobookshelf.org/#create-a-library)
   const CreateLibrarySettingsReqParams({
     this.coverAspectRatio = 1,
     this.disableWatcher = false,
