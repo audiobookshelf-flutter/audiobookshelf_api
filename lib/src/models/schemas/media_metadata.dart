@@ -31,6 +31,23 @@ class MediaMetadata with _$MediaMetadata {
     @Default(false) bool explicit,
   }) = BookMetadata;
 
+  const factory MediaMetadata.bookSeriesFilter({
+    String? title,
+    String? subtitle,
+    @Default(<Author>[]) List<Author> authors,
+    @Default(<String>[]) List<String> narrators,
+    @JsonKey(name: 'series') required Series seriesSequence,
+    @Default(<String>[]) List<String> genres,
+    String? publishedYear,
+    String? publishedDate,
+    String? publisher,
+    String? description,
+    String? isbn,
+    String? asin,
+    String? language,
+    @Default(false) bool explicit,
+  }) = BookMetadataSeriesFilter;
+
   const factory MediaMetadata.bookMinified({
     String? title,
     String? titleIgnorePrefix,
@@ -49,6 +66,26 @@ class MediaMetadata with _$MediaMetadata {
     String? language,
     @Default(false) bool explicit,
   }) = BookMetadataMinified;
+
+  const factory MediaMetadata.bookMinifiedSeriesFilter({
+    String? title,
+    String? titleIgnorePrefix,
+    String? subtitle,
+    String? authorName,
+    String? authorNameLF,
+    String? narratorName,
+    String? seriesName,
+    @Default(<String>[]) List<String> genres,
+    String? publishedYear,
+    int? publishedDate,
+    String? publisher,
+    String? description,
+    String? isbn,
+    String? asin,
+    String? language,
+    @Default(false) bool explicit,
+    @JsonKey(name: 'series') required Series seriesSequence,
+  }) = BookMetadataMinifiedSeriesFilter;
 
   const factory MediaMetadata.bookExpanded({
     String? title,
@@ -125,7 +162,9 @@ class MediaMetadata with _$MediaMetadata {
   SchemaVariant get variant {
     return map(
       book: (_) => SchemaVariant.base,
+      bookSeriesFilter: (_) => SchemaVariant.base,
       bookMinified: (_) => SchemaVariant.minified,
+      bookMinifiedSeriesFilter: (_) => SchemaVariant.minified,
       bookExpanded: (_) => SchemaVariant.expanded,
       podcast: (_) => SchemaVariant.base,
       podcastMinified: (_) => SchemaVariant.minified,
@@ -173,11 +212,20 @@ class MediaMetadataConverter
 
     switch (mediaType) {
       case MediaType.book:
+        final seriesFilter = json['series'] is Map<String, dynamic>;
         switch (variant) {
           case SchemaVariant.base:
-            return BookMetadata.fromJson(json);
+            if (seriesFilter) {
+              return BookMetadataSeriesFilter.fromJson(json);
+            } else {
+              return BookMetadata.fromJson(json);
+            }
           case SchemaVariant.minified:
-            return BookMetadataMinified.fromJson(json);
+            if (seriesFilter) {
+              return BookMetadataMinifiedSeriesFilter.fromJson(json);
+            } else {
+              return BookMetadataMinified.fromJson(json);
+            }
           case SchemaVariant.expanded:
             return BookMetadataExpanded.fromJson(json);
         }

@@ -41,7 +41,12 @@ mixin _$Series {
             DateTime addedAt, DateTime updatedAt)
         $default, {
     required TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)
         numBooks,
     required TResult Function(
             String id,
@@ -63,7 +68,12 @@ mixin _$Series {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult? Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult? Function(
             String id,
@@ -84,7 +94,12 @@ mixin _$Series {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult Function(
             String id,
@@ -290,7 +305,12 @@ class _$_Series extends _Series {
             DateTime addedAt, DateTime updatedAt)
         $default, {
     required TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)
         numBooks,
     required TResult Function(
             String id,
@@ -315,7 +335,12 @@ class _$_Series extends _Series {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult? Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult? Function(
             String id,
@@ -339,7 +364,12 @@ class _$_Series extends _Series {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult Function(
             String id,
@@ -437,7 +467,13 @@ abstract class _$$SeriesNumBooksCopyWith<$Res>
       __$$SeriesNumBooksCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String nameIgnorePrefix, int numBooks});
+  $Res call(
+      {String id,
+      String name,
+      String nameIgnorePrefix,
+      List<String> libraryItemIds,
+      int numBooks,
+      String? seriesSequenceList});
 }
 
 /// @nodoc
@@ -454,7 +490,9 @@ class __$$SeriesNumBooksCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? nameIgnorePrefix = null,
+    Object? libraryItemIds = null,
     Object? numBooks = null,
+    Object? seriesSequenceList = freezed,
   }) {
     return _then(_$SeriesNumBooks(
       id: null == id
@@ -469,10 +507,18 @@ class __$$SeriesNumBooksCopyWithImpl<$Res>
           ? _value.nameIgnorePrefix
           : nameIgnorePrefix // ignore: cast_nullable_to_non_nullable
               as String,
+      libraryItemIds: null == libraryItemIds
+          ? _value._libraryItemIds
+          : libraryItemIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       numBooks: null == numBooks
           ? _value.numBooks
           : numBooks // ignore: cast_nullable_to_non_nullable
               as int,
+      seriesSequenceList: freezed == seriesSequenceList
+          ? _value.seriesSequenceList
+          : seriesSequenceList // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -484,9 +530,12 @@ class _$SeriesNumBooks extends SeriesNumBooks {
       {required this.id,
       required this.name,
       required this.nameIgnorePrefix,
+      required final List<String> libraryItemIds,
       required this.numBooks,
+      this.seriesSequenceList,
       final String? $type})
-      : $type = $type ?? 'numBooks',
+      : _libraryItemIds = libraryItemIds,
+        $type = $type ?? 'numBooks',
         super._();
 
   factory _$SeriesNumBooks.fromJson(Map<String, dynamic> json) =>
@@ -498,15 +547,25 @@ class _$SeriesNumBooks extends SeriesNumBooks {
   final String name;
   @override
   final String nameIgnorePrefix;
+  final List<String> _libraryItemIds;
+  @override
+  List<String> get libraryItemIds {
+    if (_libraryItemIds is EqualUnmodifiableListView) return _libraryItemIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_libraryItemIds);
+  }
+
   @override
   final int numBooks;
+  @override
+  final String? seriesSequenceList;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Series.numBooks(id: $id, name: $name, nameIgnorePrefix: $nameIgnorePrefix, numBooks: $numBooks)';
+    return 'Series.numBooks(id: $id, name: $name, nameIgnorePrefix: $nameIgnorePrefix, libraryItemIds: $libraryItemIds, numBooks: $numBooks, seriesSequenceList: $seriesSequenceList)';
   }
 
   @override
@@ -518,14 +577,24 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.nameIgnorePrefix, nameIgnorePrefix) ||
                 other.nameIgnorePrefix == nameIgnorePrefix) &&
+            const DeepCollectionEquality()
+                .equals(other._libraryItemIds, _libraryItemIds) &&
             (identical(other.numBooks, numBooks) ||
-                other.numBooks == numBooks));
+                other.numBooks == numBooks) &&
+            (identical(other.seriesSequenceList, seriesSequenceList) ||
+                other.seriesSequenceList == seriesSequenceList));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, nameIgnorePrefix, numBooks);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      nameIgnorePrefix,
+      const DeepCollectionEquality().hash(_libraryItemIds),
+      numBooks,
+      seriesSequenceList);
 
   @JsonKey(ignore: true)
   @override
@@ -540,7 +609,12 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             DateTime addedAt, DateTime updatedAt)
         $default, {
     required TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)
         numBooks,
     required TResult Function(
             String id,
@@ -555,7 +629,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
     required TResult Function(String id, String name, String? sequence)
         sequence,
   }) {
-    return numBooks(id, name, nameIgnorePrefix, this.numBooks);
+    return numBooks(id, name, nameIgnorePrefix, libraryItemIds, this.numBooks,
+        seriesSequenceList);
   }
 
   @override
@@ -565,7 +640,12 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult? Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult? Function(
             String id,
@@ -579,7 +659,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
   }) {
-    return numBooks?.call(id, name, nameIgnorePrefix, this.numBooks);
+    return numBooks?.call(id, name, nameIgnorePrefix, libraryItemIds,
+        this.numBooks, seriesSequenceList);
   }
 
   @override
@@ -589,7 +670,12 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult Function(
             String id,
@@ -605,7 +691,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
     required TResult orElse(),
   }) {
     if (numBooks != null) {
-      return numBooks(id, name, nameIgnorePrefix, this.numBooks);
+      return numBooks(id, name, nameIgnorePrefix, libraryItemIds, this.numBooks,
+          seriesSequenceList);
     }
     return orElse();
   }
@@ -660,7 +747,9 @@ abstract class SeriesNumBooks extends Series {
       {required final String id,
       required final String name,
       required final String nameIgnorePrefix,
-      required final int numBooks}) = _$SeriesNumBooks;
+      required final List<String> libraryItemIds,
+      required final int numBooks,
+      final String? seriesSequenceList}) = _$SeriesNumBooks;
   const SeriesNumBooks._() : super._();
 
   factory SeriesNumBooks.fromJson(Map<String, dynamic> json) =
@@ -671,7 +760,9 @@ abstract class SeriesNumBooks extends Series {
   @override
   String get name;
   String get nameIgnorePrefix;
+  List<String> get libraryItemIds;
   int get numBooks;
+  String? get seriesSequenceList;
   @override
   @JsonKey(ignore: true)
   _$$SeriesNumBooksCopyWith<_$SeriesNumBooks> get copyWith =>
@@ -850,7 +941,12 @@ class _$SeriesBooks extends SeriesBooks {
             DateTime addedAt, DateTime updatedAt)
         $default, {
     required TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)
         numBooks,
     required TResult Function(
             String id,
@@ -876,7 +972,12 @@ class _$SeriesBooks extends SeriesBooks {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult? Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult? Function(
             String id,
@@ -901,7 +1002,12 @@ class _$SeriesBooks extends SeriesBooks {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult Function(
             String id,
@@ -1099,7 +1205,12 @@ class _$SeriesSequence extends SeriesSequence {
             DateTime addedAt, DateTime updatedAt)
         $default, {
     required TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)
         numBooks,
     required TResult Function(
             String id,
@@ -1124,7 +1235,12 @@ class _$SeriesSequence extends SeriesSequence {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult? Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult? Function(
             String id,
@@ -1148,7 +1264,12 @@ class _$SeriesSequence extends SeriesSequence {
             DateTime addedAt, DateTime updatedAt)?
         $default, {
     TResult Function(
-            String id, String name, String nameIgnorePrefix, int numBooks)?
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
         numBooks,
     TResult Function(
             String id,

@@ -50,6 +50,8 @@ mixin _$LibraryItem {
   bool get isInvalid => throw _privateConstructorUsedError;
   MediaType get mediaType => throw _privateConstructorUsedError;
   Media get media => throw _privateConstructorUsedError;
+  String? get sequence => throw _privateConstructorUsedError;
+  String? get seriesSequence => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
@@ -71,7 +73,10 @@ mixin _$LibraryItem {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)
         $default, {
     required TResult Function(
             String id,
@@ -91,7 +96,10 @@ mixin _$LibraryItem {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)
         minified,
     required TResult Function(
             String id,
@@ -113,7 +121,9 @@ mixin _$LibraryItem {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)
+            int size,
+            String? sequence,
+            String? seriesSequence)
         expanded,
   }) =>
       throw _privateConstructorUsedError;
@@ -138,7 +148,10 @@ mixin _$LibraryItem {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)?
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         $default, {
     TResult? Function(
             String id,
@@ -158,7 +171,10 @@ mixin _$LibraryItem {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)?
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         minified,
     TResult? Function(
             String id,
@@ -180,7 +196,9 @@ mixin _$LibraryItem {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)?
+            int size,
+            String? sequence,
+            String? seriesSequence)?
         expanded,
   }) =>
       throw _privateConstructorUsedError;
@@ -205,7 +223,10 @@ mixin _$LibraryItem {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)?
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         $default, {
     TResult Function(
             String id,
@@ -225,7 +246,10 @@ mixin _$LibraryItem {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)?
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         minified,
     TResult Function(
             String id,
@@ -247,7 +271,9 @@ mixin _$LibraryItem {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)?
+            int size,
+            String? sequence,
+            String? seriesSequence)?
         expanded,
     required TResult orElse(),
   }) =>
@@ -302,7 +328,9 @@ abstract class $LibraryItemCopyWith<$Res> {
       bool isMissing,
       bool isInvalid,
       MediaType mediaType,
-      Media media});
+      Media media,
+      String? sequence,
+      String? seriesSequence});
 
   $MediaCopyWith<$Res> get media;
 }
@@ -336,6 +364,8 @@ class _$LibraryItemCopyWithImpl<$Res, $Val extends LibraryItem>
     Object? isInvalid = null,
     Object? mediaType = null,
     Object? media = null,
+    Object? sequence = freezed,
+    Object? seriesSequence = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -402,6 +432,14 @@ class _$LibraryItemCopyWithImpl<$Res, $Val extends LibraryItem>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as Media,
+      sequence: freezed == sequence
+          ? _value.sequence
+          : sequence // ignore: cast_nullable_to_non_nullable
+              as String?,
+      seriesSequence: freezed == seriesSequence
+          ? _value.seriesSequence
+          : seriesSequence // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -441,10 +479,14 @@ abstract class _$$_LibraryItemCopyWith<$Res>
       bool isInvalid,
       MediaType mediaType,
       Media media,
-      List<LibraryFile> libraryFiles});
+      List<LibraryFile> libraryFiles,
+      Series? collapsedSeries,
+      String? sequence,
+      String? seriesSequence});
 
   @override
   $MediaCopyWith<$Res> get media;
+  $SeriesCopyWith<$Res>? get collapsedSeries;
 }
 
 /// @nodoc
@@ -477,6 +519,9 @@ class __$$_LibraryItemCopyWithImpl<$Res>
     Object? mediaType = null,
     Object? media = null,
     Object? libraryFiles = null,
+    Object? collapsedSeries = freezed,
+    Object? sequence = freezed,
+    Object? seriesSequence = freezed,
   }) {
     return _then(_$_LibraryItem(
       id: null == id
@@ -555,7 +600,31 @@ class __$$_LibraryItemCopyWithImpl<$Res>
           ? _value._libraryFiles
           : libraryFiles // ignore: cast_nullable_to_non_nullable
               as List<LibraryFile>,
+      collapsedSeries: freezed == collapsedSeries
+          ? _value.collapsedSeries
+          : collapsedSeries // ignore: cast_nullable_to_non_nullable
+              as Series?,
+      sequence: freezed == sequence
+          ? _value.sequence
+          : sequence // ignore: cast_nullable_to_non_nullable
+              as String?,
+      seriesSequence: freezed == seriesSequence
+          ? _value.seriesSequence
+          : seriesSequence // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SeriesCopyWith<$Res>? get collapsedSeries {
+    if (_value.collapsedSeries == null) {
+      return null;
+    }
+
+    return $SeriesCopyWith<$Res>(_value.collapsedSeries!, (value) {
+      return _then(_value.copyWith(collapsedSeries: value));
+    });
   }
 }
 
@@ -583,6 +652,9 @@ class _$_LibraryItem extends _LibraryItem {
       required this.mediaType,
       required this.media,
       required final List<LibraryFile> libraryFiles,
+      this.collapsedSeries,
+      this.sequence,
+      this.seriesSequence,
       final String? $type})
       : _libraryFiles = libraryFiles,
         $type = $type ?? 'default',
@@ -638,12 +710,19 @@ class _$_LibraryItem extends _LibraryItem {
     return EqualUnmodifiableListView(_libraryFiles);
   }
 
+  @override
+  final Series? collapsedSeries;
+  @override
+  final String? sequence;
+  @override
+  final String? seriesSequence;
+
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'LibraryItem(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles)';
+    return 'LibraryItem(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence)';
   }
 
   @override
@@ -679,7 +758,13 @@ class _$_LibraryItem extends _LibraryItem {
                 other.mediaType == mediaType) &&
             (identical(other.media, media) || other.media == media) &&
             const DeepCollectionEquality()
-                .equals(other._libraryFiles, _libraryFiles));
+                .equals(other._libraryFiles, _libraryFiles) &&
+            (identical(other.collapsedSeries, collapsedSeries) ||
+                other.collapsedSeries == collapsedSeries) &&
+            (identical(other.sequence, sequence) ||
+                other.sequence == sequence) &&
+            (identical(other.seriesSequence, seriesSequence) ||
+                other.seriesSequence == seriesSequence));
   }
 
   @JsonKey(ignore: true)
@@ -704,7 +789,10 @@ class _$_LibraryItem extends _LibraryItem {
         isInvalid,
         mediaType,
         media,
-        const DeepCollectionEquality().hash(_libraryFiles)
+        const DeepCollectionEquality().hash(_libraryFiles),
+        collapsedSeries,
+        sequence,
+        seriesSequence
       ]);
 
   @JsonKey(ignore: true)
@@ -735,7 +823,10 @@ class _$_LibraryItem extends _LibraryItem {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)
         $default, {
     required TResult Function(
             String id,
@@ -755,7 +846,10 @@ class _$_LibraryItem extends _LibraryItem {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)
         minified,
     required TResult Function(
             String id,
@@ -777,7 +871,9 @@ class _$_LibraryItem extends _LibraryItem {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)
+            int size,
+            String? sequence,
+            String? seriesSequence)
         expanded,
   }) {
     return $default(
@@ -799,7 +895,10 @@ class _$_LibraryItem extends _LibraryItem {
         isInvalid,
         mediaType,
         media,
-        libraryFiles);
+        libraryFiles,
+        collapsedSeries,
+        sequence,
+        seriesSequence);
   }
 
   @override
@@ -824,7 +923,10 @@ class _$_LibraryItem extends _LibraryItem {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)?
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         $default, {
     TResult? Function(
             String id,
@@ -844,7 +946,10 @@ class _$_LibraryItem extends _LibraryItem {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)?
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         minified,
     TResult? Function(
             String id,
@@ -866,7 +971,9 @@ class _$_LibraryItem extends _LibraryItem {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)?
+            int size,
+            String? sequence,
+            String? seriesSequence)?
         expanded,
   }) {
     return $default?.call(
@@ -888,7 +995,10 @@ class _$_LibraryItem extends _LibraryItem {
         isInvalid,
         mediaType,
         media,
-        libraryFiles);
+        libraryFiles,
+        collapsedSeries,
+        sequence,
+        seriesSequence);
   }
 
   @override
@@ -913,7 +1023,10 @@ class _$_LibraryItem extends _LibraryItem {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)?
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         $default, {
     TResult Function(
             String id,
@@ -933,7 +1046,10 @@ class _$_LibraryItem extends _LibraryItem {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)?
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         minified,
     TResult Function(
             String id,
@@ -955,7 +1071,9 @@ class _$_LibraryItem extends _LibraryItem {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)?
+            int size,
+            String? sequence,
+            String? seriesSequence)?
         expanded,
     required TResult orElse(),
   }) {
@@ -979,7 +1097,10 @@ class _$_LibraryItem extends _LibraryItem {
           isInvalid,
           mediaType,
           media,
-          libraryFiles);
+          libraryFiles,
+          collapsedSeries,
+          sequence,
+          seriesSequence);
     }
     return orElse();
   }
@@ -1046,7 +1167,10 @@ abstract class _LibraryItem extends LibraryItem {
       required final bool isInvalid,
       required final MediaType mediaType,
       required final Media media,
-      required final List<LibraryFile> libraryFiles}) = _$_LibraryItem;
+      required final List<LibraryFile> libraryFiles,
+      final Series? collapsedSeries,
+      final String? sequence,
+      final String? seriesSequence}) = _$_LibraryItem;
   const _LibraryItem._() : super._();
 
   factory _LibraryItem.fromJson(Map<String, dynamic> json) =
@@ -1090,6 +1214,11 @@ abstract class _LibraryItem extends LibraryItem {
   @override
   Media get media;
   List<LibraryFile> get libraryFiles;
+  Series? get collapsedSeries;
+  @override
+  String? get sequence;
+  @override
+  String? get seriesSequence;
   @override
   @JsonKey(ignore: true)
   _$$_LibraryItemCopyWith<_$_LibraryItem> get copyWith =>
@@ -1122,10 +1251,14 @@ abstract class _$$LibraryItemMinifiedCopyWith<$Res>
       MediaType mediaType,
       Media media,
       int numFiles,
-      int size});
+      int size,
+      Series? collapsedSeries,
+      String? sequence,
+      String? seriesSequence});
 
   @override
   $MediaCopyWith<$Res> get media;
+  $SeriesCopyWith<$Res>? get collapsedSeries;
 }
 
 /// @nodoc
@@ -1157,6 +1290,9 @@ class __$$LibraryItemMinifiedCopyWithImpl<$Res>
     Object? media = null,
     Object? numFiles = null,
     Object? size = null,
+    Object? collapsedSeries = freezed,
+    Object? sequence = freezed,
+    Object? seriesSequence = freezed,
   }) {
     return _then(_$LibraryItemMinified(
       id: null == id
@@ -1231,7 +1367,31 @@ class __$$LibraryItemMinifiedCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int,
+      collapsedSeries: freezed == collapsedSeries
+          ? _value.collapsedSeries
+          : collapsedSeries // ignore: cast_nullable_to_non_nullable
+              as Series?,
+      sequence: freezed == sequence
+          ? _value.sequence
+          : sequence // ignore: cast_nullable_to_non_nullable
+              as String?,
+      seriesSequence: freezed == seriesSequence
+          ? _value.seriesSequence
+          : seriesSequence // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SeriesCopyWith<$Res>? get collapsedSeries {
+    if (_value.collapsedSeries == null) {
+      return null;
+    }
+
+    return $SeriesCopyWith<$Res>(_value.collapsedSeries!, (value) {
+      return _then(_value.copyWith(collapsedSeries: value));
+    });
   }
 }
 
@@ -1258,6 +1418,9 @@ class _$LibraryItemMinified extends LibraryItemMinified {
       required this.media,
       required this.numFiles,
       required this.size,
+      this.collapsedSeries,
+      this.sequence,
+      this.seriesSequence,
       final String? $type})
       : $type = $type ?? 'minified',
         super._();
@@ -1304,13 +1467,19 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   final int numFiles;
   @override
   final int size;
+  @override
+  final Series? collapsedSeries;
+  @override
+  final String? sequence;
+  @override
+  final String? seriesSequence;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'LibraryItem.minified(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, numFiles: $numFiles, size: $size)';
+    return 'LibraryItem.minified(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, numFiles: $numFiles, size: $size, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence)';
   }
 
   @override
@@ -1343,31 +1512,41 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             (identical(other.media, media) || other.media == media) &&
             (identical(other.numFiles, numFiles) ||
                 other.numFiles == numFiles) &&
-            (identical(other.size, size) || other.size == size));
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.collapsedSeries, collapsedSeries) ||
+                other.collapsedSeries == collapsedSeries) &&
+            (identical(other.sequence, sequence) ||
+                other.sequence == sequence) &&
+            (identical(other.seriesSequence, seriesSequence) ||
+                other.seriesSequence == seriesSequence));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      ino,
-      libraryId,
-      folderId,
-      path,
-      relPath,
-      isFile,
-      mtime,
-      ctime,
-      birthtime,
-      addedAt,
-      updatedAt,
-      isMissing,
-      isInvalid,
-      mediaType,
-      media,
-      numFiles,
-      size);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        id,
+        ino,
+        libraryId,
+        folderId,
+        path,
+        relPath,
+        isFile,
+        mtime,
+        ctime,
+        birthtime,
+        addedAt,
+        updatedAt,
+        isMissing,
+        isInvalid,
+        mediaType,
+        media,
+        numFiles,
+        size,
+        collapsedSeries,
+        sequence,
+        seriesSequence
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1398,7 +1577,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)
         $default, {
     required TResult Function(
             String id,
@@ -1418,7 +1600,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)
         minified,
     required TResult Function(
             String id,
@@ -1440,7 +1625,9 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)
+            int size,
+            String? sequence,
+            String? seriesSequence)
         expanded,
   }) {
     return minified(
@@ -1461,7 +1648,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
         mediaType,
         media,
         numFiles,
-        size);
+        size,
+        collapsedSeries,
+        sequence,
+        seriesSequence);
   }
 
   @override
@@ -1486,7 +1676,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)?
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         $default, {
     TResult? Function(
             String id,
@@ -1506,7 +1699,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)?
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         minified,
     TResult? Function(
             String id,
@@ -1528,7 +1724,9 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)?
+            int size,
+            String? sequence,
+            String? seriesSequence)?
         expanded,
   }) {
     return minified?.call(
@@ -1549,7 +1747,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
         mediaType,
         media,
         numFiles,
-        size);
+        size,
+        collapsedSeries,
+        sequence,
+        seriesSequence);
   }
 
   @override
@@ -1574,7 +1775,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)?
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         $default, {
     TResult Function(
             String id,
@@ -1594,7 +1798,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)?
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         minified,
     TResult Function(
             String id,
@@ -1616,7 +1823,9 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)?
+            int size,
+            String? sequence,
+            String? seriesSequence)?
         expanded,
     required TResult orElse(),
   }) {
@@ -1639,7 +1848,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
           mediaType,
           media,
           numFiles,
-          size);
+          size,
+          collapsedSeries,
+          sequence,
+          seriesSequence);
     }
     return orElse();
   }
@@ -1705,7 +1917,10 @@ abstract class LibraryItemMinified extends LibraryItem {
       required final MediaType mediaType,
       required final Media media,
       required final int numFiles,
-      required final int size}) = _$LibraryItemMinified;
+      required final int size,
+      final Series? collapsedSeries,
+      final String? sequence,
+      final String? seriesSequence}) = _$LibraryItemMinified;
   const LibraryItemMinified._() : super._();
 
   factory LibraryItemMinified.fromJson(Map<String, dynamic> json) =
@@ -1748,6 +1963,11 @@ abstract class LibraryItemMinified extends LibraryItem {
   Media get media;
   int get numFiles;
   int get size;
+  Series? get collapsedSeries;
+  @override
+  String? get sequence;
+  @override
+  String? get seriesSequence;
   @override
   @JsonKey(ignore: true)
   _$$LibraryItemMinifiedCopyWith<_$LibraryItemMinified> get copyWith =>
@@ -1782,7 +2002,9 @@ abstract class _$$LibraryItemExpandedCopyWith<$Res>
       MediaType mediaType,
       Media media,
       List<LibraryFile> libraryFiles,
-      int size});
+      int size,
+      String? sequence,
+      String? seriesSequence});
 
   @override
   $MediaCopyWith<$Res> get media;
@@ -1819,6 +2041,8 @@ class __$$LibraryItemExpandedCopyWithImpl<$Res>
     Object? media = null,
     Object? libraryFiles = null,
     Object? size = null,
+    Object? sequence = freezed,
+    Object? seriesSequence = freezed,
   }) {
     return _then(_$LibraryItemExpanded(
       id: null == id
@@ -1901,6 +2125,14 @@ class __$$LibraryItemExpandedCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int,
+      sequence: freezed == sequence
+          ? _value.sequence
+          : sequence // ignore: cast_nullable_to_non_nullable
+              as String?,
+      seriesSequence: freezed == seriesSequence
+          ? _value.seriesSequence
+          : seriesSequence // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -1930,6 +2162,8 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
       required this.media,
       required final List<LibraryFile> libraryFiles,
       required this.size,
+      this.sequence,
+      this.seriesSequence,
       final String? $type})
       : _libraryFiles = libraryFiles,
         $type = $type ?? 'expanded',
@@ -1987,13 +2221,17 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
 
   @override
   final int size;
+  @override
+  final String? sequence;
+  @override
+  final String? seriesSequence;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'LibraryItem.expanded(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, size: $size)';
+    return 'LibraryItem.expanded(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, size: $size, sequence: $sequence, seriesSequence: $seriesSequence)';
   }
 
   @override
@@ -2030,7 +2268,11 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             (identical(other.media, media) || other.media == media) &&
             const DeepCollectionEquality()
                 .equals(other._libraryFiles, _libraryFiles) &&
-            (identical(other.size, size) || other.size == size));
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.sequence, sequence) ||
+                other.sequence == sequence) &&
+            (identical(other.seriesSequence, seriesSequence) ||
+                other.seriesSequence == seriesSequence));
   }
 
   @JsonKey(ignore: true)
@@ -2056,7 +2298,9 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
         mediaType,
         media,
         const DeepCollectionEquality().hash(_libraryFiles),
-        size
+        size,
+        sequence,
+        seriesSequence
       ]);
 
   @JsonKey(ignore: true)
@@ -2088,7 +2332,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)
         $default, {
     required TResult Function(
             String id,
@@ -2108,7 +2355,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)
         minified,
     required TResult Function(
             String id,
@@ -2130,7 +2380,9 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)
+            int size,
+            String? sequence,
+            String? seriesSequence)
         expanded,
   }) {
     return expanded(
@@ -2153,7 +2405,9 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
         mediaType,
         media,
         libraryFiles,
-        size);
+        size,
+        sequence,
+        seriesSequence);
   }
 
   @override
@@ -2178,7 +2432,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)?
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         $default, {
     TResult? Function(
             String id,
@@ -2198,7 +2455,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)?
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         minified,
     TResult? Function(
             String id,
@@ -2220,7 +2480,9 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)?
+            int size,
+            String? sequence,
+            String? seriesSequence)?
         expanded,
   }) {
     return expanded?.call(
@@ -2243,7 +2505,9 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
         mediaType,
         media,
         libraryFiles,
-        size);
+        size,
+        sequence,
+        seriesSequence);
   }
 
   @override
@@ -2268,7 +2532,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             bool isInvalid,
             MediaType mediaType,
             Media media,
-            List<LibraryFile> libraryFiles)?
+            List<LibraryFile> libraryFiles,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         $default, {
     TResult Function(
             String id,
@@ -2288,7 +2555,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             MediaType mediaType,
             Media media,
             int numFiles,
-            int size)?
+            int size,
+            Series? collapsedSeries,
+            String? sequence,
+            String? seriesSequence)?
         minified,
     TResult Function(
             String id,
@@ -2310,7 +2580,9 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             MediaType mediaType,
             Media media,
             List<LibraryFile> libraryFiles,
-            int size)?
+            int size,
+            String? sequence,
+            String? seriesSequence)?
         expanded,
     required TResult orElse(),
   }) {
@@ -2335,7 +2607,9 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
           mediaType,
           media,
           libraryFiles,
-          size);
+          size,
+          sequence,
+          seriesSequence);
     }
     return orElse();
   }
@@ -2403,7 +2677,9 @@ abstract class LibraryItemExpanded extends LibraryItem {
       required final MediaType mediaType,
       required final Media media,
       required final List<LibraryFile> libraryFiles,
-      required final int size}) = _$LibraryItemExpanded;
+      required final int size,
+      final String? sequence,
+      final String? seriesSequence}) = _$LibraryItemExpanded;
   const LibraryItemExpanded._() : super._();
 
   factory LibraryItemExpanded.fromJson(Map<String, dynamic> json) =
@@ -2448,6 +2724,10 @@ abstract class LibraryItemExpanded extends LibraryItem {
   Media get media;
   List<LibraryFile> get libraryFiles;
   int get size;
+  @override
+  String? get sequence;
+  @override
+  String? get seriesSequence;
   @override
   @JsonKey(ignore: true)
   _$$LibraryItemExpandedCopyWith<_$LibraryItemExpanded> get copyWith =>

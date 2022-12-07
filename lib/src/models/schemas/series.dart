@@ -24,7 +24,9 @@ class Series with _$Series {
     required String id,
     required String name,
     required String nameIgnorePrefix,
+    required List<String> libraryItemIds,
     required int numBooks,
+    String? seriesSequenceList,
   }) = SeriesNumBooks;
 
   @jsonConverters

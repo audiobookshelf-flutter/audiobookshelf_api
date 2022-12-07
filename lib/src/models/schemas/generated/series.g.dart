@@ -30,7 +30,11 @@ _$SeriesNumBooks _$$SeriesNumBooksFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       name: json['name'] as String,
       nameIgnorePrefix: json['nameIgnorePrefix'] as String,
+      libraryItemIds: (json['libraryItemIds'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       numBooks: json['numBooks'] as int,
+      seriesSequenceList: json['seriesSequenceList'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
@@ -39,7 +43,9 @@ Map<String, dynamic> _$$SeriesNumBooksToJson(_$SeriesNumBooks instance) =>
       'id': instance.id,
       'name': instance.name,
       'nameIgnorePrefix': instance.nameIgnorePrefix,
+      'libraryItemIds': instance.libraryItemIds,
       'numBooks': instance.numBooks,
+      'seriesSequenceList': instance.seriesSequenceList,
       'runtimeType': instance.$type,
     };
 
