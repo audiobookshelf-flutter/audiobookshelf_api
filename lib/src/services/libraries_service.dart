@@ -1,13 +1,13 @@
 import '../models/request_parameters/create_library_req_params.dart';
 import '../models/request_parameters/get_librarys_items_req_params.dart';
+import '../models/request_parameters/get_librarys_series_req_params.dart';
 import '../models/request_parameters/update_library_req_params.dart';
 import '../models/responses/get_library_response.dart';
 import '../models/responses/get_librarys_items_response.dart';
+import '../models/responses/get_librarys_series_response.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
 import '../search_response.dart';
-import '../models/schemas/library_item.dart';
-import '../models/schemas/series.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -114,6 +114,21 @@ class LibrariesService extends Service {
     );
   }
 
+  /// See [Get a Library's Series](https://api.audiobookshelf.org/#get-a-library-39-s-series)
+  Future<GetLibrarysSeriesResponse?> getSeries({
+    required String libraryId,
+    GetLibrarysSeriesReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/series',
+      queryParameters: parameters?.toJson(),
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetLibrarysSeriesResponse.fromJson),
+    );
+  }
+
   Future<List<Author>?> getAuthors({
     required String libraryId,
     ResponseErrorHandler? responseErrorHandler,
@@ -123,18 +138,6 @@ class LibrariesService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJson(json, Author.fromJson),
-    );
-  }
-
-  Future<List<Series>?> getSeries({
-    required String libraryId,
-    ResponseErrorHandler? responseErrorHandler,
-  }) {
-    return api.getJson(
-      path: '$basePath/$libraryId/series',
-      requiresAuth: true,
-      responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJsonKey(json, 'results', Series.fromJson),
     );
   }
 

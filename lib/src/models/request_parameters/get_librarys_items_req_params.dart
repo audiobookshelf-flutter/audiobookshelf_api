@@ -27,5 +27,8 @@ class GetLibrarysItemsReqParams {
     this.collapseSeries,
   });
 
-  Map<String, dynamic>? toJson() => _$GetLibrarysItemsReqParamsToJson(this);
+  Map<String, dynamic>? toJson() {
+    final json = _$GetLibrarysItemsReqParamsToJson(this);
+    return json.isNotEmpty ? json : null;
+  }
 }
