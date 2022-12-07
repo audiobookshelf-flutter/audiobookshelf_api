@@ -22,7 +22,7 @@ class Media with _$Media {
 
   const factory Media.book({
     required String libraryItemId,
-    required BookMetadata metadata,
+    required MediaMetadata metadata,
     String? coverPath,
     required List<String> tags,
     required List<AudioFile> audioFiles,
@@ -33,7 +33,7 @@ class Media with _$Media {
 
   @jsonConverters
   const factory Media.bookMinified({
-    required BookMetadataMinified metadata,
+    required MediaMetadata metadata,
     String? coverPath,
     required List<String> tags,
     required int numTracks,
@@ -49,7 +49,7 @@ class Media with _$Media {
   @jsonConverters
   const factory Media.bookExpanded({
     required String libraryItemId,
-    required BookMetadataExpanded metadata,
+    required MediaMetadata metadata,
     String? coverPath,
     required List<String> tags,
     required List<AudioFile> audioFiles,
@@ -64,7 +64,7 @@ class Media with _$Media {
   @jsonConverters
   const factory Media.podcast({
     required String libraryItemId,
-    required PodcastMetadata metadata,
+    required MediaMetadata metadata,
     String? coverPath,
     required List<String> tags,
     required List<PodcastEpisode> episodes,
@@ -77,7 +77,7 @@ class Media with _$Media {
 
   @jsonConverters
   const factory Media.podcastMinified({
-    required PodcastMetadataMinified metadata,
+    required MediaMetadata metadata,
     String? coverPath,
     required List<String> tags,
     required int numEpisodes,
@@ -92,7 +92,7 @@ class Media with _$Media {
   @jsonConverters
   const factory Media.podcastExpanded({
     required String libraryItemId,
-    required PodcastMetadataExpanded metadata,
+    required MediaMetadata metadata,
     String? coverPath,
     required List<String> tags,
     required List<PodcastEpisodeExpanded> episodes,

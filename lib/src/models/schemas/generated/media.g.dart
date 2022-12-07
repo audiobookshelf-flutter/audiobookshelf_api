@@ -8,7 +8,8 @@ part of '../media.dart';
 
 _$Book _$$BookFromJson(Map<String, dynamic> json) => _$Book(
       libraryItemId: json['libraryItemId'] as String,
-      metadata: BookMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
+      metadata:
+          MediaMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
       coverPath: json['coverPath'] as String?,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       audioFiles: (json['audioFiles'] as List<dynamic>)
@@ -39,8 +40,8 @@ Map<String, dynamic> _$$BookToJson(_$Book instance) => <String, dynamic>{
 
 _$BookMinified _$$BookMinifiedFromJson(Map<String, dynamic> json) =>
     _$BookMinified(
-      metadata: BookMetadataMinified.fromJson(
-          json['metadata'] as Map<String, dynamic>),
+      metadata:
+          MediaMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
       coverPath: json['coverPath'] as String?,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       numTracks: json['numTracks'] as int,
@@ -75,8 +76,8 @@ Map<String, dynamic> _$$BookMinifiedToJson(_$BookMinified instance) =>
 _$BookExpanded _$$BookExpandedFromJson(Map<String, dynamic> json) =>
     _$BookExpanded(
       libraryItemId: json['libraryItemId'] as String,
-      metadata: BookMetadataExpanded.fromJson(
-          json['metadata'] as Map<String, dynamic>),
+      metadata:
+          MediaMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
       coverPath: json['coverPath'] as String?,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       audioFiles: (json['audioFiles'] as List<dynamic>)
@@ -119,7 +120,7 @@ Map<String, dynamic> _$$BookExpandedToJson(_$BookExpanded instance) =>
 _$Podcast _$$PodcastFromJson(Map<String, dynamic> json) => _$Podcast(
       libraryItemId: json['libraryItemId'] as String,
       metadata:
-          PodcastMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
+          MediaMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
       coverPath: json['coverPath'] as String?,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       episodes: (json['episodes'] as List<dynamic>)
@@ -167,8 +168,8 @@ Json? _$JsonConverterToJson<Json, Value>(
 
 _$PodcastMinified _$$PodcastMinifiedFromJson(Map<String, dynamic> json) =>
     _$PodcastMinified(
-      metadata: PodcastMetadataMinified.fromJson(
-          json['metadata'] as Map<String, dynamic>),
+      metadata:
+          MediaMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
       coverPath: json['coverPath'] as String?,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       numEpisodes: json['numEpisodes'] as int,
@@ -205,8 +206,8 @@ Map<String, dynamic> _$$PodcastMinifiedToJson(_$PodcastMinified instance) =>
 _$PodcastExpanded _$$PodcastExpandedFromJson(Map<String, dynamic> json) =>
     _$PodcastExpanded(
       libraryItemId: json['libraryItemId'] as String,
-      metadata: PodcastMetadataExpanded.fromJson(
-          json['metadata'] as Map<String, dynamic>),
+      metadata:
+          MediaMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
       coverPath: json['coverPath'] as String?,
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       episodes: (json['episodes'] as List<dynamic>)

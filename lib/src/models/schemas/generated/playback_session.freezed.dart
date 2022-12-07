@@ -16,14 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 
 PlaybackSession _$PlaybackSessionFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
-    case 'book':
-      return BookPlaybackSession.fromJson(json);
-    case 'bookExpanded':
-      return BookPlaybackSessionExpanded.fromJson(json);
-    case 'podcast':
-      return PodcastPlaybackSession.fromJson(json);
-    case 'podcastExpanded':
-      return PodcastPlaybackSessionExpanded.fromJson(json);
+    case 'default':
+      return _PlaybackSession.fromJson(json);
+    case 'expanded':
+      return PlaybackSessionExpanded.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'PlaybackSession',
@@ -37,8 +33,10 @@ mixin _$PlaybackSession {
   String get userId => throw _privateConstructorUsedError;
   String get libraryId => throw _privateConstructorUsedError;
   String get libraryItemId => throw _privateConstructorUsedError;
+  String? get episodeId => throw _privateConstructorUsedError;
   MediaType get mediaType => throw _privateConstructorUsedError;
   MediaMetadata get mediaMetadata => throw _privateConstructorUsedError;
+  List<BookChapter> get chapters => throw _privateConstructorUsedError;
   String get displayTitle => throw _privateConstructorUsedError;
   String get displayAuthor => throw _privateConstructorUsedError;
   String get coverPath => throw _privateConstructorUsedError;
@@ -54,14 +52,15 @@ mixin _$PlaybackSession {
   DateTime get startedAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
+  TResult when<TResult extends Object?>(
+    TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -77,14 +76,15 @@ mixin _$PlaybackSession {
             Duration currentTime,
             DateTime startedAt,
             DateTime updatedAt)
-        book,
+        $default, {
     required TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -102,66 +102,19 @@ mixin _$PlaybackSession {
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
             LibraryItem libraryItem)
-        bookExpanded,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)
-        podcast,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)
-        podcastExpanded,
+        expanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -177,14 +130,15 @@ mixin _$PlaybackSession {
             Duration currentTime,
             DateTime startedAt,
             DateTime updatedAt)?
-        book,
+        $default, {
     TResult? Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -202,66 +156,19 @@ mixin _$PlaybackSession {
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
             LibraryItem libraryItem)?
-        bookExpanded,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
+        expanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -277,14 +184,15 @@ mixin _$PlaybackSession {
             Duration currentTime,
             DateTime startedAt,
             DateTime updatedAt)?
-        book,
+        $default, {
     TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -302,81 +210,26 @@ mixin _$PlaybackSession {
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
             LibraryItem libraryItem)?
-        bookExpanded,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
+        expanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BookPlaybackSession value) book,
-    required TResult Function(BookPlaybackSessionExpanded value) bookExpanded,
-    required TResult Function(PodcastPlaybackSession value) podcast,
-    required TResult Function(PodcastPlaybackSessionExpanded value)
-        podcastExpanded,
+  TResult map<TResult extends Object?>(
+    TResult Function(_PlaybackSession value) $default, {
+    required TResult Function(PlaybackSessionExpanded value) expanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BookPlaybackSession value)? book,
-    TResult? Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult? Function(PodcastPlaybackSession value)? podcast,
-    TResult? Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_PlaybackSession value)? $default, {
+    TResult? Function(PlaybackSessionExpanded value)? expanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BookPlaybackSession value)? book,
-    TResult Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult Function(PodcastPlaybackSession value)? podcast,
-    TResult Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_PlaybackSession value)? $default, {
+    TResult Function(PlaybackSessionExpanded value)? expanded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -397,7 +250,10 @@ abstract class $PlaybackSessionCopyWith<$Res> {
       String userId,
       String libraryId,
       String libraryItemId,
+      String? episodeId,
       MediaType mediaType,
+      MediaMetadata mediaMetadata,
+      List<BookChapter> chapters,
       String displayTitle,
       String displayAuthor,
       String coverPath,
@@ -413,6 +269,7 @@ abstract class $PlaybackSessionCopyWith<$Res> {
       DateTime startedAt,
       DateTime updatedAt});
 
+  $MediaMetadataCopyWith<$Res> get mediaMetadata;
   $DeviceInfoCopyWith<$Res> get deviceInfo;
 }
 
@@ -433,7 +290,10 @@ class _$PlaybackSessionCopyWithImpl<$Res, $Val extends PlaybackSession>
     Object? userId = null,
     Object? libraryId = null,
     Object? libraryItemId = null,
+    Object? episodeId = freezed,
     Object? mediaType = null,
+    Object? mediaMetadata = null,
+    Object? chapters = null,
     Object? displayTitle = null,
     Object? displayAuthor = null,
     Object? coverPath = null,
@@ -466,10 +326,22 @@ class _$PlaybackSessionCopyWithImpl<$Res, $Val extends PlaybackSession>
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
+      episodeId: freezed == episodeId
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as String?,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
               as MediaType,
+      mediaMetadata: null == mediaMetadata
+          ? _value.mediaMetadata
+          : mediaMetadata // ignore: cast_nullable_to_non_nullable
+              as MediaMetadata,
+      chapters: null == chapters
+          ? _value.chapters
+          : chapters // ignore: cast_nullable_to_non_nullable
+              as List<BookChapter>,
       displayTitle: null == displayTitle
           ? _value.displayTitle
           : displayTitle // ignore: cast_nullable_to_non_nullable
@@ -531,6 +403,14 @@ class _$PlaybackSessionCopyWithImpl<$Res, $Val extends PlaybackSession>
 
   @override
   @pragma('vm:prefer-inline')
+  $MediaMetadataCopyWith<$Res> get mediaMetadata {
+    return $MediaMetadataCopyWith<$Res>(_value.mediaMetadata, (value) {
+      return _then(_value.copyWith(mediaMetadata: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $DeviceInfoCopyWith<$Res> get deviceInfo {
     return $DeviceInfoCopyWith<$Res>(_value.deviceInfo, (value) {
       return _then(_value.copyWith(deviceInfo: value) as $Val);
@@ -539,11 +419,11 @@ class _$PlaybackSessionCopyWithImpl<$Res, $Val extends PlaybackSession>
 }
 
 /// @nodoc
-abstract class _$$BookPlaybackSessionCopyWith<$Res>
+abstract class _$$_PlaybackSessionCopyWith<$Res>
     implements $PlaybackSessionCopyWith<$Res> {
-  factory _$$BookPlaybackSessionCopyWith(_$BookPlaybackSession value,
-          $Res Function(_$BookPlaybackSession) then) =
-      __$$BookPlaybackSessionCopyWithImpl<$Res>;
+  factory _$$_PlaybackSessionCopyWith(
+          _$_PlaybackSession value, $Res Function(_$_PlaybackSession) then) =
+      __$$_PlaybackSessionCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -551,8 +431,9 @@ abstract class _$$BookPlaybackSessionCopyWith<$Res>
       String userId,
       String libraryId,
       String libraryItemId,
+      String? episodeId,
       MediaType mediaType,
-      BookMetadata mediaMetadata,
+      MediaMetadata mediaMetadata,
       List<BookChapter> chapters,
       String displayTitle,
       String displayAuthor,
@@ -570,15 +451,17 @@ abstract class _$$BookPlaybackSessionCopyWith<$Res>
       DateTime updatedAt});
 
   @override
+  $MediaMetadataCopyWith<$Res> get mediaMetadata;
+  @override
   $DeviceInfoCopyWith<$Res> get deviceInfo;
 }
 
 /// @nodoc
-class __$$BookPlaybackSessionCopyWithImpl<$Res>
-    extends _$PlaybackSessionCopyWithImpl<$Res, _$BookPlaybackSession>
-    implements _$$BookPlaybackSessionCopyWith<$Res> {
-  __$$BookPlaybackSessionCopyWithImpl(
-      _$BookPlaybackSession _value, $Res Function(_$BookPlaybackSession) _then)
+class __$$_PlaybackSessionCopyWithImpl<$Res>
+    extends _$PlaybackSessionCopyWithImpl<$Res, _$_PlaybackSession>
+    implements _$$_PlaybackSessionCopyWith<$Res> {
+  __$$_PlaybackSessionCopyWithImpl(
+      _$_PlaybackSession _value, $Res Function(_$_PlaybackSession) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -588,6 +471,7 @@ class __$$BookPlaybackSessionCopyWithImpl<$Res>
     Object? userId = null,
     Object? libraryId = null,
     Object? libraryItemId = null,
+    Object? episodeId = freezed,
     Object? mediaType = null,
     Object? mediaMetadata = null,
     Object? chapters = null,
@@ -606,7 +490,7 @@ class __$$BookPlaybackSessionCopyWithImpl<$Res>
     Object? startedAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$BookPlaybackSession(
+    return _then(_$_PlaybackSession(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -623,6 +507,10 @@ class __$$BookPlaybackSessionCopyWithImpl<$Res>
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
+      episodeId: freezed == episodeId
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as String?,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -630,7 +518,7 @@ class __$$BookPlaybackSessionCopyWithImpl<$Res>
       mediaMetadata: null == mediaMetadata
           ? _value.mediaMetadata
           : mediaMetadata // ignore: cast_nullable_to_non_nullable
-              as BookMetadata,
+              as MediaMetadata,
       chapters: null == chapters
           ? _value._chapters
           : chapters // ignore: cast_nullable_to_non_nullable
@@ -698,13 +586,14 @@ class __$$BookPlaybackSessionCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$BookPlaybackSession extends BookPlaybackSession {
-  const _$BookPlaybackSession(
+class _$_PlaybackSession extends _PlaybackSession {
+  const _$_PlaybackSession(
       {required this.id,
       required this.userId,
       required this.libraryId,
       required this.libraryItemId,
-      this.mediaType = MediaType.book,
+      this.episodeId,
+      required this.mediaType,
       required this.mediaMetadata,
       required final List<BookChapter> chapters,
       required this.displayTitle,
@@ -723,11 +612,11 @@ class _$BookPlaybackSession extends BookPlaybackSession {
       required this.updatedAt,
       final String? $type})
       : _chapters = chapters,
-        $type = $type ?? 'book',
+        $type = $type ?? 'default',
         super._();
 
-  factory _$BookPlaybackSession.fromJson(Map<String, dynamic> json) =>
-      _$$BookPlaybackSessionFromJson(json);
+  factory _$_PlaybackSession.fromJson(Map<String, dynamic> json) =>
+      _$$_PlaybackSessionFromJson(json);
 
   @override
   final String id;
@@ -738,10 +627,11 @@ class _$BookPlaybackSession extends BookPlaybackSession {
   @override
   final String libraryItemId;
   @override
-  @JsonKey()
+  final String? episodeId;
+  @override
   final MediaType mediaType;
   @override
-  final BookMetadata mediaMetadata;
+  final MediaMetadata mediaMetadata;
   final List<BookChapter> _chapters;
   @override
   List<BookChapter> get chapters {
@@ -784,20 +674,22 @@ class _$BookPlaybackSession extends BookPlaybackSession {
 
   @override
   String toString() {
-    return 'PlaybackSession.book(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt)';
+    return 'PlaybackSession(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BookPlaybackSession &&
+            other is _$_PlaybackSession &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.libraryId, libraryId) ||
                 other.libraryId == libraryId) &&
             (identical(other.libraryItemId, libraryItemId) ||
                 other.libraryItemId == libraryItemId) &&
+            (identical(other.episodeId, episodeId) ||
+                other.episodeId == episodeId) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
             (identical(other.mediaMetadata, mediaMetadata) ||
@@ -840,6 +732,7 @@ class _$BookPlaybackSession extends BookPlaybackSession {
         userId,
         libraryId,
         libraryItemId,
+        episodeId,
         mediaType,
         mediaMetadata,
         const DeepCollectionEquality().hash(_chapters),
@@ -862,20 +755,20 @@ class _$BookPlaybackSession extends BookPlaybackSession {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BookPlaybackSessionCopyWith<_$BookPlaybackSession> get copyWith =>
-      __$$BookPlaybackSessionCopyWithImpl<_$BookPlaybackSession>(
-          this, _$identity);
+  _$$_PlaybackSessionCopyWith<_$_PlaybackSession> get copyWith =>
+      __$$_PlaybackSessionCopyWithImpl<_$_PlaybackSession>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
+  TResult when<TResult extends Object?>(
+    TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -891,14 +784,15 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             Duration currentTime,
             DateTime startedAt,
             DateTime updatedAt)
-        book,
+        $default, {
     required TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -916,61 +810,14 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
             LibraryItem libraryItem)
-        bookExpanded,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)
-        podcast,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)
-        podcastExpanded,
+        expanded,
   }) {
-    return book(
+    return $default(
         id,
         userId,
         libraryId,
         libraryItemId,
+        episodeId,
         mediaType,
         mediaMetadata,
         chapters,
@@ -992,14 +839,15 @@ class _$BookPlaybackSession extends BookPlaybackSession {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -1015,14 +863,15 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             Duration currentTime,
             DateTime startedAt,
             DateTime updatedAt)?
-        book,
+        $default, {
     TResult? Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -1040,61 +889,14 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
             LibraryItem libraryItem)?
-        bookExpanded,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
+        expanded,
   }) {
-    return book?.call(
+    return $default?.call(
         id,
         userId,
         libraryId,
         libraryItemId,
+        episodeId,
         mediaType,
         mediaMetadata,
         chapters,
@@ -1116,14 +918,15 @@ class _$BookPlaybackSession extends BookPlaybackSession {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -1139,14 +942,15 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             Duration currentTime,
             DateTime startedAt,
             DateTime updatedAt)?
-        book,
+        $default, {
     TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -1164,63 +968,16 @@ class _$BookPlaybackSession extends BookPlaybackSession {
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
             LibraryItem libraryItem)?
-        bookExpanded,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
+        expanded,
     required TResult orElse(),
   }) {
-    if (book != null) {
-      return book(
+    if ($default != null) {
+      return $default(
           id,
           userId,
           libraryId,
           libraryItemId,
+          episodeId,
           mediaType,
           mediaMetadata,
           chapters,
@@ -1244,58 +1001,52 @@ class _$BookPlaybackSession extends BookPlaybackSession {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BookPlaybackSession value) book,
-    required TResult Function(BookPlaybackSessionExpanded value) bookExpanded,
-    required TResult Function(PodcastPlaybackSession value) podcast,
-    required TResult Function(PodcastPlaybackSessionExpanded value)
-        podcastExpanded,
+  TResult map<TResult extends Object?>(
+    TResult Function(_PlaybackSession value) $default, {
+    required TResult Function(PlaybackSessionExpanded value) expanded,
   }) {
-    return book(this);
+    return $default(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BookPlaybackSession value)? book,
-    TResult? Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult? Function(PodcastPlaybackSession value)? podcast,
-    TResult? Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_PlaybackSession value)? $default, {
+    TResult? Function(PlaybackSessionExpanded value)? expanded,
   }) {
-    return book?.call(this);
+    return $default?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BookPlaybackSession value)? book,
-    TResult Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult Function(PodcastPlaybackSession value)? podcast,
-    TResult Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_PlaybackSession value)? $default, {
+    TResult Function(PlaybackSessionExpanded value)? expanded,
     required TResult orElse(),
   }) {
-    if (book != null) {
-      return book(this);
+    if ($default != null) {
+      return $default(this);
     }
     return orElse();
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BookPlaybackSessionToJson(
+    return _$$_PlaybackSessionToJson(
       this,
     );
   }
 }
 
-abstract class BookPlaybackSession extends PlaybackSession {
-  const factory BookPlaybackSession(
+abstract class _PlaybackSession extends PlaybackSession {
+  const factory _PlaybackSession(
       {required final String id,
       required final String userId,
       required final String libraryId,
       required final String libraryItemId,
-      final MediaType mediaType,
-      required final BookMetadata mediaMetadata,
+      final String? episodeId,
+      required final MediaType mediaType,
+      required final MediaMetadata mediaMetadata,
       required final List<BookChapter> chapters,
       required final String displayTitle,
       required final String displayAuthor,
@@ -1310,11 +1061,11 @@ abstract class BookPlaybackSession extends PlaybackSession {
       required final Duration startTime,
       required final Duration currentTime,
       required final DateTime startedAt,
-      required final DateTime updatedAt}) = _$BookPlaybackSession;
-  const BookPlaybackSession._() : super._();
+      required final DateTime updatedAt}) = _$_PlaybackSession;
+  const _PlaybackSession._() : super._();
 
-  factory BookPlaybackSession.fromJson(Map<String, dynamic> json) =
-      _$BookPlaybackSession.fromJson;
+  factory _PlaybackSession.fromJson(Map<String, dynamic> json) =
+      _$_PlaybackSession.fromJson;
 
   @override
   String get id;
@@ -1325,9 +1076,12 @@ abstract class BookPlaybackSession extends PlaybackSession {
   @override
   String get libraryItemId;
   @override
+  String? get episodeId;
+  @override
   MediaType get mediaType;
   @override
-  BookMetadata get mediaMetadata;
+  MediaMetadata get mediaMetadata;
+  @override
   List<BookChapter> get chapters;
   @override
   String get displayTitle;
@@ -1359,17 +1113,16 @@ abstract class BookPlaybackSession extends PlaybackSession {
   DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$BookPlaybackSessionCopyWith<_$BookPlaybackSession> get copyWith =>
+  _$$_PlaybackSessionCopyWith<_$_PlaybackSession> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BookPlaybackSessionExpandedCopyWith<$Res>
+abstract class _$$PlaybackSessionExpandedCopyWith<$Res>
     implements $PlaybackSessionCopyWith<$Res> {
-  factory _$$BookPlaybackSessionExpandedCopyWith(
-          _$BookPlaybackSessionExpanded value,
-          $Res Function(_$BookPlaybackSessionExpanded) then) =
-      __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>;
+  factory _$$PlaybackSessionExpandedCopyWith(_$PlaybackSessionExpanded value,
+          $Res Function(_$PlaybackSessionExpanded) then) =
+      __$$PlaybackSessionExpandedCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1377,8 +1130,9 @@ abstract class _$$BookPlaybackSessionExpandedCopyWith<$Res>
       String userId,
       String libraryId,
       String libraryItemId,
+      String? episodeId,
       MediaType mediaType,
-      BookMetadata mediaMetadata,
+      MediaMetadata mediaMetadata,
       List<BookChapter> chapters,
       String displayTitle,
       String displayAuthor,
@@ -1398,17 +1152,18 @@ abstract class _$$BookPlaybackSessionExpandedCopyWith<$Res>
       LibraryItem libraryItem});
 
   @override
+  $MediaMetadataCopyWith<$Res> get mediaMetadata;
+  @override
   $DeviceInfoCopyWith<$Res> get deviceInfo;
   $LibraryItemCopyWith<$Res> get libraryItem;
 }
 
 /// @nodoc
-class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
-    extends _$PlaybackSessionCopyWithImpl<$Res, _$BookPlaybackSessionExpanded>
-    implements _$$BookPlaybackSessionExpandedCopyWith<$Res> {
-  __$$BookPlaybackSessionExpandedCopyWithImpl(
-      _$BookPlaybackSessionExpanded _value,
-      $Res Function(_$BookPlaybackSessionExpanded) _then)
+class __$$PlaybackSessionExpandedCopyWithImpl<$Res>
+    extends _$PlaybackSessionCopyWithImpl<$Res, _$PlaybackSessionExpanded>
+    implements _$$PlaybackSessionExpandedCopyWith<$Res> {
+  __$$PlaybackSessionExpandedCopyWithImpl(_$PlaybackSessionExpanded _value,
+      $Res Function(_$PlaybackSessionExpanded) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1418,6 +1173,7 @@ class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
     Object? userId = null,
     Object? libraryId = null,
     Object? libraryItemId = null,
+    Object? episodeId = freezed,
     Object? mediaType = null,
     Object? mediaMetadata = null,
     Object? chapters = null,
@@ -1438,7 +1194,7 @@ class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
     Object? audioTracks = null,
     Object? libraryItem = null,
   }) {
-    return _then(_$BookPlaybackSessionExpanded(
+    return _then(_$PlaybackSessionExpanded(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1455,6 +1211,10 @@ class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
           ? _value.libraryItemId
           : libraryItemId // ignore: cast_nullable_to_non_nullable
               as String,
+      episodeId: freezed == episodeId
+          ? _value.episodeId
+          : episodeId // ignore: cast_nullable_to_non_nullable
+              as String?,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -1462,7 +1222,7 @@ class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
       mediaMetadata: null == mediaMetadata
           ? _value.mediaMetadata
           : mediaMetadata // ignore: cast_nullable_to_non_nullable
-              as BookMetadata,
+              as MediaMetadata,
       chapters: null == chapters
           ? _value._chapters
           : chapters // ignore: cast_nullable_to_non_nullable
@@ -1546,13 +1306,14 @@ class __$$BookPlaybackSessionExpandedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
-  const _$BookPlaybackSessionExpanded(
+class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
+  const _$PlaybackSessionExpanded(
       {required this.id,
       required this.userId,
       required this.libraryId,
       required this.libraryItemId,
-      this.mediaType = MediaType.book,
+      this.episodeId,
+      required this.mediaType,
       required this.mediaMetadata,
       required final List<BookChapter> chapters,
       required this.displayTitle,
@@ -1574,11 +1335,11 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
       final String? $type})
       : _chapters = chapters,
         _audioTracks = audioTracks,
-        $type = $type ?? 'bookExpanded',
+        $type = $type ?? 'expanded',
         super._();
 
-  factory _$BookPlaybackSessionExpanded.fromJson(Map<String, dynamic> json) =>
-      _$$BookPlaybackSessionExpandedFromJson(json);
+  factory _$PlaybackSessionExpanded.fromJson(Map<String, dynamic> json) =>
+      _$$PlaybackSessionExpandedFromJson(json);
 
   @override
   final String id;
@@ -1589,10 +1350,11 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
   @override
   final String libraryItemId;
   @override
-  @JsonKey()
+  final String? episodeId;
+  @override
   final MediaType mediaType;
   @override
-  final BookMetadata mediaMetadata;
+  final MediaMetadata mediaMetadata;
   final List<BookChapter> _chapters;
   @override
   List<BookChapter> get chapters {
@@ -1645,20 +1407,22 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
 
   @override
   String toString() {
-    return 'PlaybackSession.bookExpanded(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, audioTracks: $audioTracks, libraryItem: $libraryItem)';
+    return 'PlaybackSession.expanded(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, audioTracks: $audioTracks, libraryItem: $libraryItem)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BookPlaybackSessionExpanded &&
+            other is _$PlaybackSessionExpanded &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.libraryId, libraryId) ||
                 other.libraryId == libraryId) &&
             (identical(other.libraryItemId, libraryItemId) ||
                 other.libraryItemId == libraryItemId) &&
+            (identical(other.episodeId, episodeId) ||
+                other.episodeId == episodeId) &&
             (identical(other.mediaType, mediaType) ||
                 other.mediaType == mediaType) &&
             (identical(other.mediaMetadata, mediaMetadata) ||
@@ -1705,6 +1469,7 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
         userId,
         libraryId,
         libraryItemId,
+        episodeId,
         mediaType,
         mediaMetadata,
         const DeepCollectionEquality().hash(_chapters),
@@ -1729,20 +1494,21 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BookPlaybackSessionExpandedCopyWith<_$BookPlaybackSessionExpanded>
-      get copyWith => __$$BookPlaybackSessionExpandedCopyWithImpl<
-          _$BookPlaybackSessionExpanded>(this, _$identity);
+  _$$PlaybackSessionExpandedCopyWith<_$PlaybackSessionExpanded> get copyWith =>
+      __$$PlaybackSessionExpandedCopyWithImpl<_$PlaybackSessionExpanded>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
+  TResult when<TResult extends Object?>(
+    TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -1758,14 +1524,15 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             Duration currentTime,
             DateTime startedAt,
             DateTime updatedAt)
-        book,
+        $default, {
     required TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -1783,61 +1550,14 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
             LibraryItem libraryItem)
-        bookExpanded,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)
-        podcast,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)
-        podcastExpanded,
+        expanded,
   }) {
-    return bookExpanded(
+    return expanded(
         id,
         userId,
         libraryId,
         libraryItemId,
+        episodeId,
         mediaType,
         mediaMetadata,
         chapters,
@@ -1861,14 +1581,15 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -1884,14 +1605,15 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             Duration currentTime,
             DateTime startedAt,
             DateTime updatedAt)?
-        book,
+        $default, {
     TResult? Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -1909,61 +1631,14 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
             LibraryItem libraryItem)?
-        bookExpanded,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
+        expanded,
   }) {
-    return bookExpanded?.call(
+    return expanded?.call(
         id,
         userId,
         libraryId,
         libraryItemId,
+        episodeId,
         mediaType,
         mediaMetadata,
         chapters,
@@ -1987,14 +1662,15 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -2010,14 +1686,15 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             Duration currentTime,
             DateTime startedAt,
             DateTime updatedAt)?
-        book,
+        $default, {
     TResult Function(
             String id,
             String userId,
             String libraryId,
             String libraryItemId,
+            String? episodeId,
             MediaType mediaType,
-            BookMetadata mediaMetadata,
+            MediaMetadata mediaMetadata,
             List<BookChapter> chapters,
             String displayTitle,
             String displayAuthor,
@@ -2035,63 +1712,16 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
             DateTime updatedAt,
             List<AudioTrack> audioTracks,
             LibraryItem libraryItem)?
-        bookExpanded,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
+        expanded,
     required TResult orElse(),
   }) {
-    if (bookExpanded != null) {
-      return bookExpanded(
+    if (expanded != null) {
+      return expanded(
           id,
           userId,
           libraryId,
           libraryItemId,
+          episodeId,
           mediaType,
           mediaMetadata,
           chapters,
@@ -2117,58 +1747,52 @@ class _$BookPlaybackSessionExpanded extends BookPlaybackSessionExpanded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BookPlaybackSession value) book,
-    required TResult Function(BookPlaybackSessionExpanded value) bookExpanded,
-    required TResult Function(PodcastPlaybackSession value) podcast,
-    required TResult Function(PodcastPlaybackSessionExpanded value)
-        podcastExpanded,
+  TResult map<TResult extends Object?>(
+    TResult Function(_PlaybackSession value) $default, {
+    required TResult Function(PlaybackSessionExpanded value) expanded,
   }) {
-    return bookExpanded(this);
+    return expanded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BookPlaybackSession value)? book,
-    TResult? Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult? Function(PodcastPlaybackSession value)? podcast,
-    TResult? Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_PlaybackSession value)? $default, {
+    TResult? Function(PlaybackSessionExpanded value)? expanded,
   }) {
-    return bookExpanded?.call(this);
+    return expanded?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BookPlaybackSession value)? book,
-    TResult Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult Function(PodcastPlaybackSession value)? podcast,
-    TResult Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_PlaybackSession value)? $default, {
+    TResult Function(PlaybackSessionExpanded value)? expanded,
     required TResult orElse(),
   }) {
-    if (bookExpanded != null) {
-      return bookExpanded(this);
+    if (expanded != null) {
+      return expanded(this);
     }
     return orElse();
   }
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BookPlaybackSessionExpandedToJson(
+    return _$$PlaybackSessionExpandedToJson(
       this,
     );
   }
 }
 
-abstract class BookPlaybackSessionExpanded extends PlaybackSession {
-  const factory BookPlaybackSessionExpanded(
+abstract class PlaybackSessionExpanded extends PlaybackSession {
+  const factory PlaybackSessionExpanded(
       {required final String id,
       required final String userId,
       required final String libraryId,
       required final String libraryItemId,
-      final MediaType mediaType,
-      required final BookMetadata mediaMetadata,
+      final String? episodeId,
+      required final MediaType mediaType,
+      required final MediaMetadata mediaMetadata,
       required final List<BookChapter> chapters,
       required final String displayTitle,
       required final String displayAuthor,
@@ -2185,11 +1809,11 @@ abstract class BookPlaybackSessionExpanded extends PlaybackSession {
       required final DateTime startedAt,
       required final DateTime updatedAt,
       required final List<AudioTrack> audioTracks,
-      required final LibraryItem libraryItem}) = _$BookPlaybackSessionExpanded;
-  const BookPlaybackSessionExpanded._() : super._();
+      required final LibraryItem libraryItem}) = _$PlaybackSessionExpanded;
+  const PlaybackSessionExpanded._() : super._();
 
-  factory BookPlaybackSessionExpanded.fromJson(Map<String, dynamic> json) =
-      _$BookPlaybackSessionExpanded.fromJson;
+  factory PlaybackSessionExpanded.fromJson(Map<String, dynamic> json) =
+      _$PlaybackSessionExpanded.fromJson;
 
   @override
   String get id;
@@ -2200,9 +1824,12 @@ abstract class BookPlaybackSessionExpanded extends PlaybackSession {
   @override
   String get libraryItemId;
   @override
+  String? get episodeId;
+  @override
   MediaType get mediaType;
   @override
-  BookMetadata get mediaMetadata;
+  MediaMetadata get mediaMetadata;
+  @override
   List<BookChapter> get chapters;
   @override
   String get displayTitle;
@@ -2236,1699 +1863,6 @@ abstract class BookPlaybackSessionExpanded extends PlaybackSession {
   LibraryItem get libraryItem;
   @override
   @JsonKey(ignore: true)
-  _$$BookPlaybackSessionExpandedCopyWith<_$BookPlaybackSessionExpanded>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PodcastPlaybackSessionCopyWith<$Res>
-    implements $PlaybackSessionCopyWith<$Res> {
-  factory _$$PodcastPlaybackSessionCopyWith(_$PodcastPlaybackSession value,
-          $Res Function(_$PodcastPlaybackSession) then) =
-      __$$PodcastPlaybackSessionCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String id,
-      String userId,
-      String libraryId,
-      String libraryItemId,
-      String episodeId,
-      MediaType mediaType,
-      PodcastMetadata mediaMetadata,
-      String displayTitle,
-      String displayAuthor,
-      String coverPath,
-      Duration duration,
-      PlayMethod playMethod,
-      String mediaPlayer,
-      DeviceInfo deviceInfo,
-      String day,
-      String dayOfWeek,
-      Duration timeListening,
-      Duration startTime,
-      Duration currentTime,
-      DateTime startedAt,
-      DateTime updatedAt});
-
-  @override
-  $DeviceInfoCopyWith<$Res> get deviceInfo;
-}
-
-/// @nodoc
-class __$$PodcastPlaybackSessionCopyWithImpl<$Res>
-    extends _$PlaybackSessionCopyWithImpl<$Res, _$PodcastPlaybackSession>
-    implements _$$PodcastPlaybackSessionCopyWith<$Res> {
-  __$$PodcastPlaybackSessionCopyWithImpl(_$PodcastPlaybackSession _value,
-      $Res Function(_$PodcastPlaybackSession) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? userId = null,
-    Object? libraryId = null,
-    Object? libraryItemId = null,
-    Object? episodeId = null,
-    Object? mediaType = null,
-    Object? mediaMetadata = null,
-    Object? displayTitle = null,
-    Object? displayAuthor = null,
-    Object? coverPath = null,
-    Object? duration = null,
-    Object? playMethod = null,
-    Object? mediaPlayer = null,
-    Object? deviceInfo = null,
-    Object? day = null,
-    Object? dayOfWeek = null,
-    Object? timeListening = null,
-    Object? startTime = null,
-    Object? currentTime = null,
-    Object? startedAt = null,
-    Object? updatedAt = null,
-  }) {
-    return _then(_$PodcastPlaybackSession(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      libraryId: null == libraryId
-          ? _value.libraryId
-          : libraryId // ignore: cast_nullable_to_non_nullable
-              as String,
-      libraryItemId: null == libraryItemId
-          ? _value.libraryItemId
-          : libraryItemId // ignore: cast_nullable_to_non_nullable
-              as String,
-      episodeId: null == episodeId
-          ? _value.episodeId
-          : episodeId // ignore: cast_nullable_to_non_nullable
-              as String,
-      mediaType: null == mediaType
-          ? _value.mediaType
-          : mediaType // ignore: cast_nullable_to_non_nullable
-              as MediaType,
-      mediaMetadata: null == mediaMetadata
-          ? _value.mediaMetadata
-          : mediaMetadata // ignore: cast_nullable_to_non_nullable
-              as PodcastMetadata,
-      displayTitle: null == displayTitle
-          ? _value.displayTitle
-          : displayTitle // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayAuthor: null == displayAuthor
-          ? _value.displayAuthor
-          : displayAuthor // ignore: cast_nullable_to_non_nullable
-              as String,
-      coverPath: null == coverPath
-          ? _value.coverPath
-          : coverPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      playMethod: null == playMethod
-          ? _value.playMethod
-          : playMethod // ignore: cast_nullable_to_non_nullable
-              as PlayMethod,
-      mediaPlayer: null == mediaPlayer
-          ? _value.mediaPlayer
-          : mediaPlayer // ignore: cast_nullable_to_non_nullable
-              as String,
-      deviceInfo: null == deviceInfo
-          ? _value.deviceInfo
-          : deviceInfo // ignore: cast_nullable_to_non_nullable
-              as DeviceInfo,
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
-              as String,
-      dayOfWeek: null == dayOfWeek
-          ? _value.dayOfWeek
-          : dayOfWeek // ignore: cast_nullable_to_non_nullable
-              as String,
-      timeListening: null == timeListening
-          ? _value.timeListening
-          : timeListening // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      startTime: null == startTime
-          ? _value.startTime
-          : startTime // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      currentTime: null == currentTime
-          ? _value.currentTime
-          : currentTime // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      startedAt: null == startedAt
-          ? _value.startedAt
-          : startedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-    ));
-  }
-}
-
-/// @nodoc
-
-@jsonConverters
-class _$PodcastPlaybackSession extends PodcastPlaybackSession {
-  const _$PodcastPlaybackSession(
-      {required this.id,
-      required this.userId,
-      required this.libraryId,
-      required this.libraryItemId,
-      required this.episodeId,
-      this.mediaType = MediaType.podcast,
-      required this.mediaMetadata,
-      required this.displayTitle,
-      required this.displayAuthor,
-      required this.coverPath,
-      required this.duration,
-      required this.playMethod,
-      required this.mediaPlayer,
-      required this.deviceInfo,
-      required this.day,
-      required this.dayOfWeek,
-      required this.timeListening,
-      required this.startTime,
-      required this.currentTime,
-      required this.startedAt,
-      required this.updatedAt,
-      final String? $type})
-      : $type = $type ?? 'podcast',
-        super._();
-
-  factory _$PodcastPlaybackSession.fromJson(Map<String, dynamic> json) =>
-      _$$PodcastPlaybackSessionFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String userId;
-  @override
-  final String libraryId;
-  @override
-  final String libraryItemId;
-  @override
-  final String episodeId;
-  @override
-  @JsonKey()
-  final MediaType mediaType;
-  @override
-  final PodcastMetadata mediaMetadata;
-  @override
-  final String displayTitle;
-  @override
-  final String displayAuthor;
-  @override
-  final String coverPath;
-  @override
-  final Duration duration;
-  @override
-  final PlayMethod playMethod;
-  @override
-  final String mediaPlayer;
-  @override
-  final DeviceInfo deviceInfo;
-  @override
-  final String day;
-  @override
-  final String dayOfWeek;
-  @override
-  final Duration timeListening;
-  @override
-  final Duration startTime;
-  @override
-  final Duration currentTime;
-  @override
-  final DateTime startedAt;
-  @override
-  final DateTime updatedAt;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'PlaybackSession.podcast(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PodcastPlaybackSession &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.libraryId, libraryId) ||
-                other.libraryId == libraryId) &&
-            (identical(other.libraryItemId, libraryItemId) ||
-                other.libraryItemId == libraryItemId) &&
-            (identical(other.episodeId, episodeId) ||
-                other.episodeId == episodeId) &&
-            (identical(other.mediaType, mediaType) ||
-                other.mediaType == mediaType) &&
-            (identical(other.mediaMetadata, mediaMetadata) ||
-                other.mediaMetadata == mediaMetadata) &&
-            (identical(other.displayTitle, displayTitle) ||
-                other.displayTitle == displayTitle) &&
-            (identical(other.displayAuthor, displayAuthor) ||
-                other.displayAuthor == displayAuthor) &&
-            (identical(other.coverPath, coverPath) ||
-                other.coverPath == coverPath) &&
-            (identical(other.duration, duration) ||
-                other.duration == duration) &&
-            (identical(other.playMethod, playMethod) ||
-                other.playMethod == playMethod) &&
-            (identical(other.mediaPlayer, mediaPlayer) ||
-                other.mediaPlayer == mediaPlayer) &&
-            (identical(other.deviceInfo, deviceInfo) ||
-                other.deviceInfo == deviceInfo) &&
-            (identical(other.day, day) || other.day == day) &&
-            (identical(other.dayOfWeek, dayOfWeek) ||
-                other.dayOfWeek == dayOfWeek) &&
-            (identical(other.timeListening, timeListening) ||
-                other.timeListening == timeListening) &&
-            (identical(other.startTime, startTime) ||
-                other.startTime == startTime) &&
-            (identical(other.currentTime, currentTime) ||
-                other.currentTime == currentTime) &&
-            (identical(other.startedAt, startedAt) ||
-                other.startedAt == startedAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        id,
-        userId,
-        libraryId,
-        libraryItemId,
-        episodeId,
-        mediaType,
-        mediaMetadata,
-        displayTitle,
-        displayAuthor,
-        coverPath,
-        duration,
-        playMethod,
-        mediaPlayer,
-        deviceInfo,
-        day,
-        dayOfWeek,
-        timeListening,
-        startTime,
-        currentTime,
-        startedAt,
-        updatedAt
-      ]);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PodcastPlaybackSessionCopyWith<_$PodcastPlaybackSession> get copyWith =>
-      __$$PodcastPlaybackSessionCopyWithImpl<_$PodcastPlaybackSession>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)
-        book,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)
-        bookExpanded,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)
-        podcast,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)
-        podcastExpanded,
-  }) {
-    return podcast(
-        id,
-        userId,
-        libraryId,
-        libraryItemId,
-        episodeId,
-        mediaType,
-        mediaMetadata,
-        displayTitle,
-        displayAuthor,
-        coverPath,
-        duration,
-        playMethod,
-        mediaPlayer,
-        deviceInfo,
-        day,
-        dayOfWeek,
-        timeListening,
-        startTime,
-        currentTime,
-        startedAt,
-        updatedAt);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        book,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        bookExpanded,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
-  }) {
-    return podcast?.call(
-        id,
-        userId,
-        libraryId,
-        libraryItemId,
-        episodeId,
-        mediaType,
-        mediaMetadata,
-        displayTitle,
-        displayAuthor,
-        coverPath,
-        duration,
-        playMethod,
-        mediaPlayer,
-        deviceInfo,
-        day,
-        dayOfWeek,
-        timeListening,
-        startTime,
-        currentTime,
-        startedAt,
-        updatedAt);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        book,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        bookExpanded,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
-    required TResult orElse(),
-  }) {
-    if (podcast != null) {
-      return podcast(
-          id,
-          userId,
-          libraryId,
-          libraryItemId,
-          episodeId,
-          mediaType,
-          mediaMetadata,
-          displayTitle,
-          displayAuthor,
-          coverPath,
-          duration,
-          playMethod,
-          mediaPlayer,
-          deviceInfo,
-          day,
-          dayOfWeek,
-          timeListening,
-          startTime,
-          currentTime,
-          startedAt,
-          updatedAt);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BookPlaybackSession value) book,
-    required TResult Function(BookPlaybackSessionExpanded value) bookExpanded,
-    required TResult Function(PodcastPlaybackSession value) podcast,
-    required TResult Function(PodcastPlaybackSessionExpanded value)
-        podcastExpanded,
-  }) {
-    return podcast(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BookPlaybackSession value)? book,
-    TResult? Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult? Function(PodcastPlaybackSession value)? podcast,
-    TResult? Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
-  }) {
-    return podcast?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BookPlaybackSession value)? book,
-    TResult Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult Function(PodcastPlaybackSession value)? podcast,
-    TResult Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
-    required TResult orElse(),
-  }) {
-    if (podcast != null) {
-      return podcast(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PodcastPlaybackSessionToJson(
-      this,
-    );
-  }
-}
-
-abstract class PodcastPlaybackSession extends PlaybackSession {
-  const factory PodcastPlaybackSession(
-      {required final String id,
-      required final String userId,
-      required final String libraryId,
-      required final String libraryItemId,
-      required final String episodeId,
-      final MediaType mediaType,
-      required final PodcastMetadata mediaMetadata,
-      required final String displayTitle,
-      required final String displayAuthor,
-      required final String coverPath,
-      required final Duration duration,
-      required final PlayMethod playMethod,
-      required final String mediaPlayer,
-      required final DeviceInfo deviceInfo,
-      required final String day,
-      required final String dayOfWeek,
-      required final Duration timeListening,
-      required final Duration startTime,
-      required final Duration currentTime,
-      required final DateTime startedAt,
-      required final DateTime updatedAt}) = _$PodcastPlaybackSession;
-  const PodcastPlaybackSession._() : super._();
-
-  factory PodcastPlaybackSession.fromJson(Map<String, dynamic> json) =
-      _$PodcastPlaybackSession.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get userId;
-  @override
-  String get libraryId;
-  @override
-  String get libraryItemId;
-  String get episodeId;
-  @override
-  MediaType get mediaType;
-  @override
-  PodcastMetadata get mediaMetadata;
-  @override
-  String get displayTitle;
-  @override
-  String get displayAuthor;
-  @override
-  String get coverPath;
-  @override
-  Duration get duration;
-  @override
-  PlayMethod get playMethod;
-  @override
-  String get mediaPlayer;
-  @override
-  DeviceInfo get deviceInfo;
-  @override
-  String get day;
-  @override
-  String get dayOfWeek;
-  @override
-  Duration get timeListening;
-  @override
-  Duration get startTime;
-  @override
-  Duration get currentTime;
-  @override
-  DateTime get startedAt;
-  @override
-  DateTime get updatedAt;
-  @override
-  @JsonKey(ignore: true)
-  _$$PodcastPlaybackSessionCopyWith<_$PodcastPlaybackSession> get copyWith =>
+  _$$PlaybackSessionExpandedCopyWith<_$PlaybackSessionExpanded> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PodcastPlaybackSessionExpandedCopyWith<$Res>
-    implements $PlaybackSessionCopyWith<$Res> {
-  factory _$$PodcastPlaybackSessionExpandedCopyWith(
-          _$PodcastPlaybackSessionExpanded value,
-          $Res Function(_$PodcastPlaybackSessionExpanded) then) =
-      __$$PodcastPlaybackSessionExpandedCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String id,
-      String userId,
-      String libraryId,
-      String libraryItemId,
-      String episodeId,
-      MediaType mediaType,
-      PodcastMetadata mediaMetadata,
-      String displayTitle,
-      String displayAuthor,
-      String coverPath,
-      Duration duration,
-      PlayMethod playMethod,
-      String mediaPlayer,
-      DeviceInfo deviceInfo,
-      String day,
-      String dayOfWeek,
-      Duration timeListening,
-      Duration startTime,
-      Duration currentTime,
-      DateTime startedAt,
-      DateTime updatedAt,
-      List<AudioTrack> audioTracks,
-      LibraryItem libraryItem});
-
-  @override
-  $DeviceInfoCopyWith<$Res> get deviceInfo;
-  $LibraryItemCopyWith<$Res> get libraryItem;
-}
-
-/// @nodoc
-class __$$PodcastPlaybackSessionExpandedCopyWithImpl<$Res>
-    extends _$PlaybackSessionCopyWithImpl<$Res,
-        _$PodcastPlaybackSessionExpanded>
-    implements _$$PodcastPlaybackSessionExpandedCopyWith<$Res> {
-  __$$PodcastPlaybackSessionExpandedCopyWithImpl(
-      _$PodcastPlaybackSessionExpanded _value,
-      $Res Function(_$PodcastPlaybackSessionExpanded) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? userId = null,
-    Object? libraryId = null,
-    Object? libraryItemId = null,
-    Object? episodeId = null,
-    Object? mediaType = null,
-    Object? mediaMetadata = null,
-    Object? displayTitle = null,
-    Object? displayAuthor = null,
-    Object? coverPath = null,
-    Object? duration = null,
-    Object? playMethod = null,
-    Object? mediaPlayer = null,
-    Object? deviceInfo = null,
-    Object? day = null,
-    Object? dayOfWeek = null,
-    Object? timeListening = null,
-    Object? startTime = null,
-    Object? currentTime = null,
-    Object? startedAt = null,
-    Object? updatedAt = null,
-    Object? audioTracks = null,
-    Object? libraryItem = null,
-  }) {
-    return _then(_$PodcastPlaybackSessionExpanded(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-      libraryId: null == libraryId
-          ? _value.libraryId
-          : libraryId // ignore: cast_nullable_to_non_nullable
-              as String,
-      libraryItemId: null == libraryItemId
-          ? _value.libraryItemId
-          : libraryItemId // ignore: cast_nullable_to_non_nullable
-              as String,
-      episodeId: null == episodeId
-          ? _value.episodeId
-          : episodeId // ignore: cast_nullable_to_non_nullable
-              as String,
-      mediaType: null == mediaType
-          ? _value.mediaType
-          : mediaType // ignore: cast_nullable_to_non_nullable
-              as MediaType,
-      mediaMetadata: null == mediaMetadata
-          ? _value.mediaMetadata
-          : mediaMetadata // ignore: cast_nullable_to_non_nullable
-              as PodcastMetadata,
-      displayTitle: null == displayTitle
-          ? _value.displayTitle
-          : displayTitle // ignore: cast_nullable_to_non_nullable
-              as String,
-      displayAuthor: null == displayAuthor
-          ? _value.displayAuthor
-          : displayAuthor // ignore: cast_nullable_to_non_nullable
-              as String,
-      coverPath: null == coverPath
-          ? _value.coverPath
-          : coverPath // ignore: cast_nullable_to_non_nullable
-              as String,
-      duration: null == duration
-          ? _value.duration
-          : duration // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      playMethod: null == playMethod
-          ? _value.playMethod
-          : playMethod // ignore: cast_nullable_to_non_nullable
-              as PlayMethod,
-      mediaPlayer: null == mediaPlayer
-          ? _value.mediaPlayer
-          : mediaPlayer // ignore: cast_nullable_to_non_nullable
-              as String,
-      deviceInfo: null == deviceInfo
-          ? _value.deviceInfo
-          : deviceInfo // ignore: cast_nullable_to_non_nullable
-              as DeviceInfo,
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
-              as String,
-      dayOfWeek: null == dayOfWeek
-          ? _value.dayOfWeek
-          : dayOfWeek // ignore: cast_nullable_to_non_nullable
-              as String,
-      timeListening: null == timeListening
-          ? _value.timeListening
-          : timeListening // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      startTime: null == startTime
-          ? _value.startTime
-          : startTime // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      currentTime: null == currentTime
-          ? _value.currentTime
-          : currentTime // ignore: cast_nullable_to_non_nullable
-              as Duration,
-      startedAt: null == startedAt
-          ? _value.startedAt
-          : startedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: null == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      audioTracks: null == audioTracks
-          ? _value._audioTracks
-          : audioTracks // ignore: cast_nullable_to_non_nullable
-              as List<AudioTrack>,
-      libraryItem: null == libraryItem
-          ? _value.libraryItem
-          : libraryItem // ignore: cast_nullable_to_non_nullable
-              as LibraryItem,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $LibraryItemCopyWith<$Res> get libraryItem {
-    return $LibraryItemCopyWith<$Res>(_value.libraryItem, (value) {
-      return _then(_value.copyWith(libraryItem: value));
-    });
-  }
-}
-
-/// @nodoc
-
-@jsonConverters
-class _$PodcastPlaybackSessionExpanded extends PodcastPlaybackSessionExpanded {
-  const _$PodcastPlaybackSessionExpanded(
-      {required this.id,
-      required this.userId,
-      required this.libraryId,
-      required this.libraryItemId,
-      required this.episodeId,
-      this.mediaType = MediaType.podcast,
-      required this.mediaMetadata,
-      required this.displayTitle,
-      required this.displayAuthor,
-      required this.coverPath,
-      required this.duration,
-      required this.playMethod,
-      required this.mediaPlayer,
-      required this.deviceInfo,
-      required this.day,
-      required this.dayOfWeek,
-      required this.timeListening,
-      required this.startTime,
-      required this.currentTime,
-      required this.startedAt,
-      required this.updatedAt,
-      required final List<AudioTrack> audioTracks,
-      required this.libraryItem,
-      final String? $type})
-      : _audioTracks = audioTracks,
-        $type = $type ?? 'podcastExpanded',
-        super._();
-
-  factory _$PodcastPlaybackSessionExpanded.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PodcastPlaybackSessionExpandedFromJson(json);
-
-  @override
-  final String id;
-  @override
-  final String userId;
-  @override
-  final String libraryId;
-  @override
-  final String libraryItemId;
-  @override
-  final String episodeId;
-  @override
-  @JsonKey()
-  final MediaType mediaType;
-  @override
-  final PodcastMetadata mediaMetadata;
-  @override
-  final String displayTitle;
-  @override
-  final String displayAuthor;
-  @override
-  final String coverPath;
-  @override
-  final Duration duration;
-  @override
-  final PlayMethod playMethod;
-  @override
-  final String mediaPlayer;
-  @override
-  final DeviceInfo deviceInfo;
-  @override
-  final String day;
-  @override
-  final String dayOfWeek;
-  @override
-  final Duration timeListening;
-  @override
-  final Duration startTime;
-  @override
-  final Duration currentTime;
-  @override
-  final DateTime startedAt;
-  @override
-  final DateTime updatedAt;
-  final List<AudioTrack> _audioTracks;
-  @override
-  List<AudioTrack> get audioTracks {
-    if (_audioTracks is EqualUnmodifiableListView) return _audioTracks;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_audioTracks);
-  }
-
-  @override
-  final LibraryItem libraryItem;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'PlaybackSession.podcastExpanded(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, audioTracks: $audioTracks, libraryItem: $libraryItem)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PodcastPlaybackSessionExpanded &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.userId, userId) || other.userId == userId) &&
-            (identical(other.libraryId, libraryId) ||
-                other.libraryId == libraryId) &&
-            (identical(other.libraryItemId, libraryItemId) ||
-                other.libraryItemId == libraryItemId) &&
-            (identical(other.episodeId, episodeId) ||
-                other.episodeId == episodeId) &&
-            (identical(other.mediaType, mediaType) ||
-                other.mediaType == mediaType) &&
-            (identical(other.mediaMetadata, mediaMetadata) ||
-                other.mediaMetadata == mediaMetadata) &&
-            (identical(other.displayTitle, displayTitle) ||
-                other.displayTitle == displayTitle) &&
-            (identical(other.displayAuthor, displayAuthor) ||
-                other.displayAuthor == displayAuthor) &&
-            (identical(other.coverPath, coverPath) ||
-                other.coverPath == coverPath) &&
-            (identical(other.duration, duration) ||
-                other.duration == duration) &&
-            (identical(other.playMethod, playMethod) ||
-                other.playMethod == playMethod) &&
-            (identical(other.mediaPlayer, mediaPlayer) ||
-                other.mediaPlayer == mediaPlayer) &&
-            (identical(other.deviceInfo, deviceInfo) ||
-                other.deviceInfo == deviceInfo) &&
-            (identical(other.day, day) || other.day == day) &&
-            (identical(other.dayOfWeek, dayOfWeek) ||
-                other.dayOfWeek == dayOfWeek) &&
-            (identical(other.timeListening, timeListening) ||
-                other.timeListening == timeListening) &&
-            (identical(other.startTime, startTime) ||
-                other.startTime == startTime) &&
-            (identical(other.currentTime, currentTime) ||
-                other.currentTime == currentTime) &&
-            (identical(other.startedAt, startedAt) ||
-                other.startedAt == startedAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            const DeepCollectionEquality()
-                .equals(other._audioTracks, _audioTracks) &&
-            (identical(other.libraryItem, libraryItem) ||
-                other.libraryItem == libraryItem));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hashAll([
-        runtimeType,
-        id,
-        userId,
-        libraryId,
-        libraryItemId,
-        episodeId,
-        mediaType,
-        mediaMetadata,
-        displayTitle,
-        displayAuthor,
-        coverPath,
-        duration,
-        playMethod,
-        mediaPlayer,
-        deviceInfo,
-        day,
-        dayOfWeek,
-        timeListening,
-        startTime,
-        currentTime,
-        startedAt,
-        updatedAt,
-        const DeepCollectionEquality().hash(_audioTracks),
-        libraryItem
-      ]);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PodcastPlaybackSessionExpandedCopyWith<_$PodcastPlaybackSessionExpanded>
-      get copyWith => __$$PodcastPlaybackSessionExpandedCopyWithImpl<
-          _$PodcastPlaybackSessionExpanded>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)
-        book,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)
-        bookExpanded,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)
-        podcast,
-    required TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)
-        podcastExpanded,
-  }) {
-    return podcastExpanded(
-        id,
-        userId,
-        libraryId,
-        libraryItemId,
-        episodeId,
-        mediaType,
-        mediaMetadata,
-        displayTitle,
-        displayAuthor,
-        coverPath,
-        duration,
-        playMethod,
-        mediaPlayer,
-        deviceInfo,
-        day,
-        dayOfWeek,
-        timeListening,
-        startTime,
-        currentTime,
-        startedAt,
-        updatedAt,
-        audioTracks,
-        libraryItem);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        book,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        bookExpanded,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult? Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
-  }) {
-    return podcastExpanded?.call(
-        id,
-        userId,
-        libraryId,
-        libraryItemId,
-        episodeId,
-        mediaType,
-        mediaMetadata,
-        displayTitle,
-        displayAuthor,
-        coverPath,
-        duration,
-        playMethod,
-        mediaPlayer,
-        deviceInfo,
-        day,
-        dayOfWeek,
-        timeListening,
-        startTime,
-        currentTime,
-        startedAt,
-        updatedAt,
-        audioTracks,
-        libraryItem);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        book,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            MediaType mediaType,
-            BookMetadata mediaMetadata,
-            List<BookChapter> chapters,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        bookExpanded,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt)?
-        podcast,
-    TResult Function(
-            String id,
-            String userId,
-            String libraryId,
-            String libraryItemId,
-            String episodeId,
-            MediaType mediaType,
-            PodcastMetadata mediaMetadata,
-            String displayTitle,
-            String displayAuthor,
-            String coverPath,
-            Duration duration,
-            PlayMethod playMethod,
-            String mediaPlayer,
-            DeviceInfo deviceInfo,
-            String day,
-            String dayOfWeek,
-            Duration timeListening,
-            Duration startTime,
-            Duration currentTime,
-            DateTime startedAt,
-            DateTime updatedAt,
-            List<AudioTrack> audioTracks,
-            LibraryItem libraryItem)?
-        podcastExpanded,
-    required TResult orElse(),
-  }) {
-    if (podcastExpanded != null) {
-      return podcastExpanded(
-          id,
-          userId,
-          libraryId,
-          libraryItemId,
-          episodeId,
-          mediaType,
-          mediaMetadata,
-          displayTitle,
-          displayAuthor,
-          coverPath,
-          duration,
-          playMethod,
-          mediaPlayer,
-          deviceInfo,
-          day,
-          dayOfWeek,
-          timeListening,
-          startTime,
-          currentTime,
-          startedAt,
-          updatedAt,
-          audioTracks,
-          libraryItem);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(BookPlaybackSession value) book,
-    required TResult Function(BookPlaybackSessionExpanded value) bookExpanded,
-    required TResult Function(PodcastPlaybackSession value) podcast,
-    required TResult Function(PodcastPlaybackSessionExpanded value)
-        podcastExpanded,
-  }) {
-    return podcastExpanded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(BookPlaybackSession value)? book,
-    TResult? Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult? Function(PodcastPlaybackSession value)? podcast,
-    TResult? Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
-  }) {
-    return podcastExpanded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(BookPlaybackSession value)? book,
-    TResult Function(BookPlaybackSessionExpanded value)? bookExpanded,
-    TResult Function(PodcastPlaybackSession value)? podcast,
-    TResult Function(PodcastPlaybackSessionExpanded value)? podcastExpanded,
-    required TResult orElse(),
-  }) {
-    if (podcastExpanded != null) {
-      return podcastExpanded(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PodcastPlaybackSessionExpandedToJson(
-      this,
-    );
-  }
-}
-
-abstract class PodcastPlaybackSessionExpanded extends PlaybackSession {
-  const factory PodcastPlaybackSessionExpanded(
-          {required final String id,
-          required final String userId,
-          required final String libraryId,
-          required final String libraryItemId,
-          required final String episodeId,
-          final MediaType mediaType,
-          required final PodcastMetadata mediaMetadata,
-          required final String displayTitle,
-          required final String displayAuthor,
-          required final String coverPath,
-          required final Duration duration,
-          required final PlayMethod playMethod,
-          required final String mediaPlayer,
-          required final DeviceInfo deviceInfo,
-          required final String day,
-          required final String dayOfWeek,
-          required final Duration timeListening,
-          required final Duration startTime,
-          required final Duration currentTime,
-          required final DateTime startedAt,
-          required final DateTime updatedAt,
-          required final List<AudioTrack> audioTracks,
-          required final LibraryItem libraryItem}) =
-      _$PodcastPlaybackSessionExpanded;
-  const PodcastPlaybackSessionExpanded._() : super._();
-
-  factory PodcastPlaybackSessionExpanded.fromJson(Map<String, dynamic> json) =
-      _$PodcastPlaybackSessionExpanded.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get userId;
-  @override
-  String get libraryId;
-  @override
-  String get libraryItemId;
-  String get episodeId;
-  @override
-  MediaType get mediaType;
-  @override
-  PodcastMetadata get mediaMetadata;
-  @override
-  String get displayTitle;
-  @override
-  String get displayAuthor;
-  @override
-  String get coverPath;
-  @override
-  Duration get duration;
-  @override
-  PlayMethod get playMethod;
-  @override
-  String get mediaPlayer;
-  @override
-  DeviceInfo get deviceInfo;
-  @override
-  String get day;
-  @override
-  String get dayOfWeek;
-  @override
-  Duration get timeListening;
-  @override
-  Duration get startTime;
-  @override
-  Duration get currentTime;
-  @override
-  DateTime get startedAt;
-  @override
-  DateTime get updatedAt;
-  List<AudioTrack> get audioTracks;
-  LibraryItem get libraryItem;
-  @override
-  @JsonKey(ignore: true)
-  _$$PodcastPlaybackSessionExpandedCopyWith<_$PodcastPlaybackSessionExpanded>
-      get copyWith => throw _privateConstructorUsedError;
 }
