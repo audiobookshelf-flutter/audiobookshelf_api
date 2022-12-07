@@ -1,6 +1,8 @@
 import '../models/request_parameters/create_library_req_params.dart';
+import '../models/request_parameters/get_librarys_items_req_params.dart';
 import '../models/request_parameters/update_library_req_params.dart';
 import '../models/responses/get_library_response.dart';
+import '../models/responses/get_librarys_items_response.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
 import '../search_response.dart';
@@ -85,19 +87,18 @@ class LibrariesService extends Service {
     );
   }
 
-  Future<List<LibraryItem>?> getLibraryItems({
+  /// See [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+  Future<GetLibrarysItemsResponse?> getItems({
     required String libraryId,
+    GetLibrarysItemsReqParams? parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.getJson(
       path: '$basePath/$libraryId/items',
+      queryParameters: parameters?.toJson(),
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJsonKey(
-        json,
-        'results',
-        LibraryItem.fromJson,
-      ),
+      fromJson: (json) => fromJson(json, GetLibrarysItemsResponse.fromJson),
     );
   }
 
