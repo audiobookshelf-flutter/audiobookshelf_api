@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../utils/json_converters.dart';
+import '../../utils/json_remove_defaults.dart';
 import '../enums/library_icon.dart';
 import '../enums/metadata_provider.dart';
 import '../schemas/folder.dart';
@@ -60,8 +61,6 @@ class UpdateLibrarySettingsReqParams {
     this.autoScanCronExpression,
   });
 
-  Map<String, dynamic>? toJson() {
-    final json = _$UpdateLibrarySettingsReqParamsToJson(this);
-    return json.isNotEmpty ? json : null;
-  }
+  Map<String, dynamic>? toJson() =>
+      _$UpdateLibrarySettingsReqParamsToJson(this).nullIfEmpty;
 }

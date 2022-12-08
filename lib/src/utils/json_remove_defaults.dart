@@ -3,6 +3,8 @@ extension JsonRemoveDefaults on Map<String, dynamic> {
     removeWhere(
       (key, value) => defaults.containsKey(key) && value == defaults[key],
     );
-    return isNotEmpty ? this : null;
+    return nullIfEmpty;
   }
+
+  Map<String, dynamic>? get nullIfEmpty => isNotEmpty ? this : null;
 }

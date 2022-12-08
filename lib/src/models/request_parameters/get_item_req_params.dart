@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../utils/json_converters.dart';
+import '../../utils/json_remove_defaults.dart';
 import '../utils/include.dart';
 
 part 'generated/get_item_req_params.g.dart';
@@ -23,10 +24,7 @@ class GetItemReqParams {
     this.episodeId,
   });
 
-  Map<String, dynamic>? toJson() {
-    final json = _$GetItemReqParamsToJson(this);
-    return json.isNotEmpty ? json : null;
-  }
+  Map<String, dynamic>? toJson() => _$GetItemReqParamsToJson(this).nullIfEmpty;
 }
 
 enum GetItemIncludeOption with IncludeOption {

@@ -1,4 +1,5 @@
 import '../../utils/json_converters.dart';
+import '../../utils/json_remove_defaults.dart';
 
 part 'generated/limit_page_req_params.g.dart';
 
@@ -9,8 +10,6 @@ class LimitPageReqParams {
 
   const LimitPageReqParams({this.limit, this.page});
 
-  Map<String, dynamic>? toJson() {
-    final json = _$LimitPageReqParamsToJson(this);
-    return json.isNotEmpty ? json : null;
-  }
+  Map<String, dynamic>? toJson() =>
+      _$LimitPageReqParamsToJson(this).nullIfEmpty;
 }
