@@ -55,6 +55,7 @@ mixin _$LibraryItem {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -137,6 +138,7 @@ mixin _$LibraryItem {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -219,6 +221,7 @@ mixin _$LibraryItem {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -482,7 +485,8 @@ abstract class _$$_LibraryItemCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {bool? updated,
+      String id,
       String ino,
       String libraryId,
       String folderId,
@@ -521,6 +525,7 @@ class __$$_LibraryItemCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? updated = freezed,
     Object? id = null,
     Object? ino = null,
     Object? libraryId = null,
@@ -545,6 +550,10 @@ class __$$_LibraryItemCopyWithImpl<$Res>
     Object? seriesSequence = freezed,
   }) {
     return _then(_$_LibraryItem(
+      updated: freezed == updated
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as bool?,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -654,7 +663,8 @@ class __$$_LibraryItemCopyWithImpl<$Res>
 @jsonConverters
 class _$_LibraryItem extends _LibraryItem {
   const _$_LibraryItem(
-      {required this.id,
+      {this.updated,
+      required this.id,
       required this.ino,
       required this.libraryId,
       required this.folderId,
@@ -684,6 +694,8 @@ class _$_LibraryItem extends _LibraryItem {
   factory _$_LibraryItem.fromJson(Map<String, dynamic> json) =>
       _$$_LibraryItemFromJson(json);
 
+  @override
+  final bool? updated;
   @override
   final String id;
   @override
@@ -743,7 +755,7 @@ class _$_LibraryItem extends _LibraryItem {
 
   @override
   String toString() {
-    return 'LibraryItem(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence)';
+    return 'LibraryItem(updated: $updated, id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence)';
   }
 
   @override
@@ -751,6 +763,7 @@ class _$_LibraryItem extends _LibraryItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LibraryItem &&
+            (identical(other.updated, updated) || other.updated == updated) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.ino, ino) || other.ino == ino) &&
             (identical(other.libraryId, libraryId) ||
@@ -792,6 +805,7 @@ class _$_LibraryItem extends _LibraryItem {
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
+        updated,
         id,
         ino,
         libraryId,
@@ -826,6 +840,7 @@ class _$_LibraryItem extends _LibraryItem {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -905,6 +920,7 @@ class _$_LibraryItem extends _LibraryItem {
         expanded,
   }) {
     return $default(
+        updated,
         id,
         ino,
         libraryId,
@@ -933,6 +949,7 @@ class _$_LibraryItem extends _LibraryItem {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -1012,6 +1029,7 @@ class _$_LibraryItem extends _LibraryItem {
         expanded,
   }) {
     return $default?.call(
+        updated,
         id,
         ino,
         libraryId,
@@ -1040,6 +1058,7 @@ class _$_LibraryItem extends _LibraryItem {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -1121,6 +1140,7 @@ class _$_LibraryItem extends _LibraryItem {
   }) {
     if ($default != null) {
       return $default(
+          updated,
           id,
           ino,
           libraryId,
@@ -1191,7 +1211,8 @@ class _$_LibraryItem extends _LibraryItem {
 
 abstract class _LibraryItem extends LibraryItem {
   const factory _LibraryItem(
-      {required final String id,
+      {final bool? updated,
+      required final String id,
       required final String ino,
       required final String libraryId,
       required final String folderId,
@@ -1218,6 +1239,7 @@ abstract class _LibraryItem extends LibraryItem {
   factory _LibraryItem.fromJson(Map<String, dynamic> json) =
       _$_LibraryItem.fromJson;
 
+  bool? get updated;
   @override
   String get id;
   @override
@@ -1664,6 +1686,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -1774,6 +1797,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -1884,6 +1908,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -2518,6 +2543,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -2628,6 +2654,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -2738,6 +2765,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,

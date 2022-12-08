@@ -20,6 +20,7 @@ class LibraryItem with _$LibraryItem {
 
   @jsonConverters
   const factory LibraryItem({
+    bool? updated,
     required String id,
     required String ino,
     required String libraryId,

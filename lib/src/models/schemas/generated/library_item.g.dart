@@ -8,6 +8,7 @@ part of '../library_item.dart';
 
 _$_LibraryItem _$$_LibraryItemFromJson(Map<String, dynamic> json) =>
     _$_LibraryItem(
+      updated: json['updated'] as bool?,
       id: json['id'] as String,
       ino: json['ino'] as String,
       libraryId: json['libraryId'] as String,
@@ -42,6 +43,7 @@ _$_LibraryItem _$$_LibraryItemFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_LibraryItemToJson(_$_LibraryItem instance) =>
     <String, dynamic>{
+      'updated': instance.updated,
       'id': instance.id,
       'ino': instance.ino,
       'libraryId': instance.libraryId,

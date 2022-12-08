@@ -1,4 +1,5 @@
 import '../models/request_parameters/get_item_req_params.dart';
+import '../models/request_parameters/update_item_media_req_params.dart';
 import '../models/schemas/library_item.dart';
 import '../utils/from_json.dart';
 import '../utils/optional_parameters.dart';
@@ -46,6 +47,24 @@ class LibraryItemsService extends Service {
       path: '$basePath/$libraryItemId',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Update a Library Item's Media](https://api.audiobookshelf.org/#update-a-library-item-39-s-media)
+  ///
+  /// Parameters with default values in [parameters] will be removed from the
+  /// request JSON.
+  Future<LibraryItem?> updateMedia({
+    required String libraryItemId,
+    UpdateItemMediaReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$libraryItemId/media',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, LibraryItem.fromJson),
     );
   }
 
