@@ -2,10 +2,12 @@ import '../models/request_parameters/create_library_req_params.dart';
 import '../models/request_parameters/get_librarys_collections_req_params.dart';
 import '../models/request_parameters/get_librarys_items_req_params.dart';
 import '../models/request_parameters/get_librarys_series_req_params.dart';
+import '../models/request_parameters/limit_page_req_params.dart';
 import '../models/request_parameters/update_library_req_params.dart';
 import '../models/responses/get_library_response.dart';
 import '../models/responses/get_librarys_collections_response.dart';
 import '../models/responses/get_librarys_items_response.dart';
+import '../models/responses/get_librarys_playlists_response.dart';
 import '../models/responses/get_librarys_series_response.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
@@ -144,6 +146,21 @@ class LibrariesService extends Service {
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) =>
           fromJson(json, GetLibrarysCollectionsResponse.fromJson),
+    );
+  }
+
+  /// See [Get a Library's User Playlists](https://api.audiobookshelf.org/#get-a-library-39-s-user-playlists)
+  Future<GetLibrarysPlaylistsResponse?> getUserPlaylists({
+    required String libraryId,
+    LimitPageReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/playlists',
+      queryParameters: parameters?.toJson(),
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetLibrarysPlaylistsResponse.fromJson),
     );
   }
 
