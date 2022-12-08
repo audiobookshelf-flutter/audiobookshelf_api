@@ -98,8 +98,23 @@ class LibraryItemsService extends Service {
   }) {
     return api.postJson(
       path: '$basePath/$libraryItemId/cover',
-      formData: url != null ? {'url': url} : null,
+      jsonObject: url != null ? {'url': url} : null,
       filePaths: coverFilePath != null ? {'cover': coverFilePath} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, UpdateCoverResponse.fromJson),
+    );
+  }
+
+  /// See [Update a Library Item's Cover](https://api.audiobookshelf.org/#update-a-library-item-39-s-cover)
+  Future<UpdateCoverResponse?> updateCover({
+    required String libraryItemId,
+    required String coverPath,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$libraryItemId/cover',
+      jsonObject: {'cover': coverPath},
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, UpdateCoverResponse.fromJson),
