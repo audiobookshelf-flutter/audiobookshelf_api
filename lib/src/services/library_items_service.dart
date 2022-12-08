@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import '../models/request_parameters/get_item_req_params.dart';
 import '../models/request_parameters/update_item_media_req_params.dart';
+import '../models/responses/update_cover_response.dart';
 import '../models/schemas/library_item.dart';
 import '../utils/from_json.dart';
 import '../utils/optional_parameters.dart';
@@ -86,6 +87,23 @@ class LibraryItemsService extends Service {
     );
     if (response.statusCode >= 300) return null;
     return response.bodyBytes;
+  }
+
+  /// See [Upload a Library Item Cover](https://api.audiobookshelf.org/#upload-a-library-item-cover)
+  Future<UpdateCoverResponse?> uploadCover({
+    required String libraryItemId,
+    String? coverFilePath,
+    String? url,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$libraryItemId/cover',
+      formData: url != null ? {'url': url} : null,
+      filePaths: coverFilePath != null ? {'cover': coverFilePath} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, UpdateCoverResponse.fromJson),
+    );
   }
 
   Future<String?> play({
