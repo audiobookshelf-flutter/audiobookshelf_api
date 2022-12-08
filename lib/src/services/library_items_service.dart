@@ -10,6 +10,17 @@ class LibraryItemsService extends Service {
 
   const LibraryItemsService(super.api);
 
+  /// See [Delete All Library Items](https://api.audiobookshelf.org/#delete-all-library-items)
+  Future<void> deleteAll({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePath/all',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
+
   Future<LibraryItem?> get({
     required String libraryItemId,
     bool expanded = false,
