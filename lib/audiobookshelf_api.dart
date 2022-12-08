@@ -1,4 +1,3 @@
-export 'src/audiobook_search_result.dart';
 export 'src/audiobookshelf_api_base.dart';
 export 'src/models/enums/file_type.dart';
 export 'src/models/enums/library_icon.dart';

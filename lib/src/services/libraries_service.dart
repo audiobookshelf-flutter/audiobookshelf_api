@@ -195,7 +195,8 @@ class LibrariesService extends Service {
     );
   }
 
-  Future<SearchResponse?> search({
+  /// See [Search a Library](https://api.audiobookshelf.org/#search-a-library)
+  Future<LibrarySearchResponse?> search({
     required String libraryId,
     required String query,
     int limit = 12,
@@ -209,7 +210,7 @@ class LibrariesService extends Service {
       },
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJson(json, SearchResponse.fromMap),
+      fromJson: (json) => fromJson(json, LibrarySearchResponse.fromJson),
     );
   }
 

@@ -1,80 +1,70 @@
-import 'dart:convert';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../audiobook_search_result.dart';
 import '../schemas/author.dart';
-import '../../series_search_result.dart';
+import '../schemas/library_item.dart';
+import '../schemas/series.dart';
 
-_listEquals(List a, List b) => a.join(',') == b.join(',');
+part 'generated/library_search_response.freezed.dart';
+part 'generated/library_search_response.g.dart';
 
-class SearchResponse {
-  final List<AudiobookSearchResult> book;
-  final List<dynamic> tags;
-  final List<Author> authors;
-  final List<SeriesSearchResult> series;
-  SearchResponse({
-    required this.book,
-    required this.tags,
-    required this.authors,
-    required this.series,
-  });
+/// See [Search a Library](https://api.audiobookshelf.org/#search-a-library)
+@freezed
+class LibrarySearchResponse with _$LibrarySearchResponse {
+  const factory LibrarySearchResponse.book({
+    required LibraryItemSearchResult book,
+    required List<String> tags,
+    required List<Author> authors,
+    required List<Series> series,
+  }) = BookLibrarySearchResponse;
 
-  SearchResponse copyWith({
-    List<AudiobookSearchResult>? book,
-    List<dynamic>? tags,
-    List<Author>? authors,
-    List<SeriesSearchResult>? series,
-  }) {
-    return SearchResponse(
-      book: book ?? this.book,
-      tags: tags ?? this.tags,
-      authors: authors ?? this.authors,
-      series: series ?? this.series,
-    );
-  }
+  const factory LibrarySearchResponse.podcast({
+    required LibraryItemSearchResult podcast,
+    required List<String> tags,
+    required List<Author> authors,
+    required List<Series> series,
+  }) = PodcastLibrarySearchResponse;
 
-  Map<String, dynamic> toMap() {
-    return {
-      'book': book.map((x) => x.toJson()).toList(),
-      'tags': tags,
-      'authors': authors.map((x) => x.toJson()).toList(),
-      'series': series.map((x) => x.toMap()).toList(),
-    };
-  }
+  factory LibrarySearchResponse.fromJson(Map<String, dynamic> json) =>
+      LibrarySearchResponseConverter().fromJson(json);
+}
 
-  factory SearchResponse.fromMap(Map<String, dynamic> map) {
-    return SearchResponse(
-      book: List<AudiobookSearchResult>.from(
-          map['book']?.map((x) => AudiobookSearchResult.fromJson(x))),
-      tags: List<dynamic>.from(map['tags'] ?? []),
-      authors:
-          List<Author>.from(map['authors']?.map((x) => Author.fromJson(x))),
-      series: List<SeriesSearchResult>.from(
-          map['series']?.map((x) => SeriesSearchResult.fromMap(x))),
-    );
-  }
+/// See [Search a Library](https://api.audiobookshelf.org/#search-a-library)
+@freezed
+class LibraryItemSearchResult with _$LibraryItemSearchResult {
+  const factory LibraryItemSearchResult({
+    required LibraryItem libraryItem,
+    required String matchKey,
+    required String matchText,
+  }) = _LibraryItemSearchResult;
 
-  String toJson() => json.encode(toMap());
+  factory LibraryItemSearchResult.fromJson(Map<String, dynamic> json) =>
+      _$LibraryItemSearchResultFromJson(json);
+}
 
-  factory SearchResponse.fromJson(String source) =>
-      SearchResponse.fromMap(json.decode(source));
+class LibrarySearchResponseConverter
+    implements JsonConverter<LibrarySearchResponse, Map<String, dynamic>> {
+  const LibrarySearchResponseConverter();
 
   @override
-  String toString() {
-    return 'AbsSearchResponse(audiobooks: $book, tags: $tags, authors: $authors, series: $series)';
-  }
+  LibrarySearchResponse fromJson(Map<String, dynamic> json) {
+    if (json.containsKey('runtimeType')) {
+      return _$LibrarySearchResponseFromJson(json);
+    }
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-
-    return other is SearchResponse &&
-        _listEquals(other.tags, tags) &&
-        _listEquals(other.authors, authors) &&
-        _listEquals(other.series, series);
+    if (json.containsKey('book')) {
+      return BookLibrarySearchResponse.fromJson(json);
+    } else if (json.containsKey('podcast')) {
+      return PodcastLibrarySearchResponse.fromJson(json);
+    } else {
+      throw CheckedFromJsonException(
+        json,
+        'book || podcast',
+        'LibrarySearchResponse',
+        'Unknown media type',
+      );
+    }
   }
 
   @override
-  int get hashCode {
-    return book.hashCode ^ tags.hashCode ^ authors.hashCode ^ series.hashCode;
-  }
+  Map<String, dynamic> toJson(LibrarySearchResponse object) => object.toJson();
 }
