@@ -228,6 +228,7 @@ class LibrariesService extends Service {
     );
   }
 
+  /// See [Get a Library's Authors](https://api.audiobookshelf.org/#get-a-library-39-s-authors)
   Future<List<Author>?> getAuthors({
     required String libraryId,
     ResponseErrorHandler? responseErrorHandler,
