@@ -121,6 +121,18 @@ class LibraryItemsService extends Service {
     );
   }
 
+  /// See [Remove a Library Item's Cover](https://api.audiobookshelf.org/#remove-a-library-item-39-s-cover)
+  Future<void> removeCover({
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePath/$libraryItemId/cover',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
+
   Future<String?> play({
     required String libraryItemId,
     String? episodeId,
