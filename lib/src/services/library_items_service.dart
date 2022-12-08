@@ -37,6 +37,18 @@ class LibraryItemsService extends Service {
     );
   }
 
+  /// See [Delete a Library Item](https://api.audiobookshelf.org/#delete-a-library-item)
+  Future<void> delete({
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePath/$libraryItemId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
+
   Future<String?> play({
     required String libraryItemId,
     String? episodeId,
