@@ -96,7 +96,8 @@ mixin _$MediaMetadata {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)
         bookMinified,
     required TResult Function(
             String? title,
@@ -234,7 +235,8 @@ mixin _$MediaMetadata {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult? Function(
             String? title,
@@ -372,7 +374,8 @@ mixin _$MediaMetadata {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult Function(
             String? title,
@@ -877,7 +880,8 @@ class _$BookMetadata extends BookMetadata {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)
         bookMinified,
     required TResult Function(
             String? title,
@@ -1032,7 +1036,8 @@ class _$BookMetadata extends BookMetadata {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult? Function(
             String? title,
@@ -1187,7 +1192,8 @@ class _$BookMetadata extends BookMetadata {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult Function(
             String? title,
@@ -1719,7 +1725,8 @@ class _$BookMetadataSeriesFilter extends BookMetadataSeriesFilter {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)
         bookMinified,
     required TResult Function(
             String? title,
@@ -1874,7 +1881,8 @@ class _$BookMetadataSeriesFilter extends BookMetadataSeriesFilter {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult? Function(
             String? title,
@@ -2029,7 +2037,8 @@ class _$BookMetadataSeriesFilter extends BookMetadataSeriesFilter {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult Function(
             String? title,
@@ -2268,7 +2277,10 @@ abstract class _$$BookMetadataMinifiedCopyWith<$Res>
       String? isbn,
       String? asin,
       String? language,
-      bool explicit});
+      bool explicit,
+      @JsonKey(name: 'series') Series? seriesSequence});
+
+  $SeriesCopyWith<$Res>? get seriesSequence;
 }
 
 /// @nodoc
@@ -2298,6 +2310,7 @@ class __$$BookMetadataMinifiedCopyWithImpl<$Res>
     Object? asin = freezed,
     Object? language = freezed,
     Object? explicit = null,
+    Object? seriesSequence = freezed,
   }) {
     return _then(_$BookMetadataMinified(
       title: freezed == title
@@ -2364,7 +2377,23 @@ class __$$BookMetadataMinifiedCopyWithImpl<$Res>
           ? _value.explicit
           : explicit // ignore: cast_nullable_to_non_nullable
               as bool,
+      seriesSequence: freezed == seriesSequence
+          ? _value.seriesSequence
+          : seriesSequence // ignore: cast_nullable_to_non_nullable
+              as Series?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SeriesCopyWith<$Res>? get seriesSequence {
+    if (_value.seriesSequence == null) {
+      return null;
+    }
+
+    return $SeriesCopyWith<$Res>(_value.seriesSequence!, (value) {
+      return _then(_value.copyWith(seriesSequence: value));
+    });
   }
 }
 
@@ -2388,6 +2417,7 @@ class _$BookMetadataMinified extends BookMetadataMinified {
       this.asin,
       this.language,
       this.explicit = false,
+      @JsonKey(name: 'series') this.seriesSequence,
       final String? $type})
       : _genres = genres,
         $type = $type ?? 'bookMinified',
@@ -2436,13 +2466,16 @@ class _$BookMetadataMinified extends BookMetadataMinified {
   @override
   @JsonKey()
   final bool explicit;
+  @override
+  @JsonKey(name: 'series')
+  final Series? seriesSequence;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'MediaMetadata.bookMinified(title: $title, titleIgnorePrefix: $titleIgnorePrefix, subtitle: $subtitle, authorName: $authorName, authorNameLF: $authorNameLF, narratorName: $narratorName, seriesName: $seriesName, genres: $genres, publishedYear: $publishedYear, publishedDate: $publishedDate, publisher: $publisher, description: $description, isbn: $isbn, asin: $asin, language: $language, explicit: $explicit)';
+    return 'MediaMetadata.bookMinified(title: $title, titleIgnorePrefix: $titleIgnorePrefix, subtitle: $subtitle, authorName: $authorName, authorNameLF: $authorNameLF, narratorName: $narratorName, seriesName: $seriesName, genres: $genres, publishedYear: $publishedYear, publishedDate: $publishedDate, publisher: $publisher, description: $description, isbn: $isbn, asin: $asin, language: $language, explicit: $explicit, seriesSequence: $seriesSequence)';
   }
 
   @override
@@ -2477,7 +2510,9 @@ class _$BookMetadataMinified extends BookMetadataMinified {
             (identical(other.language, language) ||
                 other.language == language) &&
             (identical(other.explicit, explicit) ||
-                other.explicit == explicit));
+                other.explicit == explicit) &&
+            (identical(other.seriesSequence, seriesSequence) ||
+                other.seriesSequence == seriesSequence));
   }
 
   @JsonKey(ignore: true)
@@ -2499,7 +2534,8 @@ class _$BookMetadataMinified extends BookMetadataMinified {
       isbn,
       asin,
       language,
-      explicit);
+      explicit,
+      seriesSequence);
 
   @JsonKey(ignore: true)
   @override
@@ -2559,7 +2595,8 @@ class _$BookMetadataMinified extends BookMetadataMinified {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)
         bookMinified,
     required TResult Function(
             String? title,
@@ -2662,7 +2699,8 @@ class _$BookMetadataMinified extends BookMetadataMinified {
         isbn,
         asin,
         language,
-        explicit);
+        explicit,
+        seriesSequence);
   }
 
   @override
@@ -2716,7 +2754,8 @@ class _$BookMetadataMinified extends BookMetadataMinified {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult? Function(
             String? title,
@@ -2819,7 +2858,8 @@ class _$BookMetadataMinified extends BookMetadataMinified {
         isbn,
         asin,
         language,
-        explicit);
+        explicit,
+        seriesSequence);
   }
 
   @override
@@ -2873,7 +2913,8 @@ class _$BookMetadataMinified extends BookMetadataMinified {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult Function(
             String? title,
@@ -2978,7 +3019,8 @@ class _$BookMetadataMinified extends BookMetadataMinified {
           isbn,
           asin,
           language,
-          explicit);
+          explicit,
+          seriesSequence);
     }
     return orElse();
   }
@@ -3045,22 +3087,24 @@ class _$BookMetadataMinified extends BookMetadataMinified {
 
 abstract class BookMetadataMinified extends MediaMetadata {
   const factory BookMetadataMinified(
-      {final String? title,
-      final String? titleIgnorePrefix,
-      final String? subtitle,
-      final String? authorName,
-      final String? authorNameLF,
-      final String? narratorName,
-      final String? seriesName,
-      final List<String> genres,
-      final String? publishedYear,
-      final int? publishedDate,
-      final String? publisher,
-      final String? description,
-      final String? isbn,
-      final String? asin,
-      final String? language,
-      final bool explicit}) = _$BookMetadataMinified;
+          {final String? title,
+          final String? titleIgnorePrefix,
+          final String? subtitle,
+          final String? authorName,
+          final String? authorNameLF,
+          final String? narratorName,
+          final String? seriesName,
+          final List<String> genres,
+          final String? publishedYear,
+          final int? publishedDate,
+          final String? publisher,
+          final String? description,
+          final String? isbn,
+          final String? asin,
+          final String? language,
+          final bool explicit,
+          @JsonKey(name: 'series') final Series? seriesSequence}) =
+      _$BookMetadataMinified;
   const BookMetadataMinified._() : super._();
 
   factory BookMetadataMinified.fromJson(Map<String, dynamic> json) =
@@ -3087,6 +3131,8 @@ abstract class BookMetadataMinified extends MediaMetadata {
   String? get language;
   @override
   bool get explicit;
+  @JsonKey(name: 'series')
+  Series? get seriesSequence;
   @override
   @JsonKey(ignore: true)
   _$$BookMetadataMinifiedCopyWith<_$BookMetadataMinified> get copyWith =>
@@ -3437,7 +3483,8 @@ class _$BookMetadataMinifiedSeriesFilter
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)
         bookMinified,
     required TResult Function(
             String? title,
@@ -3595,7 +3642,8 @@ class _$BookMetadataMinifiedSeriesFilter
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult? Function(
             String? title,
@@ -3753,7 +3801,8 @@ class _$BookMetadataMinifiedSeriesFilter
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult Function(
             String? title,
@@ -4353,7 +4402,8 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)
         bookMinified,
     required TResult Function(
             String? title,
@@ -4513,7 +4563,8 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult? Function(
             String? title,
@@ -4673,7 +4724,8 @@ class _$BookMetadataExpanded extends BookMetadataExpanded {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult Function(
             String? title,
@@ -5168,7 +5220,8 @@ class _$PodcastMetadata extends PodcastMetadata {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)
         bookMinified,
     required TResult Function(
             String? title,
@@ -5310,7 +5363,8 @@ class _$PodcastMetadata extends PodcastMetadata {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult? Function(
             String? title,
@@ -5463,7 +5517,8 @@ class _$PodcastMetadata extends PodcastMetadata {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult Function(
             String? title,
@@ -5950,7 +6005,8 @@ class _$PodcastMetadataMinified extends PodcastMetadataMinified {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)
         bookMinified,
     required TResult Function(
             String? title,
@@ -6104,7 +6160,8 @@ class _$PodcastMetadataMinified extends PodcastMetadataMinified {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult? Function(
             String? title,
@@ -6258,7 +6315,8 @@ class _$PodcastMetadataMinified extends PodcastMetadataMinified {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult Function(
             String? title,
@@ -6748,7 +6806,8 @@ class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)
         bookMinified,
     required TResult Function(
             String? title,
@@ -6902,7 +6961,8 @@ class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult? Function(
             String? title,
@@ -7056,7 +7116,8 @@ class _$PodcastMetadataExpanded extends PodcastMetadataExpanded {
             String? isbn,
             String? asin,
             String? language,
-            bool explicit)?
+            bool explicit,
+            @JsonKey(name: 'series') Series? seriesSequence)?
         bookMinified,
     TResult Function(
             String? title,

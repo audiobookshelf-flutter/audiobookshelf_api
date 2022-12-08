@@ -99,7 +99,11 @@ mixin _$LibraryItem {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)
         minified,
     required TResult Function(
             String id,
@@ -174,7 +178,11 @@ mixin _$LibraryItem {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)?
         minified,
     TResult? Function(
             String id,
@@ -249,7 +257,11 @@ mixin _$LibraryItem {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)?
         minified,
     TResult Function(
             String id,
@@ -849,7 +861,11 @@ class _$_LibraryItem extends _LibraryItem {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)
         minified,
     required TResult Function(
             String id,
@@ -949,7 +965,11 @@ class _$_LibraryItem extends _LibraryItem {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)?
         minified,
     TResult? Function(
             String id,
@@ -1049,7 +1069,11 @@ class _$_LibraryItem extends _LibraryItem {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)?
         minified,
     TResult Function(
             String id,
@@ -1254,11 +1278,16 @@ abstract class _$$LibraryItemMinifiedCopyWith<$Res>
       int size,
       Series? collapsedSeries,
       String? sequence,
-      String? seriesSequence});
+      String? seriesSequence,
+      PodcastEpisode? recentEpisode,
+      DateTime? finishedAt,
+      DateTime? progressLastUpdate,
+      DateTime? prevBookInProgressLastUpdate});
 
   @override
   $MediaCopyWith<$Res> get media;
   $SeriesCopyWith<$Res>? get collapsedSeries;
+  $PodcastEpisodeCopyWith<$Res>? get recentEpisode;
 }
 
 /// @nodoc
@@ -1293,6 +1322,10 @@ class __$$LibraryItemMinifiedCopyWithImpl<$Res>
     Object? collapsedSeries = freezed,
     Object? sequence = freezed,
     Object? seriesSequence = freezed,
+    Object? recentEpisode = freezed,
+    Object? finishedAt = freezed,
+    Object? progressLastUpdate = freezed,
+    Object? prevBookInProgressLastUpdate = freezed,
   }) {
     return _then(_$LibraryItemMinified(
       id: null == id
@@ -1379,6 +1412,22 @@ class __$$LibraryItemMinifiedCopyWithImpl<$Res>
           ? _value.seriesSequence
           : seriesSequence // ignore: cast_nullable_to_non_nullable
               as String?,
+      recentEpisode: freezed == recentEpisode
+          ? _value.recentEpisode
+          : recentEpisode // ignore: cast_nullable_to_non_nullable
+              as PodcastEpisode?,
+      finishedAt: freezed == finishedAt
+          ? _value.finishedAt
+          : finishedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      progressLastUpdate: freezed == progressLastUpdate
+          ? _value.progressLastUpdate
+          : progressLastUpdate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      prevBookInProgressLastUpdate: freezed == prevBookInProgressLastUpdate
+          ? _value.prevBookInProgressLastUpdate
+          : prevBookInProgressLastUpdate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 
@@ -1391,6 +1440,18 @@ class __$$LibraryItemMinifiedCopyWithImpl<$Res>
 
     return $SeriesCopyWith<$Res>(_value.collapsedSeries!, (value) {
       return _then(_value.copyWith(collapsedSeries: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PodcastEpisodeCopyWith<$Res>? get recentEpisode {
+    if (_value.recentEpisode == null) {
+      return null;
+    }
+
+    return $PodcastEpisodeCopyWith<$Res>(_value.recentEpisode!, (value) {
+      return _then(_value.copyWith(recentEpisode: value));
     });
   }
 }
@@ -1421,6 +1482,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
       this.collapsedSeries,
       this.sequence,
       this.seriesSequence,
+      this.recentEpisode,
+      this.finishedAt,
+      this.progressLastUpdate,
+      this.prevBookInProgressLastUpdate,
       final String? $type})
       : $type = $type ?? 'minified',
         super._();
@@ -1473,13 +1538,21 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   final String? sequence;
   @override
   final String? seriesSequence;
+  @override
+  final PodcastEpisode? recentEpisode;
+  @override
+  final DateTime? finishedAt;
+  @override
+  final DateTime? progressLastUpdate;
+  @override
+  final DateTime? prevBookInProgressLastUpdate;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'LibraryItem.minified(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, numFiles: $numFiles, size: $size, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence)';
+    return 'LibraryItem.minified(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, numFiles: $numFiles, size: $size, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence, recentEpisode: $recentEpisode, finishedAt: $finishedAt, progressLastUpdate: $progressLastUpdate, prevBookInProgressLastUpdate: $prevBookInProgressLastUpdate)';
   }
 
   @override
@@ -1518,7 +1591,17 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             (identical(other.sequence, sequence) ||
                 other.sequence == sequence) &&
             (identical(other.seriesSequence, seriesSequence) ||
-                other.seriesSequence == seriesSequence));
+                other.seriesSequence == seriesSequence) &&
+            (identical(other.recentEpisode, recentEpisode) ||
+                other.recentEpisode == recentEpisode) &&
+            (identical(other.finishedAt, finishedAt) ||
+                other.finishedAt == finishedAt) &&
+            (identical(other.progressLastUpdate, progressLastUpdate) ||
+                other.progressLastUpdate == progressLastUpdate) &&
+            (identical(other.prevBookInProgressLastUpdate,
+                    prevBookInProgressLastUpdate) ||
+                other.prevBookInProgressLastUpdate ==
+                    prevBookInProgressLastUpdate));
   }
 
   @JsonKey(ignore: true)
@@ -1545,7 +1628,11 @@ class _$LibraryItemMinified extends LibraryItemMinified {
         size,
         collapsedSeries,
         sequence,
-        seriesSequence
+        seriesSequence,
+        recentEpisode,
+        finishedAt,
+        progressLastUpdate,
+        prevBookInProgressLastUpdate
       ]);
 
   @JsonKey(ignore: true)
@@ -1603,7 +1690,11 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)
         minified,
     required TResult Function(
             String id,
@@ -1651,7 +1742,11 @@ class _$LibraryItemMinified extends LibraryItemMinified {
         size,
         collapsedSeries,
         sequence,
-        seriesSequence);
+        seriesSequence,
+        recentEpisode,
+        finishedAt,
+        progressLastUpdate,
+        prevBookInProgressLastUpdate);
   }
 
   @override
@@ -1702,7 +1797,11 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)?
         minified,
     TResult? Function(
             String id,
@@ -1750,7 +1849,11 @@ class _$LibraryItemMinified extends LibraryItemMinified {
         size,
         collapsedSeries,
         sequence,
-        seriesSequence);
+        seriesSequence,
+        recentEpisode,
+        finishedAt,
+        progressLastUpdate,
+        prevBookInProgressLastUpdate);
   }
 
   @override
@@ -1801,7 +1904,11 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)?
         minified,
     TResult Function(
             String id,
@@ -1851,7 +1958,11 @@ class _$LibraryItemMinified extends LibraryItemMinified {
           size,
           collapsedSeries,
           sequence,
-          seriesSequence);
+          seriesSequence,
+          recentEpisode,
+          finishedAt,
+          progressLastUpdate,
+          prevBookInProgressLastUpdate);
     }
     return orElse();
   }
@@ -1920,7 +2031,11 @@ abstract class LibraryItemMinified extends LibraryItem {
       required final int size,
       final Series? collapsedSeries,
       final String? sequence,
-      final String? seriesSequence}) = _$LibraryItemMinified;
+      final String? seriesSequence,
+      final PodcastEpisode? recentEpisode,
+      final DateTime? finishedAt,
+      final DateTime? progressLastUpdate,
+      final DateTime? prevBookInProgressLastUpdate}) = _$LibraryItemMinified;
   const LibraryItemMinified._() : super._();
 
   factory LibraryItemMinified.fromJson(Map<String, dynamic> json) =
@@ -1968,6 +2083,10 @@ abstract class LibraryItemMinified extends LibraryItem {
   String? get sequence;
   @override
   String? get seriesSequence;
+  PodcastEpisode? get recentEpisode;
+  DateTime? get finishedAt;
+  DateTime? get progressLastUpdate;
+  DateTime? get prevBookInProgressLastUpdate;
   @override
   @JsonKey(ignore: true)
   _$$LibraryItemMinifiedCopyWith<_$LibraryItemMinified> get copyWith =>
@@ -2358,7 +2477,11 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)
         minified,
     required TResult Function(
             String id,
@@ -2458,7 +2581,11 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)?
         minified,
     TResult? Function(
             String id,
@@ -2558,7 +2685,11 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             int size,
             Series? collapsedSeries,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            PodcastEpisode? recentEpisode,
+            DateTime? finishedAt,
+            DateTime? progressLastUpdate,
+            DateTime? prevBookInProgressLastUpdate)?
         minified,
     TResult Function(
             String id,

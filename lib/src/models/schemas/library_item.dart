@@ -5,6 +5,7 @@ import '../enums/media_type.dart';
 import '../enums/schema_variant.dart';
 import 'library_file.dart';
 import 'media.dart';
+import 'podcast_episode.dart';
 import 'series.dart';
 
 part 'generated/library_item.freezed.dart';
@@ -64,6 +65,10 @@ class LibraryItem with _$LibraryItem {
     Series? collapsedSeries,
     String? sequence,
     String? seriesSequence,
+    PodcastEpisode? recentEpisode,
+    DateTime? finishedAt,
+    DateTime? progressLastUpdate,
+    DateTime? prevBookInProgressLastUpdate,
   }) = LibraryItemMinified;
 
   @jsonConverters

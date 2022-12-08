@@ -113,6 +113,17 @@ _$LibraryItemMinified _$$LibraryItemMinifiedFromJson(
           : Series.fromJson(json['collapsedSeries'] as Map<String, dynamic>),
       sequence: json['sequence'] as String?,
       seriesSequence: json['seriesSequence'] as String?,
+      recentEpisode: json['recentEpisode'] == null
+          ? null
+          : PodcastEpisode.fromJson(
+              json['recentEpisode'] as Map<String, dynamic>),
+      finishedAt: _$JsonConverterFromJson<int, DateTime>(
+          json['finishedAt'], const DateTimeEpochConverter().fromJson),
+      progressLastUpdate: _$JsonConverterFromJson<int, DateTime>(
+          json['progressLastUpdate'], const DateTimeEpochConverter().fromJson),
+      prevBookInProgressLastUpdate: _$JsonConverterFromJson<int, DateTime>(
+          json['prevBookInProgressLastUpdate'],
+          const DateTimeEpochConverter().fromJson),
       $type: json['runtimeType'] as String?,
     );
 
@@ -140,6 +151,14 @@ Map<String, dynamic> _$$LibraryItemMinifiedToJson(
       'collapsedSeries': instance.collapsedSeries,
       'sequence': instance.sequence,
       'seriesSequence': instance.seriesSequence,
+      'recentEpisode': instance.recentEpisode,
+      'finishedAt': _$JsonConverterToJson<int, DateTime>(
+          instance.finishedAt, const DateTimeEpochConverter().toJson),
+      'progressLastUpdate': _$JsonConverterToJson<int, DateTime>(
+          instance.progressLastUpdate, const DateTimeEpochConverter().toJson),
+      'prevBookInProgressLastUpdate': _$JsonConverterToJson<int, DateTime>(
+          instance.prevBookInProgressLastUpdate,
+          const DateTimeEpochConverter().toJson),
       'runtimeType': instance.$type,
     };
 

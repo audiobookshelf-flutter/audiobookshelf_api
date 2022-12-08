@@ -65,6 +65,7 @@ class MediaMetadata with _$MediaMetadata {
     String? asin,
     String? language,
     @Default(false) bool explicit,
+    @JsonKey(name: 'series') Series? seriesSequence,
   }) = BookMetadataMinified;
 
   const factory MediaMetadata.bookMinifiedSeriesFilter({

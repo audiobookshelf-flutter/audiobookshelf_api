@@ -94,3 +94,41 @@ Map<String, dynamic> _$$SeriesSequenceToJson(_$SeriesSequence instance) =>
       'sequence': instance.sequence,
       'runtimeType': instance.$type,
     };
+
+_$ShelfSeries _$$ShelfSeriesFromJson(Map<String, dynamic> json) =>
+    _$ShelfSeries(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      description: json['description'] as String?,
+      addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
+      updatedAt:
+          const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
+      books: (json['books'] as List<dynamic>)
+          .map((e) => LibraryItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      inProgress: json['inProgress'] as bool,
+      hideFromContinueListening: json['hideFromContinueListening'] as bool,
+      bookInProgressLastUpdate: const DateTimeEpochConverter()
+          .fromJson(json['bookInProgressLastUpdate'] as int),
+      firstBookUnread: json['firstBookUnread'] == null
+          ? null
+          : LibraryItem.fromJson(
+              json['firstBookUnread'] as Map<String, dynamic>),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$ShelfSeriesToJson(_$ShelfSeries instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'description': instance.description,
+      'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
+      'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
+      'books': instance.books,
+      'inProgress': instance.inProgress,
+      'hideFromContinueListening': instance.hideFromContinueListening,
+      'bookInProgressLastUpdate': const DateTimeEpochConverter()
+          .toJson(instance.bookInProgressLastUpdate),
+      'firstBookUnread': instance.firstBookUnread,
+      'runtimeType': instance.$type,
+    };

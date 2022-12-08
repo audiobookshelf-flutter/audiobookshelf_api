@@ -11,6 +11,7 @@ import '../models/responses/get_librarys_playlists_response.dart';
 import '../models/responses/get_librarys_series_response.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
+import '../models/schemas/shelf.dart';
 import '../search_response.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -161,6 +162,22 @@ class LibrariesService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, GetLibrarysPlaylistsResponse.fromJson),
+    );
+  }
+
+  /// See [Get a Library's Personalized View](https://api.audiobookshelf.org/#get-a-library-39-s-personalized-view),
+  /// i.e. the home page.
+  Future<List<Shelf>?> getPersonalized({
+    required String libraryId,
+    int limit = 10,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/personalized',
+      queryParameters: limit != 10 ? {'limit': limit} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJson(json, Shelf.fromJson),
     );
   }
 

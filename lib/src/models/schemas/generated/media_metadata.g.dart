@@ -127,6 +127,9 @@ _$BookMetadataMinified _$$BookMetadataMinifiedFromJson(
       asin: json['asin'] as String?,
       language: json['language'] as String?,
       explicit: json['explicit'] as bool? ?? false,
+      seriesSequence: json['series'] == null
+          ? null
+          : Series.fromJson(json['series'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -149,6 +152,7 @@ Map<String, dynamic> _$$BookMetadataMinifiedToJson(
       'asin': instance.asin,
       'language': instance.language,
       'explicit': instance.explicit,
+      'series': instance.seriesSequence,
       'runtimeType': instance.$type,
     };
 
