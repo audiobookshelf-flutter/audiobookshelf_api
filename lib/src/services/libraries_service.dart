@@ -3,6 +3,7 @@ import '../models/request_parameters/get_librarys_collections_req_params.dart';
 import '../models/request_parameters/get_librarys_items_req_params.dart';
 import '../models/request_parameters/get_librarys_series_req_params.dart';
 import '../models/request_parameters/limit_page_req_params.dart';
+import '../models/request_parameters/reorder_library_req_params.dart';
 import '../models/request_parameters/update_library_req_params.dart';
 import '../models/responses/get_library_response.dart';
 import '../models/responses/get_librarys_collections_response.dart';
@@ -280,6 +281,20 @@ class LibrariesService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, GetLibrarysEpisodesResponse.fromJson),
+    );
+  }
+
+  /// See [Reorder Library List](https://api.audiobookshelf.org/#reorder-library-list)
+  Future<List<Library>?> reorder({
+    required List<ReorderLibraryReqParams> parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/order',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJson(json, Library.fromJson),
     );
   }
 }
