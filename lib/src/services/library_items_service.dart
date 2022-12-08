@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import '../models/request_parameters/get_item_req_params.dart';
 import '../models/request_parameters/update_item_media_req_params.dart';
 import '../models/schemas/library_item.dart';
@@ -66,6 +68,24 @@ class LibraryItemsService extends Service {
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, LibraryItem.fromJson),
     );
+  }
+
+  /// See [Get a Library Item's Cover](https://api.audiobookshelf.org/#get-a-library-item-39-s-cover)
+  ///
+  /// The image's bytes are returned as a [Uint8List].
+  Future<Uint8List?> getCover({
+    required String libraryItemId,
+    GetItemReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) async {
+    final response = await api.get(
+      path: '$basePath/$libraryItemId/cover',
+      queryParameters: parameters?.toJson(),
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+    if (response.statusCode >= 300) return null;
+    return response.bodyBytes;
   }
 
   Future<String?> play({
