@@ -23,7 +23,10 @@ Map<String, dynamic> _$GetLibrarysItemsReqParamsToJson(
       'desc',
       _$JsonConverterToJson<int, bool>(
           instance.desc, const BoolBinaryConverter().toJson));
-  writeNotNull('filter', instance.filter);
+  writeNotNull(
+      'filter',
+      _$JsonConverterToJson<String, Filter>(
+          instance.filter, const FilterConverter().toJson));
   writeNotNull(
       'minified',
       _$JsonConverterToJson<int, bool>(

@@ -27,7 +27,7 @@ mixin _$GetLibrarysSeriesResponse {
   int get page => throw _privateConstructorUsedError;
   String? get sortBy => throw _privateConstructorUsedError;
   bool get sortDesc => throw _privateConstructorUsedError;
-  String? get filterBy => throw _privateConstructorUsedError;
+  Filter? get filterBy => throw _privateConstructorUsedError;
   bool get minified => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $GetLibrarysSeriesResponseCopyWith<$Res> {
       int page,
       String? sortBy,
       bool sortDesc,
-      String? filterBy,
+      Filter? filterBy,
       bool minified});
 }
 
@@ -104,7 +104,7 @@ class _$GetLibrarysSeriesResponseCopyWithImpl<$Res,
       filterBy: freezed == filterBy
           ? _value.filterBy
           : filterBy // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Filter?,
       minified: null == minified
           ? _value.minified
           : minified // ignore: cast_nullable_to_non_nullable
@@ -129,7 +129,7 @@ abstract class _$$_GetLibrarysSeriesResponseCopyWith<$Res>
       int page,
       String? sortBy,
       bool sortDesc,
-      String? filterBy,
+      Filter? filterBy,
       bool minified});
 }
 
@@ -183,7 +183,7 @@ class __$$_GetLibrarysSeriesResponseCopyWithImpl<$Res>
       filterBy: freezed == filterBy
           ? _value.filterBy
           : filterBy // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Filter?,
       minified: null == minified
           ? _value.minified
           : minified // ignore: cast_nullable_to_non_nullable
@@ -194,6 +194,7 @@ class __$$_GetLibrarysSeriesResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@FilterConverter()
 class _$_GetLibrarysSeriesResponse implements _GetLibrarysSeriesResponse {
   const _$_GetLibrarysSeriesResponse(
       {required final List<Series> results,
@@ -228,7 +229,7 @@ class _$_GetLibrarysSeriesResponse implements _GetLibrarysSeriesResponse {
   @override
   final bool sortDesc;
   @override
-  final String? filterBy;
+  final Filter? filterBy;
   @override
   final bool minified;
 
@@ -291,7 +292,7 @@ abstract class _GetLibrarysSeriesResponse implements GetLibrarysSeriesResponse {
       required final int page,
       final String? sortBy,
       required final bool sortDesc,
-      final String? filterBy,
+      final Filter? filterBy,
       required final bool minified}) = _$_GetLibrarysSeriesResponse;
 
   factory _GetLibrarysSeriesResponse.fromJson(Map<String, dynamic> json) =
@@ -310,7 +311,7 @@ abstract class _GetLibrarysSeriesResponse implements GetLibrarysSeriesResponse {
   @override
   bool get sortDesc;
   @override
-  String? get filterBy;
+  Filter? get filterBy;
   @override
   bool get minified;
   @override

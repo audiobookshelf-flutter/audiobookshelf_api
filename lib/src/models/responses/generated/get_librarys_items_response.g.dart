@@ -17,7 +17,8 @@ _$_GetLibrarysItemsResponse _$$_GetLibrarysItemsResponseFromJson(
       page: json['page'] as int,
       sortBy: json['sortBy'] as String?,
       sortDesc: json['sortDesc'] as bool,
-      filterBy: json['filterBy'] as String?,
+      filterBy: _$JsonConverterFromJson<String, Filter>(
+          json['filterBy'], const FilterConverter().fromJson),
       mediaType: $enumDecode(_$MediaTypeEnumMap, json['mediaType']),
       minified: json['minified'] as bool,
       collapseSeries: json['collapseseries'] as bool,
@@ -32,13 +33,26 @@ Map<String, dynamic> _$$_GetLibrarysItemsResponseToJson(
       'page': instance.page,
       'sortBy': instance.sortBy,
       'sortDesc': instance.sortDesc,
-      'filterBy': instance.filterBy,
+      'filterBy': _$JsonConverterToJson<String, Filter>(
+          instance.filterBy, const FilterConverter().toJson),
       'mediaType': _$MediaTypeEnumMap[instance.mediaType]!,
       'minified': instance.minified,
       'collapseseries': instance.collapseSeries,
     };
 
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
 const _$MediaTypeEnumMap = {
   MediaType.book: 'book',
   MediaType.podcast: 'podcast',
 };
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

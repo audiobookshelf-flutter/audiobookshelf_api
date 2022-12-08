@@ -1,17 +1,19 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../utils/json_converters.dart';
+import '../utils/filter.dart';
 
 part 'generated/get_librarys_items_req_params.g.dart';
 
 @requestToJsonRemoveNull
 @BoolBinaryConverter()
+@FilterConverter()
 class GetLibrarysItemsReqParams {
   final int? limit;
   final int? page;
   final String? sort;
   final bool? desc;
-  final String? filter;
+  final Filter? filter;
   final bool? minified;
   @JsonKey(name: 'collapseseries')
   final bool? collapseSeries;

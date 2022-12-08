@@ -27,7 +27,7 @@ mixin _$GetLibrarysItemsResponse {
   int get page => throw _privateConstructorUsedError;
   String? get sortBy => throw _privateConstructorUsedError;
   bool get sortDesc => throw _privateConstructorUsedError;
-  String? get filterBy => throw _privateConstructorUsedError;
+  Filter? get filterBy => throw _privateConstructorUsedError;
   MediaType get mediaType => throw _privateConstructorUsedError;
   bool get minified => throw _privateConstructorUsedError;
   @JsonKey(name: 'collapseseries')
@@ -52,7 +52,7 @@ abstract class $GetLibrarysItemsResponseCopyWith<$Res> {
       int page,
       String? sortBy,
       bool sortDesc,
-      String? filterBy,
+      Filter? filterBy,
       MediaType mediaType,
       bool minified,
       @JsonKey(name: 'collapseseries') bool collapseSeries});
@@ -111,7 +111,7 @@ class _$GetLibrarysItemsResponseCopyWithImpl<$Res,
       filterBy: freezed == filterBy
           ? _value.filterBy
           : filterBy // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Filter?,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ abstract class _$$_GetLibrarysItemsResponseCopyWith<$Res>
       int page,
       String? sortBy,
       bool sortDesc,
-      String? filterBy,
+      Filter? filterBy,
       MediaType mediaType,
       bool minified,
       @JsonKey(name: 'collapseseries') bool collapseSeries});
@@ -201,7 +201,7 @@ class __$$_GetLibrarysItemsResponseCopyWithImpl<$Res>
       filterBy: freezed == filterBy
           ? _value.filterBy
           : filterBy // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as Filter?,
       mediaType: null == mediaType
           ? _value.mediaType
           : mediaType // ignore: cast_nullable_to_non_nullable
@@ -220,6 +220,7 @@ class __$$_GetLibrarysItemsResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
+@FilterConverter()
 class _$_GetLibrarysItemsResponse implements _GetLibrarysItemsResponse {
   const _$_GetLibrarysItemsResponse(
       {required final List<LibraryItem> results,
@@ -256,7 +257,7 @@ class _$_GetLibrarysItemsResponse implements _GetLibrarysItemsResponse {
   @override
   final bool sortDesc;
   @override
-  final String? filterBy;
+  final Filter? filterBy;
   @override
   final MediaType mediaType;
   @override
@@ -330,7 +331,7 @@ abstract class _GetLibrarysItemsResponse implements GetLibrarysItemsResponse {
       required final int page,
       final String? sortBy,
       required final bool sortDesc,
-      final String? filterBy,
+      final Filter? filterBy,
       required final MediaType mediaType,
       required final bool minified,
       @JsonKey(name: 'collapseseries')
@@ -352,7 +353,7 @@ abstract class _GetLibrarysItemsResponse implements GetLibrarysItemsResponse {
   @override
   bool get sortDesc;
   @override
-  String? get filterBy;
+  Filter? get filterBy;
   @override
   MediaType get mediaType;
   @override
