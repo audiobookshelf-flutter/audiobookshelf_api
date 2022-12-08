@@ -9,11 +9,11 @@ import '../models/responses/get_librarys_collections_response.dart';
 import '../models/responses/get_librarys_items_response.dart';
 import '../models/responses/get_librarys_playlists_response.dart';
 import '../models/responses/get_librarys_series_response.dart';
+import '../models/responses/library_search_response.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
 import '../models/schemas/library_filter_data.dart';
 import '../models/schemas/shelf.dart';
-import '../search_response.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -195,6 +195,24 @@ class LibrariesService extends Service {
     );
   }
 
+  Future<SearchResponse?> search({
+    required String libraryId,
+    required String query,
+    int limit = 12,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/search',
+      queryParameters: {
+        'q': query,
+        if (limit != 12) 'limit': limit,
+      },
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, SearchResponse.fromMap),
+    );
+  }
+
   Future<List<Author>?> getAuthors({
     required String libraryId,
     ResponseErrorHandler? responseErrorHandler,
@@ -204,24 +222,6 @@ class LibrariesService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJson(json, Author.fromJson),
-    );
-  }
-
-  Future<SearchResponse?> search({
-    required String libraryId,
-    required String query,
-    int? limit,
-    ResponseErrorHandler? responseErrorHandler,
-  }) {
-    return api.getJson(
-      path: '$basePath/$libraryId/search',
-      queryParameters: {
-        'q': query,
-        if (limit != null) 'limit': limit,
-      },
-      requiresAuth: true,
-      responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJson(json, SearchResponse.fromMap),
     );
   }
 }
