@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../audiobookshelf_api.dart';
 import '../../utils/json_converters.dart';
 import 'library_item.dart';
 
@@ -25,7 +24,9 @@ class Series with _$Series {
     required String id,
     required String name,
     required String nameIgnorePrefix,
+    required List<String> libraryItemIds,
     required int numBooks,
+    String? seriesSequenceList,
   }) = SeriesNumBooks;
 
   @jsonConverters
@@ -46,6 +47,20 @@ class Series with _$Series {
     String? sequence,
   }) = SeriesSequence;
 
+  @jsonConverters
+  const factory Series.shelf({
+    required String id,
+    required String name,
+    String? description,
+    required DateTime addedAt,
+    required DateTime updatedAt,
+    required List<LibraryItem> books,
+    required bool inProgress,
+    required bool hideFromContinueListening,
+    required DateTime bookInProgressLastUpdate,
+    LibraryItem? firstBookUnread,
+  }) = ShelfSeries;
+
   factory Series.fromJson(Map<String, dynamic> json) =>
       SeriesConverter().fromJson(json);
 
@@ -55,11 +70,12 @@ class Series with _$Series {
       numBooks: (_) => SeriesVariant.numBooks,
       books: (_) => SeriesVariant.books,
       sequence: (_) => SeriesVariant.sequence,
+      shelf: (_) => SeriesVariant.shelf,
     );
   }
 }
 
-enum SeriesVariant { base, numBooks, books, sequence }
+enum SeriesVariant { base, numBooks, books, sequence, shelf }
 
 class SeriesConverter implements JsonConverter<Series, Map<String, dynamic>> {
   const SeriesConverter();
@@ -73,6 +89,8 @@ class SeriesConverter implements JsonConverter<Series, Map<String, dynamic>> {
       variant = SeriesVariant.base;
     } else if (json.containsKey('numBooks')) {
       variant = SeriesVariant.numBooks;
+    } else if (json.containsKey('inProgress')) {
+      variant = SeriesVariant.shelf;
     } else if (json.containsKey('books')) {
       variant = SeriesVariant.books;
     } else if (json.containsKey('sequence')) {
@@ -95,6 +113,8 @@ class SeriesConverter implements JsonConverter<Series, Map<String, dynamic>> {
         return SeriesBooks.fromJson(json);
       case SeriesVariant.sequence:
         return SeriesSequence.fromJson(json);
+      case SeriesVariant.shelf:
+        return ShelfSeries.fromJson(json);
     }
   }
 

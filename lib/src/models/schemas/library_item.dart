@@ -5,6 +5,8 @@ import '../enums/media_type.dart';
 import '../enums/schema_variant.dart';
 import 'library_file.dart';
 import 'media.dart';
+import 'podcast_episode.dart';
+import 'series.dart';
 
 part 'generated/library_item.freezed.dart';
 part 'generated/library_item.g.dart';
@@ -35,6 +37,9 @@ class LibraryItem with _$LibraryItem {
     required MediaType mediaType,
     required Media media,
     required List<LibraryFile> libraryFiles,
+    Series? collapsedSeries,
+    String? sequence,
+    String? seriesSequence,
   }) = _LibraryItem;
 
   @jsonConverters
@@ -57,6 +62,13 @@ class LibraryItem with _$LibraryItem {
     required Media media,
     required int numFiles,
     required int size,
+    Series? collapsedSeries,
+    String? sequence,
+    String? seriesSequence,
+    PodcastEpisode? recentEpisode,
+    DateTime? finishedAt,
+    DateTime? progressLastUpdate,
+    DateTime? prevBookInProgressLastUpdate,
   }) = LibraryItemMinified;
 
   @jsonConverters
@@ -81,6 +93,8 @@ class LibraryItem with _$LibraryItem {
     required Media media,
     required List<LibraryFile> libraryFiles,
     required int size,
+    String? sequence,
+    String? seriesSequence,
   }) = LibraryItemExpanded;
 
   factory LibraryItem.fromJson(Map<String, dynamic> json) =>

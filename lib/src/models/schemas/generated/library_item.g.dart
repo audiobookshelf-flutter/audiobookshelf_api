@@ -32,6 +32,11 @@ _$_LibraryItem _$$_LibraryItemFromJson(Map<String, dynamic> json) =>
       libraryFiles: (json['libraryFiles'] as List<dynamic>)
           .map((e) => LibraryFile.fromJson(e as Map<String, dynamic>))
           .toList(),
+      collapsedSeries: json['collapsedSeries'] == null
+          ? null
+          : Series.fromJson(json['collapsedSeries'] as Map<String, dynamic>),
+      sequence: json['sequence'] as String?,
+      seriesSequence: json['seriesSequence'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
@@ -57,6 +62,9 @@ Map<String, dynamic> _$$_LibraryItemToJson(_$_LibraryItem instance) =>
       'mediaType': _$MediaTypeEnumMap[instance.mediaType]!,
       'media': instance.media,
       'libraryFiles': instance.libraryFiles,
+      'collapsedSeries': instance.collapsedSeries,
+      'sequence': instance.sequence,
+      'seriesSequence': instance.seriesSequence,
       'runtimeType': instance.$type,
     };
 
@@ -100,6 +108,22 @@ _$LibraryItemMinified _$$LibraryItemMinifiedFromJson(
       media: Media.fromJson(json['media'] as Map<String, dynamic>),
       numFiles: json['numFiles'] as int,
       size: json['size'] as int,
+      collapsedSeries: json['collapsedSeries'] == null
+          ? null
+          : Series.fromJson(json['collapsedSeries'] as Map<String, dynamic>),
+      sequence: json['sequence'] as String?,
+      seriesSequence: json['seriesSequence'] as String?,
+      recentEpisode: json['recentEpisode'] == null
+          ? null
+          : PodcastEpisode.fromJson(
+              json['recentEpisode'] as Map<String, dynamic>),
+      finishedAt: _$JsonConverterFromJson<int, DateTime>(
+          json['finishedAt'], const DateTimeEpochConverter().fromJson),
+      progressLastUpdate: _$JsonConverterFromJson<int, DateTime>(
+          json['progressLastUpdate'], const DateTimeEpochConverter().fromJson),
+      prevBookInProgressLastUpdate: _$JsonConverterFromJson<int, DateTime>(
+          json['prevBookInProgressLastUpdate'],
+          const DateTimeEpochConverter().fromJson),
       $type: json['runtimeType'] as String?,
     );
 
@@ -124,6 +148,17 @@ Map<String, dynamic> _$$LibraryItemMinifiedToJson(
       'media': instance.media,
       'numFiles': instance.numFiles,
       'size': instance.size,
+      'collapsedSeries': instance.collapsedSeries,
+      'sequence': instance.sequence,
+      'seriesSequence': instance.seriesSequence,
+      'recentEpisode': instance.recentEpisode,
+      'finishedAt': _$JsonConverterToJson<int, DateTime>(
+          instance.finishedAt, const DateTimeEpochConverter().toJson),
+      'progressLastUpdate': _$JsonConverterToJson<int, DateTime>(
+          instance.progressLastUpdate, const DateTimeEpochConverter().toJson),
+      'prevBookInProgressLastUpdate': _$JsonConverterToJson<int, DateTime>(
+          instance.prevBookInProgressLastUpdate,
+          const DateTimeEpochConverter().toJson),
       'runtimeType': instance.$type,
     };
 
@@ -155,6 +190,8 @@ _$LibraryItemExpanded _$$LibraryItemExpandedFromJson(
           .map((e) => LibraryFile.fromJson(e as Map<String, dynamic>))
           .toList(),
       size: json['size'] as int,
+      sequence: json['sequence'] as String?,
+      seriesSequence: json['seriesSequence'] as String?,
       $type: json['runtimeType'] as String?,
     );
 
@@ -182,5 +219,7 @@ Map<String, dynamic> _$$LibraryItemExpandedToJson(
       'media': instance.media,
       'libraryFiles': instance.libraryFiles,
       'size': instance.size,
+      'sequence': instance.sequence,
+      'seriesSequence': instance.seriesSequence,
       'runtimeType': instance.$type,
     };

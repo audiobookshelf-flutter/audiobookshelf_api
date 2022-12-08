@@ -4,13 +4,28 @@ import 'package:json_annotation/json_annotation.dart';
 import '../models/utils/cron_expression.dart';
 import 'precise_duration.dart';
 
+const _converters = <JsonConverter<dynamic, dynamic>>[
+  DateTimeEpochConverter(),
+  DurationPreciseSecondsConverter(),
+  HttpParserMediaTypeConverter(),
+  CronExpressionConverter(),
+];
+
 const jsonConverters = JsonSerializable(
-  converters: [
-    DateTimeEpochConverter(),
-    DurationPreciseSecondsConverter(),
-    HttpParserMediaTypeConverter(),
-    CronExpressionConverter(),
-  ],
+  converters: _converters,
+);
+
+const requestToJson = JsonSerializable(
+  createFactory: false,
+  explicitToJson: true,
+  converters: _converters,
+);
+
+const requestToJsonRemoveNull = JsonSerializable(
+  createFactory: false,
+  explicitToJson: true,
+  includeIfNull: false,
+  converters: _converters,
 );
 
 class BoolBinaryConverter implements JsonConverter<bool, int> {

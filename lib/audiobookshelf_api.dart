@@ -1,4 +1,3 @@
-export 'src/audiobook_search_result.dart';
 export 'src/audiobookshelf_api_base.dart';
 export 'src/models/enums/file_type.dart';
 export 'src/models/enums/library_icon.dart';
@@ -7,6 +6,7 @@ export 'src/models/enums/metadata_provider.dart';
 export 'src/models/enums/play_method.dart';
 export 'src/models/enums/schema_variant.dart';
 export 'src/models/enums/user_type.dart';
+export 'src/models/responses/library_search_response.dart';
 export 'src/models/responses/login_response.dart';
 export 'src/models/schemas/audio_bookmark.dart';
 export 'src/models/schemas/audio_file.dart';
@@ -52,5 +52,4 @@ export 'src/models/schemas/user_settings.dart';
 export 'src/models/utils/cron_expression.dart';
 export 'src/models/utils/day_of_the_week.dart';
 export 'src/models/utils/month.dart';
-export 'src/search_response.dart';
 export 'src/series_search_result.dart';
