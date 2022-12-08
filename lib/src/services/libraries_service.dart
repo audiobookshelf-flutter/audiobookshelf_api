@@ -9,6 +9,7 @@ import '../models/responses/get_librarys_collections_response.dart';
 import '../models/responses/get_librarys_items_response.dart';
 import '../models/responses/get_librarys_playlists_response.dart';
 import '../models/responses/get_librarys_series_response.dart';
+import '../models/responses/get_librarys_stats_response.dart';
 import '../models/responses/library_search_response.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
@@ -211,6 +212,19 @@ class LibrariesService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, LibrarySearchResponse.fromJson),
+    );
+  }
+
+  /// See [Get a Library's Stats](https://api.audiobookshelf.org/#get-a-library-39-s-stats)
+  Future<GetLibrarysStatsResponse?> getStats({
+    required String libraryId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/stats',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetLibrarysStatsResponse.fromJson),
     );
   }
 
