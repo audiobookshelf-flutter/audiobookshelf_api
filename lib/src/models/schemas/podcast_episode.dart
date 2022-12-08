@@ -4,6 +4,7 @@ import '../../utils/json_converters.dart';
 import '../enums/schema_variant.dart';
 import 'audio_file.dart';
 import 'audio_track.dart';
+import 'media.dart';
 import 'podcast_episode_enclosure.dart';
 
 part 'generated/podcast_episode.freezed.dart';
@@ -53,6 +54,7 @@ class PodcastEpisode with _$PodcastEpisode {
     required AudioTrack audioTrack,
     required Duration duration,
     required int size,
+    Media? podcast,
   }) = PodcastEpisodeExpanded;
 
   factory PodcastEpisode.fromJson(Map<String, dynamic> json) =>

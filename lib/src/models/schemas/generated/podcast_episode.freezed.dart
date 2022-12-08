@@ -81,7 +81,8 @@ mixin _$PodcastEpisode {
             DateTime updatedAt,
             AudioTrack audioTrack,
             Duration duration,
-            int size)
+            int size,
+            Media? podcast)
         expanded,
   }) =>
       throw _privateConstructorUsedError;
@@ -122,7 +123,8 @@ mixin _$PodcastEpisode {
             DateTime updatedAt,
             AudioTrack audioTrack,
             Duration duration,
-            int size)?
+            int size,
+            Media? podcast)?
         expanded,
   }) =>
       throw _privateConstructorUsedError;
@@ -163,7 +165,8 @@ mixin _$PodcastEpisode {
             DateTime updatedAt,
             AudioTrack audioTrack,
             Duration duration,
-            int size)?
+            int size,
+            Media? podcast)?
         expanded,
     required TResult orElse(),
   }) =>
@@ -613,7 +616,8 @@ class _$_PodcastEpisode extends _PodcastEpisode {
             DateTime updatedAt,
             AudioTrack audioTrack,
             Duration duration,
-            int size)
+            int size,
+            Media? podcast)
         expanded,
   }) {
     return $default(
@@ -672,7 +676,8 @@ class _$_PodcastEpisode extends _PodcastEpisode {
             DateTime updatedAt,
             AudioTrack audioTrack,
             Duration duration,
-            int size)?
+            int size,
+            Media? podcast)?
         expanded,
   }) {
     return $default?.call(
@@ -731,7 +736,8 @@ class _$_PodcastEpisode extends _PodcastEpisode {
             DateTime updatedAt,
             AudioTrack audioTrack,
             Duration duration,
-            int size)?
+            int size,
+            Media? podcast)?
         expanded,
     required TResult orElse(),
   }) {
@@ -879,13 +885,15 @@ abstract class _$$PodcastEpisodeExpandedCopyWith<$Res>
       DateTime updatedAt,
       AudioTrack audioTrack,
       Duration duration,
-      int size});
+      int size,
+      Media? podcast});
 
   @override
   $PodcastEpisodeEnclosureCopyWith<$Res> get enclosure;
   @override
   $AudioFileCopyWith<$Res> get audioFile;
   $AudioTrackCopyWith<$Res> get audioTrack;
+  $MediaCopyWith<$Res>? get podcast;
 }
 
 /// @nodoc
@@ -917,6 +925,7 @@ class __$$PodcastEpisodeExpandedCopyWithImpl<$Res>
     Object? audioTrack = null,
     Object? duration = null,
     Object? size = null,
+    Object? podcast = freezed,
   }) {
     return _then(_$PodcastEpisodeExpanded(
       libraryItemId: null == libraryItemId
@@ -991,6 +1000,10 @@ class __$$PodcastEpisodeExpandedCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as int,
+      podcast: freezed == podcast
+          ? _value.podcast
+          : podcast // ignore: cast_nullable_to_non_nullable
+              as Media?,
     ));
   }
 
@@ -999,6 +1012,18 @@ class __$$PodcastEpisodeExpandedCopyWithImpl<$Res>
   $AudioTrackCopyWith<$Res> get audioTrack {
     return $AudioTrackCopyWith<$Res>(_value.audioTrack, (value) {
       return _then(_value.copyWith(audioTrack: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MediaCopyWith<$Res>? get podcast {
+    if (_value.podcast == null) {
+      return null;
+    }
+
+    return $MediaCopyWith<$Res>(_value.podcast!, (value) {
+      return _then(_value.copyWith(podcast: value));
     });
   }
 }
@@ -1026,6 +1051,7 @@ class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
       required this.audioTrack,
       required this.duration,
       required this.size,
+      this.podcast,
       final String? $type})
       : $type = $type ?? 'expanded',
         super._();
@@ -1069,13 +1095,15 @@ class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
   final Duration duration;
   @override
   final int size;
+  @override
+  final Media? podcast;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PodcastEpisode.expanded(libraryItemId: $libraryItemId, id: $id, index: $index, season: $season, episode: $episode, episodeType: $episodeType, title: $title, subtitle: $subtitle, description: $description, enclosure: $enclosure, pubDate: $pubDate, audioFile: $audioFile, publishedAt: $publishedAt, addedAt: $addedAt, updatedAt: $updatedAt, audioTrack: $audioTrack, duration: $duration, size: $size)';
+    return 'PodcastEpisode.expanded(libraryItemId: $libraryItemId, id: $id, index: $index, season: $season, episode: $episode, episodeType: $episodeType, title: $title, subtitle: $subtitle, description: $description, enclosure: $enclosure, pubDate: $pubDate, audioFile: $audioFile, publishedAt: $publishedAt, addedAt: $addedAt, updatedAt: $updatedAt, audioTrack: $audioTrack, duration: $duration, size: $size, podcast: $podcast)';
   }
 
   @override
@@ -1110,31 +1138,34 @@ class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
                 other.audioTrack == audioTrack) &&
             (identical(other.duration, duration) ||
                 other.duration == duration) &&
-            (identical(other.size, size) || other.size == size));
+            (identical(other.size, size) || other.size == size) &&
+            (identical(other.podcast, podcast) || other.podcast == podcast));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      libraryItemId,
-      id,
-      index,
-      season,
-      episode,
-      episodeType,
-      title,
-      subtitle,
-      description,
-      enclosure,
-      pubDate,
-      audioFile,
-      publishedAt,
-      addedAt,
-      updatedAt,
-      audioTrack,
-      duration,
-      size);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        libraryItemId,
+        id,
+        index,
+        season,
+        episode,
+        episodeType,
+        title,
+        subtitle,
+        description,
+        enclosure,
+        pubDate,
+        audioFile,
+        publishedAt,
+        addedAt,
+        updatedAt,
+        audioTrack,
+        duration,
+        size,
+        podcast
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1181,7 +1212,8 @@ class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
             DateTime updatedAt,
             AudioTrack audioTrack,
             Duration duration,
-            int size)
+            int size,
+            Media? podcast)
         expanded,
   }) {
     return expanded(
@@ -1202,7 +1234,8 @@ class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
         updatedAt,
         audioTrack,
         duration,
-        size);
+        size,
+        podcast);
   }
 
   @override
@@ -1243,7 +1276,8 @@ class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
             DateTime updatedAt,
             AudioTrack audioTrack,
             Duration duration,
-            int size)?
+            int size,
+            Media? podcast)?
         expanded,
   }) {
     return expanded?.call(
@@ -1264,7 +1298,8 @@ class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
         updatedAt,
         audioTrack,
         duration,
-        size);
+        size,
+        podcast);
   }
 
   @override
@@ -1305,7 +1340,8 @@ class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
             DateTime updatedAt,
             AudioTrack audioTrack,
             Duration duration,
-            int size)?
+            int size,
+            Media? podcast)?
         expanded,
     required TResult orElse(),
   }) {
@@ -1328,7 +1364,8 @@ class _$PodcastEpisodeExpanded extends PodcastEpisodeExpanded {
           updatedAt,
           audioTrack,
           duration,
-          size);
+          size,
+          podcast);
     }
     return orElse();
   }
@@ -1391,7 +1428,8 @@ abstract class PodcastEpisodeExpanded extends PodcastEpisode {
       required final DateTime updatedAt,
       required final AudioTrack audioTrack,
       required final Duration duration,
-      required final int size}) = _$PodcastEpisodeExpanded;
+      required final int size,
+      final Media? podcast}) = _$PodcastEpisodeExpanded;
   const PodcastEpisodeExpanded._() : super._();
 
   factory PodcastEpisodeExpanded.fromJson(Map<String, dynamic> json) =
@@ -1430,6 +1468,7 @@ abstract class PodcastEpisodeExpanded extends PodcastEpisode {
   AudioTrack get audioTrack;
   Duration get duration;
   int get size;
+  Media? get podcast;
   @override
   @JsonKey(ignore: true)
   _$$PodcastEpisodeExpandedCopyWith<_$PodcastEpisodeExpanded> get copyWith =>

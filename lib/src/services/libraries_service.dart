@@ -6,6 +6,7 @@ import '../models/request_parameters/limit_page_req_params.dart';
 import '../models/request_parameters/update_library_req_params.dart';
 import '../models/responses/get_library_response.dart';
 import '../models/responses/get_librarys_collections_response.dart';
+import '../models/responses/get_librarys_episodes_response.dart';
 import '../models/responses/get_librarys_items_response.dart';
 import '../models/responses/get_librarys_playlists_response.dart';
 import '../models/responses/get_librarys_series_response.dart';
@@ -264,6 +265,21 @@ class LibrariesService extends Service {
       queryParameters: force ? {'force': 1} : null,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Get a Library's Recent Episodes](https://api.audiobookshelf.org/#get-a-library-39-s-recent-episodes)
+  Future<GetLibrarysEpisodesResponse?> getRecentEpisodes({
+    required String libraryId,
+    LimitPageReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/recent-episodes',
+      queryParameters: parameters?.toJson(),
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetLibrarysEpisodesResponse.fromJson),
     );
   }
 }

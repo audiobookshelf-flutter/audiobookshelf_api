@@ -76,6 +76,9 @@ _$PodcastEpisodeExpanded _$$PodcastEpisodeExpandedFromJson(
       duration: const DurationPreciseSecondsConverter()
           .fromJson(json['duration'] as double),
       size: json['size'] as int,
+      podcast: json['podcast'] == null
+          ? null
+          : Media.fromJson(json['podcast'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -102,5 +105,6 @@ Map<String, dynamic> _$$PodcastEpisodeExpandedToJson(
       'duration':
           const DurationPreciseSecondsConverter().toJson(instance.duration),
       'size': instance.size,
+      'podcast': instance.podcast,
       'runtimeType': instance.$type,
     };
