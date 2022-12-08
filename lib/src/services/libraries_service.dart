@@ -1,8 +1,10 @@
 import '../models/request_parameters/create_library_req_params.dart';
+import '../models/request_parameters/get_librarys_collections_req_params.dart';
 import '../models/request_parameters/get_librarys_items_req_params.dart';
 import '../models/request_parameters/get_librarys_series_req_params.dart';
 import '../models/request_parameters/update_library_req_params.dart';
 import '../models/responses/get_library_response.dart';
+import '../models/responses/get_librarys_collections_response.dart';
 import '../models/responses/get_librarys_items_response.dart';
 import '../models/responses/get_librarys_series_response.dart';
 import '../models/schemas/author.dart';
@@ -126,6 +128,22 @@ class LibrariesService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, GetLibrarysSeriesResponse.fromJson),
+    );
+  }
+
+  /// See [Get a Library's Collections](https://api.audiobookshelf.org/#get-a-library-39-s-collections)
+  Future<GetLibrarysCollectionsResponse?> getCollections({
+    required String libraryId,
+    GetLibrarysCollectionsReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/collections',
+      queryParameters: parameters?.toJson(),
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) =>
+          fromJson(json, GetLibrarysCollectionsResponse.fromJson),
     );
   }
 
