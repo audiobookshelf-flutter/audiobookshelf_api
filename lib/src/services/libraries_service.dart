@@ -252,4 +252,18 @@ class LibrariesService extends Service {
       responseErrorHandler: responseErrorHandler,
     );
   }
+
+  /// See [Scan a Library's Folders](https://api.audiobookshelf.org/#scan-a-library-39-s-folders)
+  Future<void> scanFolders({
+    required String libraryId,
+    bool force = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.get(
+      path: '$basePath/$libraryId/scan',
+      queryParameters: force ? {'force': 1} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
