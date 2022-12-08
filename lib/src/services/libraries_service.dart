@@ -240,4 +240,16 @@ class LibrariesService extends Service {
       fromJson: (json) => listFromJson(json, Author.fromJson),
     );
   }
+
+  /// See [Match All of a Library's Items](https://api.audiobookshelf.org/#match-all-of-a-library-39-s-items)
+  Future<void> matchAllItems({
+    required String libraryId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.get(
+      path: '$basePath/$libraryId/matchall',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
