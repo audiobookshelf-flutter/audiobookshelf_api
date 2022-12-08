@@ -11,6 +11,7 @@ import '../models/responses/get_librarys_playlists_response.dart';
 import '../models/responses/get_librarys_series_response.dart';
 import '../models/schemas/author.dart';
 import '../models/schemas/library.dart';
+import '../models/schemas/library_filter_data.dart';
 import '../models/schemas/shelf.dart';
 import '../search_response.dart';
 import '../utils/from_json.dart';
@@ -178,6 +179,19 @@ class LibrariesService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJson(json, Shelf.fromJson),
+    );
+  }
+
+  /// See [Get a Library's Filter Data](https://api.audiobookshelf.org/#get-a-library-39-s-filter-data)
+  Future<LibraryFilterData?> getFilterData({
+    required String libraryId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryId/filterdata',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, LibraryFilterData.fromJson),
     );
   }
 
