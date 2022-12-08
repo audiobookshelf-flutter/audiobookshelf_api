@@ -1,3 +1,4 @@
+import '../models/request_parameters/get_item_req_params.dart';
 import '../models/schemas/library_item.dart';
 import '../utils/from_json.dart';
 import '../utils/optional_parameters.dart';
@@ -21,23 +22,15 @@ class LibraryItemsService extends Service {
     );
   }
 
+  /// See [Get a Library Item](https://api.audiobookshelf.org/#get-a-library-item)
   Future<LibraryItem?> get({
     required String libraryItemId,
-    bool expanded = false,
+    GetItemReqParams? parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.getJson(
       path: '$basePath/$libraryItemId',
-      queryParameters: optionalParameters(
-        [
-          OptionalParameter(
-            name: 'expanded',
-            defaultValue: false,
-            value: expanded,
-          ),
-        ],
-        boolToBinary: true,
-      ),
+      queryParameters: parameters?.toJson(),
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, LibraryItem.fromJson),
