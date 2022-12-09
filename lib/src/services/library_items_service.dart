@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import '../models/request_parameters/batch_match_items_req_params.dart';
 import '../models/request_parameters/get_item_req_params.dart';
 import '../models/request_parameters/match_item_req_params.dart';
 import '../models/request_parameters/play_item_req_params.dart';
@@ -324,6 +325,19 @@ class LibraryItemsService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJson(json, LibraryItem.fromJson),
+    );
+  }
+
+  /// See [Batch Quick Match Library Items](https://api.audiobookshelf.org/#batch-quick-match-library-items)
+  Future<void> batchMatch({
+    required BatchMatchItemsReqParams parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/batch/quickmatch',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
     );
   }
 }
