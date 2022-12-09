@@ -1,4 +1,5 @@
 import '../models/request_parameters/create_user_req_params.dart';
+import '../models/responses/get_online_users_response.dart';
 import '../models/schemas/user.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -33,6 +34,18 @@ class UsersService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJson(json, User.fromJson),
+    );
+  }
+
+  /// See [Get Online Users](https://api.audiobookshelf.org/#get-online-users)
+  Future<GetOnlineUsersResponse?> getOnline({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/online',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetOnlineUsersResponse.fromJson),
     );
   }
 }
