@@ -75,4 +75,19 @@ class CollectionsService extends Service {
       responseErrorHandler: responseErrorHandler,
     );
   }
+
+  /// See [Add a Book to a Collection](https://api.audiobookshelf.org/#add-a-book-to-a-collection)
+  Future<Collection?> addBook({
+    required String collectionId,
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$collectionId/book',
+      jsonObject: {'id': libraryItemId},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Collection.fromJson),
+    );
+  }
 }
