@@ -35,4 +35,17 @@ class PlaylistsService extends Service {
       fromJson: (json) => listFromJsonKey(json, 'playlists', Playlist.fromJson),
     );
   }
+
+  /// See [Get a Playlist](https://api.audiobookshelf.org/#get-a-playlist)
+  Future<Playlist?> get({
+    required String playlistId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$playlistId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Playlist.fromJson),
+    );
+  }
 }
