@@ -23,4 +23,16 @@ class UsersService extends Service {
       fromJson: (json) => fromJson(json, User.fromJson),
     );
   }
+
+  /// See [Get All Users](https://api.audiobookshelf.org/#get-all-users)
+  Future<List<User>?> getAll({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: basePath,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJson(json, User.fromJson),
+    );
+  }
 }
