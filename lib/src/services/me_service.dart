@@ -1,6 +1,7 @@
 import '../models/request_parameters/get_user_sessions_req_params.dart';
 import '../models/responses/get_user_sessions_response.dart';
 import '../models/responses/get_user_stats_response.dart';
+import '../models/schemas/media_progress.dart';
 import '../models/schemas/user.dart';
 import '../utils/from_json.dart';
 import '../utils/optional_parameters.dart';
@@ -28,6 +29,18 @@ class MeService extends Service {
     );
   }
 
+  /// See [Get Your Listening Stats](https://api.audiobookshelf.org/#get-your-listening-stats)
+  Future<GetUserStatsResponse?> getStats({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/listening-stats',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetUserStatsResponse.fromJson),
+    );
+  }
+
   /// See [Remove an Item From Continue Listening](https://api.audiobookshelf.org/#remove-an-item-from-continue-listening)
   Future<User?> removeFromContinueListening({
     required String mediaProgressId,
@@ -42,15 +55,19 @@ class MeService extends Service {
     );
   }
 
-  /// See [Get Your Listening Stats](https://api.audiobookshelf.org/#get-your-listening-stats)
-  Future<GetUserStatsResponse?> getStats({
+  /// See [Get a Media Progress](https://api.audiobookshelf.org/#get-a-media-progress)
+  Future<MediaProgress?> getMediaProgress({
+    required String libraryItemId,
+    String? episodeId,
     ResponseErrorHandler? responseErrorHandler,
   }) {
+    String path = '$basePath/progress/$libraryItemId';
+    if (episodeId != null) path += '/$episodeId';
     return api.getJson(
-      path: '$basePath/listening-stats',
+      path: path,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJson(json, GetUserStatsResponse.fromJson),
+      fromJson: (json) => fromJson(json, MediaProgress.fromJson),
     );
   }
 
