@@ -18,6 +18,7 @@ class CollectionsService extends Service {
   }) {
     return api.postJson(
       path: basePath,
+      jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, Collection.fromJson),

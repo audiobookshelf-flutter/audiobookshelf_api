@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of '../update_collection_req_params.dart';
+part of '../update_playlist_req_params.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$UpdateCollectionReqParamsToJson(
-    UpdateCollectionReqParams instance) {
+Map<String, dynamic> _$UpdatePlaylistReqParamsToJson(
+    UpdatePlaylistReqParams instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -16,11 +16,9 @@ Map<String, dynamic> _$UpdateCollectionReqParamsToJson(
     }
   }
 
-  writeNotNull('libraryId', instance.libraryId);
   writeNotNull('name', instance.name);
   val['description'] = instance.description;
-  val['cover'] = instance.cover;
-  val['coverFullPath'] = instance.coverFullPath;
-  writeNotNull('books', instance.books);
+  val['coverPath'] = instance.coverPath;
+  writeNotNull('items', instance.items?.map((e) => e.toJson()).toList());
   return val;
 }
