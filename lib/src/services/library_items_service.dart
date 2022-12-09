@@ -2,10 +2,12 @@ import 'dart:typed_data';
 
 import '../models/request_parameters/get_item_req_params.dart';
 import '../models/request_parameters/match_item_req_params.dart';
+import '../models/request_parameters/play_item_req_params.dart';
 import '../models/request_parameters/update_item_media_req_params.dart';
 import '../models/responses/match_item_response.dart';
 import '../models/responses/update_cover_response.dart';
 import '../models/schemas/library_item.dart';
+import '../models/schemas/playback_session.dart';
 import '../utils/from_json.dart';
 import '../utils/optional_parameters.dart';
 import '../utils/typedefs.dart';
@@ -150,74 +152,21 @@ class LibraryItemsService extends Service {
     );
   }
 
-  Future<String?> play({
+  /// See [Play a Library Item or Podcast Episode](https://api.audiobookshelf.org/#play-a-library-item-or-podcast-episode)
+  Future<PlaybackSession?> play({
     required String libraryItemId,
     String? episodeId,
-    String? clientVersion,
-    String? manufacturer,
-    String? model,
-    int? sdkVersion,
-    bool? forceDirectPlay,
-    bool? forceTranscode,
-    List<String>? supportedMimeTypes,
-    String? mediaPlayer,
+    PlayItemReqParams? parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     String path = '$basePath/$libraryItemId/play';
     if (episodeId != null) path += '/$episodeId';
     return api.postJson(
       path: path,
-      jsonObject: optionalParameters([
-        OptionalParameter<List<OptionalParameter>>(
-          name: 'deviceInfo',
-          defaultValue: [],
-          value: [
-            OptionalParameter(
-              name: 'clientVersion',
-              defaultValue: '',
-              value: clientVersion,
-            ),
-            OptionalParameter(
-              name: 'manufacturer',
-              defaultValue: '',
-              value: manufacturer,
-            ),
-            OptionalParameter(
-              name: 'model',
-              defaultValue: '',
-              value: model,
-            ),
-            OptionalParameter(
-              name: 'sdkVersion',
-              defaultValue: null,
-              value: sdkVersion,
-            ),
-          ],
-        ),
-        OptionalParameter(
-          name: 'forceDirectPlay',
-          defaultValue: false,
-          value: forceDirectPlay,
-        ),
-        OptionalParameter(
-          name: 'forceTranscode',
-          defaultValue: false,
-          value: forceTranscode,
-        ),
-        OptionalParameter(
-          name: 'supportedMimeTypes',
-          defaultValue: [],
-          value: supportedMimeTypes,
-        ),
-        OptionalParameter(
-          name: 'mediaPlayer',
-          defaultValue: 'unknown',
-          value: mediaPlayer,
-        ),
-      ]),
+      jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJsonKey(json, 'id'),
+      fromJson: (json) => fromJson(json, PlaybackSession.fromJson),
     );
   }
 }
