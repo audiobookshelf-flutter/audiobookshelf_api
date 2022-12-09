@@ -119,4 +119,19 @@ class CollectionsService extends Service {
       fromJson: (json) => fromJson(json, Collection.fromJson),
     );
   }
+
+  /// See [Batch Remove Books From a Collection](https://api.audiobookshelf.org/#batch-remove-books-from-a-collection)
+  Future<Collection?> batchRemoveBooks({
+    required String collectionId,
+    required List<String> libraryItemIds,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$collectionId/batch/remove',
+      jsonObject: {'books': libraryItemIds},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Collection.fromJson),
+    );
+  }
 }
