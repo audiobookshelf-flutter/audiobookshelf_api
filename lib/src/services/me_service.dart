@@ -1,5 +1,6 @@
 import '../models/request_parameters/get_user_sessions_req_params.dart';
 import '../models/responses/get_user_sessions_response.dart';
+import '../models/responses/get_user_stats_response.dart';
 import '../utils/from_json.dart';
 import '../utils/optional_parameters.dart';
 import '../utils/precise_duration.dart';
@@ -23,6 +24,18 @@ class MeService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, GetUserSessionsResponse.fromJson),
+    );
+  }
+
+  /// See [Get Your Listening Stats](https://api.audiobookshelf.org/#get-your-listening-stats)
+  Future<GetUserStatsResponse?> getStats({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/listening-stats',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetUserStatsResponse.fromJson),
     );
   }
 
