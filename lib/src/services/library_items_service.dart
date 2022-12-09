@@ -250,4 +250,16 @@ class LibraryItemsService extends Service {
       fromJson: (json) => fromJson(json, OpenRssFeedResponse.fromJson),
     );
   }
+
+  /// See [Close an RSS Feed for a Library Item](https://api.audiobookshelf.org/#close-an-rss-feed-for-a-library-item)
+  Future<void> closeRssFeed({
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/$libraryItemId/close-feed',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
