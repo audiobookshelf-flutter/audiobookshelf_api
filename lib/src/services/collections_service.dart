@@ -63,4 +63,16 @@ class CollectionsService extends Service {
       fromJson: (json) => fromJson(json, Collection.fromJson),
     );
   }
+
+  /// See [Delete a Collection](https://api.audiobookshelf.org/#delete-a-collection)
+  Future<void> delete({
+    required String collectionId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePath/$collectionId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
