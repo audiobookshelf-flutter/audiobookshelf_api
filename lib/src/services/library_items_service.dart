@@ -6,11 +6,11 @@ import '../models/request_parameters/play_item_req_params.dart';
 import '../models/request_parameters/update_item_media_req_params.dart';
 import '../models/request_parameters/update_item_tracks_req_params.dart';
 import '../models/responses/match_item_response.dart';
+import '../models/responses/scan_item_response.dart';
 import '../models/responses/update_cover_response.dart';
 import '../models/schemas/library_item.dart';
 import '../models/schemas/playback_session.dart';
 import '../utils/from_json.dart';
-import '../utils/optional_parameters.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
 
@@ -184,5 +184,19 @@ class LibraryItemsService extends Service {
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, LibraryItem.fromJson),
     );
+  }
+
+  /// See [Scan a Library Item](https://api.audiobookshelf.org/#scan-a-library-item)
+  Future<ScanItemResponse?> scan({
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) async {
+    final String? result = await api.getJson(
+      path: '$basePath/$libraryItemId/scan',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJsonKey(json, 'result'),
+    );
+    return ScanItemResponse.byName[result];
   }
 }
