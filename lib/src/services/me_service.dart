@@ -1,3 +1,6 @@
+import '../models/request_parameters/get_user_sessions_req_params.dart';
+import '../models/responses/get_user_sessions_response.dart';
+import '../utils/from_json.dart';
 import '../utils/optional_parameters.dart';
 import '../utils/precise_duration.dart';
 import '../utils/typedefs.dart';
@@ -8,6 +11,20 @@ class MeService extends Service {
   static const basePath = '${Service.basePath}/me';
 
   const MeService(super.api);
+
+  /// See [Get Your Listening Sessions](https://api.audiobookshelf.org/#get-your-listening-sessions)
+  Future<GetUserSessionsResponse?> getSessions({
+    GetUserSessionsReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/listening-sessions',
+      queryParameters: parameters?.toJson(),
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetUserSessionsResponse.fromJson),
+    );
+  }
 
   Future<void> createUpdateMediaProgress({
     required String libraryItemId,
