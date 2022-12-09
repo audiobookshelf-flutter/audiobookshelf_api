@@ -1,6 +1,7 @@
 import '../models/request_parameters/get_user_sessions_req_params.dart';
 import '../models/responses/get_user_sessions_response.dart';
 import '../models/responses/get_user_stats_response.dart';
+import '../models/schemas/user.dart';
 import '../utils/from_json.dart';
 import '../utils/optional_parameters.dart';
 import '../utils/precise_duration.dart';
@@ -24,6 +25,20 @@ class MeService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, GetUserSessionsResponse.fromJson),
+    );
+  }
+
+  /// See [Remove an Item From Continue Listening](https://api.audiobookshelf.org/#remove-an-item-from-continue-listening)
+  Future<User?> removeFromContinueListening({
+    required String mediaProgressId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path:
+          '$basePath/progress/$mediaProgressId/remove-from-continue-listening',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, User.fromJson),
     );
   }
 
