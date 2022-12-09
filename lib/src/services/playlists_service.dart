@@ -1,6 +1,7 @@
 import '../models/request_parameters/create_playlist_req_params.dart';
 import '../models/request_parameters/update_playlist_req_params.dart';
 import '../models/schemas/playlist.dart';
+import '../models/schemas/playlist_item.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -107,6 +108,21 @@ class PlaylistsService extends Service {
     if (episodeId != null) path += '/$episodeId';
     return api.deleteJson(
       path: path,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Playlist.fromJson),
+    );
+  }
+
+  /// See [Batch Add Items to a Playlist](https://api.audiobookshelf.org/#batch-add-items-to-a-playlist)
+  Future<Playlist?> batchAddItems({
+    required String playlistId,
+    required List<PlaylistItem> items,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$playlistId/batch/add',
+      jsonObject: {'items': items},
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, Playlist.fromJson),
