@@ -9,6 +9,8 @@ import '../models/responses/get_item_tone_response.dart';
 import '../models/responses/match_item_response.dart';
 import '../models/responses/scan_item_response.dart';
 import '../models/responses/update_cover_response.dart';
+import '../models/responses/update_item_chapters_response.dart';
+import '../models/schemas/book_chapter.dart';
 import '../models/schemas/library_item.dart';
 import '../models/schemas/playback_session.dart';
 import '../utils/from_json.dart';
@@ -211,6 +213,21 @@ class LibraryItemsService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, GetItemToneResponse.fromJson),
+    );
+  }
+
+  /// See [Update a Library Item's Chapters](https://api.audiobookshelf.org/#update-a-library-item-39-s-chapters)
+  Future<UpdateItemChaptersResponse?> updateChapters({
+    required String libraryItemId,
+    required List<BookChapter> chapters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$libraryItemId/chapters',
+      jsonObject: {'chapters': chapters},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, UpdateItemChaptersResponse.fromJson),
     );
   }
 }
