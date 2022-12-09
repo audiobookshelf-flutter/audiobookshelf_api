@@ -1,4 +1,5 @@
 import '../models/request_parameters/create_playlist_req_params.dart';
+import '../models/request_parameters/update_playlist_req_params.dart';
 import '../models/schemas/playlist.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -43,6 +44,21 @@ class PlaylistsService extends Service {
   }) {
     return api.getJson(
       path: '$basePath/$playlistId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Playlist.fromJson),
+    );
+  }
+
+  /// See [Update a Playlist](https://api.audiobookshelf.org/#update-a-playlist)
+  Future<Playlist?> update({
+    required String playlistId,
+    UpdatePlaylistReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$playlistId',
+      jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, Playlist.fromJson),
