@@ -128,4 +128,19 @@ class PlaylistsService extends Service {
       fromJson: (json) => fromJson(json, Playlist.fromJson),
     );
   }
+
+  /// See [Batch Remove Items From a Playlist](https://api.audiobookshelf.org/#batch-remove-items-from-a-playlist)
+  Future<Playlist?> batchRemoveItems({
+    required String playlistId,
+    required List<PlaylistItem> items,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$playlistId/batch/remove',
+      jsonObject: {'items': items},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Playlist.fromJson),
+    );
+  }
 }
