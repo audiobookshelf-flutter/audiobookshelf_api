@@ -1,3 +1,4 @@
+import '../models/request_parameters/create_collection_req_params.dart';
 import '../models/schemas/collection.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -8,6 +9,19 @@ class CollectionsService extends Service {
   static const basePath = '${Service.basePath}/collections';
 
   const CollectionsService(super.api);
+
+  /// See [Create a Collection](https://api.audiobookshelf.org/#create-a-collection)
+  Future<Collection?> create({
+    required CreateCollectionReqParams parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: basePath,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Collection.fromJson),
+    );
+  }
 
   Future<List<Collection>?> getAll({
     ResponseErrorHandler? responseErrorHandler,
