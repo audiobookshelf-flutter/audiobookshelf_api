@@ -69,6 +69,16 @@ class DurationMsConverter implements JsonConverter<Duration, int> {
   int toJson(Duration object) => object.inMilliseconds;
 }
 
+class DurationSecConverter implements JsonConverter<Duration, int> {
+  const DurationSecConverter();
+
+  @override
+  Duration fromJson(int json) => Duration(seconds: json);
+
+  @override
+  int toJson(Duration object) => object.inSeconds;
+}
+
 class HttpParserMediaTypeConverter
     implements JsonConverter<http_parser.MediaType, String> {
   const HttpParserMediaTypeConverter();

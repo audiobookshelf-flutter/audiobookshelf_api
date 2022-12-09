@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-@JsonEnum(valueField: 'value')
+@JsonEnum(valueField: 'name')
 enum DayOfTheWeek {
   sunday(0, 'Sunday'),
   monday(1, 'Monday'),
