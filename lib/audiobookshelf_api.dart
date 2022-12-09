@@ -52,4 +52,3 @@ export 'src/models/schemas/user_settings.dart';
 export 'src/models/utils/cron_expression.dart';
 export 'src/models/utils/day_of_the_week.dart';
 export 'src/models/utils/month.dart';
-export 'src/series_search_result.dart';
