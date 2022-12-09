@@ -312,4 +312,18 @@ class LibraryItemsService extends Service {
       fromJson: (json) => fromJson(json, BatchUpdateItemResponse.fromJson),
     );
   }
+
+  /// See [Batch Get Library Items](https://api.audiobookshelf.org/#batch-get-library-items)
+  Future<List<LibraryItem>?> batchGet({
+    required List<String> libraryItemIds,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/batch/get',
+      jsonObject: {'libraryItemIds': libraryItemIds},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJson(json, LibraryItem.fromJson),
+    );
+  }
 }
