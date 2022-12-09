@@ -48,4 +48,17 @@ class UsersService extends Service {
       fromJson: (json) => fromJson(json, GetOnlineUsersResponse.fromJson),
     );
   }
+
+  /// See [Get a User](https://api.audiobookshelf.org/#get-a-user)
+  Future<User?> get({
+    required String userId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$userId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, User.fromJson),
+    );
+  }
 }
