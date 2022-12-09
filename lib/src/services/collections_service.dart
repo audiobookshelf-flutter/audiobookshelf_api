@@ -1,4 +1,5 @@
 import '../models/request_parameters/create_collection_req_params.dart';
+import '../models/request_parameters/update_collection_req_params.dart';
 import '../models/schemas/collection.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -42,6 +43,21 @@ class CollectionsService extends Service {
   }) {
     return api.getJson(
       path: '$basePath/$collectionId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Collection.fromJson),
+    );
+  }
+
+  /// See [Update a Collection](https://api.audiobookshelf.org/#update-a-collection)
+  Future<Collection?> update({
+    required String collectionId,
+    UpdateCollectionReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$collectionId',
+      jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, Collection.fromJson),
