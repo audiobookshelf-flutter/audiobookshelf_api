@@ -5,6 +5,7 @@ import '../models/request_parameters/match_item_req_params.dart';
 import '../models/request_parameters/play_item_req_params.dart';
 import '../models/request_parameters/update_item_media_req_params.dart';
 import '../models/request_parameters/update_item_tracks_req_params.dart';
+import '../models/responses/batch_update_item_response.dart';
 import '../models/responses/get_item_tone_response.dart';
 import '../models/responses/match_item_response.dart';
 import '../models/responses/open_rss_feed_response.dart';
@@ -288,6 +289,27 @@ class LibraryItemsService extends Service {
       jsonObject: {'libraryItemIds': libraryItemIds},
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Batch Update Library Items](https://api.audiobookshelf.org/#batch-update-library-items)
+  ///
+  /// [parameters] is a [Map<String, UpdateItemMediaReqParams>] with each key as
+  /// the ID of the library item to update the media for, and the value is what
+  /// to update the media with, from [updateMedia].
+  Future<BatchUpdateItemResponse?> batchUpdate({
+    required Map<String, UpdateItemMediaReqParams> parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/batch/update',
+      jsonObject: [
+        for (final entry in parameters.entries)
+          {'id': entry.key, 'mediaPayload': entry.value}
+      ],
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, BatchUpdateItemResponse.fromJson),
     );
   }
 }
