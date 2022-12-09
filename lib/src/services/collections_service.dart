@@ -35,6 +35,7 @@ class CollectionsService extends Service {
     );
   }
 
+  /// See [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
   Future<Collection?> get({
     required String collectionId,
     ResponseErrorHandler? responseErrorHandler,
