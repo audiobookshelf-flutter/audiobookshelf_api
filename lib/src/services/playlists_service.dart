@@ -64,4 +64,16 @@ class PlaylistsService extends Service {
       fromJson: (json) => fromJson(json, Playlist.fromJson),
     );
   }
+
+  /// See [Delete a Playlist](https://api.audiobookshelf.org/#delete-a-playlist)
+  Future<void> delete({
+    required String playlistId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePath/$playlistId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
