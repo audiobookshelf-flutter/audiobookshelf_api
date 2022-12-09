@@ -23,6 +23,7 @@ class CollectionsService extends Service {
     );
   }
 
+  /// See [Get All Collections](https://api.audiobookshelf.org/#get-all-collections)
   Future<List<Collection>?> getAll({
     ResponseErrorHandler? responseErrorHandler,
   }) {
