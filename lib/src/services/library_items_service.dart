@@ -1,7 +1,9 @@
 import 'dart:typed_data';
 
 import '../models/request_parameters/get_item_req_params.dart';
+import '../models/request_parameters/match_item_req_params.dart';
 import '../models/request_parameters/update_item_media_req_params.dart';
+import '../models/responses/match_item_response.dart';
 import '../models/responses/update_cover_response.dart';
 import '../models/schemas/library_item.dart';
 import '../utils/from_json.dart';
@@ -130,6 +132,21 @@ class LibraryItemsService extends Service {
       path: '$basePath/$libraryItemId/cover',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Match a Library Item](https://api.audiobookshelf.org/#match-a-library-item)
+  Future<MatchItemResponse?> match({
+    required String libraryItemId,
+    MatchItemReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$libraryItemId/match',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, MatchItemResponse.fromJson),
     );
   }
 
