@@ -121,4 +121,17 @@ class UsersService extends Service {
       fromJson: (json) => fromJson(json, GetUserStatsResponse.fromJson),
     );
   }
+
+  /// See [Purge a User's Media Progress](https://api.audiobookshelf.org/#purge-a-user-39-s-media-progress)
+  Future<User?> purgeProgress({
+    required String userId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$userId/purge-media-progress',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, User.fromJson),
+    );
+  }
 }
