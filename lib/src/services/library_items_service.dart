@@ -9,6 +9,7 @@ import '../models/responses/get_item_tone_response.dart';
 import '../models/responses/match_item_response.dart';
 import '../models/responses/open_rss_feed_response.dart';
 import '../models/responses/scan_item_response.dart';
+import '../models/responses/tone_scan_item_response.dart';
 import '../models/responses/update_cover_response.dart';
 import '../models/responses/update_item_chapters_response.dart';
 import '../models/schemas/book_chapter.dart';
@@ -260,6 +261,20 @@ class LibraryItemsService extends Service {
       path: '$basePath/$libraryItemId/close-feed',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Tone Scan a Library Item](https://api.audiobookshelf.org/#tone-scan-a-library-item)
+  Future<ToneScanItemResponse?> toneScan({
+    required String libraryItemId,
+    int index = 1,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$libraryItemId/tone-scan/$index',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, ToneScanItemResponse.fromJson),
     );
   }
 }
