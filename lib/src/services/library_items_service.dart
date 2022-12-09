@@ -4,6 +4,7 @@ import '../models/request_parameters/get_item_req_params.dart';
 import '../models/request_parameters/match_item_req_params.dart';
 import '../models/request_parameters/play_item_req_params.dart';
 import '../models/request_parameters/update_item_media_req_params.dart';
+import '../models/request_parameters/update_item_tracks_req_params.dart';
 import '../models/responses/match_item_response.dart';
 import '../models/responses/update_cover_response.dart';
 import '../models/schemas/library_item.dart';
@@ -167,6 +168,21 @@ class LibraryItemsService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, PlaybackSession.fromJson),
+    );
+  }
+
+  /// See [Update a Library Item's Audio Tracks](https://api.audiobookshelf.org/#update-a-library-item-39-s-audio-tracks)
+  Future<LibraryItem?> updateTracks({
+    required String libraryItemId,
+    required UpdateItemTracksReqParams parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$libraryItemId/tracks',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, LibraryItem.fromJson),
     );
   }
 }
