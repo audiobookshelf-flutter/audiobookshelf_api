@@ -277,4 +277,17 @@ class LibraryItemsService extends Service {
       fromJson: (json) => fromJson(json, ToneScanItemResponse.fromJson),
     );
   }
+
+  /// See [Batch Delete Library Items](https://api.audiobookshelf.org/#batch-delete-library-items)
+  Future<void> batchDelete({
+    required List<String> libraryItemIds,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/batch/delete',
+      jsonObject: {'libraryItemIds': libraryItemIds},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
