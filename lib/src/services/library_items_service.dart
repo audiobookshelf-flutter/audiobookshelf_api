@@ -5,6 +5,7 @@ import '../models/request_parameters/match_item_req_params.dart';
 import '../models/request_parameters/play_item_req_params.dart';
 import '../models/request_parameters/update_item_media_req_params.dart';
 import '../models/request_parameters/update_item_tracks_req_params.dart';
+import '../models/responses/get_item_tone_response.dart';
 import '../models/responses/match_item_response.dart';
 import '../models/responses/scan_item_response.dart';
 import '../models/responses/update_cover_response.dart';
@@ -198,5 +199,18 @@ class LibraryItemsService extends Service {
       fromJson: (json) => fromJsonKey(json, 'result'),
     );
     return ScanItemResponse.byName[result];
+  }
+
+  /// See [Get a Library Item's Tone Metadata Object](https://api.audiobookshelf.org/#get-a-library-item-39-s-tone-metadata-object)
+  Future<GetItemToneResponse?> getToneObject({
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryItemId/tone-object',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetItemToneResponse.fromJson),
+    );
   }
 }
