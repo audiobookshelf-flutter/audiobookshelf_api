@@ -90,4 +90,18 @@ class CollectionsService extends Service {
       fromJson: (json) => fromJson(json, Collection.fromJson),
     );
   }
+
+  /// See [Remove a Book From a Collection](https://api.audiobookshelf.org/#remove-a-book-from-a-collection)
+  Future<Collection?> removeBook({
+    required String collectionId,
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/$collectionId/book/$libraryItemId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Collection.fromJson),
+    );
+  }
 }
