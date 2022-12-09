@@ -75,6 +75,7 @@ class UsersService extends Service {
   }) {
     return api.patchJson(
       path: '$basePath/$userId',
+      jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, UpdateUserResponse.fromJson),
