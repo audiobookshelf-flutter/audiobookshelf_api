@@ -3,6 +3,7 @@ import '../models/request_parameters/get_user_sessions_req_params.dart';
 import '../models/request_parameters/update_user_req_params.dart';
 import '../models/responses/get_online_users_response.dart';
 import '../models/responses/get_user_sessions_response.dart';
+import '../models/responses/get_user_stats_response.dart';
 import '../models/responses/update_user_response.dart';
 import '../models/schemas/user.dart';
 import '../utils/from_json.dart';
@@ -105,6 +106,19 @@ class UsersService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, GetUserSessionsResponse.fromJson),
+    );
+  }
+
+  /// See [Get a User's Listening Stats](https://api.audiobookshelf.org/#get-a-user-39-s-listening-stats)
+  Future<GetUserStatsResponse?> getStats({
+    required String userId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$userId/listening-stats',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetUserStatsResponse.fromJson),
     );
   }
 }
