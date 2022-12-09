@@ -95,4 +95,21 @@ class PlaylistsService extends Service {
       fromJson: (json) => fromJson(json, Playlist.fromJson),
     );
   }
+
+  /// See [Remove an Item From a Playlist](https://api.audiobookshelf.org/#remove-an-item-from-a-playlist)
+  Future<Playlist?> removeItem({
+    required String playlistId,
+    required String libraryItemId,
+    String? episodeId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    String path = '$basePath/$playlistId/item/$libraryItemId';
+    if (episodeId != null) path += '/$episodeId';
+    return api.deleteJson(
+      path: path,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Playlist.fromJson),
+    );
+  }
 }
