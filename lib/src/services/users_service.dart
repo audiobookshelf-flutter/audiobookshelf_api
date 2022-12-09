@@ -1,5 +1,7 @@
 import '../models/request_parameters/create_user_req_params.dart';
+import '../models/request_parameters/update_user_req_params.dart';
 import '../models/responses/get_online_users_response.dart';
+import '../models/responses/update_user_response.dart';
 import '../models/schemas/user.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -59,6 +61,20 @@ class UsersService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, User.fromJson),
+    );
+  }
+
+  /// See [Update a User](https://api.audiobookshelf.org/#update-a-user)
+  Future<UpdateUserResponse?> update({
+    required String userId,
+    UpdateUserReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$userId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, UpdateUserResponse.fromJson),
     );
   }
 }
