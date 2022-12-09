@@ -18,9 +18,9 @@ Map<String, dynamic> _$UpdateCollectionReqParamsToJson(
 
   writeNotNull('libraryId', instance.libraryId);
   writeNotNull('name', instance.name);
-  writeNotNull('description', instance.description);
-  writeNotNull('cover', instance.cover);
-  writeNotNull('coverFullPath', instance.coverFullPath);
+  val['description'] = instance.description;
+  val['cover'] = instance.cover;
+  val['coverFullPath'] = instance.coverFullPath;
   writeNotNull('books', instance.books);
   return val;
 }
