@@ -104,4 +104,19 @@ class CollectionsService extends Service {
       fromJson: (json) => fromJson(json, Collection.fromJson),
     );
   }
+
+  /// See [Batch Add Books to a Collection](https://api.audiobookshelf.org/#batch-add-books-to-a-collection)
+  Future<Collection?> batchAddBooks({
+    required String collectionId,
+    required List<String> libraryItemIds,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$collectionId/batch/add',
+      jsonObject: {'books': libraryItemIds},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Collection.fromJson),
+    );
+  }
 }
