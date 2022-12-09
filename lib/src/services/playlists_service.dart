@@ -76,4 +76,23 @@ class PlaylistsService extends Service {
       responseErrorHandler: responseErrorHandler,
     );
   }
+
+  /// See [Add an Item to a Playlist](https://api.audiobookshelf.org/#add-an-item-to-a-playlist)
+  Future<Playlist?> addItem({
+    required String playlistId,
+    required String libraryItemId,
+    String? episodeId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$playlistId/item',
+      jsonObject: {
+        'libraryItemId': libraryItemId,
+        if (episodeId != null) 'episodeId': episodeId,
+      },
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Playlist.fromJson),
+    );
+  }
 }
