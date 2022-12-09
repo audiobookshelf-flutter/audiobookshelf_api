@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../utils/json_converters.dart';
+import '../../utils/json_remove_defaults.dart';
 import '../utils/filter.dart';
 
 part 'generated/get_librarys_items_req_params.g.dart';
@@ -29,8 +30,6 @@ class GetLibrarysItemsReqParams {
     this.collapseSeries,
   });
 
-  Map<String, dynamic>? toJson() {
-    final json = _$GetLibrarysItemsReqParamsToJson(this);
-    return json.isNotEmpty ? json : null;
-  }
+  Map<String, dynamic>? toJson() =>
+      _$GetLibrarysItemsReqParamsToJson(this).nullIfEmpty;
 }

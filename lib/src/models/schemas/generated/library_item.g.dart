@@ -8,6 +8,7 @@ part of '../library_item.dart';
 
 _$_LibraryItem _$$_LibraryItemFromJson(Map<String, dynamic> json) =>
     _$_LibraryItem(
+      updated: json['updated'] as bool?,
       id: json['id'] as String,
       ino: json['ino'] as String,
       libraryId: json['libraryId'] as String,
@@ -42,6 +43,7 @@ _$_LibraryItem _$$_LibraryItemFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_LibraryItemToJson(_$_LibraryItem instance) =>
     <String, dynamic>{
+      'updated': instance.updated,
       'id': instance.id,
       'ino': instance.ino,
       'libraryId': instance.libraryId,
@@ -192,6 +194,17 @@ _$LibraryItemExpanded _$$LibraryItemExpandedFromJson(
       size: json['size'] as int,
       sequence: json['sequence'] as String?,
       seriesSequence: json['seriesSequence'] as String?,
+      userMediaProgress: json['userMediaProgress'] == null
+          ? null
+          : MediaProgress.fromJson(
+              json['userMediaProgress'] as Map<String, dynamic>),
+      rssFeedUrl: json['rssFeedUrl'] == null
+          ? null
+          : Uri.parse(json['rssFeedUrl'] as String),
+      episodesDownloading: (json['episodesDownloading'] as List<dynamic>?)
+          ?.map(
+              (e) => PodcastEpisodeDownload.fromJson(e as Map<String, dynamic>))
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
@@ -221,5 +234,8 @@ Map<String, dynamic> _$$LibraryItemExpandedToJson(
       'size': instance.size,
       'sequence': instance.sequence,
       'seriesSequence': instance.seriesSequence,
+      'userMediaProgress': instance.userMediaProgress,
+      'rssFeedUrl': instance.rssFeedUrl?.toString(),
+      'episodesDownloading': instance.episodesDownloading,
       'runtimeType': instance.$type,
     };

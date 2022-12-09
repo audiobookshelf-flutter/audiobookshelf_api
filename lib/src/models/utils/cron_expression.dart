@@ -26,7 +26,9 @@ class CronExpression with _$CronExpression {
     @Default(<DayOfTheWeek>{}) Set<DayOfTheWeek> daysOfWeek,
   }) = _CronExpression;
 
-  static CronExpression parse(String expression) {
+  /// Creates a [CronExpression] from a cron expression string.
+  /// Throws if the string is not a well formed cron expression.
+  factory CronExpression.parse(String expression) {
     final parts = expression.split(' ');
     final minutes = parts[0];
     final hours = parts[1];
@@ -48,6 +50,7 @@ class CronExpression with _$CronExpression {
     );
   }
 
+  /// Converts a [CronExpression] to a cron expression string.
   @override
   String toString() {
     final minutes = this.minutes.toRangeString(0, 59);

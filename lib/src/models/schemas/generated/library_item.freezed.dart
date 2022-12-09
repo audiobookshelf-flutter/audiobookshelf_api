@@ -55,6 +55,7 @@ mixin _$LibraryItem {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -127,13 +128,17 @@ mixin _$LibraryItem {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)
         expanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -206,13 +211,17 @@ mixin _$LibraryItem {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)?
         expanded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -285,7 +294,10 @@ mixin _$LibraryItem {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)?
         expanded,
     required TResult orElse(),
   }) =>
@@ -473,7 +485,8 @@ abstract class _$$_LibraryItemCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {bool? updated,
+      String id,
       String ino,
       String libraryId,
       String folderId,
@@ -512,6 +525,7 @@ class __$$_LibraryItemCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? updated = freezed,
     Object? id = null,
     Object? ino = null,
     Object? libraryId = null,
@@ -536,6 +550,10 @@ class __$$_LibraryItemCopyWithImpl<$Res>
     Object? seriesSequence = freezed,
   }) {
     return _then(_$_LibraryItem(
+      updated: freezed == updated
+          ? _value.updated
+          : updated // ignore: cast_nullable_to_non_nullable
+              as bool?,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -645,7 +663,8 @@ class __$$_LibraryItemCopyWithImpl<$Res>
 @jsonConverters
 class _$_LibraryItem extends _LibraryItem {
   const _$_LibraryItem(
-      {required this.id,
+      {this.updated,
+      required this.id,
       required this.ino,
       required this.libraryId,
       required this.folderId,
@@ -675,6 +694,8 @@ class _$_LibraryItem extends _LibraryItem {
   factory _$_LibraryItem.fromJson(Map<String, dynamic> json) =>
       _$$_LibraryItemFromJson(json);
 
+  @override
+  final bool? updated;
   @override
   final String id;
   @override
@@ -734,7 +755,7 @@ class _$_LibraryItem extends _LibraryItem {
 
   @override
   String toString() {
-    return 'LibraryItem(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence)';
+    return 'LibraryItem(updated: $updated, id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence)';
   }
 
   @override
@@ -742,6 +763,7 @@ class _$_LibraryItem extends _LibraryItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LibraryItem &&
+            (identical(other.updated, updated) || other.updated == updated) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.ino, ino) || other.ino == ino) &&
             (identical(other.libraryId, libraryId) ||
@@ -783,6 +805,7 @@ class _$_LibraryItem extends _LibraryItem {
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
+        updated,
         id,
         ino,
         libraryId,
@@ -817,6 +840,7 @@ class _$_LibraryItem extends _LibraryItem {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -889,10 +913,14 @@ class _$_LibraryItem extends _LibraryItem {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)
         expanded,
   }) {
     return $default(
+        updated,
         id,
         ino,
         libraryId,
@@ -921,6 +949,7 @@ class _$_LibraryItem extends _LibraryItem {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -993,10 +1022,14 @@ class _$_LibraryItem extends _LibraryItem {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)?
         expanded,
   }) {
     return $default?.call(
+        updated,
         id,
         ino,
         libraryId,
@@ -1025,6 +1058,7 @@ class _$_LibraryItem extends _LibraryItem {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -1097,12 +1131,16 @@ class _$_LibraryItem extends _LibraryItem {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)?
         expanded,
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
+          updated,
           id,
           ino,
           libraryId,
@@ -1173,7 +1211,8 @@ class _$_LibraryItem extends _LibraryItem {
 
 abstract class _LibraryItem extends LibraryItem {
   const factory _LibraryItem(
-      {required final String id,
+      {final bool? updated,
+      required final String id,
       required final String ino,
       required final String libraryId,
       required final String folderId,
@@ -1200,6 +1239,7 @@ abstract class _LibraryItem extends LibraryItem {
   factory _LibraryItem.fromJson(Map<String, dynamic> json) =
       _$_LibraryItem.fromJson;
 
+  bool? get updated;
   @override
   String get id;
   @override
@@ -1646,6 +1686,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -1718,7 +1759,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)
         expanded,
   }) {
     return minified(
@@ -1753,6 +1797,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -1825,7 +1870,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)?
         expanded,
   }) {
     return minified?.call(
@@ -1860,6 +1908,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -1932,7 +1981,10 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)?
         expanded,
     required TResult orElse(),
   }) {
@@ -2123,10 +2175,14 @@ abstract class _$$LibraryItemExpandedCopyWith<$Res>
       List<LibraryFile> libraryFiles,
       int size,
       String? sequence,
-      String? seriesSequence});
+      String? seriesSequence,
+      MediaProgress? userMediaProgress,
+      Uri? rssFeedUrl,
+      List<PodcastEpisodeDownload>? episodesDownloading});
 
   @override
   $MediaCopyWith<$Res> get media;
+  $MediaProgressCopyWith<$Res>? get userMediaProgress;
 }
 
 /// @nodoc
@@ -2162,6 +2218,9 @@ class __$$LibraryItemExpandedCopyWithImpl<$Res>
     Object? size = null,
     Object? sequence = freezed,
     Object? seriesSequence = freezed,
+    Object? userMediaProgress = freezed,
+    Object? rssFeedUrl = freezed,
+    Object? episodesDownloading = freezed,
   }) {
     return _then(_$LibraryItemExpanded(
       id: null == id
@@ -2252,7 +2311,31 @@ class __$$LibraryItemExpandedCopyWithImpl<$Res>
           ? _value.seriesSequence
           : seriesSequence // ignore: cast_nullable_to_non_nullable
               as String?,
+      userMediaProgress: freezed == userMediaProgress
+          ? _value.userMediaProgress
+          : userMediaProgress // ignore: cast_nullable_to_non_nullable
+              as MediaProgress?,
+      rssFeedUrl: freezed == rssFeedUrl
+          ? _value.rssFeedUrl
+          : rssFeedUrl // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      episodesDownloading: freezed == episodesDownloading
+          ? _value._episodesDownloading
+          : episodesDownloading // ignore: cast_nullable_to_non_nullable
+              as List<PodcastEpisodeDownload>?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MediaProgressCopyWith<$Res>? get userMediaProgress {
+    if (_value.userMediaProgress == null) {
+      return null;
+    }
+
+    return $MediaProgressCopyWith<$Res>(_value.userMediaProgress!, (value) {
+      return _then(_value.copyWith(userMediaProgress: value));
+    });
   }
 }
 
@@ -2283,8 +2366,12 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
       required this.size,
       this.sequence,
       this.seriesSequence,
+      this.userMediaProgress,
+      this.rssFeedUrl,
+      final List<PodcastEpisodeDownload>? episodesDownloading,
       final String? $type})
       : _libraryFiles = libraryFiles,
+        _episodesDownloading = episodesDownloading,
         $type = $type ?? 'expanded',
         super._();
 
@@ -2344,13 +2431,27 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
   final String? sequence;
   @override
   final String? seriesSequence;
+  @override
+  final MediaProgress? userMediaProgress;
+  @override
+  final Uri? rssFeedUrl;
+  final List<PodcastEpisodeDownload>? _episodesDownloading;
+  @override
+  List<PodcastEpisodeDownload>? get episodesDownloading {
+    final value = _episodesDownloading;
+    if (value == null) return null;
+    if (_episodesDownloading is EqualUnmodifiableListView)
+      return _episodesDownloading;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'LibraryItem.expanded(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, size: $size, sequence: $sequence, seriesSequence: $seriesSequence)';
+    return 'LibraryItem.expanded(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, size: $size, sequence: $sequence, seriesSequence: $seriesSequence, userMediaProgress: $userMediaProgress, rssFeedUrl: $rssFeedUrl, episodesDownloading: $episodesDownloading)';
   }
 
   @override
@@ -2391,7 +2492,13 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             (identical(other.sequence, sequence) ||
                 other.sequence == sequence) &&
             (identical(other.seriesSequence, seriesSequence) ||
-                other.seriesSequence == seriesSequence));
+                other.seriesSequence == seriesSequence) &&
+            (identical(other.userMediaProgress, userMediaProgress) ||
+                other.userMediaProgress == userMediaProgress) &&
+            (identical(other.rssFeedUrl, rssFeedUrl) ||
+                other.rssFeedUrl == rssFeedUrl) &&
+            const DeepCollectionEquality()
+                .equals(other._episodesDownloading, _episodesDownloading));
   }
 
   @JsonKey(ignore: true)
@@ -2419,7 +2526,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
         const DeepCollectionEquality().hash(_libraryFiles),
         size,
         sequence,
-        seriesSequence
+        seriesSequence,
+        userMediaProgress,
+        rssFeedUrl,
+        const DeepCollectionEquality().hash(_episodesDownloading)
       ]);
 
   @JsonKey(ignore: true)
@@ -2433,6 +2543,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -2505,7 +2616,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)
         expanded,
   }) {
     return expanded(
@@ -2530,13 +2644,17 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
         libraryFiles,
         size,
         sequence,
-        seriesSequence);
+        seriesSequence,
+        userMediaProgress,
+        rssFeedUrl,
+        episodesDownloading);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -2609,7 +2727,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)?
         expanded,
   }) {
     return expanded?.call(
@@ -2634,13 +2755,17 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
         libraryFiles,
         size,
         sequence,
-        seriesSequence);
+        seriesSequence,
+        userMediaProgress,
+        rssFeedUrl,
+        episodesDownloading);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
+            bool? updated,
             String id,
             String ino,
             String libraryId,
@@ -2713,7 +2838,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             List<LibraryFile> libraryFiles,
             int size,
             String? sequence,
-            String? seriesSequence)?
+            String? seriesSequence,
+            MediaProgress? userMediaProgress,
+            Uri? rssFeedUrl,
+            List<PodcastEpisodeDownload>? episodesDownloading)?
         expanded,
     required TResult orElse(),
   }) {
@@ -2740,7 +2868,10 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
           libraryFiles,
           size,
           sequence,
-          seriesSequence);
+          seriesSequence,
+          userMediaProgress,
+          rssFeedUrl,
+          episodesDownloading);
     }
     return orElse();
   }
@@ -2789,28 +2920,32 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
 
 abstract class LibraryItemExpanded extends LibraryItem {
   const factory LibraryItemExpanded(
-      {required final String id,
-      required final String ino,
-      required final String libraryId,
-      required final String folderId,
-      required final String path,
-      required final String relPath,
-      required final bool isFile,
-      @JsonKey(name: 'mtimeMs') required final DateTime mtime,
-      @JsonKey(name: 'ctimeMs') required final DateTime ctime,
-      @JsonKey(name: 'birthtimeMs') required final DateTime birthtime,
-      required final DateTime addedAt,
-      required final DateTime updatedAt,
-      final DateTime? lastScan,
-      final String? scanVersion,
-      required final bool isMissing,
-      required final bool isInvalid,
-      required final MediaType mediaType,
-      required final Media media,
-      required final List<LibraryFile> libraryFiles,
-      required final int size,
-      final String? sequence,
-      final String? seriesSequence}) = _$LibraryItemExpanded;
+          {required final String id,
+          required final String ino,
+          required final String libraryId,
+          required final String folderId,
+          required final String path,
+          required final String relPath,
+          required final bool isFile,
+          @JsonKey(name: 'mtimeMs') required final DateTime mtime,
+          @JsonKey(name: 'ctimeMs') required final DateTime ctime,
+          @JsonKey(name: 'birthtimeMs') required final DateTime birthtime,
+          required final DateTime addedAt,
+          required final DateTime updatedAt,
+          final DateTime? lastScan,
+          final String? scanVersion,
+          required final bool isMissing,
+          required final bool isInvalid,
+          required final MediaType mediaType,
+          required final Media media,
+          required final List<LibraryFile> libraryFiles,
+          required final int size,
+          final String? sequence,
+          final String? seriesSequence,
+          final MediaProgress? userMediaProgress,
+          final Uri? rssFeedUrl,
+          final List<PodcastEpisodeDownload>? episodesDownloading}) =
+      _$LibraryItemExpanded;
   const LibraryItemExpanded._() : super._();
 
   factory LibraryItemExpanded.fromJson(Map<String, dynamic> json) =
@@ -2859,6 +2994,9 @@ abstract class LibraryItemExpanded extends LibraryItem {
   String? get sequence;
   @override
   String? get seriesSequence;
+  MediaProgress? get userMediaProgress;
+  Uri? get rssFeedUrl;
+  List<PodcastEpisodeDownload>? get episodesDownloading;
   @override
   @JsonKey(ignore: true)
   _$$LibraryItemExpandedCopyWith<_$LibraryItemExpanded> get copyWith =>

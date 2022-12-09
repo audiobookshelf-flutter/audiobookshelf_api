@@ -5,7 +5,9 @@ import '../enums/media_type.dart';
 import '../enums/schema_variant.dart';
 import 'library_file.dart';
 import 'media.dart';
+import 'media_progress.dart';
 import 'podcast_episode.dart';
+import 'podcast_episode_download.dart';
 import 'series.dart';
 
 part 'generated/library_item.freezed.dart';
@@ -18,6 +20,7 @@ class LibraryItem with _$LibraryItem {
 
   @jsonConverters
   const factory LibraryItem({
+    bool? updated,
     required String id,
     required String ino,
     required String libraryId,
@@ -95,6 +98,9 @@ class LibraryItem with _$LibraryItem {
     required int size,
     String? sequence,
     String? seriesSequence,
+    MediaProgress? userMediaProgress,
+    Uri? rssFeedUrl,
+    List<PodcastEpisodeDownload>? episodesDownloading,
   }) = LibraryItemExpanded;
 
   factory LibraryItem.fromJson(Map<String, dynamic> json) =>
