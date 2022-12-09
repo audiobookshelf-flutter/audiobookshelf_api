@@ -17,8 +17,8 @@ Map<String, dynamic> _$UpdatePlaylistReqParamsToJson(
   }
 
   writeNotNull('name', instance.name);
-  writeNotNull('description', instance.description);
-  writeNotNull('coverPath', instance.coverPath);
+  val['description'] = instance.description;
+  val['coverPath'] = instance.coverPath;
   writeNotNull('items', instance.items?.map((e) => e.toJson()).toList());
   return val;
 }
