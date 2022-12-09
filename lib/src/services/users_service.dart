@@ -77,4 +77,17 @@ class UsersService extends Service {
       fromJson: (json) => fromJson(json, UpdateUserResponse.fromJson),
     );
   }
+
+  /// See [Delete a User](https://api.audiobookshelf.org/#delete-a-user)
+  Future<bool?> delete({
+    required String userId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/$userId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJsonKey(json, 'success'),
+    );
+  }
 }
