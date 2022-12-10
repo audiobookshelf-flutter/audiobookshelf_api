@@ -1,4 +1,5 @@
 import '../models/request_parameters/search_req_params.dart';
+import '../models/request_parameters/update_series_req_params.dart';
 import '../models/schemas/series.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -33,6 +34,21 @@ class SeriesService extends Service {
     return api.getJson(
       path: '$basePath/$seriesId',
       queryParameters: includeProgress ? {'include': 'progress'} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Series.fromJson),
+    );
+  }
+
+  /// See [Update a Series](https://api.audiobookshelf.org/#update-a-series)
+  Future<Series?> update({
+    required String seriesId,
+    UpdateSeriesReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$seriesId',
+      jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, Series.fromJson),
