@@ -42,7 +42,7 @@ mixin _$Series {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
         $default, {
     required TResult Function(
             String id,
@@ -83,7 +83,7 @@ mixin _$Series {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult? Function(
             String id,
@@ -122,7 +122,7 @@ mixin _$Series {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult Function(
             String id,
@@ -243,7 +243,10 @@ abstract class _$$_SeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       String name,
       String? description,
       DateTime addedAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      SeriesProgress? progress});
+
+  $SeriesProgressCopyWith<$Res>? get progress;
 }
 
 /// @nodoc
@@ -261,6 +264,7 @@ class __$$_SeriesCopyWithImpl<$Res>
     Object? description = freezed,
     Object? addedAt = null,
     Object? updatedAt = null,
+    Object? progress = freezed,
   }) {
     return _then(_$_Series(
       id: null == id
@@ -283,7 +287,23 @@ class __$$_SeriesCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      progress: freezed == progress
+          ? _value.progress
+          : progress // ignore: cast_nullable_to_non_nullable
+              as SeriesProgress?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SeriesProgressCopyWith<$Res>? get progress {
+    if (_value.progress == null) {
+      return null;
+    }
+
+    return $SeriesProgressCopyWith<$Res>(_value.progress!, (value) {
+      return _then(_value.copyWith(progress: value));
+    });
   }
 }
 
@@ -297,6 +317,7 @@ class _$_Series extends _Series {
       this.description,
       required this.addedAt,
       required this.updatedAt,
+      this.progress,
       final String? $type})
       : $type = $type ?? 'default',
         super._();
@@ -314,13 +335,15 @@ class _$_Series extends _Series {
   final DateTime addedAt;
   @override
   final DateTime updatedAt;
+  @override
+  final SeriesProgress? progress;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Series(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt)';
+    return 'Series(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt, progress: $progress)';
   }
 
   @override
@@ -334,13 +357,15 @@ class _$_Series extends _Series {
                 other.description == description) &&
             (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.progress, progress) ||
+                other.progress == progress));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, description, addedAt, updatedAt);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, description, addedAt, updatedAt, progress);
 
   @JsonKey(ignore: true)
   @override
@@ -352,7 +377,7 @@ class _$_Series extends _Series {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
         $default, {
     required TResult Function(
             String id,
@@ -389,14 +414,14 @@ class _$_Series extends _Series {
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
   }) {
-    return $default(id, name, description, addedAt, updatedAt);
+    return $default(id, name, description, addedAt, updatedAt, progress);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult? Function(
             String id,
@@ -431,14 +456,14 @@ class _$_Series extends _Series {
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
-    return $default?.call(id, name, description, addedAt, updatedAt);
+    return $default?.call(id, name, description, addedAt, updatedAt, progress);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult Function(
             String id,
@@ -475,7 +500,7 @@ class _$_Series extends _Series {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(id, name, description, addedAt, updatedAt);
+      return $default(id, name, description, addedAt, updatedAt, progress);
     }
     return orElse();
   }
@@ -537,7 +562,8 @@ abstract class _Series extends Series {
       required final String name,
       final String? description,
       required final DateTime addedAt,
-      required final DateTime updatedAt}) = _$_Series;
+      required final DateTime updatedAt,
+      final SeriesProgress? progress}) = _$_Series;
   const _Series._() : super._();
 
   factory _Series.fromJson(Map<String, dynamic> json) = _$_Series.fromJson;
@@ -549,6 +575,7 @@ abstract class _Series extends Series {
   String? get description;
   DateTime get addedAt;
   DateTime get updatedAt;
+  SeriesProgress? get progress;
   @override
   @JsonKey(ignore: true)
   _$$_SeriesCopyWith<_$_Series> get copyWith =>
@@ -702,7 +729,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
         $default, {
     required TResult Function(
             String id,
@@ -747,7 +774,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult? Function(
             String id,
@@ -790,7 +817,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult Function(
             String id,
@@ -1080,7 +1107,7 @@ class _$SeriesBooks extends SeriesBooks {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
         $default, {
     required TResult Function(
             String id,
@@ -1125,7 +1152,7 @@ class _$SeriesBooks extends SeriesBooks {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult? Function(
             String id,
@@ -1168,7 +1195,7 @@ class _$SeriesBooks extends SeriesBooks {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult Function(
             String id,
@@ -1390,7 +1417,7 @@ class _$SeriesSequence extends SeriesSequence {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
         $default, {
     required TResult Function(
             String id,
@@ -1434,7 +1461,7 @@ class _$SeriesSequence extends SeriesSequence {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult? Function(
             String id,
@@ -1476,7 +1503,7 @@ class _$SeriesSequence extends SeriesSequence {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult Function(
             String id,
@@ -1799,7 +1826,7 @@ class _$ShelfSeries extends ShelfSeries {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
         $default, {
     required TResult Function(
             String id,
@@ -1853,7 +1880,7 @@ class _$ShelfSeries extends ShelfSeries {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult? Function(
             String id,
@@ -1905,7 +1932,7 @@ class _$ShelfSeries extends ShelfSeries {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult Function(
             String id,
@@ -2147,7 +2174,7 @@ class _$AuthorSeries extends AuthorSeries {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
         $default, {
     required TResult Function(
             String id,
@@ -2191,7 +2218,7 @@ class _$AuthorSeries extends AuthorSeries {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult? Function(
             String id,
@@ -2233,7 +2260,7 @@ class _$AuthorSeries extends AuthorSeries {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt)?
+            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
         $default, {
     TResult Function(
             String id,

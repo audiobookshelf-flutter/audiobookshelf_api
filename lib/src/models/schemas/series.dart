@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils/json_converters.dart';
 import 'library_item.dart';
+import 'series_progress.dart';
 
 part 'generated/series.freezed.dart';
 part 'generated/series.g.dart';
@@ -18,6 +19,7 @@ class Series with _$Series {
     String? description,
     required DateTime addedAt,
     required DateTime updatedAt,
+    SeriesProgress? progress,
   }) = _Series;
 
   const factory Series.numBooks({

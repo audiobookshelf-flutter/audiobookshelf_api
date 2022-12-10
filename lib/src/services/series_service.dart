@@ -23,4 +23,19 @@ class SeriesService extends Service {
       fromJson: (json) => listFromJson(json, Series.fromJson),
     );
   }
+
+  /// See [Get a Series](https://api.audiobookshelf.org/#get-a-series)
+  Future<Series?> get({
+    required String seriesId,
+    bool includeProgress = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$seriesId',
+      queryParameters: includeProgress ? {'include': 'progress'} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Series.fromJson),
+    );
+  }
 }
