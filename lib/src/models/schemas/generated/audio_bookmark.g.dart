@@ -10,8 +10,7 @@ _$_AudioBookmark _$$_AudioBookmarkFromJson(Map<String, dynamic> json) =>
     _$_AudioBookmark(
       libraryItemId: json['libraryItemId'] as String,
       title: json['title'] as String,
-      time: const DurationPreciseSecondsConverter()
-          .fromJson(json['time'] as double),
+      time: const DurationSecConverter().fromJson(json['time'] as int),
       createdAt:
           const DateTimeEpochConverter().fromJson(json['createdAt'] as int),
     );
@@ -20,6 +19,6 @@ Map<String, dynamic> _$$_AudioBookmarkToJson(_$_AudioBookmark instance) =>
     <String, dynamic>{
       'libraryItemId': instance.libraryItemId,
       'title': instance.title,
-      'time': const DurationPreciseSecondsConverter().toJson(instance.time),
+      'time': const DurationSecConverter().toJson(instance.time),
       'createdAt': const DateTimeEpochConverter().toJson(instance.createdAt),
     };

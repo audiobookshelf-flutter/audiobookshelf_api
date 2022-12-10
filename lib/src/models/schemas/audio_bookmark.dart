@@ -12,7 +12,7 @@ class AudioBookmark with _$AudioBookmark {
   const factory AudioBookmark({
     required String libraryItemId,
     required String title,
-    required Duration time,
+    @DurationSecConverter() required Duration time,
     required DateTime createdAt,
   }) = _AudioBookmark;
 
