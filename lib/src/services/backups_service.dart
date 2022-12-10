@@ -57,4 +57,18 @@ class BackupsService extends Service {
       responseErrorHandler: responseErrorHandler,
     );
   }
+
+  /// See [Upload a Backup](https://api.audiobookshelf.org/#upload-a-backup)
+  Future<List<Backup>?> upload({
+    required String backupPath,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/upload',
+      filePaths: {'file': backupPath},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJsonKey(json, 'backups', Backup.fromJson),
+    );
+  }
 }
