@@ -5,6 +5,7 @@ import '../models/request_parameters/update_user_settings_req_params.dart';
 import '../models/responses/change_password_response.dart';
 import '../models/responses/get_user_sessions_response.dart';
 import '../models/responses/get_user_stats_response.dart';
+import '../models/responses/sync_local_progress_response.dart';
 import '../models/responses/update_user_settings_response.dart';
 import '../models/schemas/audio_bookmark.dart';
 import '../models/schemas/media_progress.dart';
@@ -188,6 +189,20 @@ class MeService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, UpdateUserSettingsResponse.fromJson),
+    );
+  }
+
+  /// See [Sync Local Media Progress](https://api.audiobookshelf.org/#sync-local-media-progress)
+  Future<SyncLocalProgressResponse?> syncLocalMediaProgress({
+    required List<MediaProgress> localMediaProgress,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/sync-local-progress',
+      jsonObject: {'localMediaProgress': localMediaProgress},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, SyncLocalProgressResponse.fromJson),
     );
   }
 }
