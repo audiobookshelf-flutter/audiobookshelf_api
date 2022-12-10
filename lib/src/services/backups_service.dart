@@ -32,4 +32,17 @@ class BackupsService extends Service {
       fromJson: (json) => listFromJsonKey(json, 'backups', Backup.fromJson),
     );
   }
+
+  /// See [Delete a Backup](https://api.audiobookshelf.org/#delete-a-backup)
+  Future<List<Backup>?> delete({
+    required String backupId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/$backupId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJsonKey(json, 'backups', Backup.fromJson),
+    );
+  }
 }
