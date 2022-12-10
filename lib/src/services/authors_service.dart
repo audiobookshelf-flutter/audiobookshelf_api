@@ -1,5 +1,7 @@
 import '../models/request_parameters/get_author_req_params.dart';
 import '../models/request_parameters/search_req_params.dart';
+import '../models/request_parameters/update_author_req_params.dart';
+import '../models/responses/update_author_response.dart';
 import '../models/schemas/author.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -37,6 +39,21 @@ class AuthorsService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, Author.fromJson),
+    );
+  }
+
+  /// See [Update an Author](https://api.audiobookshelf.org/#update-an-author)
+  Future<UpdateAuthorResponse?> update({
+    required String authorId,
+    UpdateAuthorReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$authorId',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, UpdateAuthorResponse.fromJson),
     );
   }
 }
