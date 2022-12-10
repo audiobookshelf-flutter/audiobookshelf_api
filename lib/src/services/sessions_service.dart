@@ -1,3 +1,5 @@
+import '../models/request_parameters/get_sessions_req_params.dart';
+import '../models/responses/get_sessions_response.dart';
 import '../models/schemas/playback_session.dart';
 import '../utils/from_json.dart';
 import '../utils/precise_duration.dart';
@@ -12,6 +14,20 @@ class SessionsService extends Service {
   static const basePathS = '${basePath}s';
 
   const SessionsService(super.api);
+
+  /// See [Get All Sessions](https://api.audiobookshelf.org/#get-all-sessions)
+  Future<GetSessionsResponse?> getAll({
+    GetSessionsReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: basePathS,
+      queryParameters: parameters?.toJson(),
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetSessionsResponse.fromJson),
+    );
+  }
 
   Future<void> sync({
     required String sessionId,

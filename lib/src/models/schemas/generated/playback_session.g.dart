@@ -40,6 +40,9 @@ _$_PlaybackSession _$$_PlaybackSessionFromJson(Map<String, dynamic> json) =>
           const DateTimeEpochConverter().fromJson(json['startedAt'] as int),
       updatedAt:
           const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
+      user: json['user'] == null
+          ? null
+          : SessionUser.fromJson(json['user'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -71,6 +74,7 @@ Map<String, dynamic> _$$_PlaybackSessionToJson(_$_PlaybackSession instance) =>
           const DurationPreciseSecondsConverter().toJson(instance.currentTime),
       'startedAt': const DateTimeEpochConverter().toJson(instance.startedAt),
       'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
+      'user': instance.user,
       'runtimeType': instance.$type,
     };
 

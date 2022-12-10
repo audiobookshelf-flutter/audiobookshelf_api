@@ -9,6 +9,7 @@ import 'book_chapter.dart';
 import 'device_info.dart';
 import 'library_item.dart';
 import 'media_metadata.dart';
+import 'session_user.dart';
 
 part 'generated/playback_session.freezed.dart';
 part 'generated/playback_session.g.dart';
@@ -42,6 +43,7 @@ class PlaybackSession with _$PlaybackSession {
     required Duration currentTime,
     required DateTime startedAt,
     required DateTime updatedAt,
+    SessionUser? user,
   }) = _PlaybackSession;
 
   @jsonConverters
