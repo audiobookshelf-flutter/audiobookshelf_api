@@ -1,11 +1,11 @@
+import '../models/request_parameters/batch_create_update_progress_req_params.dart';
+import '../models/request_parameters/create_update_progress_req_params.dart';
 import '../models/request_parameters/get_user_sessions_req_params.dart';
 import '../models/responses/get_user_sessions_response.dart';
 import '../models/responses/get_user_stats_response.dart';
 import '../models/schemas/media_progress.dart';
 import '../models/schemas/user.dart';
 import '../utils/from_json.dart';
-import '../utils/optional_parameters.dart';
-import '../utils/precise_duration.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
 
@@ -71,65 +71,31 @@ class MeService extends Service {
     );
   }
 
+  /// See [Batch Create/Update Media Progress](https://api.audiobookshelf.org/#batch-create-update-media-progress)
+  Future<void> batchCreateUpdateMediaProgress({
+    required List<BatchCreateUpdateProgressReqParams> parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patch(
+      path: '$basePath/progress/batch/update',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Create/Update Media Progress](https://api.audiobookshelf.org/#create-update-media-progress)
   Future<void> createUpdateMediaProgress({
     required String libraryItemId,
     String? episodeId,
-    Duration? duration,
-    double? progress,
-    Duration? currentTime,
-    bool? isFinished,
-    bool? hideFromContinueListening,
-    DateTime? lastUpdate,
-    DateTime? finishedAt,
-    DateTime? startedAt,
+    CreateUpdateProgressReqParams? parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     String path = '$basePath/progress/$libraryItemId';
     if (episodeId != null) path += '/$episodeId';
     return api.patch(
       path: path,
-      jsonObject: optionalParameters([
-        OptionalParameter(
-          name: 'duration',
-          defaultValue: 0,
-          value: duration?.inPreciseSeconds,
-        ),
-        OptionalParameter(
-          name: 'progress',
-          defaultValue: isFinished ?? false ? 1 : 0,
-          value: progress,
-        ),
-        OptionalParameter(
-          name: 'currentTime',
-          defaultValue: 0,
-          value: currentTime?.inPreciseSeconds,
-        ),
-        OptionalParameter(
-          name: 'isFinished',
-          defaultValue: false,
-          value: isFinished,
-        ),
-        OptionalParameter(
-          name: 'hideFromContinueListening',
-          defaultValue: false,
-          value: hideFromContinueListening,
-        ),
-        OptionalParameter(
-          name: 'lastUpdate',
-          defaultValue: null,
-          value: lastUpdate?.millisecondsSinceEpoch,
-        ),
-        OptionalParameter(
-          name: 'finishedAt',
-          defaultValue: null,
-          value: finishedAt?.millisecondsSinceEpoch,
-        ),
-        OptionalParameter(
-          name: 'startedAt',
-          defaultValue: null,
-          value: startedAt?.millisecondsSinceEpoch,
-        ),
-      ]),
+      jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
     );
