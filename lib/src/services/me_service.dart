@@ -3,6 +3,7 @@ import '../models/request_parameters/create_update_progress_req_params.dart';
 import '../models/request_parameters/get_user_sessions_req_params.dart';
 import '../models/responses/get_user_sessions_response.dart';
 import '../models/responses/get_user_stats_response.dart';
+import '../models/schemas/audio_bookmark.dart';
 import '../models/schemas/media_progress.dart';
 import '../models/schemas/user.dart';
 import '../utils/from_json.dart';
@@ -110,6 +111,22 @@ class MeService extends Service {
       path: '$basePath/progress/$mediaProgressId',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Create a Bookmark](https://api.audiobookshelf.org/#create-a-bookmark)
+  Future<AudioBookmark?> createBookmark({
+    required String libraryItemId,
+    required Duration time,
+    required String title,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/item/$libraryItemId/bookmark',
+      jsonObject: {'time': time.inSeconds, 'title': title},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, AudioBookmark.fromJson),
     );
   }
 }
