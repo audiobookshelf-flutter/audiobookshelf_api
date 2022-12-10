@@ -145,4 +145,17 @@ class MeService extends Service {
       fromJson: (json) => fromJson(json, AudioBookmark.fromJson),
     );
   }
+
+  /// See [Remove a Bookmark](https://api.audiobookshelf.org/#remove-a-bookmark)
+  Future<void> removeBookmark({
+    required String libraryItemId,
+    required Duration time,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePath/item/$libraryItemId/bookmark/${time.inSeconds}',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
