@@ -221,4 +221,17 @@ class MeService extends Service {
           listFromJsonKey(json, 'libraryItems', LibraryItem.fromJson),
     );
   }
+
+  /// See [Remove a Series From Continue Listening](https://api.audiobookshelf.org/#remove-a-series-from-continue-listening)
+  Future<User?> removeSeriesFromContinueListening({
+    required String seriesId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/series/$seriesId/remove-from-continue-listening',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, User.fromJson),
+    );
+  }
 }
