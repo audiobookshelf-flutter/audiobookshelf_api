@@ -61,6 +61,12 @@ class Series with _$Series {
     LibraryItem? firstBookUnread,
   }) = ShelfSeries;
 
+  const factory Series.author({
+    required String id,
+    required String name,
+    List<LibraryItem>? items,
+  }) = AuthorSeries;
+
   factory Series.fromJson(Map<String, dynamic> json) =>
       SeriesConverter().fromJson(json);
 
@@ -71,11 +77,12 @@ class Series with _$Series {
       books: (_) => SeriesVariant.books,
       sequence: (_) => SeriesVariant.sequence,
       shelf: (_) => SeriesVariant.shelf,
+      author: (_) => SeriesVariant.author,
     );
   }
 }
 
-enum SeriesVariant { base, numBooks, books, sequence, shelf }
+enum SeriesVariant { base, numBooks, books, sequence, shelf, author }
 
 class SeriesConverter implements JsonConverter<Series, Map<String, dynamic>> {
   const SeriesConverter();
@@ -95,6 +102,8 @@ class SeriesConverter implements JsonConverter<Series, Map<String, dynamic>> {
       variant = SeriesVariant.books;
     } else if (json.containsKey('sequence')) {
       variant = SeriesVariant.sequence;
+    } else if (json.containsKey('items')) {
+      variant = SeriesVariant.author;
     } else {
       throw CheckedFromJsonException(
         json,
@@ -115,6 +124,8 @@ class SeriesConverter implements JsonConverter<Series, Map<String, dynamic>> {
         return SeriesSequence.fromJson(json);
       case SeriesVariant.shelf:
         return ShelfSeries.fromJson(json);
+      case SeriesVariant.author:
+        return AuthorSeries.fromJson(json);
     }
   }
 

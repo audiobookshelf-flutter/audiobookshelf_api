@@ -43,7 +43,9 @@ mixin _$Author {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)
         $default, {
     required TResult Function(String id, String name) minified,
     required TResult Function(
@@ -69,7 +71,9 @@ mixin _$Author {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)?
         $default, {
     TResult? Function(String id, String name)? minified,
     TResult? Function(
@@ -95,7 +99,9 @@ mixin _$Author {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)?
         $default, {
     TResult Function(String id, String name)? minified,
     TResult Function(
@@ -190,7 +196,9 @@ abstract class _$$_AuthorCopyWith<$Res> implements $AuthorCopyWith<$Res> {
       String? imagePath,
       String? relImagePath,
       DateTime addedAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      List<LibraryItem>? libraryItems,
+      List<Series>? series});
 }
 
 /// @nodoc
@@ -211,6 +219,8 @@ class __$$_AuthorCopyWithImpl<$Res>
     Object? relImagePath = freezed,
     Object? addedAt = null,
     Object? updatedAt = null,
+    Object? libraryItems = freezed,
+    Object? series = freezed,
   }) {
     return _then(_$_Author(
       id: null == id
@@ -245,6 +255,14 @@ class __$$_AuthorCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      libraryItems: freezed == libraryItems
+          ? _value._libraryItems
+          : libraryItems // ignore: cast_nullable_to_non_nullable
+              as List<LibraryItem>?,
+      series: freezed == series
+          ? _value._series
+          : series // ignore: cast_nullable_to_non_nullable
+              as List<Series>?,
     ));
   }
 }
@@ -262,8 +280,12 @@ class _$_Author extends _Author {
       this.relImagePath,
       required this.addedAt,
       required this.updatedAt,
+      final List<LibraryItem>? libraryItems,
+      final List<Series>? series,
       final String? $type})
-      : $type = $type ?? 'default',
+      : _libraryItems = libraryItems,
+        _series = series,
+        $type = $type ?? 'default',
         super._();
 
   factory _$_Author.fromJson(Map<String, dynamic> json) =>
@@ -285,13 +307,32 @@ class _$_Author extends _Author {
   final DateTime addedAt;
   @override
   final DateTime updatedAt;
+  final List<LibraryItem>? _libraryItems;
+  @override
+  List<LibraryItem>? get libraryItems {
+    final value = _libraryItems;
+    if (value == null) return null;
+    if (_libraryItems is EqualUnmodifiableListView) return _libraryItems;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  final List<Series>? _series;
+  @override
+  List<Series>? get series {
+    final value = _series;
+    if (value == null) return null;
+    if (_series is EqualUnmodifiableListView) return _series;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Author(id: $id, asin: $asin, name: $name, description: $description, imagePath: $imagePath, relImagePath: $relImagePath, addedAt: $addedAt, updatedAt: $updatedAt)';
+    return 'Author(id: $id, asin: $asin, name: $name, description: $description, imagePath: $imagePath, relImagePath: $relImagePath, addedAt: $addedAt, updatedAt: $updatedAt, libraryItems: $libraryItems, series: $series)';
   }
 
   @override
@@ -310,13 +351,26 @@ class _$_Author extends _Author {
                 other.relImagePath == relImagePath) &&
             (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            const DeepCollectionEquality()
+                .equals(other._libraryItems, _libraryItems) &&
+            const DeepCollectionEquality().equals(other._series, _series));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, asin, name, description,
-      imagePath, relImagePath, addedAt, updatedAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      asin,
+      name,
+      description,
+      imagePath,
+      relImagePath,
+      addedAt,
+      updatedAt,
+      const DeepCollectionEquality().hash(_libraryItems),
+      const DeepCollectionEquality().hash(_series));
 
   @JsonKey(ignore: true)
   @override
@@ -335,7 +389,9 @@ class _$_Author extends _Author {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)
         $default, {
     required TResult Function(String id, String name) minified,
     required TResult Function(
@@ -351,7 +407,7 @@ class _$_Author extends _Author {
         expanded,
   }) {
     return $default(id, asin, name, description, imagePath, relImagePath,
-        addedAt, updatedAt);
+        addedAt, updatedAt, libraryItems, series);
   }
 
   @override
@@ -365,7 +421,9 @@ class _$_Author extends _Author {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)?
         $default, {
     TResult? Function(String id, String name)? minified,
     TResult? Function(
@@ -381,7 +439,7 @@ class _$_Author extends _Author {
         expanded,
   }) {
     return $default?.call(id, asin, name, description, imagePath, relImagePath,
-        addedAt, updatedAt);
+        addedAt, updatedAt, libraryItems, series);
   }
 
   @override
@@ -395,7 +453,9 @@ class _$_Author extends _Author {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)?
         $default, {
     TResult Function(String id, String name)? minified,
     TResult Function(
@@ -413,7 +473,7 @@ class _$_Author extends _Author {
   }) {
     if ($default != null) {
       return $default(id, asin, name, description, imagePath, relImagePath,
-          addedAt, updatedAt);
+          addedAt, updatedAt, libraryItems, series);
     }
     return orElse();
   }
@@ -469,7 +529,9 @@ abstract class _Author extends Author {
       final String? imagePath,
       final String? relImagePath,
       required final DateTime addedAt,
-      required final DateTime updatedAt}) = _$_Author;
+      required final DateTime updatedAt,
+      final List<LibraryItem>? libraryItems,
+      final List<Series>? series}) = _$_Author;
   const _Author._() : super._();
 
   factory _Author.fromJson(Map<String, dynamic> json) = _$_Author.fromJson;
@@ -484,6 +546,8 @@ abstract class _Author extends Author {
   String? get relImagePath;
   DateTime get addedAt;
   DateTime get updatedAt;
+  List<LibraryItem>? get libraryItems;
+  List<Series>? get series;
   @override
   @JsonKey(ignore: true)
   _$$_AuthorCopyWith<_$_Author> get copyWith =>
@@ -583,7 +647,9 @@ class _$AuthorMinified extends AuthorMinified {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)
         $default, {
     required TResult Function(String id, String name) minified,
     required TResult Function(
@@ -612,7 +678,9 @@ class _$AuthorMinified extends AuthorMinified {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)?
         $default, {
     TResult? Function(String id, String name)? minified,
     TResult? Function(
@@ -641,7 +709,9 @@ class _$AuthorMinified extends AuthorMinified {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)?
         $default, {
     TResult Function(String id, String name)? minified,
     TResult Function(
@@ -897,7 +967,9 @@ class _$AuthorExpanded extends AuthorExpanded {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)
         $default, {
     required TResult Function(String id, String name) minified,
     required TResult Function(
@@ -927,7 +999,9 @@ class _$AuthorExpanded extends AuthorExpanded {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)?
         $default, {
     TResult? Function(String id, String name)? minified,
     TResult? Function(
@@ -957,7 +1031,9 @@ class _$AuthorExpanded extends AuthorExpanded {
             String? imagePath,
             String? relImagePath,
             DateTime addedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            List<LibraryItem>? libraryItems,
+            List<Series>? series)?
         $default, {
     TResult Function(String id, String name)? minified,
     TResult Function(
