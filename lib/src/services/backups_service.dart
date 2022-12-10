@@ -45,4 +45,16 @@ class BackupsService extends Service {
       fromJson: (json) => listFromJsonKey(json, 'backups', Backup.fromJson),
     );
   }
+
+  /// See [Apply a Backup](https://api.audiobookshelf.org/#apply-a-backup)
+  Future<void> apply({
+    required String backupId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.get(
+      path: '$basePath/$backupId/apply',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
