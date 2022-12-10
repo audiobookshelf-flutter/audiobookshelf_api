@@ -132,3 +132,21 @@ Map<String, dynamic> _$$ShelfSeriesToJson(_$ShelfSeries instance) =>
       'firstBookUnread': instance.firstBookUnread,
       'runtimeType': instance.$type,
     };
+
+_$AuthorSeries _$$AuthorSeriesFromJson(Map<String, dynamic> json) =>
+    _$AuthorSeries(
+      id: json['id'] as String,
+      name: json['name'] as String,
+      items: (json['items'] as List<dynamic>?)
+          ?.map((e) => LibraryItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$AuthorSeriesToJson(_$AuthorSeries instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'items': instance.items,
+      'runtimeType': instance.$type,
+    };

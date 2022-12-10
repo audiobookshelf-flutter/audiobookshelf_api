@@ -2,6 +2,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils/json_converters.dart';
 import '../enums/schema_variant.dart';
+import 'library_item.dart';
+import 'series.dart';
 
 part 'generated/author.freezed.dart';
 part 'generated/author.g.dart';
@@ -21,6 +23,8 @@ class Author with _$Author {
     String? relImagePath,
     required DateTime addedAt,
     required DateTime updatedAt,
+    List<LibraryItem>? libraryItems,
+    List<Series>? series,
   }) = _Author;
 
   @jsonConverters

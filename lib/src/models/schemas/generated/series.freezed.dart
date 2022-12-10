@@ -26,6 +26,8 @@ Series _$SeriesFromJson(Map<String, dynamic> json) {
       return SeriesSequence.fromJson(json);
     case 'shelf':
       return ShelfSeries.fromJson(json);
+    case 'author':
+      return AuthorSeries.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'Series',
@@ -74,6 +76,8 @@ mixin _$Series {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)
         shelf,
+    required TResult Function(String id, String name, List<LibraryItem>? items)
+        author,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -112,6 +116,7 @@ mixin _$Series {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -150,6 +155,7 @@ mixin _$Series {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -160,6 +166,7 @@ mixin _$Series {
     required TResult Function(SeriesBooks value) books,
     required TResult Function(SeriesSequence value) sequence,
     required TResult Function(ShelfSeries value) shelf,
+    required TResult Function(AuthorSeries value) author,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -169,6 +176,7 @@ mixin _$Series {
     TResult? Function(SeriesBooks value)? books,
     TResult? Function(SeriesSequence value)? sequence,
     TResult? Function(ShelfSeries value)? shelf,
+    TResult? Function(AuthorSeries value)? author,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -178,6 +186,7 @@ mixin _$Series {
     TResult Function(SeriesBooks value)? books,
     TResult Function(SeriesSequence value)? sequence,
     TResult Function(ShelfSeries value)? shelf,
+    TResult Function(AuthorSeries value)? author,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -377,6 +386,8 @@ class _$_Series extends _Series {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)
         shelf,
+    required TResult Function(String id, String name, List<LibraryItem>? items)
+        author,
   }) {
     return $default(id, name, description, addedAt, updatedAt);
   }
@@ -418,6 +429,7 @@ class _$_Series extends _Series {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
     return $default?.call(id, name, description, addedAt, updatedAt);
   }
@@ -459,6 +471,7 @@ class _$_Series extends _Series {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -475,6 +488,7 @@ class _$_Series extends _Series {
     required TResult Function(SeriesBooks value) books,
     required TResult Function(SeriesSequence value) sequence,
     required TResult Function(ShelfSeries value) shelf,
+    required TResult Function(AuthorSeries value) author,
   }) {
     return $default(this);
   }
@@ -487,6 +501,7 @@ class _$_Series extends _Series {
     TResult? Function(SeriesBooks value)? books,
     TResult? Function(SeriesSequence value)? sequence,
     TResult? Function(ShelfSeries value)? shelf,
+    TResult? Function(AuthorSeries value)? author,
   }) {
     return $default?.call(this);
   }
@@ -499,6 +514,7 @@ class _$_Series extends _Series {
     TResult Function(SeriesBooks value)? books,
     TResult Function(SeriesSequence value)? sequence,
     TResult Function(ShelfSeries value)? shelf,
+    TResult Function(AuthorSeries value)? author,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -720,6 +736,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)
         shelf,
+    required TResult Function(String id, String name, List<LibraryItem>? items)
+        author,
   }) {
     return numBooks(id, name, nameIgnorePrefix, libraryItemIds, this.numBooks,
         seriesSequenceList);
@@ -762,6 +780,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
     return numBooks?.call(id, name, nameIgnorePrefix, libraryItemIds,
         this.numBooks, seriesSequenceList);
@@ -804,6 +823,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
   }) {
     if (numBooks != null) {
@@ -821,6 +841,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
     required TResult Function(SeriesBooks value) books,
     required TResult Function(SeriesSequence value) sequence,
     required TResult Function(ShelfSeries value) shelf,
+    required TResult Function(AuthorSeries value) author,
   }) {
     return numBooks(this);
   }
@@ -833,6 +854,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
     TResult? Function(SeriesBooks value)? books,
     TResult? Function(SeriesSequence value)? sequence,
     TResult? Function(ShelfSeries value)? shelf,
+    TResult? Function(AuthorSeries value)? author,
   }) {
     return numBooks?.call(this);
   }
@@ -845,6 +867,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
     TResult Function(SeriesBooks value)? books,
     TResult Function(SeriesSequence value)? sequence,
     TResult Function(ShelfSeries value)? shelf,
+    TResult Function(AuthorSeries value)? author,
     required TResult orElse(),
   }) {
     if (numBooks != null) {
@@ -1091,6 +1114,8 @@ class _$SeriesBooks extends SeriesBooks {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)
         shelf,
+    required TResult Function(String id, String name, List<LibraryItem>? items)
+        author,
   }) {
     return books(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
         this.books, addedAt, totalDuration);
@@ -1133,6 +1158,7 @@ class _$SeriesBooks extends SeriesBooks {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
     return books?.call(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
         this.books, addedAt, totalDuration);
@@ -1175,6 +1201,7 @@ class _$SeriesBooks extends SeriesBooks {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
   }) {
     if (books != null) {
@@ -1192,6 +1219,7 @@ class _$SeriesBooks extends SeriesBooks {
     required TResult Function(SeriesBooks value) books,
     required TResult Function(SeriesSequence value) sequence,
     required TResult Function(ShelfSeries value) shelf,
+    required TResult Function(AuthorSeries value) author,
   }) {
     return books(this);
   }
@@ -1204,6 +1232,7 @@ class _$SeriesBooks extends SeriesBooks {
     TResult? Function(SeriesBooks value)? books,
     TResult? Function(SeriesSequence value)? sequence,
     TResult? Function(ShelfSeries value)? shelf,
+    TResult? Function(AuthorSeries value)? author,
   }) {
     return books?.call(this);
   }
@@ -1216,6 +1245,7 @@ class _$SeriesBooks extends SeriesBooks {
     TResult Function(SeriesBooks value)? books,
     TResult Function(SeriesSequence value)? sequence,
     TResult Function(ShelfSeries value)? shelf,
+    TResult Function(AuthorSeries value)? author,
     required TResult orElse(),
   }) {
     if (books != null) {
@@ -1394,6 +1424,8 @@ class _$SeriesSequence extends SeriesSequence {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)
         shelf,
+    required TResult Function(String id, String name, List<LibraryItem>? items)
+        author,
   }) {
     return sequence(id, name, this.sequence);
   }
@@ -1435,6 +1467,7 @@ class _$SeriesSequence extends SeriesSequence {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
     return sequence?.call(id, name, this.sequence);
   }
@@ -1476,6 +1509,7 @@ class _$SeriesSequence extends SeriesSequence {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
   }) {
     if (sequence != null) {
@@ -1492,6 +1526,7 @@ class _$SeriesSequence extends SeriesSequence {
     required TResult Function(SeriesBooks value) books,
     required TResult Function(SeriesSequence value) sequence,
     required TResult Function(ShelfSeries value) shelf,
+    required TResult Function(AuthorSeries value) author,
   }) {
     return sequence(this);
   }
@@ -1504,6 +1539,7 @@ class _$SeriesSequence extends SeriesSequence {
     TResult? Function(SeriesBooks value)? books,
     TResult? Function(SeriesSequence value)? sequence,
     TResult? Function(ShelfSeries value)? shelf,
+    TResult? Function(AuthorSeries value)? author,
   }) {
     return sequence?.call(this);
   }
@@ -1516,6 +1552,7 @@ class _$SeriesSequence extends SeriesSequence {
     TResult Function(SeriesBooks value)? books,
     TResult Function(SeriesSequence value)? sequence,
     TResult Function(ShelfSeries value)? shelf,
+    TResult Function(AuthorSeries value)? author,
     required TResult orElse(),
   }) {
     if (sequence != null) {
@@ -1796,6 +1833,8 @@ class _$ShelfSeries extends ShelfSeries {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)
         shelf,
+    required TResult Function(String id, String name, List<LibraryItem>? items)
+        author,
   }) {
     return shelf(
         id,
@@ -1847,6 +1886,7 @@ class _$ShelfSeries extends ShelfSeries {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
     return shelf?.call(
         id,
@@ -1898,6 +1938,7 @@ class _$ShelfSeries extends ShelfSeries {
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread)?
         shelf,
+    TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
   }) {
     if (shelf != null) {
@@ -1924,6 +1965,7 @@ class _$ShelfSeries extends ShelfSeries {
     required TResult Function(SeriesBooks value) books,
     required TResult Function(SeriesSequence value) sequence,
     required TResult Function(ShelfSeries value) shelf,
+    required TResult Function(AuthorSeries value) author,
   }) {
     return shelf(this);
   }
@@ -1936,6 +1978,7 @@ class _$ShelfSeries extends ShelfSeries {
     TResult? Function(SeriesBooks value)? books,
     TResult? Function(SeriesSequence value)? sequence,
     TResult? Function(ShelfSeries value)? shelf,
+    TResult? Function(AuthorSeries value)? author,
   }) {
     return shelf?.call(this);
   }
@@ -1948,6 +1991,7 @@ class _$ShelfSeries extends ShelfSeries {
     TResult Function(SeriesBooks value)? books,
     TResult Function(SeriesSequence value)? sequence,
     TResult Function(ShelfSeries value)? shelf,
+    TResult Function(AuthorSeries value)? author,
     required TResult orElse(),
   }) {
     if (shelf != null) {
@@ -1996,5 +2040,309 @@ abstract class ShelfSeries extends Series {
   @override
   @JsonKey(ignore: true)
   _$$ShelfSeriesCopyWith<_$ShelfSeries> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AuthorSeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
+  factory _$$AuthorSeriesCopyWith(
+          _$AuthorSeries value, $Res Function(_$AuthorSeries) then) =
+      __$$AuthorSeriesCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id, String name, List<LibraryItem>? items});
+}
+
+/// @nodoc
+class __$$AuthorSeriesCopyWithImpl<$Res>
+    extends _$SeriesCopyWithImpl<$Res, _$AuthorSeries>
+    implements _$$AuthorSeriesCopyWith<$Res> {
+  __$$AuthorSeriesCopyWithImpl(
+      _$AuthorSeries _value, $Res Function(_$AuthorSeries) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? items = freezed,
+  }) {
+    return _then(_$AuthorSeries(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      items: freezed == items
+          ? _value._items
+          : items // ignore: cast_nullable_to_non_nullable
+              as List<LibraryItem>?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AuthorSeries extends AuthorSeries {
+  const _$AuthorSeries(
+      {required this.id,
+      required this.name,
+      final List<LibraryItem>? items,
+      final String? $type})
+      : _items = items,
+        $type = $type ?? 'author',
+        super._();
+
+  factory _$AuthorSeries.fromJson(Map<String, dynamic> json) =>
+      _$$AuthorSeriesFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String name;
+  final List<LibraryItem>? _items;
+  @override
+  List<LibraryItem>? get items {
+    final value = _items;
+    if (value == null) return null;
+    if (_items is EqualUnmodifiableListView) return _items;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'Series.author(id: $id, name: $name, items: $items)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthorSeries &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality().equals(other._items, _items));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, id, name, const DeepCollectionEquality().hash(_items));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthorSeriesCopyWith<_$AuthorSeries> get copyWith =>
+      __$$AuthorSeriesCopyWithImpl<_$AuthorSeries>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(String id, String name, String? description,
+            DateTime addedAt, DateTime updatedAt)
+        $default, {
+    required TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)
+        numBooks,
+    required TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<LibraryItem> books,
+            DateTime addedAt,
+            Duration totalDuration)
+        books,
+    required TResult Function(String id, String name, String? sequence)
+        sequence,
+    required TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            List<LibraryItem> books,
+            bool inProgress,
+            bool hideFromContinueListening,
+            DateTime bookInProgressLastUpdate,
+            LibraryItem? firstBookUnread)
+        shelf,
+    required TResult Function(String id, String name, List<LibraryItem>? items)
+        author,
+  }) {
+    return author(id, name, items);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(String id, String name, String? description,
+            DateTime addedAt, DateTime updatedAt)?
+        $default, {
+    TResult? Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
+        numBooks,
+    TResult? Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<LibraryItem> books,
+            DateTime addedAt,
+            Duration totalDuration)?
+        books,
+    TResult? Function(String id, String name, String? sequence)? sequence,
+    TResult? Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            List<LibraryItem> books,
+            bool inProgress,
+            bool hideFromContinueListening,
+            DateTime bookInProgressLastUpdate,
+            LibraryItem? firstBookUnread)?
+        shelf,
+    TResult? Function(String id, String name, List<LibraryItem>? items)? author,
+  }) {
+    return author?.call(id, name, items);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(String id, String name, String? description,
+            DateTime addedAt, DateTime updatedAt)?
+        $default, {
+    TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            List<String> libraryItemIds,
+            int numBooks,
+            String? seriesSequenceList)?
+        numBooks,
+    TResult Function(
+            String id,
+            String name,
+            String nameIgnorePrefix,
+            String nameIgnorePrefixSort,
+            String type,
+            List<LibraryItem> books,
+            DateTime addedAt,
+            Duration totalDuration)?
+        books,
+    TResult Function(String id, String name, String? sequence)? sequence,
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            List<LibraryItem> books,
+            bool inProgress,
+            bool hideFromContinueListening,
+            DateTime bookInProgressLastUpdate,
+            LibraryItem? firstBookUnread)?
+        shelf,
+    TResult Function(String id, String name, List<LibraryItem>? items)? author,
+    required TResult orElse(),
+  }) {
+    if (author != null) {
+      return author(id, name, items);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_Series value) $default, {
+    required TResult Function(SeriesNumBooks value) numBooks,
+    required TResult Function(SeriesBooks value) books,
+    required TResult Function(SeriesSequence value) sequence,
+    required TResult Function(ShelfSeries value) shelf,
+    required TResult Function(AuthorSeries value) author,
+  }) {
+    return author(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_Series value)? $default, {
+    TResult? Function(SeriesNumBooks value)? numBooks,
+    TResult? Function(SeriesBooks value)? books,
+    TResult? Function(SeriesSequence value)? sequence,
+    TResult? Function(ShelfSeries value)? shelf,
+    TResult? Function(AuthorSeries value)? author,
+  }) {
+    return author?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_Series value)? $default, {
+    TResult Function(SeriesNumBooks value)? numBooks,
+    TResult Function(SeriesBooks value)? books,
+    TResult Function(SeriesSequence value)? sequence,
+    TResult Function(ShelfSeries value)? shelf,
+    TResult Function(AuthorSeries value)? author,
+    required TResult orElse(),
+  }) {
+    if (author != null) {
+      return author(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AuthorSeriesToJson(
+      this,
+    );
+  }
+}
+
+abstract class AuthorSeries extends Series {
+  const factory AuthorSeries(
+      {required final String id,
+      required final String name,
+      final List<LibraryItem>? items}) = _$AuthorSeries;
+  const AuthorSeries._() : super._();
+
+  factory AuthorSeries.fromJson(Map<String, dynamic> json) =
+      _$AuthorSeries.fromJson;
+
+  @override
+  String get id;
+  @override
+  String get name;
+  List<LibraryItem>? get items;
+  @override
+  @JsonKey(ignore: true)
+  _$$AuthorSeriesCopyWith<_$AuthorSeries> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -16,6 +16,12 @@ _$_Author _$$_AuthorFromJson(Map<String, dynamic> json) => _$_Author(
       addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
       updatedAt:
           const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
+      libraryItems: (json['libraryItems'] as List<dynamic>?)
+          ?.map((e) => LibraryItem.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      series: (json['series'] as List<dynamic>?)
+          ?.map((e) => Series.fromJson(e as Map<String, dynamic>))
+          .toList(),
       $type: json['runtimeType'] as String?,
     );
 
@@ -28,6 +34,8 @@ Map<String, dynamic> _$$_AuthorToJson(_$_Author instance) => <String, dynamic>{
       'relImagePath': instance.relImagePath,
       'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
       'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
+      'libraryItems': instance.libraryItems,
+      'series': instance.series,
       'runtimeType': instance.$type,
     };
 
