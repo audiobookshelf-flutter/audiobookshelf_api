@@ -129,4 +129,20 @@ class MeService extends Service {
       fromJson: (json) => fromJson(json, AudioBookmark.fromJson),
     );
   }
+
+  /// See [Update a Bookmark](https://api.audiobookshelf.org/#update-a-bookmark)
+  Future<AudioBookmark?> updateBookmark({
+    required String libraryItemId,
+    required Duration time,
+    required String title,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/item/$libraryItemId/bookmark',
+      jsonObject: {'time': time.inSeconds, 'title': title},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, AudioBookmark.fromJson),
+    );
+  }
 }
