@@ -1,6 +1,8 @@
 import '../models/request_parameters/get_author_req_params.dart';
+import '../models/request_parameters/match_author_req_params.dart';
 import '../models/request_parameters/search_req_params.dart';
 import '../models/request_parameters/update_author_req_params.dart';
+import '../models/responses/match_author_response.dart';
 import '../models/responses/update_author_response.dart';
 import '../models/schemas/author.dart';
 import '../utils/from_json.dart';
@@ -54,6 +56,21 @@ class AuthorsService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, UpdateAuthorResponse.fromJson),
+    );
+  }
+
+  /// See [Match an Author](https://api.audiobookshelf.org/#match-an-author)
+  Future<MatchAuthorResponse?> match({
+    required String authorId,
+    required MatchAuthorReqParams parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$authorId',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, MatchAuthorResponse.fromJson),
     );
   }
 }
