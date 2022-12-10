@@ -20,4 +20,16 @@ class BackupsService extends Service {
       fromJson: (json) => listFromJsonKey(json, 'backups', Backup.fromJson),
     );
   }
+
+  /// See [Create a Backup](https://api.audiobookshelf.org/#create-a-backup)
+  Future<List<Backup>?> create({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: basePath,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJsonKey(json, 'backups', Backup.fromJson),
+    );
+  }
 }
