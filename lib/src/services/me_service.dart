@@ -100,4 +100,16 @@ class MeService extends Service {
       responseErrorHandler: responseErrorHandler,
     );
   }
+
+  /// See [Remove a Media Progress](https://api.audiobookshelf.org/#remove-a-media-progress)
+  Future<void> removeMediaProgress({
+    required String mediaProgressId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePath/progress/$mediaProgressId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
