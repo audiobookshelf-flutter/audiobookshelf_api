@@ -1,9 +1,11 @@
 import '../models/request_parameters/batch_create_update_progress_req_params.dart';
 import '../models/request_parameters/create_update_progress_req_params.dart';
 import '../models/request_parameters/get_user_sessions_req_params.dart';
+import '../models/request_parameters/update_user_settings_req_params.dart';
 import '../models/responses/change_password_response.dart';
 import '../models/responses/get_user_sessions_response.dart';
 import '../models/responses/get_user_stats_response.dart';
+import '../models/responses/update_user_settings_response.dart';
 import '../models/schemas/audio_bookmark.dart';
 import '../models/schemas/media_progress.dart';
 import '../models/schemas/user.dart';
@@ -172,6 +174,20 @@ class MeService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, ChangePasswordResponse.fromJson),
+    );
+  }
+
+  /// See [Update Your Settings](https://api.audiobookshelf.org/#update-your-settings)
+  Future<UpdateUserSettingsResponse?> updateSettings({
+    UpdateUserSettingsReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/settings',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, UpdateUserSettingsResponse.fromJson),
     );
   }
 }
