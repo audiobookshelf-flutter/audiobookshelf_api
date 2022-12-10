@@ -1,6 +1,7 @@
 import '../models/request_parameters/batch_create_update_progress_req_params.dart';
 import '../models/request_parameters/create_update_progress_req_params.dart';
 import '../models/request_parameters/get_user_sessions_req_params.dart';
+import '../models/responses/change_password_response.dart';
 import '../models/responses/get_user_sessions_response.dart';
 import '../models/responses/get_user_stats_response.dart';
 import '../models/schemas/audio_bookmark.dart';
@@ -156,6 +157,21 @@ class MeService extends Service {
       path: '$basePath/item/$libraryItemId/bookmark/${time.inSeconds}',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Change Your Password](https://api.audiobookshelf.org/#change-your-password)
+  Future<ChangePasswordResponse?> changePassword({
+    required String oldPassword,
+    required String newPassword,
+    ResponseErrorHandler? responseErrorHandler,
+  }) async {
+    return api.patchJson(
+      path: '$basePath/password',
+      jsonObject: {'password': oldPassword, 'newPassword': newPassword},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, ChangePasswordResponse.fromJson),
     );
   }
 }
