@@ -8,6 +8,7 @@ import '../models/responses/get_user_stats_response.dart';
 import '../models/responses/sync_local_progress_response.dart';
 import '../models/responses/update_user_settings_response.dart';
 import '../models/schemas/audio_bookmark.dart';
+import '../models/schemas/library_item.dart';
 import '../models/schemas/media_progress.dart';
 import '../models/schemas/user.dart';
 import '../utils/from_json.dart';
@@ -203,6 +204,21 @@ class MeService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, SyncLocalProgressResponse.fromJson),
+    );
+  }
+
+  /// See [Get Library Items In Progress](https://api.audiobookshelf.org/#get-library-items-in-progress)
+  Future<List<LibraryItem>?> getItemsInProgress({
+    int limit = 25,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/items-in-progress',
+      queryParameters: limit != 25 ? {'limit': limit} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) =>
+          listFromJsonKey(json, 'libraryItems', LibraryItem.fromJson),
     );
   }
 }
