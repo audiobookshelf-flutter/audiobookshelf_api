@@ -1,4 +1,7 @@
+import 'dart:typed_data';
+
 import '../models/request_parameters/get_author_req_params.dart';
+import '../models/request_parameters/get_image_req_params.dart';
 import '../models/request_parameters/match_author_req_params.dart';
 import '../models/request_parameters/search_req_params.dart';
 import '../models/request_parameters/update_author_req_params.dart';
@@ -66,11 +69,29 @@ class AuthorsService extends Service {
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.postJson(
-      path: '$basePath/$authorId',
+      path: '$basePath/$authorId/match',
       jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, MatchAuthorResponse.fromJson),
     );
+  }
+
+  /// See [Get an Author's Image](https://api.audiobookshelf.org/#get-an-author-39-s-image)
+  ///
+  /// The image's bytes are returned as a [Uint8List].
+  Future<Uint8List?> getImage({
+    required String authorId,
+    GetImageReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) async {
+    final response = await api.get(
+      path: '$basePath/$authorId/image',
+      queryParameters: parameters?.toJson(),
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+    if (response.statusCode >= 300) return null;
+    return response.bodyBytes;
   }
 }
