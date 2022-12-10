@@ -22,6 +22,7 @@ AudioBookmark _$AudioBookmarkFromJson(Map<String, dynamic> json) {
 mixin _$AudioBookmark {
   String get libraryItemId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  @DurationSecConverter()
   Duration get time => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -38,7 +39,10 @@ abstract class $AudioBookmarkCopyWith<$Res> {
       _$AudioBookmarkCopyWithImpl<$Res, AudioBookmark>;
   @useResult
   $Res call(
-      {String libraryItemId, String title, Duration time, DateTime createdAt});
+      {String libraryItemId,
+      String title,
+      @DurationSecConverter() Duration time,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -89,7 +93,10 @@ abstract class _$$_AudioBookmarkCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String libraryItemId, String title, Duration time, DateTime createdAt});
+      {String libraryItemId,
+      String title,
+      @DurationSecConverter() Duration time,
+      DateTime createdAt});
 }
 
 /// @nodoc
@@ -136,7 +143,7 @@ class _$_AudioBookmark implements _AudioBookmark {
   const _$_AudioBookmark(
       {required this.libraryItemId,
       required this.title,
-      required this.time,
+      @DurationSecConverter() required this.time,
       required this.createdAt});
 
   factory _$_AudioBookmark.fromJson(Map<String, dynamic> json) =>
@@ -147,6 +154,7 @@ class _$_AudioBookmark implements _AudioBookmark {
   @override
   final String title;
   @override
+  @DurationSecConverter()
   final Duration time;
   @override
   final DateTime createdAt;
@@ -192,7 +200,7 @@ abstract class _AudioBookmark implements AudioBookmark {
   const factory _AudioBookmark(
       {required final String libraryItemId,
       required final String title,
-      required final Duration time,
+      @DurationSecConverter() required final Duration time,
       required final DateTime createdAt}) = _$_AudioBookmark;
 
   factory _AudioBookmark.fromJson(Map<String, dynamic> json) =
@@ -203,6 +211,7 @@ abstract class _AudioBookmark implements AudioBookmark {
   @override
   String get title;
   @override
+  @DurationSecConverter()
   Duration get time;
   @override
   DateTime get createdAt;
