@@ -7,9 +7,7 @@ part of '../update_item_media_req_params.dart';
 // **************************************************************************
 
 Map<String, dynamic> _$UpdateBookReqParamsToJson(UpdateBookReqParams instance) {
-  final val = <String, dynamic>{
-    'coverPath': instance.coverPath,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -59,9 +57,7 @@ Map<String, dynamic> _$UpdateBookSeriesReqParamsToJson(
 
 Map<String, dynamic> _$UpdatePodcastReqParamsToJson(
     UpdatePodcastReqParams instance) {
-  final val = <String, dynamic>{
-    'coverPath': instance.coverPath,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -72,11 +68,22 @@ Map<String, dynamic> _$UpdatePodcastReqParamsToJson(
   writeNotNull('tags', instance.tags);
   writeNotNull('metadata', instance.metadata?.toJson());
   writeNotNull('autoDownloadEpisodes', instance.autoDownloadEpisodes);
-  val['autoDownloadSchedule'] = instance.autoDownloadSchedule;
+  val['autoDownloadSchedule'] = _$JsonConverterToJson<String, CronExpression>(
+      instance.autoDownloadSchedule, const CronExpressionConverter().toJson);
+  writeNotNull(
+      'lastEpisodeCheck',
+      _$JsonConverterToJson<int, DateTime>(
+          instance.lastEpisodeCheck, const DateTimeEpochConverter().toJson));
   writeNotNull('maxEpisodesToKeep', instance.maxEpisodesToKeep);
   writeNotNull('maxNewEpisodesToDownload', instance.maxNewEpisodesToDownload);
   return val;
 }
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
 
 Map<String, dynamic> _$UpdatePodcastMetadataReqParamsToJson(
     UpdatePodcastMetadataReqParams instance) {

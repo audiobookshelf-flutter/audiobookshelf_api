@@ -11,6 +11,7 @@ part 'generated/update_item_media_req_params.g.dart';
 ///
 /// Use [UpdateBookReqParams] or [UpdatePodcastReqParams].
 abstract class UpdateItemMediaReqParams {
+  @JsonKey(ignore: true)
   final String? coverPath;
   @JsonKey(includeIfNull: false)
   final List<String>? tags;
@@ -67,7 +68,7 @@ class UpdateBookReqParams extends UpdateItemMediaReqParams {
   Map<String, dynamic>? toJson() {
     final json = _$UpdateBookReqParamsToJson(this);
     if (coverPath != '') {
-      json['coverPath'] = coverPath as String;
+      json['coverPath'] = coverPath;
     }
     return json.nullIfEmpty;
   }
@@ -139,22 +140,15 @@ class UpdateBookSeriesReqParams {
   }
 }
 
-@requestToJson
+@requestToJsonRemoveNull
 class UpdatePodcastReqParams extends UpdateItemMediaReqParams {
   @override
-  @JsonKey(includeIfNull: false)
   final UpdatePodcastMetadataReqParams? metadata;
-
-  @JsonKey(includeIfNull: false)
   final bool? autoDownloadEpisodes;
-
-  /// Use [CronExpression.toString] to create this.
-  final String? autoDownloadSchedule;
-
-  @JsonKey(includeIfNull: false)
+  @JsonKey(includeIfNull: true)
+  final CronExpression? autoDownloadSchedule;
+  final DateTime? lastEpisodeCheck;
   final int? maxEpisodesToKeep;
-
-  @JsonKey(includeIfNull: false)
   final int? maxNewEpisodesToDownload;
 
   /// See [Update a Library Item's Media](https://api.audiobookshelf.org/#update-a-library-item-39-s-media)
@@ -166,6 +160,7 @@ class UpdatePodcastReqParams extends UpdateItemMediaReqParams {
     super.tags,
     this.autoDownloadEpisodes,
     this.autoDownloadSchedule,
+    this.lastEpisodeCheck,
     this.maxEpisodesToKeep,
     this.maxNewEpisodesToDownload,
   });
