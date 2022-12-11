@@ -41,6 +41,19 @@ class SessionsService extends Service {
     );
   }
 
+  /// See [Get an Open Session](https://api.audiobookshelf.org/#get-an-open-session)
+  Future<PlaybackSession?> getOpen({
+    required String sessionId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$sessionId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, PlaybackSession.fromJson),
+    );
+  }
+
   Future<void> sync({
     required String sessionId,
     required Duration currentTime,
