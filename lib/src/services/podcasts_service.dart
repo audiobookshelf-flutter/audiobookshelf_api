@@ -1,4 +1,5 @@
 import '../models/request_parameters/create_podcast_req_params.dart';
+import '../models/responses/get_opml_feeds_response.dart';
 import '../models/schemas/library_item.dart';
 import '../models/schemas/podcast_feed.dart';
 import '../utils/from_json.dart';
@@ -36,6 +37,20 @@ class PodcastsService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json['podcast'], PodcastFeed.fromJson),
+    );
+  }
+
+  /// See [Get Podcast Feeds From OPML](https://api.audiobookshelf.org/#get-podcast-feeds-from-opml)
+  Future<GetOpmlFeedsResponse?> getOpmlFeeds({
+    required String opmlText,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/opml',
+      jsonObject: {'opmlText': opmlText},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, GetOpmlFeedsResponse.fromJson),
     );
   }
 }
