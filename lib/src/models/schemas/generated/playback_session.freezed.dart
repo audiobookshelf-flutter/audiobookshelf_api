@@ -75,7 +75,8 @@ mixin _$PlaybackSession {
             Duration startTime,
             Duration currentTime,
             DateTime startedAt,
-            DateTime updatedAt)
+            DateTime updatedAt,
+            SessionUser? user)
         $default, {
     required TResult Function(
             String id,
@@ -129,7 +130,8 @@ mixin _$PlaybackSession {
             Duration startTime,
             Duration currentTime,
             DateTime startedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            SessionUser? user)?
         $default, {
     TResult? Function(
             String id,
@@ -183,7 +185,8 @@ mixin _$PlaybackSession {
             Duration startTime,
             Duration currentTime,
             DateTime startedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            SessionUser? user)?
         $default, {
     TResult Function(
             String id,
@@ -448,12 +451,14 @@ abstract class _$$_PlaybackSessionCopyWith<$Res>
       Duration startTime,
       Duration currentTime,
       DateTime startedAt,
-      DateTime updatedAt});
+      DateTime updatedAt,
+      SessionUser? user});
 
   @override
   $MediaMetadataCopyWith<$Res> get mediaMetadata;
   @override
   $DeviceInfoCopyWith<$Res> get deviceInfo;
+  $SessionUserCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -489,6 +494,7 @@ class __$$_PlaybackSessionCopyWithImpl<$Res>
     Object? currentTime = null,
     Object? startedAt = null,
     Object? updatedAt = null,
+    Object? user = freezed,
   }) {
     return _then(_$_PlaybackSession(
       id: null == id
@@ -579,7 +585,23 @@ class __$$_PlaybackSessionCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as SessionUser?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SessionUserCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $SessionUserCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value));
+    });
   }
 }
 
@@ -610,6 +632,7 @@ class _$_PlaybackSession extends _PlaybackSession {
       required this.currentTime,
       required this.startedAt,
       required this.updatedAt,
+      this.user,
       final String? $type})
       : _chapters = chapters,
         $type = $type ?? 'default',
@@ -668,13 +691,15 @@ class _$_PlaybackSession extends _PlaybackSession {
   final DateTime startedAt;
   @override
   final DateTime updatedAt;
+  @override
+  final SessionUser? user;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'PlaybackSession(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt)';
+    return 'PlaybackSession(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, user: $user)';
   }
 
   @override
@@ -721,7 +746,8 @@ class _$_PlaybackSession extends _PlaybackSession {
             (identical(other.startedAt, startedAt) ||
                 other.startedAt == startedAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.user, user) || other.user == user));
   }
 
   @JsonKey(ignore: true)
@@ -749,7 +775,8 @@ class _$_PlaybackSession extends _PlaybackSession {
         startTime,
         currentTime,
         startedAt,
-        updatedAt
+        updatedAt,
+        user
       ]);
 
   @JsonKey(ignore: true)
@@ -783,7 +810,8 @@ class _$_PlaybackSession extends _PlaybackSession {
             Duration startTime,
             Duration currentTime,
             DateTime startedAt,
-            DateTime updatedAt)
+            DateTime updatedAt,
+            SessionUser? user)
         $default, {
     required TResult Function(
             String id,
@@ -834,7 +862,8 @@ class _$_PlaybackSession extends _PlaybackSession {
         startTime,
         currentTime,
         startedAt,
-        updatedAt);
+        updatedAt,
+        user);
   }
 
   @override
@@ -862,7 +891,8 @@ class _$_PlaybackSession extends _PlaybackSession {
             Duration startTime,
             Duration currentTime,
             DateTime startedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            SessionUser? user)?
         $default, {
     TResult? Function(
             String id,
@@ -913,7 +943,8 @@ class _$_PlaybackSession extends _PlaybackSession {
         startTime,
         currentTime,
         startedAt,
-        updatedAt);
+        updatedAt,
+        user);
   }
 
   @override
@@ -941,7 +972,8 @@ class _$_PlaybackSession extends _PlaybackSession {
             Duration startTime,
             Duration currentTime,
             DateTime startedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            SessionUser? user)?
         $default, {
     TResult Function(
             String id,
@@ -994,7 +1026,8 @@ class _$_PlaybackSession extends _PlaybackSession {
           startTime,
           currentTime,
           startedAt,
-          updatedAt);
+          updatedAt,
+          user);
     }
     return orElse();
   }
@@ -1061,7 +1094,8 @@ abstract class _PlaybackSession extends PlaybackSession {
       required final Duration startTime,
       required final Duration currentTime,
       required final DateTime startedAt,
-      required final DateTime updatedAt}) = _$_PlaybackSession;
+      required final DateTime updatedAt,
+      final SessionUser? user}) = _$_PlaybackSession;
   const _PlaybackSession._() : super._();
 
   factory _PlaybackSession.fromJson(Map<String, dynamic> json) =
@@ -1111,6 +1145,7 @@ abstract class _PlaybackSession extends PlaybackSession {
   DateTime get startedAt;
   @override
   DateTime get updatedAt;
+  SessionUser? get user;
   @override
   @JsonKey(ignore: true)
   _$$_PlaybackSessionCopyWith<_$_PlaybackSession> get copyWith =>
@@ -1523,7 +1558,8 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
             Duration startTime,
             Duration currentTime,
             DateTime startedAt,
-            DateTime updatedAt)
+            DateTime updatedAt,
+            SessionUser? user)
         $default, {
     required TResult Function(
             String id,
@@ -1604,7 +1640,8 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
             Duration startTime,
             Duration currentTime,
             DateTime startedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            SessionUser? user)?
         $default, {
     TResult? Function(
             String id,
@@ -1685,7 +1722,8 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
             Duration startTime,
             Duration currentTime,
             DateTime startedAt,
-            DateTime updatedAt)?
+            DateTime updatedAt,
+            SessionUser? user)?
         $default, {
     TResult Function(
             String id,
