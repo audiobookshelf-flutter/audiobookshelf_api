@@ -1,5 +1,6 @@
 import '../models/request_parameters/update_notification_settings_req_params.dart';
 import '../models/responses/get_notification_settings_response.dart';
+import '../models/schemas/notification_event.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -33,6 +34,19 @@ class NotificationsService extends Service {
       jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Get Notification Event Data](https://api.audiobookshelf.org/#get-notification-event-data)
+  Future<List<NotificationEvent>?> getEventData({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '${Service.basePath}/notificationdata',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) =>
+          listFromJsonKey(json, 'events', NotificationEvent.fromJson),
     );
   }
 }
