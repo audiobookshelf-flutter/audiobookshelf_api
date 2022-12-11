@@ -1,4 +1,5 @@
 import '../models/request_parameters/create_notification_req_params.dart';
+import '../models/request_parameters/update_notification_req_params.dart';
 import '../models/request_parameters/update_notification_settings_req_params.dart';
 import '../models/responses/get_notification_settings_response.dart';
 import '../models/schemas/notification_event.dart';
@@ -86,6 +87,21 @@ class NotificationsService extends Service {
   }) {
     return api.deleteJson(
       path: '$basePath/$notificationId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, NotificationSettings.fromJson),
+    );
+  }
+
+  /// See [Update a Notification](https://api.audiobookshelf.org/#update-a-notification)
+  Future<NotificationSettings?> update({
+    required String notificationId,
+    required UpdateNotificationReqParams parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$notificationId',
+      jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, NotificationSettings.fromJson),
