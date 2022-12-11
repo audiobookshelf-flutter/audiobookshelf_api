@@ -149,4 +149,20 @@ class PodcastsService extends Service {
       fromJson: (json) => fromJson(json, LibraryItem.fromJson),
     );
   }
+
+  /// See [Delete a Podcast Episode](https://api.audiobookshelf.org/#delete-a-podcast-episode)
+  Future<LibraryItem?> deleteEpisode({
+    required String libraryItemId,
+    required String episodeId,
+    bool hardDelete = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/$libraryItemId/episode/$episodeId',
+      queryParameters: hardDelete ? {'hard': 1} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, LibraryItem.fromJson),
+    );
+  }
 }
