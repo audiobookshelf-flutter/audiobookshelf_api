@@ -29,7 +29,7 @@ class SearchService extends Service {
   }
 
   /// See [Search for Books](https://api.audiobookshelf.org/#search-for-books)
-  Future<SearchBooksResponse?> books({
+  Future<List<SearchBooksResponse>?> books({
     SearchBooksReqParams? parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) {
@@ -38,7 +38,7 @@ class SearchService extends Service {
       queryParameters: parameters?.toJson(),
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJson(json, SearchBooksResponse.fromJson),
+      fromJson: (json) => listFromJson(json, SearchBooksResponse.fromJson),
     );
   }
 }
