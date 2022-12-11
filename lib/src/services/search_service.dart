@@ -1,5 +1,6 @@
 import '../models/request_parameters/search_books_req_params.dart';
 import '../models/request_parameters/search_covers_req_params.dart';
+import '../models/responses/search_authors_response.dart';
 import '../models/responses/search_books_response.dart';
 import '../models/responses/search_podcasts_response.dart';
 import '../utils/from_json.dart';
@@ -54,6 +55,23 @@ class SearchService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJson(json, SearchPodcastsResponse.fromJson),
+    );
+  }
+
+  /// See [Search for an Author](https://api.audiobookshelf.org/#search-for-an-author)
+  Future<SearchAuthorsResponse?> author({
+    required String authorName,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/authors',
+      queryParameters: {'q': authorName},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) {
+        if (json == null) return null;
+        return fromJson(json, SearchAuthorsResponse.fromJson);
+      },
     );
   }
 }
