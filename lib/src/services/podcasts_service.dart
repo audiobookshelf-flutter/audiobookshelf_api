@@ -1,5 +1,6 @@
 import '../models/request_parameters/create_podcast_req_params.dart';
 import '../models/responses/get_opml_feeds_response.dart';
+import '../models/responses/podcast_search_episode_response.dart';
 import '../models/schemas/library_item.dart';
 import '../models/schemas/podcast_episode_download.dart';
 import '../models/schemas/podcast_feed.dart';
@@ -95,6 +96,25 @@ class PodcastsService extends Service {
       path: '$basePath/$libraryItemId/clear-queue',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Search a Podcast's Feed for Episodes](https://api.audiobookshelf.org/#search-a-podcast-39-s-feed-for-episodes)
+  Future<List<PodcastSearchEpisodeResponse>?> searchFeedForEpisodes({
+    required String libraryItemId,
+    required String episodeTitle,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryItemId/search-episode',
+      queryParameters: {'title': episodeTitle},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJsonKey(
+        json,
+        'episodes',
+        PodcastSearchEpisodeResponse.fromJson,
+      ),
     );
   }
 }
