@@ -1,5 +1,6 @@
 import '../models/request_parameters/create_podcast_req_params.dart';
 import '../models/request_parameters/download_podcast_episodes_req_params.dart';
+import '../models/request_parameters/update_podcast_episode_req_params.dart';
 import '../models/responses/get_opml_feeds_response.dart';
 import '../models/responses/podcast_search_episode_response.dart';
 import '../models/schemas/library_item.dart';
@@ -130,6 +131,22 @@ class PodcastsService extends Service {
       jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Update a Podcast Episode](https://api.audiobookshelf.org/#update-a-podcast-episode)
+  Future<LibraryItem?> updateEpisode({
+    required String libraryItemId,
+    required String episodeId,
+    UpdatePodcastEpisodeReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/$libraryItemId/episode/$episodeId',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, LibraryItem.fromJson),
     );
   }
 }
