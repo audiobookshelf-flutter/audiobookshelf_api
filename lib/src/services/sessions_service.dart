@@ -83,4 +83,17 @@ class SessionsService extends Service {
       responseErrorHandler: responseErrorHandler,
     );
   }
+
+  /// See [Sync a Local Session](https://api.audiobookshelf.org/#sync-a-local-session)
+  Future<void> syncLocal({
+    required PlaybackSession localSession,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/local',
+      jsonObject: localSession,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
