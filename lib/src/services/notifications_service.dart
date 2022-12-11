@@ -107,4 +107,16 @@ class NotificationsService extends Service {
       fromJson: (json) => fromJson(json, NotificationSettings.fromJson),
     );
   }
+
+  /// See [Send Notification Test](https://api.audiobookshelf.org/#send-notification-test)
+  Future<void> sendTest({
+    required String notificationId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.get(
+      path: '$basePath/$notificationId/test',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
