@@ -29,6 +29,18 @@ class SessionsService extends Service {
     );
   }
 
+  /// See [Delete a Session](https://api.audiobookshelf.org/#delete-a-session)
+  Future<void> delete({
+    required String sessionId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePathS/$sessionId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
+
   Future<void> sync({
     required String sessionId,
     required Duration currentTime,
