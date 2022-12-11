@@ -158,7 +158,7 @@ class MediaMetadata with _$MediaMetadata {
   }) = PodcastMetadataExpanded;
 
   factory MediaMetadata.fromJson(Map<String, dynamic> json) =>
-      MediaMetadataConverter().fromJson(json);
+      const MediaMetadataConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(

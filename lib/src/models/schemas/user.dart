@@ -47,7 +47,7 @@ class User with _$User {
   }) = UserWithSessionAndMostRecentProgress;
 
   factory User.fromJson(Map<String, dynamic> json) =>
-      UserConverter().fromJson(json);
+      const UserConverter().fromJson(json);
 
   UserVariant get variant {
     return map(

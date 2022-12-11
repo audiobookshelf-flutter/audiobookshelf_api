@@ -75,7 +75,7 @@ class PlaybackSession with _$PlaybackSession {
   }) = PlaybackSessionExpanded;
 
   factory PlaybackSession.fromJson(Map<String, dynamic> json) =>
-      PlaybackSessionConverter().fromJson(json);
+      const PlaybackSessionConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(

@@ -105,7 +105,7 @@ class Media with _$Media {
   }) = PodcastExpanded;
 
   factory Media.fromJson(Map<String, dynamic> json) =>
-      MediaConverter().fromJson(json);
+      const MediaConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(

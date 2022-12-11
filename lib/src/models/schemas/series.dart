@@ -70,7 +70,7 @@ class Series with _$Series {
   }) = AuthorSeries;
 
   factory Series.fromJson(Map<String, dynamic> json) =>
-      SeriesConverter().fromJson(json);
+      const SeriesConverter().fromJson(json);
 
   SeriesVariant get variant {
     return map(

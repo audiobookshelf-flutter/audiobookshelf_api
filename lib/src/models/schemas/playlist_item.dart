@@ -25,7 +25,7 @@ class PlaylistItem with _$PlaylistItem {
   }) = PlaylistItemExpanded;
 
   factory PlaylistItem.fromJson(Map<String, dynamic> json) =>
-      PlaylistItemConverter().fromJson(json);
+      const PlaylistItemConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(

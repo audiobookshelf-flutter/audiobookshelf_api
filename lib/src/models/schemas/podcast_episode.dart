@@ -58,7 +58,7 @@ class PodcastEpisode with _$PodcastEpisode {
   }) = PodcastEpisodeExpanded;
 
   factory PodcastEpisode.fromJson(Map<String, dynamic> json) =>
-      PodcastEpisodeConverter().fromJson(json);
+      const PodcastEpisodeConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(
