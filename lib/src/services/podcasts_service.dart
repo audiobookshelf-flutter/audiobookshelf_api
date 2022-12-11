@@ -85,4 +85,16 @@ class PodcastsService extends Service {
           listFromJsonKey(json, 'downloads', PodcastEpisodeDownload.fromJson),
     );
   }
+
+  /// See [Clear a Podcast's Episode Download Queue](https://api.audiobookshelf.org/#clear-a-podcast-39-s-episode-download-queue)
+  Future<void> clearDownloadQueue({
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.get(
+      path: '$basePath/$libraryItemId/clear-queue',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
