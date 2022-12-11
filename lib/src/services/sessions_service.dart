@@ -3,7 +3,6 @@ import '../models/request_parameters/sync_session_req_params.dart';
 import '../models/responses/get_sessions_response.dart';
 import '../models/schemas/playback_session.dart';
 import '../utils/from_json.dart';
-import '../utils/precise_duration.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
 
