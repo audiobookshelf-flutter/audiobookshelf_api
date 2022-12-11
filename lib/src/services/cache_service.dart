@@ -17,4 +17,15 @@ class CacheService extends Service {
       responseErrorHandler: responseErrorHandler,
     );
   }
+
+  /// See [Purge Items Cache](https://api.audiobookshelf.org/#purge-items-cache)
+  Future<void> purgeItems({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/items/purge',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
