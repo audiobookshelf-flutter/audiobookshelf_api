@@ -1,4 +1,5 @@
 import '../models/request_parameters/get_sessions_req_params.dart';
+import '../models/request_parameters/sync_session_req_params.dart';
 import '../models/responses/get_sessions_response.dart';
 import '../models/schemas/playback_session.dart';
 import '../utils/from_json.dart';
@@ -57,21 +58,29 @@ class SessionsService extends Service {
   /// See [Sync an Open Session](https://api.audiobookshelf.org/#sync-an-open-session)
   Future<PlaybackSession?> syncOpen({
     required String sessionId,
-    required Duration currentTime,
-    required Duration timeListened,
-    required Duration duration,
+    required SyncSessionReqParams parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.postJson(
       path: '$basePath/$sessionId/sync',
-      jsonObject: {
-        'currentTime': currentTime.inPreciseSeconds,
-        'timeListened': timeListened.inPreciseSeconds,
-        'duration': duration.inPreciseSeconds,
-      },
+      jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, PlaybackSession.fromJson),
+    );
+  }
+
+  /// See [Close an Open Session](https://api.audiobookshelf.org/#close-an-open-session)
+  Future<void> closeOpen({
+    required String sessionId,
+    SyncSessionReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/$sessionId/close',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
     );
   }
 }
