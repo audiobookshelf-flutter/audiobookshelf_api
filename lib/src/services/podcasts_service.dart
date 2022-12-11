@@ -1,6 +1,7 @@
 import '../models/request_parameters/create_podcast_req_params.dart';
 import '../models/responses/get_opml_feeds_response.dart';
 import '../models/schemas/library_item.dart';
+import '../models/schemas/podcast_episode_download.dart';
 import '../models/schemas/podcast_feed.dart';
 import '../models/schemas/podcast_feed_episode.dart';
 import '../utils/from_json.dart';
@@ -68,6 +69,20 @@ class PodcastsService extends Service {
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) =>
           listFromJsonKey(json, 'episodes', PodcastFeedEpisode.fromJson),
+    );
+  }
+
+  /// See [Get Podcast Episode Downloads](https://api.audiobookshelf.org/#get-podcast-episode-downloads)
+  Future<List<PodcastEpisodeDownload>?> getEpisodeDownloads({
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryItemId/downloads',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) =>
+          listFromJsonKey(json, 'downloads', PodcastEpisodeDownload.fromJson),
     );
   }
 }
