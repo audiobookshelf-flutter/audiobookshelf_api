@@ -1,4 +1,5 @@
 import '../models/request_parameters/create_podcast_req_params.dart';
+import '../models/request_parameters/download_podcast_episodes_req_params.dart';
 import '../models/responses/get_opml_feeds_response.dart';
 import '../models/responses/podcast_search_episode_response.dart';
 import '../models/schemas/library_item.dart';
@@ -115,6 +116,20 @@ class PodcastsService extends Service {
         'episodes',
         PodcastSearchEpisodeResponse.fromJson,
       ),
+    );
+  }
+
+  /// See [Download Podcast Episodes](https://api.audiobookshelf.org/#download-podcast-episodes)
+  Future<void> downloadEpisodes({
+    required String libraryItemId,
+    required List<DownloadPodcastEpisodesReqParams> parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/$libraryItemId/download-episodes',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
     );
   }
 }
