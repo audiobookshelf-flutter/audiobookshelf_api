@@ -45,7 +45,7 @@ class MediaProgress with _$MediaProgress {
   }) = MediaProgressWithMedia;
 
   factory MediaProgress.fromJson(Map<String, dynamic> json) =>
-      MediaProgressConverter().fromJson(json);
+      const MediaProgressConverter().fromJson(json);
 
   MediaProgressVariant get variant {
     return map(

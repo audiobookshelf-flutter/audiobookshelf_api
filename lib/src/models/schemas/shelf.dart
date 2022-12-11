@@ -35,7 +35,7 @@ class Shelf with _$Shelf {
   }) = AuthorShelf;
 
   factory Shelf.fromJson(Map<String, dynamic> json) =>
-      ShelfConverter().fromJson(json);
+      const ShelfConverter().fromJson(json);
 }
 
 enum ShelfType { book, series, authors, episode, podcast }

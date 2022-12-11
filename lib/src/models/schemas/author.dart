@@ -47,7 +47,7 @@ class Author with _$Author {
   }) = AuthorExpanded;
 
   factory Author.fromJson(Map<String, dynamic> json) =>
-      AuthorConverter().fromJson(json);
+      const AuthorConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(

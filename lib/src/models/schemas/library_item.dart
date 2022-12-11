@@ -104,7 +104,7 @@ class LibraryItem with _$LibraryItem {
   }) = LibraryItemExpanded;
 
   factory LibraryItem.fromJson(Map<String, dynamic> json) =>
-      LibraryItemConverter().fromJson(json);
+      const LibraryItemConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(

@@ -23,7 +23,7 @@ class PodcastFeed with _$PodcastFeed {
   }) = PodcastFeedMinified;
 
   factory PodcastFeed.fromJson(Map<String, dynamic> json) =>
-      PodcastFeedConverter().fromJson(json);
+      const PodcastFeedConverter().fromJson(json);
 
   SchemaVariant get variant {
     return map(
