@@ -49,4 +49,17 @@ class NotificationsService extends Service {
           listFromJsonKey(json, 'events', NotificationEvent.fromJson),
     );
   }
+
+  /// See [Fire Test Notification Event](https://api.audiobookshelf.org/#fire-test-notification-event)
+  Future<void> fireTestEvent({
+    bool fail = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.get(
+      path: '$basePath/test',
+      queryParameters: fail ? {'fail': 1} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
