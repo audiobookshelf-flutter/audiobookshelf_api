@@ -54,7 +54,8 @@ class SessionsService extends Service {
     );
   }
 
-  Future<void> sync({
+  /// See [Sync an Open Session](https://api.audiobookshelf.org/#sync-an-open-session)
+  Future<PlaybackSession?> syncOpen({
     required String sessionId,
     required Duration currentTime,
     required Duration timeListened,
