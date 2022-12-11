@@ -2,6 +2,7 @@ import '../models/request_parameters/create_podcast_req_params.dart';
 import '../models/responses/get_opml_feeds_response.dart';
 import '../models/schemas/library_item.dart';
 import '../models/schemas/podcast_feed.dart';
+import '../models/schemas/podcast_feed_episode.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -51,6 +52,22 @@ class PodcastsService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, GetOpmlFeedsResponse.fromJson),
+    );
+  }
+
+  /// See [Check for New Podcast Episodes](https://api.audiobookshelf.org/#check-for-new-podcast-episodes)
+  Future<List<PodcastFeedEpisode>?> checkForNewEpisodes({
+    required String libraryItemId,
+    int limit = 3,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/$libraryItemId/checknew',
+      queryParameters: limit != 3 ? {'limit': limit} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) =>
+          listFromJsonKey(json, 'episodes', PodcastFeedEpisode.fromJson),
     );
   }
 }
