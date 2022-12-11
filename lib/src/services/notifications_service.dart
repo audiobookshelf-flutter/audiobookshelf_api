@@ -78,4 +78,17 @@ class NotificationsService extends Service {
       fromJson: (json) => fromJson(json, NotificationSettings.fromJson),
     );
   }
+
+  /// See [Delete a Notification](https://api.audiobookshelf.org/#delete-a-notification)
+  Future<NotificationSettings?> delete({
+    required String notificationId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/$notificationId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, NotificationSettings.fromJson),
+    );
+  }
 }
