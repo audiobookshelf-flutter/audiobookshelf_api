@@ -1,6 +1,7 @@
 import '../models/request_parameters/search_books_req_params.dart';
 import '../models/request_parameters/search_covers_req_params.dart';
 import '../models/responses/search_books_response.dart';
+import '../models/responses/search_podcasts_response.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -39,6 +40,20 @@ class SearchService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJson(json, SearchBooksResponse.fromJson),
+    );
+  }
+
+  /// See [Search for Podcasts](https://api.audiobookshelf.org/#search-for-podcasts)
+  Future<List<SearchPodcastsResponse>?> podcasts({
+    required String query,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/podcast',
+      queryParameters: {'term': query},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => listFromJson(json, SearchPodcastsResponse.fromJson),
     );
   }
 }
