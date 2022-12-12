@@ -52,6 +52,7 @@ class MiscService extends Service {
     );
   }
 
+  /// See [Get Authorized User and Server Information](https://api.audiobookshelf.org/#get-authorized-user-and-server-information)
   Future<LoginResponse?> authorize({
     ResponseErrorHandler? responseErrorHandler,
   }) async {
