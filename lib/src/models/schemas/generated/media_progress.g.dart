@@ -13,7 +13,7 @@ _$_MediaProgress _$$_MediaProgressFromJson(Map<String, dynamic> json) =>
       episodeId: json['episodeId'] as String?,
       duration: const DurationPreciseSecondsConverter()
           .fromJson(json['duration'] as num),
-      progress: (json['progress'] as num).toDouble(),
+      progress: (json['progress'] as num?)?.toDouble(),
       currentTime: const DurationPreciseSecondsConverter()
           .fromJson(json['currentTime'] as num),
       isFinished: json['isFinished'] as bool,
@@ -66,7 +66,7 @@ _$MediaProgressWithMedia _$$MediaProgressWithMediaFromJson(
       episodeId: json['episodeId'] as String?,
       duration: const DurationPreciseSecondsConverter()
           .fromJson(json['duration'] as num),
-      progress: (json['progress'] as num).toDouble(),
+      progress: (json['progress'] as num?)?.toDouble(),
       currentTime: const DurationPreciseSecondsConverter()
           .fromJson(json['currentTime'] as num),
       isFinished: json['isFinished'] as bool,
