@@ -23,7 +23,7 @@ _$_AudioFile _$$_AudioFileFromJson(Map<String, dynamic> json) => _$_AudioFile(
       error: json['error'] as String?,
       format: json['format'] as String?,
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
+          .fromJson(json['duration'] as num),
       bitRate: json['bitRate'] as int,
       language: json['language'] as String?,
       codec: json['codec'] as String,

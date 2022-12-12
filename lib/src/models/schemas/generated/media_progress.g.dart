@@ -12,10 +12,10 @@ _$_MediaProgress _$$_MediaProgressFromJson(Map<String, dynamic> json) =>
       libraryItemId: json['libraryItemId'] as String,
       episodeId: json['episodeId'] as String?,
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
-      progress: (json['progress'] as num).toDouble(),
+          .fromJson(json['duration'] as num),
+      progress: (json['progress'] as num?)?.toDouble(),
       currentTime: const DurationPreciseSecondsConverter()
-          .fromJson(json['currentTime'] as double),
+          .fromJson(json['currentTime'] as num),
       isFinished: json['isFinished'] as bool,
       hideFromContinueListening: json['hideFromContinueListening'] as bool,
       lastUpdate:
@@ -65,10 +65,10 @@ _$MediaProgressWithMedia _$$MediaProgressWithMediaFromJson(
       libraryItemId: json['libraryItemId'] as String,
       episodeId: json['episodeId'] as String?,
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
-      progress: (json['progress'] as num).toDouble(),
+          .fromJson(json['duration'] as num),
+      progress: (json['progress'] as num?)?.toDouble(),
       currentTime: const DurationPreciseSecondsConverter()
-          .fromJson(json['currentTime'] as double),
+          .fromJson(json['currentTime'] as num),
       isFinished: json['isFinished'] as bool,
       hideFromContinueListening: json['hideFromContinueListening'] as bool,
       lastUpdate:

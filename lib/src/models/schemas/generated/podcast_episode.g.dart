@@ -74,7 +74,7 @@ _$PodcastEpisodeExpanded _$$PodcastEpisodeExpandedFromJson(
       audioTrack:
           AudioTrack.fromJson(json['audioTrack'] as Map<String, dynamic>),
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
+          .fromJson(json['duration'] as num),
       size: json['size'] as int,
       podcast: json['podcast'] == null
           ? null

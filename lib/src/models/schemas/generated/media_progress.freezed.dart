@@ -33,7 +33,7 @@ mixin _$MediaProgress {
   String get libraryItemId => throw _privateConstructorUsedError;
   String? get episodeId => throw _privateConstructorUsedError;
   Duration get duration => throw _privateConstructorUsedError;
-  double get progress => throw _privateConstructorUsedError;
+  double? get progress => throw _privateConstructorUsedError;
   Duration get currentTime => throw _privateConstructorUsedError;
   bool get isFinished => throw _privateConstructorUsedError;
   bool get hideFromContinueListening => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ mixin _$MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -60,7 +60,7 @@ mixin _$MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -79,7 +79,7 @@ mixin _$MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -92,7 +92,7 @@ mixin _$MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -111,7 +111,7 @@ mixin _$MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -124,7 +124,7 @@ mixin _$MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -173,7 +173,7 @@ abstract class $MediaProgressCopyWith<$Res> {
       String libraryItemId,
       String? episodeId,
       Duration duration,
-      double progress,
+      double? progress,
       Duration currentTime,
       bool isFinished,
       bool hideFromContinueListening,
@@ -199,7 +199,7 @@ class _$MediaProgressCopyWithImpl<$Res, $Val extends MediaProgress>
     Object? libraryItemId = null,
     Object? episodeId = freezed,
     Object? duration = null,
-    Object? progress = null,
+    Object? progress = freezed,
     Object? currentTime = null,
     Object? isFinished = null,
     Object? hideFromContinueListening = null,
@@ -224,10 +224,10 @@ class _$MediaProgressCopyWithImpl<$Res, $Val extends MediaProgress>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration,
-      progress: null == progress
+      progress: freezed == progress
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       currentTime: null == currentTime
           ? _value.currentTime
           : currentTime // ignore: cast_nullable_to_non_nullable
@@ -269,7 +269,7 @@ abstract class _$$_MediaProgressCopyWith<$Res>
       String libraryItemId,
       String? episodeId,
       Duration duration,
-      double progress,
+      double? progress,
       Duration currentTime,
       bool isFinished,
       bool hideFromContinueListening,
@@ -293,7 +293,7 @@ class __$$_MediaProgressCopyWithImpl<$Res>
     Object? libraryItemId = null,
     Object? episodeId = freezed,
     Object? duration = null,
-    Object? progress = null,
+    Object? progress = freezed,
     Object? currentTime = null,
     Object? isFinished = null,
     Object? hideFromContinueListening = null,
@@ -318,10 +318,10 @@ class __$$_MediaProgressCopyWithImpl<$Res>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration,
-      progress: null == progress
+      progress: freezed == progress
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       currentTime: null == currentTime
           ? _value.currentTime
           : currentTime // ignore: cast_nullable_to_non_nullable
@@ -359,7 +359,7 @@ class _$_MediaProgress extends _MediaProgress {
       required this.libraryItemId,
       this.episodeId,
       required this.duration,
-      required this.progress,
+      this.progress,
       required this.currentTime,
       required this.isFinished,
       required this.hideFromContinueListening,
@@ -382,7 +382,7 @@ class _$_MediaProgress extends _MediaProgress {
   @override
   final Duration duration;
   @override
-  final double progress;
+  final double? progress;
   @override
   final Duration currentTime;
   @override
@@ -463,7 +463,7 @@ class _$_MediaProgress extends _MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -476,7 +476,7 @@ class _$_MediaProgress extends _MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -509,7 +509,7 @@ class _$_MediaProgress extends _MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -522,7 +522,7 @@ class _$_MediaProgress extends _MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -555,7 +555,7 @@ class _$_MediaProgress extends _MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -568,7 +568,7 @@ class _$_MediaProgress extends _MediaProgress {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -642,7 +642,7 @@ abstract class _MediaProgress extends MediaProgress {
       required final String libraryItemId,
       final String? episodeId,
       required final Duration duration,
-      required final double progress,
+      final double? progress,
       required final Duration currentTime,
       required final bool isFinished,
       required final bool hideFromContinueListening,
@@ -663,7 +663,7 @@ abstract class _MediaProgress extends MediaProgress {
   @override
   Duration get duration;
   @override
-  double get progress;
+  double? get progress;
   @override
   Duration get currentTime;
   @override
@@ -695,7 +695,7 @@ abstract class _$$MediaProgressWithMediaCopyWith<$Res>
       String libraryItemId,
       String? episodeId,
       Duration duration,
-      double progress,
+      double? progress,
       Duration currentTime,
       bool isFinished,
       bool hideFromContinueListening,
@@ -724,7 +724,7 @@ class __$$MediaProgressWithMediaCopyWithImpl<$Res>
     Object? libraryItemId = null,
     Object? episodeId = freezed,
     Object? duration = null,
-    Object? progress = null,
+    Object? progress = freezed,
     Object? currentTime = null,
     Object? isFinished = null,
     Object? hideFromContinueListening = null,
@@ -751,10 +751,10 @@ class __$$MediaProgressWithMediaCopyWithImpl<$Res>
           ? _value.duration
           : duration // ignore: cast_nullable_to_non_nullable
               as Duration,
-      progress: null == progress
+      progress: freezed == progress
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       currentTime: null == currentTime
           ? _value.currentTime
           : currentTime // ignore: cast_nullable_to_non_nullable
@@ -820,7 +820,7 @@ class _$MediaProgressWithMedia extends MediaProgressWithMedia {
       required this.libraryItemId,
       this.episodeId,
       required this.duration,
-      required this.progress,
+      this.progress,
       required this.currentTime,
       required this.isFinished,
       required this.hideFromContinueListening,
@@ -845,7 +845,7 @@ class _$MediaProgressWithMedia extends MediaProgressWithMedia {
   @override
   final Duration duration;
   @override
-  final double progress;
+  final double? progress;
   @override
   final Duration currentTime;
   @override
@@ -935,7 +935,7 @@ class _$MediaProgressWithMedia extends MediaProgressWithMedia {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -948,7 +948,7 @@ class _$MediaProgressWithMedia extends MediaProgressWithMedia {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -983,7 +983,7 @@ class _$MediaProgressWithMedia extends MediaProgressWithMedia {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -996,7 +996,7 @@ class _$MediaProgressWithMedia extends MediaProgressWithMedia {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -1031,7 +1031,7 @@ class _$MediaProgressWithMedia extends MediaProgressWithMedia {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -1044,7 +1044,7 @@ class _$MediaProgressWithMedia extends MediaProgressWithMedia {
             String libraryItemId,
             String? episodeId,
             Duration duration,
-            double progress,
+            double? progress,
             Duration currentTime,
             bool isFinished,
             bool hideFromContinueListening,
@@ -1120,7 +1120,7 @@ abstract class MediaProgressWithMedia extends MediaProgress {
       required final String libraryItemId,
       final String? episodeId,
       required final Duration duration,
-      required final double progress,
+      final double? progress,
       required final Duration currentTime,
       required final bool isFinished,
       required final bool hideFromContinueListening,
@@ -1143,7 +1143,7 @@ abstract class MediaProgressWithMedia extends MediaProgress {
   @override
   Duration get duration;
   @override
-  double get progress;
+  double? get progress;
   @override
   Duration get currentTime;
   @override

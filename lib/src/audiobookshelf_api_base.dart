@@ -45,24 +45,24 @@ class AudiobookshelfApi {
 
   final client = http.Client();
 
-  late final ServerService server;
-  late final LibrariesService libraries;
-  late final LibraryItemsService items;
-  late final UsersService users;
-  late final CollectionsService collections;
-  late final PlaylistsService playlists;
-  late final MeService me;
-  late final BackupsService backups;
-  late final FilesystemService filesystem;
-  late final AuthorsService authors;
-  late final SeriesService series;
-  late final SessionsService sessions;
-  late final PodcastsService podcasts;
-  late final NotificationsService notifications;
-  late final SearchService search;
-  late final CacheService cache;
-  late final ToolsService tools;
-  late final MiscService misc;
+  late final server = ServerService(this);
+  late final libraries = LibrariesService(this);
+  late final items = LibraryItemsService(this);
+  late final users = UsersService(this);
+  late final collections = CollectionsService(this);
+  late final playlists = PlaylistsService(this);
+  late final me = MeService(this);
+  late final backups = BackupsService(this);
+  late final filesystem = FilesystemService(this);
+  late final authors = AuthorsService(this);
+  late final series = SeriesService(this);
+  late final sessions = SessionsService(this);
+  late final podcasts = PodcastsService(this);
+  late final notifications = NotificationsService(this);
+  late final search = SearchService(this);
+  late final cache = CacheService(this);
+  late final tools = ToolsService(this);
+  late final misc = MiscService(this);
 
   final String baseUrl;
   final Uri _baseUri;
@@ -73,26 +73,7 @@ class AudiobookshelfApi {
   AudiobookshelfApi({
     required this.baseUrl,
     this.token,
-  }) : _baseUri = createUri(baseUrl) {
-    server = ServerService(this);
-    libraries = LibrariesService(this);
-    items = LibraryItemsService(this);
-    users = UsersService(this);
-    collections = CollectionsService(this);
-    playlists = PlaylistsService(this);
-    me = MeService(this);
-    backups = BackupsService(this);
-    filesystem = FilesystemService(this);
-    authors = AuthorsService(this);
-    series = SeriesService(this);
-    sessions = SessionsService(this);
-    podcasts = PodcastsService(this);
-    notifications = NotificationsService(this);
-    search = SearchService(this);
-    cache = CacheService(this);
-    tools = ToolsService(this);
-    misc = MiscService(this);
-  }
+  }) : _baseUri = createUri(baseUrl);
 
   /// A header for authenticating the logged in user.
   /// [token] must be non-null when authenticating.

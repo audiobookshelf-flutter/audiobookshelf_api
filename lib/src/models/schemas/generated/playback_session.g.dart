@@ -23,7 +23,7 @@ _$_PlaybackSession _$$_PlaybackSessionFromJson(Map<String, dynamic> json) =>
       displayAuthor: json['displayAuthor'] as String,
       coverPath: json['coverPath'] as String,
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
+          .fromJson(json['duration'] as num),
       playMethod: $enumDecode(_$PlayMethodEnumMap, json['playMethod']),
       mediaPlayer: json['mediaPlayer'] as String,
       deviceInfo:
@@ -31,11 +31,11 @@ _$_PlaybackSession _$$_PlaybackSessionFromJson(Map<String, dynamic> json) =>
       day: json['day'] as String,
       dayOfWeek: json['dayOfWeek'] as String,
       timeListening: const DurationPreciseSecondsConverter()
-          .fromJson(json['timeListening'] as double),
+          .fromJson(json['timeListening'] as num),
       startTime: const DurationPreciseSecondsConverter()
-          .fromJson(json['startTime'] as double),
+          .fromJson(json['startTime'] as num),
       currentTime: const DurationPreciseSecondsConverter()
-          .fromJson(json['currentTime'] as double),
+          .fromJson(json['currentTime'] as num),
       startedAt:
           const DateTimeEpochConverter().fromJson(json['startedAt'] as int),
       updatedAt:
@@ -108,7 +108,7 @@ _$PlaybackSessionExpanded _$$PlaybackSessionExpandedFromJson(
       displayAuthor: json['displayAuthor'] as String,
       coverPath: json['coverPath'] as String,
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
+          .fromJson(json['duration'] as num),
       playMethod: $enumDecode(_$PlayMethodEnumMap, json['playMethod']),
       mediaPlayer: json['mediaPlayer'] as String,
       deviceInfo:
@@ -116,11 +116,11 @@ _$PlaybackSessionExpanded _$$PlaybackSessionExpandedFromJson(
       day: json['day'] as String,
       dayOfWeek: json['dayOfWeek'] as String,
       timeListening: const DurationPreciseSecondsConverter()
-          .fromJson(json['timeListening'] as double),
+          .fromJson(json['timeListening'] as num),
       startTime: const DurationPreciseSecondsConverter()
-          .fromJson(json['startTime'] as double),
+          .fromJson(json['startTime'] as num),
       currentTime: const DurationPreciseSecondsConverter()
-          .fromJson(json['currentTime'] as double),
+          .fromJson(json['currentTime'] as num),
       startedAt:
           const DateTimeEpochConverter().fromJson(json['startedAt'] as int),
       updatedAt:

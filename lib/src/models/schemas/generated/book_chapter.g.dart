@@ -10,9 +10,8 @@ _$_BookChapter _$$_BookChapterFromJson(Map<String, dynamic> json) =>
     _$_BookChapter(
       id: json['id'] as int,
       start: const DurationPreciseSecondsConverter()
-          .fromJson(json['start'] as double),
-      end: const DurationPreciseSecondsConverter()
-          .fromJson(json['end'] as double),
+          .fromJson(json['start'] as num),
+      end: const DurationPreciseSecondsConverter().fromJson(json['end'] as num),
       title: json['title'] as String,
     );
 

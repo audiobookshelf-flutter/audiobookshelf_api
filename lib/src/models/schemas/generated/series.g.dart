@@ -65,7 +65,7 @@ _$SeriesBooks _$$SeriesBooksFromJson(Map<String, dynamic> json) =>
           .toList(),
       addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
       totalDuration: const DurationPreciseSecondsConverter()
-          .fromJson(json['totalDuration'] as double),
+          .fromJson(json['totalDuration'] as num),
       $type: json['runtimeType'] as String?,
     );
 

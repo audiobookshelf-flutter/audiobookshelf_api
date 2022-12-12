@@ -15,7 +15,7 @@ _$_LoginResponse _$$_LoginResponseFromJson(Map<String, dynamic> json) =>
       feeds: (json['feeds'] as List<dynamic>)
           .map((e) => RssFeed.fromJson(e as Map<String, dynamic>))
           .toList(),
-      source: json['source'] as String,
+      source: json['Source'] as String,
     );
 
 Map<String, dynamic> _$$_LoginResponseToJson(_$_LoginResponse instance) =>
@@ -24,5 +24,5 @@ Map<String, dynamic> _$$_LoginResponseToJson(_$_LoginResponse instance) =>
       'userDefaultLibraryId': instance.userDefaultLibraryId,
       'serverSettings': instance.serverSettings,
       'feeds': instance.feeds,
-      'source': instance.source,
+      'Source': instance.source,
     };
