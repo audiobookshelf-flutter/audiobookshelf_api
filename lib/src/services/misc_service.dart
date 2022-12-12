@@ -67,4 +67,16 @@ class MiscService extends Service {
 
     return loginResponse;
   }
+
+  /// See [Get All Tags](https://api.audiobookshelf.org/#get-all-tags)
+  Future<List<String>?> getAllTags({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/tags',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => (json as List<dynamic>).cast<String>(),
+    );
+  }
 }
