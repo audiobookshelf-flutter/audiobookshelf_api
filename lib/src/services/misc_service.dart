@@ -79,4 +79,24 @@ class MiscService extends Service {
       fromJson: (json) => (json as List<dynamic>).cast<String>(),
     );
   }
+
+  /// See [Validate a Cron Expression](https://api.audiobookshelf.org/#validate-a-cron-expression)
+  ///
+  /// A bool representing if the cron expression is valid or not is returned.
+  Future<bool> validateCronExpression({
+    required String cronExpression,
+    ResponseErrorHandler? responseErrorHandler,
+  }) async {
+    final response = await api.post(
+      path: '$basePath/validate-cron',
+      jsonObject: {'expression': cronExpression},
+      requiresAuth: true,
+      responseErrorHandler: (response, [error]) {
+        if (response.statusCode != 400 && responseErrorHandler != null) {
+          responseErrorHandler(response, error);
+        }
+      },
+    );
+    return response.statusCode == 200;
+  }
 }
