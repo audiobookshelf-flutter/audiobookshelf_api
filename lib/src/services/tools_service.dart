@@ -30,4 +30,24 @@ class ToolsService extends Service {
       responseErrorHandler: responseErrorHandler,
     );
   }
+
+  /// See [Update a Library Item's Audio Files' Embedded Metadata](https://api.audiobookshelf.org/#cancel-an-m4b-encode-task)
+  Future<void> updateEmbeddedMetadata({
+    required String libraryItemId,
+    bool useTone = false,
+    bool forceEmbedChapters = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/item/$libraryItemId/embed-metadata',
+      queryParameters: useTone || forceEmbedChapters
+          ? {
+              if (useTone) 'tone': 1,
+              if (forceEmbedChapters) 'forceEmbedChapters': 1,
+            }
+          : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
