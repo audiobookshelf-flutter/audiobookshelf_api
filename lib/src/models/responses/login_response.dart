@@ -15,7 +15,7 @@ class LoginResponse with _$LoginResponse {
     required String userDefaultLibraryId,
     required ServerSettings serverSettings,
     required List<RssFeed> feeds,
-    required String source,
+    @JsonKey(name: 'Source') required String source,
   }) = _LoginResponse;
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>

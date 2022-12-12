@@ -24,6 +24,7 @@ mixin _$LoginResponse {
   String get userDefaultLibraryId => throw _privateConstructorUsedError;
   ServerSettings get serverSettings => throw _privateConstructorUsedError;
   List<RssFeed> get feeds => throw _privateConstructorUsedError;
+  @JsonKey(name: 'Source')
   String get source => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +44,7 @@ abstract class $LoginResponseCopyWith<$Res> {
       String userDefaultLibraryId,
       ServerSettings serverSettings,
       List<RssFeed> feeds,
-      String source});
+      @JsonKey(name: 'Source') String source});
 
   $UserCopyWith<$Res> get user;
   $ServerSettingsCopyWith<$Res> get serverSettings;
@@ -122,7 +123,7 @@ abstract class _$$_LoginResponseCopyWith<$Res>
       String userDefaultLibraryId,
       ServerSettings serverSettings,
       List<RssFeed> feeds,
-      String source});
+      @JsonKey(name: 'Source') String source});
 
   @override
   $UserCopyWith<$Res> get user;
@@ -180,7 +181,7 @@ class _$_LoginResponse implements _LoginResponse {
       required this.userDefaultLibraryId,
       required this.serverSettings,
       required final List<RssFeed> feeds,
-      required this.source})
+      @JsonKey(name: 'Source') required this.source})
       : _feeds = feeds;
 
   factory _$_LoginResponse.fromJson(Map<String, dynamic> json) =>
@@ -201,6 +202,7 @@ class _$_LoginResponse implements _LoginResponse {
   }
 
   @override
+  @JsonKey(name: 'Source')
   final String source;
 
   @override
@@ -243,11 +245,12 @@ class _$_LoginResponse implements _LoginResponse {
 
 abstract class _LoginResponse implements LoginResponse {
   const factory _LoginResponse(
-      {required final User user,
-      required final String userDefaultLibraryId,
-      required final ServerSettings serverSettings,
-      required final List<RssFeed> feeds,
-      required final String source}) = _$_LoginResponse;
+          {required final User user,
+          required final String userDefaultLibraryId,
+          required final ServerSettings serverSettings,
+          required final List<RssFeed> feeds,
+          @JsonKey(name: 'Source') required final String source}) =
+      _$_LoginResponse;
 
   factory _LoginResponse.fromJson(Map<String, dynamic> json) =
       _$_LoginResponse.fromJson;
@@ -261,6 +264,7 @@ abstract class _LoginResponse implements LoginResponse {
   @override
   List<RssFeed> get feeds;
   @override
+  @JsonKey(name: 'Source')
   String get source;
   @override
   @JsonKey(ignore: true)
