@@ -16,6 +16,8 @@ Map<String, dynamic> _$CreateUpdateProgressReqParamsToJson(
         const DurationPreciseSecondsConverter().toJson(instance.currentTime),
     'isFinished': instance.isFinished,
     'hideFromContinueListening': instance.hideFromContinueListening,
+    'finishedAt': _$JsonConverterToJson<int, DateTime>(
+        instance.finishedAt, const DateTimeEpochConverter().toJson),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -24,12 +26,6 @@ Map<String, dynamic> _$CreateUpdateProgressReqParamsToJson(
     }
   }
 
-  writeNotNull(
-      'lastUpdate',
-      _$JsonConverterToJson<int, DateTime>(
-          instance.lastUpdate, const DateTimeEpochConverter().toJson));
-  val['finishedAt'] = _$JsonConverterToJson<int, DateTime>(
-      instance.finishedAt, const DateTimeEpochConverter().toJson);
   writeNotNull(
       'startedAt',
       _$JsonConverterToJson<int, DateTime>(

@@ -21,7 +21,6 @@ class CreateUpdateProgressReqParams {
   final Duration currentTime;
   final bool isFinished;
   final bool hideFromContinueListening;
-  final DateTime? lastUpdate;
   @JsonKey(includeIfNull: true)
   final DateTime? finishedAt;
   final DateTime? startedAt;
@@ -33,7 +32,6 @@ class CreateUpdateProgressReqParams {
     this.currentTime = Duration.zero,
     this.isFinished = false,
     this.hideFromContinueListening = false,
-    this.lastUpdate,
     DateTime? finishedAt,
     this.startedAt,
   }) : finishedAt = finishedAt ?? DateTime.fromMillisecondsSinceEpoch(0);
