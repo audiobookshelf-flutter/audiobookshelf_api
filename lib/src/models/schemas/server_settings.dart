@@ -1,7 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils/json_converters.dart';
+import '../enums/date_format.dart';
+import '../enums/log_level.dart';
 import '../enums/metadata_provider.dart';
+import '../enums/server_language.dart';
 import '../utils/cron_expression.dart';
 
 part 'generated/server_settings.freezed.dart';
@@ -38,33 +41,11 @@ class ServerSettings with _$ServerSettings {
     required bool chromecastEnabled,
     required bool enableEReader,
     required DateFormat dateFormat,
-    required String language,
+    required ServerLanguage language,
     required LogLevel logLevel,
     required String version,
   }) = _ServerSettings;
 
   factory ServerSettings.fromJson(Map<String, dynamic> json) =>
       _$ServerSettingsFromJson(json);
-}
-
-@JsonEnum(valueField: 'value')
-enum DateFormat {
-  monthFirst('MM/dd/yyyy'),
-  dayFirst('dd/MM/yyyy'),
-  yearFirst('yyyy-MM-dd');
-
-  final String value;
-
-  const DateFormat(this.value);
-}
-
-@JsonEnum(valueField: 'value')
-enum LogLevel {
-  debug(1),
-  info(2),
-  warnings(3);
-
-  final int value;
-
-  const LogLevel(this.value);
 }

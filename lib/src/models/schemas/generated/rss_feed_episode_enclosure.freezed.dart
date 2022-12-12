@@ -14,37 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RSSFeedEpisodeEnclosure _$RSSFeedEpisodeEnclosureFromJson(
+RssFeedEpisodeEnclosure _$RssFeedEpisodeEnclosureFromJson(
     Map<String, dynamic> json) {
-  return _RSSFeedEpisodeEnclosure.fromJson(json);
+  return _RssFeedEpisodeEnclosure.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RSSFeedEpisodeEnclosure {
+mixin _$RssFeedEpisodeEnclosure {
   Uri get url => throw _privateConstructorUsedError;
   http_parser.MediaType get type => throw _privateConstructorUsedError;
   int get size => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RSSFeedEpisodeEnclosureCopyWith<RSSFeedEpisodeEnclosure> get copyWith =>
+  $RssFeedEpisodeEnclosureCopyWith<RssFeedEpisodeEnclosure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RSSFeedEpisodeEnclosureCopyWith<$Res> {
-  factory $RSSFeedEpisodeEnclosureCopyWith(RSSFeedEpisodeEnclosure value,
-          $Res Function(RSSFeedEpisodeEnclosure) then) =
-      _$RSSFeedEpisodeEnclosureCopyWithImpl<$Res, RSSFeedEpisodeEnclosure>;
+abstract class $RssFeedEpisodeEnclosureCopyWith<$Res> {
+  factory $RssFeedEpisodeEnclosureCopyWith(RssFeedEpisodeEnclosure value,
+          $Res Function(RssFeedEpisodeEnclosure) then) =
+      _$RssFeedEpisodeEnclosureCopyWithImpl<$Res, RssFeedEpisodeEnclosure>;
   @useResult
   $Res call({Uri url, http_parser.MediaType type, int size});
 }
 
 /// @nodoc
-class _$RSSFeedEpisodeEnclosureCopyWithImpl<$Res,
-        $Val extends RSSFeedEpisodeEnclosure>
-    implements $RSSFeedEpisodeEnclosureCopyWith<$Res> {
-  _$RSSFeedEpisodeEnclosureCopyWithImpl(this._value, this._then);
+class _$RssFeedEpisodeEnclosureCopyWithImpl<$Res,
+        $Val extends RssFeedEpisodeEnclosure>
+    implements $RssFeedEpisodeEnclosureCopyWith<$Res> {
+  _$RssFeedEpisodeEnclosureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,23 +76,23 @@ class _$RSSFeedEpisodeEnclosureCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_RSSFeedEpisodeEnclosureCopyWith<$Res>
-    implements $RSSFeedEpisodeEnclosureCopyWith<$Res> {
-  factory _$$_RSSFeedEpisodeEnclosureCopyWith(_$_RSSFeedEpisodeEnclosure value,
-          $Res Function(_$_RSSFeedEpisodeEnclosure) then) =
-      __$$_RSSFeedEpisodeEnclosureCopyWithImpl<$Res>;
+abstract class _$$_RssFeedEpisodeEnclosureCopyWith<$Res>
+    implements $RssFeedEpisodeEnclosureCopyWith<$Res> {
+  factory _$$_RssFeedEpisodeEnclosureCopyWith(_$_RssFeedEpisodeEnclosure value,
+          $Res Function(_$_RssFeedEpisodeEnclosure) then) =
+      __$$_RssFeedEpisodeEnclosureCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Uri url, http_parser.MediaType type, int size});
 }
 
 /// @nodoc
-class __$$_RSSFeedEpisodeEnclosureCopyWithImpl<$Res>
-    extends _$RSSFeedEpisodeEnclosureCopyWithImpl<$Res,
-        _$_RSSFeedEpisodeEnclosure>
-    implements _$$_RSSFeedEpisodeEnclosureCopyWith<$Res> {
-  __$$_RSSFeedEpisodeEnclosureCopyWithImpl(_$_RSSFeedEpisodeEnclosure _value,
-      $Res Function(_$_RSSFeedEpisodeEnclosure) _then)
+class __$$_RssFeedEpisodeEnclosureCopyWithImpl<$Res>
+    extends _$RssFeedEpisodeEnclosureCopyWithImpl<$Res,
+        _$_RssFeedEpisodeEnclosure>
+    implements _$$_RssFeedEpisodeEnclosureCopyWith<$Res> {
+  __$$_RssFeedEpisodeEnclosureCopyWithImpl(_$_RssFeedEpisodeEnclosure _value,
+      $Res Function(_$_RssFeedEpisodeEnclosure) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +102,7 @@ class __$$_RSSFeedEpisodeEnclosureCopyWithImpl<$Res>
     Object? type = null,
     Object? size = null,
   }) {
-    return _then(_$_RSSFeedEpisodeEnclosure(
+    return _then(_$_RssFeedEpisodeEnclosure(
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -122,12 +122,12 @@ class __$$_RSSFeedEpisodeEnclosureCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$_RSSFeedEpisodeEnclosure implements _RSSFeedEpisodeEnclosure {
-  const _$_RSSFeedEpisodeEnclosure(
+class _$_RssFeedEpisodeEnclosure implements _RssFeedEpisodeEnclosure {
+  const _$_RssFeedEpisodeEnclosure(
       {required this.url, required this.type, required this.size});
 
-  factory _$_RSSFeedEpisodeEnclosure.fromJson(Map<String, dynamic> json) =>
-      _$$_RSSFeedEpisodeEnclosureFromJson(json);
+  factory _$_RssFeedEpisodeEnclosure.fromJson(Map<String, dynamic> json) =>
+      _$$_RssFeedEpisodeEnclosureFromJson(json);
 
   @override
   final Uri url;
@@ -138,14 +138,14 @@ class _$_RSSFeedEpisodeEnclosure implements _RSSFeedEpisodeEnclosure {
 
   @override
   String toString() {
-    return 'RSSFeedEpisodeEnclosure(url: $url, type: $type, size: $size)';
+    return 'RssFeedEpisodeEnclosure(url: $url, type: $type, size: $size)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RSSFeedEpisodeEnclosure &&
+            other is _$_RssFeedEpisodeEnclosure &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.size, size) || other.size == size));
@@ -158,27 +158,27 @@ class _$_RSSFeedEpisodeEnclosure implements _RSSFeedEpisodeEnclosure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RSSFeedEpisodeEnclosureCopyWith<_$_RSSFeedEpisodeEnclosure>
+  _$$_RssFeedEpisodeEnclosureCopyWith<_$_RssFeedEpisodeEnclosure>
       get copyWith =>
-          __$$_RSSFeedEpisodeEnclosureCopyWithImpl<_$_RSSFeedEpisodeEnclosure>(
+          __$$_RssFeedEpisodeEnclosureCopyWithImpl<_$_RssFeedEpisodeEnclosure>(
               this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RSSFeedEpisodeEnclosureToJson(
+    return _$$_RssFeedEpisodeEnclosureToJson(
       this,
     );
   }
 }
 
-abstract class _RSSFeedEpisodeEnclosure implements RSSFeedEpisodeEnclosure {
-  const factory _RSSFeedEpisodeEnclosure(
+abstract class _RssFeedEpisodeEnclosure implements RssFeedEpisodeEnclosure {
+  const factory _RssFeedEpisodeEnclosure(
       {required final Uri url,
       required final http_parser.MediaType type,
-      required final int size}) = _$_RSSFeedEpisodeEnclosure;
+      required final int size}) = _$_RssFeedEpisodeEnclosure;
 
-  factory _RSSFeedEpisodeEnclosure.fromJson(Map<String, dynamic> json) =
-      _$_RSSFeedEpisodeEnclosure.fromJson;
+  factory _RssFeedEpisodeEnclosure.fromJson(Map<String, dynamic> json) =
+      _$_RssFeedEpisodeEnclosure.fromJson;
 
   @override
   Uri get url;
@@ -188,6 +188,6 @@ abstract class _RSSFeedEpisodeEnclosure implements RSSFeedEpisodeEnclosure {
   int get size;
   @override
   @JsonKey(ignore: true)
-  _$$_RSSFeedEpisodeEnclosureCopyWith<_$_RSSFeedEpisodeEnclosure>
+  _$$_RssFeedEpisodeEnclosureCopyWith<_$_RssFeedEpisodeEnclosure>
       get copyWith => throw _privateConstructorUsedError;
 }

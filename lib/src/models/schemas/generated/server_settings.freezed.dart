@@ -51,7 +51,7 @@ mixin _$ServerSettings {
   bool get chromecastEnabled => throw _privateConstructorUsedError;
   bool get enableEReader => throw _privateConstructorUsedError;
   DateFormat get dateFormat => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
+  ServerLanguage get language => throw _privateConstructorUsedError;
   LogLevel get logLevel => throw _privateConstructorUsedError;
   String get version => throw _privateConstructorUsedError;
 
@@ -94,7 +94,7 @@ abstract class $ServerSettingsCopyWith<$Res> {
       bool chromecastEnabled,
       bool enableEReader,
       DateFormat dateFormat,
-      String language,
+      ServerLanguage language,
       LogLevel logLevel,
       String version});
 
@@ -253,7 +253,7 @@ class _$ServerSettingsCopyWithImpl<$Res, $Val extends ServerSettings>
       language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ServerLanguage,
       logLevel: null == logLevel
           ? _value.logLevel
           : logLevel // ignore: cast_nullable_to_non_nullable
@@ -309,7 +309,7 @@ abstract class _$$_ServerSettingsCopyWith<$Res>
       bool chromecastEnabled,
       bool enableEReader,
       DateFormat dateFormat,
-      String language,
+      ServerLanguage language,
       LogLevel logLevel,
       String version});
 
@@ -467,7 +467,7 @@ class __$$_ServerSettingsCopyWithImpl<$Res>
       language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ServerLanguage,
       logLevel: null == logLevel
           ? _value.logLevel
           : logLevel // ignore: cast_nullable_to_non_nullable
@@ -581,7 +581,7 @@ class _$_ServerSettings implements _ServerSettings {
   @override
   final DateFormat dateFormat;
   @override
-  final String language;
+  final ServerLanguage language;
   @override
   final LogLevel logLevel;
   @override
@@ -728,7 +728,7 @@ abstract class _ServerSettings implements ServerSettings {
       required final bool chromecastEnabled,
       required final bool enableEReader,
       required final DateFormat dateFormat,
-      required final String language,
+      required final ServerLanguage language,
       required final LogLevel logLevel,
       required final String version}) = _$_ServerSettings;
 
@@ -791,7 +791,7 @@ abstract class _ServerSettings implements ServerSettings {
   @override
   DateFormat get dateFormat;
   @override
-  String get language;
+  ServerLanguage get language;
   @override
   LogLevel get logLevel;
   @override

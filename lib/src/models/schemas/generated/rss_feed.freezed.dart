@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RSSFeed _$RSSFeedFromJson(Map<String, dynamic> json) {
-  return _RSSFeed.fromJson(json);
+RssFeed _$RssFeedFromJson(Map<String, dynamic> json) {
+  return _RssFeed.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RSSFeed {
+mixin _$RssFeed {
   String get id => throw _privateConstructorUsedError;
   String get slug => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
@@ -28,20 +28,20 @@ mixin _$RSSFeed {
   String get coverPath => throw _privateConstructorUsedError;
   Uri get serverAddress => throw _privateConstructorUsedError;
   Uri get feedUrl => throw _privateConstructorUsedError;
-  RSSFeedMetadata get meta => throw _privateConstructorUsedError;
-  List<RSSFeedEpisode> get episodes => throw _privateConstructorUsedError;
+  RssFeedMetadata get meta => throw _privateConstructorUsedError;
+  List<RssFeedEpisode> get episodes => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RSSFeedCopyWith<RSSFeed> get copyWith => throw _privateConstructorUsedError;
+  $RssFeedCopyWith<RssFeed> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RSSFeedCopyWith<$Res> {
-  factory $RSSFeedCopyWith(RSSFeed value, $Res Function(RSSFeed) then) =
-      _$RSSFeedCopyWithImpl<$Res, RSSFeed>;
+abstract class $RssFeedCopyWith<$Res> {
+  factory $RssFeedCopyWith(RssFeed value, $Res Function(RssFeed) then) =
+      _$RssFeedCopyWithImpl<$Res, RssFeed>;
   @useResult
   $Res call(
       {String id,
@@ -52,18 +52,18 @@ abstract class $RSSFeedCopyWith<$Res> {
       String coverPath,
       Uri serverAddress,
       Uri feedUrl,
-      RSSFeedMetadata meta,
-      List<RSSFeedEpisode> episodes,
+      RssFeedMetadata meta,
+      List<RssFeedEpisode> episodes,
       DateTime createdAt,
       DateTime updatedAt});
 
-  $RSSFeedMetadataCopyWith<$Res> get meta;
+  $RssFeedMetadataCopyWith<$Res> get meta;
 }
 
 /// @nodoc
-class _$RSSFeedCopyWithImpl<$Res, $Val extends RSSFeed>
-    implements $RSSFeedCopyWith<$Res> {
-  _$RSSFeedCopyWithImpl(this._value, this._then);
+class _$RssFeedCopyWithImpl<$Res, $Val extends RssFeed>
+    implements $RssFeedCopyWith<$Res> {
+  _$RssFeedCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -122,11 +122,11 @@ class _$RSSFeedCopyWithImpl<$Res, $Val extends RSSFeed>
       meta: null == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
-              as RSSFeedMetadata,
+              as RssFeedMetadata,
       episodes: null == episodes
           ? _value.episodes
           : episodes // ignore: cast_nullable_to_non_nullable
-              as List<RSSFeedEpisode>,
+              as List<RssFeedEpisode>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -140,18 +140,18 @@ class _$RSSFeedCopyWithImpl<$Res, $Val extends RSSFeed>
 
   @override
   @pragma('vm:prefer-inline')
-  $RSSFeedMetadataCopyWith<$Res> get meta {
-    return $RSSFeedMetadataCopyWith<$Res>(_value.meta, (value) {
+  $RssFeedMetadataCopyWith<$Res> get meta {
+    return $RssFeedMetadataCopyWith<$Res>(_value.meta, (value) {
       return _then(_value.copyWith(meta: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_RSSFeedCopyWith<$Res> implements $RSSFeedCopyWith<$Res> {
-  factory _$$_RSSFeedCopyWith(
-          _$_RSSFeed value, $Res Function(_$_RSSFeed) then) =
-      __$$_RSSFeedCopyWithImpl<$Res>;
+abstract class _$$_RssFeedCopyWith<$Res> implements $RssFeedCopyWith<$Res> {
+  factory _$$_RssFeedCopyWith(
+          _$_RssFeed value, $Res Function(_$_RssFeed) then) =
+      __$$_RssFeedCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -163,20 +163,20 @@ abstract class _$$_RSSFeedCopyWith<$Res> implements $RSSFeedCopyWith<$Res> {
       String coverPath,
       Uri serverAddress,
       Uri feedUrl,
-      RSSFeedMetadata meta,
-      List<RSSFeedEpisode> episodes,
+      RssFeedMetadata meta,
+      List<RssFeedEpisode> episodes,
       DateTime createdAt,
       DateTime updatedAt});
 
   @override
-  $RSSFeedMetadataCopyWith<$Res> get meta;
+  $RssFeedMetadataCopyWith<$Res> get meta;
 }
 
 /// @nodoc
-class __$$_RSSFeedCopyWithImpl<$Res>
-    extends _$RSSFeedCopyWithImpl<$Res, _$_RSSFeed>
-    implements _$$_RSSFeedCopyWith<$Res> {
-  __$$_RSSFeedCopyWithImpl(_$_RSSFeed _value, $Res Function(_$_RSSFeed) _then)
+class __$$_RssFeedCopyWithImpl<$Res>
+    extends _$RssFeedCopyWithImpl<$Res, _$_RssFeed>
+    implements _$$_RssFeedCopyWith<$Res> {
+  __$$_RssFeedCopyWithImpl(_$_RssFeed _value, $Res Function(_$_RssFeed) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -195,7 +195,7 @@ class __$$_RSSFeedCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
-    return _then(_$_RSSFeed(
+    return _then(_$_RssFeed(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -231,11 +231,11 @@ class __$$_RSSFeedCopyWithImpl<$Res>
       meta: null == meta
           ? _value.meta
           : meta // ignore: cast_nullable_to_non_nullable
-              as RSSFeedMetadata,
+              as RssFeedMetadata,
       episodes: null == episodes
           ? _value._episodes
           : episodes // ignore: cast_nullable_to_non_nullable
-              as List<RSSFeedEpisode>,
+              as List<RssFeedEpisode>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -251,8 +251,8 @@ class __$$_RSSFeedCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$_RSSFeed implements _RSSFeed {
-  const _$_RSSFeed(
+class _$_RssFeed implements _RssFeed {
+  const _$_RssFeed(
       {required this.id,
       required this.slug,
       required this.userId,
@@ -262,13 +262,13 @@ class _$_RSSFeed implements _RSSFeed {
       required this.serverAddress,
       required this.feedUrl,
       required this.meta,
-      required final List<RSSFeedEpisode> episodes,
+      required final List<RssFeedEpisode> episodes,
       required this.createdAt,
       required this.updatedAt})
       : _episodes = episodes;
 
-  factory _$_RSSFeed.fromJson(Map<String, dynamic> json) =>
-      _$$_RSSFeedFromJson(json);
+  factory _$_RssFeed.fromJson(Map<String, dynamic> json) =>
+      _$$_RssFeedFromJson(json);
 
   @override
   final String id;
@@ -287,10 +287,10 @@ class _$_RSSFeed implements _RSSFeed {
   @override
   final Uri feedUrl;
   @override
-  final RSSFeedMetadata meta;
-  final List<RSSFeedEpisode> _episodes;
+  final RssFeedMetadata meta;
+  final List<RssFeedEpisode> _episodes;
   @override
-  List<RSSFeedEpisode> get episodes {
+  List<RssFeedEpisode> get episodes {
     if (_episodes is EqualUnmodifiableListView) return _episodes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_episodes);
@@ -303,14 +303,14 @@ class _$_RSSFeed implements _RSSFeed {
 
   @override
   String toString() {
-    return 'RSSFeed(id: $id, slug: $slug, userId: $userId, entityType: $entityType, entityId: $entityId, coverPath: $coverPath, serverAddress: $serverAddress, feedUrl: $feedUrl, meta: $meta, episodes: $episodes, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'RssFeed(id: $id, slug: $slug, userId: $userId, entityType: $entityType, entityId: $entityId, coverPath: $coverPath, serverAddress: $serverAddress, feedUrl: $feedUrl, meta: $meta, episodes: $episodes, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RSSFeed &&
+            other is _$_RssFeed &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.slug, slug) || other.slug == slug) &&
             (identical(other.userId, userId) || other.userId == userId) &&
@@ -351,19 +351,19 @@ class _$_RSSFeed implements _RSSFeed {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RSSFeedCopyWith<_$_RSSFeed> get copyWith =>
-      __$$_RSSFeedCopyWithImpl<_$_RSSFeed>(this, _$identity);
+  _$$_RssFeedCopyWith<_$_RssFeed> get copyWith =>
+      __$$_RssFeedCopyWithImpl<_$_RssFeed>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RSSFeedToJson(
+    return _$$_RssFeedToJson(
       this,
     );
   }
 }
 
-abstract class _RSSFeed implements RSSFeed {
-  const factory _RSSFeed(
+abstract class _RssFeed implements RssFeed {
+  const factory _RssFeed(
       {required final String id,
       required final String slug,
       required final String userId,
@@ -372,12 +372,12 @@ abstract class _RSSFeed implements RSSFeed {
       required final String coverPath,
       required final Uri serverAddress,
       required final Uri feedUrl,
-      required final RSSFeedMetadata meta,
-      required final List<RSSFeedEpisode> episodes,
+      required final RssFeedMetadata meta,
+      required final List<RssFeedEpisode> episodes,
       required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$_RSSFeed;
+      required final DateTime updatedAt}) = _$_RssFeed;
 
-  factory _RSSFeed.fromJson(Map<String, dynamic> json) = _$_RSSFeed.fromJson;
+  factory _RssFeed.fromJson(Map<String, dynamic> json) = _$_RssFeed.fromJson;
 
   @override
   String get id;
@@ -396,15 +396,15 @@ abstract class _RSSFeed implements RSSFeed {
   @override
   Uri get feedUrl;
   @override
-  RSSFeedMetadata get meta;
+  RssFeedMetadata get meta;
   @override
-  List<RSSFeedEpisode> get episodes;
+  List<RssFeedEpisode> get episodes;
   @override
   DateTime get createdAt;
   @override
   DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)
-  _$$_RSSFeedCopyWith<_$_RSSFeed> get copyWith =>
+  _$$_RssFeedCopyWith<_$_RssFeed> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -9,9 +9,9 @@ part 'generated/rss_feed.g.dart';
 
 /// See [RSS Feed](https://api.audiobookshelf.org/#rss-feed)
 @freezed
-class RSSFeed with _$RSSFeed {
+class RssFeed with _$RssFeed {
   @jsonConverters
-  const factory RSSFeed({
+  const factory RssFeed({
     required String id,
     required String slug,
     required String userId,
@@ -20,12 +20,12 @@ class RSSFeed with _$RSSFeed {
     required String coverPath,
     required Uri serverAddress,
     required Uri feedUrl,
-    required RSSFeedMetadata meta,
-    required List<RSSFeedEpisode> episodes,
+    required RssFeedMetadata meta,
+    required List<RssFeedEpisode> episodes,
     required DateTime createdAt,
     required DateTime updatedAt,
-  }) = _RSSFeed;
+  }) = _RssFeed;
 
-  factory RSSFeed.fromJson(Map<String, dynamic> json) =>
-      _$RSSFeedFromJson(json);
+  factory RssFeed.fromJson(Map<String, dynamic> json) =>
+      _$RssFeedFromJson(json);
 }

@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RSSFeedMetadata _$RSSFeedMetadataFromJson(Map<String, dynamic> json) {
-  return _RSSFeedMetadata.fromJson(json);
+RssFeedMetadata _$RssFeedMetadataFromJson(Map<String, dynamic> json) {
+  return _RssFeedMetadata.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RSSFeedMetadata {
+mixin _$RssFeedMetadata {
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
@@ -30,15 +30,15 @@ mixin _$RSSFeedMetadata {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RSSFeedMetadataCopyWith<RSSFeedMetadata> get copyWith =>
+  $RssFeedMetadataCopyWith<RssFeedMetadata> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RSSFeedMetadataCopyWith<$Res> {
-  factory $RSSFeedMetadataCopyWith(
-          RSSFeedMetadata value, $Res Function(RSSFeedMetadata) then) =
-      _$RSSFeedMetadataCopyWithImpl<$Res, RSSFeedMetadata>;
+abstract class $RssFeedMetadataCopyWith<$Res> {
+  factory $RssFeedMetadataCopyWith(
+          RssFeedMetadata value, $Res Function(RssFeedMetadata) then) =
+      _$RssFeedMetadataCopyWithImpl<$Res, RssFeedMetadata>;
   @useResult
   $Res call(
       {String title,
@@ -51,9 +51,9 @@ abstract class $RSSFeedMetadataCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RSSFeedMetadataCopyWithImpl<$Res, $Val extends RSSFeedMetadata>
-    implements $RSSFeedMetadataCopyWith<$Res> {
-  _$RSSFeedMetadataCopyWithImpl(this._value, this._then);
+class _$RssFeedMetadataCopyWithImpl<$Res, $Val extends RssFeedMetadata>
+    implements $RssFeedMetadataCopyWith<$Res> {
+  _$RssFeedMetadataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -105,11 +105,11 @@ class _$RSSFeedMetadataCopyWithImpl<$Res, $Val extends RSSFeedMetadata>
 }
 
 /// @nodoc
-abstract class _$$_RSSFeedMetadataCopyWith<$Res>
-    implements $RSSFeedMetadataCopyWith<$Res> {
-  factory _$$_RSSFeedMetadataCopyWith(
-          _$_RSSFeedMetadata value, $Res Function(_$_RSSFeedMetadata) then) =
-      __$$_RSSFeedMetadataCopyWithImpl<$Res>;
+abstract class _$$_RssFeedMetadataCopyWith<$Res>
+    implements $RssFeedMetadataCopyWith<$Res> {
+  factory _$$_RssFeedMetadataCopyWith(
+          _$_RssFeedMetadata value, $Res Function(_$_RssFeedMetadata) then) =
+      __$$_RssFeedMetadataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -123,11 +123,11 @@ abstract class _$$_RSSFeedMetadataCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_RSSFeedMetadataCopyWithImpl<$Res>
-    extends _$RSSFeedMetadataCopyWithImpl<$Res, _$_RSSFeedMetadata>
-    implements _$$_RSSFeedMetadataCopyWith<$Res> {
-  __$$_RSSFeedMetadataCopyWithImpl(
-      _$_RSSFeedMetadata _value, $Res Function(_$_RSSFeedMetadata) _then)
+class __$$_RssFeedMetadataCopyWithImpl<$Res>
+    extends _$RssFeedMetadataCopyWithImpl<$Res, _$_RssFeedMetadata>
+    implements _$$_RssFeedMetadataCopyWith<$Res> {
+  __$$_RssFeedMetadataCopyWithImpl(
+      _$_RssFeedMetadata _value, $Res Function(_$_RssFeedMetadata) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -141,7 +141,7 @@ class __$$_RSSFeedMetadataCopyWithImpl<$Res>
     Object? link = null,
     Object? explicit = null,
   }) {
-    return _then(_$_RSSFeedMetadata(
+    return _then(_$_RssFeedMetadata(
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -176,8 +176,8 @@ class __$$_RSSFeedMetadataCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RSSFeedMetadata implements _RSSFeedMetadata {
-  const _$_RSSFeedMetadata(
+class _$_RssFeedMetadata implements _RssFeedMetadata {
+  const _$_RssFeedMetadata(
       {required this.title,
       required this.description,
       required this.author,
@@ -186,8 +186,8 @@ class _$_RSSFeedMetadata implements _RSSFeedMetadata {
       required this.link,
       required this.explicit});
 
-  factory _$_RSSFeedMetadata.fromJson(Map<String, dynamic> json) =>
-      _$$_RSSFeedMetadataFromJson(json);
+  factory _$_RssFeedMetadata.fromJson(Map<String, dynamic> json) =>
+      _$$_RssFeedMetadataFromJson(json);
 
   @override
   final String title;
@@ -206,14 +206,14 @@ class _$_RSSFeedMetadata implements _RSSFeedMetadata {
 
   @override
   String toString() {
-    return 'RSSFeedMetadata(title: $title, description: $description, author: $author, imageUrl: $imageUrl, feedUrl: $feedUrl, link: $link, explicit: $explicit)';
+    return 'RssFeedMetadata(title: $title, description: $description, author: $author, imageUrl: $imageUrl, feedUrl: $feedUrl, link: $link, explicit: $explicit)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RSSFeedMetadata &&
+            other is _$_RssFeedMetadata &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -234,29 +234,29 @@ class _$_RSSFeedMetadata implements _RSSFeedMetadata {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RSSFeedMetadataCopyWith<_$_RSSFeedMetadata> get copyWith =>
-      __$$_RSSFeedMetadataCopyWithImpl<_$_RSSFeedMetadata>(this, _$identity);
+  _$$_RssFeedMetadataCopyWith<_$_RssFeedMetadata> get copyWith =>
+      __$$_RssFeedMetadataCopyWithImpl<_$_RssFeedMetadata>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RSSFeedMetadataToJson(
+    return _$$_RssFeedMetadataToJson(
       this,
     );
   }
 }
 
-abstract class _RSSFeedMetadata implements RSSFeedMetadata {
-  const factory _RSSFeedMetadata(
+abstract class _RssFeedMetadata implements RssFeedMetadata {
+  const factory _RssFeedMetadata(
       {required final String title,
       required final String description,
       required final String author,
       required final Uri imageUrl,
       required final Uri feedUrl,
       required final Uri link,
-      required final bool explicit}) = _$_RSSFeedMetadata;
+      required final bool explicit}) = _$_RssFeedMetadata;
 
-  factory _RSSFeedMetadata.fromJson(Map<String, dynamic> json) =
-      _$_RSSFeedMetadata.fromJson;
+  factory _RssFeedMetadata.fromJson(Map<String, dynamic> json) =
+      _$_RssFeedMetadata.fromJson;
 
   @override
   String get title;
@@ -274,6 +274,6 @@ abstract class _RSSFeedMetadata implements RSSFeedMetadata {
   bool get explicit;
   @override
   @JsonKey(ignore: true)
-  _$$_RSSFeedMetadataCopyWith<_$_RSSFeedMetadata> get copyWith =>
+  _$$_RssFeedMetadataCopyWith<_$_RssFeedMetadata> get copyWith =>
       throw _privateConstructorUsedError;
 }

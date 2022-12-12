@@ -6,12 +6,12 @@ part of '../rss_feed_episode.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RSSFeedEpisode _$$_RSSFeedEpisodeFromJson(Map<String, dynamic> json) =>
-    _$_RSSFeedEpisode(
+_$_RssFeedEpisode _$$_RssFeedEpisodeFromJson(Map<String, dynamic> json) =>
+    _$_RssFeedEpisode(
       id: json['id'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
-      enclosure: RSSFeedEpisodeEnclosure.fromJson(
+      enclosure: RssFeedEpisodeEnclosure.fromJson(
           json['enclosure'] as Map<String, dynamic>),
       pubDate: json['pubDate'] as String,
       link: Uri.parse(json['link'] as String),
@@ -25,7 +25,7 @@ _$_RSSFeedEpisode _$$_RSSFeedEpisodeFromJson(Map<String, dynamic> json) =>
       fullPath: json['fullPath'] as String,
     );
 
-Map<String, dynamic> _$$_RSSFeedEpisodeToJson(_$_RSSFeedEpisode instance) =>
+Map<String, dynamic> _$$_RssFeedEpisodeToJson(_$_RssFeedEpisode instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
