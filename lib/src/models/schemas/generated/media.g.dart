@@ -50,7 +50,7 @@ _$BookMinified _$$BookMinifiedFromJson(Map<String, dynamic> json) =>
       numMissingParts: json['numMissingParts'] as int,
       numInvalidAudioFiles: json['numInvalidAudioFiles'] as int,
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
+          .fromJson(json['duration'] as num),
       size: json['size'] as int,
       ebookFormat: json['ebookFormat'] as String?,
       $type: json['runtimeType'] as String?,
@@ -87,7 +87,7 @@ _$BookExpanded _$$BookExpandedFromJson(Map<String, dynamic> json) =>
           .map((e) => BookChapter.fromJson(e as Map<String, dynamic>))
           .toList(),
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
+          .fromJson(json['duration'] as num),
       size: json['size'] as int,
       tracks: (json['tracks'] as List<dynamic>)
           .map((e) => AudioTrack.fromJson(e as Map<String, dynamic>))

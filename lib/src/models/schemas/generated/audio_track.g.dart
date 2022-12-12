@@ -10,9 +10,9 @@ _$_AudioTrack _$$_AudioTrackFromJson(Map<String, dynamic> json) =>
     _$_AudioTrack(
       index: json['index'] as int,
       startOffset: const DurationPreciseSecondsConverter()
-          .fromJson(json['startOffset'] as double),
+          .fromJson(json['startOffset'] as num),
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
+          .fromJson(json['duration'] as num),
       title: json['title'] as String,
       contentUrl: json['contentUrl'] as String,
       mimeType: const HttpParserMediaTypeConverter()

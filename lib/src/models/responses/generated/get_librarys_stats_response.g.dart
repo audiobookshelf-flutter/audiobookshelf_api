@@ -13,7 +13,7 @@ _$_GetLibrarysStatsResponse _$$_GetLibrarysStatsResponseFromJson(
       totalAuthors: json['totalAuthors'] as int,
       totalGenres: json['totalGenres'] as int,
       totalDuration: const DurationPreciseSecondsConverter()
-          .fromJson(json['totalDuration'] as double),
+          .fromJson(json['totalDuration'] as num),
       longestItems: (json['longestItems'] as List<dynamic>)
           .map((e) => LibraryItemStats.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -47,7 +47,7 @@ _$_LibraryItemStats _$$_LibraryItemStatsFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       title: json['title'] as String,
       duration: const DurationPreciseSecondsConverter()
-          .fromJson(json['duration'] as double),
+          .fromJson(json['duration'] as num),
     );
 
 Map<String, dynamic> _$$_LibraryItemStatsToJson(_$_LibraryItemStats instance) =>
