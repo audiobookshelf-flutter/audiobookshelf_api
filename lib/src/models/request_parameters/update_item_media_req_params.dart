@@ -142,6 +142,8 @@ class UpdateBookSeriesReqParams {
 
 @requestToJsonRemoveNull
 class UpdatePodcastReqParams extends UpdateItemMediaReqParams {
+  static const _zeroCron = CronExpression();
+
   @override
   final UpdatePodcastMetadataReqParams? metadata;
   final bool? autoDownloadEpisodes;
@@ -159,7 +161,7 @@ class UpdatePodcastReqParams extends UpdateItemMediaReqParams {
     super.coverPath = '',
     super.tags,
     this.autoDownloadEpisodes,
-    this.autoDownloadSchedule,
+    this.autoDownloadSchedule = _zeroCron,
     this.lastEpisodeCheck,
     this.maxEpisodesToKeep,
     this.maxNewEpisodesToDownload,
@@ -170,6 +172,9 @@ class UpdatePodcastReqParams extends UpdateItemMediaReqParams {
     final json = _$UpdatePodcastReqParamsToJson(this);
     if (coverPath != '') {
       json['coverPath'] = coverPath;
+    }
+    if (autoDownloadSchedule == _zeroCron) {
+      json.remove('autoDownloadSchedule');
     }
     return json.nullIfEmpty;
   }
