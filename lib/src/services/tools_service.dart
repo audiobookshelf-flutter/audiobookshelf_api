@@ -18,4 +18,16 @@ class ToolsService extends Service {
       responseErrorHandler: responseErrorHandler,
     );
   }
+
+  /// See [Cancel an M4B Encode Task](https://api.audiobookshelf.org/#cancel-an-m4b-encode-task)
+  Future<void> cancelM4bEncode({
+    required String libraryItemId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.delete(
+      path: '$basePath/item/$libraryItemId/encode-m4b',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }
