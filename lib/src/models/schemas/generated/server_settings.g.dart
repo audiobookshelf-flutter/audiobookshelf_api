@@ -43,7 +43,7 @@ _$_ServerSettings _$$_ServerSettingsFromJson(Map<String, dynamic> json) =>
       chromecastEnabled: json['chromecastEnabled'] as bool,
       enableEReader: json['enableEReader'] as bool,
       dateFormat: $enumDecode(_$DateFormatEnumMap, json['dateFormat']),
-      language: json['language'] as String,
+      language: $enumDecode(_$ServerLanguageEnumMap, json['language']),
       logLevel: $enumDecode(_$LogLevelEnumMap, json['logLevel']),
       version: json['version'] as String,
     );
@@ -82,7 +82,7 @@ Map<String, dynamic> _$$_ServerSettingsToJson(_$_ServerSettings instance) =>
       'chromecastEnabled': instance.chromecastEnabled,
       'enableEReader': instance.enableEReader,
       'dateFormat': _$DateFormatEnumMap[instance.dateFormat]!,
-      'language': instance.language,
+      'language': _$ServerLanguageEnumMap[instance.language]!,
       'logLevel': _$LogLevelEnumMap[instance.logLevel]!,
       'version': instance.version,
     };
@@ -107,6 +107,16 @@ const _$DateFormatEnumMap = {
   DateFormat.monthFirst: 'MM/dd/yyyy',
   DateFormat.dayFirst: 'dd/MM/yyyy',
   DateFormat.yearFirst: 'yyyy-MM-dd',
+};
+
+const _$ServerLanguageEnumMap = {
+  ServerLanguage.dutch: 'de',
+  ServerLanguage.english: 'en-us',
+  ServerLanguage.french: 'fr',
+  ServerLanguage.croatian: 'hr',
+  ServerLanguage.italian: 'it',
+  ServerLanguage.polish: 'pl',
+  ServerLanguage.simplifiedChinese: 'zh-cn',
 };
 
 const _$LogLevelEnumMap = {

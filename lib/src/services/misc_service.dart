@@ -1,4 +1,6 @@
+import '../models/request_parameters/update_server_settings_req_params.dart';
 import '../models/responses/login_response.dart';
+import '../models/responses/update_server_settings_response.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -33,6 +35,20 @@ class MiscService extends Service {
       },
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Update Server Settings](https://api.audiobookshelf.org/#update-server-settings)
+  Future<UpdateServerSettingsResponse?> updateServerSettings({
+    UpdateServerSettingsReqParams? parameters,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.patchJson(
+      path: '$basePath/settings',
+      jsonObject: parameters,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, UpdateServerSettingsResponse.fromJson),
     );
   }
 
