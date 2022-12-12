@@ -14,7 +14,7 @@ class LoginResponse with _$LoginResponse {
     required User user,
     required String userDefaultLibraryId,
     required ServerSettings serverSettings,
-    required List<RSSFeed> feeds,
+    required List<RssFeed> feeds,
     required String source,
   }) = _LoginResponse;
 

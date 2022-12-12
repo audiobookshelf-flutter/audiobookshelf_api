@@ -23,7 +23,7 @@ mixin _$LoginResponse {
   User get user => throw _privateConstructorUsedError;
   String get userDefaultLibraryId => throw _privateConstructorUsedError;
   ServerSettings get serverSettings => throw _privateConstructorUsedError;
-  List<RSSFeed> get feeds => throw _privateConstructorUsedError;
+  List<RssFeed> get feeds => throw _privateConstructorUsedError;
   String get source => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $LoginResponseCopyWith<$Res> {
       {User user,
       String userDefaultLibraryId,
       ServerSettings serverSettings,
-      List<RSSFeed> feeds,
+      List<RssFeed> feeds,
       String source});
 
   $UserCopyWith<$Res> get user;
@@ -84,7 +84,7 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
       feeds: null == feeds
           ? _value.feeds
           : feeds // ignore: cast_nullable_to_non_nullable
-              as List<RSSFeed>,
+              as List<RssFeed>,
       source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -121,7 +121,7 @@ abstract class _$$_LoginResponseCopyWith<$Res>
       {User user,
       String userDefaultLibraryId,
       ServerSettings serverSettings,
-      List<RSSFeed> feeds,
+      List<RssFeed> feeds,
       String source});
 
   @override
@@ -163,7 +163,7 @@ class __$$_LoginResponseCopyWithImpl<$Res>
       feeds: null == feeds
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
-              as List<RSSFeed>,
+              as List<RssFeed>,
       source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -179,7 +179,7 @@ class _$_LoginResponse implements _LoginResponse {
       {required this.user,
       required this.userDefaultLibraryId,
       required this.serverSettings,
-      required final List<RSSFeed> feeds,
+      required final List<RssFeed> feeds,
       required this.source})
       : _feeds = feeds;
 
@@ -192,9 +192,9 @@ class _$_LoginResponse implements _LoginResponse {
   final String userDefaultLibraryId;
   @override
   final ServerSettings serverSettings;
-  final List<RSSFeed> _feeds;
+  final List<RssFeed> _feeds;
   @override
-  List<RSSFeed> get feeds {
+  List<RssFeed> get feeds {
     if (_feeds is EqualUnmodifiableListView) return _feeds;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_feeds);
@@ -246,7 +246,7 @@ abstract class _LoginResponse implements LoginResponse {
       {required final User user,
       required final String userDefaultLibraryId,
       required final ServerSettings serverSettings,
-      required final List<RSSFeed> feeds,
+      required final List<RssFeed> feeds,
       required final String source}) = _$_LoginResponse;
 
   factory _LoginResponse.fromJson(Map<String, dynamic> json) =
@@ -259,7 +259,7 @@ abstract class _LoginResponse implements LoginResponse {
   @override
   ServerSettings get serverSettings;
   @override
-  List<RSSFeed> get feeds;
+  List<RssFeed> get feeds;
   @override
   String get source;
   @override

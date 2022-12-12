@@ -8,13 +8,13 @@ part 'generated/rss_feed_episode.g.dart';
 
 /// See [RSS Feed Episode](https://api.audiobookshelf.org/#rss-feed-episode)
 @freezed
-class RSSFeedEpisode with _$RSSFeedEpisode {
+class RssFeedEpisode with _$RssFeedEpisode {
   @jsonConverters
-  const factory RSSFeedEpisode({
+  const factory RssFeedEpisode({
     required String id,
     required String title,
     required String description,
-    required RSSFeedEpisodeEnclosure enclosure,
+    required RssFeedEpisodeEnclosure enclosure,
     required String pubDate,
     required Uri link,
     required String author,
@@ -24,8 +24,8 @@ class RSSFeedEpisode with _$RSSFeedEpisode {
     String? episodeId,
     required int trackIndex,
     required String fullPath,
-  }) = _RSSFeedEpisode;
+  }) = _RssFeedEpisode;
 
-  factory RSSFeedEpisode.fromJson(Map<String, dynamic> json) =>
-      _$RSSFeedEpisodeFromJson(json);
+  factory RssFeedEpisode.fromJson(Map<String, dynamic> json) =>
+      _$RssFeedEpisodeFromJson(json);
 }

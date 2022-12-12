@@ -7,14 +7,14 @@ part 'generated/rss_feed_episode_enclosure.freezed.dart';
 part 'generated/rss_feed_episode_enclosure.g.dart';
 
 @freezed
-class RSSFeedEpisodeEnclosure with _$RSSFeedEpisodeEnclosure {
+class RssFeedEpisodeEnclosure with _$RssFeedEpisodeEnclosure {
   @jsonConverters
-  const factory RSSFeedEpisodeEnclosure({
+  const factory RssFeedEpisodeEnclosure({
     required Uri url,
     required http_parser.MediaType type,
     required int size,
-  }) = _RSSFeedEpisodeEnclosure;
+  }) = _RssFeedEpisodeEnclosure;
 
-  factory RSSFeedEpisodeEnclosure.fromJson(Map<String, dynamic> json) =>
-      _$RSSFeedEpisodeEnclosureFromJson(json);
+  factory RssFeedEpisodeEnclosure.fromJson(Map<String, dynamic> json) =>
+      _$RssFeedEpisodeEnclosureFromJson(json);
 }

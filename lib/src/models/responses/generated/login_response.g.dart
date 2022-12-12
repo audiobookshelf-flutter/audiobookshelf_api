@@ -13,7 +13,7 @@ _$_LoginResponse _$$_LoginResponseFromJson(Map<String, dynamic> json) =>
       serverSettings: ServerSettings.fromJson(
           json['serverSettings'] as Map<String, dynamic>),
       feeds: (json['feeds'] as List<dynamic>)
-          .map((e) => RSSFeed.fromJson(e as Map<String, dynamic>))
+          .map((e) => RssFeed.fromJson(e as Map<String, dynamic>))
           .toList(),
       source: json['source'] as String,
     );

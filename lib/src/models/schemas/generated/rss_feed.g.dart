@@ -6,7 +6,7 @@ part of '../rss_feed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RSSFeed _$$_RSSFeedFromJson(Map<String, dynamic> json) => _$_RSSFeed(
+_$_RssFeed _$$_RssFeedFromJson(Map<String, dynamic> json) => _$_RssFeed(
       id: json['id'] as String,
       slug: json['slug'] as String,
       userId: json['userId'] as String,
@@ -15,9 +15,9 @@ _$_RSSFeed _$$_RSSFeedFromJson(Map<String, dynamic> json) => _$_RSSFeed(
       coverPath: json['coverPath'] as String,
       serverAddress: Uri.parse(json['serverAddress'] as String),
       feedUrl: Uri.parse(json['feedUrl'] as String),
-      meta: RSSFeedMetadata.fromJson(json['meta'] as Map<String, dynamic>),
+      meta: RssFeedMetadata.fromJson(json['meta'] as Map<String, dynamic>),
       episodes: (json['episodes'] as List<dynamic>)
-          .map((e) => RSSFeedEpisode.fromJson(e as Map<String, dynamic>))
+          .map((e) => RssFeedEpisode.fromJson(e as Map<String, dynamic>))
           .toList(),
       createdAt:
           const DateTimeEpochConverter().fromJson(json['createdAt'] as int),
@@ -25,7 +25,7 @@ _$_RSSFeed _$$_RSSFeedFromJson(Map<String, dynamic> json) => _$_RSSFeed(
           const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
     );
 
-Map<String, dynamic> _$$_RSSFeedToJson(_$_RSSFeed instance) =>
+Map<String, dynamic> _$$_RssFeedToJson(_$_RssFeed instance) =>
     <String, dynamic>{
       'id': instance.id,
       'slug': instance.slug,

@@ -14,16 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RSSFeedEpisode _$RSSFeedEpisodeFromJson(Map<String, dynamic> json) {
-  return _RSSFeedEpisode.fromJson(json);
+RssFeedEpisode _$RssFeedEpisodeFromJson(Map<String, dynamic> json) {
+  return _RssFeedEpisode.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RSSFeedEpisode {
+mixin _$RssFeedEpisode {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  RSSFeedEpisodeEnclosure get enclosure => throw _privateConstructorUsedError;
+  RssFeedEpisodeEnclosure get enclosure => throw _privateConstructorUsedError;
   String get pubDate => throw _privateConstructorUsedError;
   Uri get link => throw _privateConstructorUsedError;
   String get author => throw _privateConstructorUsedError;
@@ -36,21 +36,21 @@ mixin _$RSSFeedEpisode {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RSSFeedEpisodeCopyWith<RSSFeedEpisode> get copyWith =>
+  $RssFeedEpisodeCopyWith<RssFeedEpisode> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RSSFeedEpisodeCopyWith<$Res> {
-  factory $RSSFeedEpisodeCopyWith(
-          RSSFeedEpisode value, $Res Function(RSSFeedEpisode) then) =
-      _$RSSFeedEpisodeCopyWithImpl<$Res, RSSFeedEpisode>;
+abstract class $RssFeedEpisodeCopyWith<$Res> {
+  factory $RssFeedEpisodeCopyWith(
+          RssFeedEpisode value, $Res Function(RssFeedEpisode) then) =
+      _$RssFeedEpisodeCopyWithImpl<$Res, RssFeedEpisode>;
   @useResult
   $Res call(
       {String id,
       String title,
       String description,
-      RSSFeedEpisodeEnclosure enclosure,
+      RssFeedEpisodeEnclosure enclosure,
       String pubDate,
       Uri link,
       String author,
@@ -61,13 +61,13 @@ abstract class $RSSFeedEpisodeCopyWith<$Res> {
       int trackIndex,
       String fullPath});
 
-  $RSSFeedEpisodeEnclosureCopyWith<$Res> get enclosure;
+  $RssFeedEpisodeEnclosureCopyWith<$Res> get enclosure;
 }
 
 /// @nodoc
-class _$RSSFeedEpisodeCopyWithImpl<$Res, $Val extends RSSFeedEpisode>
-    implements $RSSFeedEpisodeCopyWith<$Res> {
-  _$RSSFeedEpisodeCopyWithImpl(this._value, this._then);
+class _$RssFeedEpisodeCopyWithImpl<$Res, $Val extends RssFeedEpisode>
+    implements $RssFeedEpisodeCopyWith<$Res> {
+  _$RssFeedEpisodeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -107,7 +107,7 @@ class _$RSSFeedEpisodeCopyWithImpl<$Res, $Val extends RSSFeedEpisode>
       enclosure: null == enclosure
           ? _value.enclosure
           : enclosure // ignore: cast_nullable_to_non_nullable
-              as RSSFeedEpisodeEnclosure,
+              as RssFeedEpisodeEnclosure,
       pubDate: null == pubDate
           ? _value.pubDate
           : pubDate // ignore: cast_nullable_to_non_nullable
@@ -149,26 +149,26 @@ class _$RSSFeedEpisodeCopyWithImpl<$Res, $Val extends RSSFeedEpisode>
 
   @override
   @pragma('vm:prefer-inline')
-  $RSSFeedEpisodeEnclosureCopyWith<$Res> get enclosure {
-    return $RSSFeedEpisodeEnclosureCopyWith<$Res>(_value.enclosure, (value) {
+  $RssFeedEpisodeEnclosureCopyWith<$Res> get enclosure {
+    return $RssFeedEpisodeEnclosureCopyWith<$Res>(_value.enclosure, (value) {
       return _then(_value.copyWith(enclosure: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_RSSFeedEpisodeCopyWith<$Res>
-    implements $RSSFeedEpisodeCopyWith<$Res> {
-  factory _$$_RSSFeedEpisodeCopyWith(
-          _$_RSSFeedEpisode value, $Res Function(_$_RSSFeedEpisode) then) =
-      __$$_RSSFeedEpisodeCopyWithImpl<$Res>;
+abstract class _$$_RssFeedEpisodeCopyWith<$Res>
+    implements $RssFeedEpisodeCopyWith<$Res> {
+  factory _$$_RssFeedEpisodeCopyWith(
+          _$_RssFeedEpisode value, $Res Function(_$_RssFeedEpisode) then) =
+      __$$_RssFeedEpisodeCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String id,
       String title,
       String description,
-      RSSFeedEpisodeEnclosure enclosure,
+      RssFeedEpisodeEnclosure enclosure,
       String pubDate,
       Uri link,
       String author,
@@ -180,15 +180,15 @@ abstract class _$$_RSSFeedEpisodeCopyWith<$Res>
       String fullPath});
 
   @override
-  $RSSFeedEpisodeEnclosureCopyWith<$Res> get enclosure;
+  $RssFeedEpisodeEnclosureCopyWith<$Res> get enclosure;
 }
 
 /// @nodoc
-class __$$_RSSFeedEpisodeCopyWithImpl<$Res>
-    extends _$RSSFeedEpisodeCopyWithImpl<$Res, _$_RSSFeedEpisode>
-    implements _$$_RSSFeedEpisodeCopyWith<$Res> {
-  __$$_RSSFeedEpisodeCopyWithImpl(
-      _$_RSSFeedEpisode _value, $Res Function(_$_RSSFeedEpisode) _then)
+class __$$_RssFeedEpisodeCopyWithImpl<$Res>
+    extends _$RssFeedEpisodeCopyWithImpl<$Res, _$_RssFeedEpisode>
+    implements _$$_RssFeedEpisodeCopyWith<$Res> {
+  __$$_RssFeedEpisodeCopyWithImpl(
+      _$_RssFeedEpisode _value, $Res Function(_$_RssFeedEpisode) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -208,7 +208,7 @@ class __$$_RSSFeedEpisodeCopyWithImpl<$Res>
     Object? trackIndex = null,
     Object? fullPath = null,
   }) {
-    return _then(_$_RSSFeedEpisode(
+    return _then(_$_RssFeedEpisode(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -224,7 +224,7 @@ class __$$_RSSFeedEpisodeCopyWithImpl<$Res>
       enclosure: null == enclosure
           ? _value.enclosure
           : enclosure // ignore: cast_nullable_to_non_nullable
-              as RSSFeedEpisodeEnclosure,
+              as RssFeedEpisodeEnclosure,
       pubDate: null == pubDate
           ? _value.pubDate
           : pubDate // ignore: cast_nullable_to_non_nullable
@@ -268,8 +268,8 @@ class __$$_RSSFeedEpisodeCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonConverters
-class _$_RSSFeedEpisode implements _RSSFeedEpisode {
-  const _$_RSSFeedEpisode(
+class _$_RssFeedEpisode implements _RssFeedEpisode {
+  const _$_RssFeedEpisode(
       {required this.id,
       required this.title,
       required this.description,
@@ -284,8 +284,8 @@ class _$_RSSFeedEpisode implements _RSSFeedEpisode {
       required this.trackIndex,
       required this.fullPath});
 
-  factory _$_RSSFeedEpisode.fromJson(Map<String, dynamic> json) =>
-      _$$_RSSFeedEpisodeFromJson(json);
+  factory _$_RssFeedEpisode.fromJson(Map<String, dynamic> json) =>
+      _$$_RssFeedEpisodeFromJson(json);
 
   @override
   final String id;
@@ -294,7 +294,7 @@ class _$_RSSFeedEpisode implements _RSSFeedEpisode {
   @override
   final String description;
   @override
-  final RSSFeedEpisodeEnclosure enclosure;
+  final RssFeedEpisodeEnclosure enclosure;
   @override
   final String pubDate;
   @override
@@ -316,14 +316,14 @@ class _$_RSSFeedEpisode implements _RSSFeedEpisode {
 
   @override
   String toString() {
-    return 'RSSFeedEpisode(id: $id, title: $title, description: $description, enclosure: $enclosure, pubDate: $pubDate, link: $link, author: $author, explicit: $explicit, duration: $duration, libraryItemId: $libraryItemId, episodeId: $episodeId, trackIndex: $trackIndex, fullPath: $fullPath)';
+    return 'RssFeedEpisode(id: $id, title: $title, description: $description, enclosure: $enclosure, pubDate: $pubDate, link: $link, author: $author, explicit: $explicit, duration: $duration, libraryItemId: $libraryItemId, episodeId: $episodeId, trackIndex: $trackIndex, fullPath: $fullPath)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RSSFeedEpisode &&
+            other is _$_RssFeedEpisode &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -368,23 +368,23 @@ class _$_RSSFeedEpisode implements _RSSFeedEpisode {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RSSFeedEpisodeCopyWith<_$_RSSFeedEpisode> get copyWith =>
-      __$$_RSSFeedEpisodeCopyWithImpl<_$_RSSFeedEpisode>(this, _$identity);
+  _$$_RssFeedEpisodeCopyWith<_$_RssFeedEpisode> get copyWith =>
+      __$$_RssFeedEpisodeCopyWithImpl<_$_RssFeedEpisode>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RSSFeedEpisodeToJson(
+    return _$$_RssFeedEpisodeToJson(
       this,
     );
   }
 }
 
-abstract class _RSSFeedEpisode implements RSSFeedEpisode {
-  const factory _RSSFeedEpisode(
+abstract class _RssFeedEpisode implements RssFeedEpisode {
+  const factory _RssFeedEpisode(
       {required final String id,
       required final String title,
       required final String description,
-      required final RSSFeedEpisodeEnclosure enclosure,
+      required final RssFeedEpisodeEnclosure enclosure,
       required final String pubDate,
       required final Uri link,
       required final String author,
@@ -393,10 +393,10 @@ abstract class _RSSFeedEpisode implements RSSFeedEpisode {
       required final String libraryItemId,
       final String? episodeId,
       required final int trackIndex,
-      required final String fullPath}) = _$_RSSFeedEpisode;
+      required final String fullPath}) = _$_RssFeedEpisode;
 
-  factory _RSSFeedEpisode.fromJson(Map<String, dynamic> json) =
-      _$_RSSFeedEpisode.fromJson;
+  factory _RssFeedEpisode.fromJson(Map<String, dynamic> json) =
+      _$_RssFeedEpisode.fromJson;
 
   @override
   String get id;
@@ -405,7 +405,7 @@ abstract class _RSSFeedEpisode implements RSSFeedEpisode {
   @override
   String get description;
   @override
-  RSSFeedEpisodeEnclosure get enclosure;
+  RssFeedEpisodeEnclosure get enclosure;
   @override
   String get pubDate;
   @override
@@ -426,6 +426,6 @@ abstract class _RSSFeedEpisode implements RSSFeedEpisode {
   String get fullPath;
   @override
   @JsonKey(ignore: true)
-  _$$_RSSFeedEpisodeCopyWith<_$_RSSFeedEpisode> get copyWith =>
+  _$$_RssFeedEpisodeCopyWith<_$_RssFeedEpisode> get copyWith =>
       throw _privateConstructorUsedError;
 }
