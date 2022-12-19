@@ -1,5 +1,6 @@
 import '../models/request_parameters/update_server_settings_req_params.dart';
 import '../models/responses/login_response.dart';
+import '../models/responses/rename_tag_response.dart';
 import '../models/responses/update_server_settings_response.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -80,6 +81,24 @@ class MiscService extends Service {
         final tags = json as Map<String, dynamic>;
         return (tags['tags'] as List<dynamic>).cast<String>();
       },
+    );
+  }
+
+  /// See [Rename a Tag](https://api.audiobookshelf.org/#rename-a-tag)
+  Future<RenameTagResponse?> renameTag({
+    required String tag,
+    required String newTag,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/tags/rename',
+      jsonObject: {
+        'tag': tag,
+        'newTag': newTag,
+      },
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, RenameTagResponse.fromJson),
     );
   }
 
