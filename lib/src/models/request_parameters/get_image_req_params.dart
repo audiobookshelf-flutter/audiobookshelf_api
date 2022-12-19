@@ -10,6 +10,8 @@ class GetImageReqParams {
   final int width;
   final int? height;
   final String? format;
+  @BoolBinaryConverter()
+  final bool? raw;
 
   /// See [Get a Library Item's Cover](https://api.audiobookshelf.org/#get-a-library-item-39-s-cover)
   /// or [Get an Author's Image](https://api.audiobookshelf.org/#get-an-author-39-s-image)
@@ -17,6 +19,7 @@ class GetImageReqParams {
     this.width = 400,
     this.height,
     this.format,
+    this.raw,
   });
 
   Map<String, dynamic>? toJson() =>

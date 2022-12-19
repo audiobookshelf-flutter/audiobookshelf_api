@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import '../models/request_parameters/batch_match_items_req_params.dart';
+import '../models/request_parameters/get_image_req_params.dart';
 import '../models/request_parameters/get_item_req_params.dart';
 import '../models/request_parameters/match_item_req_params.dart';
 import '../models/request_parameters/play_item_req_params.dart';
@@ -88,7 +89,7 @@ class LibraryItemsService extends Service {
   /// The image's bytes are returned as a [Uint8List].
   Future<Uint8List?> getCover({
     required String libraryItemId,
-    GetItemReqParams? parameters,
+    GetImageReqParams? parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) async {
     final response = await api.get(
