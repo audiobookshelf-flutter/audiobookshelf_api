@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import '../models/request_parameters/update_server_settings_req_params.dart';
 import '../models/responses/login_response.dart';
+import '../models/responses/rename_genre_response.dart';
 import '../models/responses/rename_tag_response.dart';
 import '../models/responses/update_server_settings_response.dart';
 import '../utils/from_json.dart';
@@ -133,6 +134,24 @@ class MiscService extends Service {
         final genres = json as Map<String, dynamic>;
         return (genres['genres'] as List<dynamic>).cast<String>();
       },
+    );
+  }
+
+  /// See [Rename a Genre](https://api.audiobookshelf.org/#rename-a-genre)
+  Future<RenameGenreResponse?> renameGenre({
+    required String genre,
+    required String newGenre,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/genres/rename',
+      jsonObject: {
+        'genre': genre,
+        'newGenre': newGenre,
+      },
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, RenameGenreResponse.fromJson),
     );
   }
 
