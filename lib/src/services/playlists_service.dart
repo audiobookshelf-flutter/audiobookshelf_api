@@ -143,4 +143,17 @@ class PlaylistsService extends Service {
       fromJson: (json) => fromJson(json, Playlist.fromJson),
     );
   }
+
+  /// See [Create a Playlist From A Collection](https://api.audiobookshelf.org/#create-a-playlist-from-a-collection)
+  Future<Playlist?> createFromCollection({
+    required String collectionId,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/collection/$collectionId',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, Playlist.fromJson),
+    );
+  }
 }
