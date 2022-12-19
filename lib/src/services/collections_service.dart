@@ -33,7 +33,8 @@ class CollectionsService extends Service {
       path: basePath,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, Collection.fromJson),
+      fromJson: (json) =>
+          listFromJsonKey(json, 'collections', Collection.fromJson),
     );
   }
 

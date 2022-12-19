@@ -324,7 +324,8 @@ class LibraryItemsService extends Service {
       jsonObject: {'libraryItemIds': libraryItemIds},
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, LibraryItem.fromJson),
+      fromJson: (json) =>
+          listFromJsonKey(json, 'libraryItems', LibraryItem.fromJson),
     );
   }
 

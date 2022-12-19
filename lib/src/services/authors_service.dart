@@ -28,7 +28,7 @@ class AuthorsService extends Service {
       queryParameters: parameters.toJson(),
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, Author.fromJson),
+      fromJson: (json) => listFromJsonKey(json, 'results', Author.fromJson),
     );
   }
 
