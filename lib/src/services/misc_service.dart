@@ -76,7 +76,10 @@ class MiscService extends Service {
       path: '$basePath/tags',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => (json as List<dynamic>).cast<String>(),
+      fromJson: (json) {
+        final tags = json as Map<String, dynamic>;
+        return (tags['tags'] as List<dynamic>).cast<String>();
+      },
     );
   }
 
