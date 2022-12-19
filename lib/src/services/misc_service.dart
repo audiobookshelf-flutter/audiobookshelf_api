@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import '../models/request_parameters/update_server_settings_req_params.dart';
 import '../models/responses/login_response.dart';
 import '../models/responses/rename_tag_response.dart';
@@ -99,6 +101,23 @@ class MiscService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, RenameTagResponse.fromJson),
+    );
+  }
+
+  /// See [Delete a Tag](https://api.audiobookshelf.org/#delete-a-tag)
+  ///
+  /// [tag] will be Base64 and URL encoded.
+  ///
+  /// `numItemsUpdated` will be returned.
+  Future<int?> deleteTag({
+    required String tag,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/tags/${base64.encode(utf8.encode(tag))}',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => (json as Map<String, dynamic>)['numItemsUpdated'],
     );
   }
 
