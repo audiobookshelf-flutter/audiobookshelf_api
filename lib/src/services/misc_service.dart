@@ -121,6 +121,21 @@ class MiscService extends Service {
     );
   }
 
+  /// See [Get All Genres](https://api.audiobookshelf.org/#get-all-genres)
+  Future<List<String>?> getAllGenres({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/genres',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) {
+        final genres = json as Map<String, dynamic>;
+        return (genres['genres'] as List<dynamic>).cast<String>();
+      },
+    );
+  }
+
   /// See [Validate a Cron Expression](https://api.audiobookshelf.org/#validate-a-cron-expression)
   ///
   /// A bool representing if the cron expression is valid or not is returned.
