@@ -109,7 +109,7 @@ class MiscService extends Service {
   ///
   /// [tag] will be Base64 and URL encoded.
   ///
-  /// `numItemsUpdated` will be returned.
+  /// `numItemsUpdated` is returned.
   Future<int?> deleteTag({
     required String tag,
     ResponseErrorHandler? responseErrorHandler,
@@ -118,7 +118,8 @@ class MiscService extends Service {
       path: '$basePath/tags/${base64.encode(utf8.encode(tag))}',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => (json as Map<String, dynamic>)['numItemsUpdated'],
+      fromJson: (json) =>
+          (json as Map<String, dynamic>)['numItemsUpdated'] as int,
     );
   }
 
@@ -152,6 +153,24 @@ class MiscService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, RenameGenreResponse.fromJson),
+    );
+  }
+
+  /// See [Delete a Genre](https://api.audiobookshelf.org/#delete-a-genre)
+  ///
+  /// [genre] will be Base64 and URL encoded.
+  ///
+  /// `numItemsUpdated` is returned.
+  Future<int?> deleteGenre({
+    required String genre,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/genres/${base64.encode(utf8.encode(genre))}',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) =>
+          (json as Map<String, dynamic>)['numItemsUpdated'] as int,
     );
   }
 
