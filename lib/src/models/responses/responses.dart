@@ -33,4 +33,3 @@ export 'update_cover_response.dart';
 export 'update_item_chapters_response.dart';
 export 'update_server_settings_response.dart';
 export 'update_user_response.dart';
-export 'update_user_settings_response.dart';

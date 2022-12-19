@@ -6,7 +6,6 @@ import 'audio_bookmark.dart';
 import 'media_progress.dart';
 import 'playback_session.dart';
 import 'user_permissions.dart';
-import 'user_settings.dart';
 
 part 'generated/user.freezed.dart';
 part 'generated/user.g.dart';
@@ -29,7 +28,6 @@ class User with _$User {
     required bool isLocked,
     DateTime? lastSeen,
     required DateTime createdAt,
-    required UserSettings settings,
     required UserPermissions permissions,
     required List<String> librariesAccessible,
     required List<String> itemTagsAccessible,

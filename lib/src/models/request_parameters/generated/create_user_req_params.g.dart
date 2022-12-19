@@ -35,7 +35,6 @@ Map<String, dynamic> _$CreateUserReqParamsToJson(CreateUserReqParams instance) {
       'createdAt',
       _$JsonConverterToJson<int, DateTime>(
           instance.createdAt, const DateTimeEpochConverter().toJson));
-  writeNotNull('settings', instance.settings?.toJson());
   writeNotNull('permissions', instance.permissions?.toJson());
   writeNotNull('librariesAccessible', instance.librariesAccessible);
   writeNotNull('itemTagsAccessible', instance.itemTagsAccessible);
@@ -54,20 +53,6 @@ Json? _$JsonConverterToJson<Json, Value>(
   Json? Function(Value value) toJson,
 ) =>
     value == null ? null : toJson(value);
-
-Map<String, dynamic> _$CreateUserSettingsReqParamsToJson(
-        CreateUserSettingsReqParams instance) =>
-    <String, dynamic>{
-      'mobileOrderBy': instance.mobileOrderBy,
-      'mobileOrderDesc': instance.mobileOrderDesc,
-      'mobileFilterBy': instance.mobileFilterBy,
-      'orderBy': instance.orderBy,
-      'orderDesc': instance.orderDesc,
-      'filterBy': instance.filterBy,
-      'playbackRate': instance.playbackRate,
-      'bookshelfCoverSize': instance.bookshelfCoverSize,
-      'collapseSeries': instance.collapseSeries,
-    };
 
 Map<String, dynamic> _$CreateUserPermissionsReqParamsToJson(
         CreateUserPermissionsReqParams instance) =>

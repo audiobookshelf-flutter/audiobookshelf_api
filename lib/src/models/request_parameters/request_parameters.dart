@@ -38,4 +38,3 @@ export 'update_podcast_episode_req_params.dart';
 export 'update_series_req_params.dart';
 export 'update_server_settings_req_params.dart';
 export 'update_user_req_params.dart';
-export 'update_user_settings_req_params.dart';

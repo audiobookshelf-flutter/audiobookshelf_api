@@ -23,7 +23,6 @@ class CreateUserReqParams {
   final bool isLocked;
   final DateTime? lastSeen;
   final DateTime? createdAt;
-  final CreateUserSettingsReqParams? settings;
   final CreateUserPermissionsReqParams? permissions;
   final List<String>? librariesAccessible;
   final List<String>? itemTagsAccessible;
@@ -40,7 +39,6 @@ class CreateUserReqParams {
     this.isLocked = false,
     this.lastSeen,
     this.createdAt,
-    this.settings,
     this.permissions,
     this.librariesAccessible,
     this.itemTagsAccessible,
@@ -48,47 +46,6 @@ class CreateUserReqParams {
 
   Map<String, dynamic>? toJson() =>
       _$CreateUserReqParamsToJson(this).removeDefaults(defaults);
-}
-
-@requestToJson
-class CreateUserSettingsReqParams {
-  static const defaults = {
-    'mobileOrderBy': 'recent',
-    'mobileOrderDesc': true,
-    'mobileFilterBy': 'all',
-    'orderBy': 'media.metadata.title',
-    'orderDesc': false,
-    'filterBy': 'all',
-    'playbackRate': 1.0,
-    'bookshelfCoverSize': 120,
-    'collapseSeries': false
-  };
-
-  final String mobileOrderBy;
-  final bool mobileOrderDesc;
-  final String mobileFilterBy;
-  final String orderBy;
-  final bool orderDesc;
-  final String filterBy;
-  final double playbackRate;
-  final int bookshelfCoverSize;
-  final bool collapseSeries;
-
-  /// See [Create a User](https://api.audiobookshelf.org/#create-a-user)
-  const CreateUserSettingsReqParams({
-    this.mobileOrderBy = 'recent',
-    this.mobileOrderDesc = true,
-    this.mobileFilterBy = 'all',
-    this.orderBy = 'media.metadata.title',
-    this.orderDesc = false,
-    this.filterBy = 'all',
-    this.playbackRate = 1.0,
-    this.bookshelfCoverSize = 120,
-    this.collapseSeries = false,
-  });
-
-  Map<String, dynamic>? toJson() =>
-      _$CreateUserSettingsReqParamsToJson(this).removeDefaults(defaults);
 }
 
 @requestToJson
