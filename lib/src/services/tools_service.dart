@@ -1,3 +1,4 @@
+import '../models/request_parameters/encode_m4b_req_params.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
 
@@ -10,10 +11,12 @@ class ToolsService extends Service {
   /// See [Encode a Book as M4B](https://api.audiobookshelf.org/#encode-a-book-as-m4b)
   Future<void> encodeM4b({
     required String libraryItemId,
+    EncodeM4bReqParams? parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.post(
       path: '$basePath/item/$libraryItemId/encode-m4b',
+      queryParameters: parameters?.toJson(),
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
     );

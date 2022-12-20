@@ -8,6 +8,7 @@ export 'create_podcast_req_params.dart';
 export 'create_update_progress_req_params.dart';
 export 'create_user_req_params.dart';
 export 'download_podcast_episodes_req_params.dart';
+export 'encode_m4b_req_params.dart';
 export 'get_author_req_params.dart';
 export 'get_image_req_params.dart';
 export 'get_item_req_params.dart';
