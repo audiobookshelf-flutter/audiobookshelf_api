@@ -7,7 +7,7 @@ part 'generated/encode_m4b_req_params.g.dart';
 class EncodeM4bReqParams {
   static const defaults = {
     'bitrate': '64k',
-    'codec': 'acc',
+    'codec': 'aac',
     'channels': 2,
   };
 
@@ -18,7 +18,7 @@ class EncodeM4bReqParams {
   /// See [Encode a Book as M4B](https://api.audiobookshelf.org/#encode-a-book-as-m4b)
   const EncodeM4bReqParams({
     this.bitrate = '64k',
-    this.codec = 'acc',
+    this.codec = 'aac',
     this.channels = 2,
   });
 
