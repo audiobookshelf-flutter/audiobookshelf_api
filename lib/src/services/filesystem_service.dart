@@ -17,7 +17,8 @@ class FilesystemService extends Service {
       path: basePath,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, FilesystemDirectory.fromJson),
+      fromJson: (json) =>
+          listFromJsonKey(json, 'directories', FilesystemDirectory.fromJson),
     );
   }
 }

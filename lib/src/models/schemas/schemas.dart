@@ -42,4 +42,3 @@ export 'session_user.dart';
 export 'shelf.dart';
 export 'user.dart';
 export 'user_permissions.dart';
-export 'user_settings.dart';

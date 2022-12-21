@@ -27,7 +27,6 @@ _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
           json['lastSeen'], const DateTimeEpochConverter().fromJson),
       createdAt:
           const DateTimeEpochConverter().fromJson(json['createdAt'] as int),
-      settings: UserSettings.fromJson(json['settings'] as Map<String, dynamic>),
       permissions:
           UserPermissions.fromJson(json['permissions'] as Map<String, dynamic>),
       librariesAccessible: (json['librariesAccessible'] as List<dynamic>)
@@ -53,7 +52,6 @@ Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'lastSeen': _$JsonConverterToJson<int, DateTime>(
           instance.lastSeen, const DateTimeEpochConverter().toJson),
       'createdAt': const DateTimeEpochConverter().toJson(instance.createdAt),
-      'settings': instance.settings,
       'permissions': instance.permissions,
       'librariesAccessible': instance.librariesAccessible,
       'itemTagsAccessible': instance.itemTagsAccessible,

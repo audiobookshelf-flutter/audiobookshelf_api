@@ -38,7 +38,7 @@ class UsersService extends Service {
       path: basePath,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, User.fromJson),
+      fromJson: (json) => listFromJsonKey(json, 'users', User.fromJson),
     );
   }
 

@@ -48,7 +48,6 @@ mixin _$User {
             bool isLocked,
             DateTime? lastSeen,
             DateTime createdAt,
-            UserSettings settings,
             UserPermissions permissions,
             List<String> librariesAccessible,
             List<String> itemTagsAccessible)
@@ -78,7 +77,6 @@ mixin _$User {
             bool isLocked,
             DateTime? lastSeen,
             DateTime createdAt,
-            UserSettings settings,
             UserPermissions permissions,
             List<String> librariesAccessible,
             List<String> itemTagsAccessible)?
@@ -108,7 +106,6 @@ mixin _$User {
             bool isLocked,
             DateTime? lastSeen,
             DateTime createdAt,
-            UserSettings settings,
             UserPermissions permissions,
             List<String> librariesAccessible,
             List<String> itemTagsAccessible)?
@@ -227,12 +224,10 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       bool isLocked,
       DateTime? lastSeen,
       DateTime createdAt,
-      UserSettings settings,
       UserPermissions permissions,
       List<String> librariesAccessible,
       List<String> itemTagsAccessible});
 
-  $UserSettingsCopyWith<$Res> get settings;
   $UserPermissionsCopyWith<$Res> get permissions;
 }
 
@@ -256,7 +251,6 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? isLocked = null,
     Object? lastSeen = freezed,
     Object? createdAt = null,
-    Object? settings = null,
     Object? permissions = null,
     Object? librariesAccessible = null,
     Object? itemTagsAccessible = null,
@@ -306,10 +300,6 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      settings: null == settings
-          ? _value.settings
-          : settings // ignore: cast_nullable_to_non_nullable
-              as UserSettings,
       permissions: null == permissions
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
@@ -323,14 +313,6 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           : itemTagsAccessible // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $UserSettingsCopyWith<$Res> get settings {
-    return $UserSettingsCopyWith<$Res>(_value.settings, (value) {
-      return _then(_value.copyWith(settings: value));
-    });
   }
 
   @override
@@ -358,7 +340,6 @@ class _$_User extends _User {
       required this.isLocked,
       this.lastSeen,
       required this.createdAt,
-      required this.settings,
       required this.permissions,
       required final List<String> librariesAccessible,
       required final List<String> itemTagsAccessible,
@@ -415,8 +396,6 @@ class _$_User extends _User {
   @override
   final DateTime createdAt;
   @override
-  final UserSettings settings;
-  @override
   final UserPermissions permissions;
   final List<String> _librariesAccessible;
   @override
@@ -441,7 +420,7 @@ class _$_User extends _User {
 
   @override
   String toString() {
-    return 'User(id: $id, username: $username, type: $type, token: $token, mediaProgress: $mediaProgress, seriesHideFromContinueListening: $seriesHideFromContinueListening, bookmarks: $bookmarks, isActive: $isActive, isLocked: $isLocked, lastSeen: $lastSeen, createdAt: $createdAt, settings: $settings, permissions: $permissions, librariesAccessible: $librariesAccessible, itemTagsAccessible: $itemTagsAccessible)';
+    return 'User(id: $id, username: $username, type: $type, token: $token, mediaProgress: $mediaProgress, seriesHideFromContinueListening: $seriesHideFromContinueListening, bookmarks: $bookmarks, isActive: $isActive, isLocked: $isLocked, lastSeen: $lastSeen, createdAt: $createdAt, permissions: $permissions, librariesAccessible: $librariesAccessible, itemTagsAccessible: $itemTagsAccessible)';
   }
 
   @override
@@ -469,8 +448,6 @@ class _$_User extends _User {
                 other.lastSeen == lastSeen) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.settings, settings) ||
-                other.settings == settings) &&
             (identical(other.permissions, permissions) ||
                 other.permissions == permissions) &&
             const DeepCollectionEquality()
@@ -494,7 +471,6 @@ class _$_User extends _User {
       isLocked,
       lastSeen,
       createdAt,
-      settings,
       permissions,
       const DeepCollectionEquality().hash(_librariesAccessible),
       const DeepCollectionEquality().hash(_itemTagsAccessible));
@@ -520,7 +496,6 @@ class _$_User extends _User {
             bool isLocked,
             DateTime? lastSeen,
             DateTime createdAt,
-            UserSettings settings,
             UserPermissions permissions,
             List<String> librariesAccessible,
             List<String> itemTagsAccessible)
@@ -547,7 +522,6 @@ class _$_User extends _User {
         isLocked,
         lastSeen,
         createdAt,
-        settings,
         permissions,
         librariesAccessible,
         itemTagsAccessible);
@@ -568,7 +542,6 @@ class _$_User extends _User {
             bool isLocked,
             DateTime? lastSeen,
             DateTime createdAt,
-            UserSettings settings,
             UserPermissions permissions,
             List<String> librariesAccessible,
             List<String> itemTagsAccessible)?
@@ -595,7 +568,6 @@ class _$_User extends _User {
         isLocked,
         lastSeen,
         createdAt,
-        settings,
         permissions,
         librariesAccessible,
         itemTagsAccessible);
@@ -616,7 +588,6 @@ class _$_User extends _User {
             bool isLocked,
             DateTime? lastSeen,
             DateTime createdAt,
-            UserSettings settings,
             UserPermissions permissions,
             List<String> librariesAccessible,
             List<String> itemTagsAccessible)?
@@ -645,7 +616,6 @@ class _$_User extends _User {
           isLocked,
           lastSeen,
           createdAt,
-          settings,
           permissions,
           librariesAccessible,
           itemTagsAccessible);
@@ -708,7 +678,6 @@ abstract class _User extends User {
       required final bool isLocked,
       final DateTime? lastSeen,
       required final DateTime createdAt,
-      required final UserSettings settings,
       required final UserPermissions permissions,
       required final List<String> librariesAccessible,
       required final List<String> itemTagsAccessible}) = _$_User;
@@ -732,7 +701,6 @@ abstract class _User extends User {
   DateTime? get lastSeen;
   @override
   DateTime get createdAt;
-  UserSettings get settings;
   UserPermissions get permissions;
   List<String> get librariesAccessible;
   List<String> get itemTagsAccessible;
@@ -930,7 +898,6 @@ class _$UserWithSessionAndMostRecentProgress
             bool isLocked,
             DateTime? lastSeen,
             DateTime createdAt,
-            UserSettings settings,
             UserPermissions permissions,
             List<String> librariesAccessible,
             List<String> itemTagsAccessible)
@@ -964,7 +931,6 @@ class _$UserWithSessionAndMostRecentProgress
             bool isLocked,
             DateTime? lastSeen,
             DateTime createdAt,
-            UserSettings settings,
             UserPermissions permissions,
             List<String> librariesAccessible,
             List<String> itemTagsAccessible)?
@@ -998,7 +964,6 @@ class _$UserWithSessionAndMostRecentProgress
             bool isLocked,
             DateTime? lastSeen,
             DateTime createdAt,
-            UserSettings settings,
             UserPermissions permissions,
             List<String> librariesAccessible,
             List<String> itemTagsAccessible)?

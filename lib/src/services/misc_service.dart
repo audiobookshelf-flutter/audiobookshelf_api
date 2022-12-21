@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import '../models/request_parameters/update_server_settings_req_params.dart';
 import '../models/responses/login_response.dart';
+import '../models/responses/rename_genre_response.dart';
+import '../models/responses/rename_tag_response.dart';
 import '../models/responses/update_server_settings_response.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -76,7 +80,97 @@ class MiscService extends Service {
       path: '$basePath/tags',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => (json as List<dynamic>).cast<String>(),
+      fromJson: (json) {
+        final tags = json as Map<String, dynamic>;
+        return (tags['tags'] as List<dynamic>).cast<String>();
+      },
+    );
+  }
+
+  /// See [Rename a Tag](https://api.audiobookshelf.org/#rename-a-tag)
+  Future<RenameTagResponse?> renameTag({
+    required String tag,
+    required String newTag,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/tags/rename',
+      jsonObject: {
+        'tag': tag,
+        'newTag': newTag,
+      },
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, RenameTagResponse.fromJson),
+    );
+  }
+
+  /// See [Delete a Tag](https://api.audiobookshelf.org/#delete-a-tag)
+  ///
+  /// [tag] will be Base64 and URL encoded.
+  ///
+  /// `numItemsUpdated` is returned.
+  Future<int?> deleteTag({
+    required String tag,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/tags/${base64.encode(utf8.encode(tag))}',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) =>
+          (json as Map<String, dynamic>)['numItemsUpdated'] as int,
+    );
+  }
+
+  /// See [Get All Genres](https://api.audiobookshelf.org/#get-all-genres)
+  Future<List<String>?> getAllGenres({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: '$basePath/genres',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) {
+        final genres = json as Map<String, dynamic>;
+        return (genres['genres'] as List<dynamic>).cast<String>();
+      },
+    );
+  }
+
+  /// See [Rename a Genre](https://api.audiobookshelf.org/#rename-a-genre)
+  Future<RenameGenreResponse?> renameGenre({
+    required String genre,
+    required String newGenre,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/genres/rename',
+      jsonObject: {
+        'genre': genre,
+        'newGenre': newGenre,
+      },
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, RenameGenreResponse.fromJson),
+    );
+  }
+
+  /// See [Delete a Genre](https://api.audiobookshelf.org/#delete-a-genre)
+  ///
+  /// [genre] will be Base64 and URL encoded.
+  ///
+  /// `numItemsUpdated` is returned.
+  Future<int?> deleteGenre({
+    required String genre,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.deleteJson(
+      path: '$basePath/genres/${base64.encode(utf8.encode(genre))}',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) =>
+          (json as Map<String, dynamic>)['numItemsUpdated'] as int,
     );
   }
 

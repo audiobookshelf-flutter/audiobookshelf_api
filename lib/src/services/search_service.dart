@@ -25,7 +25,8 @@ class SearchService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) {
-        final urls = json as List<dynamic>;
+        final results = json as Map<String, dynamic>;
+        final urls = results['results'] as List<dynamic>;
         return urls.cast<String>().map((e) => Uri.parse(e)).toList();
       },
     );

@@ -21,7 +21,7 @@ class SeriesService extends Service {
       queryParameters: parameters.toJson(),
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, Series.fromJson),
+      fromJson: (json) => listFromJsonKey(json, 'results', Series.fromJson),
     );
   }
 

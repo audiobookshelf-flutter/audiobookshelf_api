@@ -49,7 +49,7 @@ class LibrariesService extends Service {
       path: basePath,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, Library.fromJson),
+      fromJson: (json) => listFromJsonKey(json, 'libraries', Library.fromJson),
     );
   }
 
@@ -239,7 +239,7 @@ class LibrariesService extends Service {
       path: '$basePath/$libraryId/authors',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, Author.fromJson),
+      fromJson: (json) => listFromJsonKey(json, 'authors', Author.fromJson),
     );
   }
 
@@ -294,7 +294,7 @@ class LibrariesService extends Service {
       jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => listFromJson(json, Library.fromJson),
+      fromJson: (json) => listFromJsonKey(json, 'libraries', Library.fromJson),
     );
   }
 }

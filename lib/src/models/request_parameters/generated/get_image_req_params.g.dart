@@ -19,5 +19,15 @@ Map<String, dynamic> _$GetImageReqParamsToJson(GetImageReqParams instance) {
 
   writeNotNull('height', instance.height);
   writeNotNull('format', instance.format);
+  writeNotNull(
+      'raw',
+      _$JsonConverterToJson<int, bool>(
+          instance.raw, const BoolBinaryConverter().toJson));
   return val;
 }
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
