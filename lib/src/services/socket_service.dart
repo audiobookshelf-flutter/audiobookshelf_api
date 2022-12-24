@@ -11,18 +11,29 @@ class SocketService extends Service {
         .build(),
   );
 
+  bool initialized = false;
+
   SocketService(super.api);
 
   void init() {
-    socket.onConnect((_) {
-      // authenticate socket on connection
-      socket.emit('auth', api.token);
-    });
-    socket.connect();
+    if (!initialized) {
+      socket.onConnect((_) {
+        // authenticate socket on connection
+        emitAuth();
+      });
+      socket.connect();
+      initialized = true;
+    } else {
+      emitAuth();
+    }
   }
 
+  void emitAuth() => socket.emit('auth', api.token);
+
   void dispose() {
-    socket.dispose();
-    socket.io.disconnect();
+    if (initialized) {
+      socket.dispose();
+      initialized = false;
+    }
   }
 }
