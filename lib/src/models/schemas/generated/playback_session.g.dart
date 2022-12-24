@@ -28,7 +28,7 @@ _$_PlaybackSession _$$_PlaybackSessionFromJson(Map<String, dynamic> json) =>
       mediaPlayer: json['mediaPlayer'] as String,
       deviceInfo:
           DeviceInfo.fromJson(json['deviceInfo'] as Map<String, dynamic>),
-      day: json['day'] as String,
+      date: json['date'] as String,
       dayOfWeek: json['dayOfWeek'] as String,
       timeListening: const DurationPreciseSecondsConverter()
           .fromJson(json['timeListening'] as num),
@@ -64,7 +64,7 @@ Map<String, dynamic> _$$_PlaybackSessionToJson(_$_PlaybackSession instance) =>
       'playMethod': _$PlayMethodEnumMap[instance.playMethod]!,
       'mediaPlayer': instance.mediaPlayer,
       'deviceInfo': instance.deviceInfo,
-      'day': instance.day,
+      'date': instance.date,
       'dayOfWeek': instance.dayOfWeek,
       'timeListening': const DurationPreciseSecondsConverter()
           .toJson(instance.timeListening),
@@ -113,7 +113,7 @@ _$PlaybackSessionExpanded _$$PlaybackSessionExpandedFromJson(
       mediaPlayer: json['mediaPlayer'] as String,
       deviceInfo:
           DeviceInfo.fromJson(json['deviceInfo'] as Map<String, dynamic>),
-      day: json['day'] as String,
+      date: json['date'] as String,
       dayOfWeek: json['dayOfWeek'] as String,
       timeListening: const DurationPreciseSecondsConverter()
           .fromJson(json['timeListening'] as num),
@@ -152,7 +152,7 @@ Map<String, dynamic> _$$PlaybackSessionExpandedToJson(
       'playMethod': _$PlayMethodEnumMap[instance.playMethod]!,
       'mediaPlayer': instance.mediaPlayer,
       'deviceInfo': instance.deviceInfo,
-      'day': instance.day,
+      'date': instance.date,
       'dayOfWeek': instance.dayOfWeek,
       'timeListening': const DurationPreciseSecondsConverter()
           .toJson(instance.timeListening),

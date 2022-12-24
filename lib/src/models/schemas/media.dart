@@ -171,7 +171,7 @@ class MediaConverter implements JsonConverter<Media, Map<String, dynamic>> {
           case SchemaVariant.minified:
             return PodcastMinified.fromJson(json);
           case SchemaVariant.expanded:
-            return PodcastMinified.fromJson(json);
+            return PodcastExpanded.fromJson(json);
         }
     }
   }

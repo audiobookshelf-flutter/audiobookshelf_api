@@ -44,7 +44,7 @@ mixin _$PlaybackSession {
   PlayMethod get playMethod => throw _privateConstructorUsedError;
   String get mediaPlayer => throw _privateConstructorUsedError;
   DeviceInfo get deviceInfo => throw _privateConstructorUsedError;
-  String get day => throw _privateConstructorUsedError;
+  String get date => throw _privateConstructorUsedError;
   String get dayOfWeek => throw _privateConstructorUsedError;
   Duration get timeListening => throw _privateConstructorUsedError;
   Duration get startTime => throw _privateConstructorUsedError;
@@ -69,7 +69,7 @@ mixin _$PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -94,7 +94,7 @@ mixin _$PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -124,7 +124,7 @@ mixin _$PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -149,7 +149,7 @@ mixin _$PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -179,7 +179,7 @@ mixin _$PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -204,7 +204,7 @@ mixin _$PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -264,7 +264,7 @@ abstract class $PlaybackSessionCopyWith<$Res> {
       PlayMethod playMethod,
       String mediaPlayer,
       DeviceInfo deviceInfo,
-      String day,
+      String date,
       String dayOfWeek,
       Duration timeListening,
       Duration startTime,
@@ -304,7 +304,7 @@ class _$PlaybackSessionCopyWithImpl<$Res, $Val extends PlaybackSession>
     Object? playMethod = null,
     Object? mediaPlayer = null,
     Object? deviceInfo = null,
-    Object? day = null,
+    Object? date = null,
     Object? dayOfWeek = null,
     Object? timeListening = null,
     Object? startTime = null,
@@ -373,9 +373,9 @@ class _$PlaybackSessionCopyWithImpl<$Res, $Val extends PlaybackSession>
           ? _value.deviceInfo
           : deviceInfo // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String,
       dayOfWeek: null == dayOfWeek
           ? _value.dayOfWeek
@@ -445,7 +445,7 @@ abstract class _$$_PlaybackSessionCopyWith<$Res>
       PlayMethod playMethod,
       String mediaPlayer,
       DeviceInfo deviceInfo,
-      String day,
+      String date,
       String dayOfWeek,
       Duration timeListening,
       Duration startTime,
@@ -487,7 +487,7 @@ class __$$_PlaybackSessionCopyWithImpl<$Res>
     Object? playMethod = null,
     Object? mediaPlayer = null,
     Object? deviceInfo = null,
-    Object? day = null,
+    Object? date = null,
     Object? dayOfWeek = null,
     Object? timeListening = null,
     Object? startTime = null,
@@ -557,9 +557,9 @@ class __$$_PlaybackSessionCopyWithImpl<$Res>
           ? _value.deviceInfo
           : deviceInfo // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String,
       dayOfWeek: null == dayOfWeek
           ? _value.dayOfWeek
@@ -625,7 +625,7 @@ class _$_PlaybackSession extends _PlaybackSession {
       required this.playMethod,
       required this.mediaPlayer,
       required this.deviceInfo,
-      required this.day,
+      required this.date,
       required this.dayOfWeek,
       required this.timeListening,
       required this.startTime,
@@ -678,7 +678,7 @@ class _$_PlaybackSession extends _PlaybackSession {
   @override
   final DeviceInfo deviceInfo;
   @override
-  final String day;
+  final String date;
   @override
   final String dayOfWeek;
   @override
@@ -699,7 +699,7 @@ class _$_PlaybackSession extends _PlaybackSession {
 
   @override
   String toString() {
-    return 'PlaybackSession(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, user: $user)';
+    return 'PlaybackSession(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, date: $date, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, user: $user)';
   }
 
   @override
@@ -734,7 +734,7 @@ class _$_PlaybackSession extends _PlaybackSession {
                 other.mediaPlayer == mediaPlayer) &&
             (identical(other.deviceInfo, deviceInfo) ||
                 other.deviceInfo == deviceInfo) &&
-            (identical(other.day, day) || other.day == day) &&
+            (identical(other.date, date) || other.date == date) &&
             (identical(other.dayOfWeek, dayOfWeek) ||
                 other.dayOfWeek == dayOfWeek) &&
             (identical(other.timeListening, timeListening) ||
@@ -769,7 +769,7 @@ class _$_PlaybackSession extends _PlaybackSession {
         playMethod,
         mediaPlayer,
         deviceInfo,
-        day,
+        date,
         dayOfWeek,
         timeListening,
         startTime,
@@ -804,7 +804,7 @@ class _$_PlaybackSession extends _PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -829,7 +829,7 @@ class _$_PlaybackSession extends _PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -856,7 +856,7 @@ class _$_PlaybackSession extends _PlaybackSession {
         playMethod,
         mediaPlayer,
         deviceInfo,
-        day,
+        date,
         dayOfWeek,
         timeListening,
         startTime,
@@ -885,7 +885,7 @@ class _$_PlaybackSession extends _PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -910,7 +910,7 @@ class _$_PlaybackSession extends _PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -937,7 +937,7 @@ class _$_PlaybackSession extends _PlaybackSession {
         playMethod,
         mediaPlayer,
         deviceInfo,
-        day,
+        date,
         dayOfWeek,
         timeListening,
         startTime,
@@ -966,7 +966,7 @@ class _$_PlaybackSession extends _PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -991,7 +991,7 @@ class _$_PlaybackSession extends _PlaybackSession {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -1020,7 +1020,7 @@ class _$_PlaybackSession extends _PlaybackSession {
           playMethod,
           mediaPlayer,
           deviceInfo,
-          day,
+          date,
           dayOfWeek,
           timeListening,
           startTime,
@@ -1088,7 +1088,7 @@ abstract class _PlaybackSession extends PlaybackSession {
       required final PlayMethod playMethod,
       required final String mediaPlayer,
       required final DeviceInfo deviceInfo,
-      required final String day,
+      required final String date,
       required final String dayOfWeek,
       required final Duration timeListening,
       required final Duration startTime,
@@ -1132,7 +1132,7 @@ abstract class _PlaybackSession extends PlaybackSession {
   @override
   DeviceInfo get deviceInfo;
   @override
-  String get day;
+  String get date;
   @override
   String get dayOfWeek;
   @override
@@ -1176,7 +1176,7 @@ abstract class _$$PlaybackSessionExpandedCopyWith<$Res>
       PlayMethod playMethod,
       String mediaPlayer,
       DeviceInfo deviceInfo,
-      String day,
+      String date,
       String dayOfWeek,
       Duration timeListening,
       Duration startTime,
@@ -1219,7 +1219,7 @@ class __$$PlaybackSessionExpandedCopyWithImpl<$Res>
     Object? playMethod = null,
     Object? mediaPlayer = null,
     Object? deviceInfo = null,
-    Object? day = null,
+    Object? date = null,
     Object? dayOfWeek = null,
     Object? timeListening = null,
     Object? startTime = null,
@@ -1290,9 +1290,9 @@ class __$$PlaybackSessionExpandedCopyWithImpl<$Res>
           ? _value.deviceInfo
           : deviceInfo // ignore: cast_nullable_to_non_nullable
               as DeviceInfo,
-      day: null == day
-          ? _value.day
-          : day // ignore: cast_nullable_to_non_nullable
+      date: null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
               as String,
       dayOfWeek: null == dayOfWeek
           ? _value.dayOfWeek
@@ -1358,7 +1358,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
       required this.playMethod,
       required this.mediaPlayer,
       required this.deviceInfo,
-      required this.day,
+      required this.date,
       required this.dayOfWeek,
       required this.timeListening,
       required this.startTime,
@@ -1413,7 +1413,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
   @override
   final DeviceInfo deviceInfo;
   @override
-  final String day;
+  final String date;
   @override
   final String dayOfWeek;
   @override
@@ -1442,7 +1442,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
 
   @override
   String toString() {
-    return 'PlaybackSession.expanded(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, day: $day, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, audioTracks: $audioTracks, libraryItem: $libraryItem)';
+    return 'PlaybackSession.expanded(id: $id, userId: $userId, libraryId: $libraryId, libraryItemId: $libraryItemId, episodeId: $episodeId, mediaType: $mediaType, mediaMetadata: $mediaMetadata, chapters: $chapters, displayTitle: $displayTitle, displayAuthor: $displayAuthor, coverPath: $coverPath, duration: $duration, playMethod: $playMethod, mediaPlayer: $mediaPlayer, deviceInfo: $deviceInfo, date: $date, dayOfWeek: $dayOfWeek, timeListening: $timeListening, startTime: $startTime, currentTime: $currentTime, startedAt: $startedAt, updatedAt: $updatedAt, audioTracks: $audioTracks, libraryItem: $libraryItem)';
   }
 
   @override
@@ -1477,7 +1477,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
                 other.mediaPlayer == mediaPlayer) &&
             (identical(other.deviceInfo, deviceInfo) ||
                 other.deviceInfo == deviceInfo) &&
-            (identical(other.day, day) || other.day == day) &&
+            (identical(other.date, date) || other.date == date) &&
             (identical(other.dayOfWeek, dayOfWeek) ||
                 other.dayOfWeek == dayOfWeek) &&
             (identical(other.timeListening, timeListening) ||
@@ -1515,7 +1515,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
         playMethod,
         mediaPlayer,
         deviceInfo,
-        day,
+        date,
         dayOfWeek,
         timeListening,
         startTime,
@@ -1552,7 +1552,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -1577,7 +1577,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -1604,7 +1604,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
         playMethod,
         mediaPlayer,
         deviceInfo,
-        day,
+        date,
         dayOfWeek,
         timeListening,
         startTime,
@@ -1634,7 +1634,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -1659,7 +1659,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -1686,7 +1686,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
         playMethod,
         mediaPlayer,
         deviceInfo,
-        day,
+        date,
         dayOfWeek,
         timeListening,
         startTime,
@@ -1716,7 +1716,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -1741,7 +1741,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
             PlayMethod playMethod,
             String mediaPlayer,
             DeviceInfo deviceInfo,
-            String day,
+            String date,
             String dayOfWeek,
             Duration timeListening,
             Duration startTime,
@@ -1770,7 +1770,7 @@ class _$PlaybackSessionExpanded extends PlaybackSessionExpanded {
           playMethod,
           mediaPlayer,
           deviceInfo,
-          day,
+          date,
           dayOfWeek,
           timeListening,
           startTime,
@@ -1839,7 +1839,7 @@ abstract class PlaybackSessionExpanded extends PlaybackSession {
       required final PlayMethod playMethod,
       required final String mediaPlayer,
       required final DeviceInfo deviceInfo,
-      required final String day,
+      required final String date,
       required final String dayOfWeek,
       required final Duration timeListening,
       required final Duration startTime,
@@ -1884,7 +1884,7 @@ abstract class PlaybackSessionExpanded extends PlaybackSession {
   @override
   DeviceInfo get deviceInfo;
   @override
-  String get day;
+  String get date;
   @override
   String get dayOfWeek;
   @override
