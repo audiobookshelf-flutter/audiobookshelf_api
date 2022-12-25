@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
 import '../models/enums/log_level.dart';
+import '../socket_events_services/user_events_service.dart';
 import 'service.dart';
 
 class SocketService extends Service {
@@ -22,6 +23,7 @@ class SocketService extends Service {
     void onDisconnect(_) => controller.add(false);
 
     controller.onListen = () {
+      controller.add(socket.connected);
       socket.onConnect(onConnect);
       socket.onDisconnect(onDisconnect);
     };
@@ -32,6 +34,9 @@ class SocketService extends Service {
 
     return controller.stream;
   }();
+
+  /// See [User Events](https://api.audiobookshelf.org/#user-events)
+  late final userEvents = UserEventsService(socket);
 
   /// Whether the socket has been initialized.
   bool initialized = false;
