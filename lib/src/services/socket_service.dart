@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
 import '../models/enums/log_level.dart';
+import '../socket_events_services/stream_events_service.dart';
 import '../socket_events_services/user_events_service.dart';
 import 'service.dart';
 
@@ -37,6 +38,9 @@ class SocketService extends Service {
 
   /// See [User Events](https://api.audiobookshelf.org/#user-events)
   late final userEvents = UserEventsService(socket);
+
+  /// See [Stream Events](https://api.audiobookshelf.org/#stream-events)
+  late final streamEvents = StreamEventsService(socket);
 
   /// Whether the socket has been initialized.
   bool initialized = false;
