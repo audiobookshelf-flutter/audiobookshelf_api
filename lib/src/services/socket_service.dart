@@ -4,6 +4,7 @@ import 'package:socket_io_client/socket_io_client.dart' as io;
 
 import '../models/enums/log_level.dart';
 import '../socket_events_services/author_events_service.dart';
+import '../socket_events_services/collection_events_service.dart';
 import '../socket_events_services/library_events_service.dart';
 import '../socket_events_services/library_item_events_service.dart';
 import '../socket_events_services/library_scan_events_service.dart';
@@ -61,6 +62,9 @@ class SocketService extends Service {
 
   /// See [Series Events](https://api.audiobookshelf.org/#series-events)
   late final seriesEvents = SeriesEventsService(socket);
+
+  /// See [Collection Events](https://api.audiobookshelf.org/#collection-events)
+  late final collectionEvents = CollectionEventsService(socket);
 
   /// Whether the socket has been initialized.
   bool initialized = false;
