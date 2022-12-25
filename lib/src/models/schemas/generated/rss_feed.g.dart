@@ -23,6 +23,7 @@ _$_RssFeed _$$_RssFeedFromJson(Map<String, dynamic> json) => _$_RssFeed(
           const DateTimeEpochConverter().fromJson(json['createdAt'] as int),
       updatedAt:
           const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
+      $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$_RssFeedToJson(_$_RssFeed instance) =>
@@ -39,4 +40,23 @@ Map<String, dynamic> _$$_RssFeedToJson(_$_RssFeed instance) =>
       'episodes': instance.episodes,
       'createdAt': const DateTimeEpochConverter().toJson(instance.createdAt),
       'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
+      'runtimeType': instance.$type,
+    };
+
+_$RssFeedMinified _$$RssFeedMinifiedFromJson(Map<String, dynamic> json) =>
+    _$RssFeedMinified(
+      id: json['id'] as String,
+      entityType: json['entityType'] as String,
+      entityId: json['entityId'] as String,
+      feedUrl: Uri.parse(json['feedUrl'] as String),
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$RssFeedMinifiedToJson(_$RssFeedMinified instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'entityType': instance.entityType,
+      'entityId': instance.entityId,
+      'feedUrl': instance.feedUrl.toString(),
+      'runtimeType': instance.$type,
     };
