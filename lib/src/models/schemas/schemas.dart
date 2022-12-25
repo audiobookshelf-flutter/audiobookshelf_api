@@ -40,5 +40,6 @@ export 'series_progress.dart';
 export 'server_settings.dart';
 export 'session_user.dart';
 export 'shelf.dart';
+export 'stream_schema.dart';
 export 'user.dart';
 export 'user_permissions.dart';
