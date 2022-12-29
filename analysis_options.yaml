@@ -23,7 +23,7 @@ analyzer:
   exclude:
   - lib/src/models/responses/generated/*.g.dart
   - lib/src/models/schemas/generated/*.g.dart
-  # - lib/src/models/schemas/generated/*.freezed.dart
+  - lib/src/models/socket_events/generated/*.g.dart
   errors:
     invalid_annotation_target: ignore
 

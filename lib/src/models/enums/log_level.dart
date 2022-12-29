@@ -4,7 +4,8 @@ import 'package:json_annotation/json_annotation.dart';
 enum LogLevel {
   debug(1),
   info(2),
-  warnings(3);
+  warning(3),
+  error(4);
 
   final int value;
 

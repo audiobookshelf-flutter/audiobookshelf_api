@@ -103,5 +103,6 @@ const _$ServerLanguageEnumMap = {
 const _$LogLevelEnumMap = {
   LogLevel.debug: 1,
   LogLevel.info: 2,
-  LogLevel.warnings: 3,
+  LogLevel.warning: 3,
+  LogLevel.error: 4,
 };

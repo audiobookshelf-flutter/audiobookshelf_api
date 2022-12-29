@@ -21,6 +21,7 @@ import 'services/search_service.dart';
 import 'services/series_service.dart';
 import 'services/server_service.dart';
 import 'services/sessions_service.dart';
+import 'services/socket_service.dart';
 import 'services/tools_service.dart';
 import 'services/users_service.dart';
 import 'utils/error_with_message.dart';
@@ -63,6 +64,7 @@ class AudiobookshelfApi {
   late final cache = CacheService(this);
   late final tools = ToolsService(this);
   late final misc = MiscService(this);
+  late final socket = SocketService(this);
 
   final String baseUrl;
   final Uri _baseUri;
@@ -433,6 +435,7 @@ class AudiobookshelfApi {
   void dispose() {
     token = null;
     client.close();
+    socket.dispose();
   }
 }
 
