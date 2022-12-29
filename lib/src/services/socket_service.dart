@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
 import '../models/enums/log_level.dart';
+import '../socket_events_services/audio_metadata_events_service.dart';
 import '../socket_events_services/author_events_service.dart';
 import '../socket_events_services/backup_events_service.dart';
 import '../socket_events_services/collection_events_service.dart';
@@ -82,6 +83,9 @@ class SocketService extends Service {
   /// See [Podcast Episode Download Events](https://api.audiobookshelf.org/#podcast-episode-download-events)
   late final podcastEpisodeDownloadEvents =
       PodcastEpisodeDownloadEventsService(socket);
+
+  /// See [Audio Metadata Events](https://api.audiobookshelf.org/#audio-metadata-events)
+  late final audioMetadataEvents = AudioMetadataEventsService(socket);
 
   /// Whether the socket has been initialized.
   bool initialized = false;
