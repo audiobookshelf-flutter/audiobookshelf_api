@@ -44,7 +44,7 @@ class AudiobookshelfApi {
     ..addExtension('abs', 'text/plain')
     ..addExtension('audiobookshelf', 'application/zip');
 
-  final client = http.Client();
+  final http.Client client;
 
   late final server = ServerService(this);
   late final libraries = LibrariesService(this);
@@ -75,7 +75,9 @@ class AudiobookshelfApi {
   AudiobookshelfApi({
     required this.baseUrl,
     this.token,
-  }) : _baseUri = createUri(baseUrl);
+    http.Client? client,
+  })  : client = client ?? http.Client(),
+        _baseUri = createUri(baseUrl);
 
   /// A header for authenticating the logged in user.
   /// [token] must be non-null when authenticating.
