@@ -391,7 +391,10 @@ class AudiobookshelfApi {
       }
 
       if (files != null && files.isNotEmpty) {
-        files.forEach((field, file) async {
+        await Future.wait(files.entries.map((entry) async {
+          final field = entry.key;
+          final file = entry.value;
+
           final mimeType = mimeTypeResolver.lookup(file.filename);
           if (mimeType == null) {
             throw RequestException(
@@ -399,6 +402,7 @@ class AudiobookshelfApi {
             );
           }
           final mediaType = MediaType.parse(mimeType);
+
           multiRequest.files.add(await file.map(
             (file) {
               return http.MultipartFile(
@@ -426,7 +430,7 @@ class AudiobookshelfApi {
               );
             },
           ));
-        });
+        }), eagerError: true);
       }
 
       baseRequest = multiRequest;
