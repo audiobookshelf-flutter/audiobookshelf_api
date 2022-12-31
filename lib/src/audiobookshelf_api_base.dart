@@ -5,6 +5,7 @@ import 'package:http_parser/http_parser.dart';
 import 'package:mime/mime.dart';
 
 import 'models/responses/login_response.dart';
+import 'models/utils/file_upload.dart';
 import 'services/authors_service.dart';
 import 'services/backups_service.dart';
 import 'services/cache_service.dart';
@@ -164,7 +165,7 @@ class AudiobookshelfApi {
     Map<String, dynamic>? queryParameters,
     Object? jsonObject,
     Map<String, String>? formData,
-    Map<String, String>? filePaths,
+    Map<String, FileUpload>? files,
     bool requiresAuth = false,
     ResponseErrorHandler? responseErrorHandler,
   }) {
@@ -174,7 +175,7 @@ class AudiobookshelfApi {
       queryParameters: queryParameters,
       jsonObject: jsonObject,
       formData: formData,
-      filePaths: filePaths,
+      files: files,
       requiresAuth: requiresAuth,
       responseErrorHandler: responseErrorHandler,
     );
@@ -187,7 +188,7 @@ class AudiobookshelfApi {
     Map<String, dynamic>? queryParameters,
     Object? jsonObject,
     Map<String, String>? formData,
-    Map<String, String>? filePaths,
+    Map<String, FileUpload>? files,
     bool requiresAuth = false,
     ResponseErrorHandler? responseErrorHandler,
     required FromJson<T> fromJson,
@@ -198,7 +199,7 @@ class AudiobookshelfApi {
       queryParameters: queryParameters,
       jsonObject: jsonObject,
       formData: formData,
-      filePaths: filePaths,
+      files: files,
       requiresAuth: requiresAuth,
       responseErrorHandler: responseErrorHandler,
       fromJson: fromJson,
@@ -211,7 +212,7 @@ class AudiobookshelfApi {
     Map<String, dynamic>? queryParameters,
     Object? jsonObject,
     Map<String, String>? formData,
-    Map<String, String>? filePaths,
+    Map<String, FileUpload>? files,
     bool requiresAuth = false,
     ResponseErrorHandler? responseErrorHandler,
   }) {
@@ -221,7 +222,7 @@ class AudiobookshelfApi {
       queryParameters: queryParameters,
       jsonObject: jsonObject,
       formData: formData,
-      filePaths: filePaths,
+      files: files,
       requiresAuth: requiresAuth,
       responseErrorHandler: responseErrorHandler,
     );
@@ -234,7 +235,7 @@ class AudiobookshelfApi {
     Map<String, dynamic>? queryParameters,
     Object? jsonObject,
     Map<String, String>? formData,
-    Map<String, String>? filePaths,
+    Map<String, FileUpload>? files,
     bool requiresAuth = false,
     ResponseErrorHandler? responseErrorHandler,
     required FromJson<T> fromJson,
@@ -245,7 +246,7 @@ class AudiobookshelfApi {
       queryParameters: queryParameters,
       jsonObject: jsonObject,
       formData: formData,
-      filePaths: filePaths,
+      files: files,
       requiresAuth: requiresAuth,
       responseErrorHandler: responseErrorHandler,
       fromJson: fromJson,
@@ -305,7 +306,7 @@ class AudiobookshelfApi {
     Map<String, dynamic>? queryParameters,
     Object? jsonObject,
     Map<String, String>? formData,
-    Map<String, String>? filePaths,
+    Map<String, FileUpload>? files,
     bool requiresAuth = false,
     ResponseErrorHandler? responseErrorHandler,
     required FromJson<T> fromJson,
@@ -316,7 +317,7 @@ class AudiobookshelfApi {
       queryParameters: queryParameters,
       jsonObject: jsonObject,
       formData: formData,
-      filePaths: filePaths,
+      files: files,
       requiresAuth: requiresAuth,
       responseErrorHandler: responseErrorHandler,
     );
@@ -350,10 +351,10 @@ class AudiobookshelfApi {
   /// [formData] will be encoded as form fields (see [http.Request.bodyFields])
   /// for the request body.
   ///
-  /// Each key in [filePaths] will be a form field name, with the value as the
-  /// path of a file to upload for the request.
+  /// Each key in [files] will be the form field name, with the value as the
+  /// file to upload.
   ///
-  /// If [formData] or [filePaths] is non-null, [jsonObject] must be null.
+  /// If [formData] or [files] is non-null, [jsonObject] must be null.
   ///
   /// [requiresAuth] is whether the request requires the authorization header.
   /// [token] must be non-null if [requiresAuth] is `true`.
@@ -365,11 +366,11 @@ class AudiobookshelfApi {
     Map<String, dynamic>? queryParameters,
     Object? jsonObject,
     Map<String, String>? formData,
-    Map<String, String>? filePaths,
+    Map<String, FileUpload>? files,
     bool requiresAuth = false,
     ResponseErrorHandler? responseErrorHandler,
   }) async {
-    if (jsonObject != null && (formData != null || filePaths != null)) {
+    if (jsonObject != null && (formData != null || files != null)) {
       throw RequestError(
         'Cannot put jsonData and formData/files in the same request.',
       );
@@ -380,28 +381,51 @@ class AudiobookshelfApi {
       queryParameters: queryParameters,
     );
 
-    late final http.BaseRequest baseRequest;
+    final http.BaseRequest baseRequest;
 
-    if (formData != null || filePaths != null) {
+    if (formData != null || files != null) {
       final multiRequest = http.MultipartRequest(method, url);
 
       if (formData != null && formData.isNotEmpty) {
         multiRequest.fields.addAll(formData);
       }
 
-      if (filePaths != null && filePaths.isNotEmpty) {
-        filePaths.forEach((field, filePath) async {
-          final mimeType = mimeTypeResolver.lookup(filePath);
+      if (files != null && files.isNotEmpty) {
+        files.forEach((field, file) async {
+          final mimeType = mimeTypeResolver.lookup(file.filename);
           if (mimeType == null) {
-            throw RequestException('Invalid MIME type for file: $filePath');
+            throw RequestException(
+              'Invalid MIME type for file: ${file.filename}',
+            );
           }
-          multiRequest.files.add(
-            await http.MultipartFile.fromPath(
-              field,
-              filePath,
-              contentType: MediaType.parse(mimeType),
-            ),
-          );
+          final mediaType = MediaType.parse(mimeType);
+          multiRequest.files.add(await file.map(
+            (file) {
+              return http.MultipartFile(
+                field,
+                file.byteStream,
+                file.length,
+                filename: file.filename,
+                contentType: mediaType,
+              );
+            },
+            fromBytes: (file) {
+              return http.MultipartFile.fromBytes(
+                field,
+                file.bytes,
+                filename: file.filename,
+                contentType: mediaType,
+              );
+            },
+            fromPath: (file) {
+              return http.MultipartFile.fromPath(
+                field,
+                file.filePath,
+                filename: file.filename,
+                contentType: mediaType,
+              );
+            },
+          ));
         });
       }
 

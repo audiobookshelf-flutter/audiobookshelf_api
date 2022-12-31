@@ -18,6 +18,7 @@ import '../models/responses/update_item_chapters_response.dart';
 import '../models/schemas/book_chapter.dart';
 import '../models/schemas/library_item.dart';
 import '../models/schemas/playback_session.dart';
+import '../models/utils/file_upload.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -105,14 +106,14 @@ class LibraryItemsService extends Service {
   /// See [Upload a Library Item Cover](https://api.audiobookshelf.org/#upload-a-library-item-cover)
   Future<UpdateCoverResponse?> uploadCover({
     required String libraryItemId,
-    String? coverFilePath,
+    FileUpload? coverFile,
     String? url,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.postJson(
       path: '$basePath/$libraryItemId/cover',
       jsonObject: url != null ? {'url': url} : null,
-      filePaths: coverFilePath != null ? {'cover': coverFilePath} : null,
+      files: coverFile != null ? {'cover': coverFile} : null,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, UpdateCoverResponse.fromJson),

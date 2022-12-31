@@ -1,4 +1,5 @@
 import '../models/schemas/backup.dart';
+import '../models/utils/file_upload.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -60,12 +61,12 @@ class BackupsService extends Service {
 
   /// See [Upload a Backup](https://api.audiobookshelf.org/#upload-a-backup)
   Future<List<Backup>?> upload({
-    required String backupPath,
+    required FileUpload backupFile,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.postJson(
       path: '$basePath/upload',
-      filePaths: {'file': backupPath},
+      files: {'file': backupFile},
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJsonKey(json, 'backups', Backup.fromJson),

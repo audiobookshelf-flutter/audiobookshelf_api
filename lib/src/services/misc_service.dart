@@ -5,6 +5,7 @@ import '../models/responses/login_response.dart';
 import '../models/responses/rename_genre_response.dart';
 import '../models/responses/rename_tag_response.dart';
 import '../models/responses/update_server_settings_response.dart';
+import '../models/utils/file_upload.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
@@ -22,7 +23,7 @@ class MiscService extends Service {
     String? series,
     required String libraryId,
     required String folderId,
-    required List<String> filePaths,
+    required List<FileUpload> files,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.post(
@@ -34,9 +35,7 @@ class MiscService extends Service {
         'library': libraryId,
         'folder': folderId,
       },
-      filePaths: {
-        for (int i = 0; i < filePaths.length; i++) '$i': filePaths[i],
-      },
+      files: files.asMap().map((key, value) => MapEntry('$key', value)),
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
     );
