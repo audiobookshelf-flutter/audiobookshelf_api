@@ -76,9 +76,11 @@ class AudiobookshelfApi {
     required Uri baseUrl,
     String? token,
     http.Client? client,
-  })  : baseUrl = baseUrl.replace(
-          queryParameters: {...baseUrl.queryParameters}..remove('token'),
-        ),
+  })  : baseUrl = baseUrl.queryParameters.containsKey('token')
+            ? baseUrl.replace(
+                queryParameters: {...baseUrl.queryParameters}..remove('token'),
+              )
+            : baseUrl,
         token = token ?? baseUrl.queryParameters['token'],
         client = client ?? http.Client() {
     if (!baseUrl.isScheme('HTTPS') && !baseUrl.isScheme('HTTP')) {

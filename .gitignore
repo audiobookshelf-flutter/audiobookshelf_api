@@ -11,3 +11,6 @@ pubspec.lock
 
 # Ignore user workspace settings for VSCode
 .vscode/
+
+# Conventional code coverage output.
+coverage/
