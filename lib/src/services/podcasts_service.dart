@@ -12,7 +12,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class PodcastsService extends Service {
-  /// `/api/podcasts`
+  /// `api/podcasts`
   static const basePath = '${Service.basePath}/podcasts';
 
   const PodcastsService(super.api);

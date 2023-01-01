@@ -11,7 +11,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class MiscService extends Service {
-  /// `/api`
+  /// `api`
   static const basePath = Service.basePath;
 
   const MiscService(super.api);

@@ -45,8 +45,6 @@ class AudiobookshelfApi {
     ..addExtension('abs', 'text/plain')
     ..addExtension('audiobookshelf', 'application/zip');
 
-  final http.Client client;
-
   late final server = ServerService(this);
   late final libraries = LibrariesService(this);
   late final items = LibraryItemsService(this);
@@ -67,18 +65,26 @@ class AudiobookshelfApi {
   late final misc = MiscService(this);
   late final socket = SocketService(this);
 
-  final String baseUrl;
-  final Uri _baseUri;
+  final Uri baseUrl;
+  final http.Client client;
 
   String? token;
   String? userId;
 
+  /// [baseUrl] must have scheme `HTTP` or `HTTPS`.
   AudiobookshelfApi({
-    required this.baseUrl,
-    this.token,
+    required Uri baseUrl,
+    String? token,
     http.Client? client,
-  })  : client = client ?? http.Client(),
-        _baseUri = createUri(baseUrl);
+  })  : baseUrl = baseUrl.replace(
+          queryParameters: {...baseUrl.queryParameters}..remove('token'),
+        ),
+        token = token ?? baseUrl.queryParameters['token'],
+        client = client ?? http.Client() {
+    if (!baseUrl.isScheme('HTTPS') && !baseUrl.isScheme('HTTP')) {
+      throw UnsupportedSchemeError('Unsupported scheme from URL: $baseUrl');
+    }
+  }
 
   /// A header for authenticating the logged in user.
   /// [token] must be non-null when authenticating.
@@ -89,27 +95,6 @@ class AudiobookshelfApi {
 
   /// Combines [authHeader] and [jsonHeader].
   Map<String, String> get authJsonHeader => authHeader..addAll(jsonHeader);
-
-  static Uri createUri(
-    String url, [
-    String? path,
-    Map<String, dynamic>? queryParameters,
-  ]) {
-    final isHttp = url.startsWith('http://');
-    if (isHttp || url.startsWith('https://')) {
-      final authority = url.substring((isHttp ? 'http://' : 'https://').length);
-
-      if (isHttp) {
-        return Uri.http(authority, path ?? '', queryParameters);
-      } else {
-        return Uri.https(authority, path ?? '', queryParameters);
-      }
-    } else if (url.startsWith('localhost')) {
-      return createUri('http://$url', path ?? '', queryParameters);
-    }
-
-    throw UnsupportedSchemeError('Unsupported scheme from URL: $url');
-  }
 
   /// Alias for [ServerService.login]
   Future<LoginResponse?> login({
@@ -376,9 +361,12 @@ class AudiobookshelfApi {
       );
     }
 
-    final url = _baseUri.replace(
-      path: path,
-      queryParameters: queryParameters,
+    if (path.startsWith('/')) path = path.substring(1);
+    final url = baseUrl.replace(
+      path: '${baseUrl.path}/$path',
+      queryParameters: queryParameters != null
+          ? {...baseUrl.queryParameters, ...queryParameters}
+          : null,
     );
 
     final http.BaseRequest baseRequest;

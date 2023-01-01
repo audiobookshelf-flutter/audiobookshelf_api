@@ -24,7 +24,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class LibraryItemsService extends Service {
-  /// `/api/items`
+  /// `api/items`
   static const basePath = '${Service.basePath}/items';
 
   const LibraryItemsService(super.api);

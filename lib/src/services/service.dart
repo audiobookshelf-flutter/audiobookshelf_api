@@ -1,8 +1,8 @@
 import '../audiobookshelf_api_base.dart';
 
 abstract class Service {
-  /// `/api`
-  static const basePath = '/api';
+  /// `api`
+  static const basePath = 'api';
 
   final AudiobookshelfApi api;
 

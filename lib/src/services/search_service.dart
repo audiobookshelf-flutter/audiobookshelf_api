@@ -9,7 +9,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class SearchService extends Service {
-  /// `/api/search`
+  /// `api/search`
   static const basePath = '${Service.basePath}/search';
 
   const SearchService(super.api);

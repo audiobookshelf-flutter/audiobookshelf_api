@@ -7,7 +7,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class PlaylistsService extends Service {
-  /// `/api/playlists`
+  /// `api/playlists`
   static const basePath = '${Service.basePath}/playlists';
 
   PlaylistsService(super.api);

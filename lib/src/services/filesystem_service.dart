@@ -4,7 +4,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class FilesystemService extends Service {
-  /// `/api/filesystem`
+  /// `api/filesystem`
   static const basePath = '${Service.basePath}/filesystem';
 
   const FilesystemService(super.api);

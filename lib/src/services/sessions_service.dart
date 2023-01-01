@@ -7,10 +7,10 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class SessionsService extends Service {
-  /// `/api/session`
+  /// `api/session`
   static const basePath = '${Service.basePath}/session';
 
-  /// `/api/sessions`
+  /// `api/sessions`
   static const basePathS = '${basePath}s';
 
   const SessionsService(super.api);

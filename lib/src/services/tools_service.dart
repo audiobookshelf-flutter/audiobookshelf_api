@@ -3,7 +3,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class ToolsService extends Service {
-  /// `/api/tools`
+  /// `api/tools`
   static const basePath = '${Service.basePath}/tools';
 
   const ToolsService(super.api);

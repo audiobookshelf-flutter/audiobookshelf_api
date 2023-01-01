@@ -9,7 +9,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class NotificationsService extends Service {
-  /// `/api/notifications`
+  /// `api/notifications`
   static const basePath = '${Service.basePath}/notifications';
 
   const NotificationsService(super.api);

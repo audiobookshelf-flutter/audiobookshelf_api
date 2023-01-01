@@ -14,7 +14,7 @@ class ServerService extends Service {
     ResponseErrorHandler? responseErrorHandler,
   }) async {
     final loginResponse = await api.postJson(
-      path: '/login',
+      path: 'login',
       jsonObject: {
         'username': username,
         'password': password,
@@ -40,7 +40,7 @@ class ServerService extends Service {
     ResponseErrorHandler? responseErrorHandler,
   }) async {
     final response = await api.post(
-      path: '/logout',
+      path: 'logout',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
     );
@@ -58,7 +58,7 @@ class ServerService extends Service {
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.post(
-      path: '/init',
+      path: 'init',
       jsonObject: {
         'newRoot': {
           'username': newRootUsername,
@@ -74,7 +74,7 @@ class ServerService extends Service {
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.getJson(
-      path: '/status',
+      path: 'status',
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, ServerStatusResponse.fromJson),
     );
@@ -83,7 +83,7 @@ class ServerService extends Service {
   /// See [Ping the Server](https://api.audiobookshelf.org/#ping-the-server)
   Future<bool?> ping({ResponseErrorHandler? responseErrorHandler}) {
     return api.getJson(
-      path: '/ping',
+      path: 'ping',
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJsonKey(json, 'success'),
     );

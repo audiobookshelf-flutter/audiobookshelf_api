@@ -11,7 +11,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class UsersService extends Service {
-  /// `/api/users`
+  /// `api/users`
   static const basePath = '${Service.basePath}/users';
 
   const UsersService(super.api);
