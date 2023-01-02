@@ -29,6 +29,11 @@ void main() {
       );
     });
 
+    tearDown(() {
+      reset(mockFolder);
+      reset(mockSettings);
+    });
+
     group('toJson', () {
       test('toJson', () {
         expect(sut.toJson(), {
@@ -39,6 +44,8 @@ void main() {
           'provider': provider.value,
           'settings': testMap,
         });
+        verify(() => mockFolder.toJson()).called(1);
+        verify(() => mockSettings.toJson()).called(1);
       });
 
       test('remove defaults', () {
@@ -49,6 +56,42 @@ void main() {
             'folders': [testMap],
           },
         );
+      });
+    });
+  });
+
+  group('CreateLibrarySettingsReqParams', () {
+    const coverAspectRatio = 0;
+    const disableWatcher = true;
+    const skipMatchingMediaWithAsin = true;
+    const skipMatchingMediaWithIsbn = true;
+    const autoScanCronExpression = CronExpression();
+
+    late CreateLibrarySettingsReqParams sut;
+
+    setUp(() {
+      sut = CreateLibrarySettingsReqParams(
+        coverAspectRatio: coverAspectRatio,
+        disableWatcher: disableWatcher,
+        skipMatchingMediaWithAsin: skipMatchingMediaWithAsin,
+        skipMatchingMediaWithIsbn: skipMatchingMediaWithIsbn,
+        autoScanCronExpression: autoScanCronExpression,
+      );
+    });
+
+    group('toJson', () {
+      test('toJson', () {
+        expect(sut.toJson(), {
+          'coverAspectRatio': coverAspectRatio,
+          'disableWatcher': disableWatcher,
+          'skipMatchingMediaWithAsin': skipMatchingMediaWithAsin,
+          'skipMatchingMediaWithIsbn': skipMatchingMediaWithIsbn,
+          'autoScanCronExpression': autoScanCronExpression.toString(),
+        });
+      });
+
+      test('remove defaults', () {
+        expect(const CreateLibrarySettingsReqParams().toJson(), isNull);
       });
     });
   });
