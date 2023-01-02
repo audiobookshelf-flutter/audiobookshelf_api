@@ -89,6 +89,48 @@ void main() {
       });
     });
   });
+
+  group('CreateUserPermissionsReqParams', () {
+    const download = false;
+    const update = false;
+    const delete = true;
+    const upload = true;
+    const accessAllLibraries = false;
+    const accessAllTags = false;
+    const accessExplicitContent = false;
+
+    late CreateUserPermissionsReqParams sut;
+
+    setUp(() {
+      sut = const CreateUserPermissionsReqParams(
+        download: download,
+        update: update,
+        delete: delete,
+        upload: upload,
+        accessAllLibraries: accessAllLibraries,
+        accessAllTags: accessAllTags,
+        accessExplicitContent: accessExplicitContent,
+      );
+    });
+
+    group('toJson', () {
+      test('toJson', () {
+        expect(sut.toJson(), const {
+          'download': download,
+          'update': update,
+          'delete': delete,
+          'upload': upload,
+          'accessAllLibraries': accessAllLibraries,
+          'accessAllTags': accessAllTags,
+          'accessExplicitContent': accessExplicitContent,
+        });
+      });
+
+      test('remove defaults', () {
+        expect(const CreateUserPermissionsReqParams().toJson(), isNull);
+      });
+    });
+  });
 }
 
 class MockMediaProgress extends Mock implements MediaProgress {}
