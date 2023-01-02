@@ -23,7 +23,7 @@ void main() {
     test('toJson', () {
       const parametersMap = {'test': 'test'};
       when(() => mockParameters.toJson()).thenReturn(parametersMap);
-      expect(sut.toJson(), {
+      expect(sut.toJson(), const {
         'libraryItemId': libraryItemId,
         'episodeId': episodeId,
         ...parametersMap,

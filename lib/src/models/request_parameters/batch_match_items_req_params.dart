@@ -15,8 +15,7 @@ class BatchMatchItemsReqParams {
     required this.libraryItemIds,
   });
 
-  Map<String, dynamic>? toJson() =>
-      _$BatchMatchItemsReqParamsToJson(this).nullIfEmpty;
+  Map<String, dynamic>? toJson() => _$BatchMatchItemsReqParamsToJson(this);
 }
 
 @requestToJson
