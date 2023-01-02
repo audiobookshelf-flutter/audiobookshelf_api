@@ -141,6 +141,59 @@ void main() {
       });
     });
   });
+
+  group('PodcastEpisodeReqParams', () {
+    const season = 'season';
+    const episode = 'episode';
+    const episodeType = 'episodeType';
+    const title = 'title';
+    const subtitle = 'subtitle';
+    const description = 'description';
+    const pubDate = 'pubDate';
+
+    final mockEnclosure = MockPodcastEpisodeEnclosure();
+    final publishedAt = DateTime.fromMillisecondsSinceEpoch(0);
+
+    late PodcastEpisodeReqParams sut;
+
+    setUp(() {
+      sut = PodcastEpisodeReqParams(
+        season: season,
+        episode: episode,
+        episodeType: episodeType,
+        title: title,
+        subtitle: subtitle,
+        description: description,
+        enclosure: mockEnclosure,
+        pubDate: pubDate,
+        publishedAt: publishedAt,
+      );
+    });
+
+    tearDown(() => reset(mockEnclosure));
+
+    group('toJson', () {
+      test('toJson', () {
+        when(() => mockEnclosure.toJson()).thenReturn(testMap);
+        expect(sut.toJson(), const {
+          'season': season,
+          'episode': episode,
+          'episodeType': episodeType,
+          'title': title,
+          'subtitle': subtitle,
+          'description': description,
+          'enclosure': testMap,
+          'pubDate': pubDate,
+          'publishedAt': 0,
+        });
+        verify(() => mockEnclosure.toJson()).called(1);
+      });
+
+      test('remove defaults', () {
+        expect(const PodcastEpisodeReqParams().toJson(), isNull);
+      });
+    });
+  });
 }
 
 class MockNewPodcastReqParams extends Mock implements NewPodcastReqParams {}
@@ -150,3 +203,6 @@ class MockPodcastEpisodeReqParams extends Mock
 
 class MockNewPodcastMetadataReqParams extends Mock
     implements NewPodcastMetadataReqParams {}
+
+class MockPodcastEpisodeEnclosure extends Mock
+    implements PodcastEpisodeEnclosure {}
