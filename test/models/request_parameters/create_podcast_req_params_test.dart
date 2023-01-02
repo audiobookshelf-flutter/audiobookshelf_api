@@ -83,6 +83,64 @@ void main() {
       });
     });
   });
+
+  group('NewPodcastMetadataReqParams', () {
+    const title = 'title';
+    const author = 'author';
+    const description = 'description';
+    const releaseDate = 'releaseDate';
+    const genres = ['genre'];
+    const itunesId = 0;
+    const itunesArtistId = 0;
+    const explicit = true;
+    const language = 'language';
+
+    final feedUrl = Uri();
+    final imageUrl = Uri();
+    final itunesPageUrl = Uri();
+
+    late NewPodcastMetadataReqParams sut;
+
+    setUp(() {
+      sut = NewPodcastMetadataReqParams(
+        title: title,
+        author: author,
+        description: description,
+        releaseDate: releaseDate,
+        genres: genres,
+        feedUrl: feedUrl,
+        imageUrl: imageUrl,
+        itunesPageUrl: itunesPageUrl,
+        itunesId: itunesId,
+        itunesArtistId: itunesArtistId,
+        explicit: explicit,
+        language: language,
+      );
+    });
+
+    group('toJson', () {
+      test('toJson', () {
+        expect(sut.toJson(), {
+          'title': title,
+          'author': author,
+          'description': description,
+          'releaseDate': releaseDate,
+          'genres': genres,
+          'feedUrl': feedUrl.toString(),
+          'imageUrl': imageUrl.toString(),
+          'itunesPageUrl': itunesPageUrl.toString(),
+          'itunesId': itunesId,
+          'itunesArtistId': itunesArtistId,
+          'explicit': explicit,
+          'language': language,
+        });
+      });
+
+      test('remove defaults', () {
+        expect(const NewPodcastMetadataReqParams().toJson(), isNull);
+      });
+    });
+  });
 }
 
 class MockNewPodcastReqParams extends Mock implements NewPodcastReqParams {}
