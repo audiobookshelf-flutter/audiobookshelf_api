@@ -11,7 +11,7 @@ void main() {
     late GetImageReqParams sut;
 
     setUp(() {
-      sut = GetImageReqParams(
+      sut = const GetImageReqParams(
         width: width,
         height: height,
         format: format,

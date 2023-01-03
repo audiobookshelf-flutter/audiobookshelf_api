@@ -10,7 +10,7 @@ void main() {
     late GetItemReqParams sut;
 
     setUp(() {
-      sut = GetItemReqParams(
+      sut = const GetItemReqParams(
         expanded: expanded,
         include: include,
         episodeId: episodeId,
