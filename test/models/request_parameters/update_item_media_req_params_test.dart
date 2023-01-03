@@ -110,10 +110,45 @@ void main() {
           'language': language,
           'explicit': explicit,
         });
+        verify(() => mockSeries.toJson()).called(1);
       });
 
       test('remove defaults', () {
         expect(const UpdateBookMetadataReqParams().toJson(), isNull);
+      });
+    });
+  });
+
+  group('UpdateBookSeriesReqParams', () {
+    const name = 'name';
+    const String? sequence = null;
+
+    late UpdateBookSeriesReqParams sut;
+
+    setUp(() {
+      sut = const UpdateBookSeriesReqParams(
+        name: name,
+        sequence: sequence,
+      );
+    });
+
+    group('toJson', () {
+      test('toJson', () {
+        expect(sut.toJson(), const {
+          'name': name,
+          'sequence': sequence,
+        });
+      });
+
+      test('remove defaults', () {
+        expect(
+          const UpdateBookSeriesReqParams(
+            name: name,
+          ).toJson(),
+          const {
+            'name': name,
+          },
+        );
       });
     });
   });

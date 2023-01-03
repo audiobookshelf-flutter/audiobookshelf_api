@@ -124,6 +124,7 @@ class UpdateBookMetadataReqParams extends UpdateMediaMetadataReqParams {
 @requestToJson
 class UpdateBookSeriesReqParams {
   final String name;
+  @JsonKey(ignore: true)
   final String? sequence;
 
   const UpdateBookSeriesReqParams({
