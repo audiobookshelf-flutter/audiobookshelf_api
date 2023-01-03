@@ -1,15 +1,18 @@
+import 'package:json_annotation/json_annotation.dart';
+
 import '../../utils/json_converters.dart';
 
 part 'generated/reorder_library_req_params.g.dart';
 
 @requestToJson
 class ReorderLibraryReqParams {
-  final String id;
+  @JsonKey(name: 'id')
+  final String libraryId;
   final int newOrder;
 
   /// See [Reorder Library List](https://api.audiobookshelf.org/#reorder-library-list)
   const ReorderLibraryReqParams({
-    required this.id,
+    required this.libraryId,
     required this.newOrder,
   });
 
