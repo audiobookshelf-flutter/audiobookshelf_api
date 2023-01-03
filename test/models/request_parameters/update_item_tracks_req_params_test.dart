@@ -26,6 +26,40 @@ void main() {
       verify(() => mockFileData.toJson()).called(1);
     });
   });
+
+  group('AudioFileDataReqParams', () {
+    const ino = 'ino';
+    const exclude = true;
+
+    late AudioFileDataReqParams sut;
+
+    setUp(() {
+      sut = const AudioFileDataReqParams(
+        ino: ino,
+        exclude: exclude,
+      );
+    });
+
+    group('toJson', () {
+      test('toJson', () {
+        expect(sut.toJson(), const {
+          'ino': ino,
+          'exclude': exclude,
+        });
+      });
+
+      test('remove defaults', () {
+        expect(
+          const AudioFileDataReqParams(
+            ino: ino,
+          ).toJson(),
+          const {
+            'ino': ino,
+          },
+        );
+      });
+    });
+  });
 }
 
 class MockAudioFileDataReqParams extends Mock
