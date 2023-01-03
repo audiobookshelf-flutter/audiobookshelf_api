@@ -43,6 +43,39 @@ void main() {
       });
     });
   });
+
+  group('DeviceInfoReqParams', () {
+    const clientVersion = 'clientVersion';
+    const manufacturer = 'manufacturer';
+    const model = 'model';
+    const sdkVersion = 'sdkVersion';
+
+    late DeviceInfoReqParams sut;
+
+    setUp(() {
+      sut = const DeviceInfoReqParams(
+        clientVersion: clientVersion,
+        manufacturer: manufacturer,
+        model: model,
+        sdkVersion: sdkVersion,
+      );
+    });
+
+    group('toJson', () {
+      test('toJson', () {
+        expect(sut.toJson(), const {
+          'clientVersion': clientVersion,
+          'manufacturer': manufacturer,
+          'model': model,
+          'sdkVersion': sdkVersion,
+        });
+      });
+
+      test('remove defaults', () {
+        expect(const DeviceInfoReqParams().toJson(), isNull);
+      });
+    });
+  });
 }
 
 class MockDeviceInfoReqParams extends Mock implements DeviceInfoReqParams {}
