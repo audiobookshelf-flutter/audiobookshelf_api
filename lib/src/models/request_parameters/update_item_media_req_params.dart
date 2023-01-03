@@ -200,13 +200,13 @@ class UpdatePodcastMetadataReqParams extends UpdateMediaMetadataReqParams {
     super.description = '',
     this.releaseDate = '',
     super.genres,
-    this.feedUrl,
-    this.imageUrl,
-    this.itunesPageUrl,
+    this.feedUrl = '',
+    this.imageUrl = '',
+    this.itunesPageUrl = '',
     this.itunesId = 0,
     this.itunesArtistId = 0,
     super.explicit,
-    super.language,
+    super.language = '',
   });
 
   @override

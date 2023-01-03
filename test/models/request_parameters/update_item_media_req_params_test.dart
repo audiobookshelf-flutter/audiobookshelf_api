@@ -202,6 +202,63 @@ void main() {
       });
     });
   });
+
+  group('UpdatePodcastMetadataReqParams', () {
+    const String? title = null;
+    const String? author = null;
+    const String? description = null;
+    const String? releaseDate = null;
+    const genres = ['genre'];
+    const String? feedUrl = null;
+    const String? imageUrl = null;
+    const String? itunesPageUrl = null;
+    const int? itunesId = null;
+    const int? itunesArtistId = null;
+    const explicit = true;
+    const String? language = null;
+
+    late UpdatePodcastMetadataReqParams sut;
+
+    setUp(() {
+      sut = const UpdatePodcastMetadataReqParams(
+        title: title,
+        author: author,
+        description: description,
+        releaseDate: releaseDate,
+        genres: genres,
+        feedUrl: feedUrl,
+        imageUrl: imageUrl,
+        itunesPageUrl: itunesPageUrl,
+        itunesId: itunesId,
+        itunesArtistId: itunesArtistId,
+        explicit: explicit,
+        language: language,
+      );
+    });
+
+    group('toJson', () {
+      test('toJson', () {
+        expect(sut.toJson(), const {
+          'title': title,
+          'author': author,
+          'description': description,
+          'releaseDate': releaseDate,
+          'genres': genres,
+          'feedUrl': feedUrl,
+          'imageUrl': imageUrl,
+          'itunesPageUrl': itunesPageUrl,
+          'itunesId': itunesId,
+          'itunesArtistId': itunesArtistId,
+          'explicit': explicit,
+          'language': language,
+        });
+      });
+
+      test('remove defaults', () {
+        expect(const UpdatePodcastMetadataReqParams().toJson(), isNull);
+      });
+    });
+  });
 }
 
 class MockUpdateBookMetadataReqParams extends Mock
