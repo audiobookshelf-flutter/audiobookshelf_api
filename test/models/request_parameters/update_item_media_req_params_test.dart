@@ -48,9 +48,81 @@ void main() {
       });
     });
   });
+
+  group('UpdateBookMetadataReqParams', () {
+    const title = 'title';
+    const subtitle = 'subtitle';
+    const author = 'author';
+    const authors = [author];
+    const narrators = ['narrator'];
+    const genres = ['genre'];
+    const publishedYear = 'publishedYear';
+    const publishedDate = 'publishedDate';
+    const publisher = 'publisher';
+    const description = 'description';
+    const isbn = 'isbn';
+    const asin = 'asin';
+    const language = 'language';
+    const explicit = true;
+
+    final mockSeries = MockUpdateBookSeriesReqParams();
+    final series = [mockSeries];
+
+    late UpdateBookMetadataReqParams sut;
+
+    setUp(() {
+      sut = UpdateBookMetadataReqParams(
+        title: title,
+        subtitle: subtitle,
+        authors: authors,
+        narrators: narrators,
+        series: series,
+        genres: genres,
+        publishedYear: publishedYear,
+        publishedDate: publishedDate,
+        publisher: publisher,
+        description: description,
+        isbn: isbn,
+        asin: asin,
+        language: language,
+        explicit: explicit,
+      );
+    });
+
+    tearDown(() => reset(mockSeries));
+
+    group('toJson', () {
+      test('toJson', () {
+        when(() => mockSeries.toJson()).thenReturn(testMap);
+        expect(sut.toJson(), const {
+          'title': title,
+          'subtitle': subtitle,
+          'authors': {'name': author},
+          'narrators': narrators,
+          'series': [testMap],
+          'genres': genres,
+          'publishedYear': publishedYear,
+          'publishedDate': publishedDate,
+          'publisher': publisher,
+          'description': description,
+          'isbn': isbn,
+          'asin': asin,
+          'language': language,
+          'explicit': explicit,
+        });
+      });
+
+      test('remove defaults', () {
+        expect(const UpdateBookMetadataReqParams().toJson(), isNull);
+      });
+    });
+  });
 }
 
 class MockUpdateBookMetadataReqParams extends Mock
     implements UpdateBookMetadataReqParams {}
 
 class MockBookChapter extends Mock implements BookChapter {}
+
+class MockUpdateBookSeriesReqParams extends Mock
+    implements UpdateBookSeriesReqParams {}
