@@ -152,6 +152,56 @@ void main() {
       });
     });
   });
+
+  group('UpdatePodcastReqParams', () {
+    const coverPath = 'coverPath';
+    const tags = ['tag'];
+    const autoDownloadEpisodes = true;
+    const autoDownloadSchedule = CronExpression(hours: {1});
+    const maxEpisodesToKeep = 1;
+    const maxNewEpisodesToDownload = 1;
+
+    final mockMetadata = MockUpdatePodcastMetadataReqParams();
+    final lastEpisodeCheck = DateTime.fromMillisecondsSinceEpoch(0);
+
+    late UpdatePodcastReqParams sut;
+
+    setUp(() {
+      sut = UpdatePodcastReqParams(
+        metadata: mockMetadata,
+        coverPath: coverPath,
+        tags: tags,
+        autoDownloadEpisodes: autoDownloadEpisodes,
+        autoDownloadSchedule: autoDownloadSchedule,
+        lastEpisodeCheck: lastEpisodeCheck,
+        maxEpisodesToKeep: maxEpisodesToKeep,
+        maxNewEpisodesToDownload: maxNewEpisodesToDownload,
+      );
+    });
+
+    tearDown(() => reset(mockMetadata));
+
+    group('toJson', () {
+      test('toJson', () {
+        when(() => mockMetadata.toJson()).thenReturn(testMap);
+        expect(sut.toJson(), {
+          'metadata': testMap,
+          'coverPath': coverPath,
+          'tags': tags,
+          'autoDownloadEpisodes': autoDownloadEpisodes,
+          'autoDownloadSchedule': autoDownloadSchedule.toString(),
+          'lastEpisodeCheck': 0,
+          'maxEpisodesToKeep': maxEpisodesToKeep,
+          'maxNewEpisodesToDownload': maxNewEpisodesToDownload,
+        });
+        verify(() => mockMetadata.toJson()).called(1);
+      });
+
+      test('remove defaults', () {
+        expect(const UpdatePodcastReqParams().toJson(), isNull);
+      });
+    });
+  });
 }
 
 class MockUpdateBookMetadataReqParams extends Mock
@@ -161,3 +211,6 @@ class MockBookChapter extends Mock implements BookChapter {}
 
 class MockUpdateBookSeriesReqParams extends Mock
     implements UpdateBookSeriesReqParams {}
+
+class MockUpdatePodcastMetadataReqParams extends Mock
+    implements UpdatePodcastMetadataReqParams {}
