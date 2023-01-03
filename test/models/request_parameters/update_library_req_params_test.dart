@@ -59,6 +59,42 @@ void main() {
       });
     });
   });
+
+  group('UpdateLibrarySettingsReqParams', () {
+    const coverAspectRatio = 0;
+    const disableWatcher = true;
+    const skipMatchingMediaWithAsin = true;
+    const skipMatchingMediaWithIsbn = true;
+    const CronExpression? autoScanCronExpression = null;
+
+    late UpdateLibrarySettingsReqParams sut;
+
+    setUp(() {
+      sut = const UpdateLibrarySettingsReqParams(
+        coverAspectRatio: coverAspectRatio,
+        disableWatcher: disableWatcher,
+        skipMatchingMediaWithAsin: skipMatchingMediaWithAsin,
+        skipMatchingMediaWithIsbn: skipMatchingMediaWithIsbn,
+        autoScanCronExpression: autoScanCronExpression,
+      );
+    });
+
+    group('toJson', () {
+      test('toJson', () {
+        expect(sut.toJson(), const {
+          'coverAspectRatio': coverAspectRatio,
+          'disableWatcher': disableWatcher,
+          'skipMatchingMediaWithAsin': skipMatchingMediaWithAsin,
+          'skipMatchingMediaWithIsbn': skipMatchingMediaWithIsbn,
+          'autoScanCronExpression': autoScanCronExpression,
+        });
+      });
+
+      test('remove defaults', () {
+        expect(const UpdateLibrarySettingsReqParams().toJson(), isNull);
+      });
+    });
+  });
 }
 
 class MockFolder extends Mock implements Folder {}

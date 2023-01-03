@@ -50,6 +50,8 @@ class UpdateLibraryReqParams {
 
 @requestToJsonRemoveNull
 class UpdateLibrarySettingsReqParams {
+  static const _zeroCron = CronExpression();
+
   final int? coverAspectRatio;
   final bool? disableWatcher;
   final bool? skipMatchingMediaWithAsin;
@@ -63,9 +65,14 @@ class UpdateLibrarySettingsReqParams {
     this.disableWatcher,
     this.skipMatchingMediaWithAsin,
     this.skipMatchingMediaWithIsbn,
-    this.autoScanCronExpression,
+    this.autoScanCronExpression = _zeroCron,
   });
 
-  Map<String, dynamic>? toJson() =>
-      _$UpdateLibrarySettingsReqParamsToJson(this).nullIfEmpty;
+  Map<String, dynamic>? toJson() {
+    final json = _$UpdateLibrarySettingsReqParamsToJson(this);
+    if (autoScanCronExpression == _zeroCron) {
+      json.remove('autoScanCronExpression');
+    }
+    return json.nullIfEmpty;
+  }
 }
