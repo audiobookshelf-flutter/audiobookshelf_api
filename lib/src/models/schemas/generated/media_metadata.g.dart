@@ -120,7 +120,7 @@ _$BookMetadataMinified _$$BookMetadataMinifiedFromJson(
               .toList() ??
           const <String>[],
       publishedYear: json['publishedYear'] as String?,
-      publishedDate: json['publishedDate'] as int?,
+      publishedDate: json['publishedDate'] as String?,
       publisher: json['publisher'] as String?,
       description: json['description'] as String?,
       isbn: json['isbn'] as String?,
@@ -171,7 +171,7 @@ _$BookMetadataMinifiedSeriesFilter _$$BookMetadataMinifiedSeriesFilterFromJson(
               .toList() ??
           const <String>[],
       publishedYear: json['publishedYear'] as String?,
-      publishedDate: json['publishedDate'] as int?,
+      publishedDate: json['publishedDate'] as String?,
       publisher: json['publisher'] as String?,
       description: json['description'] as String?,
       isbn: json['isbn'] as String?,
