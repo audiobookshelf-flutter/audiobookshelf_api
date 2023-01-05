@@ -11,14 +11,14 @@ part 'generated/library_search_response.g.dart';
 @freezed
 class LibrarySearchResponse with _$LibrarySearchResponse {
   const factory LibrarySearchResponse.book({
-    required LibraryItemSearchResult book,
+    required List<LibraryItemSearchResult> book,
     required List<String> tags,
     required List<Author> authors,
     required List<Series> series,
   }) = BookLibrarySearchResponse;
 
   const factory LibrarySearchResponse.podcast({
-    required LibraryItemSearchResult podcast,
+    required List<LibraryItemSearchResult> podcast,
     required List<String> tags,
     required List<Author> authors,
     required List<Series> series,
