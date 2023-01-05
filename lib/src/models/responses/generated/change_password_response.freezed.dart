@@ -109,7 +109,8 @@ class __$$_ChangePasswordResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_ChangePasswordResponse implements _ChangePasswordResponse {
   const _$_ChangePasswordResponse({this.success, this.error});
 
