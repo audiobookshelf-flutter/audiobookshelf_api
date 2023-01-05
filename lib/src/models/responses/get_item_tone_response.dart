@@ -10,7 +10,7 @@ class GetItemToneResponse with _$GetItemToneResponse {
   const factory GetItemToneResponse({
     required String title,
     required String album,
-    required String trackTotal,
+    required int trackTotal,
     required String artist,
     required String albumArtist,
     required String comment,

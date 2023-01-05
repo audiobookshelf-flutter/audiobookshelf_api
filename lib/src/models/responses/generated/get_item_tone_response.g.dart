@@ -11,7 +11,7 @@ _$_GetItemToneResponse _$$_GetItemToneResponseFromJson(
     _$_GetItemToneResponse(
       title: json['Title'] as String,
       album: json['Album'] as String,
-      trackTotal: json['TrackTotal'] as String,
+      trackTotal: json['TrackTotal'] as int,
       artist: json['Artist'] as String,
       albumArtist: json['AlbumArtist'] as String,
       comment: json['Comment'] as String,

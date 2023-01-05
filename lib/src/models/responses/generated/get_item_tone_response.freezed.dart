@@ -22,7 +22,7 @@ GetItemToneResponse _$GetItemToneResponseFromJson(Map<String, dynamic> json) {
 mixin _$GetItemToneResponse {
   String get title => throw _privateConstructorUsedError;
   String get album => throw _privateConstructorUsedError;
-  String get trackTotal => throw _privateConstructorUsedError;
+  int get trackTotal => throw _privateConstructorUsedError;
   String get artist => throw _privateConstructorUsedError;
   String get albumArtist => throw _privateConstructorUsedError;
   String get comment => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $GetItemToneResponseCopyWith<$Res> {
   $Res call(
       {String title,
       String album,
-      String trackTotal,
+      int trackTotal,
       String artist,
       String albumArtist,
       String comment,
@@ -110,7 +110,7 @@ class _$GetItemToneResponseCopyWithImpl<$Res, $Val extends GetItemToneResponse>
       trackTotal: null == trackTotal
           ? _value.trackTotal
           : trackTotal // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       artist: null == artist
           ? _value.artist
           : artist // ignore: cast_nullable_to_non_nullable
@@ -178,7 +178,7 @@ abstract class _$$_GetItemToneResponseCopyWith<$Res>
   $Res call(
       {String title,
       String album,
-      String trackTotal,
+      int trackTotal,
       String artist,
       String albumArtist,
       String comment,
@@ -234,7 +234,7 @@ class __$$_GetItemToneResponseCopyWithImpl<$Res>
       trackTotal: null == trackTotal
           ? _value.trackTotal
           : trackTotal // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       artist: null == artist
           ? _value.artist
           : artist // ignore: cast_nullable_to_non_nullable
@@ -322,7 +322,7 @@ class _$_GetItemToneResponse implements _GetItemToneResponse {
   @override
   final String album;
   @override
-  final String trackTotal;
+  final int trackTotal;
   @override
   final String artist;
   @override
@@ -435,7 +435,7 @@ abstract class _GetItemToneResponse implements GetItemToneResponse {
   const factory _GetItemToneResponse(
       {required final String title,
       required final String album,
-      required final String trackTotal,
+      required final int trackTotal,
       required final String artist,
       required final String albumArtist,
       required final String comment,
@@ -458,7 +458,7 @@ abstract class _GetItemToneResponse implements GetItemToneResponse {
   @override
   String get album;
   @override
-  String get trackTotal;
+  int get trackTotal;
   @override
   String get artist;
   @override
