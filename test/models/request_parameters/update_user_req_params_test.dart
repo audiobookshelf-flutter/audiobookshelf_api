@@ -53,6 +53,48 @@ void main() {
       });
     });
   });
+
+  group('UpdateUserPermissionsReqParams', () {
+    const download = true;
+    const update = true;
+    const delete = true;
+    const upload = true;
+    const accessAllLibraries = true;
+    const accessAllTags = true;
+    const accessExplicitContent = true;
+
+    late UpdateUserPermissionsReqParams sut;
+
+    setUp(() {
+      sut = const UpdateUserPermissionsReqParams(
+        download: download,
+        update: update,
+        delete: delete,
+        upload: upload,
+        accessAllLibraries: accessAllLibraries,
+        accessAllTags: accessAllTags,
+        accessExplicitContent: accessExplicitContent,
+      );
+    });
+
+    group('toJson', () {
+      test('toJson', () {
+        expect(sut.toJson(), const {
+          'download': download,
+          'update': update,
+          'delete': delete,
+          'upload': upload,
+          'accessAllLibraries': accessAllLibraries,
+          'accessAllTags': accessAllTags,
+          'accessExplicitContent': accessExplicitContent,
+        });
+      });
+
+      test('remove defaults', () {
+        expect(const UpdateUserPermissionsReqParams().toJson(), isNull);
+      });
+    });
+  });
 }
 
 class MockUpdateUserPermissionsReqParams extends Mock
