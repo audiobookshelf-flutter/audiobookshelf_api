@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:audiobookshelf_api/audiobookshelf_api.dart';
 import 'package:test/test.dart';
 
@@ -42,7 +40,7 @@ void main() {
     });
 
     test('toJson', () {
-      expect(jsonDecode(jsonEncode(sut.toJson())), deepMapContains(json));
+      expect(sut.toJson(), deepMapContains(json));
     });
   });
 }
