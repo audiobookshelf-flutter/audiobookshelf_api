@@ -2,3 +2,4 @@ tags:
   has_dependencies:
   depends_on_Library:
   depends_on_LibraryFilterData:
+  depends_on_Collection:
