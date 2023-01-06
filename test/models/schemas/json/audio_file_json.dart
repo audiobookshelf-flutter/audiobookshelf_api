@@ -28,8 +28,7 @@ const timeBase = '1/14112000';
 const channels = 2;
 const channelLayout = 'stereo';
 const String? embeddedCoverArt = null;
-const mimeTypeJson = 'audio/mpeg';
-final mimeType = const HttpParserMediaTypeConverter().fromJson(mimeTypeJson);
+const mimeType = 'audio/mpeg';
 
 const json = {
   'index': index,
@@ -56,7 +55,7 @@ const json = {
   'chapters': <Map<String, dynamic>>[],
   'embeddedCoverArt': embeddedCoverArt,
   'metaTags': audio_meta_tags.json,
-  'mimeType': mimeTypeJson,
+  'mimeType': mimeType,
 };
 
 final audioFile = AudioFile(

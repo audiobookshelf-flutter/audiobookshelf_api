@@ -22,7 +22,7 @@ RssFeedEpisodeEnclosure _$RssFeedEpisodeEnclosureFromJson(
 /// @nodoc
 mixin _$RssFeedEpisodeEnclosure {
   Uri get url => throw _privateConstructorUsedError;
-  http_parser.MediaType get type => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   int get size => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $RssFeedEpisodeEnclosureCopyWith<$Res> {
           $Res Function(RssFeedEpisodeEnclosure) then) =
       _$RssFeedEpisodeEnclosureCopyWithImpl<$Res, RssFeedEpisodeEnclosure>;
   @useResult
-  $Res call({Uri url, http_parser.MediaType type, int size});
+  $Res call({Uri url, String type, int size});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$RssFeedEpisodeEnclosureCopyWithImpl<$Res,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as http_parser.MediaType,
+              as String,
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -83,7 +83,7 @@ abstract class _$$_RssFeedEpisodeEnclosureCopyWith<$Res>
       __$$_RssFeedEpisodeEnclosureCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Uri url, http_parser.MediaType type, int size});
+  $Res call({Uri url, String type, int size});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$_RssFeedEpisodeEnclosureCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as http_parser.MediaType,
+              as String,
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
@@ -120,8 +120,7 @@ class __$$_RssFeedEpisodeEnclosureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@jsonConverters
+@JsonSerializable()
 class _$_RssFeedEpisodeEnclosure implements _RssFeedEpisodeEnclosure {
   const _$_RssFeedEpisodeEnclosure(
       {required this.url, required this.type, required this.size});
@@ -132,7 +131,7 @@ class _$_RssFeedEpisodeEnclosure implements _RssFeedEpisodeEnclosure {
   @override
   final Uri url;
   @override
-  final http_parser.MediaType type;
+  final String type;
   @override
   final int size;
 
@@ -174,7 +173,7 @@ class _$_RssFeedEpisodeEnclosure implements _RssFeedEpisodeEnclosure {
 abstract class _RssFeedEpisodeEnclosure implements RssFeedEpisodeEnclosure {
   const factory _RssFeedEpisodeEnclosure(
       {required final Uri url,
-      required final http_parser.MediaType type,
+      required final String type,
       required final int size}) = _$_RssFeedEpisodeEnclosure;
 
   factory _RssFeedEpisodeEnclosure.fromJson(Map<String, dynamic> json) =
@@ -183,7 +182,7 @@ abstract class _RssFeedEpisodeEnclosure implements RssFeedEpisodeEnclosure {
   @override
   Uri get url;
   @override
-  http_parser.MediaType get type;
+  String get type;
   @override
   int get size;
   @override

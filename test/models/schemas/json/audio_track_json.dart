@@ -11,8 +11,7 @@ final duration = const DurationPreciseSecondsConverter().fromJson(durationJson);
 const title = 'Terry Goodkind - SOT Bk01 - Wizards First Rule 01.mp3';
 const contentUrl =
     '/s/item/li_8gch9ve09orgn4fdz8/Terry Goodkind - SOT Bk01 - Wizards First Rule 01.mp3';
-const mimeTypeJson = 'audio/mpeg';
-final mimeType = const HttpParserMediaTypeConverter().fromJson(mimeTypeJson);
+const mimeType = 'audio/mpeg';
 
 const json = {
   'index': index,
@@ -20,7 +19,7 @@ const json = {
   'duration': durationJson,
   'title': title,
   'contentUrl': contentUrl,
-  'mimeType': mimeTypeJson,
+  'mimeType': mimeType,
   'metadata': file_metadata.json,
 };
 

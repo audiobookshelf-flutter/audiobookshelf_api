@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:http_parser/http_parser.dart' as http_parser;
 
 import '../../utils/json_converters.dart';
 import 'audio_meta_tags.dart';
@@ -38,7 +37,7 @@ class AudioFile with _$AudioFile {
     required List<BookChapter> chapters,
     String? embeddedCoverArt,
     required AudioMetaTags metaTags,
-    required http_parser.MediaType mimeType,
+    required String mimeType,
   }) = _AudioFile;
 
   factory AudioFile.fromJson(Map<String, dynamic> json) =>

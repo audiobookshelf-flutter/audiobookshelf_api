@@ -15,8 +15,7 @@ _$_AudioTrack _$$_AudioTrackFromJson(Map<String, dynamic> json) =>
           .fromJson(json['duration'] as num),
       title: json['title'] as String,
       contentUrl: json['contentUrl'] as String,
-      mimeType: const HttpParserMediaTypeConverter()
-          .fromJson(json['mimeType'] as String),
+      mimeType: json['mimeType'] as String,
       metadata: json['metadata'] == null
           ? null
           : FileMetadata.fromJson(json['metadata'] as Map<String, dynamic>),
@@ -31,7 +30,6 @@ Map<String, dynamic> _$$_AudioTrackToJson(_$_AudioTrack instance) =>
           const DurationPreciseSecondsConverter().toJson(instance.duration),
       'title': instance.title,
       'contentUrl': instance.contentUrl,
-      'mimeType':
-          const HttpParserMediaTypeConverter().toJson(instance.mimeType),
+      'mimeType': instance.mimeType,
       'metadata': instance.metadata,
     };

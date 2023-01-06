@@ -25,7 +25,7 @@ mixin _$AudioTrack {
   Duration get duration => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get contentUrl => throw _privateConstructorUsedError;
-  http_parser.MediaType get mimeType => throw _privateConstructorUsedError;
+  String get mimeType => throw _privateConstructorUsedError;
   FileMetadata? get metadata => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $AudioTrackCopyWith<$Res> {
       Duration duration,
       String title,
       String contentUrl,
-      http_parser.MediaType mimeType,
+      String mimeType,
       FileMetadata? metadata});
 
   $FileMetadataCopyWith<$Res>? get metadata;
@@ -97,7 +97,7 @@ class _$AudioTrackCopyWithImpl<$Res, $Val extends AudioTrack>
       mimeType: null == mimeType
           ? _value.mimeType
           : mimeType // ignore: cast_nullable_to_non_nullable
-              as http_parser.MediaType,
+              as String,
       metadata: freezed == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
@@ -132,7 +132,7 @@ abstract class _$$_AudioTrackCopyWith<$Res>
       Duration duration,
       String title,
       String contentUrl,
-      http_parser.MediaType mimeType,
+      String mimeType,
       FileMetadata? metadata});
 
   @override
@@ -182,7 +182,7 @@ class __$$_AudioTrackCopyWithImpl<$Res>
       mimeType: null == mimeType
           ? _value.mimeType
           : mimeType // ignore: cast_nullable_to_non_nullable
-              as http_parser.MediaType,
+              as String,
       metadata: freezed == metadata
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
@@ -218,7 +218,7 @@ class _$_AudioTrack implements _AudioTrack {
   @override
   final String contentUrl;
   @override
-  final http_parser.MediaType mimeType;
+  final String mimeType;
   @override
   final FileMetadata? metadata;
 
@@ -272,7 +272,7 @@ abstract class _AudioTrack implements AudioTrack {
       required final Duration duration,
       required final String title,
       required final String contentUrl,
-      required final http_parser.MediaType mimeType,
+      required final String mimeType,
       final FileMetadata? metadata}) = _$_AudioTrack;
 
   factory _AudioTrack.fromJson(Map<String, dynamic> json) =
@@ -289,7 +289,7 @@ abstract class _AudioTrack implements AudioTrack {
   @override
   String get contentUrl;
   @override
-  http_parser.MediaType get mimeType;
+  String get mimeType;
   @override
   FileMetadata? get metadata;
   @override
