@@ -109,4 +109,31 @@ void main() {
       expect(sut.toJson(), json);
     });
   });
+
+  group('GenreStats', () {
+    const genre = 'genre';
+    const count = 0;
+
+    const json = {
+      'genre': genre,
+      'count': count,
+    };
+
+    late GenreStats sut;
+
+    setUp(() {
+      sut = const GenreStats(
+        genre: genre,
+        count: count,
+      );
+    });
+
+    test('fromJson', () {
+      expect(sut, GenreStats.fromJson(json));
+    });
+
+    test('toJson', () {
+      expect(sut.toJson(), json);
+    });
+  });
 }
