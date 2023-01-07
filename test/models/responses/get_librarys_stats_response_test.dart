@@ -79,4 +79,34 @@ void main() {
       expect(sut.toJson(), json);
     });
   });
+
+  group('AuthorStats', () {
+    const id = 'id';
+    const name = 'name';
+    const count = 0;
+
+    const json = {
+      'id': id,
+      'name': name,
+      'count': count,
+    };
+
+    late AuthorStats sut;
+
+    setUp(() {
+      sut = const AuthorStats(
+        id: id,
+        name: name,
+        count: count,
+      );
+    });
+
+    test('fromJson', () {
+      expect(sut, AuthorStats.fromJson(json));
+    });
+
+    test('toJson', () {
+      expect(sut.toJson(), json);
+    });
+  });
 }
