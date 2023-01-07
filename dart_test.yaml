@@ -4,5 +4,7 @@ tags:
   depends_on_LibraryFilterData:
   depends_on_Collection:
   depends_on_PodcastEpisode:
+  depends_on_LibraryItem:
   depends_on_Filter:
   depends_on_Playlist:
+  depends_on_Series:
