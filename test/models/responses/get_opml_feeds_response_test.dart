@@ -3,24 +3,35 @@ import 'package:test/test.dart';
 
 void main() {
   group('GetOpmlFeedsResponse', () {
-    const json = {
+    const error = 'error';
+
+    const jsonFeeds = {
       'feeds': <Map<String, Object>>[],
     };
+    const jsonError = {
+      'error': error,
+    };
 
-    late GetOpmlFeedsResponse sut;
+    late GetOpmlFeedsResponse sutFeeds;
+    late GetOpmlFeedsResponse sutError;
 
     setUp(() {
-      sut = const GetOpmlFeedsResponse(
+      sutFeeds = const GetOpmlFeedsResponse(
         feeds: [],
+      );
+      sutError = const GetOpmlFeedsResponse(
+        error: error,
       );
     });
 
     test('fromJson', () {
-      expect(sut, GetOpmlFeedsResponse.fromJson(json));
+      expect(sutFeeds, GetOpmlFeedsResponse.fromJson(jsonFeeds));
+      expect(sutError, GetOpmlFeedsResponse.fromJson(jsonError));
     });
 
     test('toJson', () {
-      expect(sut.toJson(), json);
+      expect(sutFeeds.toJson(), jsonFeeds);
+      expect(sutError.toJson(), jsonError);
     });
   });
 }
