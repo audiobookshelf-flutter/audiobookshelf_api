@@ -9,10 +9,10 @@ void main() {
     'has_dependencies',
     'depends_on_Collection',
   ], () {
-    const int total = 1;
-    const int limit = 1;
-    const int page = 1;
-    const bool minified = true;
+    const total = 1;
+    const limit = 1;
+    const page = 1;
+    const minified = true;
 
     final json = {
       'results': [collection.json],

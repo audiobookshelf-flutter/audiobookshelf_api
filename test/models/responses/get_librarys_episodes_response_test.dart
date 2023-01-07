@@ -9,9 +9,9 @@ void main() {
     'has_dependencies',
     'depends_on_PodcastEpisode',
   ], () {
-    const int total = 1;
-    const int limit = 1;
-    const int page = 1;
+    const total = 1;
+    const limit = 1;
+    const page = 1;
 
     const json = {
       'episodes': [podcast_episode.json],

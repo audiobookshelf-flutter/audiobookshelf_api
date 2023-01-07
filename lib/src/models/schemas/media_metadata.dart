@@ -188,14 +188,14 @@ class MediaMetadataConverter
     final type = this.mediaType;
     if (type != null) {
       mediaType = type;
-    } else if (json.containsKey('authors')) {
+    } else if (json.containsKey('authors') || json.containsKey('authorName')) {
       mediaType = MediaType.book;
     } else if (json.containsKey('author')) {
       mediaType = MediaType.podcast;
     } else {
       throw CheckedFromJsonException(
         json,
-        'authors || author',
+        '(authors || authorName) || author',
         'MediaMetadata',
         'Unknown media type',
       );

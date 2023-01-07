@@ -3,8 +3,9 @@ import 'package:test/test.dart';
 
 void main() {
   group('BatchUpdateItemResponse', () {
-    const bool success = true;
-    const int updates = 1;
+    const success = true;
+    const updates = 1;
+
     const json = {
       'success': success,
       'updates': updates,

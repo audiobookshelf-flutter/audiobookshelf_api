@@ -132,14 +132,16 @@ class MediaConverter implements JsonConverter<Media, Map<String, dynamic>> {
     final type = this.mediaType;
     if (type != null) {
       mediaType = type;
-    } else if (json.containsKey('chapters')) {
+    } else if (json.containsKey('chapters') ||
+        json.containsKey('numChapters')) {
       mediaType = MediaType.book;
-    } else if (json.containsKey('episodes')) {
+    } else if (json.containsKey('episodes') ||
+        json.containsKey('numEpisodes')) {
       mediaType = MediaType.podcast;
     } else {
       throw CheckedFromJsonException(
         json,
-        'chapters || episodes',
+        '(chapters || numChapters) || (episodes || numEpisodes)',
         'Media',
         'Unknown media type',
       );
