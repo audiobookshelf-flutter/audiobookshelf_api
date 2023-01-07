@@ -55,6 +55,13 @@ abstract class Filter {
     if (value == null) return group.name;
     return '${group.name}.${base64.encode(utf8.encode(value))}';
   }
+
+  @override
+  bool operator ==(Object other) =>
+      other is Filter && other.group == group && other.value == value;
+
+  @override
+  int get hashCode => Object.hash(group, value);
 }
 
 class FilterConverter implements JsonConverter<Filter, String> {
