@@ -44,7 +44,7 @@ const json = {
 
 final book = Media.book(
   libraryItemId: libraryItemId,
-  metadata: book_metadata.book,
+  metadata: book_metadata.bookMetadata,
   coverPath: coverPath,
   tags: tags,
   audioFiles: audioFiles,
@@ -68,7 +68,7 @@ const jsonMinified = {
 };
 
 final bookMinified = Media.bookMinified(
-  metadata: book_metadata.bookMinified,
+  metadata: book_metadata.bookMetadataMinified,
   coverPath: coverPath,
   tags: tags,
   numTracks: numTracks,
@@ -97,7 +97,7 @@ const jsonExpanded = {
 
 final bookExpanded = Media.bookExpanded(
   libraryItemId: libraryItemId,
-  metadata: book_metadata.bookExpanded,
+  metadata: book_metadata.bookMetadataExpanded,
   coverPath: coverPath,
   tags: tags,
   audioFiles: audioFiles,

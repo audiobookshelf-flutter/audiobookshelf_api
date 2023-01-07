@@ -44,7 +44,7 @@ const json = {
   'explicit': explicit,
 };
 
-const book = MediaMetadata.book(
+const bookMetadata = MediaMetadata.book(
   title: title,
   subtitle: subtitle,
   authors: authors,
@@ -80,7 +80,7 @@ const jsonMinified = {
   'explicit': explicit,
 };
 
-const bookMinified = MediaMetadata.bookMinified(
+const bookMetadataMinified = MediaMetadata.bookMinified(
   title: title,
   titleIgnorePrefix: titleIgnorePrefix,
   subtitle: subtitle,
@@ -121,7 +121,7 @@ const jsonExpanded = {
   'seriesName': seriesName,
 };
 
-const bookExpanded = MediaMetadata.bookExpanded(
+const bookMetadataExpanded = MediaMetadata.bookExpanded(
   title: title,
   titleIgnorePrefix: titleIgnorePrefix,
   subtitle: subtitle,

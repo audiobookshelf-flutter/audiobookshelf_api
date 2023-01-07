@@ -1,4 +1,4 @@
-import 'package:audiobookshelf_api/src/models/schemas/collection.dart';
+import 'package:audiobookshelf_api/audiobookshelf_api.dart';
 import 'package:audiobookshelf_api/src/utils/json_converters.dart';
 
 import 'library_item_json.dart' as library_item;
@@ -10,14 +10,14 @@ const name = 'Favorites';
 const String? description = null;
 const String? cover = null;
 const String? coverFullPath = null;
-final booksJson = [library_item.bookJson];
+const booksJson = [library_item.bookJson];
 final books = [library_item.bookLibraryItem];
 const lastUpdateJson = 1650621110769;
 final lastUpdate = const DateTimeEpochConverter().fromJson(lastUpdateJson);
 const createdAtJson = 1650621073750;
 final createdAt = const DateTimeEpochConverter().fromJson(createdAtJson);
 
-final json = {
+const json = {
   'id': id,
   'libraryId': libraryId,
   'userId': userId,

@@ -5,7 +5,11 @@ import '../../matchers.dart';
 import '../schemas/json/library_item_json.dart' as library_item;
 
 void main() {
-  group('GetLibrarysItemsResponse', () {
+  group('GetLibrarysItemsResponse', tags: [
+    'has_dependencies',
+    'depends_on_LibraryItem',
+    'depends_on_Filter',
+  ], () {
     const total = 1;
     const limit = 1;
     const page = 1;

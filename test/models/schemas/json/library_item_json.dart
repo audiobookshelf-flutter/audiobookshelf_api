@@ -2,6 +2,7 @@ import 'package:audiobookshelf_api/audiobookshelf_api.dart';
 import 'package:audiobookshelf_api/src/utils/json_converters.dart';
 
 import 'book_json.dart' as book;
+import 'podcast_json.dart' as podcast;
 import 'library_file_json.dart' as library_file;
 
 const id = 'li_8gch9ve09orgn4fdz8';
@@ -26,14 +27,17 @@ final lastScan = const DateTimeEpochConverter().fromJson(lastScanJson);
 const scanVersion = '2.0.21';
 const isMissing = false;
 const isInvalid = false;
-const mediaType = MediaType.book;
-final libraryFilesJson = [library_file.json];
+const bookMediaTypeJson = 'book';
+const bookMediaType = MediaType.book;
+const podcastMediaTypeJson = 'podcast';
+const podcastMediaType = MediaType.podcast;
+const libraryFilesJson = [library_file.json];
 final libraryFiles = [library_file.libraryFile];
 
 const numFiles = 2;
 const size = 268990279;
 
-final bookJson = {
+const bookJson = {
   'id': id,
   'ino': ino,
   'libraryId': libraryId,
@@ -50,7 +54,7 @@ final bookJson = {
   'scanVersion': scanVersion,
   'isMissing': isMissing,
   'isInvalid': isInvalid,
-  'mediaType': mediaType.type,
+  'mediaType': bookMediaTypeJson,
   'media': book.json,
   'libraryFiles': libraryFilesJson,
 };
@@ -72,12 +76,56 @@ final bookLibraryItem = LibraryItem(
   scanVersion: scanVersion,
   isMissing: isMissing,
   isInvalid: isInvalid,
-  mediaType: mediaType,
+  mediaType: bookMediaType,
   media: book.book,
   libraryFiles: libraryFiles,
 );
 
-final bookJsonMinified = {
+const podcastJson = {
+  'id': id,
+  'ino': ino,
+  'libraryId': libraryId,
+  'folderId': folderId,
+  'path': path,
+  'relPath': relPath,
+  'isFile': isFile,
+  'mtimeMs': mtimeMs,
+  'ctimeMs': ctimeMs,
+  'birthtimeMs': birthtimeMs,
+  'addedAt': addedAtJson,
+  'updatedAt': updatedAtJson,
+  'lastScan': lastScanJson,
+  'scanVersion': scanVersion,
+  'isMissing': isMissing,
+  'isInvalid': isInvalid,
+  'mediaType': podcastMediaTypeJson,
+  'media': podcast.json,
+  'libraryFiles': libraryFilesJson,
+};
+
+final podcastLibraryItem = LibraryItem(
+  id: id,
+  ino: ino,
+  libraryId: libraryId,
+  folderId: folderId,
+  path: path,
+  relPath: relPath,
+  isFile: isFile,
+  mtime: mtime,
+  ctime: ctime,
+  birthtime: birthtime,
+  addedAt: addedAt,
+  updatedAt: updatedAt,
+  lastScan: lastScan,
+  scanVersion: scanVersion,
+  isMissing: isMissing,
+  isInvalid: isInvalid,
+  mediaType: podcastMediaType,
+  media: podcast.podcast,
+  libraryFiles: libraryFiles,
+);
+
+const bookJsonMinified = {
   'id': id,
   'ino': ino,
   'libraryId': libraryId,
@@ -92,7 +140,7 @@ final bookJsonMinified = {
   'updatedAt': updatedAtJson,
   'isMissing': isMissing,
   'isInvalid': isInvalid,
-  'mediaType': mediaType.type,
+  'mediaType': bookMediaTypeJson,
   'media': book.jsonMinified,
   'numFiles': numFiles,
   'size': size,
@@ -113,13 +161,55 @@ final bookLibraryItemMinified = LibraryItem.minified(
   updatedAt: updatedAt,
   isMissing: isMissing,
   isInvalid: isInvalid,
-  mediaType: mediaType,
+  mediaType: bookMediaType,
   media: book.bookMinified,
   numFiles: numFiles,
   size: size,
 );
 
-final bookJsonExpanded = {
+const podcastJsonMinified = {
+  'id': id,
+  'ino': ino,
+  'libraryId': libraryId,
+  'folderId': folderId,
+  'path': path,
+  'relPath': relPath,
+  'isFile': isFile,
+  'mtimeMs': mtimeMs,
+  'ctimeMs': ctimeMs,
+  'birthtimeMs': birthtimeMs,
+  'addedAt': addedAtJson,
+  'updatedAt': updatedAtJson,
+  'isMissing': isMissing,
+  'isInvalid': isInvalid,
+  'mediaType': podcastMediaTypeJson,
+  'media': podcast.jsonMinified,
+  'numFiles': numFiles,
+  'size': size,
+};
+
+final podcastLibraryItemMinified = LibraryItem.minified(
+  id: id,
+  ino: ino,
+  libraryId: libraryId,
+  folderId: folderId,
+  path: path,
+  relPath: relPath,
+  isFile: isFile,
+  mtime: mtime,
+  ctime: ctime,
+  birthtime: birthtime,
+  addedAt: addedAt,
+  updatedAt: updatedAt,
+  isMissing: isMissing,
+  isInvalid: isInvalid,
+  mediaType: podcastMediaType,
+  media: podcast.podcastMinified,
+  numFiles: numFiles,
+  size: size,
+);
+
+const bookJsonExpanded = {
   'id': id,
   'ino': ino,
   'libraryId': libraryId,
@@ -136,7 +226,7 @@ final bookJsonExpanded = {
   'scanVersion': scanVersion,
   'isMissing': isMissing,
   'isInvalid': isInvalid,
-  'mediaType': mediaType.type,
+  'mediaType': bookMediaTypeJson,
   'media': book.jsonExpanded,
   'libraryFiles': libraryFilesJson,
   'size': size,
@@ -159,8 +249,54 @@ final bookLibraryItemExpanded = LibraryItem.expanded(
   scanVersion: scanVersion,
   isMissing: isMissing,
   isInvalid: isInvalid,
-  mediaType: mediaType,
+  mediaType: bookMediaType,
   media: book.bookExpanded,
+  libraryFiles: libraryFiles,
+  size: size,
+);
+
+const podcastJsonExpanded = {
+  'id': id,
+  'ino': ino,
+  'libraryId': libraryId,
+  'folderId': folderId,
+  'path': path,
+  'relPath': relPath,
+  'isFile': isFile,
+  'mtimeMs': mtimeMs,
+  'ctimeMs': ctimeMs,
+  'birthtimeMs': birthtimeMs,
+  'addedAt': addedAtJson,
+  'updatedAt': updatedAtJson,
+  'lastScan': lastScanJson,
+  'scanVersion': scanVersion,
+  'isMissing': isMissing,
+  'isInvalid': isInvalid,
+  'mediaType': podcastMediaTypeJson,
+  'media': podcast.jsonExpanded,
+  'libraryFiles': libraryFilesJson,
+  'size': size,
+};
+
+final podcastLibraryItemExpanded = LibraryItem.expanded(
+  id: id,
+  ino: ino,
+  libraryId: libraryId,
+  folderId: folderId,
+  path: path,
+  relPath: relPath,
+  isFile: isFile,
+  mtime: mtime,
+  ctime: ctime,
+  birthtime: birthtime,
+  addedAt: addedAt,
+  updatedAt: updatedAt,
+  lastScan: lastScan,
+  scanVersion: scanVersion,
+  isMissing: isMissing,
+  isInvalid: isInvalid,
+  mediaType: podcastMediaType,
+  media: podcast.podcastExpanded,
   libraryFiles: libraryFiles,
   size: size,
 );

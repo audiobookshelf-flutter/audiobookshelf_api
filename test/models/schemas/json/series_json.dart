@@ -17,7 +17,7 @@ const numBooks = 1;
 
 const nameIgnorePrefixSort = 'Sword of Truth';
 const type = 'series';
-final booksJson = [library_item.bookJson];
+const booksJson = [library_item.bookJson];
 final books = [library_item.bookLibraryItem];
 const totalDurationJson = 12000.946;
 final totalDuration =
@@ -57,7 +57,7 @@ const seriesNumBooks = Series.numBooks(
   numBooks: numBooks,
 );
 
-final jsonBooks = {
+const jsonBooks = {
   'id': id,
   'name': name,
   'nameIgnorePrefix': nameIgnorePrefix,
