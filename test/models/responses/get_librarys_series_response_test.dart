@@ -10,13 +10,13 @@ void main() {
     'depends_on_Series',
     'depends_on_Filter',
   ], () {
-    const int total = 1;
-    const int limit = 1;
-    const int page = 1;
+    const total = 1;
+    const limit = 1;
+    const page = 1;
     const String? sortBy = null;
-    const bool sortDesc = false;
+    const sortDesc = false;
     const filterBy = GenreFilter('genre');
-    const bool minified = false;
+    const minified = false;
 
     final json = {
       'results': [series.jsonBooks],
