@@ -8,3 +8,4 @@ tags:
   depends_on_Filter:
   depends_on_Playlist:
   depends_on_Series:
+  depends_on_NotificationSettings:
