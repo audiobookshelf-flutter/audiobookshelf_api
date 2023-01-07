@@ -107,7 +107,8 @@ class __$$_GetOpmlFeedsResponseCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_GetOpmlFeedsResponse implements _GetOpmlFeedsResponse {
   const _$_GetOpmlFeedsResponse({final List<PodcastFeed>? feeds, this.error})
       : _feeds = feeds;

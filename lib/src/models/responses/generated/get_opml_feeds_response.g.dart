@@ -16,8 +16,16 @@ _$_GetOpmlFeedsResponse _$$_GetOpmlFeedsResponseFromJson(
     );
 
 Map<String, dynamic> _$$_GetOpmlFeedsResponseToJson(
-        _$_GetOpmlFeedsResponse instance) =>
-    <String, dynamic>{
-      'feeds': instance.feeds,
-      'error': instance.error,
-    };
+    _$_GetOpmlFeedsResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('feeds', instance.feeds);
+  writeNotNull('error', instance.error);
+  return val;
+}
