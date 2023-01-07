@@ -11,7 +11,7 @@ void main() {
     'depends_on_NotificationSettings',
   ], () {
     const json = {
-      'data': {'events': []},
+      'data': {'events': <Map<String, Object?>>[]},
       'settings': notification_settings.json,
     };
 
@@ -30,6 +30,24 @@ void main() {
 
     test('toJson', () {
       expect(sut.toJson(), deepMapContains(json));
+    });
+  });
+
+  group('NotificationData', () {
+    const json = {'events': <Map<String, Object?>>[]};
+
+    late NotificationData sut;
+
+    setUp(() {
+      sut = const NotificationData(events: []);
+    });
+
+    test('fromJson', () {
+      expect(sut, NotificationData.fromJson(json));
+    });
+
+    test('toJson', () {
+      expect(sut.toJson(), json);
     });
   });
 }
