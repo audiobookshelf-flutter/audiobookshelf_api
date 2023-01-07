@@ -49,4 +49,34 @@ void main() {
       expect(sut.toJson(), json);
     });
   });
+
+  group('LibraryItemStats', () {
+    const id = 'id';
+    const title = 'title';
+    const duration = Duration.zero;
+
+    const json = {
+      'id': id,
+      'title': title,
+      'duration': 0.0,
+    };
+
+    late LibraryItemStats sut;
+
+    setUp(() {
+      sut = const LibraryItemStats(
+        id: id,
+        title: title,
+        duration: duration,
+      );
+    });
+
+    test('fromJson', () {
+      expect(sut, LibraryItemStats.fromJson(json));
+    });
+
+    test('toJson', () {
+      expect(sut.toJson(), json);
+    });
+  });
 }
