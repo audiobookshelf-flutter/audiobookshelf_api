@@ -311,54 +311,6 @@ Map<String, dynamic> _$$PodcastMetadataToJson(_$PodcastMetadata instance) =>
       'runtimeType': instance.$type,
     };
 
-_$PodcastMetadataMinified _$$PodcastMetadataMinifiedFromJson(
-        Map<String, dynamic> json) =>
-    _$PodcastMetadataMinified(
-      title: json['title'] as String?,
-      titleIgnorePrefix: json['titleIgnorePrefix'] as String?,
-      author: json['author'] as String?,
-      description: json['description'] as String?,
-      releaseDate: json['releaseDate'] == null
-          ? null
-          : DateTime.parse(json['releaseDate'] as String),
-      genres: (json['genres'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          const <String>[],
-      feedUrl:
-          json['feedUrl'] == null ? null : Uri.parse(json['feedUrl'] as String),
-      imageUrl: json['imageUrl'] == null
-          ? null
-          : Uri.parse(json['imageUrl'] as String),
-      itunesPageUrl: json['itunesPageUrl'] == null
-          ? null
-          : Uri.parse(json['itunesPageUrl'] as String),
-      itunesId: json['itunesId'] as int?,
-      itunesArtistId: json['itunesArtistId'] as int?,
-      explicit: json['explicit'] as bool? ?? false,
-      language: json['language'] as String?,
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$PodcastMetadataMinifiedToJson(
-        _$PodcastMetadataMinified instance) =>
-    <String, dynamic>{
-      'title': instance.title,
-      'titleIgnorePrefix': instance.titleIgnorePrefix,
-      'author': instance.author,
-      'description': instance.description,
-      'releaseDate': instance.releaseDate?.toIso8601String(),
-      'genres': instance.genres,
-      'feedUrl': instance.feedUrl?.toString(),
-      'imageUrl': instance.imageUrl?.toString(),
-      'itunesPageUrl': instance.itunesPageUrl?.toString(),
-      'itunesId': instance.itunesId,
-      'itunesArtistId': instance.itunesArtistId,
-      'explicit': instance.explicit,
-      'language': instance.language,
-      'runtimeType': instance.$type,
-    };
-
 _$PodcastMetadataExpanded _$$PodcastMetadataExpandedFromJson(
         Map<String, dynamic> json) =>
     _$PodcastMetadataExpanded(
