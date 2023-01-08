@@ -185,7 +185,7 @@ class MediaMetadataConverter
     }
 
     final SchemaVariant variant;
-    if (json.containsKey('authorName')) {
+    if (mediaType == MediaType.book && !json.containsKey('authors')) {
       variant = SchemaVariant.minified;
     } else if (json.containsKey('titleIgnorePrefix')) {
       // Podcast Metadata Minified and Expanded are the same

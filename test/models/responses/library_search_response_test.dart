@@ -1,7 +1,9 @@
 import 'package:audiobookshelf_api/audiobookshelf_api.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:test/test.dart';
 
 import '../../matchers.dart';
+import '../schemas/json/library_item_json.dart' as library_item;
 
 void main() {
   group('LibrarySearchResponse', () {
@@ -50,6 +52,23 @@ void main() {
       test('podcast', () {
         expect(sutPodcast, LibrarySearchResponse.fromJson(jsonPodcast));
       });
+
+      test('runtimeType', () {
+        expect(
+          sutBook,
+          LibrarySearchResponse.fromJson({
+            ...jsonBook,
+            'runtimeType': 'book',
+          }),
+        );
+      });
+
+      test('converter throws CheckedFromJsonException', () {
+        expect(
+          () => const LibrarySearchResponseConverter().fromJson({}),
+          throwsA(isA<CheckedFromJsonException>()),
+        );
+      });
     });
 
     group('toJson', () {
@@ -60,6 +79,42 @@ void main() {
       test('podcast', () {
         expect(sutPodcast.toJson(), deepMapContains(jsonPodcast));
       });
+
+      test('converter', () {
+        expect(
+          const LibrarySearchResponseConverter().toJson(sutBook),
+          sutBook.toJson(),
+        );
+      });
+    });
+  });
+
+  group('LibraryItemSearchResult', () {
+    const String matchKey = 'matchKey';
+    const String matchText = 'matchText';
+
+    const json = {
+      'libraryItem': library_item.bookJsonExpanded,
+      'matchKey': matchKey,
+      'matchText': matchText,
+    };
+
+    late LibraryItemSearchResult sut;
+
+    setUp(() {
+      sut = LibraryItemSearchResult(
+        libraryItem: library_item.bookLibraryItemExpanded,
+        matchKey: matchKey,
+        matchText: matchText,
+      );
+    });
+
+    test('fromJson', () {
+      expect(sut, LibraryItemSearchResult.fromJson(json));
+    });
+
+    test('toJson', () {
+      expect(sut.toJson(), deepMapContains(json));
     });
   });
 }
