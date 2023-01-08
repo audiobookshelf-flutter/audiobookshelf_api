@@ -34,8 +34,7 @@ Map<String, dynamic> _$$_GetUserStatsResponseToJson(
     <String, dynamic>{
       'totalTime': const DurationSecConverter().toJson(instance.totalTime),
       'items': instance.items,
-      'days': instance.days.map((k, e) => MapEntry(
-          k.toIso8601String(), const DurationSecConverter().toJson(e))),
+      'days': _daysToJson(instance.days),
       'dayOfWeek': instance.dayOfWeek.map((k, e) => MapEntry(
           _$DayOfTheWeekEnumMap[k]!, const DurationSecConverter().toJson(e))),
       'today': const DurationSecConverter().toJson(instance.today),

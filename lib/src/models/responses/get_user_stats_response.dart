@@ -15,7 +15,7 @@ class GetUserStatsResponse with _$GetUserStatsResponse {
   const factory GetUserStatsResponse({
     required Duration totalTime,
     required Map<String, ItemsListenedToResponse> items,
-    required Map<DateTime, Duration> days,
+    @JsonKey(toJson: _daysToJson) required Map<DateTime, Duration> days,
     required Map<DayOfTheWeek, Duration> dayOfWeek,
     required Duration today,
     required List<PlaybackSession> recentSessions,
@@ -23,6 +23,20 @@ class GetUserStatsResponse with _$GetUserStatsResponse {
 
   factory GetUserStatsResponse.fromJson(Map<String, dynamic> json) =>
       _$GetUserStatsResponseFromJson(json);
+}
+
+Map<String, int> _daysToJson(Map<DateTime, Duration> days) {
+  return {
+    for (final day in days.entries)
+      _dateTimeToDateString(day.key): day.value.inSeconds
+  };
+}
+
+String _dateTimeToDateString(DateTime date) {
+  final year = date.year.toString().padLeft(4, '0');
+  final month = date.month.toString().padLeft(2, '0');
+  final day = date.day.toString().padLeft(2, '0');
+  return '$year-$month-$day';
 }
 
 /// See [Get a User's Listening Stats](https://api.audiobookshelf.org/#get-a-user-39-s-listening-stats)
