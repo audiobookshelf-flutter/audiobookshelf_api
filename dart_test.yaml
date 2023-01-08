@@ -10,3 +10,4 @@ tags:
   depends_on_Series:
   depends_on_NotificationSettings:
   depends_on_ItemsListenedToResponse:
+  depends_on_MediaMetadata:

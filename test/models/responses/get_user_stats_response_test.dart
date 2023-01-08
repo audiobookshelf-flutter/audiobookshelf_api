@@ -64,4 +64,20 @@ void main() {
       expect(sut.toJson(), deepMapContains(json));
     });
   });
+
+  group('ItemsListenedToResponse', tags: [
+    'has_dependencies',
+    'depends_on_MediaMetadata',
+  ], () {
+    test('fromJson', () {
+      expect(
+        itemListenedTo,
+        ItemsListenedToResponse.fromJson(itemListenedToJson),
+      );
+    });
+
+    test('toJson', () {
+      expect(itemListenedTo.toJson(), deepMapContains(itemListenedToJson));
+    });
+  });
 }
