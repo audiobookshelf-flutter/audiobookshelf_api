@@ -11,3 +11,5 @@ tags:
   depends_on_NotificationSettings:
   depends_on_ItemsListenedToResponse:
   depends_on_MediaMetadata:
+  depends_on_User:
+  depends_on_ServerSettings:

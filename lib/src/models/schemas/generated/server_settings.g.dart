@@ -20,6 +20,7 @@ _$_ServerSettings _$$_ServerSettingsFromJson(Map<String, dynamic> json) =>
       scannerDisableWatcher: json['scannerDisableWatcher'] as bool,
       scannerPreferOverdriveMediaMarker:
           json['scannerPreferOverdriveMediaMarker'] as bool,
+      scannerUseTone: json['scannerUseTone'] as bool,
       storeCoverWithItem: json['storeCoverWithItem'] as bool,
       storeMetadataWithItem: json['storeMetadataWithItem'] as bool,
       rateLimitLoginRequests: json['rateLimitLoginRequests'] as int,
@@ -61,6 +62,7 @@ Map<String, dynamic> _$$_ServerSettingsToJson(_$_ServerSettings instance) =>
       'scannerDisableWatcher': instance.scannerDisableWatcher,
       'scannerPreferOverdriveMediaMarker':
           instance.scannerPreferOverdriveMediaMarker,
+      'scannerUseTone': instance.scannerUseTone,
       'storeCoverWithItem': instance.storeCoverWithItem,
       'storeMetadataWithItem': instance.storeMetadataWithItem,
       'rateLimitLoginRequests': instance.rateLimitLoginRequests,
