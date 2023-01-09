@@ -22,6 +22,9 @@ _$_Collection _$$_CollectionFromJson(Map<String, dynamic> json) =>
           const DateTimeEpochConverter().fromJson(json['lastUpdate'] as int),
       createdAt:
           const DateTimeEpochConverter().fromJson(json['createdAt'] as int),
+      rssFeed: json['rssFeed'] == null
+          ? null
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_CollectionToJson(_$_Collection instance) =>
@@ -36,4 +39,5 @@ Map<String, dynamic> _$$_CollectionToJson(_$_Collection instance) =>
       'books': instance.books,
       'lastUpdate': const DateTimeEpochConverter().toJson(instance.lastUpdate),
       'createdAt': const DateTimeEpochConverter().toJson(instance.createdAt),
+      'rssFeed': instance.rssFeed,
     };
