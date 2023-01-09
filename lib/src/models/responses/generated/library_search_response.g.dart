@@ -65,8 +65,8 @@ _$_LibraryItemSearchResult _$$_LibraryItemSearchResultFromJson(
     _$_LibraryItemSearchResult(
       libraryItem:
           LibraryItem.fromJson(json['libraryItem'] as Map<String, dynamic>),
-      matchKey: json['matchKey'] as String,
-      matchText: json['matchText'] as String,
+      matchKey: json['matchKey'] as String?,
+      matchText: json['matchText'] as String?,
     );
 
 Map<String, dynamic> _$$_LibraryItemSearchResultToJson(
