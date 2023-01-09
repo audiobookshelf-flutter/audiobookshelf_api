@@ -55,17 +55,16 @@ class SessionsService extends Service {
   }
 
   /// See [Sync an Open Session](https://api.audiobookshelf.org/#sync-an-open-session)
-  Future<PlaybackSession?> syncOpen({
+  Future<void> syncOpen({
     required String sessionId,
     required SyncSessionReqParams parameters,
     ResponseErrorHandler? responseErrorHandler,
   }) {
-    return api.postJson(
+    return api.post(
       path: '$basePath/$sessionId/sync',
       jsonObject: parameters,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJson(json, PlaybackSession.fromJson),
     );
   }
 
