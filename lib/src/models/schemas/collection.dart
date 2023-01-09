@@ -22,7 +22,8 @@ class Collection with _$Collection {
     required List<LibraryItem> books,
     required DateTime lastUpdate,
     required DateTime createdAt,
-    // from [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+    // From [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+    // and [Get a Library's Collections](https://api.audiobookshelf.org/#get-a-library-39-s-collections)
     RssFeed? rssFeed,
   }) = _Collection;
 

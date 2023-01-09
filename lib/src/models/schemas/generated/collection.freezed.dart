@@ -30,7 +30,8 @@ mixin _$Collection {
   List<LibraryItem> get books => throw _privateConstructorUsedError;
   DateTime get lastUpdate => throw _privateConstructorUsedError;
   DateTime get createdAt =>
-      throw _privateConstructorUsedError; // from [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+      throw _privateConstructorUsedError; // From [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+// and [Get a Library's Collections](https://api.audiobookshelf.org/#get-a-library-39-s-collections)
   RssFeed? get rssFeed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -291,7 +292,8 @@ class _$_Collection implements _Collection {
   final DateTime lastUpdate;
   @override
   final DateTime createdAt;
-// from [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+// From [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+// and [Get a Library's Collections](https://api.audiobookshelf.org/#get-a-library-39-s-collections)
   @override
   final RssFeed? rssFeed;
 
@@ -390,7 +392,8 @@ abstract class _Collection implements Collection {
   DateTime get lastUpdate;
   @override
   DateTime get createdAt;
-  @override // from [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+  @override // From [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+// and [Get a Library's Collections](https://api.audiobookshelf.org/#get-a-library-39-s-collections)
   RssFeed? get rssFeed;
   @override
   @JsonKey(ignore: true)

@@ -14,6 +14,7 @@ class GetLibrarysCollectionsResponse with _$GetLibrarysCollectionsResponse {
     required int limit,
     required int page,
     required bool minified,
+    required String include,
   }) = _GetLibrarysCollectionsResponse;
 
   factory GetLibrarysCollectionsResponse.fromJson(Map<String, dynamic> json) =>
