@@ -32,6 +32,7 @@ mixin _$GetLibrarysItemsResponse {
   bool get minified => throw _privateConstructorUsedError;
   @JsonKey(name: 'collapseseries')
   bool get collapseSeries => throw _privateConstructorUsedError;
+  String get include => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -55,7 +56,8 @@ abstract class $GetLibrarysItemsResponseCopyWith<$Res> {
       Filter? filterBy,
       MediaType mediaType,
       bool minified,
-      @JsonKey(name: 'collapseseries') bool collapseSeries});
+      @JsonKey(name: 'collapseseries') bool collapseSeries,
+      String include});
 }
 
 /// @nodoc
@@ -82,6 +84,7 @@ class _$GetLibrarysItemsResponseCopyWithImpl<$Res,
     Object? mediaType = null,
     Object? minified = null,
     Object? collapseSeries = null,
+    Object? include = null,
   }) {
     return _then(_value.copyWith(
       results: null == results
@@ -124,6 +127,10 @@ class _$GetLibrarysItemsResponseCopyWithImpl<$Res,
           ? _value.collapseSeries
           : collapseSeries // ignore: cast_nullable_to_non_nullable
               as bool,
+      include: null == include
+          ? _value.include
+          : include // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -147,7 +154,8 @@ abstract class _$$_GetLibrarysItemsResponseCopyWith<$Res>
       Filter? filterBy,
       MediaType mediaType,
       bool minified,
-      @JsonKey(name: 'collapseseries') bool collapseSeries});
+      @JsonKey(name: 'collapseseries') bool collapseSeries,
+      String include});
 }
 
 /// @nodoc
@@ -172,6 +180,7 @@ class __$$_GetLibrarysItemsResponseCopyWithImpl<$Res>
     Object? mediaType = null,
     Object? minified = null,
     Object? collapseSeries = null,
+    Object? include = null,
   }) {
     return _then(_$_GetLibrarysItemsResponse(
       results: null == results
@@ -214,6 +223,10 @@ class __$$_GetLibrarysItemsResponseCopyWithImpl<$Res>
           ? _value.collapseSeries
           : collapseSeries // ignore: cast_nullable_to_non_nullable
               as bool,
+      include: null == include
+          ? _value.include
+          : include // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -232,7 +245,8 @@ class _$_GetLibrarysItemsResponse implements _GetLibrarysItemsResponse {
       this.filterBy,
       required this.mediaType,
       required this.minified,
-      @JsonKey(name: 'collapseseries') required this.collapseSeries})
+      @JsonKey(name: 'collapseseries') required this.collapseSeries,
+      required this.include})
       : _results = results;
 
   factory _$_GetLibrarysItemsResponse.fromJson(Map<String, dynamic> json) =>
@@ -265,10 +279,12 @@ class _$_GetLibrarysItemsResponse implements _GetLibrarysItemsResponse {
   @override
   @JsonKey(name: 'collapseseries')
   final bool collapseSeries;
+  @override
+  final String include;
 
   @override
   String toString() {
-    return 'GetLibrarysItemsResponse(results: $results, total: $total, limit: $limit, page: $page, sortBy: $sortBy, sortDesc: $sortDesc, filterBy: $filterBy, mediaType: $mediaType, minified: $minified, collapseSeries: $collapseSeries)';
+    return 'GetLibrarysItemsResponse(results: $results, total: $total, limit: $limit, page: $page, sortBy: $sortBy, sortDesc: $sortDesc, filterBy: $filterBy, mediaType: $mediaType, minified: $minified, collapseSeries: $collapseSeries, include: $include)';
   }
 
   @override
@@ -290,7 +306,8 @@ class _$_GetLibrarysItemsResponse implements _GetLibrarysItemsResponse {
             (identical(other.minified, minified) ||
                 other.minified == minified) &&
             (identical(other.collapseSeries, collapseSeries) ||
-                other.collapseSeries == collapseSeries));
+                other.collapseSeries == collapseSeries) &&
+            (identical(other.include, include) || other.include == include));
   }
 
   @JsonKey(ignore: true)
@@ -306,7 +323,8 @@ class _$_GetLibrarysItemsResponse implements _GetLibrarysItemsResponse {
       filterBy,
       mediaType,
       minified,
-      collapseSeries);
+      collapseSeries,
+      include);
 
   @JsonKey(ignore: true)
   @override
@@ -334,8 +352,8 @@ abstract class _GetLibrarysItemsResponse implements GetLibrarysItemsResponse {
       final Filter? filterBy,
       required final MediaType mediaType,
       required final bool minified,
-      @JsonKey(name: 'collapseseries')
-          required final bool collapseSeries}) = _$_GetLibrarysItemsResponse;
+      @JsonKey(name: 'collapseseries') required final bool collapseSeries,
+      required final String include}) = _$_GetLibrarysItemsResponse;
 
   factory _GetLibrarysItemsResponse.fromJson(Map<String, dynamic> json) =
       _$_GetLibrarysItemsResponse.fromJson;
@@ -361,6 +379,8 @@ abstract class _GetLibrarysItemsResponse implements GetLibrarysItemsResponse {
   @override
   @JsonKey(name: 'collapseseries')
   bool get collapseSeries;
+  @override
+  String get include;
   @override
   @JsonKey(ignore: true)
   _$$_GetLibrarysItemsResponseCopyWith<_$_GetLibrarysItemsResponse>

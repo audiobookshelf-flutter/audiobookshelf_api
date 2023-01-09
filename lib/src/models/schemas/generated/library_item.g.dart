@@ -36,6 +36,9 @@ _$_LibraryItem _$$_LibraryItemFromJson(Map<String, dynamic> json) =>
       collapsedSeries: json['collapsedSeries'] == null
           ? null
           : Series.fromJson(json['collapsedSeries'] as Map<String, dynamic>),
+      rssFeed: json['rssFeed'] == null
+          ? null
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
       sequence: json['sequence'] as String?,
       seriesSequence: json['seriesSequence'] as String?,
       $type: json['runtimeType'] as String?,
@@ -65,6 +68,7 @@ Map<String, dynamic> _$$_LibraryItemToJson(_$_LibraryItem instance) =>
       'media': instance.media,
       'libraryFiles': instance.libraryFiles,
       'collapsedSeries': instance.collapsedSeries,
+      'rssFeed': instance.rssFeed,
       'sequence': instance.sequence,
       'seriesSequence': instance.seriesSequence,
       'runtimeType': instance.$type,
@@ -113,6 +117,9 @@ _$LibraryItemMinified _$$LibraryItemMinifiedFromJson(
       collapsedSeries: json['collapsedSeries'] == null
           ? null
           : Series.fromJson(json['collapsedSeries'] as Map<String, dynamic>),
+      rssFeed: json['rssFeed'] == null
+          ? null
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
       sequence: json['sequence'] as String?,
       seriesSequence: json['seriesSequence'] as String?,
       recentEpisode: json['recentEpisode'] == null
@@ -151,6 +158,7 @@ Map<String, dynamic> _$$LibraryItemMinifiedToJson(
       'numFiles': instance.numFiles,
       'size': instance.size,
       'collapsedSeries': instance.collapsedSeries,
+      'rssFeed': instance.rssFeed,
       'sequence': instance.sequence,
       'seriesSequence': instance.seriesSequence,
       'recentEpisode': instance.recentEpisode,

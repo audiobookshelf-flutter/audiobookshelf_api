@@ -8,6 +8,7 @@ import 'media.dart';
 import 'media_progress.dart';
 import 'podcast_episode.dart';
 import 'podcast_episode_download.dart';
+import 'rss_feed.dart';
 import 'series.dart';
 
 part 'generated/library_item.freezed.dart';
@@ -40,7 +41,10 @@ class LibraryItem with _$LibraryItem {
     required MediaType mediaType,
     required Media media,
     required List<LibraryFile> libraryFiles,
+    // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
     Series? collapsedSeries,
+    // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+    RssFeed? rssFeed,
     String? sequence,
     String? seriesSequence,
   }) = _LibraryItem;
@@ -65,7 +69,10 @@ class LibraryItem with _$LibraryItem {
     required Media media,
     required int numFiles,
     required int size,
+    // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
     Series? collapsedSeries,
+    // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+    RssFeed? rssFeed,
     String? sequence,
     String? seriesSequence,
     PodcastEpisode? recentEpisode,

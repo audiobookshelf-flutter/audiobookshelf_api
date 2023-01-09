@@ -76,6 +76,7 @@ mixin _$LibraryItem {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)
         $default, {
@@ -99,6 +100,7 @@ mixin _$LibraryItem {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -159,6 +161,7 @@ mixin _$LibraryItem {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)?
         $default, {
@@ -182,6 +185,7 @@ mixin _$LibraryItem {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -242,6 +246,7 @@ mixin _$LibraryItem {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)?
         $default, {
@@ -265,6 +270,7 @@ mixin _$LibraryItem {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -506,12 +512,14 @@ abstract class _$$_LibraryItemCopyWith<$Res>
       Media media,
       List<LibraryFile> libraryFiles,
       Series? collapsedSeries,
+      RssFeed? rssFeed,
       String? sequence,
       String? seriesSequence});
 
   @override
   $MediaCopyWith<$Res> get media;
   $SeriesCopyWith<$Res>? get collapsedSeries;
+  $RssFeedCopyWith<$Res>? get rssFeed;
 }
 
 /// @nodoc
@@ -546,6 +554,7 @@ class __$$_LibraryItemCopyWithImpl<$Res>
     Object? media = null,
     Object? libraryFiles = null,
     Object? collapsedSeries = freezed,
+    Object? rssFeed = freezed,
     Object? sequence = freezed,
     Object? seriesSequence = freezed,
   }) {
@@ -634,6 +643,10 @@ class __$$_LibraryItemCopyWithImpl<$Res>
           ? _value.collapsedSeries
           : collapsedSeries // ignore: cast_nullable_to_non_nullable
               as Series?,
+      rssFeed: freezed == rssFeed
+          ? _value.rssFeed
+          : rssFeed // ignore: cast_nullable_to_non_nullable
+              as RssFeed?,
       sequence: freezed == sequence
           ? _value.sequence
           : sequence // ignore: cast_nullable_to_non_nullable
@@ -654,6 +667,18 @@ class __$$_LibraryItemCopyWithImpl<$Res>
 
     return $SeriesCopyWith<$Res>(_value.collapsedSeries!, (value) {
       return _then(_value.copyWith(collapsedSeries: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RssFeedCopyWith<$Res>? get rssFeed {
+    if (_value.rssFeed == null) {
+      return null;
+    }
+
+    return $RssFeedCopyWith<$Res>(_value.rssFeed!, (value) {
+      return _then(_value.copyWith(rssFeed: value));
     });
   }
 }
@@ -684,6 +709,7 @@ class _$_LibraryItem extends _LibraryItem {
       required this.media,
       required final List<LibraryFile> libraryFiles,
       this.collapsedSeries,
+      this.rssFeed,
       this.sequence,
       this.seriesSequence,
       final String? $type})
@@ -743,8 +769,12 @@ class _$_LibraryItem extends _LibraryItem {
     return EqualUnmodifiableListView(_libraryFiles);
   }
 
+// From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
   @override
   final Series? collapsedSeries;
+// From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+  @override
+  final RssFeed? rssFeed;
   @override
   final String? sequence;
   @override
@@ -755,7 +785,7 @@ class _$_LibraryItem extends _LibraryItem {
 
   @override
   String toString() {
-    return 'LibraryItem(updated: $updated, id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence)';
+    return 'LibraryItem(updated: $updated, id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, lastScan: $lastScan, scanVersion: $scanVersion, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, libraryFiles: $libraryFiles, collapsedSeries: $collapsedSeries, rssFeed: $rssFeed, sequence: $sequence, seriesSequence: $seriesSequence)';
   }
 
   @override
@@ -795,6 +825,7 @@ class _$_LibraryItem extends _LibraryItem {
                 .equals(other._libraryFiles, _libraryFiles) &&
             (identical(other.collapsedSeries, collapsedSeries) ||
                 other.collapsedSeries == collapsedSeries) &&
+            (identical(other.rssFeed, rssFeed) || other.rssFeed == rssFeed) &&
             (identical(other.sequence, sequence) ||
                 other.sequence == sequence) &&
             (identical(other.seriesSequence, seriesSequence) ||
@@ -826,6 +857,7 @@ class _$_LibraryItem extends _LibraryItem {
         media,
         const DeepCollectionEquality().hash(_libraryFiles),
         collapsedSeries,
+        rssFeed,
         sequence,
         seriesSequence
       ]);
@@ -861,6 +893,7 @@ class _$_LibraryItem extends _LibraryItem {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)
         $default, {
@@ -884,6 +917,7 @@ class _$_LibraryItem extends _LibraryItem {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -941,6 +975,7 @@ class _$_LibraryItem extends _LibraryItem {
         media,
         libraryFiles,
         collapsedSeries,
+        rssFeed,
         sequence,
         seriesSequence);
   }
@@ -970,6 +1005,7 @@ class _$_LibraryItem extends _LibraryItem {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)?
         $default, {
@@ -993,6 +1029,7 @@ class _$_LibraryItem extends _LibraryItem {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -1050,6 +1087,7 @@ class _$_LibraryItem extends _LibraryItem {
         media,
         libraryFiles,
         collapsedSeries,
+        rssFeed,
         sequence,
         seriesSequence);
   }
@@ -1079,6 +1117,7 @@ class _$_LibraryItem extends _LibraryItem {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)?
         $default, {
@@ -1102,6 +1141,7 @@ class _$_LibraryItem extends _LibraryItem {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -1161,6 +1201,7 @@ class _$_LibraryItem extends _LibraryItem {
           media,
           libraryFiles,
           collapsedSeries,
+          rssFeed,
           sequence,
           seriesSequence);
     }
@@ -1232,6 +1273,7 @@ abstract class _LibraryItem extends LibraryItem {
       required final Media media,
       required final List<LibraryFile> libraryFiles,
       final Series? collapsedSeries,
+      final RssFeed? rssFeed,
       final String? sequence,
       final String? seriesSequence}) = _$_LibraryItem;
   const _LibraryItem._() : super._();
@@ -1277,8 +1319,11 @@ abstract class _LibraryItem extends LibraryItem {
   MediaType get mediaType;
   @override
   Media get media;
-  List<LibraryFile> get libraryFiles;
-  Series? get collapsedSeries;
+  List<LibraryFile>
+      get libraryFiles; // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+  Series?
+      get collapsedSeries; // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+  RssFeed? get rssFeed;
   @override
   String? get sequence;
   @override
@@ -1317,6 +1362,7 @@ abstract class _$$LibraryItemMinifiedCopyWith<$Res>
       int numFiles,
       int size,
       Series? collapsedSeries,
+      RssFeed? rssFeed,
       String? sequence,
       String? seriesSequence,
       PodcastEpisode? recentEpisode,
@@ -1327,6 +1373,7 @@ abstract class _$$LibraryItemMinifiedCopyWith<$Res>
   @override
   $MediaCopyWith<$Res> get media;
   $SeriesCopyWith<$Res>? get collapsedSeries;
+  $RssFeedCopyWith<$Res>? get rssFeed;
   $PodcastEpisodeCopyWith<$Res>? get recentEpisode;
 }
 
@@ -1360,6 +1407,7 @@ class __$$LibraryItemMinifiedCopyWithImpl<$Res>
     Object? numFiles = null,
     Object? size = null,
     Object? collapsedSeries = freezed,
+    Object? rssFeed = freezed,
     Object? sequence = freezed,
     Object? seriesSequence = freezed,
     Object? recentEpisode = freezed,
@@ -1444,6 +1492,10 @@ class __$$LibraryItemMinifiedCopyWithImpl<$Res>
           ? _value.collapsedSeries
           : collapsedSeries // ignore: cast_nullable_to_non_nullable
               as Series?,
+      rssFeed: freezed == rssFeed
+          ? _value.rssFeed
+          : rssFeed // ignore: cast_nullable_to_non_nullable
+              as RssFeed?,
       sequence: freezed == sequence
           ? _value.sequence
           : sequence // ignore: cast_nullable_to_non_nullable
@@ -1485,6 +1537,18 @@ class __$$LibraryItemMinifiedCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
+  $RssFeedCopyWith<$Res>? get rssFeed {
+    if (_value.rssFeed == null) {
+      return null;
+    }
+
+    return $RssFeedCopyWith<$Res>(_value.rssFeed!, (value) {
+      return _then(_value.copyWith(rssFeed: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $PodcastEpisodeCopyWith<$Res>? get recentEpisode {
     if (_value.recentEpisode == null) {
       return null;
@@ -1520,6 +1584,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
       required this.numFiles,
       required this.size,
       this.collapsedSeries,
+      this.rssFeed,
       this.sequence,
       this.seriesSequence,
       this.recentEpisode,
@@ -1572,8 +1637,12 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   final int numFiles;
   @override
   final int size;
+// From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
   @override
   final Series? collapsedSeries;
+// From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+  @override
+  final RssFeed? rssFeed;
   @override
   final String? sequence;
   @override
@@ -1592,7 +1661,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
 
   @override
   String toString() {
-    return 'LibraryItem.minified(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, numFiles: $numFiles, size: $size, collapsedSeries: $collapsedSeries, sequence: $sequence, seriesSequence: $seriesSequence, recentEpisode: $recentEpisode, finishedAt: $finishedAt, progressLastUpdate: $progressLastUpdate, prevBookInProgressLastUpdate: $prevBookInProgressLastUpdate)';
+    return 'LibraryItem.minified(id: $id, ino: $ino, libraryId: $libraryId, folderId: $folderId, path: $path, relPath: $relPath, isFile: $isFile, mtime: $mtime, ctime: $ctime, birthtime: $birthtime, addedAt: $addedAt, updatedAt: $updatedAt, isMissing: $isMissing, isInvalid: $isInvalid, mediaType: $mediaType, media: $media, numFiles: $numFiles, size: $size, collapsedSeries: $collapsedSeries, rssFeed: $rssFeed, sequence: $sequence, seriesSequence: $seriesSequence, recentEpisode: $recentEpisode, finishedAt: $finishedAt, progressLastUpdate: $progressLastUpdate, prevBookInProgressLastUpdate: $prevBookInProgressLastUpdate)';
   }
 
   @override
@@ -1628,6 +1697,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             (identical(other.size, size) || other.size == size) &&
             (identical(other.collapsedSeries, collapsedSeries) ||
                 other.collapsedSeries == collapsedSeries) &&
+            (identical(other.rssFeed, rssFeed) || other.rssFeed == rssFeed) &&
             (identical(other.sequence, sequence) ||
                 other.sequence == sequence) &&
             (identical(other.seriesSequence, seriesSequence) ||
@@ -1667,6 +1737,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
         numFiles,
         size,
         collapsedSeries,
+        rssFeed,
         sequence,
         seriesSequence,
         recentEpisode,
@@ -1707,6 +1778,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)
         $default, {
@@ -1730,6 +1802,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -1785,6 +1858,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
         numFiles,
         size,
         collapsedSeries,
+        rssFeed,
         sequence,
         seriesSequence,
         recentEpisode,
@@ -1818,6 +1892,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)?
         $default, {
@@ -1841,6 +1916,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -1896,6 +1972,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
         numFiles,
         size,
         collapsedSeries,
+        rssFeed,
         sequence,
         seriesSequence,
         recentEpisode,
@@ -1929,6 +2006,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)?
         $default, {
@@ -1952,6 +2030,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -2009,6 +2088,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
           numFiles,
           size,
           collapsedSeries,
+          rssFeed,
           sequence,
           seriesSequence,
           recentEpisode,
@@ -2082,6 +2162,7 @@ abstract class LibraryItemMinified extends LibraryItem {
       required final int numFiles,
       required final int size,
       final Series? collapsedSeries,
+      final RssFeed? rssFeed,
       final String? sequence,
       final String? seriesSequence,
       final PodcastEpisode? recentEpisode,
@@ -2129,8 +2210,10 @@ abstract class LibraryItemMinified extends LibraryItem {
   @override
   Media get media;
   int get numFiles;
-  int get size;
-  Series? get collapsedSeries;
+  int get size; // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+  Series?
+      get collapsedSeries; // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+  RssFeed? get rssFeed;
   @override
   String? get sequence;
   @override
@@ -2564,6 +2647,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)
         $default, {
@@ -2587,6 +2671,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -2675,6 +2760,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)?
         $default, {
@@ -2698,6 +2784,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,
@@ -2786,6 +2873,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             Media media,
             List<LibraryFile> libraryFiles,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence)?
         $default, {
@@ -2809,6 +2897,7 @@ class _$LibraryItemExpanded extends LibraryItemExpanded {
             int numFiles,
             int size,
             Series? collapsedSeries,
+            RssFeed? rssFeed,
             String? sequence,
             String? seriesSequence,
             PodcastEpisode? recentEpisode,

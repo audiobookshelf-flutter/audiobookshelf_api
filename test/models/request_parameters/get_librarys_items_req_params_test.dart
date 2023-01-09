@@ -12,6 +12,7 @@ void main() {
     const desc = true;
     const minified = true;
     const collapseSeries = true;
+    const includeRssFeed = true;
 
     final fakeFilter = FakeFilter();
 
@@ -26,6 +27,7 @@ void main() {
         filter: fakeFilter,
         minified: minified,
         collapseSeries: collapseSeries,
+        includeRssFeed: includeRssFeed,
       );
     });
 
@@ -39,6 +41,7 @@ void main() {
           'filter': _filter,
           'minified': 1,
           'collapseseries': 1,
+          'include': 'rssfeed',
         });
       });
 

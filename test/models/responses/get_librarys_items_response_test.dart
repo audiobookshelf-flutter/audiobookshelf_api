@@ -19,6 +19,7 @@ void main() {
     const mediaType = MediaType.book;
     const minified = true;
     const collapseSeries = false;
+    const include = 'include';
 
     final json = {
       'results': [library_item.bookJsonMinified],
@@ -31,6 +32,7 @@ void main() {
       'mediaType': mediaType.type,
       'minified': minified,
       'collapseseries': collapseSeries,
+      'include': include,
     };
 
     late GetLibrarysItemsResponse sut;
@@ -47,6 +49,7 @@ void main() {
         mediaType: mediaType,
         minified: minified,
         collapseSeries: collapseSeries,
+        include: include,
       );
     });
 
