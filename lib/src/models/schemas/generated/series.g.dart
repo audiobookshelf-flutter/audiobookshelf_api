@@ -16,6 +16,9 @@ _$_Series _$$_SeriesFromJson(Map<String, dynamic> json) => _$_Series(
       progress: json['progress'] == null
           ? null
           : SeriesProgress.fromJson(json['progress'] as Map<String, dynamic>),
+      rssFeed: json['rssFeed'] == null
+          ? null
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -26,6 +29,7 @@ Map<String, dynamic> _$$_SeriesToJson(_$_Series instance) => <String, dynamic>{
       'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
       'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
       'progress': instance.progress,
+      'rssFeed': instance.rssFeed,
       'runtimeType': instance.$type,
     };
 

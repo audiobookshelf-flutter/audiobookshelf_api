@@ -29,11 +29,16 @@ class SeriesService extends Service {
   Future<Series?> get({
     required String seriesId,
     bool includeProgress = false,
+    bool includeRssFeed = false,
     ResponseErrorHandler? responseErrorHandler,
   }) {
+    final includeList = <String>[];
+    if (includeProgress) includeList.add('progress');
+    if (includeRssFeed) includeList.add('rssfeed');
+    final include = includeList.join(',');
     return api.getJson(
       path: '$basePath/$seriesId',
-      queryParameters: includeProgress ? {'include': 'progress'} : null,
+      queryParameters: include.isNotEmpty ? {'include': include} : null,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, Series.fromJson),

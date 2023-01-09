@@ -20,7 +20,10 @@ class Series with _$Series {
     String? description,
     required DateTime addedAt,
     required DateTime updatedAt,
+    // From [Get a Series](https://api.audiobookshelf.org/#get-a-series)
     SeriesProgress? progress,
+    // From [Get a Series](https://api.audiobookshelf.org/#get-a-series)
+    RssFeed? rssFeed,
   }) = _Series;
 
   const factory Series.numBooks({
