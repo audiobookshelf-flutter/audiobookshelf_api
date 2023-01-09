@@ -18,6 +18,7 @@ import 'services/misc_service.dart';
 import 'services/notifications_service.dart';
 import 'services/playlists_service.dart';
 import 'services/podcasts_service.dart';
+import 'services/rss_feeds_service.dart';
 import 'services/search_service.dart';
 import 'services/series_service.dart';
 import 'services/server_service.dart';
@@ -62,6 +63,7 @@ class AudiobookshelfApi {
   late final search = SearchService(this);
   late final cache = CacheService(this);
   late final tools = ToolsService(this);
+  late final feeds = RssFeedsService(this);
   late final misc = MiscService(this);
   late final socket = SocketService(this);
 
