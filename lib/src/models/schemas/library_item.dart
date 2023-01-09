@@ -106,8 +106,11 @@ class LibraryItem with _$LibraryItem {
     required int size,
     String? sequence,
     String? seriesSequence,
+    // From [Get a Library Item](https://api.audiobookshelf.org/#get-a-library-item)
     MediaProgress? userMediaProgress,
-    Uri? rssFeedUrl,
+    // From [Get a Library Item](https://api.audiobookshelf.org/#get-a-library-item)
+    RssFeed? rssFeed,
+    // From [Get a Library Item](https://api.audiobookshelf.org/#get-a-library-item)
     List<PodcastEpisodeDownload>? episodesDownloading,
   }) = LibraryItemExpanded;
 

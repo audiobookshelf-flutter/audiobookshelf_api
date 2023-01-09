@@ -206,9 +206,9 @@ _$LibraryItemExpanded _$$LibraryItemExpandedFromJson(
           ? null
           : MediaProgress.fromJson(
               json['userMediaProgress'] as Map<String, dynamic>),
-      rssFeedUrl: json['rssFeedUrl'] == null
+      rssFeed: json['rssFeed'] == null
           ? null
-          : Uri.parse(json['rssFeedUrl'] as String),
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
       episodesDownloading: (json['episodesDownloading'] as List<dynamic>?)
           ?.map(
               (e) => PodcastEpisodeDownload.fromJson(e as Map<String, dynamic>))
@@ -243,7 +243,7 @@ Map<String, dynamic> _$$LibraryItemExpandedToJson(
       'sequence': instance.sequence,
       'seriesSequence': instance.seriesSequence,
       'userMediaProgress': instance.userMediaProgress,
-      'rssFeedUrl': instance.rssFeedUrl?.toString(),
+      'rssFeed': instance.rssFeed,
       'episodesDownloading': instance.episodesDownloading,
       'runtimeType': instance.$type,
     };
