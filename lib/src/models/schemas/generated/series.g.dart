@@ -66,6 +66,9 @@ _$SeriesBooks _$$SeriesBooksFromJson(Map<String, dynamic> json) =>
       addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
       totalDuration: const DurationPreciseSecondsConverter()
           .fromJson(json['totalDuration'] as num),
+      rssFeed: json['rssFeed'] == null
+          ? null
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -80,6 +83,7 @@ Map<String, dynamic> _$$SeriesBooksToJson(_$SeriesBooks instance) =>
       'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
       'totalDuration': const DurationPreciseSecondsConverter()
           .toJson(instance.totalDuration),
+      'rssFeed': instance.rssFeed,
       'runtimeType': instance.$type,
     };
 

@@ -60,7 +60,8 @@ mixin _$Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -101,7 +102,8 @@ mixin _$Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -140,7 +142,8 @@ mixin _$Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -395,7 +398,8 @@ class _$_Series extends _Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -439,7 +443,8 @@ class _$_Series extends _Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -481,7 +486,8 @@ class _$_Series extends _Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -747,7 +753,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -792,7 +799,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -835,7 +843,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -953,7 +962,10 @@ abstract class _$$SeriesBooksCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       String type,
       List<LibraryItem> books,
       DateTime addedAt,
-      Duration totalDuration});
+      Duration totalDuration,
+      RssFeed? rssFeed});
+
+  $RssFeedCopyWith<$Res>? get rssFeed;
 }
 
 /// @nodoc
@@ -975,6 +987,7 @@ class __$$SeriesBooksCopyWithImpl<$Res>
     Object? books = null,
     Object? addedAt = null,
     Object? totalDuration = null,
+    Object? rssFeed = freezed,
   }) {
     return _then(_$SeriesBooks(
       id: null == id
@@ -1009,7 +1022,23 @@ class __$$SeriesBooksCopyWithImpl<$Res>
           ? _value.totalDuration
           : totalDuration // ignore: cast_nullable_to_non_nullable
               as Duration,
+      rssFeed: freezed == rssFeed
+          ? _value.rssFeed
+          : rssFeed // ignore: cast_nullable_to_non_nullable
+              as RssFeed?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RssFeedCopyWith<$Res>? get rssFeed {
+    if (_value.rssFeed == null) {
+      return null;
+    }
+
+    return $RssFeedCopyWith<$Res>(_value.rssFeed!, (value) {
+      return _then(_value.copyWith(rssFeed: value));
+    });
   }
 }
 
@@ -1026,6 +1055,7 @@ class _$SeriesBooks extends SeriesBooks {
       required final List<LibraryItem> books,
       required this.addedAt,
       required this.totalDuration,
+      this.rssFeed,
       final String? $type})
       : _books = books,
         $type = $type ?? 'books',
@@ -1057,13 +1087,16 @@ class _$SeriesBooks extends SeriesBooks {
   final DateTime addedAt;
   @override
   final Duration totalDuration;
+// From [Get a Library's Series](https://api.audiobookshelf.org/#get-a-library-39-s-series)
+  @override
+  final RssFeed? rssFeed;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Series.books(id: $id, name: $name, nameIgnorePrefix: $nameIgnorePrefix, nameIgnorePrefixSort: $nameIgnorePrefixSort, type: $type, books: $books, addedAt: $addedAt, totalDuration: $totalDuration)';
+    return 'Series.books(id: $id, name: $name, nameIgnorePrefix: $nameIgnorePrefix, nameIgnorePrefixSort: $nameIgnorePrefixSort, type: $type, books: $books, addedAt: $addedAt, totalDuration: $totalDuration, rssFeed: $rssFeed)';
   }
 
   @override
@@ -1081,7 +1114,8 @@ class _$SeriesBooks extends SeriesBooks {
             const DeepCollectionEquality().equals(other._books, _books) &&
             (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
             (identical(other.totalDuration, totalDuration) ||
-                other.totalDuration == totalDuration));
+                other.totalDuration == totalDuration) &&
+            (identical(other.rssFeed, rssFeed) || other.rssFeed == rssFeed));
   }
 
   @JsonKey(ignore: true)
@@ -1095,7 +1129,8 @@ class _$SeriesBooks extends SeriesBooks {
       type,
       const DeepCollectionEquality().hash(_books),
       addedAt,
-      totalDuration);
+      totalDuration,
+      rssFeed);
 
   @JsonKey(ignore: true)
   @override
@@ -1125,7 +1160,8 @@ class _$SeriesBooks extends SeriesBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -1145,7 +1181,7 @@ class _$SeriesBooks extends SeriesBooks {
         author,
   }) {
     return books(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
-        this.books, addedAt, totalDuration);
+        this.books, addedAt, totalDuration, rssFeed);
   }
 
   @override
@@ -1170,7 +1206,8 @@ class _$SeriesBooks extends SeriesBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -1188,7 +1225,7 @@ class _$SeriesBooks extends SeriesBooks {
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
     return books?.call(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
-        this.books, addedAt, totalDuration);
+        this.books, addedAt, totalDuration, rssFeed);
   }
 
   @override
@@ -1213,7 +1250,8 @@ class _$SeriesBooks extends SeriesBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -1233,7 +1271,7 @@ class _$SeriesBooks extends SeriesBooks {
   }) {
     if (books != null) {
       return books(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
-          this.books, addedAt, totalDuration);
+          this.books, addedAt, totalDuration, rssFeed);
     }
     return orElse();
   }
@@ -1298,7 +1336,8 @@ abstract class SeriesBooks extends Series {
       final String type,
       required final List<LibraryItem> books,
       required final DateTime addedAt,
-      required final Duration totalDuration}) = _$SeriesBooks;
+      required final Duration totalDuration,
+      final RssFeed? rssFeed}) = _$SeriesBooks;
   const SeriesBooks._() : super._();
 
   factory SeriesBooks.fromJson(Map<String, dynamic> json) =
@@ -1313,7 +1352,9 @@ abstract class SeriesBooks extends Series {
   String get type;
   List<LibraryItem> get books;
   DateTime get addedAt;
-  Duration get totalDuration;
+  Duration
+      get totalDuration; // From [Get a Library's Series](https://api.audiobookshelf.org/#get-a-library-39-s-series)
+  RssFeed? get rssFeed;
   @override
   @JsonKey(ignore: true)
   _$$SeriesBooksCopyWith<_$SeriesBooks> get copyWith =>
@@ -1435,7 +1476,8 @@ class _$SeriesSequence extends SeriesSequence {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -1479,7 +1521,8 @@ class _$SeriesSequence extends SeriesSequence {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -1521,7 +1564,8 @@ class _$SeriesSequence extends SeriesSequence {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -1844,7 +1888,8 @@ class _$ShelfSeries extends ShelfSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -1898,7 +1943,8 @@ class _$ShelfSeries extends ShelfSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -1950,7 +1996,8 @@ class _$ShelfSeries extends ShelfSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -2192,7 +2239,8 @@ class _$AuthorSeries extends AuthorSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -2236,7 +2284,8 @@ class _$AuthorSeries extends AuthorSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -2278,7 +2327,8 @@ class _$AuthorSeries extends AuthorSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
