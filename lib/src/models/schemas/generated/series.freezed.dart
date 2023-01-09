@@ -75,7 +75,8 @@ mixin _$Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -116,7 +117,8 @@ mixin _$Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) =>
@@ -156,7 +158,8 @@ mixin _$Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -413,7 +416,8 @@ class _$_Series extends _Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -457,7 +461,8 @@ class _$_Series extends _Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -500,7 +505,8 @@ class _$_Series extends _Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -768,7 +774,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -813,7 +820,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -857,7 +865,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -1175,7 +1184,8 @@ class _$SeriesBooks extends SeriesBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -1220,7 +1230,8 @@ class _$SeriesBooks extends SeriesBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -1264,7 +1275,8 @@ class _$SeriesBooks extends SeriesBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -1491,7 +1503,8 @@ class _$SeriesSequence extends SeriesSequence {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -1535,7 +1548,8 @@ class _$SeriesSequence extends SeriesSequence {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -1578,7 +1592,8 @@ class _$SeriesSequence extends SeriesSequence {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -1678,9 +1693,11 @@ abstract class _$$ShelfSeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       bool inProgress,
       bool hideFromContinueListening,
       DateTime bookInProgressLastUpdate,
-      LibraryItem? firstBookUnread});
+      LibraryItem? firstBookUnread,
+      RssFeed? rssFeed});
 
   $LibraryItemCopyWith<$Res>? get firstBookUnread;
+  $RssFeedCopyWith<$Res>? get rssFeed;
 }
 
 /// @nodoc
@@ -1704,6 +1721,7 @@ class __$$ShelfSeriesCopyWithImpl<$Res>
     Object? hideFromContinueListening = null,
     Object? bookInProgressLastUpdate = null,
     Object? firstBookUnread = freezed,
+    Object? rssFeed = freezed,
   }) {
     return _then(_$ShelfSeries(
       id: null == id
@@ -1746,6 +1764,10 @@ class __$$ShelfSeriesCopyWithImpl<$Res>
           ? _value.firstBookUnread
           : firstBookUnread // ignore: cast_nullable_to_non_nullable
               as LibraryItem?,
+      rssFeed: freezed == rssFeed
+          ? _value.rssFeed
+          : rssFeed // ignore: cast_nullable_to_non_nullable
+              as RssFeed?,
     ));
   }
 
@@ -1758,6 +1780,18 @@ class __$$ShelfSeriesCopyWithImpl<$Res>
 
     return $LibraryItemCopyWith<$Res>(_value.firstBookUnread!, (value) {
       return _then(_value.copyWith(firstBookUnread: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RssFeedCopyWith<$Res>? get rssFeed {
+    if (_value.rssFeed == null) {
+      return null;
+    }
+
+    return $RssFeedCopyWith<$Res>(_value.rssFeed!, (value) {
+      return _then(_value.copyWith(rssFeed: value));
     });
   }
 }
@@ -1777,6 +1811,7 @@ class _$ShelfSeries extends ShelfSeries {
       required this.hideFromContinueListening,
       required this.bookInProgressLastUpdate,
       this.firstBookUnread,
+      this.rssFeed,
       final String? $type})
       : _books = books,
         $type = $type ?? 'shelf',
@@ -1811,13 +1846,15 @@ class _$ShelfSeries extends ShelfSeries {
   final DateTime bookInProgressLastUpdate;
   @override
   final LibraryItem? firstBookUnread;
+  @override
+  final RssFeed? rssFeed;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Series.shelf(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt, books: $books, inProgress: $inProgress, hideFromContinueListening: $hideFromContinueListening, bookInProgressLastUpdate: $bookInProgressLastUpdate, firstBookUnread: $firstBookUnread)';
+    return 'Series.shelf(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt, books: $books, inProgress: $inProgress, hideFromContinueListening: $hideFromContinueListening, bookInProgressLastUpdate: $bookInProgressLastUpdate, firstBookUnread: $firstBookUnread, rssFeed: $rssFeed)';
   }
 
   @override
@@ -1842,7 +1879,8 @@ class _$ShelfSeries extends ShelfSeries {
                     other.bookInProgressLastUpdate, bookInProgressLastUpdate) ||
                 other.bookInProgressLastUpdate == bookInProgressLastUpdate) &&
             (identical(other.firstBookUnread, firstBookUnread) ||
-                other.firstBookUnread == firstBookUnread));
+                other.firstBookUnread == firstBookUnread) &&
+            (identical(other.rssFeed, rssFeed) || other.rssFeed == rssFeed));
   }
 
   @JsonKey(ignore: true)
@@ -1858,7 +1896,8 @@ class _$ShelfSeries extends ShelfSeries {
       inProgress,
       hideFromContinueListening,
       bookInProgressLastUpdate,
-      firstBookUnread);
+      firstBookUnread,
+      rssFeed);
 
   @JsonKey(ignore: true)
   @override
@@ -1903,7 +1942,8 @@ class _$ShelfSeries extends ShelfSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -1918,7 +1958,8 @@ class _$ShelfSeries extends ShelfSeries {
         inProgress,
         hideFromContinueListening,
         bookInProgressLastUpdate,
-        firstBookUnread);
+        firstBookUnread,
+        rssFeed);
   }
 
   @override
@@ -1957,7 +1998,8 @@ class _$ShelfSeries extends ShelfSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -1971,7 +2013,8 @@ class _$ShelfSeries extends ShelfSeries {
         inProgress,
         hideFromContinueListening,
         bookInProgressLastUpdate,
-        firstBookUnread);
+        firstBookUnread,
+        rssFeed);
   }
 
   @override
@@ -2010,7 +2053,8 @@ class _$ShelfSeries extends ShelfSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -2026,7 +2070,8 @@ class _$ShelfSeries extends ShelfSeries {
           inProgress,
           hideFromContinueListening,
           bookInProgressLastUpdate,
-          firstBookUnread);
+          firstBookUnread,
+          rssFeed);
     }
     return orElse();
   }
@@ -2093,7 +2138,8 @@ abstract class ShelfSeries extends Series {
       required final bool inProgress,
       required final bool hideFromContinueListening,
       required final DateTime bookInProgressLastUpdate,
-      final LibraryItem? firstBookUnread}) = _$ShelfSeries;
+      final LibraryItem? firstBookUnread,
+      final RssFeed? rssFeed}) = _$ShelfSeries;
   const ShelfSeries._() : super._();
 
   factory ShelfSeries.fromJson(Map<String, dynamic> json) =
@@ -2111,6 +2157,7 @@ abstract class ShelfSeries extends Series {
   bool get hideFromContinueListening;
   DateTime get bookInProgressLastUpdate;
   LibraryItem? get firstBookUnread;
+  RssFeed? get rssFeed;
   @override
   @JsonKey(ignore: true)
   _$$ShelfSeriesCopyWith<_$ShelfSeries> get copyWith =>
@@ -2254,7 +2301,8 @@ class _$AuthorSeries extends AuthorSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -2298,7 +2346,8 @@ class _$AuthorSeries extends AuthorSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -2341,7 +2390,8 @@ class _$AuthorSeries extends AuthorSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),

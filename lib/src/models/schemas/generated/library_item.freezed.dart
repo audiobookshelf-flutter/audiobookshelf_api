@@ -1641,6 +1641,7 @@ class _$LibraryItemMinified extends LibraryItemMinified {
   @override
   final Series? collapsedSeries;
 // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+// and [Get a Library's Personalized View](https://api.audiobookshelf.org/#get-a-library-39-s-personalized-view)
   @override
   final RssFeed? rssFeed;
   @override
@@ -2213,6 +2214,7 @@ abstract class LibraryItemMinified extends LibraryItem {
   int get size; // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
   Series?
       get collapsedSeries; // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
+// and [Get a Library's Personalized View](https://api.audiobookshelf.org/#get-a-library-39-s-personalized-view)
   RssFeed? get rssFeed;
   @override
   String? get sequence;

@@ -122,6 +122,9 @@ _$ShelfSeries _$$ShelfSeriesFromJson(Map<String, dynamic> json) =>
           ? null
           : LibraryItem.fromJson(
               json['firstBookUnread'] as Map<String, dynamic>),
+      rssFeed: json['rssFeed'] == null
+          ? null
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -138,6 +141,7 @@ Map<String, dynamic> _$$ShelfSeriesToJson(_$ShelfSeries instance) =>
       'bookInProgressLastUpdate': const DateTimeEpochConverter()
           .toJson(instance.bookInProgressLastUpdate),
       'firstBookUnread': instance.firstBookUnread,
+      'rssFeed': instance.rssFeed,
       'runtimeType': instance.$type,
     };
 

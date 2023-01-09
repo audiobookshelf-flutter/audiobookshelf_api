@@ -174,11 +174,17 @@ class LibrariesService extends Service {
   Future<List<Shelf>?> getPersonalized({
     required String libraryId,
     int limit = 10,
+    bool includeRssFeed = false,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.getJson(
       path: '$basePath/$libraryId/personalized',
-      queryParameters: limit != 10 ? {'limit': limit} : null,
+      queryParameters: limit != 10 || includeRssFeed
+          ? {
+              if (limit != 10) 'limit': limit,
+              if (includeRssFeed) 'include': 'rssfeed',
+            }
+          : null,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => listFromJson(json, Shelf.fromJson),

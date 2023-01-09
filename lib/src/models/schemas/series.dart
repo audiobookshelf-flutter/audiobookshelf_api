@@ -52,6 +52,7 @@ class Series with _$Series {
     String? sequence,
   }) = SeriesSequence;
 
+  /// See [Get a Library's Personalized View](https://api.audiobookshelf.org/#get-a-library-39-s-personalized-view)
   @jsonConverters
   const factory Series.shelf({
     required String id,
@@ -64,6 +65,7 @@ class Series with _$Series {
     required bool hideFromContinueListening,
     required DateTime bookInProgressLastUpdate,
     LibraryItem? firstBookUnread,
+    RssFeed? rssFeed,
   }) = ShelfSeries;
 
   const factory Series.author({
