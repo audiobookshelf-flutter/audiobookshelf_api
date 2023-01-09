@@ -41,6 +41,15 @@ mixin _$AudioMetaTags {
   String? get tagLanguage => throw _privateConstructorUsedError;
   String? get tagASIN => throw _privateConstructorUsedError;
   String? get tagOverdriveMediaMarker => throw _privateConstructorUsedError;
+  String? get tagOriginalYear => throw _privateConstructorUsedError;
+  String? get tagReleaseCountry => throw _privateConstructorUsedError;
+  String? get tagReleaseType => throw _privateConstructorUsedError;
+  String? get tagReleaseStatus => throw _privateConstructorUsedError;
+  String? get tagISRC => throw _privateConstructorUsedError;
+  String? get tagMusicBrainzTrackId => throw _privateConstructorUsedError;
+  String? get tagMusicBrainzAlbumId => throw _privateConstructorUsedError;
+  String? get tagMusicBrainzAlbumArtistId => throw _privateConstructorUsedError;
+  String? get tagMusicBrainzArtistId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -75,7 +84,16 @@ abstract class $AudioMetaTagsCopyWith<$Res> {
       String? tagIsbn,
       String? tagLanguage,
       String? tagASIN,
-      String? tagOverdriveMediaMarker});
+      String? tagOverdriveMediaMarker,
+      String? tagOriginalYear,
+      String? tagReleaseCountry,
+      String? tagReleaseType,
+      String? tagReleaseStatus,
+      String? tagISRC,
+      String? tagMusicBrainzTrackId,
+      String? tagMusicBrainzAlbumId,
+      String? tagMusicBrainzAlbumArtistId,
+      String? tagMusicBrainzArtistId});
 }
 
 /// @nodoc
@@ -112,6 +130,15 @@ class _$AudioMetaTagsCopyWithImpl<$Res, $Val extends AudioMetaTags>
     Object? tagLanguage = freezed,
     Object? tagASIN = freezed,
     Object? tagOverdriveMediaMarker = freezed,
+    Object? tagOriginalYear = freezed,
+    Object? tagReleaseCountry = freezed,
+    Object? tagReleaseType = freezed,
+    Object? tagReleaseStatus = freezed,
+    Object? tagISRC = freezed,
+    Object? tagMusicBrainzTrackId = freezed,
+    Object? tagMusicBrainzAlbumId = freezed,
+    Object? tagMusicBrainzAlbumArtistId = freezed,
+    Object? tagMusicBrainzArtistId = freezed,
   }) {
     return _then(_value.copyWith(
       tagAlbum: freezed == tagAlbum
@@ -198,6 +225,42 @@ class _$AudioMetaTagsCopyWithImpl<$Res, $Val extends AudioMetaTags>
           ? _value.tagOverdriveMediaMarker
           : tagOverdriveMediaMarker // ignore: cast_nullable_to_non_nullable
               as String?,
+      tagOriginalYear: freezed == tagOriginalYear
+          ? _value.tagOriginalYear
+          : tagOriginalYear // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagReleaseCountry: freezed == tagReleaseCountry
+          ? _value.tagReleaseCountry
+          : tagReleaseCountry // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagReleaseType: freezed == tagReleaseType
+          ? _value.tagReleaseType
+          : tagReleaseType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagReleaseStatus: freezed == tagReleaseStatus
+          ? _value.tagReleaseStatus
+          : tagReleaseStatus // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagISRC: freezed == tagISRC
+          ? _value.tagISRC
+          : tagISRC // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagMusicBrainzTrackId: freezed == tagMusicBrainzTrackId
+          ? _value.tagMusicBrainzTrackId
+          : tagMusicBrainzTrackId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagMusicBrainzAlbumId: freezed == tagMusicBrainzAlbumId
+          ? _value.tagMusicBrainzAlbumId
+          : tagMusicBrainzAlbumId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagMusicBrainzAlbumArtistId: freezed == tagMusicBrainzAlbumArtistId
+          ? _value.tagMusicBrainzAlbumArtistId
+          : tagMusicBrainzAlbumArtistId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagMusicBrainzArtistId: freezed == tagMusicBrainzArtistId
+          ? _value.tagMusicBrainzArtistId
+          : tagMusicBrainzArtistId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -231,7 +294,16 @@ abstract class _$$_AudioMetaTagsCopyWith<$Res>
       String? tagIsbn,
       String? tagLanguage,
       String? tagASIN,
-      String? tagOverdriveMediaMarker});
+      String? tagOverdriveMediaMarker,
+      String? tagOriginalYear,
+      String? tagReleaseCountry,
+      String? tagReleaseType,
+      String? tagReleaseStatus,
+      String? tagISRC,
+      String? tagMusicBrainzTrackId,
+      String? tagMusicBrainzAlbumId,
+      String? tagMusicBrainzAlbumArtistId,
+      String? tagMusicBrainzArtistId});
 }
 
 /// @nodoc
@@ -266,6 +338,15 @@ class __$$_AudioMetaTagsCopyWithImpl<$Res>
     Object? tagLanguage = freezed,
     Object? tagASIN = freezed,
     Object? tagOverdriveMediaMarker = freezed,
+    Object? tagOriginalYear = freezed,
+    Object? tagReleaseCountry = freezed,
+    Object? tagReleaseType = freezed,
+    Object? tagReleaseStatus = freezed,
+    Object? tagISRC = freezed,
+    Object? tagMusicBrainzTrackId = freezed,
+    Object? tagMusicBrainzAlbumId = freezed,
+    Object? tagMusicBrainzAlbumArtistId = freezed,
+    Object? tagMusicBrainzArtistId = freezed,
   }) {
     return _then(_$_AudioMetaTags(
       tagAlbum: freezed == tagAlbum
@@ -352,6 +433,42 @@ class __$$_AudioMetaTagsCopyWithImpl<$Res>
           ? _value.tagOverdriveMediaMarker
           : tagOverdriveMediaMarker // ignore: cast_nullable_to_non_nullable
               as String?,
+      tagOriginalYear: freezed == tagOriginalYear
+          ? _value.tagOriginalYear
+          : tagOriginalYear // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagReleaseCountry: freezed == tagReleaseCountry
+          ? _value.tagReleaseCountry
+          : tagReleaseCountry // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagReleaseType: freezed == tagReleaseType
+          ? _value.tagReleaseType
+          : tagReleaseType // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagReleaseStatus: freezed == tagReleaseStatus
+          ? _value.tagReleaseStatus
+          : tagReleaseStatus // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagISRC: freezed == tagISRC
+          ? _value.tagISRC
+          : tagISRC // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagMusicBrainzTrackId: freezed == tagMusicBrainzTrackId
+          ? _value.tagMusicBrainzTrackId
+          : tagMusicBrainzTrackId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagMusicBrainzAlbumId: freezed == tagMusicBrainzAlbumId
+          ? _value.tagMusicBrainzAlbumId
+          : tagMusicBrainzAlbumId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagMusicBrainzAlbumArtistId: freezed == tagMusicBrainzAlbumArtistId
+          ? _value.tagMusicBrainzAlbumArtistId
+          : tagMusicBrainzAlbumArtistId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tagMusicBrainzArtistId: freezed == tagMusicBrainzArtistId
+          ? _value.tagMusicBrainzArtistId
+          : tagMusicBrainzArtistId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -381,7 +498,16 @@ class _$_AudioMetaTags implements _AudioMetaTags {
       this.tagIsbn,
       this.tagLanguage,
       this.tagASIN,
-      this.tagOverdriveMediaMarker});
+      this.tagOverdriveMediaMarker,
+      this.tagOriginalYear,
+      this.tagReleaseCountry,
+      this.tagReleaseType,
+      this.tagReleaseStatus,
+      this.tagISRC,
+      this.tagMusicBrainzTrackId,
+      this.tagMusicBrainzAlbumId,
+      this.tagMusicBrainzAlbumArtistId,
+      this.tagMusicBrainzArtistId});
 
   factory _$_AudioMetaTags.fromJson(Map<String, dynamic> json) =>
       _$$_AudioMetaTagsFromJson(json);
@@ -428,10 +554,28 @@ class _$_AudioMetaTags implements _AudioMetaTags {
   final String? tagASIN;
   @override
   final String? tagOverdriveMediaMarker;
+  @override
+  final String? tagOriginalYear;
+  @override
+  final String? tagReleaseCountry;
+  @override
+  final String? tagReleaseType;
+  @override
+  final String? tagReleaseStatus;
+  @override
+  final String? tagISRC;
+  @override
+  final String? tagMusicBrainzTrackId;
+  @override
+  final String? tagMusicBrainzAlbumId;
+  @override
+  final String? tagMusicBrainzAlbumArtistId;
+  @override
+  final String? tagMusicBrainzArtistId;
 
   @override
   String toString() {
-    return 'AudioMetaTags(tagAlbum: $tagAlbum, tagArtist: $tagArtist, tagGenre: $tagGenre, tagTitle: $tagTitle, tagSeries: $tagSeries, tagSeriesPart: $tagSeriesPart, tagTrack: $tagTrack, tagDisc: $tagDisc, tagSubtitle: $tagSubtitle, tagAlbumArtist: $tagAlbumArtist, tagDate: $tagDate, tagComposer: $tagComposer, tagPublisher: $tagPublisher, tagComment: $tagComment, tagDescription: $tagDescription, tagEncoder: $tagEncoder, tagEncodedBy: $tagEncodedBy, tagIsbn: $tagIsbn, tagLanguage: $tagLanguage, tagASIN: $tagASIN, tagOverdriveMediaMarker: $tagOverdriveMediaMarker)';
+    return 'AudioMetaTags(tagAlbum: $tagAlbum, tagArtist: $tagArtist, tagGenre: $tagGenre, tagTitle: $tagTitle, tagSeries: $tagSeries, tagSeriesPart: $tagSeriesPart, tagTrack: $tagTrack, tagDisc: $tagDisc, tagSubtitle: $tagSubtitle, tagAlbumArtist: $tagAlbumArtist, tagDate: $tagDate, tagComposer: $tagComposer, tagPublisher: $tagPublisher, tagComment: $tagComment, tagDescription: $tagDescription, tagEncoder: $tagEncoder, tagEncodedBy: $tagEncodedBy, tagIsbn: $tagIsbn, tagLanguage: $tagLanguage, tagASIN: $tagASIN, tagOverdriveMediaMarker: $tagOverdriveMediaMarker, tagOriginalYear: $tagOriginalYear, tagReleaseCountry: $tagReleaseCountry, tagReleaseType: $tagReleaseType, tagReleaseStatus: $tagReleaseStatus, tagISRC: $tagISRC, tagMusicBrainzTrackId: $tagMusicBrainzTrackId, tagMusicBrainzAlbumId: $tagMusicBrainzAlbumId, tagMusicBrainzAlbumArtistId: $tagMusicBrainzAlbumArtistId, tagMusicBrainzArtistId: $tagMusicBrainzArtistId)';
   }
 
   @override
@@ -477,7 +621,26 @@ class _$_AudioMetaTags implements _AudioMetaTags {
             (identical(other.tagASIN, tagASIN) || other.tagASIN == tagASIN) &&
             (identical(
                     other.tagOverdriveMediaMarker, tagOverdriveMediaMarker) ||
-                other.tagOverdriveMediaMarker == tagOverdriveMediaMarker));
+                other.tagOverdriveMediaMarker == tagOverdriveMediaMarker) &&
+            (identical(other.tagOriginalYear, tagOriginalYear) ||
+                other.tagOriginalYear == tagOriginalYear) &&
+            (identical(other.tagReleaseCountry, tagReleaseCountry) ||
+                other.tagReleaseCountry == tagReleaseCountry) &&
+            (identical(other.tagReleaseType, tagReleaseType) ||
+                other.tagReleaseType == tagReleaseType) &&
+            (identical(other.tagReleaseStatus, tagReleaseStatus) ||
+                other.tagReleaseStatus == tagReleaseStatus) &&
+            (identical(other.tagISRC, tagISRC) || other.tagISRC == tagISRC) &&
+            (identical(other.tagMusicBrainzTrackId, tagMusicBrainzTrackId) ||
+                other.tagMusicBrainzTrackId == tagMusicBrainzTrackId) &&
+            (identical(other.tagMusicBrainzAlbumId, tagMusicBrainzAlbumId) ||
+                other.tagMusicBrainzAlbumId == tagMusicBrainzAlbumId) &&
+            (identical(other.tagMusicBrainzAlbumArtistId,
+                    tagMusicBrainzAlbumArtistId) ||
+                other.tagMusicBrainzAlbumArtistId ==
+                    tagMusicBrainzAlbumArtistId) &&
+            (identical(other.tagMusicBrainzArtistId, tagMusicBrainzArtistId) ||
+                other.tagMusicBrainzArtistId == tagMusicBrainzArtistId));
   }
 
   @JsonKey(ignore: true)
@@ -504,7 +667,16 @@ class _$_AudioMetaTags implements _AudioMetaTags {
         tagIsbn,
         tagLanguage,
         tagASIN,
-        tagOverdriveMediaMarker
+        tagOverdriveMediaMarker,
+        tagOriginalYear,
+        tagReleaseCountry,
+        tagReleaseType,
+        tagReleaseStatus,
+        tagISRC,
+        tagMusicBrainzTrackId,
+        tagMusicBrainzAlbumId,
+        tagMusicBrainzAlbumArtistId,
+        tagMusicBrainzArtistId
       ]);
 
   @JsonKey(ignore: true)
@@ -543,7 +715,16 @@ abstract class _AudioMetaTags implements AudioMetaTags {
       final String? tagIsbn,
       final String? tagLanguage,
       final String? tagASIN,
-      final String? tagOverdriveMediaMarker}) = _$_AudioMetaTags;
+      final String? tagOverdriveMediaMarker,
+      final String? tagOriginalYear,
+      final String? tagReleaseCountry,
+      final String? tagReleaseType,
+      final String? tagReleaseStatus,
+      final String? tagISRC,
+      final String? tagMusicBrainzTrackId,
+      final String? tagMusicBrainzAlbumId,
+      final String? tagMusicBrainzAlbumArtistId,
+      final String? tagMusicBrainzArtistId}) = _$_AudioMetaTags;
 
   factory _AudioMetaTags.fromJson(Map<String, dynamic> json) =
       _$_AudioMetaTags.fromJson;
@@ -590,6 +771,24 @@ abstract class _AudioMetaTags implements AudioMetaTags {
   String? get tagASIN;
   @override
   String? get tagOverdriveMediaMarker;
+  @override
+  String? get tagOriginalYear;
+  @override
+  String? get tagReleaseCountry;
+  @override
+  String? get tagReleaseType;
+  @override
+  String? get tagReleaseStatus;
+  @override
+  String? get tagISRC;
+  @override
+  String? get tagMusicBrainzTrackId;
+  @override
+  String? get tagMusicBrainzAlbumId;
+  @override
+  String? get tagMusicBrainzAlbumArtistId;
+  @override
+  String? get tagMusicBrainzArtistId;
   @override
   @JsonKey(ignore: true)
   _$$_AudioMetaTagsCopyWith<_$_AudioMetaTags> get copyWith =>
