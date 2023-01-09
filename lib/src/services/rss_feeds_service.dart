@@ -65,4 +65,16 @@ class RssFeedsService extends Service {
       fromJson: (json) => fromJson(json['feed'], RssFeed.fromJson),
     );
   }
+
+  /// See [Close an RSS Feed](https://api.audiobookshelf.org/#close-an-rss-feed)
+  Future<void> close({
+    required String id,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/$id/close',
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
 }

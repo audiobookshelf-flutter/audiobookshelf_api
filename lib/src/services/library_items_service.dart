@@ -236,18 +236,6 @@ class LibraryItemsService extends Service {
     );
   }
 
-  /// See [Close an RSS Feed for a Library Item](https://api.audiobookshelf.org/#close-an-rss-feed-for-a-library-item)
-  Future<void> closeRssFeed({
-    required String libraryItemId,
-    ResponseErrorHandler? responseErrorHandler,
-  }) {
-    return api.post(
-      path: '$basePath/$libraryItemId/close-feed',
-      requiresAuth: true,
-      responseErrorHandler: responseErrorHandler,
-    );
-  }
-
   /// See [Tone Scan a Library Item](https://api.audiobookshelf.org/#tone-scan-a-library-item)
   Future<ToneScanItemResponse?> toneScan({
     required String libraryItemId,
