@@ -46,4 +46,23 @@ class RssFeedsService extends Service {
       fromJson: (json) => fromJson(json['feed'], RssFeed.fromJson),
     );
   }
+
+  /// See [Open an RSS Feed for a Series](https://api.audiobookshelf.org/#open-an-rss-feed-for-a-series)
+  Future<RssFeed?> openForSeries({
+    required String seriesId,
+    required String serverAddress,
+    required String slug,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/series/$seriesId/open',
+      jsonObject: {
+        'serverAddress': serverAddress,
+        'slug': slug,
+      },
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json['feed'], RssFeed.fromJson),
+    );
+  }
 }
