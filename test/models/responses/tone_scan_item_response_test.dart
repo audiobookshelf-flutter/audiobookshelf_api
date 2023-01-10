@@ -149,4 +149,14 @@ void main() {
       expect(frames.toJson(), framesJson);
     });
   });
+
+  group('ToneScanFileResponse', () {
+    test('fromJson', () {
+      expect(file, ToneScanFileResponse.fromJson(fileJson));
+    });
+
+    test('toJson', () {
+      expect(file.toJson(), fileJson);
+    });
+  });
 }
