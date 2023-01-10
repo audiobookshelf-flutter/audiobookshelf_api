@@ -15,3 +15,5 @@ tags:
   depends_on_ServerSettings:
   depends_on_Author:
   depends_on_PodcastFeedEpisode:
+  depends_on_ToneScanAudioResponse:
+  depends_on_ToneScanFileResponse:
