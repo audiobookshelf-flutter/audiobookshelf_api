@@ -129,4 +129,14 @@ void main() {
       expect(audio.toJson(), deepMapContains(audioJson));
     });
   });
+
+  group('ToneScanAudioChannelsResponse', () {
+    test('fromJson', () {
+      expect(channels, ToneScanAudioChannelsResponse.fromJson(channelsJson));
+    });
+
+    test('toJson', () {
+      expect(channels.toJson(), channelsJson);
+    });
+  });
 }
