@@ -87,4 +87,34 @@ void main() {
       });
     });
   });
+
+  group('SearchResultChapter', () {
+    const length = Duration.zero;
+    const startOffset = Duration.zero;
+    const title = 'title';
+
+    const json = {
+      'lengthMs': 0,
+      'startOffsetMs': 0,
+      'title': title,
+    };
+
+    late SearchResultChapter sut;
+
+    setUp(() {
+      sut = const SearchResultChapter(
+        length: length,
+        startOffset: startOffset,
+        title: title,
+      );
+    });
+
+    test('fromJson', () {
+      expect(sut, SearchResultChapter.fromJson(json));
+    });
+
+    test('toJson', () {
+      expect(sut.toJson(), json);
+    });
+  });
 }
