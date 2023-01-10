@@ -29,6 +29,15 @@ class AudioMetaTags with _$AudioMetaTags {
     String? tagLanguage,
     String? tagASIN,
     String? tagOverdriveMediaMarker,
+    String? tagOriginalYear,
+    String? tagReleaseCountry,
+    String? tagReleaseType,
+    String? tagReleaseStatus,
+    String? tagISRC,
+    String? tagMusicBrainzTrackId,
+    String? tagMusicBrainzAlbumId,
+    String? tagMusicBrainzAlbumArtistId,
+    String? tagMusicBrainzArtistId,
   }) = _AudioMetaTags;
 
   factory AudioMetaTags.fromJson(Map<String, dynamic> json) =>

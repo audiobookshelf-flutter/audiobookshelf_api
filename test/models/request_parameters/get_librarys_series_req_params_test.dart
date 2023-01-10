@@ -11,6 +11,7 @@ void main() {
     const sort = 'sort';
     const desc = true;
     const minified = true;
+    const includeRssFeed = true;
 
     final fakeFilter = FakeFilter();
 
@@ -24,6 +25,7 @@ void main() {
         desc: desc,
         filter: fakeFilter,
         minified: minified,
+        includeRssFeed: includeRssFeed,
       );
     });
 
@@ -36,6 +38,7 @@ void main() {
           'desc': 1,
           'filter': _filter,
           'minified': 1,
+          'include': 'rssfeed',
         });
       });
 

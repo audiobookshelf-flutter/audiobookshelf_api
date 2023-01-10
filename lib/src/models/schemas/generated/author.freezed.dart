@@ -41,7 +41,6 @@ mixin _$Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -54,7 +53,6 @@ mixin _$Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)
@@ -69,7 +67,6 @@ mixin _$Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -82,7 +79,6 @@ mixin _$Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)?
@@ -97,7 +93,6 @@ mixin _$Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -110,7 +105,6 @@ mixin _$Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)?
@@ -194,7 +188,6 @@ abstract class _$$_AuthorCopyWith<$Res> implements $AuthorCopyWith<$Res> {
       String name,
       String? description,
       String? imagePath,
-      String? relImagePath,
       DateTime addedAt,
       DateTime updatedAt,
       List<LibraryItem>? libraryItems,
@@ -216,7 +209,6 @@ class __$$_AuthorCopyWithImpl<$Res>
     Object? name = null,
     Object? description = freezed,
     Object? imagePath = freezed,
-    Object? relImagePath = freezed,
     Object? addedAt = null,
     Object? updatedAt = null,
     Object? libraryItems = freezed,
@@ -242,10 +234,6 @@ class __$$_AuthorCopyWithImpl<$Res>
       imagePath: freezed == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      relImagePath: freezed == relImagePath
-          ? _value.relImagePath
-          : relImagePath // ignore: cast_nullable_to_non_nullable
               as String?,
       addedAt: null == addedAt
           ? _value.addedAt
@@ -277,7 +265,6 @@ class _$_Author extends _Author {
       required this.name,
       this.description,
       this.imagePath,
-      this.relImagePath,
       required this.addedAt,
       required this.updatedAt,
       final List<LibraryItem>? libraryItems,
@@ -301,8 +288,6 @@ class _$_Author extends _Author {
   final String? description;
   @override
   final String? imagePath;
-  @override
-  final String? relImagePath;
   @override
   final DateTime addedAt;
   @override
@@ -332,7 +317,7 @@ class _$_Author extends _Author {
 
   @override
   String toString() {
-    return 'Author(id: $id, asin: $asin, name: $name, description: $description, imagePath: $imagePath, relImagePath: $relImagePath, addedAt: $addedAt, updatedAt: $updatedAt, libraryItems: $libraryItems, series: $series)';
+    return 'Author(id: $id, asin: $asin, name: $name, description: $description, imagePath: $imagePath, addedAt: $addedAt, updatedAt: $updatedAt, libraryItems: $libraryItems, series: $series)';
   }
 
   @override
@@ -347,8 +332,6 @@ class _$_Author extends _Author {
                 other.description == description) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
-            (identical(other.relImagePath, relImagePath) ||
-                other.relImagePath == relImagePath) &&
             (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
@@ -366,7 +349,6 @@ class _$_Author extends _Author {
       name,
       description,
       imagePath,
-      relImagePath,
       addedAt,
       updatedAt,
       const DeepCollectionEquality().hash(_libraryItems),
@@ -387,7 +369,6 @@ class _$_Author extends _Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -400,14 +381,13 @@ class _$_Author extends _Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)
         expanded,
   }) {
-    return $default(id, asin, name, description, imagePath, relImagePath,
-        addedAt, updatedAt, libraryItems, series);
+    return $default(id, asin, name, description, imagePath, addedAt, updatedAt,
+        libraryItems, series);
   }
 
   @override
@@ -419,7 +399,6 @@ class _$_Author extends _Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -432,14 +411,13 @@ class _$_Author extends _Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)?
         expanded,
   }) {
-    return $default?.call(id, asin, name, description, imagePath, relImagePath,
-        addedAt, updatedAt, libraryItems, series);
+    return $default?.call(id, asin, name, description, imagePath, addedAt,
+        updatedAt, libraryItems, series);
   }
 
   @override
@@ -451,7 +429,6 @@ class _$_Author extends _Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -464,7 +441,6 @@ class _$_Author extends _Author {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)?
@@ -472,8 +448,8 @@ class _$_Author extends _Author {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(id, asin, name, description, imagePath, relImagePath,
-          addedAt, updatedAt, libraryItems, series);
+      return $default(id, asin, name, description, imagePath, addedAt,
+          updatedAt, libraryItems, series);
     }
     return orElse();
   }
@@ -527,7 +503,6 @@ abstract class _Author extends Author {
       required final String name,
       final String? description,
       final String? imagePath,
-      final String? relImagePath,
       required final DateTime addedAt,
       required final DateTime updatedAt,
       final List<LibraryItem>? libraryItems,
@@ -543,7 +518,6 @@ abstract class _Author extends Author {
   String get name;
   String? get description;
   String? get imagePath;
-  String? get relImagePath;
   DateTime get addedAt;
   DateTime get updatedAt;
   List<LibraryItem>? get libraryItems;
@@ -645,7 +619,6 @@ class _$AuthorMinified extends AuthorMinified {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -658,7 +631,6 @@ class _$AuthorMinified extends AuthorMinified {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)
@@ -676,7 +648,6 @@ class _$AuthorMinified extends AuthorMinified {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -689,7 +660,6 @@ class _$AuthorMinified extends AuthorMinified {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)?
@@ -707,7 +677,6 @@ class _$AuthorMinified extends AuthorMinified {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -720,7 +689,6 @@ class _$AuthorMinified extends AuthorMinified {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)?
@@ -808,7 +776,6 @@ abstract class _$$AuthorExpandedCopyWith<$Res>
       String name,
       String? description,
       String? imagePath,
-      String? relImagePath,
       DateTime addedAt,
       DateTime updatedAt,
       int numBooks});
@@ -830,7 +797,6 @@ class __$$AuthorExpandedCopyWithImpl<$Res>
     Object? name = null,
     Object? description = freezed,
     Object? imagePath = freezed,
-    Object? relImagePath = freezed,
     Object? addedAt = null,
     Object? updatedAt = null,
     Object? numBooks = null,
@@ -855,10 +821,6 @@ class __$$AuthorExpandedCopyWithImpl<$Res>
       imagePath: freezed == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      relImagePath: freezed == relImagePath
-          ? _value.relImagePath
-          : relImagePath // ignore: cast_nullable_to_non_nullable
               as String?,
       addedAt: null == addedAt
           ? _value.addedAt
@@ -886,7 +848,6 @@ class _$AuthorExpanded extends AuthorExpanded {
       required this.name,
       this.description,
       this.imagePath,
-      this.relImagePath,
       required this.addedAt,
       required this.updatedAt,
       required this.numBooks,
@@ -908,8 +869,6 @@ class _$AuthorExpanded extends AuthorExpanded {
   @override
   final String? imagePath;
   @override
-  final String? relImagePath;
-  @override
   final DateTime addedAt;
   @override
   final DateTime updatedAt;
@@ -921,7 +880,7 @@ class _$AuthorExpanded extends AuthorExpanded {
 
   @override
   String toString() {
-    return 'Author.expanded(id: $id, asin: $asin, name: $name, description: $description, imagePath: $imagePath, relImagePath: $relImagePath, addedAt: $addedAt, updatedAt: $updatedAt, numBooks: $numBooks)';
+    return 'Author.expanded(id: $id, asin: $asin, name: $name, description: $description, imagePath: $imagePath, addedAt: $addedAt, updatedAt: $updatedAt, numBooks: $numBooks)';
   }
 
   @override
@@ -936,8 +895,6 @@ class _$AuthorExpanded extends AuthorExpanded {
                 other.description == description) &&
             (identical(other.imagePath, imagePath) ||
                 other.imagePath == imagePath) &&
-            (identical(other.relImagePath, relImagePath) ||
-                other.relImagePath == relImagePath) &&
             (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
@@ -948,7 +905,7 @@ class _$AuthorExpanded extends AuthorExpanded {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, asin, name, description,
-      imagePath, relImagePath, addedAt, updatedAt, numBooks);
+      imagePath, addedAt, updatedAt, numBooks);
 
   @JsonKey(ignore: true)
   @override
@@ -965,7 +922,6 @@ class _$AuthorExpanded extends AuthorExpanded {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -978,14 +934,13 @@ class _$AuthorExpanded extends AuthorExpanded {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)
         expanded,
   }) {
-    return expanded(id, asin, name, description, imagePath, relImagePath,
-        addedAt, updatedAt, numBooks);
+    return expanded(
+        id, asin, name, description, imagePath, addedAt, updatedAt, numBooks);
   }
 
   @override
@@ -997,7 +952,6 @@ class _$AuthorExpanded extends AuthorExpanded {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -1010,14 +964,13 @@ class _$AuthorExpanded extends AuthorExpanded {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)?
         expanded,
   }) {
-    return expanded?.call(id, asin, name, description, imagePath, relImagePath,
-        addedAt, updatedAt, numBooks);
+    return expanded?.call(
+        id, asin, name, description, imagePath, addedAt, updatedAt, numBooks);
   }
 
   @override
@@ -1029,7 +982,6 @@ class _$AuthorExpanded extends AuthorExpanded {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             List<LibraryItem>? libraryItems,
@@ -1042,7 +994,6 @@ class _$AuthorExpanded extends AuthorExpanded {
             String name,
             String? description,
             String? imagePath,
-            String? relImagePath,
             DateTime addedAt,
             DateTime updatedAt,
             int numBooks)?
@@ -1050,8 +1001,8 @@ class _$AuthorExpanded extends AuthorExpanded {
     required TResult orElse(),
   }) {
     if (expanded != null) {
-      return expanded(id, asin, name, description, imagePath, relImagePath,
-          addedAt, updatedAt, numBooks);
+      return expanded(
+          id, asin, name, description, imagePath, addedAt, updatedAt, numBooks);
     }
     return orElse();
   }
@@ -1105,7 +1056,6 @@ abstract class AuthorExpanded extends Author {
       required final String name,
       final String? description,
       final String? imagePath,
-      final String? relImagePath,
       required final DateTime addedAt,
       required final DateTime updatedAt,
       required final int numBooks}) = _$AuthorExpanded;
@@ -1121,7 +1071,6 @@ abstract class AuthorExpanded extends Author {
   String get name;
   String? get description;
   String? get imagePath;
-  String? get relImagePath;
   DateTime get addedAt;
   DateTime get updatedAt;
   int get numBooks;

@@ -18,6 +18,8 @@ class GetLibrarysItemsReqParams {
   final bool? minified;
   @JsonKey(name: 'collapseseries')
   final bool? collapseSeries;
+  @JsonKey(ignore: true)
+  final bool includeRssFeed;
 
   /// See [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
   const GetLibrarysItemsReqParams({
@@ -28,8 +30,14 @@ class GetLibrarysItemsReqParams {
     this.filter,
     this.minified,
     this.collapseSeries,
+    this.includeRssFeed = false,
   });
 
-  Map<String, dynamic>? toJson() =>
-      _$GetLibrarysItemsReqParamsToJson(this).nullIfEmpty;
+  Map<String, dynamic>? toJson() {
+    final json = _$GetLibrarysItemsReqParamsToJson(this);
+    if (includeRssFeed) {
+      json['include'] = 'rssfeed';
+    }
+    return json.nullIfEmpty;
+  }
 }

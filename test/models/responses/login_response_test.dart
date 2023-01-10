@@ -12,14 +12,12 @@ void main() {
     'depends_on_ServerSettings',
   ], () {
     const userDefaultLibraryId = 'userDefaultLibraryId';
-    const feeds = <RssFeed>[];
     const source = 'source';
 
     const json = {
       'user': user.json,
       'userDefaultLibraryId': userDefaultLibraryId,
       'serverSettings': server_settings.json,
-      'feeds': feeds,
       'Source': source,
     };
 
@@ -30,7 +28,6 @@ void main() {
         user: user.user,
         userDefaultLibraryId: userDefaultLibraryId,
         serverSettings: server_settings.serverSettings,
-        feeds: feeds,
         source: source,
       );
     });

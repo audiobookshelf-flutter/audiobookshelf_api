@@ -1,3 +1,5 @@
+import 'package:json_annotation/json_annotation.dart';
+
 import '../../utils/json_converters.dart';
 import '../../utils/json_remove_defaults.dart';
 import '../utils/filter.dart';
@@ -14,6 +16,8 @@ class GetLibrarysSeriesReqParams {
   final bool? desc;
   final Filter? filter;
   final bool? minified;
+  @JsonKey(ignore: true)
+  final bool includeRssFeed;
 
   /// See [Get a Library's Series](https://api.audiobookshelf.org/#get-a-library-39-s-series)
   const GetLibrarysSeriesReqParams({
@@ -23,8 +27,14 @@ class GetLibrarysSeriesReqParams {
     this.desc,
     this.filter,
     this.minified,
+    this.includeRssFeed = false,
   });
 
-  Map<String, dynamic>? toJson() =>
-      _$GetLibrarysSeriesReqParamsToJson(this).nullIfEmpty;
+  Map<String, dynamic>? toJson() {
+    final json = _$GetLibrarysSeriesReqParamsToJson(this);
+    if (includeRssFeed) {
+      json['include'] = 'rssfeed';
+    }
+    return json.nullIfEmpty;
+  }
 }

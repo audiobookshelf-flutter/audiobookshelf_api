@@ -6,6 +6,7 @@ void main() {
     const limit = 1;
     const page = 1;
     const minified = true;
+    const includeRssFeed = true;
 
     late GetLibrarysCollectionsReqParams sut;
 
@@ -14,6 +15,7 @@ void main() {
         limit: limit,
         page: page,
         minified: minified,
+        includeRssFeed: includeRssFeed,
       );
     });
 
@@ -23,6 +25,7 @@ void main() {
           'limit': limit,
           'page': page,
           'minified': 1,
+          'include': 'rssfeed',
         });
       });
 

@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../utils/json_converters.dart';
 import 'library_item.dart';
+import 'rss_feed.dart';
 import 'series_progress.dart';
 
 part 'generated/series.freezed.dart';
@@ -19,7 +20,10 @@ class Series with _$Series {
     String? description,
     required DateTime addedAt,
     required DateTime updatedAt,
+    // From [Get a Series](https://api.audiobookshelf.org/#get-a-series)
     SeriesProgress? progress,
+    // From [Get a Series](https://api.audiobookshelf.org/#get-a-series)
+    RssFeed? rssFeed,
   }) = _Series;
 
   const factory Series.numBooks({
@@ -41,6 +45,8 @@ class Series with _$Series {
     required List<LibraryItem> books,
     required DateTime addedAt,
     required Duration totalDuration,
+    // From [Get a Library's Series](https://api.audiobookshelf.org/#get-a-library-39-s-series)
+    RssFeed? rssFeed,
   }) = SeriesBooks;
 
   const factory Series.sequence({
@@ -49,6 +55,7 @@ class Series with _$Series {
     String? sequence,
   }) = SeriesSequence;
 
+  /// See [Get a Library's Personalized View](https://api.audiobookshelf.org/#get-a-library-39-s-personalized-view)
   @jsonConverters
   const factory Series.shelf({
     required String id,
@@ -61,6 +68,7 @@ class Series with _$Series {
     required bool hideFromContinueListening,
     required DateTime bookInProgressLastUpdate,
     LibraryItem? firstBookUnread,
+    RssFeed? rssFeed,
   }) = ShelfSeries;
 
   const factory Series.author({

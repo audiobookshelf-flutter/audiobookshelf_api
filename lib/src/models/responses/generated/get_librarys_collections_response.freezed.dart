@@ -26,6 +26,7 @@ mixin _$GetLibrarysCollectionsResponse {
   int get limit => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   bool get minified => throw _privateConstructorUsedError;
+  String get include => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +47,8 @@ abstract class $GetLibrarysCollectionsResponseCopyWith<$Res> {
       int total,
       int limit,
       int page,
-      bool minified});
+      bool minified,
+      String include});
 }
 
 /// @nodoc
@@ -68,6 +70,7 @@ class _$GetLibrarysCollectionsResponseCopyWithImpl<$Res,
     Object? limit = null,
     Object? page = null,
     Object? minified = null,
+    Object? include = null,
   }) {
     return _then(_value.copyWith(
       results: null == results
@@ -90,6 +93,10 @@ class _$GetLibrarysCollectionsResponseCopyWithImpl<$Res,
           ? _value.minified
           : minified // ignore: cast_nullable_to_non_nullable
               as bool,
+      include: null == include
+          ? _value.include
+          : include // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -108,7 +115,8 @@ abstract class _$$_GetLibrarysCollectionsResponseCopyWith<$Res>
       int total,
       int limit,
       int page,
-      bool minified});
+      bool minified,
+      String include});
 }
 
 /// @nodoc
@@ -129,6 +137,7 @@ class __$$_GetLibrarysCollectionsResponseCopyWithImpl<$Res>
     Object? limit = null,
     Object? page = null,
     Object? minified = null,
+    Object? include = null,
   }) {
     return _then(_$_GetLibrarysCollectionsResponse(
       results: null == results
@@ -151,6 +160,10 @@ class __$$_GetLibrarysCollectionsResponseCopyWithImpl<$Res>
           ? _value.minified
           : minified // ignore: cast_nullable_to_non_nullable
               as bool,
+      include: null == include
+          ? _value.include
+          : include // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -164,7 +177,8 @@ class _$_GetLibrarysCollectionsResponse
       required this.total,
       required this.limit,
       required this.page,
-      required this.minified})
+      required this.minified,
+      required this.include})
       : _results = results;
 
   factory _$_GetLibrarysCollectionsResponse.fromJson(
@@ -187,10 +201,12 @@ class _$_GetLibrarysCollectionsResponse
   final int page;
   @override
   final bool minified;
+  @override
+  final String include;
 
   @override
   String toString() {
-    return 'GetLibrarysCollectionsResponse(results: $results, total: $total, limit: $limit, page: $page, minified: $minified)';
+    return 'GetLibrarysCollectionsResponse(results: $results, total: $total, limit: $limit, page: $page, minified: $minified, include: $include)';
   }
 
   @override
@@ -203,7 +219,8 @@ class _$_GetLibrarysCollectionsResponse
             (identical(other.limit, limit) || other.limit == limit) &&
             (identical(other.page, page) || other.page == page) &&
             (identical(other.minified, minified) ||
-                other.minified == minified));
+                other.minified == minified) &&
+            (identical(other.include, include) || other.include == include));
   }
 
   @JsonKey(ignore: true)
@@ -214,7 +231,8 @@ class _$_GetLibrarysCollectionsResponse
       total,
       limit,
       page,
-      minified);
+      minified,
+      include);
 
   @JsonKey(ignore: true)
   @override
@@ -238,7 +256,8 @@ abstract class _GetLibrarysCollectionsResponse
       required final int total,
       required final int limit,
       required final int page,
-      required final bool minified}) = _$_GetLibrarysCollectionsResponse;
+      required final bool minified,
+      required final String include}) = _$_GetLibrarysCollectionsResponse;
 
   factory _GetLibrarysCollectionsResponse.fromJson(Map<String, dynamic> json) =
       _$_GetLibrarysCollectionsResponse.fromJson;
@@ -253,6 +272,8 @@ abstract class _GetLibrarysCollectionsResponse
   int get page;
   @override
   bool get minified;
+  @override
+  String get include;
   @override
   @JsonKey(ignore: true)
   _$$_GetLibrarysCollectionsResponseCopyWith<_$_GetLibrarysCollectionsResponse>

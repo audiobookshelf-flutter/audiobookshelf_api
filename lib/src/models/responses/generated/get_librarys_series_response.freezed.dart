@@ -29,6 +29,7 @@ mixin _$GetLibrarysSeriesResponse {
   bool get sortDesc => throw _privateConstructorUsedError;
   Filter? get filterBy => throw _privateConstructorUsedError;
   bool get minified => throw _privateConstructorUsedError;
+  String get include => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +51,8 @@ abstract class $GetLibrarysSeriesResponseCopyWith<$Res> {
       String? sortBy,
       bool sortDesc,
       Filter? filterBy,
-      bool minified});
+      bool minified,
+      String include});
 }
 
 /// @nodoc
@@ -75,6 +77,7 @@ class _$GetLibrarysSeriesResponseCopyWithImpl<$Res,
     Object? sortDesc = null,
     Object? filterBy = freezed,
     Object? minified = null,
+    Object? include = null,
   }) {
     return _then(_value.copyWith(
       results: null == results
@@ -109,6 +112,10 @@ class _$GetLibrarysSeriesResponseCopyWithImpl<$Res,
           ? _value.minified
           : minified // ignore: cast_nullable_to_non_nullable
               as bool,
+      include: null == include
+          ? _value.include
+          : include // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -130,7 +137,8 @@ abstract class _$$_GetLibrarysSeriesResponseCopyWith<$Res>
       String? sortBy,
       bool sortDesc,
       Filter? filterBy,
-      bool minified});
+      bool minified,
+      String include});
 }
 
 /// @nodoc
@@ -154,6 +162,7 @@ class __$$_GetLibrarysSeriesResponseCopyWithImpl<$Res>
     Object? sortDesc = null,
     Object? filterBy = freezed,
     Object? minified = null,
+    Object? include = null,
   }) {
     return _then(_$_GetLibrarysSeriesResponse(
       results: null == results
@@ -188,6 +197,10 @@ class __$$_GetLibrarysSeriesResponseCopyWithImpl<$Res>
           ? _value.minified
           : minified // ignore: cast_nullable_to_non_nullable
               as bool,
+      include: null == include
+          ? _value.include
+          : include // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -204,7 +217,8 @@ class _$_GetLibrarysSeriesResponse implements _GetLibrarysSeriesResponse {
       this.sortBy,
       required this.sortDesc,
       this.filterBy,
-      required this.minified})
+      required this.minified,
+      required this.include})
       : _results = results;
 
   factory _$_GetLibrarysSeriesResponse.fromJson(Map<String, dynamic> json) =>
@@ -232,10 +246,12 @@ class _$_GetLibrarysSeriesResponse implements _GetLibrarysSeriesResponse {
   final Filter? filterBy;
   @override
   final bool minified;
+  @override
+  final String include;
 
   @override
   String toString() {
-    return 'GetLibrarysSeriesResponse(results: $results, total: $total, limit: $limit, page: $page, sortBy: $sortBy, sortDesc: $sortDesc, filterBy: $filterBy, minified: $minified)';
+    return 'GetLibrarysSeriesResponse(results: $results, total: $total, limit: $limit, page: $page, sortBy: $sortBy, sortDesc: $sortDesc, filterBy: $filterBy, minified: $minified, include: $include)';
   }
 
   @override
@@ -253,7 +269,8 @@ class _$_GetLibrarysSeriesResponse implements _GetLibrarysSeriesResponse {
             (identical(other.filterBy, filterBy) ||
                 other.filterBy == filterBy) &&
             (identical(other.minified, minified) ||
-                other.minified == minified));
+                other.minified == minified) &&
+            (identical(other.include, include) || other.include == include));
   }
 
   @JsonKey(ignore: true)
@@ -267,7 +284,8 @@ class _$_GetLibrarysSeriesResponse implements _GetLibrarysSeriesResponse {
       sortBy,
       sortDesc,
       filterBy,
-      minified);
+      minified,
+      include);
 
   @JsonKey(ignore: true)
   @override
@@ -293,7 +311,8 @@ abstract class _GetLibrarysSeriesResponse implements GetLibrarysSeriesResponse {
       final String? sortBy,
       required final bool sortDesc,
       final Filter? filterBy,
-      required final bool minified}) = _$_GetLibrarysSeriesResponse;
+      required final bool minified,
+      required final String include}) = _$_GetLibrarysSeriesResponse;
 
   factory _GetLibrarysSeriesResponse.fromJson(Map<String, dynamic> json) =
       _$_GetLibrarysSeriesResponse.fromJson;
@@ -314,6 +333,8 @@ abstract class _GetLibrarysSeriesResponse implements GetLibrarysSeriesResponse {
   Filter? get filterBy;
   @override
   bool get minified;
+  @override
+  String get include;
   @override
   @JsonKey(ignore: true)
   _$$_GetLibrarysSeriesResponseCopyWith<_$_GetLibrarysSeriesResponse>

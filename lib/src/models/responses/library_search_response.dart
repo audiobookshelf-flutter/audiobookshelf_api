@@ -33,8 +33,8 @@ class LibrarySearchResponse with _$LibrarySearchResponse {
 class LibraryItemSearchResult with _$LibraryItemSearchResult {
   const factory LibraryItemSearchResult({
     required LibraryItem libraryItem,
-    required String matchKey,
-    required String matchText,
+    String? matchKey,
+    String? matchText,
   }) = _LibraryItemSearchResult;
 
   factory LibraryItemSearchResult.fromJson(Map<String, dynamic> json) =>

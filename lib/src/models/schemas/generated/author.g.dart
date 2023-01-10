@@ -12,7 +12,6 @@ _$_Author _$$_AuthorFromJson(Map<String, dynamic> json) => _$_Author(
       name: json['name'] as String,
       description: json['description'] as String?,
       imagePath: json['imagePath'] as String?,
-      relImagePath: json['relImagePath'] as String?,
       addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
       updatedAt:
           const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
@@ -31,7 +30,6 @@ Map<String, dynamic> _$$_AuthorToJson(_$_Author instance) => <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
       'imagePath': instance.imagePath,
-      'relImagePath': instance.relImagePath,
       'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
       'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
       'libraryItems': instance.libraryItems,
@@ -60,7 +58,6 @@ _$AuthorExpanded _$$AuthorExpandedFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       description: json['description'] as String?,
       imagePath: json['imagePath'] as String?,
-      relImagePath: json['relImagePath'] as String?,
       addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
       updatedAt:
           const DateTimeEpochConverter().fromJson(json['updatedAt'] as int),
@@ -75,7 +72,6 @@ Map<String, dynamic> _$$AuthorExpandedToJson(_$AuthorExpanded instance) =>
       'name': instance.name,
       'description': instance.description,
       'imagePath': instance.imagePath,
-      'relImagePath': instance.relImagePath,
       'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
       'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
       'numBooks': instance.numBooks,

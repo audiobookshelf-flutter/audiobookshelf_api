@@ -20,6 +20,7 @@ _$_GetLibrarysSeriesResponse _$$_GetLibrarysSeriesResponseFromJson(
       filterBy: _$JsonConverterFromJson<String, Filter>(
           json['filterBy'], const FilterConverter().fromJson),
       minified: json['minified'] as bool,
+      include: json['include'] as String,
     );
 
 Map<String, dynamic> _$$_GetLibrarysSeriesResponseToJson(
@@ -34,6 +35,7 @@ Map<String, dynamic> _$$_GetLibrarysSeriesResponseToJson(
       'filterBy': _$JsonConverterToJson<String, Filter>(
           instance.filterBy, const FilterConverter().toJson),
       'minified': instance.minified,
+      'include': instance.include,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

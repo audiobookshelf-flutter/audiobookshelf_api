@@ -10,7 +10,6 @@ import '../models/request_parameters/update_item_tracks_req_params.dart';
 import '../models/responses/batch_update_item_response.dart';
 import '../models/responses/get_item_tone_response.dart';
 import '../models/responses/match_item_response.dart';
-import '../models/responses/open_rss_feed_response.dart';
 import '../models/responses/scan_item_response.dart';
 import '../models/responses/tone_scan_item_response.dart';
 import '../models/responses/update_cover_response.dart';
@@ -234,37 +233,6 @@ class LibraryItemsService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, UpdateItemChaptersResponse.fromJson),
-    );
-  }
-
-  /// See [Open an RSS Feed for a Library Item](https://api.audiobookshelf.org/#open-an-rss-feed-for-a-library-item)
-  Future<OpenRssFeedResponse?> openRssFeed({
-    required String libraryItemId,
-    required String serverAddress,
-    required String slug,
-    ResponseErrorHandler? responseErrorHandler,
-  }) {
-    return api.postJson(
-      path: '$basePath/$libraryItemId/open-feed',
-      jsonObject: {
-        'serverAddress': serverAddress,
-        'slug': slug,
-      },
-      requiresAuth: true,
-      responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJson(json, OpenRssFeedResponse.fromJson),
-    );
-  }
-
-  /// See [Close an RSS Feed for a Library Item](https://api.audiobookshelf.org/#close-an-rss-feed-for-a-library-item)
-  Future<void> closeRssFeed({
-    required String libraryItemId,
-    ResponseErrorHandler? responseErrorHandler,
-  }) {
-    return api.post(
-      path: '$basePath/$libraryItemId/close-feed',
-      requiresAuth: true,
-      responseErrorHandler: responseErrorHandler,
     );
   }
 

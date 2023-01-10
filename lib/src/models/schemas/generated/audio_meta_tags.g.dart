@@ -29,6 +29,16 @@ _$_AudioMetaTags _$$_AudioMetaTagsFromJson(Map<String, dynamic> json) =>
       tagLanguage: json['tagLanguage'] as String?,
       tagASIN: json['tagASIN'] as String?,
       tagOverdriveMediaMarker: json['tagOverdriveMediaMarker'] as String?,
+      tagOriginalYear: json['tagOriginalYear'] as String?,
+      tagReleaseCountry: json['tagReleaseCountry'] as String?,
+      tagReleaseType: json['tagReleaseType'] as String?,
+      tagReleaseStatus: json['tagReleaseStatus'] as String?,
+      tagISRC: json['tagISRC'] as String?,
+      tagMusicBrainzTrackId: json['tagMusicBrainzTrackId'] as String?,
+      tagMusicBrainzAlbumId: json['tagMusicBrainzAlbumId'] as String?,
+      tagMusicBrainzAlbumArtistId:
+          json['tagMusicBrainzAlbumArtistId'] as String?,
+      tagMusicBrainzArtistId: json['tagMusicBrainzArtistId'] as String?,
     );
 
 Map<String, dynamic> _$$_AudioMetaTagsToJson(_$_AudioMetaTags instance) {
@@ -61,5 +71,15 @@ Map<String, dynamic> _$$_AudioMetaTagsToJson(_$_AudioMetaTags instance) {
   writeNotNull('tagLanguage', instance.tagLanguage);
   writeNotNull('tagASIN', instance.tagASIN);
   writeNotNull('tagOverdriveMediaMarker', instance.tagOverdriveMediaMarker);
+  writeNotNull('tagOriginalYear', instance.tagOriginalYear);
+  writeNotNull('tagReleaseCountry', instance.tagReleaseCountry);
+  writeNotNull('tagReleaseType', instance.tagReleaseType);
+  writeNotNull('tagReleaseStatus', instance.tagReleaseStatus);
+  writeNotNull('tagISRC', instance.tagISRC);
+  writeNotNull('tagMusicBrainzTrackId', instance.tagMusicBrainzTrackId);
+  writeNotNull('tagMusicBrainzAlbumId', instance.tagMusicBrainzAlbumId);
+  writeNotNull(
+      'tagMusicBrainzAlbumArtistId', instance.tagMusicBrainzAlbumArtistId);
+  writeNotNull('tagMusicBrainzArtistId', instance.tagMusicBrainzArtistId);
   return val;
 }

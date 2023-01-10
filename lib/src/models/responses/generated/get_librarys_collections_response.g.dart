@@ -16,6 +16,7 @@ _$_GetLibrarysCollectionsResponse _$$_GetLibrarysCollectionsResponseFromJson(
       limit: json['limit'] as int,
       page: json['page'] as int,
       minified: json['minified'] as bool,
+      include: json['include'] as String,
     );
 
 Map<String, dynamic> _$$_GetLibrarysCollectionsResponseToJson(
@@ -26,4 +27,5 @@ Map<String, dynamic> _$$_GetLibrarysCollectionsResponseToJson(
       'limit': instance.limit,
       'page': instance.page,
       'minified': instance.minified,
+      'include': instance.include,
     };

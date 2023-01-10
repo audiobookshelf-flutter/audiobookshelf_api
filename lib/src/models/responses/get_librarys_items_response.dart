@@ -22,6 +22,7 @@ class GetLibrarysItemsResponse with _$GetLibrarysItemsResponse {
     required MediaType mediaType,
     required bool minified,
     @JsonKey(name: 'collapseseries') required bool collapseSeries,
+    required String include,
   }) = _GetLibrarysItemsResponse;
 
   factory GetLibrarysItemsResponse.fromJson(Map<String, dynamic> json) =>

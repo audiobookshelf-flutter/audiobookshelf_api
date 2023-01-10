@@ -18,7 +18,6 @@ export 'library_search_response.dart';
 export 'login_response.dart';
 export 'match_author_response.dart';
 export 'match_item_response.dart';
-export 'open_rss_feed_response.dart';
 export 'podcast_search_episode_response.dart';
 export 'rename_genre_response.dart';
 export 'rename_tag_response.dart';

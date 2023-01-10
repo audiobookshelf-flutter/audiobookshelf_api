@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../schemas/rss_feed.dart';
 import '../schemas/server_settings.dart';
 import '../schemas/user.dart';
 
@@ -14,7 +13,6 @@ class LoginResponse with _$LoginResponse {
     required User user,
     required String userDefaultLibraryId,
     required ServerSettings serverSettings,
-    required List<RssFeed> feeds,
     @JsonKey(name: 'Source') required String source,
   }) = _LoginResponse;
 
