@@ -5,7 +5,10 @@ import '../../matchers.dart';
 import '../schemas/json/library_item_json.dart' as library_item;
 
 void main() {
-  group('MatchItemResponse', () {
+  group('MatchItemResponse', tags: [
+    'has_dependencies',
+    'depends_on_LibraryItem',
+  ], () {
     const updated = true;
 
     const json = {

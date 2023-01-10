@@ -5,7 +5,10 @@ import '../../matchers.dart';
 import '../schemas/json/author_json.dart' as author;
 
 void main() {
-  group('MatchAuthorResponse', () {
+  group('MatchAuthorResponse', tags: [
+    'has_dependencies',
+    'depends_on_Author',
+  ], () {
     const updated = true;
 
     const json = {

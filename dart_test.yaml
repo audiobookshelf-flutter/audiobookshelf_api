@@ -13,3 +13,5 @@ tags:
   depends_on_MediaMetadata:
   depends_on_User:
   depends_on_ServerSettings:
+  depends_on_Author:
+  depends_on_PodcastFeedEpisode:
