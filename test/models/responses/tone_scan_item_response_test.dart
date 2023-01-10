@@ -139,4 +139,14 @@ void main() {
       expect(channels.toJson(), channelsJson);
     });
   });
+
+  group('ToneScanAudioFramesResponse', () {
+    test('fromJson', () {
+      expect(frames, ToneScanAudioFramesResponse.fromJson(framesJson));
+    });
+
+    test('toJson', () {
+      expect(frames.toJson(), framesJson);
+    });
+  });
 }
