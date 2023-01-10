@@ -2,8 +2,8 @@ import 'package:audiobookshelf_api/audiobookshelf_api.dart';
 import 'package:test/test.dart';
 
 import '../../matchers.dart';
-import '../schemas/json/user_json.dart' as user;
 import '../schemas/json/server_settings_json.dart' as server_settings;
+import '../schemas/json/user_json.dart' as user;
 
 void main() {
   group('LoginResponse', tags: [
