@@ -21,7 +21,7 @@ ServerStatusResponse _$ServerStatusResponseFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ServerStatusResponse {
   bool get isInit => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
+  ServerLanguage get language => throw _privateConstructorUsedError;
   @JsonKey(name: 'ConfigPath')
   String? get configPath => throw _privateConstructorUsedError;
   @JsonKey(name: 'MetadataPath')
@@ -41,7 +41,7 @@ abstract class $ServerStatusResponseCopyWith<$Res> {
   @useResult
   $Res call(
       {bool isInit,
-      String language,
+      ServerLanguage language,
       @JsonKey(name: 'ConfigPath') String? configPath,
       @JsonKey(name: 'MetadataPath') String? metadataPath});
 }
@@ -73,7 +73,7 @@ class _$ServerStatusResponseCopyWithImpl<$Res,
       language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ServerLanguage,
       configPath: freezed == configPath
           ? _value.configPath
           : configPath // ignore: cast_nullable_to_non_nullable
@@ -96,7 +96,7 @@ abstract class _$$_ServerStatusResponseCopyWith<$Res>
   @useResult
   $Res call(
       {bool isInit,
-      String language,
+      ServerLanguage language,
       @JsonKey(name: 'ConfigPath') String? configPath,
       @JsonKey(name: 'MetadataPath') String? metadataPath});
 }
@@ -125,7 +125,7 @@ class __$$_ServerStatusResponseCopyWithImpl<$Res>
       language: null == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ServerLanguage,
       configPath: freezed == configPath
           ? _value.configPath
           : configPath // ignore: cast_nullable_to_non_nullable
@@ -153,7 +153,7 @@ class _$_ServerStatusResponse implements _ServerStatusResponse {
   @override
   final bool isInit;
   @override
-  final String language;
+  final ServerLanguage language;
   @override
   @JsonKey(name: 'ConfigPath')
   final String? configPath;
@@ -203,7 +203,7 @@ class _$_ServerStatusResponse implements _ServerStatusResponse {
 abstract class _ServerStatusResponse implements ServerStatusResponse {
   const factory _ServerStatusResponse(
           {required final bool isInit,
-          required final String language,
+          required final ServerLanguage language,
           @JsonKey(name: 'ConfigPath') final String? configPath,
           @JsonKey(name: 'MetadataPath') final String? metadataPath}) =
       _$_ServerStatusResponse;
@@ -214,7 +214,7 @@ abstract class _ServerStatusResponse implements ServerStatusResponse {
   @override
   bool get isInit;
   @override
-  String get language;
+  ServerLanguage get language;
   @override
   @JsonKey(name: 'ConfigPath')
   String? get configPath;
