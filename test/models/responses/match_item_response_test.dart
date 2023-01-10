@@ -2,28 +2,28 @@ import 'package:audiobookshelf_api/audiobookshelf_api.dart';
 import 'package:test/test.dart';
 
 import '../../matchers.dart';
-import '../schemas/json/author_json.dart' as author;
+import '../schemas/json/library_item_json.dart' as library_item;
 
 void main() {
-  group('MatchAuthorResponse', () {
+  group('MatchItemResponse', () {
     const updated = true;
 
     const json = {
       'updated': updated,
-      'author': author.json,
+      'libraryItem': library_item.bookJsonExpanded,
     };
 
-    late MatchAuthorResponse sut;
+    late MatchItemResponse sut;
 
     setUp(() {
-      sut = MatchAuthorResponse(
+      sut = MatchItemResponse(
         updated: updated,
-        author: author.author,
+        libraryItem: library_item.bookLibraryItemExpanded,
       );
     });
 
     test('fromJson', () {
-      expect(sut, MatchAuthorResponse.fromJson(json));
+      expect(sut, MatchItemResponse.fromJson(json));
     });
 
     test('toJson', () {
