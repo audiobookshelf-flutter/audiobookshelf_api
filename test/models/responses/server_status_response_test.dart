@@ -3,7 +3,7 @@ import 'package:test/test.dart';
 
 void main() {
   group('ServerStatusResponse', () {
-    const bool isInit = true;
+    const isInit = true;
     const languageJson = 'en-us';
     const language = ServerLanguage.english;
     const configPath = 'configPath';
