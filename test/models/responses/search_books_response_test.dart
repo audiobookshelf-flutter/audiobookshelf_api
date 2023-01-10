@@ -243,4 +243,31 @@ void main() {
       });
     });
   });
+
+  group('AudibleSeries', () {
+    const series = 'series';
+    const sequence = 'sequence';
+
+    const json = {
+      'series': series,
+      'sequence': sequence,
+    };
+
+    late AudibleSeries sut;
+
+    setUp(() {
+      sut = const AudibleSeries(
+        series: series,
+        sequence: sequence,
+      );
+    });
+
+    test('fromJson', () {
+      expect(sut, AudibleSeries.fromJson(json));
+    });
+
+    test('toJson', () {
+      expect(sut.toJson(), json);
+    });
+  });
 }
