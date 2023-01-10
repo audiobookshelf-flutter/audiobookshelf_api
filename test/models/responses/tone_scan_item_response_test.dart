@@ -115,4 +115,18 @@ void main() {
       expect(sut.toJson(), deepMapContains(json));
     });
   });
+
+  group('ToneScanAudioResponse', tags: [
+    'has_dependencies',
+    'depends_on_ToneScanAudioChannelsResponse',
+    'depends_on_ToneScanAudioFramesResponse',
+  ], () {
+    test('fromJson', () {
+      expect(audio, ToneScanAudioResponse.fromJson(audioJson));
+    });
+
+    test('toJson', () {
+      expect(audio.toJson(), deepMapContains(audioJson));
+    });
+  });
 }

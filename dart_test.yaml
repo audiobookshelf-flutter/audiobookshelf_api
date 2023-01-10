@@ -17,3 +17,5 @@ tags:
   depends_on_PodcastFeedEpisode:
   depends_on_ToneScanAudioResponse:
   depends_on_ToneScanFileResponse:
+  depends_on_ToneScanAudioChannelsResponse:
+  depends_on_ToneScanAudioFramesResponse:
