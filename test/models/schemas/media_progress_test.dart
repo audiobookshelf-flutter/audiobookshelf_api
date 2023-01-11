@@ -7,7 +7,11 @@ import 'json/podcast_json.dart' as podcast;
 import 'json/podcast_episode_json.dart' as podcast_episode;
 
 void main() {
-  group('MediaProgress', () {
+  group('MediaProgress', tags: [
+    'has_dependencies',
+    'depends_on_Media',
+    'depends_on_PodcastEpisode',
+  ], () {
     const id = 'li_bufnnmp4y5o2gbbxfm-ep_lh6ko39pumnrma3dhv';
     const libraryItemId = 'li_bufnnmp4y5o2gbbxfm';
     const episodeId = 'ep_lh6ko39pumnrma3dhv';

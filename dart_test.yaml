@@ -24,3 +24,4 @@ tags:
   depends_on_CronExpression:
   depends_on_LibrarySettings:
   depends_on_Folder:
+  depends_on_Media:
