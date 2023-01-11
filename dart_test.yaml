@@ -21,3 +21,4 @@ tags:
   depends_on_ToneScanAudioFramesResponse:
   depends_on_FileMetadata:
   depends_on_AudioMetaTags:
+  depends_on_CronExpression:
