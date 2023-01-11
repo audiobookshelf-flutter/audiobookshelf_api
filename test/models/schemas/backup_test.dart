@@ -7,14 +7,14 @@ void main() {
     const id = '2022-11-14T0130';
     const backupMetadataCovers = true;
     const backupDirPath = '/metadata/backups';
-    const String datePretty = 'Mon, Nov 14 2022 01:30';
-    const String fullPath = '/metadata/backups/2022-11-14T0130.audiobookshelf';
-    const String path = 'backups/2022-11-14T0130.audiobookshelf';
-    const String filename = '2022-11-14T0130.audiobookshelf';
-    const int fileSize = 7776983;
+    const datePretty = 'Mon, Nov 14 2022 01:30';
+    const fullPath = '/metadata/backups/2022-11-14T0130.audiobookshelf';
+    const path = 'backups/2022-11-14T0130.audiobookshelf';
+    const filename = '2022-11-14T0130.audiobookshelf';
+    const fileSize = 7776983;
     const createdAtJson = 1668411000329;
     final createdAt = const DateTimeEpochConverter().fromJson(createdAtJson);
-    const String serverVersion = '2.2.4';
+    const serverVersion = '2.2.4';
 
     const json = {
       'id': id,
