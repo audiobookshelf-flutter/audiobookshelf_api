@@ -29,3 +29,4 @@ tags:
   depends_on_AudioTrack:
   depends_on_BookChapter:
   depends_on_NotificationEventDefaults:
+  depends_on_Notification:
