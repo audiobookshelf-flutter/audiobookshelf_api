@@ -25,3 +25,7 @@ tags:
   depends_on_LibrarySettings:
   depends_on_Folder:
   depends_on_Media:
+  depends_on_AudioFile:
+  depends_on_AudioTrack:
+  depends_on_BookChapter:
+  depends_on_NotificationEventDefaults:

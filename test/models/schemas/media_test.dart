@@ -7,7 +7,14 @@ import 'json/book_json.dart' as book;
 import 'json/podcast_json.dart' as podcast;
 
 void main() {
-  group('Media', () {
+  group('Media', tags: [
+    'has_dependencies',
+    'depends_on_AudioFile',
+    'depends_on_AudioTrack',
+    'depends_on_BookChapter',
+    'depends_on_MediaMetadata',
+    'depends_on_PodcastEpisode',
+  ], () {
     late Media sutBook;
     late Media sutBookMinified;
     late Media sutBookExpanded;
