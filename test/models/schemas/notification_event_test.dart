@@ -75,4 +75,22 @@ void main() {
       expect(sut.toJson(), deepMapContains(json));
     });
   });
+
+  group('NotificationEventDefaults', () {
+    const json = notificationEventDefaultsJson;
+
+    late NotificationEventDefaults sut;
+
+    setUp(() {
+      sut = notificationEventDefaults;
+    });
+
+    test('fromJson', () {
+      expect(sut, NotificationEventDefaults.fromJson(json));
+    });
+
+    test('toJson', () {
+      expect(sut.toJson(), json);
+    });
+  });
 }
