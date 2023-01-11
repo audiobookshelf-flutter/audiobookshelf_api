@@ -61,6 +61,40 @@ const bookMetadata = MediaMetadata.book(
   explicit: explicit,
 );
 
+const jsonSeriesFilter = {
+  'title': title,
+  'subtitle': subtitle,
+  'authors': authorsJson,
+  'narrators': narrators,
+  'series': series_json.jsonSequence,
+  'genres': genres,
+  'publishedYear': publishedYear,
+  'publishedDate': publishedDate,
+  'publisher': publisher,
+  'description': description,
+  'isbn': isbn,
+  'asin': asin,
+  'language': language,
+  'explicit': explicit,
+};
+
+const bookMetadataSeriesFilter = MediaMetadata.bookSeriesFilter(
+  title: title,
+  subtitle: subtitle,
+  authors: authors,
+  narrators: narrators,
+  seriesSequence: series_json.seriesSequence,
+  genres: genres,
+  publishedYear: publishedYear,
+  publishedDate: publishedDate,
+  publisher: publisher,
+  description: description,
+  isbn: isbn,
+  asin: asin,
+  language: language,
+  explicit: explicit,
+);
+
 const jsonMinified = {
   'title': title,
   'titleIgnorePrefix': titleIgnorePrefix,
@@ -97,6 +131,46 @@ const bookMetadataMinified = MediaMetadata.bookMinified(
   asin: asin,
   language: language,
   explicit: explicit,
+);
+
+const jsonMinifiedSeriesFilter = {
+  'title': title,
+  'titleIgnorePrefix': titleIgnorePrefix,
+  'subtitle': subtitle,
+  'authorName': authorName,
+  'authorNameLF': authorNameLF,
+  'narratorName': narratorName,
+  'seriesName': seriesName,
+  'genres': genres,
+  'publishedYear': publishedYear,
+  'publishedDate': publishedDate,
+  'publisher': publisher,
+  'description': description,
+  'isbn': isbn,
+  'asin': asin,
+  'language': language,
+  'explicit': explicit,
+  'series': series_json.jsonSequence,
+};
+
+const bookMetadataMinifiedSeriesFilter = MediaMetadata.bookMinifiedSeriesFilter(
+  title: title,
+  titleIgnorePrefix: titleIgnorePrefix,
+  subtitle: subtitle,
+  authorName: authorName,
+  authorNameLF: authorNameLF,
+  narratorName: narratorName,
+  seriesName: seriesName,
+  genres: genres,
+  publishedYear: publishedYear,
+  publishedDate: publishedDate,
+  publisher: publisher,
+  description: description,
+  isbn: isbn,
+  asin: asin,
+  language: language,
+  explicit: explicit,
+  seriesSequence: series_json.seriesSequence,
 );
 
 const jsonExpanded = {
