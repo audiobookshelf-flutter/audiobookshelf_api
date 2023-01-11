@@ -9,14 +9,14 @@ void main() {
     const issues = 0;
     const numUserPlaylists = 0;
 
-    final jsonFilterData = {
+    const jsonFilterData = {
       'filterdata': library_filter_data.json,
       'issues': issues,
       'numUserPlaylists': numUserPlaylists,
       'library': library_json.json,
     };
 
-    final jsonLibrary = library_json.json;
+    const jsonLibrary = library_json.json;
 
     late GetLibraryResponse sutFilterData;
     late GetLibraryResponse sutLibrary;
