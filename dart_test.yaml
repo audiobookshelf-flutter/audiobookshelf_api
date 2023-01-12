@@ -42,3 +42,4 @@ tags:
   depends_on_RssFeedEpisodeEnclosure:
   depends_on_RssFeedEpisode:
   depends_on_RssFeedMetadata:
+  depends_on_SeriesProgress:

@@ -102,12 +102,12 @@ class SeriesConverter implements JsonConverter<Series, Map<String, dynamic>> {
     if (json.containsKey('runtimeType')) return _$SeriesFromJson(json);
 
     final SeriesVariant variant;
-    if (json.containsKey('description')) {
-      variant = SeriesVariant.base;
-    } else if (json.containsKey('numBooks')) {
+    if (json.containsKey('numBooks')) {
       variant = SeriesVariant.numBooks;
     } else if (json.containsKey('inProgress')) {
       variant = SeriesVariant.shelf;
+    } else if (json.containsKey('description')) {
+      variant = SeriesVariant.base;
     } else if (json.containsKey('books')) {
       variant = SeriesVariant.books;
     } else if (json.containsKey('sequence')) {
@@ -117,7 +117,7 @@ class SeriesConverter implements JsonConverter<Series, Map<String, dynamic>> {
     } else {
       throw CheckedFromJsonException(
         json,
-        'description || numBooks || books || sequence',
+        'numBooks || inProgress || description || books || sequence || items',
         'Series',
         'Unknown series type',
       );
