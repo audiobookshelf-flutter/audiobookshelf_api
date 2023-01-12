@@ -33,3 +33,6 @@ tags:
   depends_on_DeviceInfo:
   depends_on_SessionUser:
   depends_on_RssFeed:
+  depends_on_MediaProgress:
+  depends_on_PodcastEpisodeDownload:
+  depends_on_LibraryFile:
