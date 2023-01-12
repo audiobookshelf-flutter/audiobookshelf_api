@@ -30,3 +30,5 @@ tags:
   depends_on_BookChapter:
   depends_on_NotificationEventDefaults:
   depends_on_Notification:
+  depends_on_DeviceInfo:
+  depends_on_SessionUser:

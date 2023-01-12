@@ -23,7 +23,6 @@ void main() {
         name: name,
         description: description,
         imagePath: imagePath,
-        relImagePath: relImagePath,
         addedAt: addedAt,
         updatedAt: updatedAt,
         libraryItems: [],
