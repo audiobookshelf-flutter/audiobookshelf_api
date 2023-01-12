@@ -16,6 +16,9 @@ _$_Series _$$_SeriesFromJson(Map<String, dynamic> json) => _$_Series(
       progress: json['progress'] == null
           ? null
           : SeriesProgress.fromJson(json['progress'] as Map<String, dynamic>),
+      rssFeed: json['rssFeed'] == null
+          ? null
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -26,6 +29,7 @@ Map<String, dynamic> _$$_SeriesToJson(_$_Series instance) => <String, dynamic>{
       'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
       'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
       'progress': instance.progress,
+      'rssFeed': instance.rssFeed,
       'runtimeType': instance.$type,
     };
 
@@ -66,6 +70,9 @@ _$SeriesBooks _$$SeriesBooksFromJson(Map<String, dynamic> json) =>
       addedAt: const DateTimeEpochConverter().fromJson(json['addedAt'] as int),
       totalDuration: const DurationPreciseSecondsConverter()
           .fromJson(json['totalDuration'] as num),
+      rssFeed: json['rssFeed'] == null
+          ? null
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -80,6 +87,7 @@ Map<String, dynamic> _$$SeriesBooksToJson(_$SeriesBooks instance) =>
       'addedAt': const DateTimeEpochConverter().toJson(instance.addedAt),
       'totalDuration': const DurationPreciseSecondsConverter()
           .toJson(instance.totalDuration),
+      'rssFeed': instance.rssFeed,
       'runtimeType': instance.$type,
     };
 
@@ -118,6 +126,9 @@ _$ShelfSeries _$$ShelfSeriesFromJson(Map<String, dynamic> json) =>
           ? null
           : LibraryItem.fromJson(
               json['firstBookUnread'] as Map<String, dynamic>),
+      rssFeed: json['rssFeed'] == null
+          ? null
+          : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
@@ -134,6 +145,7 @@ Map<String, dynamic> _$$ShelfSeriesToJson(_$ShelfSeries instance) =>
       'bookInProgressLastUpdate': const DateTimeEpochConverter()
           .toJson(instance.bookInProgressLastUpdate),
       'firstBookUnread': instance.firstBookUnread,
+      'rssFeed': instance.rssFeed,
       'runtimeType': instance.$type,
     };
 

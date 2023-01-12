@@ -633,8 +633,8 @@ LibraryItemSearchResult _$LibraryItemSearchResultFromJson(
 /// @nodoc
 mixin _$LibraryItemSearchResult {
   LibraryItem get libraryItem => throw _privateConstructorUsedError;
-  String get matchKey => throw _privateConstructorUsedError;
-  String get matchText => throw _privateConstructorUsedError;
+  String? get matchKey => throw _privateConstructorUsedError;
+  String? get matchText => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -648,7 +648,7 @@ abstract class $LibraryItemSearchResultCopyWith<$Res> {
           $Res Function(LibraryItemSearchResult) then) =
       _$LibraryItemSearchResultCopyWithImpl<$Res, LibraryItemSearchResult>;
   @useResult
-  $Res call({LibraryItem libraryItem, String matchKey, String matchText});
+  $Res call({LibraryItem libraryItem, String? matchKey, String? matchText});
 
   $LibraryItemCopyWith<$Res> get libraryItem;
 }
@@ -668,22 +668,22 @@ class _$LibraryItemSearchResultCopyWithImpl<$Res,
   @override
   $Res call({
     Object? libraryItem = null,
-    Object? matchKey = null,
-    Object? matchText = null,
+    Object? matchKey = freezed,
+    Object? matchText = freezed,
   }) {
     return _then(_value.copyWith(
       libraryItem: null == libraryItem
           ? _value.libraryItem
           : libraryItem // ignore: cast_nullable_to_non_nullable
               as LibraryItem,
-      matchKey: null == matchKey
+      matchKey: freezed == matchKey
           ? _value.matchKey
           : matchKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      matchText: null == matchText
+              as String?,
+      matchText: freezed == matchText
           ? _value.matchText
           : matchText // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 
@@ -704,7 +704,7 @@ abstract class _$$_LibraryItemSearchResultCopyWith<$Res>
       __$$_LibraryItemSearchResultCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({LibraryItem libraryItem, String matchKey, String matchText});
+  $Res call({LibraryItem libraryItem, String? matchKey, String? matchText});
 
   @override
   $LibraryItemCopyWith<$Res> get libraryItem;
@@ -723,22 +723,22 @@ class __$$_LibraryItemSearchResultCopyWithImpl<$Res>
   @override
   $Res call({
     Object? libraryItem = null,
-    Object? matchKey = null,
-    Object? matchText = null,
+    Object? matchKey = freezed,
+    Object? matchText = freezed,
   }) {
     return _then(_$_LibraryItemSearchResult(
       libraryItem: null == libraryItem
           ? _value.libraryItem
           : libraryItem // ignore: cast_nullable_to_non_nullable
               as LibraryItem,
-      matchKey: null == matchKey
+      matchKey: freezed == matchKey
           ? _value.matchKey
           : matchKey // ignore: cast_nullable_to_non_nullable
-              as String,
-      matchText: null == matchText
+              as String?,
+      matchText: freezed == matchText
           ? _value.matchText
           : matchText // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -747,9 +747,7 @@ class __$$_LibraryItemSearchResultCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_LibraryItemSearchResult implements _LibraryItemSearchResult {
   const _$_LibraryItemSearchResult(
-      {required this.libraryItem,
-      required this.matchKey,
-      required this.matchText});
+      {required this.libraryItem, this.matchKey, this.matchText});
 
   factory _$_LibraryItemSearchResult.fromJson(Map<String, dynamic> json) =>
       _$$_LibraryItemSearchResultFromJson(json);
@@ -757,9 +755,9 @@ class _$_LibraryItemSearchResult implements _LibraryItemSearchResult {
   @override
   final LibraryItem libraryItem;
   @override
-  final String matchKey;
+  final String? matchKey;
   @override
-  final String matchText;
+  final String? matchText;
 
   @override
   String toString() {
@@ -803,8 +801,8 @@ class _$_LibraryItemSearchResult implements _LibraryItemSearchResult {
 abstract class _LibraryItemSearchResult implements LibraryItemSearchResult {
   const factory _LibraryItemSearchResult(
       {required final LibraryItem libraryItem,
-      required final String matchKey,
-      required final String matchText}) = _$_LibraryItemSearchResult;
+      final String? matchKey,
+      final String? matchText}) = _$_LibraryItemSearchResult;
 
   factory _LibraryItemSearchResult.fromJson(Map<String, dynamic> json) =
       _$_LibraryItemSearchResult.fromJson;
@@ -812,9 +810,9 @@ abstract class _LibraryItemSearchResult implements LibraryItemSearchResult {
   @override
   LibraryItem get libraryItem;
   @override
-  String get matchKey;
+  String? get matchKey;
   @override
-  String get matchText;
+  String? get matchText;
   @override
   @JsonKey(ignore: true)
   _$$_LibraryItemSearchResultCopyWith<_$_LibraryItemSearchResult>

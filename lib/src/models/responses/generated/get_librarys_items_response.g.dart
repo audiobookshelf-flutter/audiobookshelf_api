@@ -22,6 +22,7 @@ _$_GetLibrarysItemsResponse _$$_GetLibrarysItemsResponseFromJson(
       mediaType: $enumDecode(_$MediaTypeEnumMap, json['mediaType']),
       minified: json['minified'] as bool,
       collapseSeries: json['collapseseries'] as bool,
+      include: json['include'] as String,
     );
 
 Map<String, dynamic> _$$_GetLibrarysItemsResponseToJson(
@@ -38,6 +39,7 @@ Map<String, dynamic> _$$_GetLibrarysItemsResponseToJson(
       'mediaType': _$MediaTypeEnumMap[instance.mediaType]!,
       'minified': instance.minified,
       'collapseseries': instance.collapseSeries,
+      'include': instance.include,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

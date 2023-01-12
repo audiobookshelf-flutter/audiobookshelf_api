@@ -13,6 +13,7 @@ void main() {
     const limit = 1;
     const page = 1;
     const minified = true;
+    const include = 'include';
 
     const json = {
       'results': [collection.json],
@@ -20,6 +21,7 @@ void main() {
       'limit': limit,
       'page': page,
       'minified': minified,
+      'include': include,
     };
 
     late GetLibrarysCollectionsResponse sut;
@@ -31,6 +33,7 @@ void main() {
         limit: limit,
         page: page,
         minified: minified,
+        include: include,
       );
     });
 

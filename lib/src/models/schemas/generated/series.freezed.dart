@@ -41,8 +41,14 @@ mixin _$Series {
   String get name => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)
         $default, {
     required TResult Function(
             String id,
@@ -60,7 +66,8 @@ mixin _$Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -74,7 +81,8 @@ mixin _$Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -82,8 +90,14 @@ mixin _$Series {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult? Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult? Function(
             String id,
@@ -101,7 +115,8 @@ mixin _$Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -114,15 +129,22 @@ mixin _$Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult Function(
             String id,
@@ -140,7 +162,8 @@ mixin _$Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -153,7 +176,8 @@ mixin _$Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -244,9 +268,11 @@ abstract class _$$_SeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       String? description,
       DateTime addedAt,
       DateTime updatedAt,
-      SeriesProgress? progress});
+      SeriesProgress? progress,
+      RssFeed? rssFeed});
 
   $SeriesProgressCopyWith<$Res>? get progress;
+  $RssFeedCopyWith<$Res>? get rssFeed;
 }
 
 /// @nodoc
@@ -265,6 +291,7 @@ class __$$_SeriesCopyWithImpl<$Res>
     Object? addedAt = null,
     Object? updatedAt = null,
     Object? progress = freezed,
+    Object? rssFeed = freezed,
   }) {
     return _then(_$_Series(
       id: null == id
@@ -291,6 +318,10 @@ class __$$_SeriesCopyWithImpl<$Res>
           ? _value.progress
           : progress // ignore: cast_nullable_to_non_nullable
               as SeriesProgress?,
+      rssFeed: freezed == rssFeed
+          ? _value.rssFeed
+          : rssFeed // ignore: cast_nullable_to_non_nullable
+              as RssFeed?,
     ));
   }
 
@@ -303,6 +334,18 @@ class __$$_SeriesCopyWithImpl<$Res>
 
     return $SeriesProgressCopyWith<$Res>(_value.progress!, (value) {
       return _then(_value.copyWith(progress: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RssFeedCopyWith<$Res>? get rssFeed {
+    if (_value.rssFeed == null) {
+      return null;
+    }
+
+    return $RssFeedCopyWith<$Res>(_value.rssFeed!, (value) {
+      return _then(_value.copyWith(rssFeed: value));
     });
   }
 }
@@ -318,6 +361,7 @@ class _$_Series extends _Series {
       required this.addedAt,
       required this.updatedAt,
       this.progress,
+      this.rssFeed,
       final String? $type})
       : $type = $type ?? 'default',
         super._();
@@ -335,15 +379,19 @@ class _$_Series extends _Series {
   final DateTime addedAt;
   @override
   final DateTime updatedAt;
+// From [Get a Series](https://api.audiobookshelf.org/#get-a-series)
   @override
   final SeriesProgress? progress;
+// From [Get a Series](https://api.audiobookshelf.org/#get-a-series)
+  @override
+  final RssFeed? rssFeed;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Series(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt, progress: $progress)';
+    return 'Series(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt, progress: $progress, rssFeed: $rssFeed)';
   }
 
   @override
@@ -359,13 +407,14 @@ class _$_Series extends _Series {
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
             (identical(other.progress, progress) ||
-                other.progress == progress));
+                other.progress == progress) &&
+            (identical(other.rssFeed, rssFeed) || other.rssFeed == rssFeed));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, name, description, addedAt, updatedAt, progress);
+  int get hashCode => Object.hash(runtimeType, id, name, description, addedAt,
+      updatedAt, progress, rssFeed);
 
   @JsonKey(ignore: true)
   @override
@@ -376,8 +425,14 @@ class _$_Series extends _Series {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)
         $default, {
     required TResult Function(
             String id,
@@ -395,7 +450,8 @@ class _$_Series extends _Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -409,19 +465,27 @@ class _$_Series extends _Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
   }) {
-    return $default(id, name, description, addedAt, updatedAt, progress);
+    return $default(
+        id, name, description, addedAt, updatedAt, progress, rssFeed);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult? Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult? Function(
             String id,
@@ -439,7 +503,8 @@ class _$_Series extends _Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -452,18 +517,26 @@ class _$_Series extends _Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
-    return $default?.call(id, name, description, addedAt, updatedAt, progress);
+    return $default?.call(
+        id, name, description, addedAt, updatedAt, progress, rssFeed);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult Function(
             String id,
@@ -481,7 +554,8 @@ class _$_Series extends _Series {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -494,13 +568,15 @@ class _$_Series extends _Series {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(id, name, description, addedAt, updatedAt, progress);
+      return $default(
+          id, name, description, addedAt, updatedAt, progress, rssFeed);
     }
     return orElse();
   }
@@ -563,7 +639,8 @@ abstract class _Series extends Series {
       final String? description,
       required final DateTime addedAt,
       required final DateTime updatedAt,
-      final SeriesProgress? progress}) = _$_Series;
+      final SeriesProgress? progress,
+      final RssFeed? rssFeed}) = _$_Series;
   const _Series._() : super._();
 
   factory _Series.fromJson(Map<String, dynamic> json) = _$_Series.fromJson;
@@ -574,8 +651,11 @@ abstract class _Series extends Series {
   String get name;
   String? get description;
   DateTime get addedAt;
-  DateTime get updatedAt;
-  SeriesProgress? get progress;
+  DateTime
+      get updatedAt; // From [Get a Series](https://api.audiobookshelf.org/#get-a-series)
+  SeriesProgress?
+      get progress; // From [Get a Series](https://api.audiobookshelf.org/#get-a-series)
+  RssFeed? get rssFeed;
   @override
   @JsonKey(ignore: true)
   _$$_SeriesCopyWith<_$_Series> get copyWith =>
@@ -728,8 +808,14 @@ class _$SeriesNumBooks extends SeriesNumBooks {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)
         $default, {
     required TResult Function(
             String id,
@@ -747,7 +833,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -761,7 +848,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -773,8 +861,14 @@ class _$SeriesNumBooks extends SeriesNumBooks {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult? Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult? Function(
             String id,
@@ -792,7 +886,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -805,7 +900,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -816,8 +912,14 @@ class _$SeriesNumBooks extends SeriesNumBooks {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult Function(
             String id,
@@ -835,7 +937,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -848,7 +951,8 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -953,7 +1057,10 @@ abstract class _$$SeriesBooksCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       String type,
       List<LibraryItem> books,
       DateTime addedAt,
-      Duration totalDuration});
+      Duration totalDuration,
+      RssFeed? rssFeed});
+
+  $RssFeedCopyWith<$Res>? get rssFeed;
 }
 
 /// @nodoc
@@ -975,6 +1082,7 @@ class __$$SeriesBooksCopyWithImpl<$Res>
     Object? books = null,
     Object? addedAt = null,
     Object? totalDuration = null,
+    Object? rssFeed = freezed,
   }) {
     return _then(_$SeriesBooks(
       id: null == id
@@ -1009,7 +1117,23 @@ class __$$SeriesBooksCopyWithImpl<$Res>
           ? _value.totalDuration
           : totalDuration // ignore: cast_nullable_to_non_nullable
               as Duration,
+      rssFeed: freezed == rssFeed
+          ? _value.rssFeed
+          : rssFeed // ignore: cast_nullable_to_non_nullable
+              as RssFeed?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RssFeedCopyWith<$Res>? get rssFeed {
+    if (_value.rssFeed == null) {
+      return null;
+    }
+
+    return $RssFeedCopyWith<$Res>(_value.rssFeed!, (value) {
+      return _then(_value.copyWith(rssFeed: value));
+    });
   }
 }
 
@@ -1026,6 +1150,7 @@ class _$SeriesBooks extends SeriesBooks {
       required final List<LibraryItem> books,
       required this.addedAt,
       required this.totalDuration,
+      this.rssFeed,
       final String? $type})
       : _books = books,
         $type = $type ?? 'books',
@@ -1057,13 +1182,16 @@ class _$SeriesBooks extends SeriesBooks {
   final DateTime addedAt;
   @override
   final Duration totalDuration;
+// From [Get a Library's Series](https://api.audiobookshelf.org/#get-a-library-39-s-series)
+  @override
+  final RssFeed? rssFeed;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Series.books(id: $id, name: $name, nameIgnorePrefix: $nameIgnorePrefix, nameIgnorePrefixSort: $nameIgnorePrefixSort, type: $type, books: $books, addedAt: $addedAt, totalDuration: $totalDuration)';
+    return 'Series.books(id: $id, name: $name, nameIgnorePrefix: $nameIgnorePrefix, nameIgnorePrefixSort: $nameIgnorePrefixSort, type: $type, books: $books, addedAt: $addedAt, totalDuration: $totalDuration, rssFeed: $rssFeed)';
   }
 
   @override
@@ -1081,7 +1209,8 @@ class _$SeriesBooks extends SeriesBooks {
             const DeepCollectionEquality().equals(other._books, _books) &&
             (identical(other.addedAt, addedAt) || other.addedAt == addedAt) &&
             (identical(other.totalDuration, totalDuration) ||
-                other.totalDuration == totalDuration));
+                other.totalDuration == totalDuration) &&
+            (identical(other.rssFeed, rssFeed) || other.rssFeed == rssFeed));
   }
 
   @JsonKey(ignore: true)
@@ -1095,7 +1224,8 @@ class _$SeriesBooks extends SeriesBooks {
       type,
       const DeepCollectionEquality().hash(_books),
       addedAt,
-      totalDuration);
+      totalDuration,
+      rssFeed);
 
   @JsonKey(ignore: true)
   @override
@@ -1106,8 +1236,14 @@ class _$SeriesBooks extends SeriesBooks {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)
         $default, {
     required TResult Function(
             String id,
@@ -1125,7 +1261,8 @@ class _$SeriesBooks extends SeriesBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -1139,20 +1276,27 @@ class _$SeriesBooks extends SeriesBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
   }) {
     return books(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
-        this.books, addedAt, totalDuration);
+        this.books, addedAt, totalDuration, rssFeed);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult? Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult? Function(
             String id,
@@ -1170,7 +1314,8 @@ class _$SeriesBooks extends SeriesBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -1183,19 +1328,26 @@ class _$SeriesBooks extends SeriesBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
     return books?.call(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
-        this.books, addedAt, totalDuration);
+        this.books, addedAt, totalDuration, rssFeed);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult Function(
             String id,
@@ -1213,7 +1365,8 @@ class _$SeriesBooks extends SeriesBooks {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -1226,14 +1379,15 @@ class _$SeriesBooks extends SeriesBooks {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
   }) {
     if (books != null) {
       return books(id, name, nameIgnorePrefix, nameIgnorePrefixSort, type,
-          this.books, addedAt, totalDuration);
+          this.books, addedAt, totalDuration, rssFeed);
     }
     return orElse();
   }
@@ -1298,7 +1452,8 @@ abstract class SeriesBooks extends Series {
       final String type,
       required final List<LibraryItem> books,
       required final DateTime addedAt,
-      required final Duration totalDuration}) = _$SeriesBooks;
+      required final Duration totalDuration,
+      final RssFeed? rssFeed}) = _$SeriesBooks;
   const SeriesBooks._() : super._();
 
   factory SeriesBooks.fromJson(Map<String, dynamic> json) =
@@ -1313,7 +1468,9 @@ abstract class SeriesBooks extends Series {
   String get type;
   List<LibraryItem> get books;
   DateTime get addedAt;
-  Duration get totalDuration;
+  Duration
+      get totalDuration; // From [Get a Library's Series](https://api.audiobookshelf.org/#get-a-library-39-s-series)
+  RssFeed? get rssFeed;
   @override
   @JsonKey(ignore: true)
   _$$SeriesBooksCopyWith<_$SeriesBooks> get copyWith =>
@@ -1416,8 +1573,14 @@ class _$SeriesSequence extends SeriesSequence {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)
         $default, {
     required TResult Function(
             String id,
@@ -1435,7 +1598,8 @@ class _$SeriesSequence extends SeriesSequence {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -1449,7 +1613,8 @@ class _$SeriesSequence extends SeriesSequence {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -1460,8 +1625,14 @@ class _$SeriesSequence extends SeriesSequence {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult? Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult? Function(
             String id,
@@ -1479,7 +1650,8 @@ class _$SeriesSequence extends SeriesSequence {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -1492,7 +1664,8 @@ class _$SeriesSequence extends SeriesSequence {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -1502,8 +1675,14 @@ class _$SeriesSequence extends SeriesSequence {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult Function(
             String id,
@@ -1521,7 +1700,8 @@ class _$SeriesSequence extends SeriesSequence {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -1534,7 +1714,8 @@ class _$SeriesSequence extends SeriesSequence {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -1634,9 +1815,11 @@ abstract class _$$ShelfSeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       bool inProgress,
       bool hideFromContinueListening,
       DateTime bookInProgressLastUpdate,
-      LibraryItem? firstBookUnread});
+      LibraryItem? firstBookUnread,
+      RssFeed? rssFeed});
 
   $LibraryItemCopyWith<$Res>? get firstBookUnread;
+  $RssFeedCopyWith<$Res>? get rssFeed;
 }
 
 /// @nodoc
@@ -1660,6 +1843,7 @@ class __$$ShelfSeriesCopyWithImpl<$Res>
     Object? hideFromContinueListening = null,
     Object? bookInProgressLastUpdate = null,
     Object? firstBookUnread = freezed,
+    Object? rssFeed = freezed,
   }) {
     return _then(_$ShelfSeries(
       id: null == id
@@ -1702,6 +1886,10 @@ class __$$ShelfSeriesCopyWithImpl<$Res>
           ? _value.firstBookUnread
           : firstBookUnread // ignore: cast_nullable_to_non_nullable
               as LibraryItem?,
+      rssFeed: freezed == rssFeed
+          ? _value.rssFeed
+          : rssFeed // ignore: cast_nullable_to_non_nullable
+              as RssFeed?,
     ));
   }
 
@@ -1714,6 +1902,18 @@ class __$$ShelfSeriesCopyWithImpl<$Res>
 
     return $LibraryItemCopyWith<$Res>(_value.firstBookUnread!, (value) {
       return _then(_value.copyWith(firstBookUnread: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RssFeedCopyWith<$Res>? get rssFeed {
+    if (_value.rssFeed == null) {
+      return null;
+    }
+
+    return $RssFeedCopyWith<$Res>(_value.rssFeed!, (value) {
+      return _then(_value.copyWith(rssFeed: value));
     });
   }
 }
@@ -1733,6 +1933,7 @@ class _$ShelfSeries extends ShelfSeries {
       required this.hideFromContinueListening,
       required this.bookInProgressLastUpdate,
       this.firstBookUnread,
+      this.rssFeed,
       final String? $type})
       : _books = books,
         $type = $type ?? 'shelf',
@@ -1767,13 +1968,15 @@ class _$ShelfSeries extends ShelfSeries {
   final DateTime bookInProgressLastUpdate;
   @override
   final LibraryItem? firstBookUnread;
+  @override
+  final RssFeed? rssFeed;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'Series.shelf(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt, books: $books, inProgress: $inProgress, hideFromContinueListening: $hideFromContinueListening, bookInProgressLastUpdate: $bookInProgressLastUpdate, firstBookUnread: $firstBookUnread)';
+    return 'Series.shelf(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt, books: $books, inProgress: $inProgress, hideFromContinueListening: $hideFromContinueListening, bookInProgressLastUpdate: $bookInProgressLastUpdate, firstBookUnread: $firstBookUnread, rssFeed: $rssFeed)';
   }
 
   @override
@@ -1798,7 +2001,8 @@ class _$ShelfSeries extends ShelfSeries {
                     other.bookInProgressLastUpdate, bookInProgressLastUpdate) ||
                 other.bookInProgressLastUpdate == bookInProgressLastUpdate) &&
             (identical(other.firstBookUnread, firstBookUnread) ||
-                other.firstBookUnread == firstBookUnread));
+                other.firstBookUnread == firstBookUnread) &&
+            (identical(other.rssFeed, rssFeed) || other.rssFeed == rssFeed));
   }
 
   @JsonKey(ignore: true)
@@ -1814,7 +2018,8 @@ class _$ShelfSeries extends ShelfSeries {
       inProgress,
       hideFromContinueListening,
       bookInProgressLastUpdate,
-      firstBookUnread);
+      firstBookUnread,
+      rssFeed);
 
   @JsonKey(ignore: true)
   @override
@@ -1825,8 +2030,14 @@ class _$ShelfSeries extends ShelfSeries {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)
         $default, {
     required TResult Function(
             String id,
@@ -1844,7 +2055,8 @@ class _$ShelfSeries extends ShelfSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -1858,7 +2070,8 @@ class _$ShelfSeries extends ShelfSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -1873,14 +2086,21 @@ class _$ShelfSeries extends ShelfSeries {
         inProgress,
         hideFromContinueListening,
         bookInProgressLastUpdate,
-        firstBookUnread);
+        firstBookUnread,
+        rssFeed);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult? Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult? Function(
             String id,
@@ -1898,7 +2118,8 @@ class _$ShelfSeries extends ShelfSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -1911,7 +2132,8 @@ class _$ShelfSeries extends ShelfSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -1925,14 +2147,21 @@ class _$ShelfSeries extends ShelfSeries {
         inProgress,
         hideFromContinueListening,
         bookInProgressLastUpdate,
-        firstBookUnread);
+        firstBookUnread,
+        rssFeed);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult Function(
             String id,
@@ -1950,7 +2179,8 @@ class _$ShelfSeries extends ShelfSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -1963,7 +2193,8 @@ class _$ShelfSeries extends ShelfSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),
@@ -1979,7 +2210,8 @@ class _$ShelfSeries extends ShelfSeries {
           inProgress,
           hideFromContinueListening,
           bookInProgressLastUpdate,
-          firstBookUnread);
+          firstBookUnread,
+          rssFeed);
     }
     return orElse();
   }
@@ -2046,7 +2278,8 @@ abstract class ShelfSeries extends Series {
       required final bool inProgress,
       required final bool hideFromContinueListening,
       required final DateTime bookInProgressLastUpdate,
-      final LibraryItem? firstBookUnread}) = _$ShelfSeries;
+      final LibraryItem? firstBookUnread,
+      final RssFeed? rssFeed}) = _$ShelfSeries;
   const ShelfSeries._() : super._();
 
   factory ShelfSeries.fromJson(Map<String, dynamic> json) =
@@ -2064,6 +2297,7 @@ abstract class ShelfSeries extends Series {
   bool get hideFromContinueListening;
   DateTime get bookInProgressLastUpdate;
   LibraryItem? get firstBookUnread;
+  RssFeed? get rssFeed;
   @override
   @JsonKey(ignore: true)
   _$$ShelfSeriesCopyWith<_$ShelfSeries> get copyWith =>
@@ -2173,8 +2407,14 @@ class _$AuthorSeries extends AuthorSeries {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)
         $default, {
     required TResult Function(
             String id,
@@ -2192,7 +2432,8 @@ class _$AuthorSeries extends AuthorSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)
+            Duration totalDuration,
+            RssFeed? rssFeed)
         books,
     required TResult Function(String id, String name, String? sequence)
         sequence,
@@ -2206,7 +2447,8 @@ class _$AuthorSeries extends AuthorSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)
         shelf,
     required TResult Function(String id, String name, List<LibraryItem>? items)
         author,
@@ -2217,8 +2459,14 @@ class _$AuthorSeries extends AuthorSeries {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult? Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult? Function(
             String id,
@@ -2236,7 +2484,8 @@ class _$AuthorSeries extends AuthorSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult? Function(String id, String name, String? sequence)? sequence,
     TResult? Function(
@@ -2249,7 +2498,8 @@ class _$AuthorSeries extends AuthorSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult? Function(String id, String name, List<LibraryItem>? items)? author,
   }) {
@@ -2259,8 +2509,14 @@ class _$AuthorSeries extends AuthorSeries {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String id, String name, String? description,
-            DateTime addedAt, DateTime updatedAt, SeriesProgress? progress)?
+    TResult Function(
+            String id,
+            String name,
+            String? description,
+            DateTime addedAt,
+            DateTime updatedAt,
+            SeriesProgress? progress,
+            RssFeed? rssFeed)?
         $default, {
     TResult Function(
             String id,
@@ -2278,7 +2534,8 @@ class _$AuthorSeries extends AuthorSeries {
             String type,
             List<LibraryItem> books,
             DateTime addedAt,
-            Duration totalDuration)?
+            Duration totalDuration,
+            RssFeed? rssFeed)?
         books,
     TResult Function(String id, String name, String? sequence)? sequence,
     TResult Function(
@@ -2291,7 +2548,8 @@ class _$AuthorSeries extends AuthorSeries {
             bool inProgress,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
-            LibraryItem? firstBookUnread)?
+            LibraryItem? firstBookUnread,
+            RssFeed? rssFeed)?
         shelf,
     TResult Function(String id, String name, List<LibraryItem>? items)? author,
     required TResult orElse(),

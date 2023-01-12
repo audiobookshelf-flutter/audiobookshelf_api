@@ -19,6 +19,7 @@ class GetLibrarysSeriesResponse with _$GetLibrarysSeriesResponse {
     required bool sortDesc,
     Filter? filterBy,
     required bool minified,
+    required String include,
   }) = _GetLibrarysSeriesResponse;
 
   factory GetLibrarysSeriesResponse.fromJson(Map<String, dynamic> json) =>

@@ -17,6 +17,7 @@ void main() {
     const sortDesc = false;
     const filterBy = GenreFilter('genre');
     const minified = false;
+    const include = 'include';
 
     final json = {
       'results': [series.jsonBooks],
@@ -27,6 +28,7 @@ void main() {
       'sortDesc': sortDesc,
       'filterBy': filterBy.toString(),
       'minified': minified,
+      'include': include,
     };
 
     late GetLibrarysSeriesResponse sut;
@@ -41,6 +43,7 @@ void main() {
         sortDesc: sortDesc,
         filterBy: filterBy,
         minified: minified,
+        include: include,
       );
     });
 

@@ -134,6 +134,23 @@ class PodcastsService extends Service {
     );
   }
 
+  /// See [Match a Podcast's Episodes](https://api.audiobookshelf.org/#match-a-podcast-39-s-episodes)
+  ///
+  /// `numEpisodesUpdated` is returned.
+  Future<int?> matchEpisodes({
+    required String libraryItemId,
+    bool override = false,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/$libraryItemId/match-episodes',
+      queryParameters: override ? {'override': 1} : null,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJsonKey(json, 'numEpisodesUpdated'),
+    );
+  }
+
   /// See [Update a Podcast Episode](https://api.audiobookshelf.org/#update-a-podcast-episode)
   Future<LibraryItem?> updateEpisode({
     required String libraryItemId,

@@ -23,7 +23,6 @@ mixin _$LoginResponse {
   User get user => throw _privateConstructorUsedError;
   String get userDefaultLibraryId => throw _privateConstructorUsedError;
   ServerSettings get serverSettings => throw _privateConstructorUsedError;
-  List<RssFeed> get feeds => throw _privateConstructorUsedError;
   @JsonKey(name: 'Source')
   String get source => throw _privateConstructorUsedError;
 
@@ -43,7 +42,6 @@ abstract class $LoginResponseCopyWith<$Res> {
       {User user,
       String userDefaultLibraryId,
       ServerSettings serverSettings,
-      List<RssFeed> feeds,
       @JsonKey(name: 'Source') String source});
 
   $UserCopyWith<$Res> get user;
@@ -66,7 +64,6 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
     Object? user = null,
     Object? userDefaultLibraryId = null,
     Object? serverSettings = null,
-    Object? feeds = null,
     Object? source = null,
   }) {
     return _then(_value.copyWith(
@@ -82,10 +79,6 @@ class _$LoginResponseCopyWithImpl<$Res, $Val extends LoginResponse>
           ? _value.serverSettings
           : serverSettings // ignore: cast_nullable_to_non_nullable
               as ServerSettings,
-      feeds: null == feeds
-          ? _value.feeds
-          : feeds // ignore: cast_nullable_to_non_nullable
-              as List<RssFeed>,
       source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -122,7 +115,6 @@ abstract class _$$_LoginResponseCopyWith<$Res>
       {User user,
       String userDefaultLibraryId,
       ServerSettings serverSettings,
-      List<RssFeed> feeds,
       @JsonKey(name: 'Source') String source});
 
   @override
@@ -145,7 +137,6 @@ class __$$_LoginResponseCopyWithImpl<$Res>
     Object? user = null,
     Object? userDefaultLibraryId = null,
     Object? serverSettings = null,
-    Object? feeds = null,
     Object? source = null,
   }) {
     return _then(_$_LoginResponse(
@@ -161,10 +152,6 @@ class __$$_LoginResponseCopyWithImpl<$Res>
           ? _value.serverSettings
           : serverSettings // ignore: cast_nullable_to_non_nullable
               as ServerSettings,
-      feeds: null == feeds
-          ? _value._feeds
-          : feeds // ignore: cast_nullable_to_non_nullable
-              as List<RssFeed>,
       source: null == source
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
@@ -180,9 +167,7 @@ class _$_LoginResponse implements _LoginResponse {
       {required this.user,
       required this.userDefaultLibraryId,
       required this.serverSettings,
-      required final List<RssFeed> feeds,
-      @JsonKey(name: 'Source') required this.source})
-      : _feeds = feeds;
+      @JsonKey(name: 'Source') required this.source});
 
   factory _$_LoginResponse.fromJson(Map<String, dynamic> json) =>
       _$$_LoginResponseFromJson(json);
@@ -193,21 +178,13 @@ class _$_LoginResponse implements _LoginResponse {
   final String userDefaultLibraryId;
   @override
   final ServerSettings serverSettings;
-  final List<RssFeed> _feeds;
-  @override
-  List<RssFeed> get feeds {
-    if (_feeds is EqualUnmodifiableListView) return _feeds;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_feeds);
-  }
-
   @override
   @JsonKey(name: 'Source')
   final String source;
 
   @override
   String toString() {
-    return 'LoginResponse(user: $user, userDefaultLibraryId: $userDefaultLibraryId, serverSettings: $serverSettings, feeds: $feeds, source: $source)';
+    return 'LoginResponse(user: $user, userDefaultLibraryId: $userDefaultLibraryId, serverSettings: $serverSettings, source: $source)';
   }
 
   @override
@@ -220,14 +197,13 @@ class _$_LoginResponse implements _LoginResponse {
                 other.userDefaultLibraryId == userDefaultLibraryId) &&
             (identical(other.serverSettings, serverSettings) ||
                 other.serverSettings == serverSettings) &&
-            const DeepCollectionEquality().equals(other._feeds, _feeds) &&
             (identical(other.source, source) || other.source == source));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, user, userDefaultLibraryId,
-      serverSettings, const DeepCollectionEquality().hash(_feeds), source);
+  int get hashCode => Object.hash(
+      runtimeType, user, userDefaultLibraryId, serverSettings, source);
 
   @JsonKey(ignore: true)
   @override
@@ -248,7 +224,6 @@ abstract class _LoginResponse implements LoginResponse {
           {required final User user,
           required final String userDefaultLibraryId,
           required final ServerSettings serverSettings,
-          required final List<RssFeed> feeds,
           @JsonKey(name: 'Source') required final String source}) =
       _$_LoginResponse;
 
@@ -261,8 +236,6 @@ abstract class _LoginResponse implements LoginResponse {
   String get userDefaultLibraryId;
   @override
   ServerSettings get serverSettings;
-  @override
-  List<RssFeed> get feeds;
   @override
   @JsonKey(name: 'Source')
   String get source;

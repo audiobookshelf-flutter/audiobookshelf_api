@@ -6,7 +6,6 @@ const String? asin = null;
 const name = 'Terry Goodkind';
 const String? description = null;
 const String? imagePath = null;
-const String? relImagePath = null;
 const addedAtJson = 1650621073750;
 final addedAt = const DateTimeEpochConverter().fromJson(addedAtJson);
 const updatedAtJson = 1650621073750;
@@ -19,7 +18,6 @@ const json = {
   'name': name,
   'description': description,
   'imagePath': imagePath,
-  'relImagePath': relImagePath,
   'addedAt': addedAtJson,
   'updatedAt': updatedAtJson,
 };
@@ -30,7 +28,6 @@ final author = Author(
   name: name,
   description: description,
   imagePath: imagePath,
-  relImagePath: relImagePath,
   addedAt: addedAt,
   updatedAt: updatedAt,
 );
@@ -51,7 +48,6 @@ const jsonExpanded = {
   'name': name,
   'description': description,
   'imagePath': imagePath,
-  'relImagePath': relImagePath,
   'addedAt': addedAtJson,
   'updatedAt': updatedAtJson,
   'numBooks': numBooks,
@@ -63,7 +59,6 @@ final authorExpanded = Author.expanded(
   name: name,
   description: description,
   imagePath: imagePath,
-  relImagePath: relImagePath,
   addedAt: addedAt,
   updatedAt: updatedAt,
   numBooks: numBooks,
