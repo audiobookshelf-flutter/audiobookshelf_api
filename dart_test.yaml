@@ -40,3 +40,5 @@ tags:
   depends_on_PodcastEpisodeEnclosure:
   depends_on_PodcastFeedMetadata:
   depends_on_RssFeedEpisodeEnclosure:
+  depends_on_RssFeedEpisode:
+  depends_on_RssFeedMetadata:
