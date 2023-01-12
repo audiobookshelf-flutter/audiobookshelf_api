@@ -2,6 +2,8 @@ import 'package:audiobookshelf_api/audiobookshelf_api.dart';
 import 'package:audiobookshelf_api/src/utils/json_converters.dart';
 
 import 'user_permissions_json.dart' as user_permissions;
+import 'playback_session_json.dart' as playback_session;
+import 'media_progress_json.dart' as media_progress;
 
 const id = 'root';
 const username = 'root';
@@ -21,11 +23,6 @@ const createdAtJson = 1666543632566;
 final createdAt = const DateTimeEpochConverter().fromJson(createdAtJson);
 const librariesAccessible = <String>[];
 const itemTagsAccessible = <String>[];
-
-const Map<String, Object?>? sessionJson = null;
-const PlaybackSession? session = null;
-const Map<String, Object?>? mostRecentJson = null;
-const MediaProgress? mostRecent = null;
 
 const json = {
   'id': id,
@@ -64,9 +61,9 @@ final user = User(
 const jsonWithSessionAndMostRecentProgress = {
   'id': id,
   'username': username,
-  'type': type,
-  'session': sessionJson,
-  'mostRecent': mostRecentJson,
+  'type': typeJson,
+  'session': playback_session.json,
+  'mostRecent': media_progress.json,
   'lastSeen': lastSeenJson,
   'createdAt': createdAtJson,
 };
@@ -76,8 +73,8 @@ final userWithSessionAndMostRecentProgress =
   id: id,
   username: username,
   type: type,
-  session: session,
-  mostRecent: mostRecent,
+  session: playback_session.playbackSession,
+  mostRecent: media_progress.mediaProgress,
   lastSeen: lastSeen,
   createdAt: createdAt,
 );
