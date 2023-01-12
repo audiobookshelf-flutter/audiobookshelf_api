@@ -10,7 +10,8 @@ const libraryItemId = 'li_bufnnmp4y5o2gbbxfm';
 const isDownloading = false;
 const isFinished = false;
 const failed = false;
-const DateTime? startedAt = null;
+const startedAtJson = 1668122813409;
+final startedAt = const DateTimeEpochConverter().fromJson(startedAtJson);
 const createdAtJson = 1668122813409;
 final createdAt = const DateTimeEpochConverter().fromJson(createdAtJson);
 const DateTime? finishedAt = null;
@@ -23,7 +24,7 @@ const json = {
   'isDownloading': isDownloading,
   'isFinished': isFinished,
   'failed': failed,
-  'startedAt': startedAt,
+  'startedAt': startedAtJson,
   'createdAt': createdAtJson,
   'finishedAt': finishedAt,
 };
