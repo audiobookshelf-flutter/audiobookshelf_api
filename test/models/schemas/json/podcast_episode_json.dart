@@ -4,6 +4,7 @@ import 'package:audiobookshelf_api/src/utils/json_converters.dart';
 import 'audio_file_json.dart' as audio_file;
 import 'audio_track_json.dart' as audio_track;
 import 'podcast_episode_enclosure_json.dart' as podcast_episode_enclosure;
+import 'podcast_json.dart' as podcast;
 
 const libraryItemId = 'li_bufnnmp4y5o2gbbxfm';
 const id = 'ep_lh6ko39pumnrma3dhv';
@@ -83,6 +84,7 @@ const jsonExpanded = {
   'updatedAt': updatedAtJson,
   'duration': durationJson,
   'size': size,
+  'podcast': podcast.json,
 };
 
 final podcastEpisodeExpanded = PodcastEpisode.expanded(
@@ -104,4 +106,5 @@ final podcastEpisodeExpanded = PodcastEpisode.expanded(
   audioTrack: audio_track.audioTrack,
   duration: duration,
   size: size,
+  podcast: podcast.podcast,
 );
