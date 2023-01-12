@@ -39,3 +39,4 @@ tags:
   depends_on_PlaylistItem:
   depends_on_PodcastEpisodeEnclosure:
   depends_on_PodcastFeedMetadata:
+  depends_on_RssFeedEpisodeEnclosure:
