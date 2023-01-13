@@ -46,3 +46,4 @@ tags:
   depends_on_UserPermissions:
   depends_on_PlaybackSession:
   depends_on_AudioFileMetadataEvent:
+  depends_on_LibraryScanResults:
