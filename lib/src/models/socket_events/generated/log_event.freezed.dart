@@ -20,6 +20,7 @@ LogEvent _$LogEventFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LogEvent {
+  @JsonKey(toJson: _timestampToJson)
   DateTime get timestamp => throw _privateConstructorUsedError;
   String get message => throw _privateConstructorUsedError;
   String get levelName => throw _privateConstructorUsedError;
@@ -37,7 +38,10 @@ abstract class $LogEventCopyWith<$Res> {
       _$LogEventCopyWithImpl<$Res, LogEvent>;
   @useResult
   $Res call(
-      {DateTime timestamp, String message, String levelName, LogLevel level});
+      {@JsonKey(toJson: _timestampToJson) DateTime timestamp,
+      String message,
+      String levelName,
+      LogLevel level});
 }
 
 /// @nodoc
@@ -87,7 +91,10 @@ abstract class _$$_LogEventCopyWith<$Res> implements $LogEventCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {DateTime timestamp, String message, String levelName, LogLevel level});
+      {@JsonKey(toJson: _timestampToJson) DateTime timestamp,
+      String message,
+      String levelName,
+      LogLevel level});
 }
 
 /// @nodoc
@@ -131,7 +138,7 @@ class __$$_LogEventCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_LogEvent implements _LogEvent {
   const _$_LogEvent(
-      {required this.timestamp,
+      {@JsonKey(toJson: _timestampToJson) required this.timestamp,
       required this.message,
       required this.levelName,
       required this.level});
@@ -140,6 +147,7 @@ class _$_LogEvent implements _LogEvent {
       _$$_LogEventFromJson(json);
 
   @override
+  @JsonKey(toJson: _timestampToJson)
   final DateTime timestamp;
   @override
   final String message;
@@ -187,7 +195,7 @@ class _$_LogEvent implements _LogEvent {
 
 abstract class _LogEvent implements LogEvent {
   const factory _LogEvent(
-      {required final DateTime timestamp,
+      {@JsonKey(toJson: _timestampToJson) required final DateTime timestamp,
       required final String message,
       required final String levelName,
       required final LogLevel level}) = _$_LogEvent;
@@ -195,6 +203,7 @@ abstract class _LogEvent implements LogEvent {
   factory _LogEvent.fromJson(Map<String, dynamic> json) = _$_LogEvent.fromJson;
 
   @override
+  @JsonKey(toJson: _timestampToJson)
   DateTime get timestamp;
   @override
   String get message;

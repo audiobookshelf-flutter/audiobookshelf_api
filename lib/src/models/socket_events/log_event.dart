@@ -8,7 +8,7 @@ part 'generated/log_event.g.dart';
 @freezed
 class LogEvent with _$LogEvent {
   const factory LogEvent({
-    required DateTime timestamp,
+    @JsonKey(toJson: _timestampToJson) required DateTime timestamp,
     required String message,
     required String levelName,
     required LogLevel level,
@@ -17,3 +17,6 @@ class LogEvent with _$LogEvent {
   factory LogEvent.fromJson(Map<String, dynamic> json) =>
       _$LogEventFromJson(json);
 }
+
+String _timestampToJson(DateTime timestamp) =>
+    timestamp.toString().split('.')[0];
