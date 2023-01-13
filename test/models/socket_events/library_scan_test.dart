@@ -54,4 +54,20 @@ void main() {
       expect(sut.toJson(), deepMapContains(json));
     });
   });
+
+  group('LibraryScanResults', () {
+    late LibraryScanResults sut;
+
+    setUp(() {
+      sut = libraryScanResults;
+    });
+
+    test('fromJson', () {
+      expect(sut, LibraryScanResults.fromJson(libraryScanResultsJson));
+    });
+
+    test('toJson', () {
+      expect(sut.toJson(), libraryScanResultsJson);
+    });
+  });
 }
