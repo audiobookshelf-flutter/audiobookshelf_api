@@ -45,3 +45,4 @@ tags:
   depends_on_SeriesProgress:
   depends_on_UserPermissions:
   depends_on_PlaybackSession:
+  depends_on_AudioFileMetadataEvent:
