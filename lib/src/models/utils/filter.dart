@@ -43,9 +43,9 @@ abstract class Filter {
       case FilterGroup.tracks:
         return TracksFilter(TracksFilterValue.values.byName(value));
       case FilterGroup.issues:
-        return IssuesFilter();
+        return const IssuesFilter();
       case FilterGroup.feedOpen:
-        return FeedOpenFilter();
+        return const FeedOpenFilter();
     }
   }
 
