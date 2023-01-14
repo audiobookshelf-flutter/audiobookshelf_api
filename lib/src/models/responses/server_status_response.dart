@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../enums/server_language.dart';
+
 part 'generated/server_status_response.freezed.dart';
 part 'generated/server_status_response.g.dart';
 
@@ -8,7 +10,7 @@ part 'generated/server_status_response.g.dart';
 class ServerStatusResponse with _$ServerStatusResponse {
   const factory ServerStatusResponse({
     required bool isInit,
-    required String language,
+    required ServerLanguage language,
     @JsonKey(name: 'ConfigPath') String? configPath,
     @JsonKey(name: 'MetadataPath') String? metadataPath,
   }) = _ServerStatusResponse;

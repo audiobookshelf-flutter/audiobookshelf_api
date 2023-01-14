@@ -9,7 +9,7 @@ part of '../update_notification_settings_req_params.dart';
 Map<String, dynamic> _$UpdateNotificationSettingsReqParamsToJson(
         UpdateNotificationSettingsReqParams instance) =>
     <String, dynamic>{
-      'appriseApiUrl': instance.appriseApiUrl?.toString(),
+      'appriseApiUrl': instance.appriseApiUrl,
       'maxFailedAttempts': instance.maxFailedAttempts,
       'maxNotificationQueue': instance.maxNotificationQueue,
     };

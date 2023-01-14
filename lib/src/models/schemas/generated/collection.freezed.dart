@@ -29,7 +29,10 @@ mixin _$Collection {
   String? get coverFullPath => throw _privateConstructorUsedError;
   List<LibraryItem> get books => throw _privateConstructorUsedError;
   DateTime get lastUpdate => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime get createdAt =>
+      throw _privateConstructorUsedError; // From [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+// and [Get a Library's Collections](https://api.audiobookshelf.org/#get-a-library-39-s-collections)
+  RssFeed? get rssFeed => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +56,10 @@ abstract class $CollectionCopyWith<$Res> {
       String? coverFullPath,
       List<LibraryItem> books,
       DateTime lastUpdate,
-      DateTime createdAt});
+      DateTime createdAt,
+      RssFeed? rssFeed});
+
+  $RssFeedCopyWith<$Res>? get rssFeed;
 }
 
 /// @nodoc
@@ -79,6 +85,7 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
     Object? books = null,
     Object? lastUpdate = null,
     Object? createdAt = null,
+    Object? rssFeed = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -121,7 +128,23 @@ class _$CollectionCopyWithImpl<$Res, $Val extends Collection>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      rssFeed: freezed == rssFeed
+          ? _value.rssFeed
+          : rssFeed // ignore: cast_nullable_to_non_nullable
+              as RssFeed?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RssFeedCopyWith<$Res>? get rssFeed {
+    if (_value.rssFeed == null) {
+      return null;
+    }
+
+    return $RssFeedCopyWith<$Res>(_value.rssFeed!, (value) {
+      return _then(_value.copyWith(rssFeed: value) as $Val);
+    });
   }
 }
 
@@ -143,7 +166,11 @@ abstract class _$$_CollectionCopyWith<$Res>
       String? coverFullPath,
       List<LibraryItem> books,
       DateTime lastUpdate,
-      DateTime createdAt});
+      DateTime createdAt,
+      RssFeed? rssFeed});
+
+  @override
+  $RssFeedCopyWith<$Res>? get rssFeed;
 }
 
 /// @nodoc
@@ -167,6 +194,7 @@ class __$$_CollectionCopyWithImpl<$Res>
     Object? books = null,
     Object? lastUpdate = null,
     Object? createdAt = null,
+    Object? rssFeed = freezed,
   }) {
     return _then(_$_Collection(
       id: null == id
@@ -209,6 +237,10 @@ class __$$_CollectionCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      rssFeed: freezed == rssFeed
+          ? _value.rssFeed
+          : rssFeed // ignore: cast_nullable_to_non_nullable
+              as RssFeed?,
     ));
   }
 }
@@ -227,7 +259,8 @@ class _$_Collection implements _Collection {
       this.coverFullPath,
       required final List<LibraryItem> books,
       required this.lastUpdate,
-      required this.createdAt})
+      required this.createdAt,
+      this.rssFeed})
       : _books = books;
 
   factory _$_Collection.fromJson(Map<String, dynamic> json) =>
@@ -259,10 +292,14 @@ class _$_Collection implements _Collection {
   final DateTime lastUpdate;
   @override
   final DateTime createdAt;
+// From [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+// and [Get a Library's Collections](https://api.audiobookshelf.org/#get-a-library-39-s-collections)
+  @override
+  final RssFeed? rssFeed;
 
   @override
   String toString() {
-    return 'Collection(id: $id, libraryId: $libraryId, userId: $userId, name: $name, description: $description, cover: $cover, coverFullPath: $coverFullPath, books: $books, lastUpdate: $lastUpdate, createdAt: $createdAt)';
+    return 'Collection(id: $id, libraryId: $libraryId, userId: $userId, name: $name, description: $description, cover: $cover, coverFullPath: $coverFullPath, books: $books, lastUpdate: $lastUpdate, createdAt: $createdAt, rssFeed: $rssFeed)';
   }
 
   @override
@@ -284,7 +321,8 @@ class _$_Collection implements _Collection {
             (identical(other.lastUpdate, lastUpdate) ||
                 other.lastUpdate == lastUpdate) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            (identical(other.rssFeed, rssFeed) || other.rssFeed == rssFeed));
   }
 
   @JsonKey(ignore: true)
@@ -300,7 +338,8 @@ class _$_Collection implements _Collection {
       coverFullPath,
       const DeepCollectionEquality().hash(_books),
       lastUpdate,
-      createdAt);
+      createdAt,
+      rssFeed);
 
   @JsonKey(ignore: true)
   @override
@@ -327,7 +366,8 @@ abstract class _Collection implements Collection {
       final String? coverFullPath,
       required final List<LibraryItem> books,
       required final DateTime lastUpdate,
-      required final DateTime createdAt}) = _$_Collection;
+      required final DateTime createdAt,
+      final RssFeed? rssFeed}) = _$_Collection;
 
   factory _Collection.fromJson(Map<String, dynamic> json) =
       _$_Collection.fromJson;
@@ -352,6 +392,9 @@ abstract class _Collection implements Collection {
   DateTime get lastUpdate;
   @override
   DateTime get createdAt;
+  @override // From [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
+// and [Get a Library's Collections](https://api.audiobookshelf.org/#get-a-library-39-s-collections)
+  RssFeed? get rssFeed;
   @override
   @JsonKey(ignore: true)
   _$$_CollectionCopyWith<_$_Collection> get copyWith =>

@@ -15,7 +15,7 @@ _$_LogEvent _$$_LogEventFromJson(Map<String, dynamic> json) => _$_LogEvent(
 
 Map<String, dynamic> _$$_LogEventToJson(_$_LogEvent instance) =>
     <String, dynamic>{
-      'timestamp': instance.timestamp.toIso8601String(),
+      'timestamp': _timestampToJson(instance.timestamp),
       'message': instance.message,
       'levelName': instance.levelName,
       'level': _$LogLevelEnumMap[instance.level]!,

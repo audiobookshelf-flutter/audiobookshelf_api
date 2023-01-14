@@ -36,8 +36,7 @@ _$_AudioFile _$$_AudioFileFromJson(Map<String, dynamic> json) => _$_AudioFile(
       embeddedCoverArt: json['embeddedCoverArt'] as String?,
       metaTags:
           AudioMetaTags.fromJson(json['metaTags'] as Map<String, dynamic>),
-      mimeType: const HttpParserMediaTypeConverter()
-          .fromJson(json['mimeType'] as String),
+      mimeType: json['mimeType'] as String,
     );
 
 Map<String, dynamic> _$$_AudioFileToJson(_$_AudioFile instance) =>
@@ -67,6 +66,5 @@ Map<String, dynamic> _$$_AudioFileToJson(_$_AudioFile instance) =>
       'chapters': instance.chapters,
       'embeddedCoverArt': instance.embeddedCoverArt,
       'metaTags': instance.metaTags,
-      'mimeType':
-          const HttpParserMediaTypeConverter().toJson(instance.mimeType),
+      'mimeType': instance.mimeType,
     };

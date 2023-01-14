@@ -31,7 +31,7 @@ Map<String, dynamic> _$$LibraryItemShelfToJson(_$LibraryItemShelf instance) =>
 const _$ShelfTypeEnumMap = {
   ShelfType.book: 'book',
   ShelfType.series: 'series',
-  ShelfType.authors: 'authors',
+  ShelfType.author: 'author',
   ShelfType.episode: 'episode',
   ShelfType.podcast: 'podcast',
 };

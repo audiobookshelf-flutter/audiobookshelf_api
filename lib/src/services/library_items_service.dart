@@ -10,7 +10,6 @@ import '../models/request_parameters/update_item_tracks_req_params.dart';
 import '../models/responses/batch_update_item_response.dart';
 import '../models/responses/get_item_tone_response.dart';
 import '../models/responses/match_item_response.dart';
-import '../models/responses/open_rss_feed_response.dart';
 import '../models/responses/scan_item_response.dart';
 import '../models/responses/tone_scan_item_response.dart';
 import '../models/responses/update_cover_response.dart';
@@ -18,12 +17,13 @@ import '../models/responses/update_item_chapters_response.dart';
 import '../models/schemas/book_chapter.dart';
 import '../models/schemas/library_item.dart';
 import '../models/schemas/playback_session.dart';
+import '../models/utils/file_upload.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
 import 'service.dart';
 
 class LibraryItemsService extends Service {
-  /// `/api/items`
+  /// `api/items`
   static const basePath = '${Service.basePath}/items';
 
   const LibraryItemsService(super.api);
@@ -105,14 +105,14 @@ class LibraryItemsService extends Service {
   /// See [Upload a Library Item Cover](https://api.audiobookshelf.org/#upload-a-library-item-cover)
   Future<UpdateCoverResponse?> uploadCover({
     required String libraryItemId,
-    String? coverFilePath,
+    FileUpload? coverFile,
     String? url,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.postJson(
       path: '$basePath/$libraryItemId/cover',
       jsonObject: url != null ? {'url': url} : null,
-      filePaths: coverFilePath != null ? {'cover': coverFilePath} : null,
+      files: coverFile != null ? {'cover': coverFile} : null,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, UpdateCoverResponse.fromJson),
@@ -233,37 +233,6 @@ class LibraryItemsService extends Service {
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, UpdateItemChaptersResponse.fromJson),
-    );
-  }
-
-  /// See [Open an RSS Feed for a Library Item](https://api.audiobookshelf.org/#open-an-rss-feed-for-a-library-item)
-  Future<OpenRssFeedResponse?> openRssFeed({
-    required String libraryItemId,
-    required String serverAddress,
-    required String slug,
-    ResponseErrorHandler? responseErrorHandler,
-  }) {
-    return api.postJson(
-      path: '$basePath/$libraryItemId/open-feed',
-      jsonObject: {
-        'serverAddress': serverAddress,
-        'slug': slug,
-      },
-      requiresAuth: true,
-      responseErrorHandler: responseErrorHandler,
-      fromJson: (json) => fromJson(json, OpenRssFeedResponse.fromJson),
-    );
-  }
-
-  /// See [Close an RSS Feed for a Library Item](https://api.audiobookshelf.org/#close-an-rss-feed-for-a-library-item)
-  Future<void> closeRssFeed({
-    required String libraryItemId,
-    ResponseErrorHandler? responseErrorHandler,
-  }) {
-    return api.post(
-      path: '$basePath/$libraryItemId/close-feed',
-      requiresAuth: true,
-      responseErrorHandler: responseErrorHandler,
     );
   }
 

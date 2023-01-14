@@ -23,6 +23,7 @@ mixin _$GetUserStatsResponse {
   Duration get totalTime => throw _privateConstructorUsedError;
   Map<String, ItemsListenedToResponse> get items =>
       throw _privateConstructorUsedError;
+  @JsonKey(toJson: _daysToJson)
   Map<DateTime, Duration> get days => throw _privateConstructorUsedError;
   Map<DayOfTheWeek, Duration> get dayOfWeek =>
       throw _privateConstructorUsedError;
@@ -45,7 +46,7 @@ abstract class $GetUserStatsResponseCopyWith<$Res> {
   $Res call(
       {Duration totalTime,
       Map<String, ItemsListenedToResponse> items,
-      Map<DateTime, Duration> days,
+      @JsonKey(toJson: _daysToJson) Map<DateTime, Duration> days,
       Map<DayOfTheWeek, Duration> dayOfWeek,
       Duration today,
       List<PlaybackSession> recentSessions});
@@ -112,7 +113,7 @@ abstract class _$$_GetUserStatsResponseCopyWith<$Res>
   $Res call(
       {Duration totalTime,
       Map<String, ItemsListenedToResponse> items,
-      Map<DateTime, Duration> days,
+      @JsonKey(toJson: _daysToJson) Map<DateTime, Duration> days,
       Map<DayOfTheWeek, Duration> dayOfWeek,
       Duration today,
       List<PlaybackSession> recentSessions});
@@ -172,7 +173,7 @@ class _$_GetUserStatsResponse implements _GetUserStatsResponse {
   const _$_GetUserStatsResponse(
       {required this.totalTime,
       required final Map<String, ItemsListenedToResponse> items,
-      required final Map<DateTime, Duration> days,
+      @JsonKey(toJson: _daysToJson) required final Map<DateTime, Duration> days,
       required final Map<DayOfTheWeek, Duration> dayOfWeek,
       required this.today,
       required final List<PlaybackSession> recentSessions})
@@ -196,6 +197,7 @@ class _$_GetUserStatsResponse implements _GetUserStatsResponse {
 
   final Map<DateTime, Duration> _days;
   @override
+  @JsonKey(toJson: _daysToJson)
   Map<DateTime, Duration> get days {
     if (_days is EqualUnmodifiableMapView) return _days;
     // ignore: implicit_dynamic_type
@@ -269,13 +271,13 @@ class _$_GetUserStatsResponse implements _GetUserStatsResponse {
 
 abstract class _GetUserStatsResponse implements GetUserStatsResponse {
   const factory _GetUserStatsResponse(
-          {required final Duration totalTime,
-          required final Map<String, ItemsListenedToResponse> items,
-          required final Map<DateTime, Duration> days,
-          required final Map<DayOfTheWeek, Duration> dayOfWeek,
-          required final Duration today,
-          required final List<PlaybackSession> recentSessions}) =
-      _$_GetUserStatsResponse;
+      {required final Duration totalTime,
+      required final Map<String, ItemsListenedToResponse> items,
+      @JsonKey(toJson: _daysToJson) required final Map<DateTime, Duration> days,
+      required final Map<DayOfTheWeek, Duration> dayOfWeek,
+      required final Duration today,
+      required final List<PlaybackSession>
+          recentSessions}) = _$_GetUserStatsResponse;
 
   factory _GetUserStatsResponse.fromJson(Map<String, dynamic> json) =
       _$_GetUserStatsResponse.fromJson;
@@ -285,6 +287,7 @@ abstract class _GetUserStatsResponse implements GetUserStatsResponse {
   @override
   Map<String, ItemsListenedToResponse> get items;
   @override
+  @JsonKey(toJson: _daysToJson)
   Map<DateTime, Duration> get days;
   @override
   Map<DayOfTheWeek, Duration> get dayOfWeek;

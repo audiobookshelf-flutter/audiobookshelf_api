@@ -22,7 +22,7 @@ import 'service.dart';
 
 class SocketService extends Service {
   late final socket = io.io(
-    api.baseUrl,
+    api.baseUrl.toString(),
     io.OptionBuilder()
         .setTransports(['websocket'])
         .disableAutoConnect()

@@ -8,17 +8,7 @@ part of '../create_update_progress_req_params.dart';
 
 Map<String, dynamic> _$CreateUpdateProgressReqParamsToJson(
     CreateUpdateProgressReqParams instance) {
-  final val = <String, dynamic>{
-    'duration':
-        const DurationPreciseSecondsConverter().toJson(instance.duration),
-    'progress': instance.progress,
-    'currentTime':
-        const DurationPreciseSecondsConverter().toJson(instance.currentTime),
-    'isFinished': instance.isFinished,
-    'hideFromContinueListening': instance.hideFromContinueListening,
-    'finishedAt': _$JsonConverterToJson<int, DateTime>(
-        instance.finishedAt, const DateTimeEpochConverter().toJson),
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -26,6 +16,21 @@ Map<String, dynamic> _$CreateUpdateProgressReqParamsToJson(
     }
   }
 
+  writeNotNull(
+      'duration',
+      _$JsonConverterToJson<num, Duration>(
+          instance.duration, const DurationPreciseSecondsConverter().toJson));
+  writeNotNull('progress', instance.progress);
+  writeNotNull(
+      'currentTime',
+      _$JsonConverterToJson<num, Duration>(instance.currentTime,
+          const DurationPreciseSecondsConverter().toJson));
+  writeNotNull('isFinished', instance.isFinished);
+  writeNotNull('hideFromContinueListening', instance.hideFromContinueListening);
+  writeNotNull(
+      'finishedAt',
+      _$JsonConverterToJson<int, DateTime>(
+          instance.finishedAt, const DateTimeEpochConverter().toJson));
   writeNotNull(
       'startedAt',
       _$JsonConverterToJson<int, DateTime>(

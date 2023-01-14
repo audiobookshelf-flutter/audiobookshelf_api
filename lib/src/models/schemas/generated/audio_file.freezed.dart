@@ -44,7 +44,7 @@ mixin _$AudioFile {
   List<BookChapter> get chapters => throw _privateConstructorUsedError;
   String? get embeddedCoverArt => throw _privateConstructorUsedError;
   AudioMetaTags get metaTags => throw _privateConstructorUsedError;
-  http_parser.MediaType get mimeType => throw _privateConstructorUsedError;
+  String get mimeType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -82,7 +82,7 @@ abstract class $AudioFileCopyWith<$Res> {
       List<BookChapter> chapters,
       String? embeddedCoverArt,
       AudioMetaTags metaTags,
-      http_parser.MediaType mimeType});
+      String mimeType});
 
   $FileMetadataCopyWith<$Res> get metadata;
   $AudioMetaTagsCopyWith<$Res> get metaTags;
@@ -227,7 +227,7 @@ class _$AudioFileCopyWithImpl<$Res, $Val extends AudioFile>
       mimeType: null == mimeType
           ? _value.mimeType
           : mimeType // ignore: cast_nullable_to_non_nullable
-              as http_parser.MediaType,
+              as String,
     ) as $Val);
   }
 
@@ -280,7 +280,7 @@ abstract class _$$_AudioFileCopyWith<$Res> implements $AudioFileCopyWith<$Res> {
       List<BookChapter> chapters,
       String? embeddedCoverArt,
       AudioMetaTags metaTags,
-      http_parser.MediaType mimeType});
+      String mimeType});
 
   @override
   $FileMetadataCopyWith<$Res> get metadata;
@@ -425,7 +425,7 @@ class __$$_AudioFileCopyWithImpl<$Res>
       mimeType: null == mimeType
           ? _value.mimeType
           : mimeType // ignore: cast_nullable_to_non_nullable
-              as http_parser.MediaType,
+              as String,
     ));
   }
 }
@@ -520,7 +520,7 @@ class _$_AudioFile implements _AudioFile {
   @override
   final AudioMetaTags metaTags;
   @override
-  final http_parser.MediaType mimeType;
+  final String mimeType;
 
   @override
   String toString() {
@@ -645,7 +645,7 @@ abstract class _AudioFile implements AudioFile {
       required final List<BookChapter> chapters,
       final String? embeddedCoverArt,
       required final AudioMetaTags metaTags,
-      required final http_parser.MediaType mimeType}) = _$_AudioFile;
+      required final String mimeType}) = _$_AudioFile;
 
   factory _AudioFile.fromJson(Map<String, dynamic> json) =
       _$_AudioFile.fromJson;
@@ -699,7 +699,7 @@ abstract class _AudioFile implements AudioFile {
   @override
   AudioMetaTags get metaTags;
   @override
-  http_parser.MediaType get mimeType;
+  String get mimeType;
   @override
   @JsonKey(ignore: true)
   _$$_AudioFileCopyWith<_$_AudioFile> get copyWith =>

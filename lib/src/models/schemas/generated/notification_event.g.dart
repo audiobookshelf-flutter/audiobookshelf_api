@@ -6,20 +6,6 @@ part of '../notification_event.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NotificationEventDefaults _$NotificationEventDefaultsFromJson(
-        Map<String, dynamic> json) =>
-    NotificationEventDefaults(
-      title: json['title'] as String,
-      body: json['body'] as String,
-    );
-
-Map<String, dynamic> _$NotificationEventDefaultsToJson(
-        NotificationEventDefaults instance) =>
-    <String, dynamic>{
-      'title': instance.title,
-      'body': instance.body,
-    };
-
 _$_NotificationEvent _$$_NotificationEventFromJson(Map<String, dynamic> json) =>
     _$_NotificationEvent(
       name: json['name'] as String,
@@ -50,3 +36,17 @@ const _$MediaTypeEnumMap = {
   MediaType.book: 'book',
   MediaType.podcast: 'podcast',
 };
+
+_$_NotificationEventDefaults _$$_NotificationEventDefaultsFromJson(
+        Map<String, dynamic> json) =>
+    _$_NotificationEventDefaults(
+      title: json['title'] as String,
+      body: json['body'] as String,
+    );
+
+Map<String, dynamic> _$$_NotificationEventDefaultsToJson(
+        _$_NotificationEventDefaults instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      'body': instance.body,
+    };

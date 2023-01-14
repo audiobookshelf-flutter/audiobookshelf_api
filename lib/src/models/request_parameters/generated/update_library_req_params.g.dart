@@ -20,6 +20,7 @@ Map<String, dynamic> _$UpdateLibraryReqParamsToJson(
   writeNotNull('displayOrder', instance.displayOrder);
   writeNotNull('icon', _$LibraryIconEnumMap[instance.icon]);
   writeNotNull('provider', _$MetadataProviderEnumMap[instance.provider]);
+  writeNotNull('settings', instance.settings?.toJson());
   return val;
 }
 

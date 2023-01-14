@@ -24,6 +24,7 @@ class ServerSettings with _$ServerSettings {
     required bool scannerPreferMatchedMetadata,
     required bool scannerDisableWatcher,
     required bool scannerPreferOverdriveMediaMarker,
+    required bool scannerUseTone,
     required bool storeCoverWithItem,
     required bool storeMetadataWithItem,
     required int rateLimitLoginRequests,

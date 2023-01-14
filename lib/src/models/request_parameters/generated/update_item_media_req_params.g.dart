@@ -52,7 +52,6 @@ Map<String, dynamic> _$UpdateBookSeriesReqParamsToJson(
         UpdateBookSeriesReqParams instance) =>
     <String, dynamic>{
       'name': instance.name,
-      'sequence': instance.sequence,
     };
 
 Map<String, dynamic> _$UpdatePodcastReqParamsToJson(

@@ -22,7 +22,7 @@ PodcastEpisodeEnclosure _$PodcastEpisodeEnclosureFromJson(
 /// @nodoc
 mixin _$PodcastEpisodeEnclosure {
   Uri get url => throw _privateConstructorUsedError;
-  http_parser.MediaType get type => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   String get length => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $PodcastEpisodeEnclosureCopyWith<$Res> {
           $Res Function(PodcastEpisodeEnclosure) then) =
       _$PodcastEpisodeEnclosureCopyWithImpl<$Res, PodcastEpisodeEnclosure>;
   @useResult
-  $Res call({Uri url, http_parser.MediaType type, String length});
+  $Res call({Uri url, String type, String length});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$PodcastEpisodeEnclosureCopyWithImpl<$Res,
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as http_parser.MediaType,
+              as String,
       length: null == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
@@ -83,7 +83,7 @@ abstract class _$$_PodcastEpisodeEnclosureCopyWith<$Res>
       __$$_PodcastEpisodeEnclosureCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Uri url, http_parser.MediaType type, String length});
+  $Res call({Uri url, String type, String length});
 }
 
 /// @nodoc
@@ -110,7 +110,7 @@ class __$$_PodcastEpisodeEnclosureCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as http_parser.MediaType,
+              as String,
       length: null == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
@@ -120,8 +120,7 @@ class __$$_PodcastEpisodeEnclosureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
-@jsonConverters
+@JsonSerializable()
 class _$_PodcastEpisodeEnclosure implements _PodcastEpisodeEnclosure {
   const _$_PodcastEpisodeEnclosure(
       {required this.url, required this.type, required this.length});
@@ -132,7 +131,7 @@ class _$_PodcastEpisodeEnclosure implements _PodcastEpisodeEnclosure {
   @override
   final Uri url;
   @override
-  final http_parser.MediaType type;
+  final String type;
   @override
   final String length;
 
@@ -174,7 +173,7 @@ class _$_PodcastEpisodeEnclosure implements _PodcastEpisodeEnclosure {
 abstract class _PodcastEpisodeEnclosure implements PodcastEpisodeEnclosure {
   const factory _PodcastEpisodeEnclosure(
       {required final Uri url,
-      required final http_parser.MediaType type,
+      required final String type,
       required final String length}) = _$_PodcastEpisodeEnclosure;
 
   factory _PodcastEpisodeEnclosure.fromJson(Map<String, dynamic> json) =
@@ -183,7 +182,7 @@ abstract class _PodcastEpisodeEnclosure implements PodcastEpisodeEnclosure {
   @override
   Uri get url;
   @override
-  http_parser.MediaType get type;
+  String get type;
   @override
   String get length;
   @override

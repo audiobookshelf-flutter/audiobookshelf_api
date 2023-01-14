@@ -6,7 +6,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class CollectionsService extends Service {
-  /// `/api/collections`
+  /// `api/collections`
   static const basePath = '${Service.basePath}/collections';
 
   const CollectionsService(super.api);
@@ -41,10 +41,12 @@ class CollectionsService extends Service {
   /// See [Get a Collection](https://api.audiobookshelf.org/#get-a-collection)
   Future<Collection?> get({
     required String collectionId,
+    bool includeRssFeed = false,
     ResponseErrorHandler? responseErrorHandler,
   }) {
     return api.getJson(
       path: '$basePath/$collectionId',
+      queryParameters: includeRssFeed ? {'include': 'rssfeed'} : null,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
       fromJson: (json) => fromJson(json, Collection.fromJson),

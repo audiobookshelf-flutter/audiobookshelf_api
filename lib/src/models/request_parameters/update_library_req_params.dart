@@ -20,6 +20,7 @@ class UpdateLibraryReqParams {
   final int? displayOrder;
   final LibraryIcon? icon;
   final MetadataProvider? provider;
+  final UpdateLibrarySettingsReqParams? settings;
 
   /// See [Update a Library](https://api.audiobookshelf.org/#update-a-library)
   const UpdateLibraryReqParams({
@@ -29,6 +30,7 @@ class UpdateLibraryReqParams {
     this.displayOrder,
     this.icon,
     this.provider,
+    this.settings,
   });
 
   Map<String, dynamic>? toJson() {
@@ -37,7 +39,10 @@ class UpdateLibraryReqParams {
       return null;
     }
     if (folders != null || newFolders != null) {
-      json['folders'] = [...?folders, ...?newFolders];
+      json['folders'] = [
+        ...?folders?.map((e) => e.toJson()),
+        ...?newFolders?.map((e) => e.toJson()),
+      ];
     }
     return json;
   }
@@ -45,6 +50,8 @@ class UpdateLibraryReqParams {
 
 @requestToJsonRemoveNull
 class UpdateLibrarySettingsReqParams {
+  static const _zeroCron = CronExpression();
+
   final int? coverAspectRatio;
   final bool? disableWatcher;
   final bool? skipMatchingMediaWithAsin;
@@ -58,9 +65,14 @@ class UpdateLibrarySettingsReqParams {
     this.disableWatcher,
     this.skipMatchingMediaWithAsin,
     this.skipMatchingMediaWithIsbn,
-    this.autoScanCronExpression,
+    this.autoScanCronExpression = _zeroCron,
   });
 
-  Map<String, dynamic>? toJson() =>
-      _$UpdateLibrarySettingsReqParamsToJson(this).nullIfEmpty;
+  Map<String, dynamic>? toJson() {
+    final json = _$UpdateLibrarySettingsReqParamsToJson(this);
+    if (autoScanCronExpression == _zeroCron) {
+      json.remove('autoScanCronExpression');
+    }
+    return json.nullIfEmpty;
+  }
 }

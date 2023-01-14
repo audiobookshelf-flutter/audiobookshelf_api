@@ -1,4 +1,3 @@
-import 'package:http_parser/http_parser.dart' as http_parser;
 import 'package:json_annotation/json_annotation.dart';
 
 import '../models/utils/cron_expression.dart';
@@ -7,7 +6,6 @@ import 'precise_duration.dart';
 const _converters = <JsonConverter<dynamic, dynamic>>[
   DateTimeEpochConverter(),
   DurationPreciseSecondsConverter(),
-  HttpParserMediaTypeConverter(),
   CronExpressionConverter(),
 ];
 
@@ -87,18 +85,6 @@ class DurationMinConverter implements JsonConverter<Duration, int> {
 
   @override
   int toJson(Duration object) => object.inMinutes;
-}
-
-class HttpParserMediaTypeConverter
-    implements JsonConverter<http_parser.MediaType, String> {
-  const HttpParserMediaTypeConverter();
-
-  @override
-  http_parser.MediaType fromJson(String json) =>
-      http_parser.MediaType.parse(json);
-
-  @override
-  String toJson(http_parser.MediaType object) => object.mimeType;
 }
 
 class CronExpressionConverter implements JsonConverter<CronExpression, String> {

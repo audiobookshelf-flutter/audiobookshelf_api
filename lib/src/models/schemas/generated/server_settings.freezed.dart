@@ -31,6 +31,7 @@ mixin _$ServerSettings {
   bool get scannerDisableWatcher => throw _privateConstructorUsedError;
   bool get scannerPreferOverdriveMediaMarker =>
       throw _privateConstructorUsedError;
+  bool get scannerUseTone => throw _privateConstructorUsedError;
   bool get storeCoverWithItem => throw _privateConstructorUsedError;
   bool get storeMetadataWithItem => throw _privateConstructorUsedError;
   int get rateLimitLoginRequests => throw _privateConstructorUsedError;
@@ -77,6 +78,7 @@ abstract class $ServerSettingsCopyWith<$Res> {
       bool scannerPreferMatchedMetadata,
       bool scannerDisableWatcher,
       bool scannerPreferOverdriveMediaMarker,
+      bool scannerUseTone,
       bool storeCoverWithItem,
       bool storeMetadataWithItem,
       int rateLimitLoginRequests,
@@ -123,6 +125,7 @@ class _$ServerSettingsCopyWithImpl<$Res, $Val extends ServerSettings>
     Object? scannerPreferMatchedMetadata = null,
     Object? scannerDisableWatcher = null,
     Object? scannerPreferOverdriveMediaMarker = null,
+    Object? scannerUseTone = null,
     Object? storeCoverWithItem = null,
     Object? storeMetadataWithItem = null,
     Object? rateLimitLoginRequests = null,
@@ -181,6 +184,10 @@ class _$ServerSettingsCopyWithImpl<$Res, $Val extends ServerSettings>
               scannerPreferOverdriveMediaMarker
           ? _value.scannerPreferOverdriveMediaMarker
           : scannerPreferOverdriveMediaMarker // ignore: cast_nullable_to_non_nullable
+              as bool,
+      scannerUseTone: null == scannerUseTone
+          ? _value.scannerUseTone
+          : scannerUseTone // ignore: cast_nullable_to_non_nullable
               as bool,
       storeCoverWithItem: null == storeCoverWithItem
           ? _value.storeCoverWithItem
@@ -292,6 +299,7 @@ abstract class _$$_ServerSettingsCopyWith<$Res>
       bool scannerPreferMatchedMetadata,
       bool scannerDisableWatcher,
       bool scannerPreferOverdriveMediaMarker,
+      bool scannerUseTone,
       bool storeCoverWithItem,
       bool storeMetadataWithItem,
       int rateLimitLoginRequests,
@@ -337,6 +345,7 @@ class __$$_ServerSettingsCopyWithImpl<$Res>
     Object? scannerPreferMatchedMetadata = null,
     Object? scannerDisableWatcher = null,
     Object? scannerPreferOverdriveMediaMarker = null,
+    Object? scannerUseTone = null,
     Object? storeCoverWithItem = null,
     Object? storeMetadataWithItem = null,
     Object? rateLimitLoginRequests = null,
@@ -395,6 +404,10 @@ class __$$_ServerSettingsCopyWithImpl<$Res>
               scannerPreferOverdriveMediaMarker
           ? _value.scannerPreferOverdriveMediaMarker
           : scannerPreferOverdriveMediaMarker // ignore: cast_nullable_to_non_nullable
+              as bool,
+      scannerUseTone: null == scannerUseTone
+          ? _value.scannerUseTone
+          : scannerUseTone // ignore: cast_nullable_to_non_nullable
               as bool,
       storeCoverWithItem: null == storeCoverWithItem
           ? _value.storeCoverWithItem
@@ -494,6 +507,7 @@ class _$_ServerSettings implements _ServerSettings {
       required this.scannerPreferMatchedMetadata,
       required this.scannerDisableWatcher,
       required this.scannerPreferOverdriveMediaMarker,
+      required this.scannerUseTone,
       required this.storeCoverWithItem,
       required this.storeMetadataWithItem,
       required this.rateLimitLoginRequests,
@@ -537,6 +551,8 @@ class _$_ServerSettings implements _ServerSettings {
   final bool scannerDisableWatcher;
   @override
   final bool scannerPreferOverdriveMediaMarker;
+  @override
+  final bool scannerUseTone;
   @override
   final bool storeCoverWithItem;
   @override
@@ -589,7 +605,7 @@ class _$_ServerSettings implements _ServerSettings {
 
   @override
   String toString() {
-    return 'ServerSettings(id: $id, scannerFindCovers: $scannerFindCovers, scannerCoverProvider: $scannerCoverProvider, scannerParseSubtitle: $scannerParseSubtitle, scannerPreferAudioMetadata: $scannerPreferAudioMetadata, scannerPreferOpfMetadata: $scannerPreferOpfMetadata, scannerPreferMatchedMetadata: $scannerPreferMatchedMetadata, scannerDisableWatcher: $scannerDisableWatcher, scannerPreferOverdriveMediaMarker: $scannerPreferOverdriveMediaMarker, storeCoverWithItem: $storeCoverWithItem, storeMetadataWithItem: $storeMetadataWithItem, rateLimitLoginRequests: $rateLimitLoginRequests, rateLimitLoginWindow: $rateLimitLoginWindow, backupSchedule: $backupSchedule, backupsToKeep: $backupsToKeep, maxBackupSize: $maxBackupSize, backupMetadataCovers: $backupMetadataCovers, loggerDailyLogsToKeep: $loggerDailyLogsToKeep, loggerScannerLogsToKeep: $loggerScannerLogsToKeep, homeBookshelfView: $homeBookshelfView, bookshelfView: $bookshelfView, sortingIgnorePrefix: $sortingIgnorePrefix, sortingPrefixes: $sortingPrefixes, chromecastEnabled: $chromecastEnabled, enableEReader: $enableEReader, dateFormat: $dateFormat, language: $language, logLevel: $logLevel, version: $version)';
+    return 'ServerSettings(id: $id, scannerFindCovers: $scannerFindCovers, scannerCoverProvider: $scannerCoverProvider, scannerParseSubtitle: $scannerParseSubtitle, scannerPreferAudioMetadata: $scannerPreferAudioMetadata, scannerPreferOpfMetadata: $scannerPreferOpfMetadata, scannerPreferMatchedMetadata: $scannerPreferMatchedMetadata, scannerDisableWatcher: $scannerDisableWatcher, scannerPreferOverdriveMediaMarker: $scannerPreferOverdriveMediaMarker, scannerUseTone: $scannerUseTone, storeCoverWithItem: $storeCoverWithItem, storeMetadataWithItem: $storeMetadataWithItem, rateLimitLoginRequests: $rateLimitLoginRequests, rateLimitLoginWindow: $rateLimitLoginWindow, backupSchedule: $backupSchedule, backupsToKeep: $backupsToKeep, maxBackupSize: $maxBackupSize, backupMetadataCovers: $backupMetadataCovers, loggerDailyLogsToKeep: $loggerDailyLogsToKeep, loggerScannerLogsToKeep: $loggerScannerLogsToKeep, homeBookshelfView: $homeBookshelfView, bookshelfView: $bookshelfView, sortingIgnorePrefix: $sortingIgnorePrefix, sortingPrefixes: $sortingPrefixes, chromecastEnabled: $chromecastEnabled, enableEReader: $enableEReader, dateFormat: $dateFormat, language: $language, logLevel: $logLevel, version: $version)';
   }
 
   @override
@@ -617,6 +633,8 @@ class _$_ServerSettings implements _ServerSettings {
             (identical(other.scannerPreferOverdriveMediaMarker, scannerPreferOverdriveMediaMarker) ||
                 other.scannerPreferOverdriveMediaMarker ==
                     scannerPreferOverdriveMediaMarker) &&
+            (identical(other.scannerUseTone, scannerUseTone) ||
+                other.scannerUseTone == scannerUseTone) &&
             (identical(other.storeCoverWithItem, storeCoverWithItem) ||
                 other.storeCoverWithItem == storeCoverWithItem) &&
             (identical(other.storeMetadataWithItem, storeMetadataWithItem) ||
@@ -639,8 +657,7 @@ class _$_ServerSettings implements _ServerSettings {
                 other.loggerScannerLogsToKeep == loggerScannerLogsToKeep) &&
             (identical(other.homeBookshelfView, homeBookshelfView) ||
                 other.homeBookshelfView == homeBookshelfView) &&
-            (identical(other.bookshelfView, bookshelfView) ||
-                other.bookshelfView == bookshelfView) &&
+            (identical(other.bookshelfView, bookshelfView) || other.bookshelfView == bookshelfView) &&
             (identical(other.sortingIgnorePrefix, sortingIgnorePrefix) || other.sortingIgnorePrefix == sortingIgnorePrefix) &&
             const DeepCollectionEquality().equals(other._sortingPrefixes, _sortingPrefixes) &&
             (identical(other.chromecastEnabled, chromecastEnabled) || other.chromecastEnabled == chromecastEnabled) &&
@@ -664,6 +681,7 @@ class _$_ServerSettings implements _ServerSettings {
         scannerPreferMatchedMetadata,
         scannerDisableWatcher,
         scannerPreferOverdriveMediaMarker,
+        scannerUseTone,
         storeCoverWithItem,
         storeMetadataWithItem,
         rateLimitLoginRequests,
@@ -711,6 +729,7 @@ abstract class _ServerSettings implements ServerSettings {
       required final bool scannerPreferMatchedMetadata,
       required final bool scannerDisableWatcher,
       required final bool scannerPreferOverdriveMediaMarker,
+      required final bool scannerUseTone,
       required final bool storeCoverWithItem,
       required final bool storeMetadataWithItem,
       required final int rateLimitLoginRequests,
@@ -753,6 +772,8 @@ abstract class _ServerSettings implements ServerSettings {
   bool get scannerDisableWatcher;
   @override
   bool get scannerPreferOverdriveMediaMarker;
+  @override
+  bool get scannerUseTone;
   @override
   bool get storeCoverWithItem;
   @override

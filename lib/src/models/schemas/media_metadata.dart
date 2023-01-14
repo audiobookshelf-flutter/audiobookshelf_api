@@ -58,7 +58,7 @@ class MediaMetadata with _$MediaMetadata {
     String? seriesName,
     @Default(<String>[]) List<String> genres,
     String? publishedYear,
-    int? publishedDate,
+    String? publishedDate,
     String? publisher,
     String? description,
     String? isbn,
@@ -78,7 +78,7 @@ class MediaMetadata with _$MediaMetadata {
     String? seriesName,
     @Default(<String>[]) List<String> genres,
     String? publishedYear,
-    int? publishedDate,
+    String? publishedDate,
     String? publisher,
     String? description,
     String? isbn,
@@ -125,22 +125,6 @@ class MediaMetadata with _$MediaMetadata {
     String? language,
   }) = PodcastMetadata;
 
-  const factory MediaMetadata.podcastMinified({
-    String? title,
-    String? titleIgnorePrefix,
-    String? author,
-    String? description,
-    DateTime? releaseDate,
-    @Default(<String>[]) List<String> genres,
-    Uri? feedUrl,
-    Uri? imageUrl,
-    Uri? itunesPageUrl,
-    int? itunesId,
-    int? itunesArtistId,
-    @Default(false) bool explicit,
-    String? language,
-  }) = PodcastMetadataMinified;
-
   const factory MediaMetadata.podcastExpanded({
     String? title,
     String? titleIgnorePrefix,
@@ -168,7 +152,6 @@ class MediaMetadata with _$MediaMetadata {
       bookMinifiedSeriesFilter: (_) => SchemaVariant.minified,
       bookExpanded: (_) => SchemaVariant.expanded,
       podcast: (_) => SchemaVariant.base,
-      podcastMinified: (_) => SchemaVariant.minified,
       podcastExpanded: (_) => SchemaVariant.expanded,
     );
   }
@@ -188,14 +171,14 @@ class MediaMetadataConverter
     final type = this.mediaType;
     if (type != null) {
       mediaType = type;
-    } else if (json.containsKey('authors')) {
+    } else if (json.containsKey('authors') || json.containsKey('authorName')) {
       mediaType = MediaType.book;
     } else if (json.containsKey('author')) {
       mediaType = MediaType.podcast;
     } else {
       throw CheckedFromJsonException(
         json,
-        'authors || author',
+        '(authors || authorName) || author',
         'MediaMetadata',
         'Unknown media type',
       );
@@ -235,7 +218,6 @@ class MediaMetadataConverter
           case SchemaVariant.base:
             return PodcastMetadata.fromJson(json);
           case SchemaVariant.minified:
-            return PodcastMetadataMinified.fromJson(json);
           case SchemaVariant.expanded:
             return PodcastMetadataExpanded.fromJson(json);
         }

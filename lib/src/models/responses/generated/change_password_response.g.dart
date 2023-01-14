@@ -14,8 +14,16 @@ _$_ChangePasswordResponse _$$_ChangePasswordResponseFromJson(
     );
 
 Map<String, dynamic> _$$_ChangePasswordResponseToJson(
-        _$_ChangePasswordResponse instance) =>
-    <String, dynamic>{
-      'success': instance.success,
-      'error': instance.error,
-    };
+    _$_ChangePasswordResponse instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('success', instance.success);
+  writeNotNull('error', instance.error);
+  return val;
+}

@@ -38,7 +38,7 @@ class Shelf with _$Shelf {
       const ShelfConverter().fromJson(json);
 }
 
-enum ShelfType { book, series, authors, episode, podcast }
+enum ShelfType { book, series, author, episode, podcast }
 
 class ShelfConverter implements JsonConverter<Shelf, Map<String, dynamic>> {
   const ShelfConverter();
@@ -56,7 +56,7 @@ class ShelfConverter implements JsonConverter<Shelf, Map<String, dynamic>> {
         return LibraryItemShelf.fromJson(json);
       case ShelfType.series:
         return SeriesShelf.fromJson(json);
-      case ShelfType.authors:
+      case ShelfType.author:
         return AuthorShelf.fromJson(json);
     }
   }

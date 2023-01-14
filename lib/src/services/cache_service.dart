@@ -2,7 +2,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class CacheService extends Service {
-  /// `/api/cache`
+  /// `api/cache`
   static const basePath = '${Service.basePath}/cache';
 
   const CacheService(super.api);

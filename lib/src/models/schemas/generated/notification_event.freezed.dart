@@ -48,6 +48,8 @@ abstract class $NotificationEventCopyWith<$Res> {
       List<String> variables,
       NotificationEventDefaults defaults,
       Map<String, String> testData});
+
+  $NotificationEventDefaultsCopyWith<$Res> get defaults;
 }
 
 /// @nodoc
@@ -102,6 +104,14 @@ class _$NotificationEventCopyWithImpl<$Res, $Val extends NotificationEvent>
               as Map<String, String>,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NotificationEventDefaultsCopyWith<$Res> get defaults {
+    return $NotificationEventDefaultsCopyWith<$Res>(_value.defaults, (value) {
+      return _then(_value.copyWith(defaults: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -120,6 +130,9 @@ abstract class _$$_NotificationEventCopyWith<$Res>
       List<String> variables,
       NotificationEventDefaults defaults,
       Map<String, String> testData});
+
+  @override
+  $NotificationEventDefaultsCopyWith<$Res> get defaults;
 }
 
 /// @nodoc
@@ -299,4 +312,164 @@ abstract class _NotificationEvent implements NotificationEvent {
   @JsonKey(ignore: true)
   _$$_NotificationEventCopyWith<_$_NotificationEvent> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+NotificationEventDefaults _$NotificationEventDefaultsFromJson(
+    Map<String, dynamic> json) {
+  return _NotificationEventDefaults.fromJson(json);
+}
+
+/// @nodoc
+mixin _$NotificationEventDefaults {
+  String get title => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NotificationEventDefaultsCopyWith<NotificationEventDefaults> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NotificationEventDefaultsCopyWith<$Res> {
+  factory $NotificationEventDefaultsCopyWith(NotificationEventDefaults value,
+          $Res Function(NotificationEventDefaults) then) =
+      _$NotificationEventDefaultsCopyWithImpl<$Res, NotificationEventDefaults>;
+  @useResult
+  $Res call({String title, String body});
+}
+
+/// @nodoc
+class _$NotificationEventDefaultsCopyWithImpl<$Res,
+        $Val extends NotificationEventDefaults>
+    implements $NotificationEventDefaultsCopyWith<$Res> {
+  _$NotificationEventDefaultsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? body = null,
+  }) {
+    return _then(_value.copyWith(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: null == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_NotificationEventDefaultsCopyWith<$Res>
+    implements $NotificationEventDefaultsCopyWith<$Res> {
+  factory _$$_NotificationEventDefaultsCopyWith(
+          _$_NotificationEventDefaults value,
+          $Res Function(_$_NotificationEventDefaults) then) =
+      __$$_NotificationEventDefaultsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String title, String body});
+}
+
+/// @nodoc
+class __$$_NotificationEventDefaultsCopyWithImpl<$Res>
+    extends _$NotificationEventDefaultsCopyWithImpl<$Res,
+        _$_NotificationEventDefaults>
+    implements _$$_NotificationEventDefaultsCopyWith<$Res> {
+  __$$_NotificationEventDefaultsCopyWithImpl(
+      _$_NotificationEventDefaults _value,
+      $Res Function(_$_NotificationEventDefaults) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+    Object? body = null,
+  }) {
+    return _then(_$_NotificationEventDefaults(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: null == body
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_NotificationEventDefaults implements _NotificationEventDefaults {
+  const _$_NotificationEventDefaults({required this.title, required this.body});
+
+  factory _$_NotificationEventDefaults.fromJson(Map<String, dynamic> json) =>
+      _$$_NotificationEventDefaultsFromJson(json);
+
+  @override
+  final String title;
+  @override
+  final String body;
+
+  @override
+  String toString() {
+    return 'NotificationEventDefaults(title: $title, body: $body)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NotificationEventDefaults &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.body, body) || other.body == body));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, title, body);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_NotificationEventDefaultsCopyWith<_$_NotificationEventDefaults>
+      get copyWith => __$$_NotificationEventDefaultsCopyWithImpl<
+          _$_NotificationEventDefaults>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_NotificationEventDefaultsToJson(
+      this,
+    );
+  }
+}
+
+abstract class _NotificationEventDefaults implements NotificationEventDefaults {
+  const factory _NotificationEventDefaults(
+      {required final String title,
+      required final String body}) = _$_NotificationEventDefaults;
+
+  factory _NotificationEventDefaults.fromJson(Map<String, dynamic> json) =
+      _$_NotificationEventDefaults.fromJson;
+
+  @override
+  String get title;
+  @override
+  String get body;
+  @override
+  @JsonKey(ignore: true)
+  _$$_NotificationEventDefaultsCopyWith<_$_NotificationEventDefaults>
+      get copyWith => throw _privateConstructorUsedError;
 }

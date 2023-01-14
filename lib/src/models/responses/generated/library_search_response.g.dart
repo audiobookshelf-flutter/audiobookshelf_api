@@ -9,8 +9,10 @@ part of '../library_search_response.dart';
 _$BookLibrarySearchResponse _$$BookLibrarySearchResponseFromJson(
         Map<String, dynamic> json) =>
     _$BookLibrarySearchResponse(
-      book: LibraryItemSearchResult.fromJson(
-          json['book'] as Map<String, dynamic>),
+      book: (json['book'] as List<dynamic>)
+          .map((e) =>
+              LibraryItemSearchResult.fromJson(e as Map<String, dynamic>))
+          .toList(),
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       authors: (json['authors'] as List<dynamic>)
           .map((e) => Author.fromJson(e as Map<String, dynamic>))
@@ -34,8 +36,10 @@ Map<String, dynamic> _$$BookLibrarySearchResponseToJson(
 _$PodcastLibrarySearchResponse _$$PodcastLibrarySearchResponseFromJson(
         Map<String, dynamic> json) =>
     _$PodcastLibrarySearchResponse(
-      podcast: LibraryItemSearchResult.fromJson(
-          json['podcast'] as Map<String, dynamic>),
+      podcast: (json['podcast'] as List<dynamic>)
+          .map((e) =>
+              LibraryItemSearchResult.fromJson(e as Map<String, dynamic>))
+          .toList(),
       tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
       authors: (json['authors'] as List<dynamic>)
           .map((e) => Author.fromJson(e as Map<String, dynamic>))
@@ -61,8 +65,8 @@ _$_LibraryItemSearchResult _$$_LibraryItemSearchResultFromJson(
     _$_LibraryItemSearchResult(
       libraryItem:
           LibraryItem.fromJson(json['libraryItem'] as Map<String, dynamic>),
-      matchKey: json['matchKey'] as String,
-      matchText: json['matchText'] as String,
+      matchKey: json['matchKey'] as String?,
+      matchText: json['matchText'] as String?,
     );
 
 Map<String, dynamic> _$$_LibraryItemSearchResultToJson(

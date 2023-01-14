@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:http_parser/http_parser.dart' as http_parser;
 
 import '../../utils/json_converters.dart';
 import 'file_metadata.dart';
@@ -17,7 +16,7 @@ class AudioTrack with _$AudioTrack {
     required Duration duration,
     required String title,
     required String contentUrl,
-    required http_parser.MediaType mimeType,
+    required String mimeType,
     FileMetadata? metadata,
   }) = _AudioTrack;
 

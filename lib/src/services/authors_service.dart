@@ -13,7 +13,7 @@ import '../utils/typedefs.dart';
 import 'service.dart';
 
 class AuthorsService extends Service {
-  /// `/api/authors`
+  /// `api/authors`
   static const basePath = '${Service.basePath}/authors';
 
   const AuthorsService(super.api);
