@@ -34,13 +34,22 @@ class ServerService extends Service {
 
   /// See [Logout](https://api.audiobookshelf.org/#logout)
   ///
+  /// If [api.socket] is initialized, provides [socketId] or the socket's id to
+  /// the API endpoint.
+  ///
   /// Nullifies the `token` and `userId` of [api] if successful.
   Future<void> logout({
-    // String? socketId, // TODO: do this with api's socket once made
+    String? socketId,
     ResponseErrorHandler? responseErrorHandler,
   }) async {
+    if (api.socket.initialized) {
+      socketId ??= api.socket.socket.id;
+    }
     final response = await api.post(
       path: 'logout',
+      jsonObject: api.socket.initialized && socketId != null
+          ? {'socketId': socketId}
+          : null,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
     );
