@@ -1,3 +1,3 @@
-## 0.0.1
+## 0.1.0
 
-- Initial pre-alpha version. Do not use.
+- Initial version. Works with audiobookshelf `v2.2.12`.
