@@ -26,7 +26,7 @@ void main() async {
   // e.g. 'Audiobooks'
   print(getLibraryResponse.library.name);
 
-  // To use the use the socket, set up your callbacks and initialize it.
+  // To use the socket, set up your callbacks and initialize it.
   final onInitSub = api.socket.miscEvents.onInit.listen((initEvent) {
     // e.g. 'username'
     print(initEvent.username);
