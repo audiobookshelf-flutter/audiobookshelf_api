@@ -204,6 +204,28 @@ void main() {
         testRequest(response.request!, queryParameters: testMap);
       });
 
+      test('queryParameters\' values to String or Iterable<String>', () async {
+        const testMap = {
+          'test1': 1,
+          'test2': [2],
+          'test3': '3',
+        };
+        final response = await abs.request(
+          method: method,
+          path: path,
+          queryParameters: testMap,
+        );
+        verifyMockClientSend();
+        testRequest(
+          response.request!,
+          queryParameters: {
+            'test1': '1',
+            'test2': ['2'],
+            'test3': '3',
+          },
+        );
+      });
+
       test('jsonObject', () async {
         final response = await abs.request(
           method: method,
