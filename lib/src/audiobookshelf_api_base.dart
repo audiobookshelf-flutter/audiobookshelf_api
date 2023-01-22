@@ -330,7 +330,9 @@ class AudiobookshelfApi {
   ///
   /// [path] is the URL path (after the [baseUrl]) to request from.
   ///
-  /// [queryParameters] are the **unencoded** URL query parameters.
+  /// [queryParameters] are the **unencoded** URL query parameters. Values will
+  /// be coerced to a [String] or an [Iterable] of [String] by calling
+  /// `toString()`.
   ///
   /// See the [Uri] constructor for details.
   ///
@@ -366,6 +368,22 @@ class AudiobookshelfApi {
     }
 
     if (path.startsWith('/')) path = path.substring(1);
+    // Coerce queryParameters' values to `String` or `Iterable<String>` as is
+    // required by `Uri`.
+    if (queryParameters != null &&
+        queryParameters.isNotEmpty &&
+        queryParameters is! Map<String, String> &&
+        queryParameters is! Map<String, Iterable<String>>) {
+      queryParameters = queryParameters.map((key, value) {
+        if (value is String || value is Iterable<String>) {
+          return MapEntry(key, value);
+        }
+        if (value is Iterable<dynamic>) {
+          return MapEntry(key, value.map((e) => e.toString()));
+        }
+        return MapEntry(key, value.toString());
+      });
+    }
     final url = baseUrl.replace(
       path: '${baseUrl.path}/$path',
       queryParameters: queryParameters != null
