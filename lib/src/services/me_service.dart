@@ -19,6 +19,18 @@ class MeService extends Service {
 
   const MeService(super.api);
 
+  /// See [Get Your User](https://api.audiobookshelf.org/#get-your-user)
+  Future<User?> getUser({
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.getJson(
+      path: basePath,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) => fromJson(json, User.fromJson),
+    );
+  }
+
   /// See [Get Your Listening Sessions](https://api.audiobookshelf.org/#get-your-listening-sessions)
   Future<GetUserSessionsResponse?> getSessions({
     GetUserSessionsReqParams? parameters,
