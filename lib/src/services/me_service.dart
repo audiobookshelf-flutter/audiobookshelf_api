@@ -178,6 +178,7 @@ class MeService extends Service {
   }
 
   /// See [Sync Local Media Progress](https://api.audiobookshelf.org/#sync-local-media-progress)
+  @Deprecated('Deprecated in favor of `api.sessions.syncLocalSessions`.')
   Future<SyncLocalProgressResponse?> syncLocalMediaProgress({
     required List<MediaProgress> localMediaProgress,
     ResponseErrorHandler? responseErrorHandler,
