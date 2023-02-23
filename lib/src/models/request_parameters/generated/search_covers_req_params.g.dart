@@ -38,4 +38,5 @@ const _$MetadataProviderEnumMap = {
   MetadataProvider.audibleIt: 'audible.it',
   MetadataProvider.audibleIn: 'audible.in',
   MetadataProvider.audibleEs: 'audible.es',
+  MetadataProvider.fantLab: 'fantlab',
 };

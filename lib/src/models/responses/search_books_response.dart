@@ -70,6 +70,19 @@ class SearchBooksResponse with _$SearchBooksResponse {
     String? rating,
   }) = SearchBooksResponseAudible;
 
+  const factory SearchBooksResponse.fantLab({
+    required String id,
+    required String title,
+    String? subtitle,
+    String? author,
+    String? publisher,
+    int? publishedYear,
+    String? description,
+    Uri? cover,
+    required List<String> genres,
+    String? isbn,
+  }) = SearchBooksResponseFantLab;
+
   factory SearchBooksResponse.fromJson(Map<String, dynamic> json) =>
       const SearchBooksResponseConverter().fromJson(json);
 
@@ -79,11 +92,18 @@ class SearchBooksResponse with _$SearchBooksResponse {
       openLibrary: (_) => SearchBooksResponseVariant.openLibrary,
       itunes: (_) => SearchBooksResponseVariant.itunes,
       audible: (_) => SearchBooksResponseVariant.audible,
+      fantLab: (_) => SearchBooksResponseVariant.fantLab,
     );
   }
 }
 
-enum SearchBooksResponseVariant { google, openLibrary, itunes, audible }
+enum SearchBooksResponseVariant {
+  google,
+  openLibrary,
+  itunes,
+  audible,
+  fantLab,
+}
 
 @freezed
 class AudibleSeries with _$AudibleSeries {
@@ -108,7 +128,11 @@ class SearchBooksResponseConverter
 
     final SearchBooksResponseVariant variant;
     if (json.containsKey('isbn')) {
-      variant = SearchBooksResponseVariant.google;
+      if (json.containsKey('publishedYear')) {
+        variant = SearchBooksResponseVariant.fantLab;
+      } else {
+        variant = SearchBooksResponseVariant.google;
+      }
     } else if (json.containsKey('key')) {
       variant = SearchBooksResponseVariant.openLibrary;
     } else if (json.containsKey('artistId')) {
@@ -133,6 +157,8 @@ class SearchBooksResponseConverter
         return SearchBooksResponseITunes.fromJson(json);
       case SearchBooksResponseVariant.audible:
         return SearchBooksResponseAudible.fromJson(json);
+      case SearchBooksResponseVariant.fantLab:
+        return SearchBooksResponseFantLab.fromJson(json);
     }
   }
 
