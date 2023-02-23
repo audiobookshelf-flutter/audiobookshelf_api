@@ -1,6 +1,7 @@
 import '../models/request_parameters/get_sessions_req_params.dart';
 import '../models/request_parameters/sync_session_req_params.dart';
 import '../models/responses/get_sessions_response.dart';
+import '../models/responses/sync_local_session_result.dart';
 import '../models/schemas/playback_session.dart';
 import '../utils/from_json.dart';
 import '../utils/typedefs.dart';
@@ -51,6 +52,21 @@ class SessionsService extends Service {
       jsonObject: localSession,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
+    );
+  }
+
+  /// See [Sync Local Sessions](https://api.audiobookshelf.org/#sync-local-sessions)
+  Future<List<SyncLocalSessionResult>?> syncLocalSessions({
+    required List<PlaybackSession> localSessions,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.postJson(
+      path: '$basePath/local-all',
+      jsonObject: {'sessions': localSessions},
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+      fromJson: (json) =>
+          listFromJsonKey(json, 'results', SyncLocalSessionResult.fromJson),
     );
   }
 

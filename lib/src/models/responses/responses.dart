@@ -28,6 +28,7 @@ export 'search_chapters_response.dart';
 export 'search_podcasts_response.dart';
 export 'server_status_response.dart';
 export 'sync_local_progress_response.dart';
+export 'sync_local_session_result.dart';
 export 'tone_scan_item_response.dart';
 export 'update_author_response.dart';
 export 'update_cover_response.dart';
