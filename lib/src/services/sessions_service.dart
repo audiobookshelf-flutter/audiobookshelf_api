@@ -41,6 +41,19 @@ class SessionsService extends Service {
     );
   }
 
+  /// See [Sync a Local Session](https://api.audiobookshelf.org/#sync-a-local-session)
+  Future<void> syncLocal({
+    required PlaybackSession localSession,
+    ResponseErrorHandler? responseErrorHandler,
+  }) {
+    return api.post(
+      path: '$basePath/local',
+      jsonObject: localSession,
+      requiresAuth: true,
+      responseErrorHandler: responseErrorHandler,
+    );
+  }
+
   /// See [Get an Open Session](https://api.audiobookshelf.org/#get-an-open-session)
   Future<PlaybackSession?> getOpen({
     required String sessionId,
@@ -77,19 +90,6 @@ class SessionsService extends Service {
     return api.post(
       path: '$basePath/$sessionId/close',
       jsonObject: parameters,
-      requiresAuth: true,
-      responseErrorHandler: responseErrorHandler,
-    );
-  }
-
-  /// See [Sync a Local Session](https://api.audiobookshelf.org/#sync-a-local-session)
-  Future<void> syncLocal({
-    required PlaybackSession localSession,
-    ResponseErrorHandler? responseErrorHandler,
-  }) {
-    return api.post(
-      path: '$basePath/local',
-      jsonObject: localSession,
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
     );
