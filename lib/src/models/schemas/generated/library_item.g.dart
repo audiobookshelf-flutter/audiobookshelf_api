@@ -120,6 +120,7 @@ _$LibraryItemMinified _$$LibraryItemMinifiedFromJson(
       rssFeed: json['rssFeed'] == null
           ? null
           : RssFeed.fromJson(json['rssFeed'] as Map<String, dynamic>),
+      weight: (json['weight'] as num?)?.toDouble(),
       sequence: json['sequence'] as String?,
       seriesSequence: json['seriesSequence'] as String?,
       recentEpisode: json['recentEpisode'] == null
@@ -159,6 +160,7 @@ Map<String, dynamic> _$$LibraryItemMinifiedToJson(
       'size': instance.size,
       'collapsedSeries': instance.collapsedSeries,
       'rssFeed': instance.rssFeed,
+      'weight': instance.weight,
       'sequence': instance.sequence,
       'seriesSequence': instance.seriesSequence,
       'recentEpisode': instance.recentEpisode,

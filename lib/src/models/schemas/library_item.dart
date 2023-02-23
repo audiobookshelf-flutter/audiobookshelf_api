@@ -74,6 +74,9 @@ class LibraryItem with _$LibraryItem {
     // From [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)
     // and [Get a Library's Personalized View](https://api.audiobookshelf.org/#get-a-library-39-s-personalized-view)
     RssFeed? rssFeed,
+    // From [Get a Library's Personalized View](https://api.audiobookshelf.org/#get-a-library-39-s-personalized-view),
+    // recommended shelf
+    double? weight,
     String? sequence,
     String? seriesSequence,
     PodcastEpisode? recentEpisode,

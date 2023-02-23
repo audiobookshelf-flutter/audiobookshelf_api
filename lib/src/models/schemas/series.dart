@@ -65,6 +65,7 @@ class Series with _$Series {
     required DateTime updatedAt,
     required List<LibraryItem> books,
     required bool inProgress,
+    required bool hasActiveBook,
     required bool hideFromContinueListening,
     required DateTime bookInProgressLastUpdate,
     LibraryItem? firstBookUnread,

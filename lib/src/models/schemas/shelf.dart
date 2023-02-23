@@ -13,6 +13,7 @@ class Shelf with _$Shelf {
   const factory Shelf.libraryItem({
     required String id,
     required String label,
+    required String labelStringKey,
     required ShelfType type,
     required List<LibraryItem> entities,
     required String category,
@@ -21,6 +22,7 @@ class Shelf with _$Shelf {
   const factory Shelf.series({
     required String id,
     required String label,
+    required String labelStringKey,
     required ShelfType type,
     required List<Series> entities,
     required String category,
@@ -29,6 +31,7 @@ class Shelf with _$Shelf {
   const factory Shelf.author({
     required String id,
     required String label,
+    required String labelStringKey,
     required ShelfType type,
     required List<Author> entities,
     required String category,
