@@ -199,7 +199,7 @@ class LibraryItemsService extends Service {
     required String libraryItemId,
     ResponseErrorHandler? responseErrorHandler,
   }) async {
-    final String? result = await api.getJson(
+    final String? result = await api.postJson(
       path: '$basePath/$libraryItemId/scan',
       requiresAuth: true,
       responseErrorHandler: responseErrorHandler,
