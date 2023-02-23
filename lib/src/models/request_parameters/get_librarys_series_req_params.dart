@@ -16,7 +16,7 @@ class GetLibrarysSeriesReqParams {
   final bool? desc;
   final Filter? filter;
   final bool? minified;
-  @JsonKey(ignore: true)
+  @JsonKey(includeToJson: false)
   final bool includeRssFeed;
 
   /// See [Get a Library's Series](https://api.audiobookshelf.org/#get-a-library-39-s-series)

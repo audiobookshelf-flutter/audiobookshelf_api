@@ -18,7 +18,7 @@ class GetLibrarysItemsReqParams {
   final bool? minified;
   @JsonKey(name: 'collapseseries')
   final bool? collapseSeries;
-  @JsonKey(ignore: true)
+  @JsonKey(includeToJson: false)
   final bool includeRssFeed;
 
   /// See [Get a Library's Items](https://api.audiobookshelf.org/#get-a-library-39-s-items)

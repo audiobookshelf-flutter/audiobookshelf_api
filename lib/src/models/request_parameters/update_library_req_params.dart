@@ -13,9 +13,9 @@ part 'generated/update_library_req_params.g.dart';
 @requestToJsonRemoveNull
 class UpdateLibraryReqParams {
   final String? name;
-  @JsonKey(ignore: true)
+  @JsonKey(includeToJson: false)
   final List<Folder>? folders;
-  @JsonKey(ignore: true)
+  @JsonKey(includeToJson: false)
   final List<NewFolder>? newFolders;
   final int? displayOrder;
   final LibraryIcon? icon;

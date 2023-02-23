@@ -11,7 +11,7 @@ part 'generated/update_item_media_req_params.g.dart';
 ///
 /// Use [UpdateBookReqParams] or [UpdatePodcastReqParams].
 abstract class UpdateItemMediaReqParams {
-  @JsonKey(ignore: true)
+  @JsonKey(includeToJson: false)
   final String? coverPath;
   @JsonKey(includeIfNull: false)
   final List<String>? tags;
@@ -77,7 +77,7 @@ class UpdateBookReqParams extends UpdateItemMediaReqParams {
 @requestToJson
 class UpdateBookMetadataReqParams extends UpdateMediaMetadataReqParams {
   final String? subtitle;
-  @JsonKey(ignore: true)
+  @JsonKey(includeToJson: false)
   final List<String>? authors;
   @JsonKey(includeIfNull: false)
   final List<String>? narrators;
@@ -124,7 +124,7 @@ class UpdateBookMetadataReqParams extends UpdateMediaMetadataReqParams {
 @requestToJson
 class UpdateBookSeriesReqParams {
   final String name;
-  @JsonKey(ignore: true)
+  @JsonKey(includeToJson: false)
   final String? sequence;
 
   const UpdateBookSeriesReqParams({
