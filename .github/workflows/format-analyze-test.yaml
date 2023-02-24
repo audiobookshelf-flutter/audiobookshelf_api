@@ -21,12 +21,12 @@ jobs:
         run: dart pub get
 
       - name: Verify formatting
-        if: github.event.schedule != "35 2 * * 2,5"
+        if: github.event.schedule != '35 2 * * 2,5'
         run: dart format --output=none --set-exit-if-changed .
 
       - name: Analyze project source
         run: dart analyze --fatal-infos
 
       - name: Run tests
-        if: github.event.schedule != "35 2 * * 2,5"
+        if: github.event.schedule != '35 2 * * 2,5'
         run: dart test
