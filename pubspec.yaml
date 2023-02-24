@@ -2,6 +2,7 @@ name: audiobookshelf_api
 description: A Dart wrapper for the audiobookshelf API, a self-hosted audiobook and podcast server.
 version: 0.2.0
 repository: https://github.com/audiobookshelf-flutter/audiobookshelf_api
+issue_tracker: https://github.com/audiobookshelf-flutter/audiobookshelf_api/issues
 
 environment:
   sdk: ">=2.18.4 <3.0.0"

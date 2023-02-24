@@ -1,3 +1,5 @@
+[![Pub Version](https://img.shields.io/pub/v/audiobookshelf_api?style=flat-square)](https://pub.dev/packages/audiobookshelf_api)
+
 A Dart wrapper for the [audiobookshelf](https://www.audiobookshelf.org) [API](https://api.audiobookshelf.org), a self-hosted audiobook and podcast server.
 
 Works with audiobookshelf `v2.2.15`.
