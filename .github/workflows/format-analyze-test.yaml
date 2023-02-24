@@ -1,0 +1,32 @@
+name: Dart Format, Analyze, and Test
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "35 2 * * 2,5"
+
+jobs:
+  format-analyze-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: dart-lang/setup-dart@v1
+
+      - name: Install dependencies
+        run: dart pub get
+
+      - name: Verify formatting
+        if: github.event.schedule != "35 2 * * 2,5"
+        run: dart format --output=none --set-exit-if-changed .
+
+      - name: Analyze project source
+        run: dart analyze --fatal-infos
+
+      - name: Run tests
+        if: github.event.schedule != "35 2 * * 2,5"
+        run: dart test
