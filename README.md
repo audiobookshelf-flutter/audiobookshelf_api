@@ -1,4 +1,6 @@
 [![Pub Version](https://img.shields.io/pub/v/audiobookshelf_api?style=flat-square)](https://pub.dev/packages/audiobookshelf_api)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/audiobookshelf-flutter/audiobookshelf_api/format-analyze-test.yaml?style=flat-square)
+[![Codecov](https://img.shields.io/codecov/c/github/audiobookshelf-flutter/audiobookshelf_api?logo=codecov&style=flat-square&token=HPIGHR3R3E)](https://codecov.io/gh/audiobookshelf-flutter/audiobookshelf_api)
 
 A Dart wrapper for the [audiobookshelf](https://www.audiobookshelf.org) [API](https://api.audiobookshelf.org), a self-hosted audiobook and podcast server.
 
