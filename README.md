@@ -1,6 +1,6 @@
-A Dart wrapper for the [audiobookshelf](https://www.audiobookshelf.org) [API](https://api.audiobookshelf.org).
+A Dart wrapper for the [audiobookshelf](https://www.audiobookshelf.org) [API](https://api.audiobookshelf.org), a self-hosted audiobook and podcast server.
 
-Works with audiobookshelf `v2.2.12`.
+Works with audiobookshelf `v2.2.15`.
 
 ## Features
 
