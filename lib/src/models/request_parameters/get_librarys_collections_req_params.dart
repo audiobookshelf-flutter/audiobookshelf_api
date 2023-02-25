@@ -11,7 +11,7 @@ class GetLibrarysCollectionsReqParams {
   final int? limit;
   final int? page;
   final bool? minified;
-  @JsonKey(ignore: true)
+  @JsonKey(includeToJson: false)
   final bool includeRssFeed;
 
   /// See [Get a Library's Collections](https://api.audiobookshelf.org/#get-a-library-39-s-collections)

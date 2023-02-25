@@ -267,7 +267,7 @@ class LibrariesService extends Service {
     bool force = false,
     ResponseErrorHandler? responseErrorHandler,
   }) {
-    return api.get(
+    return api.post(
       path: '$basePath/$libraryId/scan',
       queryParameters: force ? {'force': 1} : null,
       requiresAuth: true,

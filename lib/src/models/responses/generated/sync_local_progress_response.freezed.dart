@@ -24,6 +24,8 @@ mixin _$SyncLocalProgressResponse {
   int get numServerProgressUpdates => throw _privateConstructorUsedError;
   List<MediaProgress> get localProgressUpdates =>
       throw _privateConstructorUsedError;
+  List<MediaProgress> get serverProgressUpdates =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +40,9 @@ abstract class $SyncLocalProgressResponseCopyWith<$Res> {
       _$SyncLocalProgressResponseCopyWithImpl<$Res, SyncLocalProgressResponse>;
   @useResult
   $Res call(
-      {int numServerProgressUpdates, List<MediaProgress> localProgressUpdates});
+      {int numServerProgressUpdates,
+      List<MediaProgress> localProgressUpdates,
+      List<MediaProgress> serverProgressUpdates});
 }
 
 /// @nodoc
@@ -57,6 +61,7 @@ class _$SyncLocalProgressResponseCopyWithImpl<$Res,
   $Res call({
     Object? numServerProgressUpdates = null,
     Object? localProgressUpdates = null,
+    Object? serverProgressUpdates = null,
   }) {
     return _then(_value.copyWith(
       numServerProgressUpdates: null == numServerProgressUpdates
@@ -66,6 +71,10 @@ class _$SyncLocalProgressResponseCopyWithImpl<$Res,
       localProgressUpdates: null == localProgressUpdates
           ? _value.localProgressUpdates
           : localProgressUpdates // ignore: cast_nullable_to_non_nullable
+              as List<MediaProgress>,
+      serverProgressUpdates: null == serverProgressUpdates
+          ? _value.serverProgressUpdates
+          : serverProgressUpdates // ignore: cast_nullable_to_non_nullable
               as List<MediaProgress>,
     ) as $Val);
   }
@@ -81,7 +90,9 @@ abstract class _$$_SyncLocalProgressResponseCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int numServerProgressUpdates, List<MediaProgress> localProgressUpdates});
+      {int numServerProgressUpdates,
+      List<MediaProgress> localProgressUpdates,
+      List<MediaProgress> serverProgressUpdates});
 }
 
 /// @nodoc
@@ -99,6 +110,7 @@ class __$$_SyncLocalProgressResponseCopyWithImpl<$Res>
   $Res call({
     Object? numServerProgressUpdates = null,
     Object? localProgressUpdates = null,
+    Object? serverProgressUpdates = null,
   }) {
     return _then(_$_SyncLocalProgressResponse(
       numServerProgressUpdates: null == numServerProgressUpdates
@@ -109,6 +121,10 @@ class __$$_SyncLocalProgressResponseCopyWithImpl<$Res>
           ? _value._localProgressUpdates
           : localProgressUpdates // ignore: cast_nullable_to_non_nullable
               as List<MediaProgress>,
+      serverProgressUpdates: null == serverProgressUpdates
+          ? _value._serverProgressUpdates
+          : serverProgressUpdates // ignore: cast_nullable_to_non_nullable
+              as List<MediaProgress>,
     ));
   }
 }
@@ -118,8 +134,10 @@ class __$$_SyncLocalProgressResponseCopyWithImpl<$Res>
 class _$_SyncLocalProgressResponse implements _SyncLocalProgressResponse {
   const _$_SyncLocalProgressResponse(
       {required this.numServerProgressUpdates,
-      required final List<MediaProgress> localProgressUpdates})
-      : _localProgressUpdates = localProgressUpdates;
+      required final List<MediaProgress> localProgressUpdates,
+      required final List<MediaProgress> serverProgressUpdates})
+      : _localProgressUpdates = localProgressUpdates,
+        _serverProgressUpdates = serverProgressUpdates;
 
   factory _$_SyncLocalProgressResponse.fromJson(Map<String, dynamic> json) =>
       _$$_SyncLocalProgressResponseFromJson(json);
@@ -135,9 +153,18 @@ class _$_SyncLocalProgressResponse implements _SyncLocalProgressResponse {
     return EqualUnmodifiableListView(_localProgressUpdates);
   }
 
+  final List<MediaProgress> _serverProgressUpdates;
+  @override
+  List<MediaProgress> get serverProgressUpdates {
+    if (_serverProgressUpdates is EqualUnmodifiableListView)
+      return _serverProgressUpdates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_serverProgressUpdates);
+  }
+
   @override
   String toString() {
-    return 'SyncLocalProgressResponse(numServerProgressUpdates: $numServerProgressUpdates, localProgressUpdates: $localProgressUpdates)';
+    return 'SyncLocalProgressResponse(numServerProgressUpdates: $numServerProgressUpdates, localProgressUpdates: $localProgressUpdates, serverProgressUpdates: $serverProgressUpdates)';
   }
 
   @override
@@ -149,13 +176,18 @@ class _$_SyncLocalProgressResponse implements _SyncLocalProgressResponse {
                     other.numServerProgressUpdates, numServerProgressUpdates) ||
                 other.numServerProgressUpdates == numServerProgressUpdates) &&
             const DeepCollectionEquality()
-                .equals(other._localProgressUpdates, _localProgressUpdates));
+                .equals(other._localProgressUpdates, _localProgressUpdates) &&
+            const DeepCollectionEquality()
+                .equals(other._serverProgressUpdates, _serverProgressUpdates));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, numServerProgressUpdates,
-      const DeepCollectionEquality().hash(_localProgressUpdates));
+  int get hashCode => Object.hash(
+      runtimeType,
+      numServerProgressUpdates,
+      const DeepCollectionEquality().hash(_localProgressUpdates),
+      const DeepCollectionEquality().hash(_serverProgressUpdates));
 
   @JsonKey(ignore: true)
   @override
@@ -175,7 +207,8 @@ class _$_SyncLocalProgressResponse implements _SyncLocalProgressResponse {
 abstract class _SyncLocalProgressResponse implements SyncLocalProgressResponse {
   const factory _SyncLocalProgressResponse(
           {required final int numServerProgressUpdates,
-          required final List<MediaProgress> localProgressUpdates}) =
+          required final List<MediaProgress> localProgressUpdates,
+          required final List<MediaProgress> serverProgressUpdates}) =
       _$_SyncLocalProgressResponse;
 
   factory _SyncLocalProgressResponse.fromJson(Map<String, dynamic> json) =
@@ -185,6 +218,8 @@ abstract class _SyncLocalProgressResponse implements SyncLocalProgressResponse {
   int get numServerProgressUpdates;
   @override
   List<MediaProgress> get localProgressUpdates;
+  @override
+  List<MediaProgress> get serverProgressUpdates;
   @override
   @JsonKey(ignore: true)
   _$$_SyncLocalProgressResponseCopyWith<_$_SyncLocalProgressResponse>

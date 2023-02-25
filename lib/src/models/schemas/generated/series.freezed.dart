@@ -79,6 +79,7 @@ mixin _$Series {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -127,6 +128,7 @@ mixin _$Series {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -174,6 +176,7 @@ mixin _$Series {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -463,6 +466,7 @@ class _$_Series extends _Series {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -515,6 +519,7 @@ class _$_Series extends _Series {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -566,6 +571,7 @@ class _$_Series extends _Series {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -846,6 +852,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -898,6 +905,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -949,6 +957,7 @@ class _$SeriesNumBooks extends SeriesNumBooks {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -1274,6 +1283,7 @@ class _$SeriesBooks extends SeriesBooks {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -1326,6 +1336,7 @@ class _$SeriesBooks extends SeriesBooks {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -1377,6 +1388,7 @@ class _$SeriesBooks extends SeriesBooks {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -1611,6 +1623,7 @@ class _$SeriesSequence extends SeriesSequence {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -1662,6 +1675,7 @@ class _$SeriesSequence extends SeriesSequence {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -1712,6 +1726,7 @@ class _$SeriesSequence extends SeriesSequence {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -1813,6 +1828,7 @@ abstract class _$$ShelfSeriesCopyWith<$Res> implements $SeriesCopyWith<$Res> {
       DateTime updatedAt,
       List<LibraryItem> books,
       bool inProgress,
+      bool hasActiveBook,
       bool hideFromContinueListening,
       DateTime bookInProgressLastUpdate,
       LibraryItem? firstBookUnread,
@@ -1840,6 +1856,7 @@ class __$$ShelfSeriesCopyWithImpl<$Res>
     Object? updatedAt = null,
     Object? books = null,
     Object? inProgress = null,
+    Object? hasActiveBook = null,
     Object? hideFromContinueListening = null,
     Object? bookInProgressLastUpdate = null,
     Object? firstBookUnread = freezed,
@@ -1873,6 +1890,10 @@ class __$$ShelfSeriesCopyWithImpl<$Res>
       inProgress: null == inProgress
           ? _value.inProgress
           : inProgress // ignore: cast_nullable_to_non_nullable
+              as bool,
+      hasActiveBook: null == hasActiveBook
+          ? _value.hasActiveBook
+          : hasActiveBook // ignore: cast_nullable_to_non_nullable
               as bool,
       hideFromContinueListening: null == hideFromContinueListening
           ? _value.hideFromContinueListening
@@ -1930,6 +1951,7 @@ class _$ShelfSeries extends ShelfSeries {
       required this.updatedAt,
       required final List<LibraryItem> books,
       required this.inProgress,
+      required this.hasActiveBook,
       required this.hideFromContinueListening,
       required this.bookInProgressLastUpdate,
       this.firstBookUnread,
@@ -1963,6 +1985,8 @@ class _$ShelfSeries extends ShelfSeries {
   @override
   final bool inProgress;
   @override
+  final bool hasActiveBook;
+  @override
   final bool hideFromContinueListening;
   @override
   final DateTime bookInProgressLastUpdate;
@@ -1976,7 +2000,7 @@ class _$ShelfSeries extends ShelfSeries {
 
   @override
   String toString() {
-    return 'Series.shelf(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt, books: $books, inProgress: $inProgress, hideFromContinueListening: $hideFromContinueListening, bookInProgressLastUpdate: $bookInProgressLastUpdate, firstBookUnread: $firstBookUnread, rssFeed: $rssFeed)';
+    return 'Series.shelf(id: $id, name: $name, description: $description, addedAt: $addedAt, updatedAt: $updatedAt, books: $books, inProgress: $inProgress, hasActiveBook: $hasActiveBook, hideFromContinueListening: $hideFromContinueListening, bookInProgressLastUpdate: $bookInProgressLastUpdate, firstBookUnread: $firstBookUnread, rssFeed: $rssFeed)';
   }
 
   @override
@@ -1994,6 +2018,8 @@ class _$ShelfSeries extends ShelfSeries {
             const DeepCollectionEquality().equals(other._books, _books) &&
             (identical(other.inProgress, inProgress) ||
                 other.inProgress == inProgress) &&
+            (identical(other.hasActiveBook, hasActiveBook) ||
+                other.hasActiveBook == hasActiveBook) &&
             (identical(other.hideFromContinueListening,
                     hideFromContinueListening) ||
                 other.hideFromContinueListening == hideFromContinueListening) &&
@@ -2016,6 +2042,7 @@ class _$ShelfSeries extends ShelfSeries {
       updatedAt,
       const DeepCollectionEquality().hash(_books),
       inProgress,
+      hasActiveBook,
       hideFromContinueListening,
       bookInProgressLastUpdate,
       firstBookUnread,
@@ -2068,6 +2095,7 @@ class _$ShelfSeries extends ShelfSeries {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -2084,6 +2112,7 @@ class _$ShelfSeries extends ShelfSeries {
         updatedAt,
         this.books,
         inProgress,
+        hasActiveBook,
         hideFromContinueListening,
         bookInProgressLastUpdate,
         firstBookUnread,
@@ -2130,6 +2159,7 @@ class _$ShelfSeries extends ShelfSeries {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -2145,6 +2175,7 @@ class _$ShelfSeries extends ShelfSeries {
         updatedAt,
         this.books,
         inProgress,
+        hasActiveBook,
         hideFromContinueListening,
         bookInProgressLastUpdate,
         firstBookUnread,
@@ -2191,6 +2222,7 @@ class _$ShelfSeries extends ShelfSeries {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -2208,6 +2240,7 @@ class _$ShelfSeries extends ShelfSeries {
           updatedAt,
           this.books,
           inProgress,
+          hasActiveBook,
           hideFromContinueListening,
           bookInProgressLastUpdate,
           firstBookUnread,
@@ -2276,6 +2309,7 @@ abstract class ShelfSeries extends Series {
       required final DateTime updatedAt,
       required final List<LibraryItem> books,
       required final bool inProgress,
+      required final bool hasActiveBook,
       required final bool hideFromContinueListening,
       required final DateTime bookInProgressLastUpdate,
       final LibraryItem? firstBookUnread,
@@ -2294,6 +2328,7 @@ abstract class ShelfSeries extends Series {
   DateTime get updatedAt;
   List<LibraryItem> get books;
   bool get inProgress;
+  bool get hasActiveBook;
   bool get hideFromContinueListening;
   DateTime get bookInProgressLastUpdate;
   LibraryItem? get firstBookUnread;
@@ -2445,6 +2480,7 @@ class _$AuthorSeries extends AuthorSeries {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -2496,6 +2532,7 @@ class _$AuthorSeries extends AuthorSeries {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,
@@ -2546,6 +2583,7 @@ class _$AuthorSeries extends AuthorSeries {
             DateTime updatedAt,
             List<LibraryItem> books,
             bool inProgress,
+            bool hasActiveBook,
             bool hideFromContinueListening,
             DateTime bookInProgressLastUpdate,
             LibraryItem? firstBookUnread,

@@ -156,6 +156,39 @@ Map<String, dynamic> _$$SearchBooksResponseAudibleToJson(
       'runtimeType': instance.$type,
     };
 
+_$SearchBooksResponseFantLab _$$SearchBooksResponseFantLabFromJson(
+        Map<String, dynamic> json) =>
+    _$SearchBooksResponseFantLab(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      subtitle: json['subtitle'] as String?,
+      author: json['author'] as String?,
+      publisher: json['publisher'] as String?,
+      publishedYear: json['publishedYear'] as int?,
+      description: json['description'] as String?,
+      cover: json['cover'] == null ? null : Uri.parse(json['cover'] as String),
+      genres:
+          (json['genres'] as List<dynamic>).map((e) => e as String).toList(),
+      isbn: json['isbn'] as String?,
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SearchBooksResponseFantLabToJson(
+        _$SearchBooksResponseFantLab instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'subtitle': instance.subtitle,
+      'author': instance.author,
+      'publisher': instance.publisher,
+      'publishedYear': instance.publishedYear,
+      'description': instance.description,
+      'cover': instance.cover?.toString(),
+      'genres': instance.genres,
+      'isbn': instance.isbn,
+      'runtimeType': instance.$type,
+    };
+
 _$_AudibleSeries _$$_AudibleSeriesFromJson(Map<String, dynamic> json) =>
     _$_AudibleSeries(
       series: json['series'] as String,

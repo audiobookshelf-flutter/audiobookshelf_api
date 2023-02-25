@@ -10,6 +10,7 @@ _$LibraryItemShelf _$$LibraryItemShelfFromJson(Map<String, dynamic> json) =>
     _$LibraryItemShelf(
       id: json['id'] as String,
       label: json['label'] as String,
+      labelStringKey: json['labelStringKey'] as String,
       type: $enumDecode(_$ShelfTypeEnumMap, json['type']),
       entities: (json['entities'] as List<dynamic>)
           .map((e) => LibraryItem.fromJson(e as Map<String, dynamic>))
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$LibraryItemShelfToJson(_$LibraryItemShelf instance) =>
     <String, dynamic>{
       'id': instance.id,
       'label': instance.label,
+      'labelStringKey': instance.labelStringKey,
       'type': _$ShelfTypeEnumMap[instance.type]!,
       'entities': instance.entities,
       'category': instance.category,
@@ -40,6 +42,7 @@ _$SeriesShelf _$$SeriesShelfFromJson(Map<String, dynamic> json) =>
     _$SeriesShelf(
       id: json['id'] as String,
       label: json['label'] as String,
+      labelStringKey: json['labelStringKey'] as String,
       type: $enumDecode(_$ShelfTypeEnumMap, json['type']),
       entities: (json['entities'] as List<dynamic>)
           .map((e) => Series.fromJson(e as Map<String, dynamic>))
@@ -52,6 +55,7 @@ Map<String, dynamic> _$$SeriesShelfToJson(_$SeriesShelf instance) =>
     <String, dynamic>{
       'id': instance.id,
       'label': instance.label,
+      'labelStringKey': instance.labelStringKey,
       'type': _$ShelfTypeEnumMap[instance.type]!,
       'entities': instance.entities,
       'category': instance.category,
@@ -62,6 +66,7 @@ _$AuthorShelf _$$AuthorShelfFromJson(Map<String, dynamic> json) =>
     _$AuthorShelf(
       id: json['id'] as String,
       label: json['label'] as String,
+      labelStringKey: json['labelStringKey'] as String,
       type: $enumDecode(_$ShelfTypeEnumMap, json['type']),
       entities: (json['entities'] as List<dynamic>)
           .map((e) => Author.fromJson(e as Map<String, dynamic>))
@@ -74,6 +79,7 @@ Map<String, dynamic> _$$AuthorShelfToJson(_$AuthorShelf instance) =>
     <String, dynamic>{
       'id': instance.id,
       'label': instance.label,
+      'labelStringKey': instance.labelStringKey,
       'type': _$ShelfTypeEnumMap[instance.type]!,
       'entities': instance.entities,
       'category': instance.category,

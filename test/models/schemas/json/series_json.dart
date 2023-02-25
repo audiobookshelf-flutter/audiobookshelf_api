@@ -28,6 +28,7 @@ final totalDuration =
 const sequence = '1';
 
 const inProgress = true;
+const hasActiveBook = true;
 const hideFromContinueListening = false;
 const bookInProgressLastUpdateJson = 1650621073750;
 final bookInProgressLastUpdate =
@@ -113,6 +114,7 @@ const jsonShelf = {
   'updatedAt': updatedAtJson,
   'books': booksJson,
   'inProgress': inProgress,
+  'hasActiveBook': hasActiveBook,
   'hideFromContinueListening': hideFromContinueListening,
   'bookInProgressLastUpdate': bookInProgressLastUpdateJson,
   'firstBookUnread': library_item.bookJson,
@@ -127,6 +129,7 @@ final seriesShelf = Series.shelf(
   updatedAt: updatedAt,
   books: books,
   inProgress: inProgress,
+  hasActiveBook: hasActiveBook,
   hideFromContinueListening: hideFromContinueListening,
   bookInProgressLastUpdate: bookInProgressLastUpdate,
   firstBookUnread: library_item.bookLibraryItem,

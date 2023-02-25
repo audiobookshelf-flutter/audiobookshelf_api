@@ -7,11 +7,13 @@ void main() {
   group('Shelf', () {
     const String id = 'id';
     const String label = 'label';
+    const String labelStringKey = 'labelStringKey';
     const String category = 'category';
 
     const jsonBase = {
       'id': id,
       'label': label,
+      'labelStringKey': labelStringKey,
       'entities': <Map<String, Object?>>[],
       'category': category,
     };
@@ -39,6 +41,7 @@ void main() {
       sutLibraryItem = const Shelf.libraryItem(
         id: id,
         label: label,
+        labelStringKey: labelStringKey,
         type: ShelfType.book,
         entities: [],
         category: category,
@@ -46,6 +49,7 @@ void main() {
       sutSeries = const Shelf.series(
         id: id,
         label: label,
+        labelStringKey: labelStringKey,
         type: ShelfType.series,
         entities: [],
         category: category,
@@ -53,6 +57,7 @@ void main() {
       sutAuthor = const Shelf.author(
         id: id,
         label: label,
+        labelStringKey: labelStringKey,
         type: ShelfType.author,
         entities: [],
         category: category,

@@ -14,7 +14,8 @@ enum MetadataProvider {
   audibleJp('audible.jp', 'Audible.co.jp'),
   audibleIt('audible.it', 'Audible.it'),
   audibleIn('audible.in', 'Audible.co.in'),
-  audibleEs('audible.es', 'Audible.es');
+  audibleEs('audible.es', 'Audible.es'),
+  fantLab('fantlab', 'FantLab.ru');
 
   final String value;
   final String displayName;

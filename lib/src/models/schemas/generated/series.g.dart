@@ -119,6 +119,7 @@ _$ShelfSeries _$$ShelfSeriesFromJson(Map<String, dynamic> json) =>
           .map((e) => LibraryItem.fromJson(e as Map<String, dynamic>))
           .toList(),
       inProgress: json['inProgress'] as bool,
+      hasActiveBook: json['hasActiveBook'] as bool,
       hideFromContinueListening: json['hideFromContinueListening'] as bool,
       bookInProgressLastUpdate: const DateTimeEpochConverter()
           .fromJson(json['bookInProgressLastUpdate'] as int),
@@ -141,6 +142,7 @@ Map<String, dynamic> _$$ShelfSeriesToJson(_$ShelfSeries instance) =>
       'updatedAt': const DateTimeEpochConverter().toJson(instance.updatedAt),
       'books': instance.books,
       'inProgress': instance.inProgress,
+      'hasActiveBook': instance.hasActiveBook,
       'hideFromContinueListening': instance.hideFromContinueListening,
       'bookInProgressLastUpdate': const DateTimeEpochConverter()
           .toJson(instance.bookInProgressLastUpdate),

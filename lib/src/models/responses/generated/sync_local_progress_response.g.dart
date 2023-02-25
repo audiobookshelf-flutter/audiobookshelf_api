@@ -13,6 +13,9 @@ _$_SyncLocalProgressResponse _$$_SyncLocalProgressResponseFromJson(
       localProgressUpdates: (json['localProgressUpdates'] as List<dynamic>)
           .map((e) => MediaProgress.fromJson(e as Map<String, dynamic>))
           .toList(),
+      serverProgressUpdates: (json['serverProgressUpdates'] as List<dynamic>)
+          .map((e) => MediaProgress.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_SyncLocalProgressResponseToJson(
@@ -20,4 +23,5 @@ Map<String, dynamic> _$$_SyncLocalProgressResponseToJson(
     <String, dynamic>{
       'numServerProgressUpdates': instance.numServerProgressUpdates,
       'localProgressUpdates': instance.localProgressUpdates,
+      'serverProgressUpdates': instance.serverProgressUpdates,
     };

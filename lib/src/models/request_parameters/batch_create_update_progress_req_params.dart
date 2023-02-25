@@ -9,7 +9,7 @@ part 'generated/batch_create_update_progress_req_params.g.dart';
 class BatchCreateUpdateProgressReqParams {
   final String libraryItemId;
   final String? episodeId;
-  @JsonKey(ignore: true)
+  @JsonKey(includeToJson: false)
   final CreateUpdateProgressReqParams parameters;
 
   /// See [Batch Create/Update Media Progress](https://api.audiobookshelf.org/#batch-create-update-media-progress)

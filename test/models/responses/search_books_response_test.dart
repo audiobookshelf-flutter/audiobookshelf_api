@@ -101,10 +101,24 @@ void main() {
       'rating': rating,
     };
 
+    const jsonFantLab = {
+      'id': id,
+      'title': title,
+      'subtitle': subtitle,
+      'author': author,
+      'publisher': publisher,
+      'publishedYear': publishedYearInt,
+      'description': description,
+      'cover': cover,
+      'genres': genres,
+      'isbn': isbn,
+    };
+
     late SearchBooksResponse sutGoogle;
     late SearchBooksResponse sutOpenLibrary;
     late SearchBooksResponse sutITunes;
     late SearchBooksResponse sutAudible;
+    late SearchBooksResponse sutFantLab;
 
     setUp(() {
       sutGoogle = const SearchBooksResponse.google(
@@ -163,6 +177,18 @@ void main() {
         region: region,
         rating: rating,
       );
+      sutFantLab = const SearchBooksResponse.fantLab(
+        id: id,
+        title: title,
+        subtitle: subtitle,
+        author: author,
+        publisher: publisher,
+        publishedYear: publishedYearInt,
+        description: description,
+        cover: cover,
+        genres: genres,
+        isbn: isbn,
+      );
     });
 
     group('fromJson', () {
@@ -180,6 +206,10 @@ void main() {
 
       test('audible', () {
         expect(sutAudible, SearchBooksResponse.fromJson(jsonAudible));
+      });
+
+      test('fantLab', () {
+        expect(sutFantLab, SearchBooksResponse.fromJson(jsonFantLab));
       });
 
       test('runtimeType', () {
@@ -217,6 +247,10 @@ void main() {
         expect(sutAudible.toJson(), deepMapContains(jsonAudible));
       });
 
+      test('fantLab', () {
+        expect(sutFantLab.toJson(), deepMapContains(jsonFantLab));
+      });
+
       test('converter', () {
         expect(
           const SearchBooksResponseConverter().toJson(sutGoogle),
@@ -240,6 +274,10 @@ void main() {
 
       test('audible', () {
         expect(sutAudible.variant, SearchBooksResponseVariant.audible);
+      });
+
+      test('fantLab', () {
+        expect(sutFantLab.variant, SearchBooksResponseVariant.fantLab);
       });
     });
   });

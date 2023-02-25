@@ -24,6 +24,8 @@ SearchBooksResponse _$SearchBooksResponseFromJson(Map<String, dynamic> json) {
       return SearchBooksResponseITunes.fromJson(json);
     case 'audible':
       return SearchBooksResponseAudible.fromJson(json);
+    case 'fantLab':
+      return SearchBooksResponseFantLab.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'SearchBooksResponse',
@@ -95,6 +97,18 @@ mixin _$SearchBooksResponse {
             String? region,
             String? rating)
         audible,
+    required TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)
+        fantLab,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -155,6 +169,18 @@ mixin _$SearchBooksResponse {
             String? region,
             String? rating)?
         audible,
+    TResult? Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -215,6 +241,18 @@ mixin _$SearchBooksResponse {
             String? region,
             String? rating)?
         audible,
+    TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -224,6 +262,7 @@ mixin _$SearchBooksResponse {
     required TResult Function(SearchBooksResponseOpenLibrary value) openLibrary,
     required TResult Function(SearchBooksResponseITunes value) itunes,
     required TResult Function(SearchBooksResponseAudible value) audible,
+    required TResult Function(SearchBooksResponseFantLab value) fantLab,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -232,6 +271,7 @@ mixin _$SearchBooksResponse {
     TResult? Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult? Function(SearchBooksResponseITunes value)? itunes,
     TResult? Function(SearchBooksResponseAudible value)? audible,
+    TResult? Function(SearchBooksResponseFantLab value)? fantLab,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -240,6 +280,7 @@ mixin _$SearchBooksResponse {
     TResult Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult Function(SearchBooksResponseITunes value)? itunes,
     TResult Function(SearchBooksResponseAudible value)? audible,
+    TResult Function(SearchBooksResponseFantLab value)? fantLab,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -533,6 +574,18 @@ class _$SearchBooksResponseGoogle extends SearchBooksResponseGoogle {
             String? region,
             String? rating)
         audible,
+    required TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)
+        fantLab,
   }) {
     return google(id, title, subtitle, author, publisher, description, cover,
         genres, isbn);
@@ -597,6 +650,18 @@ class _$SearchBooksResponseGoogle extends SearchBooksResponseGoogle {
             String? region,
             String? rating)?
         audible,
+    TResult? Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
   }) {
     return google?.call(id, title, subtitle, author, publisher, description,
         cover, genres, isbn);
@@ -661,6 +726,18 @@ class _$SearchBooksResponseGoogle extends SearchBooksResponseGoogle {
             String? region,
             String? rating)?
         audible,
+    TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
     required TResult orElse(),
   }) {
     if (google != null) {
@@ -677,6 +754,7 @@ class _$SearchBooksResponseGoogle extends SearchBooksResponseGoogle {
     required TResult Function(SearchBooksResponseOpenLibrary value) openLibrary,
     required TResult Function(SearchBooksResponseITunes value) itunes,
     required TResult Function(SearchBooksResponseAudible value) audible,
+    required TResult Function(SearchBooksResponseFantLab value) fantLab,
   }) {
     return google(this);
   }
@@ -688,6 +766,7 @@ class _$SearchBooksResponseGoogle extends SearchBooksResponseGoogle {
     TResult? Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult? Function(SearchBooksResponseITunes value)? itunes,
     TResult? Function(SearchBooksResponseAudible value)? audible,
+    TResult? Function(SearchBooksResponseFantLab value)? fantLab,
   }) {
     return google?.call(this);
   }
@@ -699,6 +778,7 @@ class _$SearchBooksResponseGoogle extends SearchBooksResponseGoogle {
     TResult Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult Function(SearchBooksResponseITunes value)? itunes,
     TResult Function(SearchBooksResponseAudible value)? audible,
+    TResult Function(SearchBooksResponseFantLab value)? fantLab,
     required TResult orElse(),
   }) {
     if (google != null) {
@@ -1073,6 +1153,18 @@ class _$SearchBooksResponseOpenLibrary extends SearchBooksResponseOpenLibrary {
             String? region,
             String? rating)
         audible,
+    required TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)
+        fantLab,
   }) {
     return openLibrary(
         title,
@@ -1152,6 +1244,18 @@ class _$SearchBooksResponseOpenLibrary extends SearchBooksResponseOpenLibrary {
             String? region,
             String? rating)?
         audible,
+    TResult? Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
   }) {
     return openLibrary?.call(
         title,
@@ -1231,6 +1335,18 @@ class _$SearchBooksResponseOpenLibrary extends SearchBooksResponseOpenLibrary {
             String? region,
             String? rating)?
         audible,
+    TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
     required TResult orElse(),
   }) {
     if (openLibrary != null) {
@@ -1262,6 +1378,7 @@ class _$SearchBooksResponseOpenLibrary extends SearchBooksResponseOpenLibrary {
     required TResult Function(SearchBooksResponseOpenLibrary value) openLibrary,
     required TResult Function(SearchBooksResponseITunes value) itunes,
     required TResult Function(SearchBooksResponseAudible value) audible,
+    required TResult Function(SearchBooksResponseFantLab value) fantLab,
   }) {
     return openLibrary(this);
   }
@@ -1273,6 +1390,7 @@ class _$SearchBooksResponseOpenLibrary extends SearchBooksResponseOpenLibrary {
     TResult? Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult? Function(SearchBooksResponseITunes value)? itunes,
     TResult? Function(SearchBooksResponseAudible value)? audible,
+    TResult? Function(SearchBooksResponseFantLab value)? fantLab,
   }) {
     return openLibrary?.call(this);
   }
@@ -1284,6 +1402,7 @@ class _$SearchBooksResponseOpenLibrary extends SearchBooksResponseOpenLibrary {
     TResult Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult Function(SearchBooksResponseITunes value)? itunes,
     TResult Function(SearchBooksResponseAudible value)? audible,
+    TResult Function(SearchBooksResponseFantLab value)? fantLab,
     required TResult orElse(),
   }) {
     if (openLibrary != null) {
@@ -1574,6 +1693,18 @@ class _$SearchBooksResponseITunes extends SearchBooksResponseITunes {
             String? region,
             String? rating)
         audible,
+    required TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)
+        fantLab,
   }) {
     return itunes(
         id, artistId, title, author, description, publishedYear, genres, cover);
@@ -1638,6 +1769,18 @@ class _$SearchBooksResponseITunes extends SearchBooksResponseITunes {
             String? region,
             String? rating)?
         audible,
+    TResult? Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
   }) {
     return itunes?.call(
         id, artistId, title, author, description, publishedYear, genres, cover);
@@ -1702,6 +1845,18 @@ class _$SearchBooksResponseITunes extends SearchBooksResponseITunes {
             String? region,
             String? rating)?
         audible,
+    TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
     required TResult orElse(),
   }) {
     if (itunes != null) {
@@ -1718,6 +1873,7 @@ class _$SearchBooksResponseITunes extends SearchBooksResponseITunes {
     required TResult Function(SearchBooksResponseOpenLibrary value) openLibrary,
     required TResult Function(SearchBooksResponseITunes value) itunes,
     required TResult Function(SearchBooksResponseAudible value) audible,
+    required TResult Function(SearchBooksResponseFantLab value) fantLab,
   }) {
     return itunes(this);
   }
@@ -1729,6 +1885,7 @@ class _$SearchBooksResponseITunes extends SearchBooksResponseITunes {
     TResult? Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult? Function(SearchBooksResponseITunes value)? itunes,
     TResult? Function(SearchBooksResponseAudible value)? audible,
+    TResult? Function(SearchBooksResponseFantLab value)? fantLab,
   }) {
     return itunes?.call(this);
   }
@@ -1740,6 +1897,7 @@ class _$SearchBooksResponseITunes extends SearchBooksResponseITunes {
     TResult Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult Function(SearchBooksResponseITunes value)? itunes,
     TResult Function(SearchBooksResponseAudible value)? audible,
+    TResult Function(SearchBooksResponseFantLab value)? fantLab,
     required TResult orElse(),
   }) {
     if (itunes != null) {
@@ -2098,6 +2256,18 @@ class _$SearchBooksResponseAudible extends SearchBooksResponseAudible {
             String? region,
             String? rating)
         audible,
+    required TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)
+        fantLab,
   }) {
     return audible(
         title,
@@ -2176,6 +2346,18 @@ class _$SearchBooksResponseAudible extends SearchBooksResponseAudible {
             String? region,
             String? rating)?
         audible,
+    TResult? Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
   }) {
     return audible?.call(
         title,
@@ -2254,6 +2436,18 @@ class _$SearchBooksResponseAudible extends SearchBooksResponseAudible {
             String? region,
             String? rating)?
         audible,
+    TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
     required TResult orElse(),
   }) {
     if (audible != null) {
@@ -2284,6 +2478,7 @@ class _$SearchBooksResponseAudible extends SearchBooksResponseAudible {
     required TResult Function(SearchBooksResponseOpenLibrary value) openLibrary,
     required TResult Function(SearchBooksResponseITunes value) itunes,
     required TResult Function(SearchBooksResponseAudible value) audible,
+    required TResult Function(SearchBooksResponseFantLab value) fantLab,
   }) {
     return audible(this);
   }
@@ -2295,6 +2490,7 @@ class _$SearchBooksResponseAudible extends SearchBooksResponseAudible {
     TResult? Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult? Function(SearchBooksResponseITunes value)? itunes,
     TResult? Function(SearchBooksResponseAudible value)? audible,
+    TResult? Function(SearchBooksResponseFantLab value)? fantLab,
   }) {
     return audible?.call(this);
   }
@@ -2306,6 +2502,7 @@ class _$SearchBooksResponseAudible extends SearchBooksResponseAudible {
     TResult Function(SearchBooksResponseOpenLibrary value)? openLibrary,
     TResult Function(SearchBooksResponseITunes value)? itunes,
     TResult Function(SearchBooksResponseAudible value)? audible,
+    TResult Function(SearchBooksResponseFantLab value)? fantLab,
     required TResult orElse(),
   }) {
     if (audible != null) {
@@ -2367,6 +2564,514 @@ abstract class SearchBooksResponseAudible extends SearchBooksResponse {
   @override
   @JsonKey(ignore: true)
   _$$SearchBooksResponseAudibleCopyWith<_$SearchBooksResponseAudible>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SearchBooksResponseFantLabCopyWith<$Res>
+    implements $SearchBooksResponseCopyWith<$Res> {
+  factory _$$SearchBooksResponseFantLabCopyWith(
+          _$SearchBooksResponseFantLab value,
+          $Res Function(_$SearchBooksResponseFantLab) then) =
+      __$$SearchBooksResponseFantLabCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {String id,
+      String title,
+      String? subtitle,
+      String? author,
+      String? publisher,
+      int? publishedYear,
+      String? description,
+      Uri? cover,
+      List<String> genres,
+      String? isbn});
+}
+
+/// @nodoc
+class __$$SearchBooksResponseFantLabCopyWithImpl<$Res>
+    extends _$SearchBooksResponseCopyWithImpl<$Res,
+        _$SearchBooksResponseFantLab>
+    implements _$$SearchBooksResponseFantLabCopyWith<$Res> {
+  __$$SearchBooksResponseFantLabCopyWithImpl(
+      _$SearchBooksResponseFantLab _value,
+      $Res Function(_$SearchBooksResponseFantLab) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? subtitle = freezed,
+    Object? author = freezed,
+    Object? publisher = freezed,
+    Object? publishedYear = freezed,
+    Object? description = freezed,
+    Object? cover = freezed,
+    Object? genres = null,
+    Object? isbn = freezed,
+  }) {
+    return _then(_$SearchBooksResponseFantLab(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      subtitle: freezed == subtitle
+          ? _value.subtitle
+          : subtitle // ignore: cast_nullable_to_non_nullable
+              as String?,
+      author: freezed == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      publisher: freezed == publisher
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as String?,
+      publishedYear: freezed == publishedYear
+          ? _value.publishedYear
+          : publishedYear // ignore: cast_nullable_to_non_nullable
+              as int?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cover: freezed == cover
+          ? _value.cover
+          : cover // ignore: cast_nullable_to_non_nullable
+              as Uri?,
+      genres: null == genres
+          ? _value._genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      isbn: freezed == isbn
+          ? _value.isbn
+          : isbn // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SearchBooksResponseFantLab extends SearchBooksResponseFantLab {
+  const _$SearchBooksResponseFantLab(
+      {required this.id,
+      required this.title,
+      this.subtitle,
+      this.author,
+      this.publisher,
+      this.publishedYear,
+      this.description,
+      this.cover,
+      required final List<String> genres,
+      this.isbn,
+      final String? $type})
+      : _genres = genres,
+        $type = $type ?? 'fantLab',
+        super._();
+
+  factory _$SearchBooksResponseFantLab.fromJson(Map<String, dynamic> json) =>
+      _$$SearchBooksResponseFantLabFromJson(json);
+
+  @override
+  final String id;
+  @override
+  final String title;
+  @override
+  final String? subtitle;
+  @override
+  final String? author;
+  @override
+  final String? publisher;
+  @override
+  final int? publishedYear;
+  @override
+  final String? description;
+  @override
+  final Uri? cover;
+  final List<String> _genres;
+  @override
+  List<String> get genres {
+    if (_genres is EqualUnmodifiableListView) return _genres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genres);
+  }
+
+  @override
+  final String? isbn;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'SearchBooksResponse.fantLab(id: $id, title: $title, subtitle: $subtitle, author: $author, publisher: $publisher, publishedYear: $publishedYear, description: $description, cover: $cover, genres: $genres, isbn: $isbn)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SearchBooksResponseFantLab &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.subtitle, subtitle) ||
+                other.subtitle == subtitle) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.publisher, publisher) ||
+                other.publisher == publisher) &&
+            (identical(other.publishedYear, publishedYear) ||
+                other.publishedYear == publishedYear) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.cover, cover) || other.cover == cover) &&
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            (identical(other.isbn, isbn) || other.isbn == isbn));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      subtitle,
+      author,
+      publisher,
+      publishedYear,
+      description,
+      cover,
+      const DeepCollectionEquality().hash(_genres),
+      isbn);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SearchBooksResponseFantLabCopyWith<_$SearchBooksResponseFantLab>
+      get copyWith => __$$SearchBooksResponseFantLabCopyWithImpl<
+          _$SearchBooksResponseFantLab>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String isbn)
+        google,
+    required TResult Function(
+            String title,
+            String? author,
+            int publishedYear,
+            Uri? cover,
+            String id,
+            String key,
+            List<Uri> covers,
+            String? description,
+            String cleanedTitle,
+            int titleDistance,
+            int totalPossibleDistance,
+            String cleanedAuthor,
+            int authorDistance,
+            String includesAuthor,
+            int totalDistance,
+            String includesTitle)
+        openLibrary,
+    required TResult Function(
+            int id,
+            int artistId,
+            String title,
+            String? author,
+            String? description,
+            String? publishedYear,
+            List<String> genres,
+            Uri? cover)
+        itunes,
+    required TResult Function(
+            String title,
+            String? subtitle,
+            String? author,
+            String? narrator,
+            String? publisher,
+            String? publishedYear,
+            String? description,
+            Uri? cover,
+            String asin,
+            String tags,
+            List<AudibleSeries> series,
+            String language,
+            @DurationMinConverter() Duration duration,
+            String? region,
+            String? rating)
+        audible,
+    required TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)
+        fantLab,
+  }) {
+    return fantLab(id, title, subtitle, author, publisher, publishedYear,
+        description, cover, genres, isbn);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String isbn)?
+        google,
+    TResult? Function(
+            String title,
+            String? author,
+            int publishedYear,
+            Uri? cover,
+            String id,
+            String key,
+            List<Uri> covers,
+            String? description,
+            String cleanedTitle,
+            int titleDistance,
+            int totalPossibleDistance,
+            String cleanedAuthor,
+            int authorDistance,
+            String includesAuthor,
+            int totalDistance,
+            String includesTitle)?
+        openLibrary,
+    TResult? Function(
+            int id,
+            int artistId,
+            String title,
+            String? author,
+            String? description,
+            String? publishedYear,
+            List<String> genres,
+            Uri? cover)?
+        itunes,
+    TResult? Function(
+            String title,
+            String? subtitle,
+            String? author,
+            String? narrator,
+            String? publisher,
+            String? publishedYear,
+            String? description,
+            Uri? cover,
+            String asin,
+            String tags,
+            List<AudibleSeries> series,
+            String language,
+            @DurationMinConverter() Duration duration,
+            String? region,
+            String? rating)?
+        audible,
+    TResult? Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
+  }) {
+    return fantLab?.call(id, title, subtitle, author, publisher, publishedYear,
+        description, cover, genres, isbn);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String isbn)?
+        google,
+    TResult Function(
+            String title,
+            String? author,
+            int publishedYear,
+            Uri? cover,
+            String id,
+            String key,
+            List<Uri> covers,
+            String? description,
+            String cleanedTitle,
+            int titleDistance,
+            int totalPossibleDistance,
+            String cleanedAuthor,
+            int authorDistance,
+            String includesAuthor,
+            int totalDistance,
+            String includesTitle)?
+        openLibrary,
+    TResult Function(
+            int id,
+            int artistId,
+            String title,
+            String? author,
+            String? description,
+            String? publishedYear,
+            List<String> genres,
+            Uri? cover)?
+        itunes,
+    TResult Function(
+            String title,
+            String? subtitle,
+            String? author,
+            String? narrator,
+            String? publisher,
+            String? publishedYear,
+            String? description,
+            Uri? cover,
+            String asin,
+            String tags,
+            List<AudibleSeries> series,
+            String language,
+            @DurationMinConverter() Duration duration,
+            String? region,
+            String? rating)?
+        audible,
+    TResult Function(
+            String id,
+            String title,
+            String? subtitle,
+            String? author,
+            String? publisher,
+            int? publishedYear,
+            String? description,
+            Uri? cover,
+            List<String> genres,
+            String? isbn)?
+        fantLab,
+    required TResult orElse(),
+  }) {
+    if (fantLab != null) {
+      return fantLab(id, title, subtitle, author, publisher, publishedYear,
+          description, cover, genres, isbn);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SearchBooksResponseGoogle value) google,
+    required TResult Function(SearchBooksResponseOpenLibrary value) openLibrary,
+    required TResult Function(SearchBooksResponseITunes value) itunes,
+    required TResult Function(SearchBooksResponseAudible value) audible,
+    required TResult Function(SearchBooksResponseFantLab value) fantLab,
+  }) {
+    return fantLab(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SearchBooksResponseGoogle value)? google,
+    TResult? Function(SearchBooksResponseOpenLibrary value)? openLibrary,
+    TResult? Function(SearchBooksResponseITunes value)? itunes,
+    TResult? Function(SearchBooksResponseAudible value)? audible,
+    TResult? Function(SearchBooksResponseFantLab value)? fantLab,
+  }) {
+    return fantLab?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SearchBooksResponseGoogle value)? google,
+    TResult Function(SearchBooksResponseOpenLibrary value)? openLibrary,
+    TResult Function(SearchBooksResponseITunes value)? itunes,
+    TResult Function(SearchBooksResponseAudible value)? audible,
+    TResult Function(SearchBooksResponseFantLab value)? fantLab,
+    required TResult orElse(),
+  }) {
+    if (fantLab != null) {
+      return fantLab(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SearchBooksResponseFantLabToJson(
+      this,
+    );
+  }
+}
+
+abstract class SearchBooksResponseFantLab extends SearchBooksResponse {
+  const factory SearchBooksResponseFantLab(
+      {required final String id,
+      required final String title,
+      final String? subtitle,
+      final String? author,
+      final String? publisher,
+      final int? publishedYear,
+      final String? description,
+      final Uri? cover,
+      required final List<String> genres,
+      final String? isbn}) = _$SearchBooksResponseFantLab;
+  const SearchBooksResponseFantLab._() : super._();
+
+  factory SearchBooksResponseFantLab.fromJson(Map<String, dynamic> json) =
+      _$SearchBooksResponseFantLab.fromJson;
+
+  String get id;
+  @override
+  String get title;
+  String? get subtitle;
+  @override
+  String? get author;
+  String? get publisher;
+  int? get publishedYear;
+  @override
+  String? get description;
+  @override
+  Uri? get cover;
+  List<String> get genres;
+  String? get isbn;
+  @override
+  @JsonKey(ignore: true)
+  _$$SearchBooksResponseFantLabCopyWith<_$SearchBooksResponseFantLab>
       get copyWith => throw _privateConstructorUsedError;
 }
 
